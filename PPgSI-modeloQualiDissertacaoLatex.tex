@@ -1,5 +1,5 @@
 %% abtex2-modelo-trabalho-academico.tex, v-1.9.2 laurocesar
-%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://abntex2.googlecode.com/
 %%
 %% This work consists of the files abntex2-modelo-trabalho-academico.tex,
@@ -22,54 +22,65 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
-% mestrado e trabalhos monograficos em geral) em conformidade com 
+% mestrado e trabalhos monograficos em geral) em conformidade com
 % ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
 % Apresentacao
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------
-% Modelo adaptado especificamente para o contexto do PPgSI-EACH-USP por 
+% Modelo adaptado especificamente para o contexto do PPgSI-EACH-USP por
 % Marcelo Fantinato, com auxílio dos Professores Norton T. Roman, Helton
-% H. Bíscaro, e Sarajane M. Peres, em 2016, com muitos agradecimentos aos 
+% H. Bíscaro, e Sarajane M. Peres, em 2016, com muitos agradecimentos aos
 % criadores da classe e do modelo base.
 %-------------------------------------------------------------------------
 
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão apenas no anverso (apenas frente). Oposto a twoside
-	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	%french,				% idioma adicional para hifenização
-	%spanish,			% idioma adicional para hifenização
-	brazil				% o último idioma é o principal do documento
-	]{abntex2ppgsi}
+    % -- opções da classe memoir --
+    12pt,                % tamanho da fonte
+    % openright,            % capítulos começam em pág ímpar (insere página vazia caso preciso)
+    oneside,            % para impressão apenas no anverso (apenas frente). Oposto a twoside
+    a4paper,            % tamanho do papel.
+    % -- opções da classe abntex2 --
+    %chapter=TITLE,        % títulos de capítulos convertidos em letras maiúsculas
+    %section=TITLE,        % títulos de seções convertidos em letras maiúsculas
+    %subsection=TITLE,    % títulos de subseções convertidos em letras maiúsculas
+    %subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+    % -- opções do pacote babel --
+    english,            % idioma adicional para hifenização
+    %french,                % idioma adicional para hifenização
+    %spanish,            % idioma adicional para hifenização
+    brazil                % o último idioma é o principal do documento
+    ]{abntex2ppgsi}
 
 % ---
-% Pacotes básicos 
+% Pacotes básicos
 % ---
-% \usepackage{lmodern}			% Usa a fonte Latin Modern			
-% \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx, subfigure}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+% \usepackage{lmodern}            % Usa a fonte Latin Modern
+% \usepackage[T1]{fontenc}        % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}        % Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}            % Usado pela Ficha catalográfica
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}                % Controle das cores
+\usepackage{graphicx}    % Inclusão de gráficos
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{microtype}             % para melhorias de justificação
 \usepackage{pdfpages}     %para incluir pdf
-\usepackage{algorithm}			%para ilustrações do tipo algoritmo
-\usepackage{mdwlist}			%para itens com espaço padrão da abnt
-\usepackage[noend]{algpseudocode}			%para ilustrações do tipo algoritmo
+\usepackage{algpseudocode}            %para ilustrações do tipo algoritmo
+\usepackage{mdwlist}            %para itens com espaço padrão da abnt
+% \usepackage[noend]{algpseudocode}            %para ilustrações do tipo algoritmo
 \usepackage{longtable}
-\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+% \usepackage{subfig}
+% \usepackage{subfigure}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcounter{parms} \renewcommand{\theparms}{[\arabic{parms}]}
+\newcommand{\newparm}[1]{
+  \refstepcounter{parms}\arabic{parms}\label{#1}%
+}
 
 \newtheorem{definition}{Definição}
 \newtheorem{problem}{Problema}
@@ -78,21 +89,23 @@
 \newtheorem{proposition}{Proposição}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+% \renewcommand\qedsymbol{$\blacksquare$}
+
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
-\usepackage{lipsum}				% para geração de dummy text
+\usepackage{lipsum}                % para geração de dummy text
 % ---
 
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref}     % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}    % Citações padrão ABNT
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -102,13 +115,13 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
+    \ifcase #1 %
+        Nenhuma citação no texto.%
+    \or
+        Citado na página #2.%
+    \else
+        Citado #1 vezes nas páginas #2.%
+    \fi}%
 % ---
 
 % ---
@@ -118,14 +131,14 @@
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre o ``título'':
 %
-% Em maiúscula apenas a primeira letra da sentença (do título), exceto 
-% nomes próprios, geográficos, institucionais ou Programas ou Projetos ou 
+% Em maiúscula apenas a primeira letra da sentença (do título), exceto
+% nomes próprios, geográficos, institucionais ou Programas ou Projetos ou
 % siglas, os quais podem ter letras em maiúscula também.
 %
 % O subtítulo do trabalho é opcional.
 % Sem ponto final.
 %
-% Atenção: o título da Dissertação na versão corrigida não pode mudar. 
+% Atenção: o título da Dissertação na versão corrigida não pode mudar.
 % Ele deve ser idêntico ao da versão original.
 %
 %-------------------------------------------------------------------------
@@ -151,14 +164,14 @@
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre a ``data'':
 %
-% Colocar o ano do depósito (ou seja, o ano da entrega) da respectiva 
-% versão, seja ela a versão original (para a defesa) seja ela a versão 
-% corrigida (depois da aprovação na defesa). 
+% Colocar o ano do depósito (ou seja, o ano da entrega) da respectiva
+% versão, seja ela a versão original (para a defesa) seja ela a versão
+% corrigida (depois da aprovação na defesa).
 %
-% Atenção: Se a versão original for depositada no final do ano e a versão 
-% corrigida for entregue no ano seguinte, o ano precisa ser atualizado no 
-% caso da versão corrigida. 
-% Cuidado, pois o ano da ``capa externa'' também precisa ser atualizado 
+% Atenção: Se a versão original for depositada no final do ano e a versão
+% corrigida for entregue no ano seguinte, o ano precisa ser atualizado no
+% caso da versão corrigida.
+% Cuidado, pois o ano da ``capa externa'' também precisa ser atualizado
 % nesse caso.
 %
 % Não incluir o dia, nem o mês.
@@ -178,7 +191,7 @@
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre o ``Coorientador'':
 %
-% Opcional. Incluir apenas se houver co-orientador formal, de acordo com o 
+% Opcional. Incluir apenas se houver co-orientador formal, de acordo com o
 % Regulamento do Programa.
 %
 % Se for uma professora, trocar por ``Profa. Dra.''
@@ -191,7 +204,7 @@
 
 \preambulo{
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre o texto ``Versão 
+% Comentário adicional do PPgSI - Informações sobre o texto ``Versão
 % original'':
 %
 % Não usar para Qualificação.
@@ -206,16 +219,16 @@ Versão original
 % Para Qualificação, trocar por: Texto de Exame de Qualificação apresentado à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo como parte dos requisitos para obtenção do título de Mestre em Ciências pelo Programa de Pós-graduação em Sistemas de Informação.
 %
 %-------------------------------------------------------------------------
-\newline \newline \newline Dissertação apresentada à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo para obtenção do título de Mestre em Ciências pelo Programa de Pós-graduação em Sistemas de Informação. 
+\newline \newline \newline Dissertação apresentada à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo para obtenção do título de Mestre em Ciências pelo Programa de Pós-graduação em Sistemas de Informação.
 %
 \newline \newline Área de concentração: Metodologia e Técnicas da Computação
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre o texto da ``Versão 
+% Comentário adicional do PPgSI - Informações sobre o texto da ``Versão
 % corrigida'':
 %
 % Não usar para Qualificação.
 % Não usar para versão original de Dissertação.
-% 
+%
 % Substituir ``xx de xxxxxxxxxxxxxxx de xxxx'' pela ``data da defesa''.
 %
 %-------------------------------------------------------------------------
@@ -232,25 +245,25 @@ Versão original
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX com abnTeX2 adaptado para o PPgSI-EACH-USP},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{qualificação de mestrado}{dissertação de mestrado}{ppgsi}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+         %pagebackref=true,
+        pdftitle={\@title},
+        pdfauthor={\@author},
+        pdfsubject={\imprimirpreambulo},
+        pdfcreator={LaTeX com abnTeX2 adaptado para o PPgSI-EACH-USP},
+        pdfkeywords={abnt}{latex}{abntex}{abntex2}{qualificação de mestrado}{dissertação de mestrado}{ppgsi},
+        colorlinks=true,               % false: boxed links; true: colored links
+        linkcolor=blue,              % color of internal links
+        citecolor=blue,                % color of links to bibliography
+        filecolor=magenta,              % color of file links
+        urlcolor=blue,
+        bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.25cm}
@@ -265,7 +278,7 @@ Versão original
 \makeindex
 % ---
 
-	% Controlar linhas orfas e viuvas
+    % Controlar linhas orfas e viuvas
   \clubpenalty10000
   \widowpenalty10000
   \displaywidowpenalty10000
@@ -276,7 +289,7 @@ Versão original
 \begin{document}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -289,11 +302,11 @@ Versão original
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre a ``capa'':
 %
-% Esta é a ``capa'' principal/oficial do trabalho, a ser impressa apenas 
-% para os casos de encadernação simples (ou seja, em ``espiral'' com 
+% Esta é a ``capa'' principal/oficial do trabalho, a ser impressa apenas
+% para os casos de encadernação simples (ou seja, em ``espiral'' com
 % plástico na frente).
-% 
-% Não imprimir esta ``capa'' quando houver ``capa dura'' ou ``capa brochura'' 
+%
+% Não imprimir esta ``capa'' quando houver ``capa dura'' ou ``capa brochura''
 % em que estas mesmas informações já estão presentes nela.
 %
 %-------------------------------------------------------------------------
@@ -312,24 +325,24 @@ Versão original
 % ---
 
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre o texto da 
+% Comentário adicional do PPgSI - Informações sobre o texto da
 % ``autorização para reprodução e ficha bibliografica'':
 %
-% Página a ser usada apenas para Dissertação (tanto na versão original 
+% Página a ser usada apenas para Dissertação (tanto na versão original
 % quanto na versão corrigida).
 %
-% Solicitar a ficha catalográfica na Biblioteca da EACH. 
-% Duas versões devem ser solicitadas, em dois momentos distintos: uma vez 
-% para a versão original, e depois outra atualizada para a versão 
+% Solicitar a ficha catalográfica na Biblioteca da EACH.
+% Duas versões devem ser solicitadas, em dois momentos distintos: uma vez
+% para a versão original, e depois outra atualizada para a versão
 % corrigida.
 %
-% Atenção: esta página de ``autorização para reprodução e ficha 
-% catalográfica'' deve ser impressa obrigatoriamente no verso da folha de 
+% Atenção: esta página de ``autorização para reprodução e ficha
+% catalográfica'' deve ser impressa obrigatoriamente no verso da folha de
 % rosto.
 %
 % Não usar esta página para Qualificação.
 %
-% Substitua o arquivo ``fig_ficha_catalografica.pdf'' abaixo referenciado 
+% Substitua o arquivo ``fig_ficha_catalografica.pdf'' abaixo referenciado
 % pelo PDF elaborado pela Biblioteca
 %
 %-------------------------------------------------------------------------
@@ -343,12 +356,12 @@ Versão original
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``Errata'':
 %
-% Usar esta página de errata apenas em casos de excepcionais, e apenas 
+% Usar esta página de errata apenas em casos de excepcionais, e apenas
 % para a versão corrigida da Dissertação. Por exemplo, quando depois de
 % já depositada e publicada a versão corrigida, ainda assim verifica-se
 % a necessidade de alguma correção adicional.
 %
-% Se precisar usar esta página, busque a forma correta (o modelo correto) 
+% Se precisar usar esta página, busque a forma correta (o modelo correto)
 % para fazê-lo, de acordo com a norma ABNT.
 %
 % Não usar esta página para versão original de Dissertação.
@@ -370,13 +383,13 @@ Elemento opcional para versão corrigida, depois de depositada.
 %
 % Para Qualificação, trocar por: Texto de Exame de Qualificação de autoria de Fulano de Tal, sob o título \textbf{``\imprimirtitulo''}, apresentado à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo, como parte dos requisitos para obtenção do título de Mestre em Ciências pelo Programa de Pós-graduação em Sistemas de Informação, na área de concentração Sistemas de Informação, aprovado em \_\_\_ de \_\_\_\_\_\_\_\_\_\_\_\_\_\_ de \_\_\_\_\_\_ pela comissão examinadora constituída pelos doutores:
 %
-% Substituir ``Fulano de Tal'' pelo nome completo do autor do trabalho, com 
+% Substituir ``Fulano de Tal'' pelo nome completo do autor do trabalho, com
 % apenas as iniciais em maiúsculo.
 %
-% Substiuir ``___ de ______________ de ______'' por: 
-%     - Para versão original de Dissertação: deixar em branco, pois a data 
+% Substiuir ``___ de ______________ de ______'' por:
+%     - Para versão original de Dissertação: deixar em branco, pois a data
 %       pode mudar, mesmo que ela já esteja prevista.
-%     - Para versão corrigida de Dissertação: usar a data em que a defesa 
+%     - Para versão corrigida de Dissertação: usar a data em que a defesa
 %       efetivamente ocorreu.
 %
 %-------------------------------------------------------------------------
@@ -388,47 +401,47 @@ Elemento opcional para versão corrigida, depois de depositada.
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``assinaturas'':
 %
-% Para Qualificação e para versão original de Dissertação: deixar em 
+% Para Qualificação e para versão original de Dissertação: deixar em
 % branco (ou seja, assim como está abaixo), pois os membros da banca podem
 % mudar, mesmo que eles já estejam previstos.
-% 
-% Para versão corrigida de Dissertação: usar os dados dos examinadores que 
-% efetivamente participaram da defesa. 
-% 
+%
+% Para versão corrigida de Dissertação: usar os dados dos examinadores que
+% efetivamente participaram da defesa.
+%
 % Em nenhum caso há realmente necessidade de assinaturas.
 %
-% Para versão corrigida de Dissertação: em caso de ``professora'', trocar 
-% por ``Profa. Dra.'' 
-% 
-% Para versão corrigida de Dissertação: ao colocar os nomes dos 
+% Para versão corrigida de Dissertação: em caso de ``professora'', trocar
+% por ``Profa. Dra.''
+%
+% Para versão corrigida de Dissertação: ao colocar os nomes dos
 % examinadores, remover o sublinhado
-% 
-% Para versão corrigida de Dissertação: ao colocar os nomes dos 
-% examinadores, usar seus nomes completos, exatamente conforme constam em 
+%
+% Para versão corrigida de Dissertação: ao colocar os nomes dos
+% examinadores, usar seus nomes completos, exatamente conforme constam em
 % seus Currículos Lattes
-% 
-% Para versão corrigida de Dissertação: ao colocar os nomes das 
+%
+% Para versão corrigida de Dissertação: ao colocar os nomes das
 % instituições, remover o sublinhado e remover a palavra ``Instituição:''
 %
 % Não abreviar os nomes das instituições.
 %
 %-------------------------------------------------------------------------
-\textbf{Prof. Dr. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} 
-\\ Presidente 
-\\ Instituição: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+\textbf{Prof. Dr. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\\ Presidente
+\\ Instituição: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 \vspace*{2cm}
 
-\textbf{Prof. Dr. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} 
+\textbf{Prof. Dr. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
 \\ Instituição: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 \vspace*{2cm}
 
-\textbf{Prof. Dr. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} 
+\textbf{Prof. Dr. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
 \\ Instituição: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 \end{center}
-  
+
 \end{folhadeaprovacao}
 % ---
 
@@ -436,18 +449,18 @@ Elemento opcional para versão corrigida, depois de depositada.
 % Dedicatória
 % ---
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre ``Dedicatória'': 
+% Comentário adicional do PPgSI - Informações sobre ``Dedicatória'':
 %
 % Opcional para Dissertação.
 % Não sugerido para Qualificação.
-% 
+%
 %-------------------------------------------------------------------------
 \begin{dedicatoria}
    \vspace*{\fill}
    \centering
    \noindent
-   \textit{Escreva aqui sua dedicatória, se desejar, ou remova esta página...} 
-	 \vspace*{\fill}
+   \textit{Escreva aqui sua dedicatória, se desejar, ou remova esta página...}
+     \vspace*{\fill}
 \end{dedicatoria}
 % ---
 
@@ -455,11 +468,11 @@ Elemento opcional para versão corrigida, depois de depositada.
 % Agradecimentos
 % ---
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre ``Agradecimentos'': 
+% Comentário adicional do PPgSI - Informações sobre ``Agradecimentos'':
 %
 % Opcional para Dissertação.
 % Não sugerido para Qualificação.
-% 
+%
 % Lembrar de agradecer agências de fomento e outras instituições similares.
 %
 %-------------------------------------------------------------------------
@@ -480,18 +493,18 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 % Epígrafe
 % ---
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre ``Epígrafe'': 
+% Comentário adicional do PPgSI - Informações sobre ``Epígrafe'':
 %
 % Opcional para Dissertação.
 % Não sugerido para Qualificação.
-% 
+%
 %-------------------------------------------------------------------------
 \begin{epigrafe}
     \vspace*{\fill}
-	\begin{flushright}
-		\textit{``Escreva aqui uma epígrafe, se desejar, ou remova esta página...''\\
-		(Autor da epígrafe)}
-	\end{flushright}
+    \begin{flushright}
+        \textit{``Escreva aqui uma epígrafe, se desejar, ou remova esta página...''\\
+        (Autor da epígrafe)}
+    \end{flushright}
 \end{epigrafe}
 % ---
 
@@ -505,8 +518,8 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``referência'':
-% 
-% Troque os seguintes campos pelos dados de sua Dissertação (mantendo a 
+%
+% Troque os seguintes campos pelos dados de sua Dissertação (mantendo a
 % formatação e pontuação):
 %   - SOBRENOME
 %   - Nome1
@@ -516,7 +529,7 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 %   - AnoDeDefesa
 %
 % Mantenha todas as demais informações exatamente como estão.
-% 
+%
 % [Não usar essas informações de ``referência'' para Qualificação]
 %
 %-------------------------------------------------------------------------
@@ -524,7 +537,7 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 BRUNIALTI, Lucas Fernandes. \textbf{Resolução do problema de coagruapmento em matrizes de dados esparsas usando fatoração de matrizes}. \imprimirdata. \pageref{LastPage} f. Dissertação (Mestrado em Ciências) – Escola de Artes, Ciências e Humanidades, Universidade de São Paulo, São Paulo, 2016.
 \end{flushleft}
 
-Coagrupamento é uma estratégia para análise de dados capaz de encontrar grupos de objetos, então denomidados cogrupos, que são similares entre si de acordo com um subconjunto dos seus atributos descritivos, e assim, um objeto pode pertencer a mais de um grupo se subconjuntos diferentes de atributos forem considerados. Essa característica pode ser particularmente útil para aplicações nas quais a similaridade parcial entre objetos faz sentido, conferindo ao resultado da análise de dados algumas características interessantes como serendipidade ou flexibilidade no modelo de agrupamento. Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de textos, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamente mais adequado à tal subjetividade. Entretanto, análise de grupos considerando dados textuais representa um contexto no qual existe o problema de esparsidade de dados, que precisa ser adequadamente tratado para que os bons resultados sejam obtidos. Um método para implementação de coagrupamento capaz de lidar com esse tipo de dados é a fatoração de matrizes. Nesta dissertação de mestrado são propostas duas estratégias para coagrupamento baseadas em fatoração de matrizes, e capazes de encontrar cogrupos organizados com sobreposição em uma matriz esparsa de valores reais positivos. As estratégias são apresentadas em termos de sua derivação formal, tendo sido obtida a prova de convergência para uma delas. Ainda, resultados experimentais são fornecidos a partir de problemas baseados em conjuntos de dados sintéticos e em conjuntos de dados reais contextualizados na área de mineração de textos. Os resultados confirmam a hipótese de que as estratégias propostas são capazes de descobrir cogrupos com sobreposição, e que tal organização de cogrupos fornece informação detalhada, e portanto de valor diferenciado. 
+Coagrupamento é uma estratégia para análise de dados capaz de encontrar grupos de objetos, então denomidados cogrupos, que são similares entre si de acordo com um subconjunto dos seus atributos descritivos, e assim, um objeto pode pertencer a mais de um grupo se subconjuntos diferentes de atributos forem considerados. Essa característica pode ser particularmente útil para aplicações nas quais a similaridade parcial entre objetos faz sentido, conferindo ao resultado da análise de dados algumas características interessantes como serendipidade ou flexibilidade no modelo de agrupamento. Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de textos, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamente mais adequado à tal subjetividade. Entretanto, análise de grupos considerando dados textuais representa um contexto no qual existe o problema de esparsidade de dados, que precisa ser adequadamente tratado para que os bons resultados sejam obtidos. Um método para implementação de coagrupamento capaz de lidar com esse tipo de dados é a fatoração de matrizes. Nesta dissertação de mestrado são propostas duas estratégias para coagrupamento baseadas em fatoração de matrizes, e capazes de encontrar cogrupos organizados com sobreposição em uma matriz esparsa de valores reais positivos. As estratégias são apresentadas em termos de sua derivação formal, tendo sido obtida a prova de convergência para uma delas. Ainda, resultados experimentais são fornecidos a partir de problemas baseados em conjuntos de dados sintéticos e em conjuntos de dados reais contextualizados na área de mineração de textos. Os resultados confirmam a hipótese de que as estratégias propostas são capazes de descobrir cogrupos com sobreposição, e que tal organização de cogrupos fornece informação detalhada, e portanto de valor diferenciado.
 
 Palavras-chaves: Coagrupamento. Fatoração de Matrizes. Esparsidade. Análise de Agrupemento. Sistemas de Recomendação. Mineração de Texto.
 \end{resumo}
@@ -532,18 +545,18 @@ Palavras-chaves: Coagrupamento. Fatoração de Matrizes. Esparsidade. Análise d
 % resumo em inglês
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``resumo em inglês''
-% 
-% Caso a Qualificação ou a Dissertação inteira seja elaborada no idioma inglês, 
+%
+% Caso a Qualificação ou a Dissertação inteira seja elaborada no idioma inglês,
 % então o ``Abstract'' vem antes do ``Resumo''.
-% 
+%
 %-------------------------------------------------------------------------
 \begin{resumo}[Abstract]
 \begin{otherlanguage*}{english}
 
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``referência em inglês''
-% 
-% Troque os seguintes campos pelos dados de sua Dissertação (mantendo a 
+%
+% Troque os seguintes campos pelos dados de sua Dissertação (mantendo a
 % formatação e pontuação):
 %     - SURNAME
 %     - FirstName1
@@ -558,12 +571,12 @@ Palavras-chaves: Coagrupamento. Fatoração de Matrizes. Esparsidade. Análise d
 %
 %-------------------------------------------------------------------------
 \begin{flushleft}
-BRUNIALTI, Lucas Fernandes. \textbf{Matrix Factorization for coclustering in sparse data matrices}. \imprimirdata. \pageref{LastPage} p. Dissertation (Master of Science) – School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, DefenseYear. 
+BRUNIALTI, Lucas Fernandes. \textbf{Matrix Factorization for coclustering in sparse data matrices}. \imprimirdata. \pageref{LastPage} p. Dissertation (Master of Science) – School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, DefenseYear.
 \end{flushleft}
 
 Coagrupamento é uma estratégia para análise de dados capaz de encontrar grupos de objetos, então denomidados cogrupos, que são similares entre si de acordo com um subconjunto dos seus atributos descritivos, e assim, um objeto pode pertencer a mais de um grupo se subconjuntos diferentes de atributos forem considerados. Essa característica pode ser particularmente útil para aplicações nas quais a similaridade parcial entre objetos faz sentido, conferindo ao resultado da análise de dados algumas características interessantes como serendipidade ou flexibilidade no modelo de agrupamento. Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de textos, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamente mais adequado à tal subjetividade. Entretanto, análise de grupos considerando dados textuais representa um contexto no qual existe o problema de esparsidade de dados, que precisa ser adequadamente tratado para que os bons resultados sejam obtidos. Um método para implementação de coagrupamento capaz de lidar com esse tipo de dados é a fatoração de matrizes. Nesta dissertação de mestrado são propostas duas estratégias para coagrupamento baseadas em fatoração de matrizes, e capazes de encontrar cogrupos organizados com sobreposição em uma matriz esparsa de valores reais positivos. As estratégias são apresentadas em termos de sua derivação formal, tendo sido obtida a prova de convergência para uma delas. Ainda, resultados experimentais são fornecidos a partir de problemas baseados em conjuntos de dados sintéticos e em conjuntos de dados reais contextualizados na área de mineração de textos. Os resultados confirmam a hipótese de que as estratégias propostas são capazes de descobrir cogrupos com sobreposição, e que tal organização de cogrupos fornece informação detalhada, e portanto de valor diferenciado.
 
-%\color{red}{Lucas: (e a serendipidade?)}. 
+%\color{red}{Lucas: (e a serendipidade?)}.
 
 Keywords: Coclustering. Matrix Factorization. Sparsity. Clustering Analysis. Recommender Systems. Text Mining.
 \end{otherlanguage*}
@@ -597,8 +610,8 @@ Keywords: Coclustering. Matrix Factorization. Sparsity. Clustering Analysis. Rec
 % inserir lista de abreviaturas e siglas
 % ---
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre ``Lista de abreviaturas 
-% e siglas'': 
+% Comentário adicional do PPgSI - Informações sobre ``Lista de abreviaturas
+% e siglas'':
 %
 % Opcional.
 % Uma vez que se deseja usar, é necessário manter padrão e consistência no
@@ -624,13 +637,13 @@ Keywords: Coclustering. Matrix Factorization. Sparsity. Clustering Analysis. Rec
 % inserir lista de símbolos
 % ---
 %-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre ``Lista de símbolos'': 
+% Comentário adicional do PPgSI - Informações sobre ``Lista de símbolos'':
 %
 % Opcional.
 % Uma vez que se deseja usar, é necessário manter padrão e consistência no
 % trabalho inteiro.
 % Se usar: inserir na ordem em que aparece no texto.
-% 
+%
 %-------------------------------------------------------------------------
 \begin{simbolos}
   \item[$ \Gamma $] Letra grega Gama
@@ -659,10 +672,10 @@ Keywords: Coclustering. Matrix Factorization. Sparsity. Clustering Analysis. Rec
 
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``títulos de seções''
-% 
+%
 % Para todos os títulos (seções, subseções, tabelas, ilustrações, etc):
 %
-% Em maiúscula apenas a primeira letra da sentença (do título), exceto 
+% Em maiúscula apenas a primeira letra da sentença (do título), exceto
 % nomes próprios, geográficos, institucionais ou Programas ou Projetos ou
 % siglas, os quais podem ter letras em maiúscula também.
 %
@@ -670,19 +683,19 @@ Keywords: Coclustering. Matrix Factorization. Sparsity. Clustering Analysis. Rec
 
 % Example of table
 % \begin{table}[htbp]
-% 	\centering
-% 	\caption{Exemplo de título de tabela}
-% 		\begin{tabular}{p{1in} p{1in} p{1in} p{1in} } \hline
+%     \centering
+%     \caption{Exemplo de título de tabela}
+%         \begin{tabular}{p{1in} p{1in} p{1in} p{1in} } \hline
 
-% 		Cabeçalho 1	& Cabeçalho 2	& Cabeçalho 3	& Cabeçalho 4 \\ \hline
-% 		Texto	& número & número	& número \\ 
-% 		Texto	& número & número	& número \\ 
-% 		Texto	& número & número	& número \\ 
-% 		Texto	& número & número	& número \\ 
-% 		Texto	& número & número	& número \\ \hline
-		
-% 		\end{tabular}
-% 	\label{tab:ExemploDeTabela1}
+%         Cabeçalho 1    & Cabeçalho 2    & Cabeçalho 3    & Cabeçalho 4 \\ \hline
+%         Texto    & número & número    & número \\
+%         Texto    & número & número    & número \\
+%         Texto    & número & número    & número \\
+%         Texto    & número & número    & número \\
+%         Texto    & número & número    & número \\ \hline
+
+%         \end{tabular}
+%     \label{tab:ExemploDeTabela1}
 %   \source{Marcelo Fantinato, 2016}
 % \end{table}
 
@@ -693,40 +706,40 @@ Segundo~\citeonline{Jain1999}, a análise de agrupamento pode ser vista como uma
 Estratégias de diferentes naturezas -- particional, hierárquica, baseada em densidade, etc \cite{Xu2005, han2006data}, podem ser usadas para alcançar o objetivo da análise de agrupamento, e cada uma delas possui características que as fazem mais ou menos suscetiveis para conjuntos de dados de diferentes naturezas. Ainda, sob o contexto clássico da tarefa de agrupamento, os métodos precisam lidar com a similaridade intrínseca entre os dados tomando como base a comparação de todas as suas características descritivas e, de alguma forma, precisam ser capazes de descobrir quais características de fato tornam dados em um grupo de dados mais similares entre si.
 
 % citar aqui alguns artigos um surveys e reviews que tratem de fuzzy clustering, probabilistic clustering e também coclustering.
-Ao longo do tempo, pesquisadores da área de análise de agrupamento vêm propondo flexibilizações na definição da tarefa de agrupamento de forma a adequá-la a contextos mais realísticos nos quais a organização natural dos dados em um conjunto de dados não pressupõe restrições como a pertinência de um dado a um único grupo ou a possibilidade de agrupar dados de acordo com similaridades em subconjuntos de atributos descritivos \textcolor{blue}{(referência, referência, referência)}. Essa forma de tratar a tarefa de agrupamento permite melhorias no processo de descoberta de agrupamentos sobre dois aspectos: facilita o trabalho do método que busca os grupos, pois flexibiliza a maneira como os atributos descritivos dos dados ou a pertinência do dado aos grupos influência a processo de agrupamento; fornece um conjunto de informações diferenciado que permite que análises mais refinadas sejam realizadas quando da interpretação dos grupos apresentados como resultado. 
+Ao longo do tempo, pesquisadores da área de análise de agrupamento vêm propondo flexibilizações na definição da tarefa de agrupamento de forma a adequá-la a contextos mais realísticos nos quais a organização natural dos dados em um conjunto de dados não pressupõe restrições como a pertinência de um dado a um único grupo ou a possibilidade de agrupar dados de acordo com similaridades em subconjuntos de atributos descritivos \textcolor{blue}{(referência, referência, referência)}. Essa forma de tratar a tarefa de agrupamento permite melhorias no processo de descoberta de agrupamentos sobre dois aspectos: facilita o trabalho do método que busca os grupos, pois flexibiliza a maneira como os atributos descritivos dos dados ou a pertinência do dado aos grupos influência a processo de agrupamento; fornece um conjunto de informações diferenciado que permite que análises mais refinadas sejam realizadas quando da interpretação dos grupos apresentados como resultado.
 
 % Lucas, eu deixei o exemplo de SR mas tentei dar uma cara apenas de análise de texto. Não sei se ficou bom. Você pode alterar o exemplo se achar melhor.
-Esse diferencial pode ser especialmente útil quando o contexto da aplicação da análise de agrupamento apresenta alguma subjetividade em termos de interpretação de resultados, um fato bastante comum em tarefas de mineração de textos, por exemplo. Considere o contexto de um sistema recomendação (SR) de notícias baseado em conteúdo (um conteúdo textual). Um SR de notícias simples e hipotético poderia apresentar a seguinte estratégia para elaborar suas recomendações: dado um conjunto de notícias organizadas em grupos por um método de análise de agrupamento com base na similaridade de seus conteúdos; se um usuário visitar uma notícia, o SR verifica quais são as demais notícias pertencentes ao grupo daquela que foi lida pelo usuário e as recomenda para ele (Figura~\ref{fig:story}a). Embora essas recomendações pareçam ser ideais, e sob algum aspecto de análise elas são, é factível assumir que esse usuário está recebendo um serviço de recomendação prático, mas talvez menos útil e interessante do que poderia ser e com baixa serendipidade (um resultado de alta serendipidade é aquele que é diferente do que é esperado e comumente praticado, e é mais ou igualmente útil ao contexto). 
+Esse diferencial pode ser especialmente útil quando o contexto da aplicação da análise de agrupamento apresenta alguma subjetividade em termos de interpretação de resultados, um fato bastante comum em tarefas de mineração de textos, por exemplo. Considere o contexto de um sistema recomendação (SR) de notícias baseado em conteúdo (um conteúdo textual). Um SR de notícias simples e hipotético poderia apresentar a seguinte estratégia para elaborar suas recomendações: dado um conjunto de notícias organizadas em grupos por um método de análise de agrupamento com base na similaridade de seus conteúdos; se um usuário visitar uma notícia, o SR verifica quais são as demais notícias pertencentes ao grupo daquela que foi lida pelo usuário e as recomenda para ele (Figura~\ref{fig:story}a). Embora essas recomendações pareçam ser ideais, e sob algum aspecto de análise elas são, é factível assumir que esse usuário está recebendo um serviço de recomendação prático, mas talvez menos útil e interessante do que poderia ser e com baixa serendipidade (um resultado de alta serendipidade é aquele que é diferente do que é esperado e comumente praticado, e é mais ou igualmente útil ao contexto).
 
-Uma possibilidade de melhoria nesse sistema hipotético seria usar um algoritmo de análise de agrupamento que permitisse descobrir uma organização de grupo de notícias baseada em \textbf{similaridades parciais} ou baseada \textbf{em partes}~\cite{Franca2010, Ho2008}. Assim o sistema seria dotado da capacidade de perceber, por exemplo, que algumas notícias podem trazer conteúdo referente a diferentes contextos se forem analisadas apenas sob determinados aspectos. Nesse caso, os grupos formados durante a análise de agrupamento seriam capazes de refletir a diversidade de contextos abordados em uma notícia, fazendo-a pertencer a diferentes grupos, por diferentes motivos. A recomendação, nesse caso, seria potencialmente mais serendípita. Por exemplo, é sabido que eventos de beisebol -- o \textit{superbowl} -- possuem uma abertura cultural na qual grandes artistas da música fazem apresentações; ou eventos de esportes radicais, como tirolesa, acontecem em eventos de música contemporâneos -- \textit{rock in rio}. Tais notícias deveriam aparecer em grupos caracterizados por notícias referentes a esporte, notícias referentes a música, ou notícias referentes a esporte e música (Figura~\ref{fig:story}(b, c, d)). 
+Uma possibilidade de melhoria nesse sistema hipotético seria usar um algoritmo de análise de agrupamento que permitisse descobrir uma organização de grupo de notícias baseada em \textbf{similaridades parciais} ou baseada \textbf{em partes}~\cite{Franca2010, Ho2008}. Assim o sistema seria dotado da capacidade de perceber, por exemplo, que algumas notícias podem trazer conteúdo referente a diferentes contextos se forem analisadas apenas sob determinados aspectos. Nesse caso, os grupos formados durante a análise de agrupamento seriam capazes de refletir a diversidade de contextos abordados em uma notícia, fazendo-a pertencer a diferentes grupos, por diferentes motivos. A recomendação, nesse caso, seria potencialmente mais serendípita. Por exemplo, é sabido que eventos de beisebol -- o \textit{superbowl} -- possuem uma abertura cultural na qual grandes artistas da música fazem apresentações; ou eventos de esportes radicais, como tirolesa, acontecem em eventos de música contemporâneos -- \textit{rock in rio}. Tais notícias deveriam aparecer em grupos caracterizados por notícias referentes a esporte, notícias referentes a música, ou notícias referentes a esporte e música (Figura~\ref{fig:story}(b, c, d)).
 
-% acredito que para a introdução, não devemos falar muito mais do que isso, já que a formalização virá ainda. 
+% acredito que para a introdução, não devemos falar muito mais do que isso, já que a formalização virá ainda.
 
 Na figura~\ref{fig:story}(b,c,d) é introduzido graficamente o conceito de coagruapmento. Nesse contexto, o problema de mineração de textos é modelado como o problema de encontrar uma organização dos textos em grupos que considerem similaridades particiais. Assim, um texto pode pertencer a um ou mais cogrupos, a depender dos atributos descritivos sendo considerados. A nomenclatura coagrupamento deriva da estratégia de análise de dados executada durante o processo de descoberta de grupos. Nesse caso, tanto os dados (linhas) quanto os seus atributos (descritivos) são mutuamente submetidos a uma análise de similaridade, e portanto, grupos de dados (linhas) são estabelecidos com respeito a grupos de atributos (colunas).
 
 % essa é a minha sugestão de como trabalhar com a figura. Eu acho que ela pode ter ficado um pouco infantil, mas minha intenção foi passar a ideia. O ideal seria bolar uma figura desse tipo, parecida, passando essa ideia, ou uma das ideias, mas fazer um pouco menos colorida e menor, talvez.
 
-\begin{figure}[h]
-\centering
-\mbox{
-       \subfigure[ ]{\includegraphics[width=3in]{img/sistema0.png}}\quad
-       \subfigure[ ]{\includegraphics[width=3in]{img/sistema1.png}}
-      }
-\mbox{
-       \subfigure[ ]{\includegraphics[width=3in]{img/sistema2.png}}\quad
-       \subfigure[ ]{\includegraphics[width=3in]{img/sistema3.png}}
-      }
-%\includegraphics[width=120mm]{img/story.png}
-\caption{Representação do context de um Sistemas de Recomendação implementado a partir de análise de agrupamento com similaridade total (a) e similaridade parcial (b,c,d). Os grupos são diferenciados por cores.}
-\label{fig:story}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% \mbox{
+%        \subfigure[ ]{\includegraphics[width=3in]{img/sistema0.png}}\quad
+%        \subfigure[ ]{\includegraphics[width=3in]{img/sistema1.png}}
+%       }
+% \mbox{
+%        \subfigure[ ]{\includegraphics[width=3in]{img/sistema2.png}}\quad
+%        \subfigure[ ]{\includegraphics[width=3in]{img/sistema3.png}}
+%       }
+% %\includegraphics[width=120mm]{img/story.png}
+% \caption{Representação do context de um Sistemas de Recomendação implementado a partir de análise de agrupamento com similaridade total (a) e similaridade parcial (b,c,d). Os grupos são diferenciados por cores.}
+% \label{fig:story}
+% \end{figure}
 
-A associação da análise de coagrupamentos a mineração de textos é interessante por diferentes aspectos. A mineração de textos constitui-se como um problema no qual é preciso lidar com a necessidade de apresentação de resultados com boa interpretabilidade e com um espaço dos dados de alta-dimensionalidade. O primeiro problema é bem resolvido com a estratégia de coagrupamento pois os grupos de atributos que são gerados por ela podem revelar informação antes escondida nos dados \cite{Tjhi2009}, e que em um processo de agruapmento tradicional não poderiam ser, pelo menos diretamente, descobertas. Ainda segundo~\cite{Tjhi2009}, análise de coagrupamento pode apresentar bom desempenho em espaços de alta-dimensionalidade porque seu processo de agrupar atributos (características) pode ser visto com uma redução de dimensionalidade dinâmica para o espaço dos dados. 
+A associação da análise de coagrupamentos a mineração de textos é interessante por diferentes aspectos. A mineração de textos constitui-se como um problema no qual é preciso lidar com a necessidade de apresentação de resultados com boa interpretabilidade e com um espaço dos dados de alta-dimensionalidade. O primeiro problema é bem resolvido com a estratégia de coagrupamento pois os grupos de atributos que são gerados por ela podem revelar informação antes escondida nos dados \cite{Tjhi2009}, e que em um processo de agruapmento tradicional não poderiam ser, pelo menos diretamente, descobertas. Ainda segundo~\cite{Tjhi2009}, análise de coagrupamento pode apresentar bom desempenho em espaços de alta-dimensionalidade porque seu processo de agrupar atributos (características) pode ser visto com uma redução de dimensionalidade dinâmica para o espaço dos dados.
 
-A despeito da capacidade intrínseca do processo de coagrupamento em lidar de forma diferenciada com o problema de alta-dimensionalidade, ainda se faz necessário notar que no contexto de mineração de dados, ocorre também o problema de esparsidade na representação dos dados. Assim, para implementar a estratégia de coagruapmento com alguma eficiência, é necessário adotar métodos que tenham a capacidade de lidar com esparsidade. 
+A despeito da capacidade intrínseca do processo de coagrupamento em lidar de forma diferenciada com o problema de alta-dimensionalidade, ainda se faz necessário notar que no contexto de mineração de dados, ocorre também o problema de esparsidade na representação dos dados. Assim, para implementar a estratégia de coagruapmento com alguma eficiência, é necessário adotar métodos que tenham a capacidade de lidar com esparsidade.
 
 % tive dificuldade em justificar a escolha por fatoração de matrizes e de ligá-las à questão da esparsidade. Fiquei apenas com uma motivação. Acho que seria bom tentarmos justificar de forma mais contundente, se possível.
-Dentre os diferentes métodos existentes na literatura referentes à implementação de análise de coagrupamento (\textcolor{blue}{citar artigos dos vários algoritmos que seguem outras linhas}), métodos que usam fatoração de matrizes não negativas~\cite{lee:nnmf00, lee99} têm sido vistos como uma boa alternativa a ser aplicada no contexto de mineração de textos~\cite{Xu2003, Shahnaz2006373, Yoo2010}. 
+Dentre os diferentes métodos existentes na literatura referentes à implementação de análise de coagrupamento (\textcolor{blue}{citar artigos dos vários algoritmos que seguem outras linhas}), métodos que usam fatoração de matrizes não negativas~\cite{lee:nnmf00, lee99} têm sido vistos como uma boa alternativa a ser aplicada no contexto de mineração de textos~\cite{Xu2003, Shahnaz2006373, Yoo2010}.
 %Lucas precisa olhar esses artigos direitinho para validar essas referências nesses lugares.
 
 % ********************************************************************************************
@@ -743,7 +756,7 @@ Dentre os diferentes métodos existentes na literatura referentes à implementa�
 
 A estratégia de coagrupamento pode ser apresentada como o processo de agrupamento simultâneo de linhas e colunas em uma matriz de dados, de forma que seja possível encontrar \textbf{cogrupos} nos quais um \textbf{grupo de objetos} (linhas) associado a um deles diz respeitos a objetos que são similares entre si considerando um \textbf{grupo de atributos} (colunas), também associado ao cogrupo.
 
-Com maior formalidade, dada uma matriz $X(N,M)$ em que $N$ é o número de linhas, $M$ o número de colunas e $x(m,n)$ é, geralmente, um número real representando a relação entre a linha $x_n$ e a coluna $y_m$, o problema de \textbf{coagruapmento} consiste em encontrar um conjunto $\cal{C}$ de submatrizes $G(I,J)$, onde $I=\{i_1, ..., i_r\}$ com $r \leq L$ e $J=\{j_1, ..., j_s\}$ com $s \leq C$, que maximize a similaridade entre os elementos $g\{i,j\}$.  
+Com maior formalidade, dada uma matriz $X(N,M)$ em que $N$ é o número de linhas, $M$ o número de colunas e $x(m,n)$ é, geralmente, um número real representando a relação entre a linha $x_n$ e a coluna $y_m$, o problema de \textbf{coagruapmento} consiste em encontrar um conjunto $\mathcal{C}$ de submatrizes $G(I,J)$, onde $I=\{i_1, ..., i_r\}$ com $r \leq L$ e $J=\{j_1, ..., j_s\}$ com $s \leq C$, que maximize a similaridade entre os elementos $g\{i,j\}$.
 
 % \cite{Franca2010,Mirkin1996,Madeira2004}.
 
@@ -757,7 +770,7 @@ A \textbf{esparsidade} em uma matriz é caracterizada pela existência de poucos
 
 % usar o artigo da nature para justificar a nao negativa??? Ou a justificativa vem do fato do nosso problema se encaixar nessa restrição. Essa restrição deixa o problema mais fácil de resolver?
 
-O problema de coagruapmento pode ser modelado de tal forma que a fatoração de matriz é capaz de fornecer uma aproximação da organização em cogrupos presente no conjunto de dados sob análise. 
+O problema de coagruapmento pode ser modelado de tal forma que a fatoração de matriz é capaz de fornecer uma aproximação da organização em cogrupos presente no conjunto de dados sob análise.
 
 Considere que o conjunto de dados sob análise é representado pela matriz $X(N,M)$, a fatoração dessa matriz em duas (ou mais) novas matrizes $U(N,K)$ e $D(M,K)$ significa que $K$ grupos de linhas foram descobertos, de acordo com $K$ grupos de colunas.
 
@@ -807,7 +820,7 @@ Assim, com o intuito de melhor definir o contexto de estudo deste trabalho, fora
 
 \item apresentação de uma derivação formal, incluindo uma prova de convergência, para a estratégia de coagrupamentos usando fatoração de matrizes não-negativas capaz de lidar com matrizes binárias;
 
-\item apresentação de uma derivação formal para a estratégia de coagrupamento usando atoração de matrizes não negativas capaz de lidar com matrizes de valores reais positivos; 
+\item apresentação de uma derivação formal para a estratégia de coagrupamento usando atoração de matrizes não negativas capaz de lidar com matrizes de valores reais positivos;
 
 \item apresentar experimentos que ilustram a eficácia das estratégias propostas considerando dados sintéticos e dados reais, mostrando inclusive o potencial de descoberta de informações de valor diferenciado para as aplicações em teste (recomendação baseada em conteúdo textual).
 
@@ -850,11 +863,11 @@ Os resultados da aplicação das estratégias de coagrupamento foram validados u
 
 \textcolor{blue}{Então precisaremos dizer aqui como fizemos a avaliação qualitativa.}
 
-% essa parte aqui ficou bem frágil. 
+% essa parte aqui ficou bem frágil.
 % Os algoritmos de análise de texto via Biclusterização deverão ser validados antes de serem aplicados ao corpus criado.
 % Para isso, conjuntos de dados de referência para Biclusterização e para clusterização de texto deverão ser usados.
 % Uma vez alcançada a análise dos textos via Biclusterização, o modelo de uso dos biclusters em um contexto de recomendação deverá ser delineado e analisado.
-% A análise deverá estar baseando tanto em comparações com o conjunto de dados de recomendação do portal iG quando por análise qualitativa do alcance da serendipidade. 
+% A análise deverá estar baseando tanto em comparações com o conjunto de dados de recomendação do portal iG quando por análise qualitativa do alcance da serendipidade.
 
 %Para conhecer a área de Sistemas de Recomendação foi realizado um levantamento do referencial teórico através da análise exploratória de livros e artigos do tipo revisão bibliográfica \cite{Adomavicius2005,Lops2011,Ricci2011,Ricci22011,Jannach2011,Burke2002}, o que permitiu, em seguida, o aprofundamento na área de SRs.
 %Para o aprofundamento na área de SRs, foi realizada uma Revisão Sistemática de SRs baseados em conteúdo textual.
@@ -873,13 +886,13 @@ Os resultados da aplicação das estratégias de coagrupamento foram validados u
 
 \section{Organização do documento}
 
-Esta dissertação é composta por \textcolor{red}{XXX} capítulos incluindo esta introdução. Os demais capítulos estão divididos em duas partes: a primeira é dedicada a explorar a estratégia  de coagrupamento implementada com algoritmos baseadas em fatoração de matrizes; a segunda é dedicada a explorar o contexto de sistemas de recomendação baseados em conteúdo textual a partir da aplicação das estratégias de coagrupamento estudadas. 
+Esta dissertação é composta por \textcolor{red}{XXX} capítulos incluindo esta introdução. Os demais capítulos estão divididos em duas partes: a primeira é dedicada a explorar a estratégia  de coagrupamento implementada com algoritmos baseadas em fatoração de matrizes; a segunda é dedicada a explorar o contexto de sistemas de recomendação baseados em conteúdo textual a partir da aplicação das estratégias de coagrupamento estudadas.
 
 No capítulo~\ref{ch:conceitos} são apresentados os principais conceitos referentes à área de coagrupamentos. \textcolor{blue}{Especificar mais detalhes ... ... }
 
 Estratégias de fatorização de matrizes aplicadas à coagrupamentos são discutidas no capítulo .....
 
-A principal contribuição deste trabalho, as estratégias ... ...., é apresentada em detalhes no capítulo ... ... 
+A principal contribuição deste trabalho, as estratégias ... ...., é apresentada em detalhes no capítulo ... ...
 
 % e então organizar a segunda parte
 
@@ -888,7 +901,7 @@ A principal contribuição deste trabalho, as estratégias ... ...., é apresent
 % ************************************************************
 
 \chapter{Conceitos Fundamentais}
-\label{ch:conceitos} 
+\label{ch:conceitos}
 
 Técnicas e algoritmos de Biclusterização são usadas, principalmente, no contexto de expressão genética.
 No entanto, algoritmos de Biclusterização se fazem úteis quando se deseja encontrar \textit{modelos locais}.
@@ -910,78 +923,78 @@ Uma taxonomia dos tipos de biclusters é proposta por \citeonline{Madeira2004}:
  \end{itemize}
 
 Os biclusters também diferem quanto as suas estruturas. Cada algoritmo usado para implementar Biclusterização faz uma suposição da estrutura de biclusters que é capaz de encontrar.
-A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de biclusters, com as linhas e colunas ordenadas para permitir a visualização dos biclusters por meio do mapa de calor dos valores de $A$, sendo os biclusters $A_{IJ}$ representados por cores sólidas e o fundo da matriz ruído. 
-% Os tipos de estruturas são: Bicluster único, tem apenas um bicluster na matriz (Figura~\ref{fig:bicstruct-a}); Bicluster com linhas e colunas exclusivas 
+A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de biclusters, com as linhas e colunas ordenadas para permitir a visualização dos biclusters por meio do mapa de calor dos valores de $A$, sendo os biclusters $A_{IJ}$ representados por cores sólidas e o fundo da matriz ruído.
+% Os tipos de estruturas são: Bicluster único, tem apenas um bicluster na matriz (Figura~\ref{fig:bicstruct-a}); Bicluster com linhas e colunas exclusivas
 
 % Para melhorar esse figura, deixe na figura apenas as letras (a), (b) etc e faça uma legenda. Acho que você pode usar \caption*{} em cima do \caption{} para fazer a legenda. Ou crie um parágrafo para explicar as letras na figura. Acho que aaté fica mais simpático fazer um parágrafo, pois pode explicar com mais cuidado.
 
-\begin{figure}[h]
-    % \captionsetup[subfigure]{labelformat=simple}
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/a-bic-struct.png}
-            \caption{Bicluster único}
-            \label{fig:bicstruct-a}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/b-bic-struct.png}
-            \caption{Biclusters com linhas e colunas exclusivas}
-            \label{fig:bicstruct-b}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/c-bic-struct.png}
-            \caption{Biclusters com estrutura de tabuleiro de xadrez}
-            \label{fig:bicstruct-c}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/d-bic-struct.png}
-            \caption{Biclusters com linhas exclusivas}
-            \label{fig:bicstruct-d}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/e-bic-struct.png}
-            \caption{Biclusters com colunas exclusivas}
-            \label{fig:bicstruct-e}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/f-bic-struct.png}
-            \caption{Biclusters sem sobreposição com estrutura em árvore}
-            \label{fig:bicstruct-f}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/g-bic-struct.png}
-            \caption{Biclusters sem sobreposição e não exclusivos}
-            \label{fig:bicstruct-g}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/h-bic-struct.png}
-            \caption{Biclusters com sobreposição com estrutura hierarquica}
-            \label{fig:bicstruct-h}
-    \end{subfigure}
-    ~
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-            \includegraphics[width=30mm]{img/i-bic-struct.png}
-            \caption{Biclusters com sobreposição arbitrariamente posicionados}
-            \label{fig:bicstruct-i}
-    \end{subfigure}
-    \caption{Diferentes estruturas de biclusters, quadrados e retângulos com cores sólidas representam biclusters e o fundo representa ruído.}% (Adaptado de \cite{Madeira2004})}
-    \label{fig:bicstruct}
-\end{figure}
+% \begin{figure}[h]
+%     % \captionsetup[subfigure]{labelformat=simple}
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/a-bic-struct.png}
+%             \caption{Bicluster único}
+%             \label{fig:bicstruct-a}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/b-bic-struct.png}
+%             \caption{Biclusters com linhas e colunas exclusivas}
+%             \label{fig:bicstruct-b}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/c-bic-struct.png}
+%             \caption{Biclusters com estrutura de tabuleiro de xadrez}
+%             \label{fig:bicstruct-c}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/d-bic-struct.png}
+%             \caption{Biclusters com linhas exclusivas}
+%             \label{fig:bicstruct-d}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/e-bic-struct.png}
+%             \caption{Biclusters com colunas exclusivas}
+%             \label{fig:bicstruct-e}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/f-bic-struct.png}
+%             \caption{Biclusters sem sobreposição com estrutura em árvore}
+%             \label{fig:bicstruct-f}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/g-bic-struct.png}
+%             \caption{Biclusters sem sobreposição e não exclusivos}
+%             \label{fig:bicstruct-g}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/h-bic-struct.png}
+%             \caption{Biclusters com sobreposição com estrutura hierarquica}
+%             \label{fig:bicstruct-h}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/i-bic-struct.png}
+%             \caption{Biclusters com sobreposição arbitrariamente posicionados}
+%             \label{fig:bicstruct-i}
+%     \end{subfigure}
+%     \caption{Diferentes estruturas de biclusters, quadrados e retângulos com cores sólidas representam biclusters e o fundo representa ruído.}% (Adaptado de \cite{Madeira2004})}
+%     \label{fig:bicstruct}
+% \end{figure}
 
 \section{Algoritmos para Biclusterização}
 
@@ -1012,74 +1025,74 @@ Então, um bicluster perfeito $A_{IJ}$ teria o RQM $H_{IJ} = 0$, pois $a_{ij} = 
 
 Para encontrar biclusters, ou $\delta$-biclusters, \citeonline{Cheng2000} usam uma estratégia gulosa que retira linhas e colunas, visando a minimização do RQM, respeitando um parâmetro $\delta$, que é calibrado pelo usuário. Então, um bicluster é encontrado quando o RQM de uma submatriz $A_{IJ}$ é $H_{IJ} \leq \delta$, para algum $\delta \geq 0$. As etapas de remoções de elementos da matriz são apresentadas nos algoritmos 1 e 2.
 
-\begin{algorithm}[H]
-\label{algo:cc1}
- \KwIn{$A, I, J, \delta$}
- \KwOut{$I,J$ onde $H_{IJ} \leq \delta$}
- \While{$H_{IJ} > \delta$}{
-  encontre a linha $l_{max} = \operatorname*{arg\,max}_{i \in I} H_{iJ}$\;
-  encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
-  \eIf{$l_{max} > c_{max}$}{
-   remova $l_{max}$ do subconjunto $I$\;
-   }{
-   remova $c_{max}$ do subconjunto $J$\;
-  }
- }
- \caption{Remove uma linha ou coluna a cada iteração.}
-\end{algorithm}
+% \begin{algorithm}[H]
+% \label{algo:cc1}
+%  \KwData{$A, I, J, \delta$}
+%  \KwResult{$I,J$ onde $H_{IJ} \leq \delta$}
+%  \While{$H_{IJ} > \delta$}{
+%   encontre a linha $l_{max} = \operatorname*{arg\,max}_{i \in I} H_{iJ}$\;
+%   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
+%   \eIf{$l_{max} > c_{max}$}{
+%    remova $l_{max}$ do subconjunto $I$\;
+%    }{
+%    remova $c_{max}$ do subconjunto $J$\;
+%   }
+%  }
+%  \caption{Remove uma linha ou coluna a cada iteração.}
+% \end{algorithm}
 
-\begin{algorithm}[H]
-\label{algo:cc2}
- \KwIn{$A, I, J, \delta, \alpha$}
- \KwOut{$I,J$ onde $H_{IJ} \leq \delta$}
- \While{$H_{IJ} > \delta$}{
-  remova $i \in I$ onde $H_{iJ} > \alpha \cdot H_{IJ}$\;
-  remova $j \in J$ onde $H_{Ij} > \alpha \cdot H_{IJ}$\;
-  encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
-  \If{não houve nenhuma remoção}{
-   chame o algoritmo 1
-  }
- }
- \caption{Remove múltiplas linhas e colunas de $A$ a cada iteração.}
-\end{algorithm}
+% \begin{algorithm}[H]
+% \label{algo:cc2}
+%  \KwIn{$A, I, J, \delta, \alpha$}
+%  \KwOut{$I,J$ onde $H_{IJ} \leq \delta$}
+%  \While{$H_{IJ} > \delta$}{
+%   remova $i \in I$ onde $H_{iJ} > \alpha \cdot H_{IJ}$\;
+%   remova $j \in J$ onde $H_{Ij} > \alpha \cdot H_{IJ}$\;
+%   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
+%   \If{não houve nenhuma remoção}{
+%    chame o algoritmo 1
+%   }
+%  }
+%  \caption{Remove múltiplas linhas e colunas de $A$ a cada iteração.}
+% \end{algorithm}
 
 O algoritmo 2 é usado para acelerar o processo de busca de um $\delta$-bicluster, convergindo mais rapidamente para uma solução quanto maior for o parâmetro $\alpha$, em que $\alpha \geq 0$. Ainda, para amenização do problema de encontrar $\delta$-biclusters perfeitos com apenas um elemento, ou poucos elemento, é utilizado o algoritmo 3, que adiciona nós sem aumentar o RQM do bicluster.
 
 % deu problema nessas referencias cruzadas, verifique.
 
-\begin{algorithm}[h]
-\label{algo:cc3}
- \KwIn{$A, I, J$}
- \KwOut{$I',J'$ onde $H_{I'J'} \leq H_{IJ}$}
- \While{$H_{IJ} > \delta$}{
-  compute $a_{iJ}$ e $a_{Ij}$ para todo $i,j$ e $H_{IJ}$\;
-  remova $j \notin J$ onde $\frac{1}{|I|} \sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
-  recompute $a_{iJ}$ e $H_{IJ}$\;
-  remova $i \notin I$ onde $\frac{1}{|J|} \sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
-  \If{não houve nenhuma adição}{
-   $I' \longleftarrow I$\;
-   $J' \longleftarrow J$\;
-  }
- }
- \caption{Adiciona linhas e colunas de $A_{IJ}$ a cada iteração.}
-\end{algorithm}
+% \begin{algorithm}[h]
+% \label{algo:cc3}
+%  \KwIn{$A, I, J$}
+%  \KwOut{$I',J'$ onde $H_{I'J'} \leq H_{IJ}$}
+%  \While{$H_{IJ} > \delta$}{
+%   compute $a_{iJ}$ e $a_{Ij}$ para todo $i,j$ e $H_{IJ}$\;
+%   remova $j \notin J$ onde $\frac{1}{|I|} \sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
+%   recompute $a_{iJ}$ e $H_{IJ}$\;
+%   remova $i \notin I$ onde $\frac{1}{|J|} \sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
+%   \If{não houve nenhuma adição}{
+%    $I' \longleftarrow I$\;
+%    $J' \longleftarrow J$\;
+%   }
+%  }
+%  \caption{Adiciona linhas e colunas de $A_{IJ}$ a cada iteração.}
+% \end{algorithm}
 
 Por fim, o algoritmo 4 é a consolidação dos algoritmos 3, 2 e 1 e a iteração para encontrar $k$ $\delta$-biclusters, um a um, sendo $k$ fornecido pelo usuário.
 
-\begin{algorithm}[h]
-\label{algo:cc4}
- \KwIn{$A, k, \delta, \alpha$}
- \KwOut{$k$ $\delta$-biclusters}
- $A' \leftarrow A$\;
- \For{$1$ \KwTo $k$}{
-   $B \leftarrow$ algoritmo 2 com $A', \delta, \alpha$\;
-   $C \leftarrow$ algoritmo 1 com $B, \delta$\;
-   $D \leftarrow$ algoritmo 3 com $A, C$\;
-   reporte $D$ como uma solução\;
-   adicione ruído em $A'$ para a submatriz $D$\;
- }
- \caption{Algoritmo Cheng \& Church, encontra $k$ $\delta$-biclusters.}
-\end{algorithm}
+% \begin{algorithm}[h]
+% \label{algo:cc4}
+%  \KwIn{$A, k, \delta, \alpha$}
+%  \KwOut{$k$ $\delta$-biclusters}
+%  $A' \leftarrow A$\;
+%  \For{$1$ \KwTo $k$}{
+%    $B \leftarrow$ algoritmo 2 com $A', \delta, \alpha$\;
+%    $C \leftarrow$ algoritmo 1 com $B, \delta$\;
+%    $D \leftarrow$ algoritmo 3 com $A, C$\;
+%    reporte $D$ como uma solução\;
+%    adicione ruído em $A'$ para a submatriz $D$\;
+%  }
+%  \caption{Algoritmo Cheng \& Church, encontra $k$ $\delta$-biclusters.}
+% \end{algorithm}
 
 % Algoritmo Spectral (?)
 
@@ -1111,132 +1124,476 @@ Uma das métricas externas que são usadas para comparar biclusters encontrados 
 \chapter{Fatoração de matrizes}
 \label{ch:fatoracao}
 
+% TODO: resgatar fatoração de matrizes tradicionais
+
 \section{Non-negative Matrix Factorization}
 
-\subsection{Non-negative Matrix Factorization for coclustering}
+% justificar non-negative
+% NMF baseado em partes (ver tese RHO)
+% NMF formalização
 
-Seja $X$ uma matriz de dados que representam dados em algum domínio de aplicação, sendo $X \in \mathbb{R^{n \times m}_{+}}$, contendo números reais positivos com $n$ linhas e $m$ colunas. Esta matriz é formada por um conjunto de linhas $\mathcal{X} = \{ x_{1 \cdot}, \dots, x_{n \cdot} \}$ e um conjunto de colunas $\mathcal{Y} = \{ y_{\cdot 1}, \dots, y_{\cdot m} \}$.
+\section{Fatoração de Matrizes Não-Negativas para Coclustering}
 
-\section{Coclustering by Block Value Decomposition}
+Algoritmos de coclustering baseados em Fatoração de Matrizes Não-negativas (\textit{Non-negative Matrix Factorization} - NMF) podem ser úteis em múltiplos contextos, aparecendo em diversos tipos de aplicações, como clusterização de genes e análise de microarray em bioinformática, filtragem colaborativa em sistemas de recomendação, e clusterização de documentos em mineração de textos. % TODO Citação para cada um
+Isso acontece pois muitas das representações usadas nessas aplicações se apresentam em tuplas contendo um par de elementos, cada um pertencendo a um conjunto finito~\cite{Long2005}.
+Por exemplo, na aplicação de clusterização de documentos em mineração de textos, usa-se, comumente, dois conjuntos: documentos e palavras, sendo cada observação representada pela contagem de uma determinada palavra em um determinado documento.
+Note ainda, que conjuntos de dados utilizados nos contextos citados, apresentam-se como uma matriz de dados positiva, expondo outra característica em que NMF podem ser úteis para esses tipos de dados.
+Além disso, essas técnicas, por reduzir a dimensionalidade orinal do conjunto de dados, são capazes de lidar com dados de alta dimensionalidade e/ou esparsos, que são geralmente presentes nessas aplicações.
 
-\subsection{Non-negative Matrix Factorization for coclustering}
+Formalizando, algoritmos de Coclusterização baseados em Fatoração de Matrizes Não-negativas, têm como entrada uma matriz de dados $X$ que representa uma aplicação em algum contexto, sendo $X \in \mathbb{R}^{n \times m}_{+}$, contendo números reais positivos com $n$ linhas e $m$ colunas
+Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{X} = \{ x_{1 \cdot}, \dots, x_{n \cdot} \}$ e um conjunto de vetores de colunas ${\mathcal{Y}} = \{ y_{\cdot 1}, \dots, y_{\cdot m} \}$, e cada observação representada por $x_{ij}$, que é justamente um valor da matriz $X$.
 
-Seja $X$ uma matriz de dados que representam dados em algum domínio de aplicação, sendo $X \in \mathbb{R^{n \times m}_{+}}$, contendo números reais positivos com $n$ linhas e $m$ colunas. Esta matriz é formada por um conjunto de linhas $\mathcal{X} = \{ x_{1 \cdot}, \dots, x_{n \cdot} \}$ e um conjunto de colunas ${\mathcal{Y}} = \{ y_{\cdot 1}, \dots, y_{\cdot m} \}$.
+O objetivo é particionar $\mathcal{X}$ em $k$ grupos de linhas, denotados pelos subconjuntos ordenados $I_p \subseteq \mathcal{X}$, e $l$ grupos de colunas, subconjuntos $J_q \subseteq \mathcal{Y}$, podendo assim, pela junção desses subconjuntos, formar cogrupos $(I_p, J_q)$.
+Note então, que os algoritmos tradicionais presentes na literatura são capazes de formar $k l$ cogrupos.
 
-\subsection{Coclustering by Block Value Decomposition}
+As próximas subseções irão mostrar definições dos algoritmos de coclusterização baseados em NMF presentes na literatura, assim como estratégias usadas para selecionar os cogrupos mais relevantes dos $k l$ possíveis.
 
-Um dos primeiros algoritmos propostos na literatura para a resolução do problema de \textit{coclustering} que se baseia em NMF, é o Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD). Este algoritmo tem o objetivo de clusterizar a matriz de dados $X$ simultâneamente em $k$ clusters de $\mathcal{X}$ exclusivos e $l$ clusters de $\mathcal{Y}$.
+\subsection{Decomposição de Valores em Blocos para Coclustering}
+\label{subsec:bvd}
 
-A idéia do algoritmo é reconstruir a matriz de dados $X$ através de combinações lineares dos centros dos blocos de $X$, similar à alguns tipos de estratégias de \textit{clustering} tradicional, como \textit{k-means}.
+Um dos primeiros algoritmos propostos na literatura para a resolução do problema de \textit{coclustering} baseado em NMF, é o Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD).
+Esta decomposição recebe esse nome, justamente, por ter capacidade de encontrar estruturas em blocos na matriz de dados.
+Isso é possível pois o algoritmo é capaz de explorar a relação entre linhas e colunas, através da decomposição em três matrizes, $U$ a matriz de coeficientes de linhas, $S$ a matriz com estrutura em blocos, e $V$ a matriz de coeficientes de colunas, sendo os coeficientes o grau com que cada vetor (linha ou coluna) de $X$ pertence a um grupo, e a estrutura em blocos, uma representação compacta da matriz original.
+Sendo assim, multiplicando as três matrizes geradas pela fatoração, é possível reconstruir a matriz original $X$ por partes.
 
-\begin{problem}[O algoritmo de Coclustering por Decomposição de Valores em Blocos propõem uma solução para o seguinte problema de otimização]
-\label{def:bvd1}
-	\begin{equation}
-		\begin{aligned}
-		\underset{U, S, V}{\text{minimizar }} \mathcal{F} = & \underset{U, S, V}{\text{minimizar}}
-		& & \norm{X - USV^T}^{2}_{F} \\
-		& \text{sujeito a}
-		& & U \geq 0, S \geq 0, V \geq 0 \\
-		\end{aligned}
-    \end{equation}
-\end{definition}
+O objetivo é encontrar grupos de forma simultânea, sendo $k$ grupos de $\mathcal{X}$ (linhas) e $l$ grupos de $\mathcal{Y}$ (colunas) \cite{Long2005}.
 
-onde $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$ e $\norm{\cdot}$ denota a norma de Frobenius para matrizes.
+A aproximação $X \approx USV^T$ é capaz de gerar diversas informações interpretáveis através da análise do resultado da fatoração.
+Os valores da matriz $U$ podem ser interpretados como o grau com que cada objeto $x_{i \cdot}$ $\forall i = \{1, \dots, n\}$ pertence à um dos $k$ grupos de linhas, da mesma forma, os valores da matriz $V$ podem ser interpretados como o grau com que cada objeto $y_{\cdot j}$ $\forall j = \{1, \dots, m\}$ pertence à um dos $l$ grupos de colunas.
+A matriz $S$ também permite interpretação quando são considerados os grupos formados por $U$ e $V$, cada valor $s_{pq}$ $\forall p = \{1, \dots, k\}, \forall q = \{1, \dots, l\}$ representa a intensidade em que o grupo de objetos $J_p$ e o grupo de características $J_q$ se relacionam, ou seja, fixando um grupo de objetos $I_p$, $s_{pq}$ representa a intensidade que $J_q$ colaborou para a sua formação, alternadamente, fixando um grupo de características $J_q$, $s_{pq}$ representa a intensidade na qual o grupo de objetos $I_p$ colaborou para a sua formação.
 
-A aproximação $X \approx USV^T$ é capaz de gerar diversas informações que podem ser interpretadas. Analisando as matrizes após a fatoração, a matriz $U$ pode ser interpretada como a indicação de quais $k$ clusters cada objeto $x_{i \cdot}$ $\forall i = \{1, \dots, n\}$ pertence, da mesma forma, a matriz $V$ pode ser interpretada como a indicação de quais dos $l$ clusters cada objeto $y_{\cdot j}$ $\forall j = \{1, \dots, m\}$ pertence. A matriz $S$ também permite interpretação quando é considerado os clusters formados por $U$ e $V$, cada valor $s_{uv}$ $\forall u = \{1, \dots, k\}, \forall v = \{1, \dots, l\}$ representa a intensidade em que o cluster de objetos $u$ e o cluster de características $v$ colaboraram para as suas formações, ou seja, fixando um cluster de objetos $u$, $s_{uv}$ representa a intensidade em que um cluster de características $v$ colaborou para a sua formação, alternadamente, fixando um cluster de características $v$, $s_{uv}$ representa a intensidade em que um cluster de objetos $u$ colaborou para a sua formação.
+Um exemplo de fatoração em três matrizes e sua interpretação pode ser visto na Figura~\ref{fig:bvd} \cite{Yoo2010}.
 
-Seguindo a teoria de otimização não linear com restrições, é possível otimizar a função $\mathcal{F}$ pelo tradicional método de multiplicadores de Lagrange utilizando as condições de KKT. Então, os multiplicadores $\Lambda_1 \in \mathbb{R}^{k \times n}$, $\Lambda_2 \in \mathbb{R}^{l \times k}$ e $\Lambda_3 \in \mathbb{R}^{m \times l}$ são introduzidos.
+\begin{figure}
+\centering
+    \includegraphics[width=0.8\textwidth]{img/factorizationXUSV.png}
+    \caption{
+        Fatoração da matriz original de dados $X$ em três outras matrizes: $U$, $S$ e $V$.
+    }
+    \label{fig:bvd}
+\end{figure}
 
-\begin{problem}[O problema dual lagrangiano da definição~\ref{def:bvd1} é dado pela otimização do seguinte problema]
-\label{def:bvd2}
-	\begin{equation}
-		\begin{aligned}
-		\underset{U, S, V, \Lambda_1, \Lambda_2, \Lambda_3}{\text{minimizar}} \mathcal{L} = & \underset{U, S, V, \Lambda_1, \Lambda_2, \Lambda_3}{\text{minimizar}}
-		& & \norm{X - USV^T}^{2}_{F} - tr(\Lambda_1 U^T) - tr(\Lambda_2 S^T) - tr(\Lambda_3 V) \\
-		\end{aligned}
-    \end{equation}
-\end{definition}
+Note ainda, que é possível obter os protótipos responsáveis por cada parte da reconstrução da matriz original $X$.
+Os vetores das colunas de $(US)$ são vetores base (protótipos de colunas), geradores de vetores de colunas de $X$.
+Assim como os vetores de linhas de $(SV^T)$, que são vetores base (protótipo de linhas), geradores de vetores e linhas de $X$.
+A Figura~\ref{fig:bvd:prototypes} mostra um exemplo de como os protótipos são responsáveis pela reconstrução de $X$.
 
-Para que o problema apresentado da definição~\ref{def:bvd2}, é necessário que as condições de KKT sejam satisfeitas.
+% TODO Figuras caderno
 
-\begin{theorem}[Se $U^*$, $S^*$ E $V^*$ são soluções possíveis elas devem satisfazer as seguintes condições, equações xx-xx fixando $S$ e $V$, xx-xx fixando $U$ e $V$, e xx-xx fixando $U$ e $S$]
-\label{def:bvd3}
-    \begin{equation}
-    \label{eq:kkt1}
-        \begin{aligned}
-            \frac{\partial \mathcal{L}}{\partial U} = 0 & & \text{stationarity} \\
-            \Lambda_1 \odot U = 0 & & \text{complementary slackness} \\
-            \Lambda_1, U \geq 0 & & \text{feasability}
-        \end{aligned}
-    \end{equation}
+Apresentando o problema formalmente, temos:
 
-    \begin{equation}
-    \label{eq:kkt2}
-        \begin{aligned}
-            \frac{\partial \mathcal{L}}{\partial S} = 0 & & \text{stationarity} \\
-            \Lambda_2 \odot S = 0 & & \text{complementary slackness} \\
-            \Lambda_2, S \geq 0 & & \text{feasability}
-        \end{aligned}
-    \end{equation}
-
-    \begin{equation}
-    \label{eq:kkt3}
-        \begin{aligned}
-            \frac{\partial \mathcal{L}}{\partial V} = 0 & & \text{stationarity} \\
-            \Lambda_3 \odot V = 0 & & \text{complementary slackness} \\
-            \Lambda_3, V \geq 0 & & \text{feasability}
-        \end{aligned}
-    \end{equation}
-\end{theorem}
-
-
-
-Fazendo uma análise simplista do algoritmo~\ref{algo} é possível perceber que este tem $t$ etapas de otimização, sendo que cada x``Este algoritmo tem complexidade $\mathcal{O}(t(k + l)nm)$.
-
-This is a co-clustering algorithm called Block Value Decomposition (BVD) based on Nonnegative Matrix Factorization (NMF) technique. The goal is to find a factorization for the data matrix $X \in \mathbb{R}_{+}^{N \times M}$, where $N$ is the number of objects, $M$ is the number of features of these objects and the factorization takes the form $$X \approx USV^T$$, where $U \in \mathbb{R}_{+}^{N \times L}$ is a matrix of rows factors representing features clusters, $S \in \mathbb{R}_{+}^{L \times K}$ is a block matrix representing how blocks are related, and $V \in \mathbb{R}_{+}^{M \times K}$ is a matrix of columns factors representing rows clusters.
-
-This algorithm solves the following optimization problem:
-$$\textit{min } ||X - USV^T||^2 \textit{ s.t. } U \geq 0, S \geq 0, V \geq 0$$
-
-The optimization problem can be solved using Lagrange multipliers ($\lambda$), optimizing the following Lagrange function:
-$$\mathcal{L} = |X - USV^T||^2 - tr(\lambda_1U^T) - tr(\lambda_2S^T) - tr(\lambda_3V^T)$$
-
-Then $\mathcal{L}$ must satisfy the K.K.T. conditions:
-$$\frac{\partial \mathcal{L}}{\partial U} = 0$$
-$$\frac{\partial \mathcal{L}}{\partial S} = 0$$
-$$\frac{\partial \mathcal{L}}{\partial V} = 0$$
-$$\lambda_1 \odot U = 0$$
-$$\lambda_2 \odot S = 0$$
-$$\lambda_3 \odot V = 0$$
-
-Solving the derivatives and equal them to $0$, is possible to solve the optimization problem by applying gradient ascending on $\mathcal{L}$ with the following update rules:
-$$U \gets U \odot \frac{XVS^T}{USV^TVS^T}$$
-$$V \gets V \odot \frac{U^TXV}{U^TUSV^TV}$$
-$$S \gets S \odot \frac{S^TU^TX}{S^TU^TUSV^T}$$
-
-
-\section{Fast Nonnegative Matrix Tri factorization}
-
-In this case, the goal is to optimize the following problem:
-$$\textit{min } ||X - USV^T||^2 \textit{ s.t. } U \in \Psi^{n \times k}, S \in \mathbb{R}_{+}^{l \times k}, V \in \Psi^{m \times l}$$ where $U$ and $V$ turns into cluster indicator matrices, with vectors $\vec{u_i}$ and $\vec{v_j}$ that contains $1s$ in only one position, indicating the cluster that that this vector belongs, and $0s$ in the rest.
-
-Similar to the other algorithm, it optimizes $S$ with a multiplicative update rule and the following subproblems:
-$$S \gets (U^TU)^{-1}U^TXV(V^TV)^{-1}$$
-$$v_{ij} \left\{
-\begin{array}{ll}
-        1 & j = \textit{argmin}_l ||\vec{x_i} - \vec{\tilde{u_l}}||^2 \\
-        0 & \textit{otherwise}
+\begin{problem}[Problema de Decomposição de Valores em Blocos]
+\label{def:bvd:problem}
+\begin{equation}
+    \begin{array}{lclcl}
+        \displaystyle \mathcal{F}_1(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
+                                           &   & \text{suj. a}                & U \geq 0,                \\
+                                           &   &                              & S \geq 0,                \\
+                                           &   &                              & V \geq 0
     \end{array}
-\right.$$
-$$u_{ij} \left\{
-\begin{array}{ll}
-        1 & i = \textit{argmin}_k ||\vec{x_j} - \vec{\tilde{v_k}}||^2 \\
-        0 & \textit{otherwise}
+\end{equation}
+\end{problem}
+
+onde $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$ e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+
+Introduzindo a função lagrangeana, associada à $\mathcal{F}_1$:
+\[
+    \displaystyle \mathcal{L}(U, S, V, \Lambda_1, \Lambda_2, \Lambda_3) = \norm{X - USV^T}^{2}_{F} - tr(\Lambda_1 U^T) - tr(\Lambda_2 S^T) - tr(\Lambda_3 V^T) \\
+\]
+
+onde $\Lambda_1 \in \mathbb{R}^{n \times k}$, $\Lambda_2 \in \mathbb{R}^{k \times l}$ e $\Lambda_3 \in \mathbb{R}^{m \times l}$ são os multiplicadores de Lagrange.
+
+Pela teoria de otimização não-linear com restrições, $\Theta = (U^{*}, S^{*}, V^{*}, \Lambda_{1}^*, \Lambda_{2}^*, \Lambda_{3}^*)$ será um mínimo local estacionário de $\mathcal{F}_1$, se e somente se, respeitar as condições de regularidade de \textit{Karush-Kuhn-Tucker} (KKT)~\cite{bazaraa2006}:
+
+\begin{subequations}
+    \begin{alignat}{3}
+        U^* \geq 0, \quad                  && S^* \geq 0, \quad                     && V^* \geq 0                  \label{eq:bvd:kkt1} \\
+        \quad                              && \nabla_{\Theta} \mathcal{L} = 0 \quad &&                             \label{eq:bvd:kkt2} \\
+        \Lambda_{1}^* \odot U^* = 0, \quad && \Lambda_{2}^* \odot S^* = 0, \quad    && \Lambda_{3}^* \odot V^* = 0 \label{eq:bvd:kkt3}
+    \end{alignat}
+\end{subequations}
+
+onde $\odot$ denota o produto de Hadamard.
+
+É possível expandir as equações em~\ref{eq:bvd:kkt2}, calculando as derivadas:
+
+\[
+\begin{array}{lclclclcl}
+    \nabla_U \mathcal{L} & = & U S V^{T} V S^{T}     & - & X V^{T} S^{T} & - & \Lambda_1 & = & 0 \\
+    \nabla_S \mathcal{L} & = & U^{T} U S V^{T} V     & - & U^{T} X V     & - & \Lambda_2 & = & 0 \\
+    \nabla_V \mathcal{L} & = & S^{T} U^{T} U S V^{T} & - & S^{T} U^{T} X & - & \Lambda_3 & = & 0
+\end{array}
+\]
+
+Aplicando o produto Hadamard dos dois lados de cada uma das equações e utilizando das condições em~\ref{eq:bvd:kkt3}:
+\[
+\begin{array}{lclclclclcl}
+    \nabla_U \mathcal{L} & = & U & \odot & U S V^{T} V S^{T}     & - & U & \odot & X V^{T} S^{T} & = & 0 \\
+    \nabla_S \mathcal{L} & = & S & \odot & U^{T} U S V^{T} V     & - & S & \odot & U^{T} X V     & = & 0 \\
+    \nabla_V \mathcal{L} & = & V & \odot & S^{T} U^{T} U S V^{T} & - & V & \odot & S^{T} U^{T} X & = & 0
+\end{array}
+\]
+
+Através da iteração do ponto fixo é possível encontrar regras para atualização multiplicativa de $U$, $S$ e $V$, assim como mostra as equações~\ref{eq:bvd:updateU}, \ref{eq:bvd:updateS} e \ref{eq:bvd:updateV}, respectivamente, assim como mostram o algoritmo~\ref{algo:bvd} \cite{Long2005}.
+Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente.
+
+\begin{algorithm}
+\caption{Algoritmo baseado em atualização multiplicativa para solução do BVD}
+\label{algo:bvd}
+    \begin{algorithmic}[1]
+        \Function{BVD}{$X$, $maxIter$}
+            \State \textbf{Inicialize:} $U^{(0)} \geq 0, V^{(0)} \geq 0, S^{(0)} \geq 0$ e $t \gets 0$.
+            \While{(não convergiu) ou ($t \leq maxIter$)} %\Comment{We have the answer if r is 0}
+                \State
+                    \begin{equation}
+                    \label{eq:bvd:updateU}
+                        U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)^T} S^{(t)^T} }{ U^{(t)} S^{(t)} V^{(t)^T} V^{(t)} S^{(t)^T} }
+                    \end{equation}
+                \State
+                    \begin{equation}
+                    \label{eq:bvd:updateV}
+                        V^{(t+1)} \gets V^{(t)} \odot \frac{ S^{(t)^T} U^{(t+1)^T} X }{ S^{(t)^T} U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t)^T} }
+                    \end{equation}
+                \State
+                    \begin{equation}
+                    \label{eq:bvd:updateS}
+                        S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t+1)^T} V^{(t+1)} }
+                    \end{equation}
+                \State $t \gets t + 1$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $U^{(t+1)}, S^{(t+1)}, V^{(t+1)}$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+% \begin{theorem}[Corretude]
+% \label{def:bvd:correctness}
+%     As regras de atualização das equações~\ref{eq:bvd:updateU},~\ref{eq:bvd:updateV} e~\ref{eq:bvd:updateS} são corretas para resolução do problema~\ref{def:bvd:problem}, ou seja, respeitam a condição da equação~\ref{eq:bvd:kkt2}.
+% \end{theorem}
+
+% \begin{proof}
+%     Esse algoritmo usa o método de iteração de ponto fixo, então, para $U$, se \linebreak
+%      $U^{(t)} S^{(t)} V^{(t)^T} V^{(t)} S^{(t)^T} \neq 0$ e $U^{(t + 1)} = U^t \geq 0$, então:
+%     \[
+%         X V^{(t)^T} S^{(t)^T} = U^{(t)} S^{(t)} V^{(t)^T} V^{(t)} S^{(t)^T} \Rightarrow \nabla_U \mathcal{L} = 0
+%     \]
+%     verificando a condição da equação~\ref{eq:bvd:kkt2}. O mesmo processo pode ser realizado para $S$ e $V$.
+% \end{proof}
+
+% \begin{theorem}[Convergência]
+% \label{def:bvd:convergence}
+%     O problema~\ref{def:bvd:problem} é decrescente sob as regras de atualização das equações~\ref{eq:bvd:updateU},~\ref{eq:bvd:updateV} e~\ref{eq:bvd:updateS}.
+% \end{theorem}
+
+% \begin{proof}
+%     % Fixa S e V 1o?
+%     Seja uma função auxiliar $G(U)$ para $F(U)$.
+% \end{proof}
+
+\subsection{Fatoração Ortogonal tripla de Matrizes Não-negativas}
+
+Baseado no Problema de decomposição em blocos, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chama de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - ONMTF).
+Colocando duas restrições para ortogonalidade nas matrizes indicadoras de grupos de linhas e colunas, restringe o problema da fatoração $X \approx USV^T$ para um número menor de possíveis soluções, buscando a unicidade, assim como mostra a figura~\ref{fig:bvdvsonmtf}.
+
+\begin{figure}
+\centering
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\textwidth]{img/bvdVsOnmtf1.png}
+        \caption{}
+        \label{fig:bvdvsonmtf:1}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\textwidth]{img/bvdVsOnmtf2.png}
+        \caption{}
+        \label{fig:bvdvsonmtf:2}
+    \end{subfigure}
+    \caption{
+        Um exemplo sintético que compara o algoritmo para BVD contra o algoritmo para ONMTF, com pontos sendo dados, as linhas pontilhadas sendo os protótipos de linhas ($S V^T$), e os três conjuntos de pontos sendo os grupos.
+        (a) O algoritmo para BVD encontra uma solução com dois protótipos em um mesmo grupo, deixando um dos grupos sem nenhum protótipo para representá-lo.
+        Apesar de ser uma solução correta, ou seja, encontra um mínimo local, não é a desejada.
+        (b) O algoritmo para ONMTF é capaz de encontrar a solução em que cada protótipo aproxima cada grupo de dados, através das restrições referentes à ortogonalidade, este é capaz de restringir as possíveis soluções para a fatoração $X \approx U S V^T$.
+        \cite{Yoo2010}
+    }
+    \label{fig:bvdvsonmtf}
+\end{figure}
+
+\begin{problem}[Problema de Fatoração Ortogonal tripla de Matrizes Não-negativas]
+\label{def:onmtf:problem}
+\begin{equation}
+    \begin{array}{lclcl}
+        \displaystyle \mathcal{F}_2(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F}      \\
+                                             &   & \text{suj. a}                & U \geq 0, S \geq 0, V \geq 0, \\
+                                             &   &                              & U^T U = I,                    \\
+                                             &   &                              & V^T V = I
     \end{array}
-\right.$$
-where $\tilde{U} = US$ and $\tilde{V} = SV^T$
+\end{equation}
+\end{problem}
+
+onde $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, $U \geq 0, S \geq 0, V \geq 0$ sendo todos os elementos de $U$, $S$ e $V$, maior que $0$, respectivamente, $U^T U = I$ e $V^T V = I$ as restrições de ortonomalidade para as matrizes indicadoras de grupos de linhas e colunas, respectivamente, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+
+\citeonline{Ding06} propõem uma solução semelhante ao que foi apresentado na subseção~\ref{subsec:bvd}, fazendo a derivação através da função lagrangeana e a introdução dos multiplicadores de lagrange, utilizando as condições de otimização não-linear de KKT, derivando as regras para atualização multiplicativa para $U$, $S$ e $V$, apresentadas no algoritmo~\ref{algo:onmtf}.
+Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente.
+
+\begin{algorithm}
+\caption{Algoritmo baseado em atualização multiplicativa para solução do ONMTF}
+\label{algo:onmtf}
+    \begin{algorithmic}[1]
+        \Function{ONMTF}{$X$, $maxIter$}
+            \State \textbf{Inicialize:} $U^{(0)} \geq 0, V^{(0)} \geq 0, S^{(0)} \geq 0$ e $t \gets 0$.
+            \While{(não convergiu) ou ($t \leq maxIter$)} %\Comment{We have the answer if r is 0}
+                \State
+                    \begin{equation}
+                    \label{eq:onmtf:updateU}
+                        U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} U^{(t)^T} X V^{(t)} S^{(t)^T} }
+                    \end{equation}
+                \State
+                    \begin{equation}
+                    \label{eq:onmtf:updateV}
+                        V^{(t+1)} \gets V^{(t)} \odot \frac{ X^T U^{(t+1)} S }{ V^{(t)} V^{(t)^T} X^T U^{(t+1)} S^{(t)} }
+                    \end{equation}
+                \State
+                    \begin{equation}
+                    \label{eq:onmtf:updateS}
+                        S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t+1)^T} V^{(t+1)} }
+                    \end{equation}
+                \State $t \gets t + 1$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $U^{(t+1)}, S^{(t+1)}, V^{(t+1)}$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+No artigo de \citeonline{Yoo2010}, é proposta uma abordagem mais simples para a derivação das regras de atualização multiplicaticas, considere uma função de otimização qualquer $\mathcal{J}$ e seu respectivo gradiente $\nabla \mathcal{J}$:
+
+\[
+    \begin{array}{lclcl}
+        \nabla \mathcal{J} & = & [\nabla \mathcal{J}]^+ - [\nabla \mathcal{J}]^-
+    \end{array}
+\]
+
+onde $[\nabla \mathcal{J}]^+$ é a parte positiva do gradiente, $[\nabla \mathcal{J}]^-$ a parte negativa do gradiente.
+Se $[\nabla \mathcal{J}]^+ \geq 0$ e $[\nabla \mathcal{J}]^- \geq 0$, então, é possível definir uma regra de atualização multiplicativa, para otimizar os parâmetros $\Theta$ da função $\mathcal{J}$:
+
+\begin{equation}
+\label{eq:onmtf:updateTheta}
+    \Theta \gets \Theta \odot \left ( \frac{ [\nabla \mathcal{J}]^- }{ [\nabla \mathcal{J}]^+ } \right )^{\cdot \eta}
+\end{equation}
+
+onde $\odot$ representa o produto Hadamard, $(\cdot)^{\cdot \eta}$ representa a potência para cada elemento, e $\eta$ uma taxa de aprendizado ($0 < \eta \leq 1$).
+Então, se $\Theta$ for inicializado com elementos positivos, é possível verificar que a regra de atualização multiplicativa da equação~\ref{eq:onmtf:updateTheta} mantém a não-negatividade de $\Theta$.
+
+Também, é utilizada uma abordagem diferente para a derivação de regras de atualização multiplicativas, visando um algoritmo para a solução do problema~\ref{def:onmtf:problem}.
+Neste caso, o gradiente é calculado com base em uma superfície com restrições que preserva a ortogonalidade.
+Essa superfície com restrições é chamada de Variedade de Stiefel (\textit{Stiefel Manifold}), neste caso é usada a Variedade de Stiefel no espaço euclidiano, denotada por $\mathcal{H}_{a,b}$, sendo essa variedade o conjunto de $a \times b$ matrizes ortonormais no espaço $\mathbb{R}^a$, formalmente:
+
+\[
+    \begin{array}{lclcl}
+        \mathcal{H}_{a, b} & = & \{ Y \in \mathbb{R}^{a \times b}: Y^T Y = I \}
+    \end{array}
+\]
+
+Note que quando $b = 1$, a superfície se torna uma esfera.
+Para otimização, considerando que essa esfera sejam as restrições do problema, o ideal é propor métodos que permanecam na esfera, então, todos os vetores tangentes à essa esfera, podem ser direções possíveis para um algoritmo de otimização iterativo.
+
+\citeonline{Edelman1999} definem o gradiente em um ponto $Y$, com a restrição $Y^T Y = I$, de uma função $\mathcal{J}$ definida em uma Variedade Stiefel no espaço euclidiano como:
+
+\begin{equation}
+\label{eq:stiefeldiff}
+    \begin{array}{lclcl}
+        {\tilde \nabla}_Y \mathcal{J} & = & \nabla_Y \mathcal{J} - Y (\nabla_Y \mathcal{J})^T Y
+    \end{array}
+\end{equation}
+
+onde $\nabla_Y \mathcal{J}$ é o gradiente da função $\mathcal{J}$ para todos os elementos da matriz $Y$.
+
+Dada a equação~\ref{eq:stiefeldiff}, \citeonline{Yoo2010} propõem os seguintes cálculos dos gradientes em Variedades Stiefel para $\mathcal{F}_2$, com $U$ no conjunto $\{ U^T U = I \}$, e com $V$ no conjunto $\{ V^T V = I \}$:
+
+\[
+    \begin{array}{lclclclcl}
+        {\tilde \nabla_U} \mathcal{F}_2 & = & \nabla_U \mathcal{F}_2 - U (\nabla_U \mathcal{F}_2)^T U & = & U S V^T X^T U - X V S^T \\
+        {\tilde \nabla_V} \mathcal{F}_2 & = & \nabla_V \mathcal{F}_2 - V (\nabla_V \mathcal{F}_2)^T V & = & V S^T U^T X V - X^T U S
+    \end{array}
+\]
+
+Restando apenas o cálculo do gradiente para $S$, que como não há restrições, será igual à atualização do algoritmo para solução do BVD
+
+\[
+    \begin{array}{lcl}
+        \nabla_S \mathcal{F}_2 & = & U^T U S V^T V - U^T X V
+    \end{array}
+\]
+
+É possível, assim, usar a estratégia da equação~\ref{eq:onmtf:updateTheta} e os gradientes calculados, para propor uma solução para o problema de ONMTF, alternativas às atualizações das equações~\ref{eq:onmtf:updateU}, \ref{eq:onmtf:updateV} e~\ref{eq:onmtf:updateS}, através da atualização multiplicativa.
+Essas atualizações são apresentadas nas equações~\ref{eq:onmtf2:updateU}, ~\ref{eq:onmtf2:updateV} e~\ref{eq:onmtf2:updateS}.
+
+\begin{subequations}
+    \begin{alignat}{2}
+        U^{(t+1)} \gets \quad && U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} S^{(t)} V^{(t)^T} X^T U^{(t)} }                   \label{eq:onmtf2:updateU} \\
+        V^{(t+1)} \gets \quad && U^{(t)} \odot \frac{ X^T U^{(t+1)} S^{(t)} }{ V^{(t)} S^{(t)^T} U^{(t+1)^T} X V^{(t)} }               \label{eq:onmtf2:updateV} \\
+        S^{(t+1)} \gets \quad && S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t+1)^T} V^{(t+1)} } \label{eq:onmtf2:updateS}
+    \end{alignat}
+\end{subequations}
+
+% TODO: Falar do algoritmo que considera probabilidades
+
+\section{Fatoração tripla rápida de Matrizes Não-negativas}
+
+O problema de Fatoração tripla rápida de Matrizes Não-negativas (\textit{Fast Non-negative Matrix Tri Factorization} - FNMTF) foi proposto por \citeonline{Wang2011}, com os seguintes argumentos contra o uso prático dos problemas até agora propostos para encontrar cogrupos: os problemas de fatoração em três matrizes propostos até o momento, envolviam soluções algorítmicas iterativas, com multiplicações de matrizes intensas em cada etapa; e pelo fato dos algoritmos propostos realizarem coagrupamento relaxado, necessitando de pós-processamento para a extração dos grupos, o que implica em inúmeras soluções para o agrupamento.
+
+\begin{problem}[Fatoração tripla rápida de Matrizes Não-negativas]
+\label{def:fnmtf:problem}
+\begin{equation}
+    \begin{array}{lclcl}
+        \displaystyle \mathcal{F}_2(F, S, G) & = & \displaystyle \min_{F, S, G} & \norm{X - FSG^T}^{2}_{F} \\
+                                             &   &                              & F \in \Psi^{n \times k}, \\
+                                             &   &                              & G \in \Psi^{m \times l}
+    \end{array}
+\end{equation}
+\end{problem}
+
+onde $X \in \mathbb{R}^{n \times m}$, $S \in \mathbb{R}^{k \times l}$, $\Psi = \{0, 1\}$.
+
+Assim como nos outros algoritmos, $F$ é uma matriz indicadora dos grupos de linhas, $G$ uma matriz indicadora dos grupos de colunas, e $S$ contém os fatores que conectam um grupo de linhas aos grupos de colunas, e, um grupo de colunas aos grupos de linhas.
+
+Como não há restrições em $\mathcal{F}$, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}$:
+\[
+    \begin{array}{lclcl}
+        \nabla_S \mathcal{L} &     =       & F^T X G - F^T F S G^T G                 & = & 0                                 \\
+                             & \implies    & F^TFSG^TG                               & = & F^TXG                             \\
+                             & \implies    & (F^T F)^{-1} F^T F S G^T G (G^T G)^{-1} & = & (F^T F)^{-1} F^T X G (G^T G)^{-1}
+    \end{array}
+\]
+
+\begin{equation}
+\label{eq:fnmtf:updateS}
+    \begin{array}{lclcl}
+        \therefore & S & = & (F^T F)^{-1} F^T X G (G^T G)^{-1}
+    \end{array}
+\end{equation}
+
+Sendo assim, é possível resolver os subproblema para atualizar $F$ e $G$.
+Primeiramente, fixando $S$ e $G$ e resolvendo o problema~\ref{def:fnmtf:problem} para $F$ de forma iterativa, verificando para cada linha de $X$, qual o protótipo mais o aproxima (semelhante ao algoritmo de agrupamento \textit{K-means}), da mesma forma, é possível fixar $S$ e $F$ para alcançar uma solução iterativa para $G$, assim como mostra o algoritmo~\ref{algo:fnmtf}.
+Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente.
+
+\begin{algorithm}
+\caption{Algoritmo FNMTF}
+\label{algo:fnmtf}
+    \begin{algorithmic}[1]
+        \Function{FNMTF}{$X$, $maxIter$}
+            \State \textbf{Inicialize:} $F^{(0)} \geq 0, S^{(0)} \geq 0, G^{(0)} \geq 0$ e $t \gets 0$.
+            \While{(não convergiu) ou ($t \leq maxIter$)}
+                \State
+                    \begin{equation}
+                    \label{eq:fnmtf:updateS}
+                        S^{(t+1)} \gets (F^{(t)^T} F^{(t)})^{-1} F^{(t)^T} X G^{(t)} (G^{(t)^T} G^{(t)})^{-1}
+                    \end{equation}
+                \State
+                    \[
+                        {\tilde g}_{pj} \gets (S^{(t+1)} G^{(t)^T})_{pj}, \forall p, j
+                    \]
+                \State
+                    \begin{equation}
+                    \label{eq:fnmtf:updateF}
+                        (F^{(t+1)})_{ip} \gets \left\{
+                            \begin{array}{ll}
+                                1 & p = \argmin_{p' \in \{1, \dots, k\}} \norm{ x_{i \cdot} - {\tilde g}_{p' \cdot} }^2 \\
+                                0 & \textit{caso contrário}
+                            \end{array}
+                        \right. \forall i, p
+                    \end{equation}
+                \State
+                    \[
+                        {\tilde f}_{iq} \gets (F^{(t+1)} S^{(t+1)})_{iq}, \forall i, q
+                    \]
+                \State
+                    \begin{equation}
+                    \label{eq:fnmtf:updateG}
+                        (G^{(t+1)})_{jq} \gets \left\{
+                            \begin{array}{ll}
+                                1 & q = \argmin_{q' \in \{1, \dots, l\}} \norm{ x_{\cdot j} - {\tilde f}_{\cdot q'} }^2 \\
+                                0 & \textit{caso contrário}
+                            \end{array}
+                        \right. \forall j, q
+                    \end{equation}
+                \State $t \gets t + 1$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $F^{(t+1)}, S^{(t+1)}, G^{(t+1)}$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+% ************************************************************
+% ************************************************************
+% ************************************************************
+
+\chapter{Algoritmos propostos}
+\label{ch:proposedalgs}
+
+\section{Fatoração Tripla de Matrizes Não-negativas Sobrepostas}
+
+\begin{problem}[Problema de Fatoração Tripla de Matrizes Não-negativas Sobrepostas]
+\label{def:ovnmtf:problem}
+\begin{equation}
+    \begin{array}{lclc}
+        \displaystyle \mathcal{F}_3(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}}^{2}_{F} \\
+                                                                   &   & \text{suj. a}                & U \geq 0, \\
+                                                                   &   &                              & S \geq 0, \\
+                                                                   &   &                              & V_{(p)} \geq 0, \quad \forall p
+    \end{array}
+\end{equation}
+\end{problem}
+
+sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{V} = \{ V_{(1)}, \dots, V_{(k)} \}$, em que cada $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
+
+\begin{algorithm}
+\caption{Algoritmo baseado em atualização multiplicativa para solução do OvNMTF}
+\label{algo:ovnmtf}
+    \begin{algorithmic}[1]
+        \Function{OvNMTF}{$X$, $maxIter$}
+            \State \textbf{Inicialize:} $U^{(0)} \geq 0, S^{(0)} \geq 0, V_{(0)}^{(0)} \geq 0, \dots, V_{(k)}^{(0)} \geq 0$ e $t \gets 0$.
+            \While{(não convergiu) ou ($t \leq maxIter$)} %\Comment{We have the answer if r is 0}
+                \State
+                    \begin{equation}
+                    \label{eq:ovnmtf:updateU}
+                        U^{(t+1)} \gets U^{(t)} \odot \sum_{p=1}^{k} \frac{ X V^{(t)^T}_{(p)} S^{(t)^T} I_{(p)} }{ \sum_{p'=1}^k U^{(t)} I_{(p)} S^{(t)} V^{(t)}_{(p)} V^{(t)^T}_{(p')} S^{(t)^T} I_{(p')} }
+                    \end{equation}
+                \For{$p \leftarrow 1, k$}
+                    \State
+                        \begin{equation}
+                        \label{eq:ovnmtf:updateV}
+                            V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ S^{(t)^T} I_{(p)} U^{(t+1)^T} X }{ S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} V^{(t)}_{(p)} }
+                        \end{equation}
+                \EndFor
+                \State
+                    \begin{equation}
+                    \label{eq:ovnmtf:updateS}
+                        S^{(t+1)} \gets S^{(t)} \odot \sum_{p=1}^{l} \frac{ I_{(p)} U^{(t+1)^T} X V^{(t+1)^T}_{(p)} }{ \sum_{p'=1}^{l} I_{p} U^{(t+1)^T} U^{(t+1)} I_{(p')} S^{(t)} V^{(t+1)}_{(p')} V^{(t+1)^T}_{(p)} }
+                    \end{equation}
+                \State $t \gets t + 1$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $U^{(t+1)}, S^{(t+1)}, V_{(1)}^{(t+1)}, \dots, V_{(k)}^{(t+1)}$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
 
 
+\section{Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas}
+
+\begin{problem}[Problema de Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas]
+\label{def:ovnmtf:problem}
+\begin{equation}
+    \begin{array}{lclc}
+        \displaystyle \mathcal{F}_3(F, S, G_{(1)}, \dots, G_{(k)}) & = & \displaystyle \min_{F, S, G_{(1)}, \dots, G_{(k)}} & \norm{ X - F \sum_{p=1}^{k} I_{(p)} S G_{(p)} }^{2}_{F} \\
+                                                                   &   & \text{suj. a}                & F \in \Psi^{n \times k}, \\
+                                                                   &   &                              & S \in \Psi^{k \times l}, \\
+                                                                   &   &                              & G_{(p)} \in \Psi^{m \times l}, \quad \forall p
+    \end{array}
+\end{equation}
+\end{problem}
+
+sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{G} = \{ G_{(1)}, \dots, G_{(k)} \}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $S \in \mathbb{R}^{k \times l}_{+}$, $X \in \mathbb{R}^{n \times m}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
 
 
 
@@ -1244,55 +1601,55 @@ where $\tilde{U} = US$ and $\tilde{V} = SV^T$
 % ************************************************************
 % ************************************************************
 
-\chapter{A proposta}
-\label{ch:proposta}
+% \chapter{A proposta}
+% \label{ch:proposta}
 
-\section{Overlapping Orthogonal Nonnegative Matrix Tri Factorization}
+% \section{Overlapping Orthogonal Nonnegative Matrix Tri Factorization}
 
-This is a proposal algorithm that aims to solve the following problem:
-$$\mathcal{F} = \textit{min } ||X - U\sum_{i=1}^{k}I^{(i)}SV^{(i)}||^{2}_{F}$$
-% $$\textit{s.t. } U^TU = I$$
-% $$\left[ \begin{array}{c} V^{(1)} \\ V^{(2)} \\ \vdots \\ V^{(k)} \end{array} \right]^T\left[ \begin{array}{c} V^{(1)} \\ V^{(2)} \\ \vdots \\ V^{(k)} \end{array} \right] = I$$
-% $$\left[ \begin{array}{c} V^{(1)} \\ V^{(2)} \\ \vdots \\ V^{(k)} \end{array} \right] \geq 0$$
-$$\textit{s.t. } U, S, V^{(1)}, \dots, V^{(k)} \geq 0$$
+% This is a proposal algorithm that aims to solve the following problem:
+% $$\mathcal{F}_1 = \textit{min } ||X - U\sum_{i=1}^{k}I^{(i)}SV^{(i)}||^{2}_{F}$$
+% % $$\textit{s.t. } U^TU = I$$
+% % $$\left[ \begin{array}{c} V^{(1)} \\ V^{(2)} \\ \vdots \\ V^{(k)} \end{array} \right]^T\left[ \begin{array}{c} V^{(1)} \\ V^{(2)} \\ \vdots \\ V^{(k)} \end{array} \right] = I$$
+% % $$\left[ \begin{array}{c} V^{(1)} \\ V^{(2)} \\ \vdots \\ V^{(k)} \end{array} \right] \geq 0$$
+% $$\textit{s.t. } U, S, V^{(1)}, \dots, V^{(k)} \geq 0$$
 
-where $X \in \mathbb{R}^{n \times m}$ a data matrix, $U \in \mathbb{R}^{n \times k}$ an matrix containing rows clusters, $I^{(i)} \in \mathbb{R}^{k \times k}$ an indicator matrix, $S \in \mathbb{R}^{k \times l}$ a block matrix, $V^{(i)} \in \mathbb{R}^{l \times m} \forall i \in \{1, \dots, k\}$ matrices containing columns clusters for each row cluster, and $||\cdot||^2_{F}$ denotes the frobenius norm.
+% where $X \in \mathbb{R}^{n \times m}$ a data matrix, $U \in \mathbb{R}^{n \times k}$ an matrix containing rows clusters, $I^{(i)} \in \mathbb{R}^{k \times k}$ an indicator matrix, $S \in \mathbb{R}^{k \times l}$ a block matrix, $V^{(i)} \in \mathbb{R}^{l \times m} \forall i \in \{1, \dots, k\}$ matrices containing columns clusters for each row cluster, and $||\cdot||^2_{F}$ denotes the frobenius norm.
 
 
-Consider the lagrange function:
-$$\mathcal{L} = \mathcal{F} - tr(\Lambda_1 U^T) - tr(\Lambda_2 S^T) - \sum_{i=1}^{k} tr(A_i V^{(i)^T})$$
+% Consider the lagrange function:
+% $$\mathcal{L} = \mathcal{F}_1 - tr(\Lambda_1 U^T) - tr(\Lambda_2 S^T) - \sum_{i=1}^{k} tr(A_i V^{(i)^T})$$
 
-where $\Lambda_1, \Lambda_2$ and $A_i \forall i \in \{1, \dots, k\}$ are lagrange multipliers: $\Lambda_1 \in \mathbb{R}^{n \times k}$, $\Lambda_1 \in \mathbb{R}^{k \times l}$, and $A_i \in \mathbb{R}^{k \times l} \forall i \in \{1, \dots, k\}$.
+% where $\Lambda_1, \Lambda_2$ and $A_i \forall i \in \{1, \dots, k\}$ are lagrange multipliers: $\Lambda_1 \in \mathbb{R}^{n \times k}$, $\Lambda_1 \in \mathbb{R}^{k \times l}$, and $A_i \in \mathbb{R}^{k \times l} \forall i \in \{1, \dots, k\}$.
 
-KKT Conditions:
-\begin{itemize}
-\item $\frac{\partial \mathcal{L}}{\partial U} = 0$
-\item $\frac{\partial \mathcal{L}}{\partial S} = 0$
-\item $\frac{\partial \mathcal{L}}{\partial V^{(i)}} = 0, \forall i \in \{1, \dots, k\}$
-\item $\Lambda_1 \odot U = 0$
-\item $\Lambda_2 \odot S = 0$
-\item $A_i \odot V^{(i)} = 0, \forall i \in \{1, \dots, k\}$
-\end{itemize}
-%\paragraph{}
-where $\odot$ denotes the element-wise multiplication.
+% KKT Conditions:
+% \begin{itemize}
+% \item $\frac{\partial \mathcal{L}}{\partial U} = 0$
+% \item $\frac{\partial \mathcal{L}}{\partial S} = 0$
+% \item $\frac{\partial \mathcal{L}}{\partial V^{(i)}} = 0, \forall i \in \{1, \dots, k\}$
+% \item $\Lambda_1 \odot U = 0$
+% \item $\Lambda_2 \odot S = 0$
+% \item $A_i \odot V^{(i)} = 0, \forall i \in \{1, \dots, k\}$
+% \end{itemize}
+% %\paragraph{}
+% where $\odot$ denotes the element-wise multiplication.
 
-Given that:
-$$\frac{\partial}{\partial B} tr \left[ (RBC + D)(RBC + D)^T \right] = 2R^T(RBC + D)C^T = 2R^trBCC^T + 2R^TDC^T$$
+% Given that:
+% $$\frac{\partial}{\partial B} tr \left[ (RBC + D)(RBC + D)^T \right] = 2R^T(RBC + D)C^T = 2R^trBCC^T + 2R^TDC^T$$
 
-It is possible to calculate $\frac{\partial \mathcal{L}}{\partial U}$, considering $R = -I, B = U, C = \sum I^{(i)}SV^{(i)}, D = X$:
-$$\frac{\partial \mathcal{L}}{\partial U} = 2 U \sum_{i=1}^k I^{(i)} S V^{(i)} \sum_{j=1}^k V^{(j)^T} S^T I^{(j)} - 2 X \sum_{i=1}^k V^{(i)^T} S^T I^{(i)} - \Lambda_1$$
+% It is possible to calculate $\frac{\partial \mathcal{L}}{\partial U}$, considering $R = -I, B = U, C = \sum I^{(i)}SV^{(i)}, D = X$:
+% $$\frac{\partial \mathcal{L}}{\partial U} = 2 U \sum_{i=1}^k I^{(i)} S V^{(i)} \sum_{j=1}^k V^{(j)^T} S^T I^{(j)} - 2 X \sum_{i=1}^k V^{(i)^T} S^T I^{(i)} - \Lambda_1$$
 
-For $\frac{\partial \mathcal{L}}{\partial V}$, consider $R = U \sum I^{(i)} S, B = V^{(i)}, C = -I, D = X$:
-$$\frac{\partial \mathcal{L}}{\partial V^{(j)}} = 2 S^T I^{(j)} U^T U I^{(j)} S V^{(j)} - 2 S^T I^{(j)}  U^T X - A_j, \forall j \in \{1, \dots, k\}$$
+% For $\frac{\partial \mathcal{L}}{\partial V}$, consider $R = U \sum I^{(i)} S, B = V^{(i)}, C = -I, D = X$:
+% $$\frac{\partial \mathcal{L}}{\partial V^{(j)}} = 2 S^T I^{(j)} U^T U I^{(j)} S V^{(j)} - 2 S^T I^{(j)}  U^T X - A_j, \forall j \in \{1, \dots, k\}$$
 
-For $\frac{\partial \mathcal{L}}{\partial S}$, consider that $\frac{\partial (A X B X^T C)}{\partial X} = A^T C^T X B^T + C A X B$:
-$$\frac{\partial \mathcal{L}}{\partial S} = \frac{\partial}{\partial S} tr (X - U \sum_{i=1}^{k} I^{(i)} S V^{(i)}) (U \sum_{j=1}^{k} I^{(j)} S V^{(j)})^T   - tr(\Lambda_2 S^T)$$
+% For $\frac{\partial \mathcal{L}}{\partial S}$, consider that $\frac{\partial (A X B X^T C)}{\partial X} = A^T C^T X B^T + C A X B$:
+% $$\frac{\partial \mathcal{L}}{\partial S} = \frac{\partial}{\partial S} tr (X - U \sum_{i=1}^{k} I^{(i)} S V^{(i)}) (U \sum_{j=1}^{k} I^{(j)} S V^{(j)})^T   - tr(\Lambda_2 S^T)$$
 
-$$= \frac{\partial}{\partial S} tr(X^TX) - 2 \frac{\partial}{\partial S} tr(X U \sum_{i=1}^{k} I^{(i)} S V^{(i)}) + tr(\sum_{j=1}^k \sum_{i=1}^k U I^{(i)} S V^{(i)} V^{(j)^T} S^T I^{(j)} U^T ) - tr(\Lambda_2 S^T)$$
+% $$= \frac{\partial}{\partial S} tr(X^TX) - 2 \frac{\partial}{\partial S} tr(X U \sum_{i=1}^{k} I^{(i)} S V^{(i)}) + tr(\sum_{j=1}^k \sum_{i=1}^k U I^{(i)} S V^{(i)} V^{(j)^T} S^T I^{(j)} U^T ) - tr(\Lambda_2 S^T)$$
 
-$$= -2 \sum_{i=1}^{k} I^{(i)} U^T X^T V^{(i)^T} + \sum_{i=1}^{k} \sum_{j=1}^{k} [ I^{(i)} U^T U I^{(j)} S V^{(j)} V^{(i)^T} +  I^{(j)} U^T U I^{(i)} S V^{(i)} V^{(j)^T} ]$$
+% $$= -2 \sum_{i=1}^{k} I^{(i)} U^T X^T V^{(i)^T} + \sum_{i=1}^{k} \sum_{j=1}^{k} [ I^{(i)} U^T U I^{(j)} S V^{(j)} V^{(i)^T} +  I^{(j)} U^T U I^{(i)} S V^{(i)} V^{(j)^T} ]$$
 
-$$= -2 \sum_{i=1}^{k} I^{(i)} U^T X^T V^{(i)^T} + \sum_{i=1}^{k} \sum_{j=1}^{k} I^{(i)} U^T U I^{(j)} S V^{(j)} V^{(i)^T}$$
+% $$= -2 \sum_{i=1}^{k} I^{(i)} U^T X^T V^{(i)^T} + \sum_{i=1}^{k} \sum_{j=1}^{k} I^{(i)} U^T U I^{(j)} S V^{(j)} V^{(i)^T}$$
 
 
 % ************************************************************
@@ -1411,7 +1768,7 @@ Para medir a serendipidade das recomendações, \citeonline{Ricci22011} propõem
 % ************************************************************
 % ************************************************************
 
-        
+
 \section{Mineração de Texto}
 \label{sec:mintexto}
 
@@ -1516,7 +1873,7 @@ A terceira fase é a fase Componente de Filtragem, que basicamente recebe a saí
 \end{figure}
 
 Essa arquitetura apresentada foi adaptada de \citeonline{Lops2011}, para maior compreendimento e maior adequação com esse trabalho.
-As subseções~\ref{subsec:analisadorcontexto},~\ref{subsec:perfil} e~\ref{subsec:filtragem} fazem uma revisão da literatura das técnicas de Aprendizado de Máquina aplicadas aos módulos de um SRsbC. 
+As subseções~\ref{subsec:analisadorcontexto},~\ref{subsec:perfil} e~\ref{subsec:filtragem} fazem uma revisão da literatura das técnicas de Aprendizado de Máquina aplicadas aos módulos de um SRsbC.
 
 \subsection{Analisador de Contexto}
 \label{subsec:analisadorcontexto}
@@ -1563,7 +1920,7 @@ Foi verificado que o SR proposto trata o problema de poucos dados para a identif
 \citeonline{Davoodi2012} apresentam um SR de especialistas, que representa o perfil dos usuários com semântica e constrói uma \textit{Rede Social}, para então, usar o algoritmo de clusterização (\textit{k-means}) para encontrar perfis de usuário.
 Além desse, \cite{Bielikova2012} apresenta um SR de notícias que faz o uso de clusterização hierárquica, tendo como medidade de similaridade a similaridade dos cossenos e índice de jaccard.
 Com uma abordagem \textit{bottom-up} de clusterização e uma estrutura de árvore binária, é realizado a clusterização das notícias: as folhas representam as notícias, e os nós pais, clusters que representam temas das notícias.
-O usuário desse sistema é representado por caminhos nesta árvore construída, podendo ser recomendados diversas notícias dentro de diversos tópicos, que podem surpreender o usuário, amenizando o problema de serendipidade em SRsbC. 
+O usuário desse sistema é representado por caminhos nesta árvore construída, podendo ser recomendados diversas notícias dentro de diversos tópicos, que podem surpreender o usuário, amenizando o problema de serendipidade em SRsbC.
 
 \subsection{Componente de Filtragem}
 \label{subsec:filtragem}
@@ -1579,7 +1936,7 @@ O trabalho desenvolvido por \citeonline{Bielikova2012} foi o único que apresent
 %Pa
 
 %Isso tudo tem que vir no capitulo da propsota, como eu disse, aqui é não é um momento de relatar atividades realizadas.
-% 
+%
 
 %idem
 %
@@ -1715,22 +2072,22 @@ Contrariamente, a distribuição de notícias por canal não ficou perto do unif
 
 Com o corpus iG criado, o intuito da fase de pré-processamento é representar as notícicas de maneira estruturada, para isso foram utilizadas técnicas de Mineração de Texto (Seção~\ref{sec:mintexto}).
 Foi criado um \textit{pipeline} para o pré-processamento das notícias que contou com as seguintes etapas:
-\begin{enumerate}[label*=\arabic*.]
-  \item Concatenação das características textuais (título, subtítulo e corpo da notícia) da notícia; normalização do texto, convertendo para minúsculo.
-  \item Filtragem de trechos do texto que correspondem com uma lista de expressões regulares definidas através da análise do corpus.
-  \item \textit{Tokenização}, usando espaços, pontuações e expressões regulares como delimitadores.
-  \item Definição de uma lista de \textit{stopwords}, a partir de uma lista já definida pela biblioteca nltk\footnote{http://www.nltk.org/} (\textit{Natural Language Processing Toolkit}) da linguagem python, foram adicionadas mais \textit{stopwords} à essa lista (por exemplo: \textit{leia mais}, \textit{veja aqui} e etc.), através de uma análise empírica das notícias do corpus.
-  \item \textit{Stemming}, para reduzir ambiguidade e a dimensionalidade das notícias, foi aplicado o algoritmo Removedor de Sufixos da Língua Portuguesa (RSLP) Stemmer \cite{Alvares2005}, que leva em consideração a teoria da língua portuguesa para criar 8 etapas, em que, cada etapa é composta por um conjunto de regras e então aplicada uma regra por vez. Este algoritmo é capaz de tratar e remover formas plurais, femininas/masculinas, adverbiais, aumentativas e diminutivas, substantivas, verbais e acentos.
-  \item Representação estruturada dos termos em:
-  \begin{enumerate}[label*=\arabic*.]
-    % \item TF
-    \item TF-IDF, realiza a contagem dos termos e aplica a fórmula de TF-IDF.
-    \item TF-IDF normalizado, realiza a contagem dos termos, aplica a fórmula de TF-IDF e faz a normalização para que todos os valores fiquem no intervalo de 0 à 1.
-    \item \textit{2-grams}, realiza a contagem dos termos concatenando 2 a 2.
-    % \item \textit{2-grams TF-IDF}, realiza a contagem dos termos concatenando 2 a 2.
-    \item \textit{3-grams}, realiza a contagem dos termos concatenando 3 a 3.
-  \end{enumerate}
-\end{enumerate}
+% \begin{enumerate}[label*=\arabic*.]
+%   \item Concatenação das características textuais (título, subtítulo e corpo da notícia) da notícia; normalização do texto, convertendo para minúsculo.
+%   \item Filtragem de trechos do texto que correspondem com uma lista de expressões regulares definidas através da análise do corpus.
+%   \item \textit{Tokenização}, usando espaços, pontuações e expressões regulares como delimitadores.
+%   \item Definição de uma lista de \textit{stopwords}, a partir de uma lista já definida pela biblioteca nltk\footnote{http://www.nltk.org/} (\textit{Natural Language Processing Toolkit}) da linguagem python, foram adicionadas mais \textit{stopwords} à essa lista (por exemplo: \textit{leia mais}, \textit{veja aqui} e etc.), através de uma análise empírica das notícias do corpus.
+%   \item \textit{Stemming}, para reduzir ambiguidade e a dimensionalidade das notícias, foi aplicado o algoritmo Removedor de Sufixos da Língua Portuguesa (RSLP) Stemmer \cite{Alvares2005}, que leva em consideração a teoria da língua portuguesa para criar 8 etapas, em que, cada etapa é composta por um conjunto de regras e então aplicada uma regra por vez. Este algoritmo é capaz de tratar e remover formas plurais, femininas/masculinas, adverbiais, aumentativas e diminutivas, substantivas, verbais e acentos.
+%   \item Representação estruturada dos termos em:
+%   \begin{enumerate}[label*=\arabic*.]
+%     % \item TF
+%     \item TF-IDF, realiza a contagem dos termos e aplica a fórmula de TF-IDF.
+%     \item TF-IDF normalizado, realiza a contagem dos termos, aplica a fórmula de TF-IDF e faz a normalização para que todos os valores fiquem no intervalo de 0 à 1.
+%     \item \textit{2-grams}, realiza a contagem dos termos concatenando 2 a 2.
+%     % \item \textit{2-grams TF-IDF}, realiza a contagem dos termos concatenando 2 a 2.
+%     \item \textit{3-grams}, realiza a contagem dos termos concatenando 3 a 3.
+%   \end{enumerate}
+% \end{enumerate}
 
 \subsection{Base de cliques iG}
 \label{subsec:basecliquesig}
@@ -1799,15 +2156,15 @@ Assim, é possível fazer comparações com uma técnica semelhante à originalm
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``apêndice''
 %
-% Para todos os captions/(títulos) (de seções, subseções, tabelas, 
+% Para todos os captions/(títulos) (de seções, subseções, tabelas,
 % ilustrações, etc):
-%     - em maiúscula apenas a primeira letra da sentença (do título), 
+%     - em maiúscula apenas a primeira letra da sentença (do título),
 %       exceto nomes próprios, geográficos, institucionais ou Programas ou
 %       Projetos ou siglas, os quais podem ter letras em maiúscula também.
 %
-% Todas  as tabelas, ilustrações (figuras, quadros, gráficos, etc. ), 
+% Todas  as tabelas, ilustrações (figuras, quadros, gráficos, etc. ),
 % anexos, apêndices devem obrigatoriamente ser citados no texto.
-%      - a citação deve vir sempre antes da primeira vez em que a tabela, 
+%      - a citação deve vir sempre antes da primeira vez em que a tabela,
 %        ilustração, etc., aparecer pela primeira vez.
 %
 %-------------------------------------------------------------------------
@@ -1860,15 +2217,15 @@ Resultados esperados & Contribuições científicas: desenvolvimento de algoritm
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``anexo''
 %
-% Para todos os captions/(títulos) (de seções, subseções, tabelas, 
+% Para todos os captions/(títulos) (de seções, subseções, tabelas,
 % ilustrações, etc):
-%     - em maiúscula apenas a primeira letra da sentença (do título), 
+%     - em maiúscula apenas a primeira letra da sentença (do título),
 %       exceto nomes próprios, geográficos, institucionais ou Programas ou
 %       Projetos ou siglas, os quais podem ter letras em maiúscula também.
 %
-% Todas  as tabelas, ilustrações (figuras, quadros, gráficos, etc. ), 
+% Todas  as tabelas, ilustrações (figuras, quadros, gráficos, etc. ),
 % anexos, apêndices devem obrigatoriamente ser citados no texto.
-%      - a citação deve vir sempre antes da primeira vez em que a tabela, 
+%      - a citação deve vir sempre antes da primeira vez em que a tabela,
 %        ilustração, etc., aparecer pela primeira vez.
 %
 %-------------------------------------------------------------------------
@@ -1884,37 +2241,37 @@ Resultados esperados & Contribuições científicas: desenvolvimento de algoritm
 % \subsection*{1.1 Elementos pré-textuais}
 
 % \begin{itemize}
-% 	\item Capa (obrigatório)
-% 	\item	Folha de rosto (obrigatório)
-% 	\item	Errata (opcional)
-% 	\item	Folha de aprovação (obrigatório)
-% 	\item	Dedicatória (opcional)
-% 	\item	Agradecimentos (opcional)
-% 	\item	Epígrafe (opcional)
-% 	\item	Resumo em língua vernácula (obrigatório)
-% 	\item	Resumo em língua estrangeira (obrigatório)
-% 	\item	Listas de ilustrações: lista de figuras, lista de algoritmos, lista de quadros, etc. (opcional)
-% 	\item	Lista de tabelas (opcional)
-% 	\item	Lista de abreviaturas e siglas (opcional)
-% 	\item	Lista de símbolos (opcional)
-% 	\item	Sumário (obrigatório)
+%     \item Capa (obrigatório)
+%     \item    Folha de rosto (obrigatório)
+%     \item    Errata (opcional)
+%     \item    Folha de aprovação (obrigatório)
+%     \item    Dedicatória (opcional)
+%     \item    Agradecimentos (opcional)
+%     \item    Epígrafe (opcional)
+%     \item    Resumo em língua vernácula (obrigatório)
+%     \item    Resumo em língua estrangeira (obrigatório)
+%     \item    Listas de ilustrações: lista de figuras, lista de algoritmos, lista de quadros, etc. (opcional)
+%     \item    Lista de tabelas (opcional)
+%     \item    Lista de abreviaturas e siglas (opcional)
+%     \item    Lista de símbolos (opcional)
+%     \item    Sumário (obrigatório)
 % \end{itemize}
 
 % \subsection*{1.2 Elementos textuais}
 
 % \begin{itemize}
-% 	\item	Introdução
-% 	\item	Desenvolvimento
-% 	\item	Conclusão
+%     \item    Introdução
+%     \item    Desenvolvimento
+%     \item    Conclusão
 % \end{itemize}
 
 % \subsection*{1.3 Elementos pós-textuais}
 
 % \begin{itemize}
-% 	\item	Referências (obrigatório)
-% 	\item	Apêndice (opcional)
-% 	\item	Anexo (opcional)
-% 	\item	Glossário (opcional)
+%     \item    Referências (obrigatório)
+%     \item    Apêndice (opcional)
+%     \item    Anexo (opcional)
+%     \item    Glossário (opcional)
 % \end{itemize}
 
 % \section*{2 Definições relacionadas a elementos pré-textuais}
@@ -1925,12 +2282,12 @@ Resultados esperados & Contribuições científicas: desenvolvimento de algoritm
 
 % Elemento obrigatório, para proteção externa e sobre o qual se imprimem informações que ajudam na identificação e uso do trabalho, na seguinte ordem:
 % \begin{enumerate}
-% 	\item Nome completo do autor: responsável intelectual do trabalho.
-% 	\item	Título principal do trabalho: deve ser claro e preciso, identificando o seu conteúdo e possibilitando a indexação e recuperação da informação.
-% 	\item	Subtítulo (se houver): deve ser evidenciada sua subordinação ao título principal, precedido de dois pontos (:).
-% 	\item	Número do volume (obrigatório apenas se houver mais de um volume, de forma que deve constar em cada capa a especificação do respectivo volume).
-% 	\item	Local (cidade) da instituição de apresentação.
-% 	\item	Ano do depósito (entrega).
+%     \item Nome completo do autor: responsável intelectual do trabalho.
+%     \item    Título principal do trabalho: deve ser claro e preciso, identificando o seu conteúdo e possibilitando a indexação e recuperação da informação.
+%     \item    Subtítulo (se houver): deve ser evidenciada sua subordinação ao título principal, precedido de dois pontos (:).
+%     \item    Número do volume (obrigatório apenas se houver mais de um volume, de forma que deve constar em cada capa a especificação do respectivo volume).
+%     \item    Local (cidade) da instituição de apresentação.
+%     \item    Ano do depósito (entrega).
 % \end{enumerate}
 
 \end{anexosenv}

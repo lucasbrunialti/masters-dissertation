@@ -1,9 +1,78 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: PPgSI-modeloQualiDissertacaoLatex.aux
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: PPgSI-modeloQualiDissertacaoLatex.aux
 The style file: abntex2-alf.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: referencias.bib
+I was expecting a `,' or a `}'---line 369 of file referencias.bib
+ :   
+ :   month = 8
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 697 of file referencias.bib
+ :   
+ :   number = {5}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--entry type for "Long2005" isn't style-file defined
+--line 835 of file referencias.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v<VERSION>           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
+You've used 67 entries,
+            6711 wiz_defined-function locations,
+            1669 strings with 22498 characters,
+and the built_in function-call counts, 72075 in all, are:
+= -- 6741
+> -- 2532
+< -- 467
++ -- 1322
+- -- 747
+* -- 5131
+:= -- 8650
+add.period$ -- 256
+call.type$ -- 67
+change.case$ -- 819
+chr.to.int$ -- 184
+cite$ -- 66
+duplicate$ -- 5015
+empty$ -- 4337
+format.name$ -- 3608
+if$ -- 16818
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 1239
+newline$ -- 315
+num.names$ -- 334
+pop$ -- 1627
+preamble$ -- 1
+purify$ -- 294
+quote$ -- 0
+skip$ -- 5196
+stack$ -- 1
+substring$ -- 2644
+swap$ -- 1922
+text.length$ -- 111
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 26
+warning$ -- 0
+while$ -- 499
+width$ -- 0
+write$ -- 1106
+(There were 2 error messages)

@@ -1,0 +1,37 @@
+
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+
+\newtheorem{proposition}{Proposition}
+
+\begin{document}
+
+\begin{proposition}
+For any matrices $A \in \mathbb{R}^{n \times n}_{+}$, $B \in \mathbb{R}^{k \times k}_{+}$, $S \in \mathbb{R}^{n \times k}_{+}$, $S' \in \mathbb{R}^{n \times k}_{+}$, and $A$, $B$ are symmetric, the following inequality holds
+
+\begin{equation}
+    \begin{array}{lclcl}
+        \sum_{i = 1}^{n} \sum_{p = 1}^{k} \frac{ (A S' B)_{ip} S^{2}_{ip} }{ S'_{ip} } & \geq & Tr(S^T A S B)
+    \end{array}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+    Let $S_{ip} = S'_{ip} u_{ip}$. Using the explicit index, the difference $\Delta = LHS - RHS$ can be written as
+    \begin{equation}
+        \begin{array}{lclcl}
+            \Delta & = & \sum_{i, j = 1}^{n} \sum_{p, q = 1}^{k} A_{ij} S'_{jq} B_{qp} S'_{ip} (u_{ip}^2 - u_{ip} u_{jq}) \\
+        \end{array}
+    \end{equation}
+
+    Because, $A, B$ are symmetric, this is equal to
+    \begin{equation}
+        \begin{array}{lclcl}
+                   & = & \sum_{i, j = 1}^{n} \sum_{p, q = 1}^{k} A_{ij} S'_{jq} B_{qp} S'_{ip} (\frac{u_{ip}^2 + u_{jq}^2}{2} - u_{ip} u_{jq}) \\
+                   & = & \frac{1}{2} \sum_{i, j = 1}^{n} \sum_{p, q = 1}^{k} (u_{ip} - u_{jq})^2 \geq 0
+        \end{array}
+    \end{equation}
+\end{proof}
+
+\end{document}

@@ -1404,7 +1404,16 @@ Essa superfície com restrições é chamada de Variedade de Stiefel (\textit{St
 \]
 
 Note que quando $b = 1$, a superfície se torna uma esfera.
-Para otimização, considerando que essa esfera sejam as restrições do problema, o ideal é propor métodos que permanecam na esfera, então, todos os vetores tangentes à essa esfera, podem ser direções possíveis para um algoritmo de otimização iterativo.
+Para otimização, considerando que essa esfera sejam as restrições do problema, o ideal é propor métodos que permanecam na esfera, então, todos os vetores tangentes à essa esfera, podem ser direções possíveis para um algoritmo de otimização iterativo, como mostra a Figura~\ref{fig:stiefel}.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.3\textwidth]{img/stiefel.png}
+    \caption{
+        Uma Variedade Stiefel no espaço Euclidiano, que quando $b = 1$ essa superfície será uma esfera, e um dos possíveis vetores que está contido no conjunto dessa variedade (tangente à esfera).
+    }
+    \label{fig:stiefel}
+\end{figure}
 
 \citeonline{Edelman1999} definem o gradiente em um ponto $Y$, com a restrição $Y^T Y = I$, de uma função $\mathcal{J}$ definida em uma Variedade Stiefel no espaço euclidiano como:
 
@@ -1426,11 +1435,11 @@ Dada a equação~\ref{eq:stiefeldiff}, \citeonline{Yoo2010} propõem os seguinte
     \end{array}
 \]
 
-Restando apenas o cálculo do gradiente para $S$, que como não há restrições, será igual à atualização do algoritmo para solução do BVD
+Restando apenas o cálculo do gradiente para $S$, que como não há restrições, será igual à atualização do algoritmo para solução do BVD:
 
 \[
-    \begin{array}{lcl}
-        \nabla_S \mathcal{F}_2 & = & U^T U S V^T V - U^T X V
+    \begin{array}{lclcl}
+        {\tilde \nabla_S} \mathcal{F}_2 & = & \nabla_S \mathcal{F}_2 & = & U^T U S V^T V - U^T X V
     \end{array}
 \]
 

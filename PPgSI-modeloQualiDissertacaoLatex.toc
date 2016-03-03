@@ -19,54 +19,48 @@
 \contentsline {section}{\numberline {1.5}Organiza\IeC {\c c}\IeC {\~a}o do documento}{23}{section.1.5}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {2}Conceitos Fundamentais}{24}{chapter.2}
-\contentsline {section}{\numberline {2.1}Tipos de biclusters}{24}{section.2.1}
-\contentsline {section}{\numberline {2.2}Algoritmos para Biclusteriza\IeC {\c c}\IeC {\~a}o}{25}{section.2.2}
-\contentsline {section}{\numberline {2.3}Avalia\IeC {\c c}\IeC {\~a}o de Biclusteriza\IeC {\c c}\IeC {\~a}o}{27}{section.2.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}Fatora\IeC {\c c}\IeC {\~a}o de matrizes}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Non-negative Matrix Factorization}{29}{section.3.1}
-\contentsline {section}{\numberline {3.2}Fatora\IeC {\c c}\IeC {\~a}o de Matrizes N\IeC {\~a}o-Negativas para Coclustering}{29}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Decomposi\IeC {\c c}\IeC {\~a}o de Valores em Blocos para Coclustering}{30}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Fatora\IeC {\c c}\IeC {\~a}o Ortogonal tripla de Matrizes N\IeC {\~a}o-negativas}{32}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Fatora\IeC {\c c}\IeC {\~a}o tripla r\IeC {\'a}pida de Matrizes N\IeC {\~a}o-negativas}{36}{section.3.3}
+\contentsline {chapter}{\chapternumberline {3}Fatora\IeC {\c c}\IeC {\~a}o de matrizes}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Non-negative Matrix Factorization}{25}{section.3.1}
+\contentsline {section}{\numberline {3.2}Fatora\IeC {\c c}\IeC {\~a}o de Matrizes N\IeC {\~a}o-Negativas para Coclustering}{25}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Decomposi\IeC {\c c}\IeC {\~a}o de Valores em Blocos para Coclustering}{26}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Fatora\IeC {\c c}\IeC {\~a}o Ortogonal tripla de Matrizes N\IeC {\~a}o-negativas}{28}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Fatora\IeC {\c c}\IeC {\~a}o tripla r\IeC {\'a}pida de Matrizes N\IeC {\~a}o-negativas}{32}{section.3.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}Algoritmos propostos}{38}{chapter.4}
-\contentsline {section}{\numberline {4.1}Fatora\IeC {\c c}\IeC {\~a}o Tripla de Matrizes N\IeC {\~a}o-negativas Sobrepostas}{38}{section.4.1}
-\contentsline {section}{\numberline {4.2}Fatora\IeC {\c c}\IeC {\~a}o Bin\IeC {\'a}ria Tripla de Matrizes N\IeC {\~a}o-negativas Sobrepostas}{39}{section.4.2}
-\contentsline {section}{\numberline {4.3}Prova de conceito - Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o}{39}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Tipos de Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o}{40}{subsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.1.1}Vantagens e desvantagens}{42}{subsubsection.4.3.1.1}
-\contentsline {subsection}{\numberline {4.3.2}Avalia\IeC {\c c}\IeC {\~a}o da Recomenda\IeC {\c c}\IeC {\~a}o}{43}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Minera\IeC {\c c}\IeC {\~a}o de Texto}{45}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Tarefas de pr\IeC {\'e}-processamento}{46}{subsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{46}{subsubsection.4.4.1.1}
-\contentsline {subsubsection}{\numberline {4.4.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{47}{subsubsection.4.4.1.2}
-\contentsline {subsubsection}{\numberline {4.4.1.3}Filtragem}{47}{subsubsection.4.4.1.3}
-\contentsline {subsubsection}{\numberline {4.4.1.4}Stemming}{47}{subsubsection.4.4.1.4}
-\contentsline {subsubsection}{\numberline {4.4.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{48}{subsubsection.4.4.1.5}
+\contentsline {chapter}{\chapternumberline {4}Algoritmos propostos}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Fatora\IeC {\c c}\IeC {\~a}o Tripla de Matrizes N\IeC {\~a}o-negativas Sobrepostas}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}Fatora\IeC {\c c}\IeC {\~a}o Bin\IeC {\'a}ria Tripla de Matrizes N\IeC {\~a}o-negativas Sobrepostas}{36}{section.4.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do e Aprendizado de M\IeC {\'a}quina}{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}Arquitetura de Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do}{49}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Analisador de Contexto}{50}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Aprendizado do Perfil}{52}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Componente de Filtragem}{53}{subsection.5.1.3}
+\contentsline {chapter}{\chapternumberline {5}Minera\IeC {\c c}\IeC {\~a}o de Texto}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Tarefas de pr\IeC {\'e}-processamento}{37}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{37}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{38}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Filtragem}{39}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Stemming}{39}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{39}{subsection.5.1.5}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}Proposta}{55}{chapter.6}
-\contentsline {section}{\numberline {6.1}Revis\IeC {\~o}es Bibliogr\IeC {\'a}ficas}{56}{section.6.1}
-\contentsline {section}{\numberline {6.2}Constru\IeC {\c c}\IeC {\~a}o das Bases de Dados}{58}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Corpus iG}{58}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Pr\IeC {\'e}-processamento do corpus iG}{59}{subsection.6.2.2}
-\contentsline {subsection}{\numberline {6.2.3}Base de cliques iG}{59}{subsection.6.2.3}
-\contentsline {section}{\numberline {6.3}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o e Extens\IeC {\~o}es}{60}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o}{60}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Poss\IeC {\'\i }veis Extens\IeC {\~o}es}{60}{subsection.6.3.2}
+\contentsline {chapter}{\chapternumberline {6}Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do e Aprendizado de M\IeC {\'a}quina}{41}{chapter.6}
+\contentsline {section}{\numberline {6.1}Arquitetura de Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do}{41}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Analisador de Contexto}{42}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Aprendizado do Perfil}{44}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Componente de Filtragem}{45}{subsection.6.1.3}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {7}Proposta}{47}{chapter.7}
+\contentsline {section}{\numberline {7.1}Revis\IeC {\~o}es Bibliogr\IeC {\'a}ficas}{48}{section.7.1}
+\contentsline {section}{\numberline {7.2}Constru\IeC {\c c}\IeC {\~a}o das Bases de Dados}{50}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Corpus iG}{50}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Pr\IeC {\'e}-processamento do corpus iG}{51}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Base de cliques iG}{51}{subsection.7.2.3}
+\contentsline {section}{\numberline {7.3}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o e Extens\IeC {\~o}es}{52}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o}{52}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Poss\IeC {\'\i }veis Extens\IeC {\~o}es}{52}{subsection.7.3.2}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{62}{section*.24}
+\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{54}{section*.25}
 \renewcommand *{\cftappendixname }{Ap\^endice \space }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}Tabela Workshop}{67}{appendix.A}
+\contentsline {appendix}{\chapternumberline {A}Tabela Workshop}{59}{appendix.A}
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{Anexo \space }

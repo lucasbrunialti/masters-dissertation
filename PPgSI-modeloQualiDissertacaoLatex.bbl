@@ -31,24 +31,6 @@ ISBN 9780471787761.}
 \emph{Computer Science and Information Systems}, COMSIS CONSORTIUM, v.~9, n.~1,
   p. 303--322, jan. 2012.}
 
-\bibitem[Burke 2002]{Burke2002}
-\abntrefinfo{Burke}{BURKE}{2002}
-{BURKE, R. Hybrid recommender systems: Survey and experiments.
-\emph{User Modeling and User-Adapted Interaction}, Kluwer Academic Publishers,
-  Hingham, MA, USA, v.~12, n.~4, p. 331--370, 2002.}
-
-\bibitem[Burke 2007]{Burke2007}
-\abntrefinfo{Burke}{BURKE}{2007}
-{BURKE, R. Hybrid web recommender systems. In:  \emph{The Adaptive Web: Methods
-  and Strategies of Web Personalization}. Berlin: [s.n.], 2007. cap.~12, p.
-  377--408.}
-
-\bibitem[Cabanes, Bennani e Fresneau 2012]{Cabanes2012}
-\abntrefinfo{Cabanes, Bennani e Fresneau}{CABANES; BENNANI; FRESNEAU}{2012}
-{CABANES, G.; BENNANI, Y.; FRESNEAU, D. Enriched topological learning for
-  cluster detection and visualization.
-\emph{Neural Networks}, v.~32, p. 186--195, 2012.}
-
 \bibitem[Capelle et al. 2012]{Capelle2012}
 \abntrefinfo{Capelle et al.}{CAPELLE et al.}{2012}
 {CAPELLE, M. et al. Semantics-based news recommendation. In:  \emph{Proceedings
@@ -107,18 +89,6 @@ Dispon{\'\i}vel em:
 \emph{Biclusterização na Análise de Dados Incertos}.
 Tese (Doutorado) --- Universidade Estadual de Campinas, Campinas, SP, BR, 11
   2010.}
-
-\bibitem[França e Zuben 2010]{Franca20102}
-\abntrefinfo{França e Zuben}{FRANçA; ZUBEN}{2010}
-{FRANçA, F. de; ZUBEN, F. V. Finding a high coverage set of 5-biclusters with
-  swarm intelligence. In:  \emph{Evolutionary Computation (CEC), 2010 IEEE
-  Congress on}. [S.l.: s.n.], 2010. p.~1--8.}
-
-\bibitem[Getz, Levine e Domany 2000]{Getz2000}
-\abntrefinfo{Getz, Levine e Domany}{GETZ; LEVINE; DOMANY}{2000}
-{GETZ, G.; LEVINE, E.; DOMANY, E. Coupled two-way clustering analysis of gene
-  microarray data.
-\emph{Proc. Natl. Acad. Sci. USA}, v.~97, p. 12079--12084, 2000.}
 
 \bibitem[Han e Kamber 2006]{han2006data}
 \abntrefinfo{Han e Kamber}{HAN; KAMBER}{2006}
@@ -188,13 +158,6 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 \emph{DECISION SUPPORT SYSTEMS}, ELSEVIER SCIENCE BV, v.~53, n.~1, p. 245--256,
   abr. 2012.}
 
-\bibitem[Leino 2014]{Leino2014}
-\abntrefinfo{Leino}{LEINO}{2014}
-{LEINO, J.
-\emph{User Factors in Recommender Systems: Case Studies in e-Commerce, News
-  Recommending, and e-Learning}.
-Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
-
 \bibitem[Long, Zhang e Yu 2005]{Long2005}
 \abntrefinfo{Long, Zhang e Yu}{LONG; ZHANG; YU}{2005}
 {LONG, B.; ZHANG, Z.~M.; YU, P.~S. \emph{Co-clustering by block value
@@ -242,14 +205,6 @@ Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
 {MURPHY, K.~P. \emph{Machine Learning: A Probabilistic Perspective}. [S.l.]:
   The MIT Press, 2012.}
 
-\bibitem[Neumann 2007]{Neumann2007}
-\abntrefinfo{Neumann}{NEUMANN}{2007}
-{NEUMANN, A. Motivating and supporting user interaction with recommender
-  systems. In:  KOVáCS, L.; FUHR, N.; MEGHINI, C. (Ed.). \emph{Research and
-  Advanced Technology for Digital Libraries}. [S.l.]: Springer Berlin
-  Heidelberg, 2007,  (Lecture Notes in Computer Science, v.~4675). p.
-  428--439.}
-
 \bibitem[Preli\'{C} et al. 2006]{Prelic2006}
 \abntrefinfo{Preli\'{C} et al.}{PRELI\'{C} et al.}{2006}
 {PRELI\'{C}, A. et al. A systematic comparison and evaluation of biclustering
@@ -263,12 +218,6 @@ Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
   \emph{Proceedings of the 13th Conference of the European Chapter of the
   Association for Computational Linguistics}. Stroudsburg, PA, USA: Association
   for Computational Linguistics, 2012.  (EACL '12), p. 367--376.}
-
-\bibitem[Resnick e Varian 1997]{Resnick1997}
-\abntrefinfo{Resnick e Varian}{RESNICK; VARIAN}{1997}
-{RESNICK, P.; VARIAN, H.~R. Recommender systems.
-\emph{Communications of the ACM}, ACM, New York, NY, USA, v.~40, p. 56--58,
-  March 1997.}
 
 \bibitem[Saaya et al. 2013]{Saaya2013}
 \abntrefinfo{Saaya et al.}{SAAYA et al.}{2013}
@@ -305,12 +254,6 @@ Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
 \abntrefinfo{Shahnaz et al.}{SHAHNAZ et al.}{2006}
 {SHAHNAZ, F. et al. Document clustering using nonnegative matrix factorization.
 \emph{Information Processing \& Management}, v.~42, n.~2, p. 373 -- 386, 2006.}
-
-\bibitem[Shani e Gunawardana 2011]{Ricci22011}
-\abntrefinfo{Shani e Gunawardana}{SHANI; GUNAWARDANA}{2011}
-{SHANI, G.; GUNAWARDANA, A. Evaluating recommendation systems. In:  RICCI, F.
-  et al. (Ed.). \emph{Recommender Systems Handbook}. [S.l.]: Springer, 2011. p.
-  257--297.}
 
 \bibitem[Skillicorn 2012]{Skillicorn2012}
 \abntrefinfo{Skillicorn}{SKILLICORN}{2012}
@@ -400,13 +343,6 @@ ISBN 978-1-57735-514-4. Dispon{\'\i}vel em:
   York, NY, USA: ACM, 2003.  (SIGIR '03), p. 267--273.
 ISBN 1-58113-646-3. Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/860435\-.860485$>$}{http://doi.acm.org/10.1145/860435.860485}.}
-
-\bibitem[Yang e Leskovec 2013]{Yang2013}
-\abntrefinfo{Yang e Leskovec}{YANG; LESKOVEC}{2013}
-{YANG, J.; LESKOVEC, J. Overlapping community detection at scale: A nonnegative
-  matrix factorization approach. In:  \emph{Proceedings of the Sixth ACM
-  International Conference on Web Search and Data Mining}. New York, NY, USA:
-  ACM, 2013.  (WSDM '13), p. 587--596.}
 
 \bibitem[Yeung, Yang e Ndzi 2012]{Yeung2012}
 \abntrefinfo{Yeung, Yang e Ndzi}{YEUNG; YANG; NDZI}{2012}

@@ -1655,6 +1655,7 @@ sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes
                         (S^{(t+1)})_{p q} \gets \frac{1}{\abs{\{\mathbf{x}_{i \cdot} \in \mathcal{C}_p\}} \abs{\{\mathbf{x}_{\cdot j} \in \mathcal{W}_q\}}} \sum_{i = 1}^{n} \sum_{j = 1}^{m} \sum_{\mathbf{x}_{i \cdot} \in \mathcal{C}_p} \sum_{\mathbf{x}_{\cdot j} \in \mathcal{W}_q} x_{i j}
                     \end{equation}
                 \For{$p \leftarrow 1, k$}
+                \State
                     \[
                         {\tilde F} \gets
                             \begin{bmatrix}
@@ -1663,6 +1664,7 @@ sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes
                                          & \vdots                                                                     &
                             \end{bmatrix} S^{(t+1)}
                     \]
+                \State
                     \[
                         {\tilde X} \gets
                             \begin{bmatrix}

@@ -76,18 +76,32 @@
 % \usepackage{subfigure}
 
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
 
 \newcounter{parms} \renewcommand{\theparms}{[\arabic{parms}]}
 \newcommand{\newparm}[1]{
   \refstepcounter{parms}\arabic{parms}\label{#1}%
 }
 
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+
 \newtheorem{definition}{Definição}
 \newtheorem{problem}{Problema}
 \newtheorem{theorem}{Teorema}
 \newtheorem{corollary}{Corolário}
 \newtheorem{proposition}{Proposição}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 % \renewcommand\qedsymbol{$\blacksquare$}
 
@@ -1243,7 +1257,22 @@ Aplicando o produto Hadamard dos dois lados de cada uma das equações e utiliza
 \end{array}
 \]
 
-Através da iteração do ponto fixo é possível encontrar regras para atualização multiplicativa de $U$, $S$ e $V$, assim como mostra as equações~\ref{eq:bvd:updateU}, \ref{eq:bvd:updateS} e \ref{eq:bvd:updateV}, respectivamente, assim como mostram o algoritmo~\ref{algo:bvd} \cite{Long2005}.
+Desta forma, é possível resolver para $U$ de forma algébrica:
+\[
+\begin{array}{lclclcl}
+             & U \odot U S V^{T} V S^{T}                           & = & U \odot X V^{T} S^{T} \\
+    \implies & U \odot \frac{U S V^{T} V S^{T}}{U S V^{T} V S^{T}} & = & U \odot \frac{X V^{T} S^{T}}{U S V^{T} V S^{T}}
+\end{array}
+\]
+
+\[
+    \begin{array}{lclcl}
+        \therefore & U & = & U \odot \frac{X V^{T} S^{T}}{U S V^{T} V S^{T}}
+    \end{array}
+\]
+
+Da mesma maneira é possível resolver para $S$ e $V$, assim como mostram as equações~\ref{eq:bvd:updateS} e \ref{eq:bvd:updateV}, descritas no algoritmo~\ref{algo:bvd} \cite{Long2005}.
+% Através da iteração do ponto fixo é possível encontrar regras para atualização multiplicativa de $U$, $S$ e $V$, assim como mostra as equações~\ref{eq:bvd:updateU}, \ref{eq:bvd:updateS} e \ref{eq:bvd:updateV}, respectivamente, assim como mostram o algoritmo~\ref{algo:bvd} \cite{Long2005}.
 Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente.
 
 \begin{algorithm}
@@ -1464,7 +1493,7 @@ O problema de Fatoração tripla rápida de Matrizes Não-negativas (\textit{Fas
 \label{def:fnmtf:problem}
 \begin{equation}
     \begin{array}{lclcl}
-        \displaystyle \mathcal{F}_2(F, S, G) & = & \displaystyle \min_{F, S, G} & \norm{X - FSG^T}^{2}_{F} \\
+        \displaystyle \mathcal{F}_3(F, S, G) & = & \displaystyle \min_{F, S, G} & \norm{X - FSG^T}^{2}_{F} \\
                                              &   &                              & F \in \Psi^{n \times k}, \\
                                              &   &                              & G \in \Psi^{m \times l}
     \end{array}
@@ -1475,12 +1504,12 @@ onde $X \in \mathbb{R}^{n \times m}$, $S \in \mathbb{R}^{k \times l}$, $\Psi = \
 
 Assim como nos outros algoritmos, $F$ é uma matriz indicadora dos grupos de linhas, $G$ uma matriz indicadora dos grupos de colunas, e $S$ contém os fatores que conectam um grupo de linhas aos grupos de colunas, e, um grupo de colunas aos grupos de linhas.
 
-Como não há restrições em $\mathcal{F}$, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}$:
+Como não há restrições em $\mathcal{F}_3$, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_3$:
 \[
     \begin{array}{lclcl}
-        \nabla_S \mathcal{L} &     =       & F^T X G - F^T F S G^T G                 & = & 0                                 \\
-                             & \implies    & F^TFSG^TG                               & = & F^TXG                             \\
-                             & \implies    & (F^T F)^{-1} F^T F S G^T G (G^T G)^{-1} & = & (F^T F)^{-1} F^T X G (G^T G)^{-1}
+        \nabla_S \mathcal{L} &     =    & F^T X G - F^T F S G^T G                 & = & 0                                 \\
+                             & \implies & F^TFSG^TG                               & = & F^TXG                             \\
+                             & \implies & (F^T F)^{-1} F^T F S G^T G (G^T G)^{-1} & = & (F^T F)^{-1} F^T X G (G^T G)^{-1}
     \end{array}
 \]
 
@@ -1555,7 +1584,7 @@ Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{
 \label{def:ovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
-        \displaystyle \mathcal{F}_3(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}}^{2}_{F} \\
+        \displaystyle \mathcal{F}_4(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}}^{2}_{F} \\
                                                                    &   & \text{suj. a}                & U \geq 0, \\
                                                                    &   &                              & S \geq 0, \\
                                                                    &   &                              & V_{(p)} \geq 0, \quad \forall p
@@ -1600,10 +1629,10 @@ sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{V} = \
 \section{Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas}
 
 \begin{problem}[Problema de Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas]
-\label{def:ovnmtf:problem}
+\label{def:binovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
-        \displaystyle \mathcal{F}_3(F, S, G_{(1)}, \dots, G_{(k)}) & = & \displaystyle \min_{F, S, G_{(1)}, \dots, G_{(k)}} & \norm{ X - F \sum_{p=1}^{k} I_{(p)} S G_{(p)} }^{2}_{F} \\
+        \displaystyle \mathcal{F}_5(F, S, G_{(1)}, \dots, G_{(k)}) & = & \displaystyle \min_{F, S, G_{(1)}, \dots, G_{(k)}} & \norm{ X - F \sum_{p=1}^{k} I_{(p)} S G_{(p)} }^{2}_{F} \\
                                                                    &   & \text{suj. a}                & F \in \Psi^{n \times k}, \\
                                                                    &   &                              & S \in \Psi^{k \times l}, \\
                                                                    &   &                              & G_{(p)} \in \Psi^{m \times l}, \quad \forall p
@@ -1613,7 +1642,66 @@ sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{V} = \
 
 sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{G} = \{ G_{(1)}, \dots, G_{(k)} \}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $S \in \mathbb{R}^{k \times l}_{+}$, $X \in \mathbb{R}^{n \times m}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
 
-
+\begin{algorithm}
+\caption{Algoritmo BinOvNMTF}
+\label{algo:binovbnmtf}
+    \begin{algorithmic}[1]
+        \Function{BinOvNMTF}{$X$, $maxIter$}
+            \State \textbf{Inicialize:} $F^{(0)} \geq 0, S^{(0)} \geq 0, G_{(0)}^{(0)} \geq 0, \dots, G_{(k)}^{(0)} \geq 0$ e $t \gets 0$.
+            \While{(não convergiu) ou ($t \leq maxIter$)}
+                \State
+                    \begin{equation}
+                    \label{eq:binovbnmtf:updateS}
+                        (S^{(t+1)})_{p q} \gets \frac{1}{\abs{\{\mathbf{x}_{i \cdot} \in \mathcal{C}_p\}} \abs{\{\mathbf{x}_{\cdot j} \in \mathcal{W}_q\}}} \sum_{i = 1}^{n} \sum_{j = 1}^{m} \sum_{\mathbf{x}_{i \cdot} \in \mathcal{C}_p} \sum_{\mathbf{x}_{\cdot j} \in \mathcal{W}_q} x_{i j}
+                    \end{equation}
+                \For{$p \leftarrow 1, k$}
+                    \[
+                        {\tilde F} \gets
+                            \begin{bmatrix}
+                                         & \vdots                                                                     &          \\
+                                \horzbar & \mathbf{f}_{i \cdot}^{(t)}, \forall \mathbf{x}_{i \cdot} \in \mathcal{C}_p & \horzbar \\
+                                         & \vdots                                                                     &
+                            \end{bmatrix} S^{(t+1)}
+                    \]
+                    \[
+                        {\tilde X} \gets
+                            \begin{bmatrix}
+                                         & \vdots                                                                     &          \\
+                                \horzbar & \mathbf{x}_{i \cdot}, \forall \mathbf{x}_{i \cdot} \in \mathcal{C}_p & \horzbar \\
+                                         & \vdots                                                                     &
+                            \end{bmatrix}
+                    \]
+                \EndFor
+                \State
+                    \begin{equation}
+                    \label{eq:binovbnmtf:updateG}
+                        (G_{(p)}^{(t+1)})_{jq} \gets \left\{
+                            \begin{array}{ll}
+                                1 & q = \argmin_{q' \in \{1, \dots, l\}} \norm{ \mathbf{{\tilde x}}_{\cdot j} - \mathbf{{\tilde f}}_{\cdot q'} }^2 \\
+                                0 & \textit{caso contrário}
+                            \end{array}
+                        \right. \forall j, q
+                    \end{equation}
+                \State
+                    \[
+                        \mathbf{{\tilde g}}_{p \cdot} \gets (\mathbf{s}^{(t+1)} G_{(p)}^{(t)^T})_{pj}, \forall p
+                    \]
+                \State
+                    \begin{equation}
+                    \label{eq:binovbnmtf:updateF}
+                        (F^{(t+1)})_{ip} \gets \left\{
+                            \begin{array}{ll}
+                                1 & p = \argmin_{p' \in \{1, \dots, k\}} \norm{ \mathbf{x}_{i \cdot} - \mathbf{{\tilde g}}_{p' \cdot} }^2 \\
+                                0 & \textit{caso contrário}
+                            \end{array}
+                        \right. \forall i, p
+                    \end{equation}
+                \State $t \gets t + 1$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $F^{(t+1)}, S^{(t+1)}, G_{(1)}^{(t+1)}, \dots, G_{(k)}^{(t+1)}$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
 
 % ************************************************************
 % ************************************************************

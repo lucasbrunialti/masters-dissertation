@@ -298,12 +298,17 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf2.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/stiefel.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/stiefel.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/stiefel.png
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/approach.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/approach.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/approach.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/analisador.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/analisador.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/analisador.png
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/proposal.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/proposal.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/proposal.png
@@ -314,6 +319,8 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertaca
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
 OUTPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 OUTPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.lof
 OUTPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.loa
 OUTPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.lot
@@ -322,6 +329,7 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertaca
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb

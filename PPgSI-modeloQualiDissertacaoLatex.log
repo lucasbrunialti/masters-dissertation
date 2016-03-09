@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 MAR 2016 01:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 MAR 2016 02:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -995,44 +995,44 @@ LaTeX Info: Redefining \newblock on input line 629.
 LaTeX Info: Redefining \cite on input line 656.
 \ABCItoken=\toks43
 )
-Package color Info: Redefining color blue on input line 243.
+Package color Info: Redefining color blue on input line 257.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\uppercase' on input line 260.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\uppercase' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\newline' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\newline' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\newline' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\newline' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\newline' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\newline' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\newline' on input line 260.
+(hyperref)                removing `\newline' on input line 274.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 260.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\newline' on input line 274.
+
+Package hyperref Info: Option `colorlinks' set `true' on input line 274.
 \PPgSI-modeloQualiDissertacaoLatex@idxfile=\write4
 \openout4 = `PPgSI-modeloQualiDissertacaoLatex.idx'.
 
@@ -1053,27 +1053,27 @@ LaTeX Warning: Label `euclidendwhile' multiply defined.
 LaTeX Warning: Label `euclidendwhile' multiply defined.
 
 
-LaTeX Warning: Label `def:ovnmtf:problem' multiply defined.
+LaTeX Warning: Label `euclidendwhile' multiply defined.
 
 )
 \openout1 = `PPgSI-modeloQualiDissertacaoLatex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 289.
-LaTeX Font Info:    ... okay on input line 289.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 289.
-LaTeX Font Info:    ... okay on input line 289.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 289.
-LaTeX Font Info:    ... okay on input line 289.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 289.
-LaTeX Font Info:    ... okay on input line 289.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 289.
-LaTeX Font Info:    ... okay on input line 289.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 289.
-LaTeX Font Info:    ... okay on input line 289.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 289.
-LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 303.
+LaTeX Font Info:    ... okay on input line 303.
 \AtBeginShipoutBox=\box40
-Package hyperref Info: Link coloring ON on input line 289.
+Package hyperref Info: Link coloring ON on input line 303.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1083,15 +1083,15 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 289.
-LaTeX Info: Redefining \ref on input line 289.
-LaTeX Info: Redefining \pageref on input line 289.
-LaTeX Info: Redefining \nameref on input line 289.
+LaTeX Info: Redefining \nameref on input line 303.
+LaTeX Info: Redefining \ref on input line 303.
+LaTeX Info: Redefining \pageref on input line 303.
+LaTeX Info: Redefining \nameref on input line 303.
 \myptabbox=\box41
 \myptabboxwidth=\skip214
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 289.
+(lastpage)             ! on input line 303.
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count208
@@ -1124,7 +1124,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2013/02/03 v1.3-62 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 289.
+LaTeX Info: Redefining \microtypecontext on input line 303.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1140,57 +1140,57 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 ) [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 \OT1/cmr/m/n/12 (+20) Disserta^^Xc~ao apre-sen-tada ^^Ra Es-cola de
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 322--322
+Underfull \hbox (badness 1331) in paragraph at lines 336--336
 \OT1/cmr/m/n/12 (+20) Ar-tes, Ci^encias e Hu-ma-ni-da-des da Uni-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 
  []
 
 
-Underfull \hbox (badness 8038) in paragraph at lines 322--322
+Underfull \hbox (badness 8038) in paragraph at lines 336--336
 []\OT1/cmr/m/n/12 (+20) Area de con-cen-tra^^Xc~ao: Me-to-do-lo-gia e
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 
  []
 
 
-Underfull \hbox (badness 2293) in paragraph at lines 322--322
+Underfull \hbox (badness 2293) in paragraph at lines 336--336
 \OT1/cmr/m/n/12 (+20) Vers~ao cor-ri-gida con-tendo as al-tera^^Xc~oes
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 322.
+LaTeX Font Info:    Try loading font information for U+msa on input line 336.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 322.
+LaTeX Font Info:    Try loading font information for U+msb on input line 336.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1199,7 +1199,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.322 
+l.336 
        [1
 
 
@@ -1207,37 +1207,37 @@ l.322
 ] <fig_ficha_catalografica.pdf, id=16, 597.432pt x 845.07718pt>
 File: fig_ficha_catalografica.pdf Graphic file (type pdf)
 <use fig_ficha_catalografica.pdf>
-Package pdftex.def Info: fig_ficha_catalografica.pdf used on input line 350.
+Package pdftex.def Info: fig_ficha_catalografica.pdf used on input line 364.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: fig_ficha_catalografica.pdf Graphic file (type pdf)
 <use fig_ficha_catalografica.pdf>
-Package pdftex.def Info: fig_ficha_catalografica.pdf used on input line 350.
+Package pdftex.def Info: fig_ficha_catalografica.pdf used on input line 364.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 <fig_ficha_catalografica.pdf, id=19, page=1, 597.432pt x 845.07718pt>
 File: fig_ficha_catalografica.pdf Graphic file (type pdf)
 <use fig_ficha_catalografica.pdf, page 1>
 Package pdftex.def Info: fig_ficha_catalografica.pdf, page1 used on input line 
-350.
+364.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: fig_ficha_catalografica.pdf Graphic file (type pdf)
 <use fig_ficha_catalografica.pdf, page 1>
 Package pdftex.def Info: fig_ficha_catalografica.pdf, page1 used on input line 
-350.
+364.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: fig_ficha_catalografica.pdf Graphic file (type pdf)
 <use fig_ficha_catalografica.pdf, page 1>
 Package pdftex.def Info: fig_ficha_catalografica.pdf, page1 used on input line 
-350.
+364.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: fig_ficha_catalografica.pdf Graphic file (type pdf)
 <use fig_ficha_catalografica.pdf, page 1>
 Package pdftex.def Info: fig_ficha_catalografica.pdf, page1 used on input line 
-350.
+364.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: fig_ficha_catalografica.pdf Graphic file (type pdf)
 <use fig_ficha_catalografica.pdf, page 1>
 Package pdftex.def Info: fig_ficha_catalografica.pdf, page1 used on input line 
-350.
+364.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 [2 </Users/lucasbrunialti/git/masters-dissertation/fig_ficha_catalografica.pdf>
 ] [3
@@ -1289,99 +1289,99 @@ nte^^Sudo
 LaTeX Font Info:    Calculating math sizes for size <15> on input line 59.
 ) [16]
 
-LaTeX Warning: Reference `fig:story' on page 17 undefined on input line 712.
+LaTeX Warning: Reference `fig:story' on page 17 undefined on input line 726.
 
 [17
 
 
 ]
 
-LaTeX Warning: Reference `fig:story' on page 18 undefined on input line 714.
+LaTeX Warning: Reference `fig:story' on page 18 undefined on input line 728.
 
 
-LaTeX Warning: Reference `fig:story' on page 18 undefined on input line 718.
+LaTeX Warning: Reference `fig:story' on page 18 undefined on input line 732.
 
 [18] [19] [20]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 821.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 835.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 821.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 835.
 [21] [22] [23] [24
 
 ] [25
 
-] <img/factorizationXUSV.png, id=352, 1450.41875pt x 346.29375pt>
+] <img/factorizationXUSV.png, id=354, 1450.41875pt x 346.29375pt>
 File: img/factorizationXUSV.png Graphic file (type png)
 <use img/factorizationXUSV.png>
-Package pdftex.def Info: img/factorizationXUSV.png used on input line 1171.
+Package pdftex.def Info: img/factorizationXUSV.png used on input line 1185.
 (pdftex.def)             Requested size: 318.49861pt x 76.04219pt.
 [26 </Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png>]
-<img/reconstruction.png, id=364, 1482.53876pt x 1342.01375pt>
+<img/reconstruction.png, id=366, 1482.53876pt x 1342.01375pt>
 File: img/reconstruction.png Graphic file (type png)
 <use img/reconstruction.png>
-Package pdftex.def Info: img/reconstruction.png used on input line 1185.
+Package pdftex.def Info: img/reconstruction.png used on input line 1199.
 (pdftex.def)             Requested size: 318.49861pt x 288.30208pt.
 [27 </Users/lucasbrunialti/git/masters-dissertation/img/reconstruction.png>]pdf
 TeX warning (ext4): destination with the same identifier (name{equation.3.2.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1222     \end{alignat}
+l.1236     \end{alignat}
                         
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 1250.
-<img/bvdVsOnmtf1.png, id=387, 339.2675pt x 360.34625pt>
-File: img/bvdVsOnmtf1.png Graphic file (type png)
-<use img/bvdVsOnmtf1.png>
-Package pdftex.def Info: img/bvdVsOnmtf1.png used on input line 1310.
-(pdftex.def)             Requested size: 159.25278pt x 169.14282pt.
-<img/bvdVsOnmtf2.png, id=388, 333.245pt x 354.32375pt>
-File: img/bvdVsOnmtf2.png Graphic file (type png)
-<use img/bvdVsOnmtf2.png>
-Package pdftex.def Info: img/bvdVsOnmtf2.png used on input line 1317.
-(pdftex.def)             Requested size: 159.25278pt x 169.32736pt.
+put line 1279.
 [28pdfTeX warning (ext4): destination with the same identifier (name{equation.3
 .2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1340 \end{equation}
-                     ] [29pdfTeX warning (ext4): destination with the same iden
-tifier (name{equation.3.2.3}) has been already used, duplicate ignored
+l.1335 
+       ] <img/bvdVsOnmtf1.png, id=401, 339.2675pt x 360.34625pt>
+File: img/bvdVsOnmtf1.png Graphic file (type png)
+<use img/bvdVsOnmtf1.png>
+Package pdftex.def Info: img/bvdVsOnmtf1.png used on input line 1339.
+(pdftex.def)             Requested size: 159.25278pt x 169.14282pt.
+<img/bvdVsOnmtf2.png, id=402, 333.245pt x 354.32375pt>
+File: img/bvdVsOnmtf2.png Graphic file (type png)
+<use img/bvdVsOnmtf2.png>
+Package pdftex.def Info: img/bvdVsOnmtf2.png used on input line 1346.
+(pdftex.def)             Requested size: 159.25278pt x 169.32736pt.
+[29pdfTeX warning (ext4): destination with the same identifier (name{equation.3
+.2.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1340 \end{equation}
-                      </Users/lucasbrunialti/git/masters-dissertation/img/bvdVs
-Onmtf1.png> </Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf2.png
->] [30] <img/stiefel.png, id=431, 457.71pt x 445.665pt>
+l.1408 \[
+         ] [30 </Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf1.
+png> </Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf2.png>] <img
+/stiefel.png, id=433, 457.71pt x 445.665pt>
 File: img/stiefel.png Graphic file (type png)
 <use img/stiefel.png>
-Package pdftex.def Info: img/stiefel.png used on input line 1411.
+Package pdftex.def Info: img/stiefel.png used on input line 1440.
 (pdftex.def)             Requested size: 136.50139pt x 132.90489pt.
-[31 </Users/lucasbrunialti/git/masters-dissertation/img/stiefel.png>]pdfTeX war
-ning (ext4): destination with the same identifier (name{equation.3.2.1}) has be
-en already used, duplicate ignored
+[31]pdfTeX warning (ext4): destination with the same identifier (name{equation.
+3.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1454     \end{alignat}
+l.1483     \end{alignat}
                         pdfTeX warning (ext4): destination with the same identi
 fier (name{equation.3.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1454     \end{alignat}
+l.1483     \end{alignat}
                         pdfTeX warning (ext4): destination with the same identi
 fier (name{equation.3.2.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1454     \end{alignat}
-                         [32] [33] [34] [35
+l.1483     \end{alignat}
+                         [32 </Users/lucasbrunialti/git/masters-dissertation/im
+g/stiefel.png>] [33] [34] [35
 
 ]
-Overfull \hbox (4.58694pt too wide) in paragraph at lines 1614--1615
+Overfull \hbox (4.58694pt too wide) in paragraph at lines 1643--1644
 []\OT1/cmr/m/n/12 (-20) sendo $	 = []$, os ^^S^^Pndices $\OML/cmm/m/it/12 p \OT
 1/cmr/m/n/12 (-20) = \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (-20) 1\OML/cmm/m/it/12 
 ; [] ; k\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 (-20) , o con-junto de ma-tri-zes $\
@@ -1389,64 +1389,64 @@ OMS/cmsy/m/n/12 G \OT1/cmr/m/n/12 (-20) = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 G[
 ]; [] ; G[]\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 (-20) ,
  []
 
-[36] [37
+[36] [37] [38
 
-] [38] [39] [40]
-Overfull \hbox (27.59657pt too wide) in paragraph at lines 1869--1869
+] [39] [40] [41]
+Overfull \hbox (27.59657pt too wide) in paragraph at lines 1957--1957
 []\OT1/cmr/bx/n/14.4 Arquitetura de Sis-te-mas de Re-co-menda^^Xc~ao ba-se-a-do
 s em Conte^^Sudo 
  []
 
-[41
+[42
 
-] <img/approach.png, id=593, 540.51938pt x 413.29407pt>
+] <img/approach.png, id=603, 540.51938pt x 413.29407pt>
 File: img/approach.png Graphic file (type png)
 <use img/approach.png>
-Package pdftex.def Info: img/approach.png used on input line 1888.
+Package pdftex.def Info: img/approach.png used on input line 1976.
 (pdftex.def)             Requested size: 284.52756pt x 217.5628pt.
-<img/analisador.png, id=600, 479.54156pt x 103.88812pt>
+<img/analisador.png, id=610, 479.54156pt x 103.88812pt>
 File: img/analisador.png Graphic file (type png)
 <use img/analisador.png>
-Package pdftex.def Info: img/analisador.png used on input line 1904.
+Package pdftex.def Info: img/analisador.png used on input line 1992.
 (pdftex.def)             Requested size: 287.72716pt x 62.33334pt.
-[42 </Users/lucasbrunialti/git/masters-dissertation/img/approach.png> </Users/l
-ucasbrunialti/git/masters-dissertation/img/analisador.png>] [43] [44] [45] [46]
-[47
+[43 </Users/lucasbrunialti/git/masters-dissertation/img/approach.png> </Users/l
+ucasbrunialti/git/masters-dissertation/img/analisador.png>] [44] [45] [46] [47]
+[48
 
-] <img/proposal.png, id=767, 771.88374pt x 430.60875pt>
+] <img/proposal.png, id=777, 771.88374pt x 430.60875pt>
 File: img/proposal.png Graphic file (type png)
 <use img/proposal.png>
-Package pdftex.def Info: img/proposal.png used on input line 2024.
+Package pdftex.def Info: img/proposal.png used on input line 2112.
 (pdftex.def)             Requested size: 341.43306pt x 190.47372pt.
 
-LaTeX Warning: Reference `misc:cronograma' on page 48 undefined on input line 2
-029.
+LaTeX Warning: Reference `misc:cronograma' on page 49 undefined on input line 2
+117.
 
 
-LaTeX Warning: Reference `app:protocolo' on page 48 undefined on input line 203
-7.
+LaTeX Warning: Reference `app:protocolo' on page 49 undefined on input line 212
+5.
 
 
-LaTeX Warning: Reference `app:protocolo-extracao' on page 48 undefined on input
- line 2039.
+LaTeX Warning: Reference `app:protocolo-extracao' on page 49 undefined on input
+ line 2127.
 
-[48 </Users/lucasbrunialti/git/masters-dissertation/img/proposal.png>]
+[49 </Users/lucasbrunialti/git/masters-dissertation/img/proposal.png>]
 
-LaTeX Warning: Reference `sec:tiposbic' on page 49 undefined on input line 2044
+LaTeX Warning: Reference `sec:tiposbic' on page 50 undefined on input line 2132
 .
 
-[49]
-Overfull \hbox (10.15292pt too wide) in paragraph at lines 2057--2058
+[50]
+Overfull \hbox (10.15292pt too wide) in paragraph at lines 2145--2146
 [] \OML/cmm/m/it/12 ; I[]\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 (-20) , em que cada
  not^^S^^Pcia $\OML/cmm/m/it/12 I[]$ \OT1/cmr/m/n/12 (-20) ^^Se re-pre-sen-tada
  pela tu-pla $([]\OML/cmm/m/it/12 ; []; []; []; [] 
  []
 
-[50]
+[51]
 
-LaTeX Warning: Reference `sec:sr' on page 51 undefined on input line 2114.
+LaTeX Warning: Reference `sec:sr' on page 52 undefined on input line 2202.
 
-[51] [52]
+[52] [53]
 (/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLat
 ex.bbl
 (/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLat
@@ -1454,7 +1454,7 @@ ex.brf)
 \tf@brf=\write5
 \openout5 = `PPgSI-modeloQualiDissertacaoLatex.brf'.
 
-[53]
+[54]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 3.
@@ -1464,34 +1464,34 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\<let>-command' on input line 3.
 
 bibitemlist
-[54
+[55
 
-] [55] [56] [57]) [58]
-Underfull \hbox (badness 1454) in paragraph at lines 2201--2202
+] [56] [57] [58]) [59]
+Underfull \hbox (badness 1454) in paragraph at lines 2289--2290
 \OT1/cmr/m/n/12 (+20) te-riza^^Xc~ao/biclusteriza^^Xc~ao. Dis-cute di-fe-ren-te
 s or-ga-
  []
 
 
-Underfull \hbox (badness 1924) in paragraph at lines 2205--2206
+Underfull \hbox (badness 1924) in paragraph at lines 2293--2294
 []|\OT1/cmr/m/n/12 (+20) Est~ao sendo de-sen-vol-vi-dos al-go-rit-mos uti-li-za
 ndo
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 2207--2208
+Underfull \hbox (badness 1424) in paragraph at lines 2295--2296
 []|\OT1/cmr/m/n/12 (+20) Est~ao sendo usa-dos: da-dos sint^^Seticos; da-dos de
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2215
+Underfull \vbox (badness 10000) detected at line 2303
  []
 
-[59
+[60
 
 ] 
 AED: lastpage setting LastPage
-[60]
+[61]
 \tf@lof=\write6
 \openout6 = `PPgSI-modeloQualiDissertacaoLatex.lof'.
 
@@ -1504,55 +1504,56 @@ AED: lastpage setting LastPage
 \tf@toc=\write9
 \openout9 = `PPgSI-modeloQualiDissertacaoLatex.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2320.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2320.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2408.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2408.
 
 (/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLat
 ex.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2320.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2320.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2408.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2408.
 
 Package rerunfilecheck Info: File `PPgSI-modeloQualiDissertacaoLatex.brf' has n
 ot changed.
-(rerunfilecheck)             Checksum: C544FDD7B05CA8B79477B6FA95E9DEC4;8255.
+(rerunfilecheck)             Checksum: AF91163843119E05A724C3BCF4605206;8255.
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2320.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2408.
  ) 
 Here is how much of TeX's memory you used:
- 17428 strings out of 493089
- 262313 string characters out of 6134842
- 551382 words of memory out of 5000000
- 20222 multiletter control sequences out of 15000+600000
- 24986 words of font info for 164 fonts, out of 8000000 for 9000
+ 17472 strings out of 493089
+ 263069 string characters out of 6134842
+ 552144 words of memory out of 5000000
+ 20258 multiletter control sequences out of 15000+600000
+ 27101 words of font info for 170 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,18n,42p,2115b,593s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,18n,42p,2115b,593s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
+/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQu
-aliDissertacaoLatex.pdf (61 pages, 854460 bytes).
+aliDissertacaoLatex.pdf (62 pages, 867805 bytes).
 PDF statistics:
- 1255 PDF objects out of 1440 (max. 8388607)
- 1140 compressed objects within 12 object streams
- 242 named destinations out of 1000 (max. 500000)
- 17909 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 1268 PDF objects out of 1440 (max. 8388607)
+ 1151 compressed objects within 12 object streams
+ 247 named destinations out of 1000 (max. 500000)
+ 20981 words of extra memory for PDF output out of 24883 (max. 10000000)
 

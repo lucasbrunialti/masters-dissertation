@@ -1671,7 +1671,6 @@ sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes
                                          & \vdots                                                                     &
                             \end{bmatrix}
                     \]
-                \EndFor
                 \State
                     \begin{equation}
                     \label{eq:binovbnmtf:updateG}
@@ -1682,6 +1681,7 @@ sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes
                             \end{array}
                         \right. \forall j, q
                     \end{equation}
+                \EndFor
                 \State
                     \[
                         \mathbf{{\tilde g}}_{p \cdot} \gets (\mathbf{s}^{(t+1)} G_{(p)}^{(t)^T})_{pj}, \forall p

@@ -917,218 +917,218 @@ A principal contribuição deste trabalho, as estratégias ... ...., é apresent
 \chapter{Conceitos Fundamentais}
 \label{ch:conceitos}
 
-% Técnicas e algoritmos de Biclusterização são usadas, principalmente, no contexto de expressão genética.
-% No entanto, algoritmos de Biclusterização se fazem úteis quando se deseja encontrar \textit{modelos locais}.
-% Ou seja, enquanto algoritmos de clusterização têm o intuito de encontrar \textit{modelos globais}, que geram grupos de dados levando em consideração todas as características, algoritmos de Biclusterização geram grupos de dados em que as características tem alta correlação \cite{Franca2010,Madeira2004}.
+Técnicas e algoritmos de Biclusterização são usadas, principalmente, no contexto de expressão genética.
+No entanto, algoritmos de Biclusterização se fazem úteis quando se deseja encontrar \textit{modelos locais}.
+Ou seja, enquanto algoritmos de clusterização têm o intuito de encontrar \textit{modelos globais}, que geram grupos de dados levando em consideração todas as características, algoritmos de Biclusterização geram grupos de dados em que as características tem alta correlação \cite{Franca2010,Madeira2004}.
 
-% Para a descrição do problema formal de Biclusterização usa-se a seguinte definição \cite{Madeira2004}: seja uma matriz $A$, de dimensão $N \times M$, um conjunto de linhas $X = \{ x_1, \dots, x_n, \dots, x_N \}$ e um conjunto de colunas $Y = \{ y_1, \dots, y_m, \dots, y_M \}$, em que $a_{nm}$ geralmente é um número real e representa a relação entre a linha $x_n$ e a coluna $y_m$; o problema de Biclusterização é encontrar biclusters, que são submatrizes de $A$, denotados por $A_{IJ}$, em que $I \subseteq X$ e $J \subseteq Y$.
-% Assim, o bicluster $A_{IJ}$ é um grupo dos objetos em $I$, perante as características com alta correlação $J$.
+Para a descrição do problema formal de Biclusterização usa-se a seguinte definição \cite{Madeira2004}: seja uma matriz $A$, de dimensão $N \times M$, um conjunto de linhas $X = \{ x_1, \dots, x_n, \dots, x_N \}$ e um conjunto de colunas $Y = \{ y_1, \dots, y_m, \dots, y_M \}$, em que $a_{nm}$ geralmente é um número real e representa a relação entre a linha $x_n$ e a coluna $y_m$; o problema de Biclusterização é encontrar biclusters, que são submatrizes de $A$, denotados por $A_{IJ}$, em que $I \subseteq X$ e $J \subseteq Y$.
+Assim, o bicluster $A_{IJ}$ é um grupo dos objetos em $I$, perante as características com alta correlação $J$.
 
-% \section{Tipos de biclusters}
-% \label{sec:tiposbic}
+\section{Tipos de biclusters}
+\label{sec:tiposbic}
 
-% Como a definição de bicluster não inclui uma prévia estrutura da matriz $A$ e dos biclusters $A_{IJ}$, diversos algoritmos propostos na literatura diferem quanto ao tipo de bicluster que são capazes de encontrar.
-% Uma taxonomia dos tipos de biclusters é proposta por \citeonline{Madeira2004}:
-%  \begin{itemize}
-%   \item \textit{Biclusters com valores constantes}, se trata de biclusters em que todos os valores de $A_{IJ}$ são constantes: $a_{ij} = \mu, \forall i,j \in I,J$, onde $\mu$ é um valor constante dentro de $A_{IJ}$. Porém, em conjuntos de dados reais, esses biclusters estão presentes com algum tipo de ruído $\mu + \eta_{ij}$, onde $\eta_{ij}$ é o ruído associado com os valures de $\mu$ e $a_{ij}$ \cite{Madeira2004}.
-%   \item \textit{Biclusters com valores constantes nas linhas ou colunas}, se trata de biclusters com valores constantes nas linhas: $a_{ij} = \mu + \alpha_i, \forall i,j \in I,J$ ou $a_{ij} = \mu \cdot \alpha_i, \forall i,j \in I,J$, onde $\alpha_i$ é um fator aditivo ou multiplicativo para cada linha; ou ainda biclusters com valores constantes nas colunas: $a_{ij} = \mu + \beta_j, \forall i,j \in I,J$ ou $a_{ij} = \mu \cdot \beta_j, \forall i,j \in I,J$, onde $\beta_j$ é um fator aditivo ou multiplicativo para cada coluna \cite{Madeira2004}.
-%   \item \textit{Biclusters com valores coerentes}, em que são considerados valores próximos entre si (coerentes) para definição de um bicluster: $a_{ij} = \mu + \alpha_i + \beta_j, \forall i,j \in I,J$, ou $a_{ij} = \mu' \cdot \alpha_i' \cdot \beta_j', \forall i,j \in I,J$, sendo que se $\mu = \log \mu'\implies \alpha_i = \alpha_i', \beta_j = \beta_j'$ \cite{Madeira2004}.
-%   \item \textit{Biclusters com evoluções coerentes}, têm seus valores com evoluções coerentes, por exemplo, um bicluster com $a_{i4} \leq a_{i3} \leq a_{i2} \leq a_{i1}$ tem valores com evolução coerente na coluna \cite{Madeira2004}. Seus valores podem ser gerados por uma função geradora de valores com evolução coerente $a_{ij} = g(a_{ij}), \forall i,j \in I,J$, sendo $g(\cdot)$ não linear e não constante, para que o tipo de bicluster não seja classificado nos casos anteriores.
-%  \end{itemize}
+Como a definição de bicluster não inclui uma prévia estrutura da matriz $A$ e dos biclusters $A_{IJ}$, diversos algoritmos propostos na literatura diferem quanto ao tipo de bicluster que são capazes de encontrar.
+Uma taxonomia dos tipos de biclusters é proposta por \citeonline{Madeira2004}:
+ \begin{itemize}
+  \item \textit{Biclusters com valores constantes}, se trata de biclusters em que todos os valores de $A_{IJ}$ são constantes: $a_{ij} = \mu, \forall i,j \in I,J$, onde $\mu$ é um valor constante dentro de $A_{IJ}$. Porém, em conjuntos de dados reais, esses biclusters estão presentes com algum tipo de ruído $\mu + \eta_{ij}$, onde $\eta_{ij}$ é o ruído associado com os valures de $\mu$ e $a_{ij}$ \cite{Madeira2004}.
+  \item \textit{Biclusters com valores constantes nas linhas ou colunas}, se trata de biclusters com valores constantes nas linhas: $a_{ij} = \mu + \alpha_i, \forall i,j \in I,J$ ou $a_{ij} = \mu \cdot \alpha_i, \forall i,j \in I,J$, onde $\alpha_i$ é um fator aditivo ou multiplicativo para cada linha; ou ainda biclusters com valores constantes nas colunas: $a_{ij} = \mu + \beta_j, \forall i,j \in I,J$ ou $a_{ij} = \mu \cdot \beta_j, \forall i,j \in I,J$, onde $\beta_j$ é um fator aditivo ou multiplicativo para cada coluna \cite{Madeira2004}.
+  \item \textit{Biclusters com valores coerentes}, em que são considerados valores próximos entre si (coerentes) para definição de um bicluster: $a_{ij} = \mu + \alpha_i + \beta_j, \forall i,j \in I,J$, ou $a_{ij} = \mu' \cdot \alpha_i' \cdot \beta_j', \forall i,j \in I,J$, sendo que se $\mu = \log \mu'\implies \alpha_i = \alpha_i', \beta_j = \beta_j'$ \cite{Madeira2004}.
+  \item \textit{Biclusters com evoluções coerentes}, têm seus valores com evoluções coerentes, por exemplo, um bicluster com $a_{i4} \leq a_{i3} \leq a_{i2} \leq a_{i1}$ tem valores com evolução coerente na coluna \cite{Madeira2004}. Seus valores podem ser gerados por uma função geradora de valores com evolução coerente $a_{ij} = g(a_{ij}), \forall i,j \in I,J$, sendo $g(\cdot)$ não linear e não constante, para que o tipo de bicluster não seja classificado nos casos anteriores.
+ \end{itemize}
 
-% Os biclusters também diferem quanto as suas estruturas. Cada algoritmo usado para implementar Biclusterização faz uma suposição da estrutura de biclusters que é capaz de encontrar.
-% A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de biclusters, com as linhas e colunas ordenadas para permitir a visualização dos biclusters por meio do mapa de calor dos valores de $A$, sendo os biclusters $A_{IJ}$ representados por cores sólidas e o fundo da matriz ruído.
-% % Os tipos de estruturas são: Bicluster único, tem apenas um bicluster na matriz (Figura~\ref{fig:bicstruct-a}); Bicluster com linhas e colunas exclusivas
+Os biclusters também diferem quanto as suas estruturas. Cada algoritmo usado para implementar Biclusterização faz uma suposição da estrutura de biclusters que é capaz de encontrar.
+A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de biclusters, com as linhas e colunas ordenadas para permitir a visualização dos biclusters por meio do mapa de calor dos valores de $A$, sendo os biclusters $A_{IJ}$ representados por cores sólidas e o fundo da matriz ruído.
+% Os tipos de estruturas são: Bicluster único, tem apenas um bicluster na matriz (Figura~\ref{fig:bicstruct-a}); Bicluster com linhas e colunas exclusivas
 
-% % Para melhorar esse figura, deixe na figura apenas as letras (a), (b) etc e faça uma legenda. Acho que você pode usar \caption*{} em cima do \caption{} para fazer a legenda. Ou crie um parágrafo para explicar as letras na figura. Acho que aaté fica mais simpático fazer um parágrafo, pois pode explicar com mais cuidado.
+% Para melhorar esse figura, deixe na figura apenas as letras (a), (b) etc e faça uma legenda. Acho que você pode usar \caption*{} em cima do \caption{} para fazer a legenda. Ou crie um parágrafo para explicar as letras na figura. Acho que aaté fica mais simpático fazer um parágrafo, pois pode explicar com mais cuidado.
 
-% % \begin{figure}[h]
-% %     % \captionsetup[subfigure]{labelformat=simple}
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/a-bic-struct.png}
-% %             \caption{Bicluster único}
-% %             \label{fig:bicstruct-a}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/b-bic-struct.png}
-% %             \caption{Biclusters com linhas e colunas exclusivas}
-% %             \label{fig:bicstruct-b}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/c-bic-struct.png}
-% %             \caption{Biclusters com estrutura de tabuleiro de xadrez}
-% %             \label{fig:bicstruct-c}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/d-bic-struct.png}
-% %             \caption{Biclusters com linhas exclusivas}
-% %             \label{fig:bicstruct-d}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/e-bic-struct.png}
-% %             \caption{Biclusters com colunas exclusivas}
-% %             \label{fig:bicstruct-e}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/f-bic-struct.png}
-% %             \caption{Biclusters sem sobreposição com estrutura em árvore}
-% %             \label{fig:bicstruct-f}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/g-bic-struct.png}
-% %             \caption{Biclusters sem sobreposição e não exclusivos}
-% %             \label{fig:bicstruct-g}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/h-bic-struct.png}
-% %             \caption{Biclusters com sobreposição com estrutura hierarquica}
-% %             \label{fig:bicstruct-h}
-% %     \end{subfigure}
-% %     ~
-% %     \centering
-% %     \begin{subfigure}[b]{0.3\textwidth}
-% %             \includegraphics[width=30mm]{img/i-bic-struct.png}
-% %             \caption{Biclusters com sobreposição arbitrariamente posicionados}
-% %             \label{fig:bicstruct-i}
-% %     \end{subfigure}
-% %     \caption{Diferentes estruturas de biclusters, quadrados e retângulos com cores sólidas representam biclusters e o fundo representa ruído.}% (Adaptado de \cite{Madeira2004})}
-% %     \label{fig:bicstruct}
-% % \end{figure}
+% \begin{figure}[h]
+%     % \captionsetup[subfigure]{labelformat=simple}
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/a-bic-struct.png}
+%             \caption{Bicluster único}
+%             \label{fig:bicstruct-a}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/b-bic-struct.png}
+%             \caption{Biclusters com linhas e colunas exclusivas}
+%             \label{fig:bicstruct-b}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/c-bic-struct.png}
+%             \caption{Biclusters com estrutura de tabuleiro de xadrez}
+%             \label{fig:bicstruct-c}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/d-bic-struct.png}
+%             \caption{Biclusters com linhas exclusivas}
+%             \label{fig:bicstruct-d}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/e-bic-struct.png}
+%             \caption{Biclusters com colunas exclusivas}
+%             \label{fig:bicstruct-e}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/f-bic-struct.png}
+%             \caption{Biclusters sem sobreposição com estrutura em árvore}
+%             \label{fig:bicstruct-f}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/g-bic-struct.png}
+%             \caption{Biclusters sem sobreposição e não exclusivos}
+%             \label{fig:bicstruct-g}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/h-bic-struct.png}
+%             \caption{Biclusters com sobreposição com estrutura hierarquica}
+%             \label{fig:bicstruct-h}
+%     \end{subfigure}
+%     ~
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%             \includegraphics[width=30mm]{img/i-bic-struct.png}
+%             \caption{Biclusters com sobreposição arbitrariamente posicionados}
+%             \label{fig:bicstruct-i}
+%     \end{subfigure}
+%     \caption{Diferentes estruturas de biclusters, quadrados e retângulos com cores sólidas representam biclusters e o fundo representa ruído.}% (Adaptado de \cite{Madeira2004})}
+%     \label{fig:bicstruct}
+% \end{figure}
 
-% \section{Algoritmos para Biclusterização}
+\section{Algoritmos para Biclusterização}
 
-% Diversos algoritmos para encontrar biclusters, de diferentes tipos e estruturas, foram propostos na literatura \cite{Tanay2005,Madeira2004}.
+Diversos algoritmos para encontrar biclusters, de diferentes tipos e estruturas, foram propostos na literatura \cite{Tanay2005,Madeira2004}.
 
-% Um dos algoritmos de Biclusterização mais comum e simples. que encontra biclusters com valores coerentes, em estrutura com sobreposição e arbitrariamente posicionados, é o \textit{Coupled Two-way Clustering} (CTWC) \cite{Getz2000}. O algoritmo CTWC é capaz de encontrar biclusters através da clusterização de objetos e atributos (linhas e colunas), separadamente.
-% O algoritmo de clusterização usado por \citeonline{Getz2000} foi o \textit{Superparamagnetic Clustering} (SPC), o qual é capaz de determinar o número de clusters automaticamente, e com uma estratégia de clusterização hierárquica \textit{top-down} é capaz de gerar clusters estáveis \cite{Getz2000}.
-% O SPC tem como entrada uma matriz de similaridade e um parâmetro temperatura, que controla o quão estáveis serão os clusters que o algoritmo gerará.
-% Assim, o CTWC encontra clusters estáveis de linhas e colunas através do SPC, e iterativamente executa o SPC nos clusters de linhas e colunas encontrados, mantendo na memória um par do subconjunto de linhas e do subconjunto de colunas (biclusters), assim como os clusters estáveis de linhas e colunas, separadamente.
-% % O algoritmo se inicia com dois subconjuntos: um para exemplos (linhas) $I = \{ X \}$ e um para características (colunas) $J = \{ Y \}$, então, através do algoritmo de SPC
+Um dos algoritmos de Biclusterização mais comum e simples. que encontra biclusters com valores coerentes, em estrutura com sobreposição e arbitrariamente posicionados, é o \textit{Coupled Two-way Clustering} (CTWC) \cite{Getz2000}. O algoritmo CTWC é capaz de encontrar biclusters através da clusterização de objetos e atributos (linhas e colunas), separadamente.
+O algoritmo de clusterização usado por \citeonline{Getz2000} foi o \textit{Superparamagnetic Clustering} (SPC), o qual é capaz de determinar o número de clusters automaticamente, e com uma estratégia de clusterização hierárquica \textit{top-down} é capaz de gerar clusters estáveis \cite{Getz2000}.
+O SPC tem como entrada uma matriz de similaridade e um parâmetro temperatura, que controla o quão estáveis serão os clusters que o algoritmo gerará.
+Assim, o CTWC encontra clusters estáveis de linhas e colunas através do SPC, e iterativamente executa o SPC nos clusters de linhas e colunas encontrados, mantendo na memória um par do subconjunto de linhas e do subconjunto de colunas (biclusters), assim como os clusters estáveis de linhas e colunas, separadamente.
+% O algoritmo se inicia com dois subconjuntos: um para exemplos (linhas) $I = \{ X \}$ e um para características (colunas) $J = \{ Y \}$, então, através do algoritmo de SPC
 
-% Já o algoritmo de \citeonline{Cheng2000} é capaz de encontrar o mesmo tipo de bicluster que o algoritmo CTWC, porém usando uma estratégia gulosa: biclusters com valores coerentes e estrutura com sobreposição e arbitrariamente posicionados. Este algoritmo esta sendo objeto de estudo desse projeto de mestrado para aplicação em dados textuais e por isso segue aqui descrito em mais detalhes.
-% Nesse algoritmos, para encontrar biclusters, ou $\delta$-biclusters, na matriz $A$, os autores definem o \textit{Resíduo Quadrático Médio} (RQM):
-% \begin{equation}
-% \begin{split}
-%     H_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
-%     H_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
-%     H_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2
-% \end{split}
-% \end{equation}
-% em que
-% \begin{equation}
-%     a_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} a_{ij},\quad a_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} a_{ij},\quad a_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} a_{ij}
-% \end{equation}
-% onde $H_{IJ}$ é o RQM de uma submatriz $A_{IJ}$, $H_{iJ}$ o RQM da linha $i$, $H_{Ij}$ o RQM da coluna $j$, $a_{iJ}$ a média dos valores da linha $i$, $a_{Ij}$ a média dos valores da coluna $j$ e $a_{IJ}$ a média dos valores da submatriz $A_{IJ}$, definida pelos subconjuntos $I$ e $J$.
+Já o algoritmo de \citeonline{Cheng2000} é capaz de encontrar o mesmo tipo de bicluster que o algoritmo CTWC, porém usando uma estratégia gulosa: biclusters com valores coerentes e estrutura com sobreposição e arbitrariamente posicionados. Este algoritmo esta sendo objeto de estudo desse projeto de mestrado para aplicação em dados textuais e por isso segue aqui descrito em mais detalhes.
+Nesse algoritmos, para encontrar biclusters, ou $\delta$-biclusters, na matriz $A$, os autores definem o \textit{Resíduo Quadrático Médio} (RQM):
+\begin{equation}
+\begin{split}
+    H_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
+    H_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
+    H_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2
+\end{split}
+\end{equation}
+em que
+\begin{equation}
+    a_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} a_{ij},\quad a_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} a_{ij},\quad a_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} a_{ij}
+\end{equation}
+onde $H_{IJ}$ é o RQM de uma submatriz $A_{IJ}$, $H_{iJ}$ o RQM da linha $i$, $H_{Ij}$ o RQM da coluna $j$, $a_{iJ}$ a média dos valores da linha $i$, $a_{Ij}$ a média dos valores da coluna $j$ e $a_{IJ}$ a média dos valores da submatriz $A_{IJ}$, definida pelos subconjuntos $I$ e $J$.
 
-% Então, um bicluster perfeito $A_{IJ}$ teria o RQM $H_{IJ} = 0$, pois $a_{ij} = a_{ij}, \forall i,j \in I,J$, fazendo $a_{iJ} = a_{Ij} = a_{IJ}$. No entanto, se apenas minizar o RQM, um bicluster com apenas um elemento seria perfeito, o que pode não refletir a realidade. Além disso, em conjunto de dados reais existe ruído, podendo esconder o bicluster perfeito.
+Então, um bicluster perfeito $A_{IJ}$ teria o RQM $H_{IJ} = 0$, pois $a_{ij} = a_{ij}, \forall i,j \in I,J$, fazendo $a_{iJ} = a_{Ij} = a_{IJ}$. No entanto, se apenas minizar o RQM, um bicluster com apenas um elemento seria perfeito, o que pode não refletir a realidade. Além disso, em conjunto de dados reais existe ruído, podendo esconder o bicluster perfeito.
 
-% Para encontrar biclusters, ou $\delta$-biclusters, \citeonline{Cheng2000} usam uma estratégia gulosa que retira linhas e colunas, visando a minimização do RQM, respeitando um parâmetro $\delta$, que é calibrado pelo usuário. Então, um bicluster é encontrado quando o RQM de uma submatriz $A_{IJ}$ é $H_{IJ} \leq \delta$, para algum $\delta \geq 0$. As etapas de remoções de elementos da matriz são apresentadas nos algoritmos 1 e 2.
+Para encontrar biclusters, ou $\delta$-biclusters, \citeonline{Cheng2000} usam uma estratégia gulosa que retira linhas e colunas, visando a minimização do RQM, respeitando um parâmetro $\delta$, que é calibrado pelo usuário. Então, um bicluster é encontrado quando o RQM de uma submatriz $A_{IJ}$ é $H_{IJ} \leq \delta$, para algum $\delta \geq 0$. As etapas de remoções de elementos da matriz são apresentadas nos algoritmos 1 e 2.
 
-% % \begin{algorithm}[H]
-% % \label{algo:cc1}
-% %  \KwData{$A, I, J, \delta$}
-% %  \KwResult{$I,J$ onde $H_{IJ} \leq \delta$}
-% %  \While{$H_{IJ} > \delta$}{
-% %   encontre a linha $l_{max} = \operatorname*{arg\,max}_{i \in I} H_{iJ}$\;
-% %   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
-% %   \eIf{$l_{max} > c_{max}$}{
-% %    remova $l_{max}$ do subconjunto $I$\;
-% %    }{
-% %    remova $c_{max}$ do subconjunto $J$\;
-% %   }
-% %  }
-% %  \caption{Remove uma linha ou coluna a cada iteração.}
-% % \end{algorithm}
+% \begin{algorithm}[H]
+% \label{algo:cc1}
+%  \KwData{$A, I, J, \delta$}
+%  \KwResult{$I,J$ onde $H_{IJ} \leq \delta$}
+%  \While{$H_{IJ} > \delta$}{
+%   encontre a linha $l_{max} = \operatorname*{arg\,max}_{i \in I} H_{iJ}$\;
+%   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
+%   \eIf{$l_{max} > c_{max}$}{
+%    remova $l_{max}$ do subconjunto $I$\;
+%    }{
+%    remova $c_{max}$ do subconjunto $J$\;
+%   }
+%  }
+%  \caption{Remove uma linha ou coluna a cada iteração.}
+% \end{algorithm}
 
-% % \begin{algorithm}[H]
-% % \label{algo:cc2}
-% %  \KwIn{$A, I, J, \delta, \alpha$}
-% %  \KwOut{$I,J$ onde $H_{IJ} \leq \delta$}
-% %  \While{$H_{IJ} > \delta$}{
-% %   remova $i \in I$ onde $H_{iJ} > \alpha \cdot H_{IJ}$\;
-% %   remova $j \in J$ onde $H_{Ij} > \alpha \cdot H_{IJ}$\;
-% %   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
-% %   \If{não houve nenhuma remoção}{
-% %    chame o algoritmo 1
-% %   }
-% %  }
-% %  \caption{Remove múltiplas linhas e colunas de $A$ a cada iteração.}
-% % \end{algorithm}
+% \begin{algorithm}[H]
+% \label{algo:cc2}
+%  \KwIn{$A, I, J, \delta, \alpha$}
+%  \KwOut{$I,J$ onde $H_{IJ} \leq \delta$}
+%  \While{$H_{IJ} > \delta$}{
+%   remova $i \in I$ onde $H_{iJ} > \alpha \cdot H_{IJ}$\;
+%   remova $j \in J$ onde $H_{Ij} > \alpha \cdot H_{IJ}$\;
+%   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
+%   \If{não houve nenhuma remoção}{
+%    chame o algoritmo 1
+%   }
+%  }
+%  \caption{Remove múltiplas linhas e colunas de $A$ a cada iteração.}
+% \end{algorithm}
 
-% O algoritmo 2 é usado para acelerar o processo de busca de um $\delta$-bicluster, convergindo mais rapidamente para uma solução quanto maior for o parâmetro $\alpha$, em que $\alpha \geq 0$. Ainda, para amenização do problema de encontrar $\delta$-biclusters perfeitos com apenas um elemento, ou poucos elemento, é utilizado o algoritmo 3, que adiciona nós sem aumentar o RQM do bicluster.
+O algoritmo 2 é usado para acelerar o processo de busca de um $\delta$-bicluster, convergindo mais rapidamente para uma solução quanto maior for o parâmetro $\alpha$, em que $\alpha \geq 0$. Ainda, para amenização do problema de encontrar $\delta$-biclusters perfeitos com apenas um elemento, ou poucos elemento, é utilizado o algoritmo 3, que adiciona nós sem aumentar o RQM do bicluster.
 
-% % deu problema nessas referencias cruzadas, verifique.
+% deu problema nessas referencias cruzadas, verifique.
 
-% % \begin{algorithm}[h]
-% % \label{algo:cc3}
-% %  \KwIn{$A, I, J$}
-% %  \KwOut{$I',J'$ onde $H_{I'J'} \leq H_{IJ}$}
-% %  \While{$H_{IJ} > \delta$}{
-% %   compute $a_{iJ}$ e $a_{Ij}$ para todo $i,j$ e $H_{IJ}$\;
-% %   remova $j \notin J$ onde $\frac{1}{|I|} \sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
-% %   recompute $a_{iJ}$ e $H_{IJ}$\;
-% %   remova $i \notin I$ onde $\frac{1}{|J|} \sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
-% %   \If{não houve nenhuma adição}{
-% %    $I' \longleftarrow I$\;
-% %    $J' \longleftarrow J$\;
-% %   }
-% %  }
-% %  \caption{Adiciona linhas e colunas de $A_{IJ}$ a cada iteração.}
-% % \end{algorithm}
+% \begin{algorithm}[h]
+% \label{algo:cc3}
+%  \KwIn{$A, I, J$}
+%  \KwOut{$I',J'$ onde $H_{I'J'} \leq H_{IJ}$}
+%  \While{$H_{IJ} > \delta$}{
+%   compute $a_{iJ}$ e $a_{Ij}$ para todo $i,j$ e $H_{IJ}$\;
+%   remova $j \notin J$ onde $\frac{1}{|I|} \sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
+%   recompute $a_{iJ}$ e $H_{IJ}$\;
+%   remova $i \notin I$ onde $\frac{1}{|J|} \sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
+%   \If{não houve nenhuma adição}{
+%    $I' \longleftarrow I$\;
+%    $J' \longleftarrow J$\;
+%   }
+%  }
+%  \caption{Adiciona linhas e colunas de $A_{IJ}$ a cada iteração.}
+% \end{algorithm}
 
-% Por fim, o algoritmo 4 é a consolidação dos algoritmos 3, 2 e 1 e a iteração para encontrar $k$ $\delta$-biclusters, um a um, sendo $k$ fornecido pelo usuário.
+Por fim, o algoritmo 4 é a consolidação dos algoritmos 3, 2 e 1 e a iteração para encontrar $k$ $\delta$-biclusters, um a um, sendo $k$ fornecido pelo usuário.
 
-% % \begin{algorithm}[h]
-% % \label{algo:cc4}
-% %  \KwIn{$A, k, \delta, \alpha$}
-% %  \KwOut{$k$ $\delta$-biclusters}
-% %  $A' \leftarrow A$\;
-% %  \For{$1$ \KwTo $k$}{
-% %    $B \leftarrow$ algoritmo 2 com $A', \delta, \alpha$\;
-% %    $C \leftarrow$ algoritmo 1 com $B, \delta$\;
-% %    $D \leftarrow$ algoritmo 3 com $A, C$\;
-% %    reporte $D$ como uma solução\;
-% %    adicione ruído em $A'$ para a submatriz $D$\;
-% %  }
-% %  \caption{Algoritmo Cheng \& Church, encontra $k$ $\delta$-biclusters.}
-% % \end{algorithm}
+% \begin{algorithm}[h]
+% \label{algo:cc4}
+%  \KwIn{$A, k, \delta, \alpha$}
+%  \KwOut{$k$ $\delta$-biclusters}
+%  $A' \leftarrow A$\;
+%  \For{$1$ \KwTo $k$}{
+%    $B \leftarrow$ algoritmo 2 com $A', \delta, \alpha$\;
+%    $C \leftarrow$ algoritmo 1 com $B, \delta$\;
+%    $D \leftarrow$ algoritmo 3 com $A, C$\;
+%    reporte $D$ como uma solução\;
+%    adicione ruído em $A'$ para a submatriz $D$\;
+%  }
+%  \caption{Algoritmo Cheng \& Church, encontra $k$ $\delta$-biclusters.}
+% \end{algorithm}
 
-% % Algoritmo Spectral (?)
+% Algoritmo Spectral (?)
 
-% Além dos algoritmos apresentados, existem outros algoritmos que são capazes de encontrar outros tipos de biclusters (Seção~\ref{sec:tiposbic}), além de serem recentes \cite{Franca20102,Yang2013,Hochreiter2010,Cabanes2012}, mostrando que ainda há interesse na área de pesquisa de Biclusterização.
+Além dos algoritmos apresentados, existem outros algoritmos que são capazes de encontrar outros tipos de biclusters (Seção~\ref{sec:tiposbic}), além de serem recentes \cite{Franca20102,Yang2013,Hochreiter2010,Cabanes2012}, mostrando que ainda há interesse na área de pesquisa de Biclusterização.
 
-%  \section{Avaliação de Biclusterização}
+ \section{Avaliação de Biclusterização}
 
-% Para determinar parâmetros, descobrir a qualidade e/ou estabilidade dos biclusters encontrados por algoritmos, é necessário estabelecer métricas de avaliação. Existem duas maneiras de avaliar biclusters \cite{Hochreiter2010}: \textit{interna}, usa os dados dos resultados dos algoritmos, juntamente com métricas de qualidade e/ou estabilidade, para avaliar as soluções geradas; \textit{externa}, utiliza os dados reais das soluções de biclusters de um conjunto de dados, usando estratégias para comparação, obtendo assim, maior confiança nas soluções.
+Para determinar parâmetros, descobrir a qualidade e/ou estabilidade dos biclusters encontrados por algoritmos, é necessário estabelecer métricas de avaliação. Existem duas maneiras de avaliar biclusters \cite{Hochreiter2010}: \textit{interna}, usa os dados dos resultados dos algoritmos, juntamente com métricas de qualidade e/ou estabilidade, para avaliar as soluções geradas; \textit{externa}, utiliza os dados reais das soluções de biclusters de um conjunto de dados, usando estratégias para comparação, obtendo assim, maior confiança nas soluções.
 
-% A avaliação interna pode não ser tão precisa quanto a avaliação externa, porém é útil para descobrir parâmetros ótimos. Apesar de \citeonline{Prelic2006} sugerirem não usar avaliações internas, por não estar claro como extender noções de separação e homogeinidade, \citeonline{Santamaria2007} descreveu métricas de consistência para verificando se um bicluster é consistente com a sua definição, seja aditiva, multiplicativa e/ou constante, fazendo uma comparação dos elementos do bicluster:
-% \begin{equation}
-% \begin{split}
-% C_l(A_{IJ}) = \frac{1}{|I|} \displaystyle\sum_{i = 1}^{|I| - 1} \displaystyle\sum_{j = i + 1}^{|I|} \sqrt{ \displaystyle\sum_{k = 1}^{|J|} (a_{ik} - a_{jk})^2 } \\
-% C_c(A_{IJ}) = \frac{1}{|J|} \displaystyle\sum_{i = 1}^{|J| - 1} \displaystyle\sum_{j = i + 1}^{|J|} \sqrt{ \displaystyle\sum_{k = 1}^{|I|} (a_{ki} - a_{kj})^2 }
-% \end{split}
-% \end{equation}
-% em que $C_l(A_{IJ})$ é o índice de consistência das linhas do bicluster $A_{IJ}$ e $C_c(A_{IJ})$ é o índice de consistência das colunas do bicluster $A_{IJ}$. Ainda, a consistência do bicluster inteiro $C$ pode ser definida pela média:
-% \begin{equation}
-% C(A_{IJ}) = \frac{|I| \cdot C_l + |J| \cdot C_c}{|I| + |J|}
-% \end{equation}
+A avaliação interna pode não ser tão precisa quanto a avaliação externa, porém é útil para descobrir parâmetros ótimos. Apesar de \citeonline{Prelic2006} sugerirem não usar avaliações internas, por não estar claro como extender noções de separação e homogeinidade, \citeonline{Santamaria2007} descreveu métricas de consistência para verificando se um bicluster é consistente com a sua definição, seja aditiva, multiplicativa e/ou constante, fazendo uma comparação dos elementos do bicluster:
+\begin{equation}
+\begin{split}
+C_l(A_{IJ}) = \frac{1}{|I|} \displaystyle\sum_{i = 1}^{|I| - 1} \displaystyle\sum_{j = i + 1}^{|I|} \sqrt{ \displaystyle\sum_{k = 1}^{|J|} (a_{ik} - a_{jk})^2 } \\
+C_c(A_{IJ}) = \frac{1}{|J|} \displaystyle\sum_{i = 1}^{|J| - 1} \displaystyle\sum_{j = i + 1}^{|J|} \sqrt{ \displaystyle\sum_{k = 1}^{|I|} (a_{ki} - a_{kj})^2 }
+\end{split}
+\end{equation}
+em que $C_l(A_{IJ})$ é o índice de consistência das linhas do bicluster $A_{IJ}$ e $C_c(A_{IJ})$ é o índice de consistência das colunas do bicluster $A_{IJ}$. Ainda, a consistência do bicluster inteiro $C$ pode ser definida pela média:
+\begin{equation}
+C(A_{IJ}) = \frac{|I| \cdot C_l + |J| \cdot C_c}{|I| + |J|}
+\end{equation}
 
-% Uma das métricas externas que são usadas para comparar biclusters encontrados com biclusters reais em um conjunto de dados, é a métrica \textit{concensus score} \cite{Hochreiter2010}. Essa métrica calcula a maximização das similaridades entre biclusters encontrados e reais, usando o \textit{índice de Jaccard} como medida de similaridade e o algoritmo Húngaro para solucionar o problema de maximização. A saída da avaliação é um $\textit{score} \in [0,1]$, em que $0$ significa que os biclusters comparados são totalmente diferentes, e $1$ o inverso.
+Uma das métricas externas que são usadas para comparar biclusters encontrados com biclusters reais em um conjunto de dados, é a métrica \textit{concensus score} \cite{Hochreiter2010}. Essa métrica calcula a maximização das similaridades entre biclusters encontrados e reais, usando o \textit{índice de Jaccard} como medida de similaridade e o algoritmo Húngaro para solucionar o problema de maximização. A saída da avaliação é um $\textit{score} \in [0,1]$, em que $0$ significa que os biclusters comparados são totalmente diferentes, e $1$ o inverso.
 
 % ************************************************************
 % ************************************************************
@@ -1584,7 +1584,7 @@ Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{
 \label{def:ovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
-        \displaystyle \mathcal{F}_4(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}}^{2}_{F} \\
+        \displaystyle \mathcal{F}_4(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T}^{2}_{F} \\
                                                                    &   & \text{suj. a}                & U \geq 0, \\
                                                                    &   &                              & S \geq 0, \\
                                                                    &   &                              & V_{(p)} \geq 0, \quad \forall p
@@ -1632,7 +1632,7 @@ sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{V} = \
 \label{def:binovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
-        \displaystyle \mathcal{F}_5(F, S, G_{(1)}, \dots, G_{(k)}) & = & \displaystyle \min_{F, S, G_{(1)}, \dots, G_{(k)}} & \norm{ X - F \sum_{p=1}^{k} I_{(p)} S G_{(p)} }^{2}_{F} \\
+        \displaystyle \mathcal{F}_5(F, S, G_{(1)}, \dots, G_{(k)}) & = & \displaystyle \min_{F, S, G_{(1)}, \dots, G_{(k)}} & \norm{ X - F \sum_{p=1}^{k} I_{(p)} S G_{(p)}^T }^{2}_{F} \\
                                                                    &   & \text{suj. a}                & F \in \Psi^{n \times k}, \\
                                                                    &   &                              & S \in \Psi^{k \times l}, \\
                                                                    &   &                              & G_{(p)} \in \Psi^{m \times l}, \quad \forall p
@@ -1686,7 +1686,7 @@ sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes
                 \EndFor
                 \State
                     \[
-                        \mathbf{{\tilde g}}_{p \cdot} \gets (\mathbf{s}^{(t+1)} G_{(p)}^{(t)^T})_{pj}, \forall p
+                        \mathbf{{\tilde g}}_{p \cdot} \gets (\mathbf{s}_{p \cdot}^{(t+1)} G_{(p)}^{(t)^T})_{pj}, \forall p
                     \]
                 \State
                     \begin{equation}
@@ -1876,6 +1876,188 @@ sendo $\Psi = {0, 1}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes
 % ************************************************************
 % ************************************************************
 
+
+\chapter{Experimentos e Resultados}
+\label{ch:experiments}
+
+% TODO onde falar sobre validação de cluster \section{Validação de clusters?}
+
+Para fim de validação dos algoritmos foram feitos experimentos utilizando bases de dados sintéticas, base de dados toy e base de dados reais.
+% experimentos foram feitos para verificar que os algoritmos desenvolvidos são úteis para descobrir estrutura com intersecção, provendo evidências que suportam o objetivo principal deste trabalho
+Estes experimentos foram realizados à fim de comprovar a utilidade de métodos de Cocluterização baseados em Fatoração de Matrizes, tanto os algoritmos desenvolvidos quanto os já presentes na literatura, para coclusterização de documentos e mineração destes documentos.
+Os algoritmos usados nos experimentos compõem algoritmos de clustering tradicionais: \textit{k-means} e \textit{fuzzy k-means}, e algoritmos de coclustering baseados em fatoração de matrizes da literatura: \textit{ONMTF}, \textit{FNMTF}; e os algoritmos propostos no capítulo~\ref{ch:proposedalgs}: \textit{OvNMTF} e \textit{BinOvNMTF}.
+
+\section{Experimentos com Base de Dados sintéticas}
+
+As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de biclusters, propostas por \citeonline{Madeira2004}.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.7\textwidth]{img/synteticBiclusters.png}
+    \caption{
+        Tipos diferentes de biclusters.
+    }
+    \label{fig:biclusters-structures}
+\end{figure}
+
+A forma de interpretar as matrizes da figura~\ref{fig:biclusters-structures} é considerar cada elemento dessa matriz como uma cor relacionada com o seu valor, organizando as linhas e colunas, de tal forma que os valores similares formem retângulos, que são os biclusters.
+
+Cada bicluster foi gerado a partir de valores centrais de um conjunto de valores centrais $C = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, sendo assim, é escolhido um valor central $c \in C$ de forma aleatória e adicionado valores de $0$ à $10$, gerados a partir de uma distribuição uniforme, para formar um bicluster.
+Então, um os valores de um bicluster $B$, que é uma submatriz dos dados originais, é gerado pela equação~\ref{eq:genbic}.
+
+\begin{equation}
+\label{eq:genbic}
+    b_{ij} = c + unif(0, 10)
+\end{equation}
+
+sendo $i$ e $j$ os índices das linhas e colunas de $B$, respectivamente, e $unif(0, 10)$ uma função geradora de números de $0$ à $10$, que respeita a distribuição uniforme.
+
+\begin{table}[h]
+\label{tab:datasetsstats}
+\centering
+\caption{Estatísticas das bases de dados usadas nos experimentos.}
+\begin{tabular}{c|c|c|c}
+\hline
+Algoritmo     & Base de dados & Rand Index (linhas)         & Rand index (colunas) \\
+\hline
+K-means       & (a)           & $1.0$                       & -                    \\
+K-means       & (b)           & $1.0$                       & -                    \\
+K-means       & (c)           & $1.0$                       & -                    \\
+K-means       & (d)           & $1.0$                       & -                    \\
+K-means       & (e)           & $0.78$                      & -                    \\
+\hline
+Fuzzy K-means & (a)           & $1.0$                       & -                    \\
+Fuzzy K-means & (b)           & $1.0$                       & -                    \\
+Fuzzy K-means & (c)           & $1.0$                       & -                    \\
+Fuzzy K-means & (d)           & $1.0$                       & -                    \\
+Fuzzy K-means & (e)           & $0.78$                      & -                    \\
+\hline
+ONMTF         & (a)           & $1.0$                       & $1.0$                \\
+ONMTF         & (b)           & $1.0$                       & $1.0$                \\
+ONMTF         & (c)           & $1.0$                       & $1.0$                \\
+ONMTF         & (d)           & $1.0$                       & $0.78$               \\
+ONMTF         & (e)           & $0.78$                      & $1.0$                \\
+\hline
+FNMTF         & (a)           & $1.0$                       & $1.0$                \\
+FNMTF         & (b)           & $1.0$                       & $1.0$                \\
+FNMTF         & (c)           & $1.0$                       & $1.0$                \\
+FNMTF         & (d)           & $1.0$                       & $0.78$               \\
+FNMTF         & (e)           & $0.78$                      & $1.0$                \\
+\hline
+OvNMTF        & (a)           & $1.0$                       & $1.0$                \\
+OvNMTF        & (b)           & $1.0$                       & $1.0$                \\
+OvNMTF        & (c)           & $1.0$                       & $1.0$                \\
+OvNMTF        & (d)           & $1.0$                       & $1.0$                \\
+OvNMTF        & (e)           & $0.78$                      & $1.0$                \\
+\hline
+BinOvNMTF     & (a)           & $1.0$                       & $1.0$                \\
+BinOvNMTF     & (b)           & $1.0$                       & $1.0$                \\
+BinOvNMTF     & (c)           & $1.0$                       & $1.0$                \\
+BinOvNMTF     & (d)           & $1.0$                       & $1.0$                \\
+BinOvNMTF     & (e)           & $0.78$                      & $1.0$                \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Experimentos com Base de Dados reais}
+
+\subsection{Bases de dados}
+
+Nos experimentos deste trabalho foram usadas quatro base de dados de textos, sendo elas no domínio de notícias e artigos.
+Em todas as bases foram usados os rótulos verdadeiros para avaliar a qualidade dos clusters, usadas apenas após a fase de criação dos modelos, ou seja, não serviram de entrada para os algoritmos.
+
+\begin{enumerate}
+    \item \textbf{\textit{20Newsgroups}}\footnote{http://qwone.com/\textasciitilde jason/20Newsgroups/} Esta coleção de documentos se tornou popular para experimentos de algoritmos de aprendizado de máquina, nas tarefas de classificação de textos e clusterização de textos.
+    Os documentos compreendem posts de usuários anônimos do \textit{Usenet newsgroup} (um repositório para grupos de discussões de um sistema distribuído de comunicação chamado \textit{Usenet}).
+    Cada post esta organizado de forma particionada em 20 diferentes grupos, como computação, ciências, política e etc., com cada post correspondendo a um tópico, distribuídos uniformemente entre esses grupos.
+
+    \item \textbf{\textit{NIPS14-17}}\footnote{http://robotics.stanford.edu/\textasciitilde gal/data.html} Esta base de dados contém uma coleção de trabalhos acadêmicos publicados no congresso \textit{NIPS} (\textit{Neural Information Processing Systems}) no período de 2003 à 2003, dos volumes 14 à 17.
+    A construção da base de dados \textit{NIPS14-17} teve sua construção iniciada por \textit{Sam Roweis}\footnote{http://www.cs.nyu.edu/\textasciitilde roweis/data.html}, que tratou os dados que \textit{Yann LeCun} processou usando um OCR \cite{Chechik2007}.
+    Originalmente, a base de dados tem todos artigos científicos publicados no NIPS dos volumes 0 ao 17, porém apenas os artigos dos volumes 14 à 17 possuem rótulos.
+    Os documentos estão particionados em tópicos que compreendem as áreas técnicas, como teoria de aprendizado, neurociência, algoritmos e arquiteturas e etc, distribuídos de forma desbalanceada.
+
+    \item \textbf{\textit{IG}} Este conjunto de dados foi criado neste trabalho, e consiste em um corpus de notícias extraídas do portal iG\footnote{htttp://ig.com.br/}.
+    Cada documento contém o endereço eletrônico, título, subtítulo, corpo e canal da notícia, em que cada canal representa um assunto da notícia, que é usado como rótulo.
+    O número total de notícias do corpus é $4593$, sendo essas notícias formadas por mais de $250$ caracteres no seu corpo, publicadas no período de 2 de janeiro de 2012 à 11 de outubro de 2014 classificadas em 13 canais, que representam os assuntos dessas notícias.
+
+    \item \textbf{\textit{IG toy (ou reduzido)}} Este conjunto de dados é um subconjunto do conjunto de dados \textit{IG}.
+    Composto por apenas três canais (rótulos) de forma balanceada, foi criado para possibilitar experimentos com maior controle.
+    % TODO precisa elaborar mais pq criamos este conjunto
+\end{enumerate}
+
+
+A tabela~\ref{tab:datasetsstats} sumariza as estatísticas para cada conjunto de dados, contendo o número de palavras totais em todos os documentos, o número de documentos
+
+\begin{table}[h]
+\label{tab:datasetsstats}
+\centering
+\caption{Estatísticas das bases de dados usadas nos experimentos.}
+\begin{tabular}{c|c|c|c}
+\hline
+Conjuntos de dados               & \# Palavras & \# Documentos & \# Clusters reais \\
+\hline
+$\text{\textit{20 Newsgroup}}$   & $12.998$    & $18.221$      & $20$              \\
+$\text{\textit{NIPS14-17}}$      & $17.583$    & $420$         & $9$               \\
+$\text{\textit{IG}}$             & $19.563$    & $4.593$       & $13$              \\
+$\text{\textit{IG toy}}$         & $6.764$     & $3.00$        & $3$               \\
+\hline
+\end{tabular}
+\end{table}
+
+% TODO Colocar distribuição de documentos por classe (?)
+
+A fim de estruturar a informação nas bases de dados para construção dos modelos, foi necessária uma fase de pré-processamento, descrita na subseção~\ref{subsec:preproc}.
+
+\subsection{Pré-processamento}
+\label{subsec:preproc}
+
+As tarefas de pré-processamento incluem rotinas, processos e métodos para a estruturação dos textos presentes nos documentos.
+A estruturação se faz necessária para a extração de informações e descoberta de conhecimento por meio de técnicas e algoritmos \cite{Hotho2005}.
+
+Para realizar a estruturação de textos e representar os textos dos documentos em vetores de termos, o primeiro processo a ser realizado é a \textit{tokenização}, que cria um dicionário de termos para cada documento através da quebra dos textos desses documentos.
+A quebra do texto pode ser feita através de caracteres delimitadores de termos, como espaços em branco, pontuações e etc. No entanto, existem casos que esses caracteres podem não ser delimitadores de termos, como por exemplo os termos \textit{Prof.} e \textit{Sr.}.
+Este problema é chamado de determinação de fim de sentença, e pode ser resolvido por métodos estáticos (\textit{hard-coded}), baseados em regras e métodos de Aprendizado de Máquina \cite{Weiss2010}.
+Nos experimentos é utilizado como \textit{tokenizador}, uma expressão regular que separa caractéres não contíguos.
+
+Após isso, é realizada uma etapa de filtragem, que têm a função de retirar termos que não contribuem para distinguir ou identificar documentos, como exemplo, conjunções (\textit{e}, \textit{pois}, \textit{que}), artigos (\textit{um}, \textit{o}, \textit{a}), preposições (\textit{de}, \textit{para}) e etc.
+A técnica de retirar determinados termos a partir de uma lista, é chamada de filtro de \textit{stopwords}.
+Também são usadas outros filtros, como a exclusão de pontuações, elementos da web (como \textit{www} e links), numerais e tokens monetários, e eliminação de termos com a frequência nos documentos menor que 2.
+Para a base de dados \textit{IG} é usada uma lista de \textit{stopwords} diferente das demais, por esta se apresentar no idioma português.
+
+Para definição da representação textual dos documentos das bases de dados foram utilizadas múltiplas formas.
+Uma das representações utilizadas nos experimentos, é o modelo do espaço vetorial, ou \textit{Vector Space Model} \cite{Salton1975}.
+Esta é a representação clássica usada para representar documentos textuais \cite{Sebastiani2002,Lops2011}.
+Cada dimensão desse vetor está associada a um termo, sendo que todas as dimensões representam todos os termos do conjunto de documentos.
+Formalmente, há um conjunto de documentos $\{ d_1, \dots, d_n \}$, em que $d_i, \forall i \in \{1, \dots, n\}$ representa um documento e $n$ o número total de documentos, e um conjunto de termos $\{ t_1, \dots, t_m \}$, em que $t_j, \forall j \in \{1, \dots, m\}$ representa um termo e $m$ o número de termos em todos os documentos.
+Representando a frequência de um termo pelo número de vezes que $t_j$ aparece em um documento $d_i$, denotado por $tf(t_j, d_i)$, o vetor de termos pode ser construído e representado da seguinte forma: $\mathbf{v}_{d_i} = \big[ tf(t_1, d_i), \dots, tf(t_m, d_i) \big]$.
+\citeonline{Salton1975} argumentam que a representação textual de documentos em vetor de termos é suficiente para separar documentos.
+
+Ainda sobre o vetor de termos, \citeonline{Salton1975} mostram com experimentos em diversos conjuntos de dados, que o uso da normalização nos vetores usando a técnica de Frequência de Termos-Frequência de Documentos Inversa (\textit{Term Frequency-Inversed Document Frequency} - $tfidf$) é capaz de melhorar a separação de documentos.
+
+Essa normalização pode ser calculada como descrito na equação~\ref{eq:tfidf}, e tem o efeito de fazer com que a frequência dos termos que aparecem em muitos documentos seja reduzida, e a frequência dos termos que aparecem em alguns raros documentos seja aumentada, com um fator de $\log_{2}$.
+
+\begin{equation}
+\label{eq:tfidf}
+    \begin{array}{lclcl}
+        \text{\textit{tfidf}}(t_j, d_i) & = & tf(t_j, d_i) \cdot IDF(t_j) \\
+        \text{\textit{tfidf}}(t_j, d_i) & = & tf(t_j, d_i) \cdot \left( log_{2} \frac{n}{df(t_j) + 1} \right)
+    \end{array}
+\end{equation}
+em que $idf(t_j)$ representa a frequência de documentos inversa do termo $t_j$, e $df(t_j)$ a frequência de documentos que contém $t_j$.
+
+Nos experimentos presentes neste trabalho, também é usada normalização $\text{norma-}L_2$ para que todos os vetores de termos $\mathbf{v}_{d_i}, \forall i$ tenham comprimento iguais, ou seja, $\norm{\mathbf{v}_{d_i}} = 1$.
+
+Sendo assim, são realizados experimentos com as seguintes formas: frequência de termos ($tf$), frequência de termos normalizada ($tf-norm$), frequência de termos-frequência de documentos inversa ($tfidf$), e frequência de termos-frequência de documentos inversa normalizada ($tfidf-norm$).
+
+
+
+\subsection{Experimentos na Base de dados \textit{\textbf{IG toy}}}
+
+
+
+% ************************************************************
+% ************************************************************
+% ************************************************************
 
 \chapter{Mineração de Texto}
 \label{sec:mintexto}

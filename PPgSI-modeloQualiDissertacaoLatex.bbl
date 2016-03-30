@@ -31,6 +31,12 @@ ISBN 9780471787761.}
 \emph{Computer Science and Information Systems}, COMSIS CONSORTIUM, v.~9, n.~1,
   p. 303--322, jan. 2012.}
 
+\bibitem[Cabanes, Bennani e Fresneau 2012]{Cabanes2012}
+\abntrefinfo{Cabanes, Bennani e Fresneau}{CABANES; BENNANI; FRESNEAU}{2012}
+{CABANES, G.; BENNANI, Y.; FRESNEAU, D. Enriched topological learning for
+  cluster detection and visualization.
+\emph{Neural Networks}, v.~32, p. 186--195, 2012.}
+
 \bibitem[Capelle et al. 2012]{Capelle2012}
 \abntrefinfo{Capelle et al.}{CAPELLE et al.}{2012}
 {CAPELLE, M. et al. Semantics-based news recommendation. In:  \emph{Proceedings
@@ -89,6 +95,24 @@ Dispon{\'\i}vel em:
 \emph{Biclusterização na Análise de Dados Incertos}.
 Tese (Doutorado) --- Universidade Estadual de Campinas, Campinas, SP, BR, 11
   2010.}
+
+\bibitem[França e Zuben 2010]{Franca20102}
+\abntrefinfo{França e Zuben}{FRANçA; ZUBEN}{2010}
+{FRANçA, F. de; ZUBEN, F. V. Finding a high coverage set of 5-biclusters with
+  swarm intelligence. In:  \emph{Evolutionary Computation (CEC), 2010 IEEE
+  Congress on}. [S.l.: s.n.], 2010. p.~1--8.}
+
+\bibitem[Getz, Levine e Domany 2000]{Getz2000}
+\abntrefinfo{Getz, Levine e Domany}{GETZ; LEVINE; DOMANY}{2000}
+{GETZ, G.; LEVINE, E.; DOMANY, E. Coupled two-way clustering analysis of gene
+  microarray data.
+\emph{Proc. Natl. Acad. Sci. USA}, v.~97, p. 12079--12084, 2000.}
+
+\bibitem[Globerson et al. 2007]{Chechik2007}
+\abntrefinfo{Globerson et al.}{GLOBERSON et al.}{2007}
+{GLOBERSON, A. et al. Euclidean embedding of co-occurrence data.
+\emph{The Journal of Machine Learning Research}, MIT Press Cambridge, MA, USA,
+  v.~8, p. 2265--2295, 2007.}
 
 \bibitem[Han e Kamber 2006]{han2006data}
 \abntrefinfo{Han e Kamber}{HAN; KAMBER}{2006}
@@ -343,6 +367,13 @@ ISBN 978-1-57735-514-4. Dispon{\'\i}vel em:
   York, NY, USA: ACM, 2003.  (SIGIR '03), p. 267--273.
 ISBN 1-58113-646-3. Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/860435\-.860485$>$}{http://doi.acm.org/10.1145/860435.860485}.}
+
+\bibitem[Yang e Leskovec 2013]{Yang2013}
+\abntrefinfo{Yang e Leskovec}{YANG; LESKOVEC}{2013}
+{YANG, J.; LESKOVEC, J. Overlapping community detection at scale: A nonnegative
+  matrix factorization approach. In:  \emph{Proceedings of the Sixth ACM
+  International Conference on Web Search and Data Mining}. New York, NY, USA:
+  ACM, 2013.  (WSDM '13), p. 587--596.}
 
 \bibitem[Yeung, Yang e Ndzi 2012]{Yeung2012}
 \abntrefinfo{Yeung, Yang e Ndzi}{YEUNG; YANG; NDZI}{2012}

@@ -920,6 +920,12 @@ A principal contribuição deste trabalho, as estratégias ... ...., é apresent
 Técnicas e algoritmos de Biclusterização são usadas, principalmente, no contexto de expressão genética.
 No entanto, algoritmos de Biclusterização se fazem úteis quando se deseja encontrar \textit{modelos locais}.
 Ou seja, enquanto algoritmos de clusterização têm o intuito de encontrar \textit{modelos globais}, que geram grupos de dados levando em consideração todas as características, algoritmos de Biclusterização geram grupos de dados em que as características tem alta correlação \cite{Franca2010,Madeira2004}.
+% lembrar de inserir informação sobre two-way clustering e FCA - conforme informação passada pelo Fabrício no email.
+
+
+% Técnicas e algoritmos de Biclusterização são usadas, principalmente, no contexto de expressão genética.
+% No entanto, algoritmos de Biclusterização se fazem úteis quando se deseja encontrar \textit{modelos locais}.
+% Ou seja, enquanto algoritmos de clusterização têm o intuito de encontrar \textit{modelos globais}, que geram grupos de dados levando em consideração todas as características, algoritmos de Biclusterização geram grupos de dados em que as características tem alta correlação \cite{Franca2010,Madeira2004}.
 
 Para a descrição do problema formal de Biclusterização usa-se a seguinte definição \cite{Madeira2004}: seja uma matriz $A$, de dimensão $N \times M$, um conjunto de linhas $X = \{ x_1, \dots, x_n, \dots, x_N \}$ e um conjunto de colunas $Y = \{ y_1, \dots, y_m, \dots, y_M \}$, em que $a_{nm}$ geralmente é um número real e representa a relação entre a linha $x_n$ e a coluna $y_m$; o problema de Biclusterização é encontrar biclusters, que são submatrizes de $A$, denotados por $A_{IJ}$, em que $I \subseteq X$ e $J \subseteq Y$.
 Assim, o bicluster $A_{IJ}$ é um grupo dos objetos em $I$, perante as características com alta correlação $J$.

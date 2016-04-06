@@ -1,154 +1,155 @@
 \backcite {Yoo2010}{{10}{(document)}{Doc-Start}}
 \backcite {Yoo2010}{{10}{(document)}{Doc-Start}}
-\backcite {Jain1999}{{17}{1}{chapter.1}}
-\backcite {Xu2005, han2006data}{{17}{1}{chapter.1}}
-\backcite {Xu2005, han2006data}{{17}{1}{chapter.1}}
-\backcite {Franca2010, Ho2008}{{18}{1}{chapter.1}}
-\backcite {Franca2010, Ho2008}{{18}{1}{chapter.1}}
-\backcite {Tjhi2009}{{19}{1}{chapter.1}}
-\backcite {Tjhi2009}{{19}{1}{chapter.1}}
-\backcite {lee:nnmf00, lee99}{{19}{1}{chapter.1}}
-\backcite {lee:nnmf00, lee99}{{19}{1}{chapter.1}}
-\backcite {Xu2003, Shahnaz2006373, Yoo2010}{{19}{1}{chapter.1}}
-\backcite {Xu2003, Shahnaz2006373, Yoo2010}{{19}{1}{chapter.1}}
-\backcite {Xu2003, Shahnaz2006373, Yoo2010}{{19}{1}{chapter.1}}
-\backcite {Santamaria2007}{{23}{1.4}{section.1.4}}
-\backcite {Hochreiter2010}{{23}{1.4}{section.1.4}}
-\backcite {Hochreiter2010}{{23}{1.4}{section.1.4}}
-\backcite {Franca2010,Madeira2004}{{24}{2}{chapter.2}}
-\backcite {Franca2010,Madeira2004}{{24}{2}{chapter.2}}
-\backcite {Madeira2004}{{24}{2}{chapter.2}}
-\backcite {Madeira2004}{{24}{2.1}{section.2.1}}
-\backcite {Madeira2004}{{24}{2.1}{section.2.1}}
-\backcite {Madeira2004}{{25}{2.1}{section.2.1}}
-\backcite {Madeira2004}{{25}{2.1}{section.2.1}}
-\backcite {Madeira2004}{{25}{2.1}{section.2.1}}
-\backcite {Tanay2005,Madeira2004}{{25}{2.2}{section.2.2}}
-\backcite {Tanay2005,Madeira2004}{{25}{2.2}{section.2.2}}
-\backcite {Getz2000}{{25}{2.2}{section.2.2}}
-\backcite {Getz2000}{{25}{2.2}{section.2.2}}
-\backcite {Getz2000}{{25}{2.2}{section.2.2}}
-\backcite {Cheng2000}{{26}{2.2}{section.2.2}}
-\backcite {Cheng2000}{{26}{2.2}{equation.2.2.2}}
-\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{27}{2.2}{equation.2.2.2}}
-\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{27}{2.2}{equation.2.2.2}}
-\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{27}{2.2}{equation.2.2.2}}
-\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{27}{2.2}{equation.2.2.2}}
-\backcite {Hochreiter2010}{{27}{2.3}{section.2.3}}
-\backcite {Prelic2006}{{27}{2.3}{section.2.3}}
-\backcite {Santamaria2007}{{27}{2.3}{section.2.3}}
-\backcite {Hochreiter2010}{{28}{2.3}{equation.2.3.4}}
-\backcite {Long2005}{{29}{3.2}{section.3.2}}
-\backcite {Long2005}{{30}{3.2.1}{subsection.3.2.1}}
-\backcite {Yoo2010}{{30}{1}{figure.caption.16}}
-\backcite {bazaraa2006}{{32}{3.2.1}{equation.3.2.5}}
-\backcite {Long2005}{{32}{3.2.1}{equation.3.2.3}}
-\backcite {Ding06}{{32}{3.2.2}{subsection.3.2.2}}
-\backcite {Ding06}{{33}{3.2.2}{equation.3.2.10}}
-\backcite {Yoo2010}{{34}{3}{figure.caption.18}}
-\backcite {Yoo2010}{{35}{3.2.2}{equation.3.2.13}}
-\backcite {Edelman1999}{{36}{3.2.2}{figure.caption.19}}
-\backcite {Yoo2010}{{36}{3.2.2}{equation.3.2.15}}
-\backcite {Wang2011}{{37}{3.3}{section.3.3}}
-\backcite {Madeira2004}{{42}{5.1}{section.5.1}}
-\backcite {Chechik2007}{{44}{2}{Item.2}}
-\backcite {Hotho2005}{{45}{5.2.2}{subsection.5.2.2}}
-\backcite {Weiss2010}{{45}{5.2.2}{subsection.5.2.2}}
-\backcite {Salton1975}{{46}{5.2.2}{subsection.5.2.2}}
-\backcite {Sebastiani2002,Lops2011}{{46}{5.2.2}{subsection.5.2.2}}
-\backcite {Sebastiani2002,Lops2011}{{46}{5.2.2}{subsection.5.2.2}}
-\backcite {Salton1975}{{46}{5.2.2}{subsection.5.2.2}}
-\backcite {Salton1975}{{46}{5.2.2}{subsection.5.2.2}}
-\backcite {Lops2011}{{48}{6}{chapter.6}}
-\backcite {Hotho2005}{{48}{6}{chapter.6}}
-\backcite {Hotho2005}{{48}{6}{chapter.6}}
-\backcite {Feldman2006}{{48}{6}{chapter.6}}
-\backcite {Hotho2005}{{48}{6.1}{section.6.1}}
-\backcite {Salton1975}{{48}{6.1.1}{subsection.6.1.1}}
-\backcite {Sebastiani2002,Lops2011}{{48}{6.1.1}{subsection.6.1.1}}
-\backcite {Sebastiani2002,Lops2011}{{48}{6.1.1}{subsection.6.1.1}}
-\backcite {Salton1975}{{49}{6.1.1}{subsection.6.1.1}}
-\backcite {Sebastiani2002}{{49}{6.1.1}{subsection.6.1.1}}
-\backcite {Lops2011}{{49}{6.1.1}{subsection.6.1.1}}
-\backcite {Salton1975}{{49}{6.1.1}{subsection.6.1.1}}
-\backcite {Weiss2010}{{50}{6.1.2}{subsection.6.1.2}}
-\backcite {Miner2012}{{50}{6.1.4}{subsection.6.1.4}}
-\backcite {Haykin2008}{{50}{6.1.5}{subsection.6.1.5}}
-\backcite {Murphy2012}{{50}{6.1.5}{subsection.6.1.5}}
-\backcite {Kamber2011}{{51}{6.1.5}{subsection.6.1.5}}
-\backcite {Adomavicius2005,Jannach2011}{{52}{7}{chapter.7}}
-\backcite {Adomavicius2005,Jannach2011}{{52}{7}{chapter.7}}
-\backcite {Adomavicius2005,Lops2011}{{52}{7}{chapter.7}}
-\backcite {Adomavicius2005,Lops2011}{{52}{7}{chapter.7}}
-\backcite {Capelle2012}{{52}{7}{chapter.7}}
-\backcite {Lops2011}{{52}{7.1}{section.7.1}}
-\backcite {Adomavicius2005,Lops2011,Jannach2011}{{52}{7.1}{section.7.1}}
-\backcite {Adomavicius2005,Lops2011,Jannach2011}{{52}{7.1}{section.7.1}}
-\backcite {Adomavicius2005,Lops2011,Jannach2011}{{52}{7.1}{section.7.1}}
-\backcite {Adomavicius2005,Lops2011,Jannach2011}{{52}{7.1}{section.7.1}}
-\backcite {Adomavicius2005,Lops2011,Jannach2011}{{52}{7.1}{section.7.1}}
-\backcite {Adomavicius2005,Lops2011,Jannach2011}{{52}{7.1}{section.7.1}}
-\backcite {Lops2011}{{53}{7.1}{figure.caption.23}}
-\backcite {Capelle2012, Moerland2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Capelle2012, Moerland2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Cleger2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Beel2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Taraghi2013, Domingues2012, Spaeth2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Taraghi2013, Domingues2012, Spaeth2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Taraghi2013, Domingues2012, Spaeth2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Saaya2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Skillicorn2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Cleger2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Wang2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Bielikova2012, Lops2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Bielikova2012, Lops2013}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Yeung2012}{{54}{7.1.1}{figure.caption.24}}
-\backcite {Vaz2012}{{55}{7.1.1}{figure.caption.24}}
-\backcite {Yeung2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Vaz2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Yeung2012, Cleger2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Yeung2012, Cleger2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Lee2012, Semeraro2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Lee2012, Semeraro2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Tantanasiriwong2012, Lee2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Tantanasiriwong2012, Lee2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Lee2012}{{55}{7.1.2}{subsection.7.1.2}}
-\backcite {Davoodi2012, Bielikova2012}{{56}{7.1.2}{subsection.7.1.2}}
-\backcite {Davoodi2012, Bielikova2012}{{56}{7.1.2}{subsection.7.1.2}}
-\backcite {Davoodi2012}{{56}{7.1.2}{subsection.7.1.2}}
-\backcite {Bielikova2012}{{56}{7.1.2}{subsection.7.1.2}}
-\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Capelle2012, Lops2013}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Capelle2012, Lops2013}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Bielikova2012}{{56}{7.1.3}{subsection.7.1.3}}
-\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{60}{8.1}{section.8.1}}
-\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{60}{8.1}{section.8.1}}
-\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{60}{8.1}{section.8.1}}
-\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{60}{8.1}{section.8.1}}
-\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{60}{8.1}{section.8.1}}
-\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{60}{8.1}{section.8.1}}
-\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{60}{8.1}{section.8.1}}
-\backcite {Cheng2000}{{60}{8.1}{section.8.1}}
-\backcite {Santamaria2007}{{63}{8.3.1}{subsection.8.3.1}}
-\backcite {Jannach2011}{{63}{8.3.1}{subsection.8.3.1}}
-\backcite {Murphy2012}{{63}{8.3.2}{subsection.8.3.2}}
-\backcite {Strehl2002}{{64}{8.3.2}{subsection.8.3.2}}
+\backcite {Jain1999}{{19}{1}{chapter.1}}
+\backcite {Xu2005, han2006data}{{19}{1}{chapter.1}}
+\backcite {Xu2005, han2006data}{{19}{1}{chapter.1}}
+\backcite {Franca2010, Ho2008}{{20}{1}{chapter.1}}
+\backcite {Franca2010, Ho2008}{{20}{1}{chapter.1}}
+\backcite {Tjhi2009}{{21}{1}{chapter.1}}
+\backcite {Tjhi2009}{{21}{1}{chapter.1}}
+\backcite {lee:nnmf00, lee99}{{21}{1}{chapter.1}}
+\backcite {lee:nnmf00, lee99}{{21}{1}{chapter.1}}
+\backcite {Xu2003, Shahnaz2006373, Yoo2010}{{21}{1}{chapter.1}}
+\backcite {Xu2003, Shahnaz2006373, Yoo2010}{{21}{1}{chapter.1}}
+\backcite {Xu2003, Shahnaz2006373, Yoo2010}{{21}{1}{chapter.1}}
+\backcite {Santamaria2007}{{25}{1.4}{section.1.4}}
+\backcite {Hochreiter2010}{{25}{1.4}{section.1.4}}
+\backcite {Hochreiter2010}{{25}{1.4}{section.1.4}}
+\backcite {Franca2010,Madeira2004}{{26}{2}{chapter.2}}
+\backcite {Franca2010,Madeira2004}{{26}{2}{chapter.2}}
+\backcite {Madeira2004}{{26}{2}{chapter.2}}
+\backcite {Madeira2004}{{26}{2.1}{section.2.1}}
+\backcite {Madeira2004}{{26}{2.1}{section.2.1}}
+\backcite {Madeira2004}{{27}{2.1}{section.2.1}}
+\backcite {Madeira2004}{{27}{2.1}{section.2.1}}
+\backcite {Madeira2004}{{27}{2.1}{section.2.1}}
+\backcite {Tanay2005,Madeira2004}{{27}{2.2}{section.2.2}}
+\backcite {Tanay2005,Madeira2004}{{27}{2.2}{section.2.2}}
+\backcite {Getz2000}{{27}{2.2}{section.2.2}}
+\backcite {Getz2000}{{27}{2.2}{section.2.2}}
+\backcite {Getz2000}{{27}{2.2}{section.2.2}}
+\backcite {Cheng2000}{{28}{2.2}{section.2.2}}
+\backcite {Cheng2000}{{28}{2.2}{equation.2.2.2}}
+\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{29}{2.2}{equation.2.2.2}}
+\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{29}{2.2}{equation.2.2.2}}
+\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{29}{2.2}{equation.2.2.2}}
+\backcite {Franca20102,Yang2013,Hochreiter2010,Cabanes2012}{{29}{2.2}{equation.2.2.2}}
+\backcite {Hochreiter2010}{{29}{2.3}{section.2.3}}
+\backcite {Prelic2006}{{29}{2.3}{section.2.3}}
+\backcite {Santamaria2007}{{29}{2.3}{section.2.3}}
+\backcite {Hochreiter2010}{{30}{2.3}{equation.2.3.4}}
+\backcite {Long2005}{{31}{3.2}{section.3.2}}
+\backcite {Long2005}{{32}{3.2.1}{subsection.3.2.1}}
+\backcite {Yoo2010}{{32}{1}{figure.caption.16}}
+\backcite {bazaraa2006}{{34}{3.2.1}{equation.3.2.5}}
+\backcite {Long2005}{{34}{3.2.1}{equation.3.2.3}}
+\backcite {Ding06}{{34}{3.2.2}{subsection.3.2.2}}
+\backcite {Ding06}{{35}{3.2.2}{equation.3.2.10}}
+\backcite {Yoo2010}{{36}{3}{figure.caption.18}}
+\backcite {Yoo2010}{{37}{3.2.2}{equation.3.2.13}}
+\backcite {Edelman1999}{{38}{3.2.2}{figure.caption.19}}
+\backcite {Yoo2010}{{38}{3.2.2}{equation.3.2.15}}
+\backcite {Wang2011}{{39}{3.3}{section.3.3}}
+\backcite {Madeira2004}{{44}{5.1}{section.5.1}}
+\backcite {scikitLearn}{{47}{5.1.2}{subsection.5.1.2}}
+\backcite {Chechik2007}{{55}{2}{Item.2}}
+\backcite {Hotho2005}{{56}{5.2.2}{subsection.5.2.2}}
+\backcite {Weiss2010}{{56}{5.2.2}{subsection.5.2.2}}
+\backcite {Salton1975}{{57}{5.2.2}{subsection.5.2.2}}
+\backcite {Sebastiani2002,Lops2011}{{57}{5.2.2}{subsection.5.2.2}}
+\backcite {Sebastiani2002,Lops2011}{{57}{5.2.2}{subsection.5.2.2}}
+\backcite {Salton1975}{{57}{5.2.2}{subsection.5.2.2}}
+\backcite {Salton1975}{{57}{5.2.2}{subsection.5.2.2}}
+\backcite {Lops2011}{{59}{6}{chapter.6}}
+\backcite {Hotho2005}{{59}{6}{chapter.6}}
+\backcite {Hotho2005}{{59}{6}{chapter.6}}
+\backcite {Feldman2006}{{59}{6}{chapter.6}}
+\backcite {Hotho2005}{{59}{6.1}{section.6.1}}
+\backcite {Salton1975}{{59}{6.1.1}{subsection.6.1.1}}
+\backcite {Sebastiani2002,Lops2011}{{59}{6.1.1}{subsection.6.1.1}}
+\backcite {Sebastiani2002,Lops2011}{{59}{6.1.1}{subsection.6.1.1}}
+\backcite {Salton1975}{{60}{6.1.1}{subsection.6.1.1}}
+\backcite {Sebastiani2002}{{60}{6.1.1}{subsection.6.1.1}}
+\backcite {Lops2011}{{60}{6.1.1}{subsection.6.1.1}}
+\backcite {Salton1975}{{60}{6.1.1}{subsection.6.1.1}}
+\backcite {Weiss2010}{{61}{6.1.2}{subsection.6.1.2}}
+\backcite {Miner2012}{{61}{6.1.4}{subsection.6.1.4}}
+\backcite {Haykin2008}{{61}{6.1.5}{subsection.6.1.5}}
+\backcite {Murphy2012}{{61}{6.1.5}{subsection.6.1.5}}
+\backcite {Kamber2011}{{62}{6.1.5}{subsection.6.1.5}}
+\backcite {Adomavicius2005,Jannach2011}{{63}{7}{chapter.7}}
+\backcite {Adomavicius2005,Jannach2011}{{63}{7}{chapter.7}}
+\backcite {Adomavicius2005,Lops2011}{{63}{7}{chapter.7}}
+\backcite {Adomavicius2005,Lops2011}{{63}{7}{chapter.7}}
+\backcite {Capelle2012}{{63}{7}{chapter.7}}
+\backcite {Lops2011}{{63}{7.1}{section.7.1}}
+\backcite {Adomavicius2005,Lops2011,Jannach2011}{{63}{7.1}{section.7.1}}
+\backcite {Adomavicius2005,Lops2011,Jannach2011}{{63}{7.1}{section.7.1}}
+\backcite {Adomavicius2005,Lops2011,Jannach2011}{{63}{7.1}{section.7.1}}
+\backcite {Adomavicius2005,Lops2011,Jannach2011}{{63}{7.1}{section.7.1}}
+\backcite {Adomavicius2005,Lops2011,Jannach2011}{{63}{7.1}{section.7.1}}
+\backcite {Adomavicius2005,Lops2011,Jannach2011}{{63}{7.1}{section.7.1}}
+\backcite {Lops2011}{{64}{7.1}{figure.caption.29}}
+\backcite {Capelle2012, Moerland2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Capelle2012, Moerland2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Cleger2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Beel2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Taraghi2013, Domingues2012, Spaeth2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Taraghi2013, Domingues2012, Spaeth2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Taraghi2013, Domingues2012, Spaeth2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Saaya2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Tantanasiriwong2012, Qu2012, Wang2012, Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Skillicorn2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Cleger2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Wang2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Cleger2012, Tantanasiriwong2012, Saaya2013, Spaeth2013,Vaz2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Bielikova2012, Lops2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Bielikova2012, Lops2013}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Yeung2012}{{65}{7.1.1}{figure.caption.30}}
+\backcite {Vaz2012}{{66}{7.1.1}{figure.caption.30}}
+\backcite {Yeung2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Vaz2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Yeung2012, Cleger2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Yeung2012, Cleger2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Lee2012, Semeraro2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Lee2012, Semeraro2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Tantanasiriwong2012, Lee2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Tantanasiriwong2012, Lee2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Lee2012}{{66}{7.1.2}{subsection.7.1.2}}
+\backcite {Davoodi2012, Bielikova2012}{{67}{7.1.2}{subsection.7.1.2}}
+\backcite {Davoodi2012, Bielikova2012}{{67}{7.1.2}{subsection.7.1.2}}
+\backcite {Davoodi2012}{{67}{7.1.2}{subsection.7.1.2}}
+\backcite {Bielikova2012}{{67}{7.1.2}{subsection.7.1.2}}
+\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Capelle2012, Lops2013}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Capelle2012, Lops2013}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Bielikova2012}{{67}{7.1.3}{subsection.7.1.3}}
+\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{71}{8.1}{section.8.1}}
+\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{71}{8.1}{section.8.1}}
+\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{71}{8.1}{section.8.1}}
+\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{71}{8.1}{section.8.1}}
+\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{71}{8.1}{section.8.1}}
+\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{71}{8.1}{section.8.1}}
+\backcite {Franca2010,Cheng2000,Tanay2005,Madeira2004,Santamaria2007,Kluger2003,Prelic2006}{{71}{8.1}{section.8.1}}
+\backcite {Cheng2000}{{71}{8.1}{section.8.1}}
+\backcite {Santamaria2007}{{74}{8.3.1}{subsection.8.3.1}}
+\backcite {Jannach2011}{{74}{8.3.1}{subsection.8.3.1}}
+\backcite {Murphy2012}{{74}{8.3.2}{subsection.8.3.2}}
+\backcite {Strehl2002}{{75}{8.3.2}{subsection.8.3.2}}

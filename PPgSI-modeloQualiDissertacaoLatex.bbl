@@ -229,6 +229,11 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 {MURPHY, K.~P. \emph{Machine Learning: A Probabilistic Perspective}. [S.l.]:
   The MIT Press, 2012.}
 
+\bibitem[Pedregosa et al. 2011]{scikitLearn}
+\abntrefinfo{Pedregosa et al.}{PEDREGOSA et al.}{2011}
+{PEDREGOSA, F. et al. Scikit-learn: Machine learning in {P}ython.
+\emph{Journal of Machine Learning Research}, v.~12, p. 2825--2830, 2011.}
+
 \bibitem[Preli\'{C} et al. 2006]{Prelic2006}
 \abntrefinfo{Preli\'{C} et al.}{PRELI\'{C} et al.}{2006}
 {PRELI\'{C}, A. et al. A systematic comparison and evaluation of biclustering

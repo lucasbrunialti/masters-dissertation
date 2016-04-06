@@ -1895,79 +1895,526 @@ Os algoritmos usados nos experimentos compõem algoritmos de clustering tradicio
 
 \section{Experimentos com Base de Dados sintéticas}
 
-As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de biclusters, propostas por \citeonline{Madeira2004}.
+As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de biclusters, propostas por \citeonline{Madeira2004}, descritas com maior detalhes no capítulo~\ref{ch:conceitos}.
+Dentre as nove possíveis estruturas de biclusters, foram escolhidas as estruturas de bicluster com intersecção de linhas ou colunas em conjunto com as estruturas mais simples, que fazem sentido com o objetivo principal deste trabalho, que é, em linhas gerais, encontrar soluções algorítmicas baseadas em fatoração de matrizes que resolvam problemas de cocluster com intersecção de linhas e/ou colunas.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
-    \includegraphics[width=0.7\textwidth]{img/synteticBiclusters.png}
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:a}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:b}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:c}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:d}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:e}
+    \end{subfigure}
+
     \caption{
-        Tipos diferentes de biclusters.
+        Dados sintéticos gerados a partir das diferentes estruturas de biclusters.
+        (a) Um único bicluster.
+        (b) Biclusters com linhas e colunas sem intersecção.
+        (c) Biclusters com estrutura em xadrez.
+        (d) Biclusters com linhas sem intersecção e colunas com intersecção.
+        (e) Biclusters com linhas com intersecção e colunas sem intersecção.
     }
-    \label{fig:biclusters-structures}
+    \label{fig:bic-syntetic-structure}
 \end{figure}
 
-A forma de interpretar as matrizes da figura~\ref{fig:biclusters-structures} é considerar cada elemento dessa matriz como uma cor relacionada com o seu valor, organizando as linhas e colunas, de tal forma que os valores similares formem retângulos, que são os biclusters.
+A forma de interpretar as matrizes da figura~\ref{fig:bic-syntetic-structure} é considerar cada elemento dessa matriz com uma cor relacionada com o seu valor ou intensidade, organizando as linhas e colunas, de tal forma que os valores similares formem retângulos, que são biclusters.
 
-Cada bicluster foi gerado a partir de valores centrais de um conjunto de valores centrais $C = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, sendo assim, é escolhido um valor central $c \in C$ de forma aleatória e adicionado valores de $0$ à $10$, gerados a partir de uma distribuição uniforme, para formar um bicluster.
-Então, um os valores de um bicluster $B$, que é uma submatriz dos dados originais, é gerado pela equação~\ref{eq:genbic}.
+Todas as matrizes de dados da figura~\ref{fig:bic-syntetic-structure} foram geradas sintéticamente, primeiramente criando uma matriz com $150$ linhas e $150$ colunas, e preenchendo-a com valores ponto flutuante de $0.0$ à $1.0$, gerados a partir de uma distribuição uniforme, denotado pela função $unif(0.0, 1.0)$, que gera valores aleatórios uniformes de $0.0$ à $1.0$.
+Este processo evita que ocorram divisões por $0$ nos algoritmos.
+
+Então, foram gerados os bicluster, considerando um conjunto de valores centrais $\mathcal{C} = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, e escolhendo um valor central $c \in \mathcal{C}$ de forma aleatória, adicionado valores de $0.0$ à $10.0$, gerados a partir da função $unif(0.0, 10.0)$, que gera valores aleatórios uniformes de $0.0$ à $10.0$, para então formar um bicluster.
+Assim, considerando um bicluster denotado por $B$, uma submatriz dos dados originais, este pode ser gerado pela equação~\ref{eq:genbic}.
 
 \begin{equation}
 \label{eq:genbic}
     b_{ij} = c + unif(0, 10)
 \end{equation}
 
-sendo $i$ e $j$ os índices das linhas e colunas de $B$, respectivamente, e $unif(0, 10)$ uma função geradora de números de $0$ à $10$, que respeita a distribuição uniforme.
+sendo $i$ e $j$ os índices das linhas e colunas de $B$, respectivamente, $b_{ij}$ um elemento de $B$, e $unif(0, 10)$ uma função geradora de números de $0$ à $10$, que respeita a distribuição uniforme.
+Considerando a matriz de dados sintéticos como $X$, cada elemento dessa matriz recebe o bicluster criado: $x_{ij} = b_{ij}, \forall i, j$.
 
-\begin{table}[h]
+Uma forma de analisar o resultado dos algoritmos é analisá-los quanto a sua capacidade de reconstrução, ou seja, após a execução de um algoritmo de fatoração de matrizes, coletar as matrizes resultantes da fatoração e combiná-las, da mesma forma que o seu problema foi proposto, de forma a reconstruir a matriz que foi fatorada.
+
+Os seguintes biclusters e coclusters podem ser encontrados nas matrizes da figura~\ref{fig:bic-syntetic-structure}, considerando que cada matriz têm dimensão $150 \times 150$, então, os índices das linhas estão entre $0$ e $149$ e os índices das colunas também de $0$ à $149$:
+
+\begin{itemize}
+    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:a}}} há um bicluster, formado pelas linhas de $60$ à $110$ e pelas colunas de $70$ à $140$; sendo então, dois coclusters de linhas, o primeiro formado pelas linhas de $60$ à $110$ e o segundo pelas demais linhas, e dois cogrupos de colunas, o primeiro formado pelas colunas de $70$ à $140$ e o segundo pelas demais colunas.
+    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}} há três biclusters sem intersecção, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $100$ à $149$; sendo então, três coclusters de linhas sem intersecção e três coclusters de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$, respectivamente.
+    Também existe outra forma de observar os coclusters presentes neste caso, se for considerado os coclusters de colunas para cada cocluster de linhas, seriam os mesmos três coclusters de linhas e dois coclusters de colunas para cada cocluster de linha, ou seja, para o primeiro cocluster de linhas (linhas $0$ à $49$), os dois coclusters de colunas são os coclusters formados pelas colunas de $0$ à $49$ e pelas demais colunas ($50$ à $149$), seguindo a mesma lógica para os demais coclusters.
+    Note que desta maneira, é possível que coclusters de colunas tenham intersecção.
+    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:c}}} há nove biclusters com intersecção em estrutura de xadrez, formados através da divisão da matriz de dados sintética em partes iguais; sendo assim, serão 3 coclusters de linhas sem intersecção e 3 coclusters de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$.
+    É possível fazer a mesma observação de coclusters realizada no item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}}, totalizando nove coclusters, três coclusters de linhas e três coclusters de colunas para cada cocluster de linha.
+    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} há três biclusters com intersecção nas colunas, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $69$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, e o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $79$ à $149$; sendo então, 3 coclusters de linhas sem intersecção e 3 coclusters de colunas com intersecção.
+    Considerando os coclusters de colunas para cada cocluster de linhas, serão nove coclusters, dois coclusters de colunas para cada um dos três coclusters de linhas.
+    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:e}}} Este caso é exatamente igual ao item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} se for observado a transposição da matriz de dados sintética.
+\end{itemize}
+
+Para cada um dos matrizes (subimages da figura~\ref{fig:bic-syntetic-structure}) foi executado todos os seguintes algoritmos: \textit{k-means}, \textit{fuzzy k-means}, \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}.
+Foram criados experimentos para analisar a capacidade de reconstrução dos algoritmos e a capacidade de particionamento, tanto das linhas quanto das colunas.
+
+\subsection{Experimentos de reconstrução}
+
+% TODO Descrever melhor pq a reconstrução é importante
+Foram realizados experimentos avaliando a capacidade de reconstrução dos algoritmos para cada uma das bases de dados sintéticas criadas.
+Esse tipo de experimento se torna importante a partir do momento que o objetivo é avaliar como os algoritmos se comportam com estruturas com intersecção de cocluster nas linhas ou colunas.
+
+\subsection{Resultados da reconstrução de dados sintéticos com \textit{k-means}}
+\label{subsec:results-reconstruction-kmeans}
+
+Para esse experimento foi usado a implementação do algoritmo \textit{k-means} da biblioteca \textit{scikit-learn} \cite{scikitLearn} da linguagem Python\footnote{https://www.python.org/}.
+
+Como critério de parada do algoritmo, foi utilizada a regra do número máximo de iterações, com o valor de $300$ iterações, ou a diferença do erro de minimização assumir valor menor ou igual à $1e-4$.
+O parâmetro do número de clusters foi configurado diferente para cada conjunto de dados sintéticos criado: $k = 2$ para (a) e $k = 3$ para (b), (c), (d) e (e).
+
+A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
+
+As reconstruções, presentes nas subfiguras da Figura~\ref{fig:reconstruction:kmeans}, tiveram suas linhas coloridas através do centróide que as representavam, ou seja, se a linha $10$ pertencer ao centróide $1$, então os valores da linha $10$ serão os valores do centróide.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-reconstruction-kmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-reconstruction-kmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-reconstruction-kmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-reconstruction-kmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-reconstruction-kmeans.png}
+        \caption{}
+    \end{subfigure}
+
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas pelo \textit{k-means}.
+    }
+    \label{fig:reconstruction:kmeans}
+\end{figure}
+
+Note que o modelo resultante da execução é capaz de realizar a reconstrução perfeita dos casos (a) à (d).
+No entanto, o modelo não tem informações sobre a estrutura de coclusters de colunas presentes nos dados.
+O caso (e) é o único que o algoritmo não é capaz de realizar a reconstrução, isso ocorre pois o algoritmo não é capaz de encontrar intersecção de clusters.
+
+\subsection{Resultados da reconstrução de dados sintéticos com \textit{fuzzy k-means}}
+\label{subsec:results-reconstruction-fkmeans}
+
+Para esse experimento foi usado a implementação do algoritmo \textit{fuzzy k-means} da biblioteca \textit{scikit-fuzzy}\footnote{http://pythonhosted.org/scikit-fuzzy/} da linguagem Python.
+
+Como critério de parada do algoritmo, assim como o experimento anterior, foi utilizada a regra do número máximo de iterações, com o valor de $300$ iterações, ou a diferença do erro de minimização assumir valor menor ou igual à $1e-4$.
+O parâmetro do número de clusters foi configurado da seguinte maneira: $k = 2$ para (a) e $k = 3$ para (b), (c), (d) e (e).
+O parâmetro de exponenciação foi configurado com o valor $2$.
+% TODO eu li que esse é o usual (default), explicar pq
+
+A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
+
+Da mesma forma que o experimento anterior, as reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:fkmeans}, tiveram suas linhas coloridas através do centróide que as representavam.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-reconstruction-fkmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-reconstruction-fkmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-reconstruction-fkmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-reconstruction-fkmeans.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-reconstruction-fkmeans.png}
+        \caption{}
+    \end{subfigure}
+
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas pelo \textit{fuzzy k-means}.
+    }
+    \label{fig:reconstruction:fkmeans}
+\end{figure}
+
+Semelhante ao experimento de reconstrução com o \textit{k-means}, este também é capaz de realizar a reconstrução perfeita dos casos (a) à (d), porém, apesar do algoritmo lidar com intersecção de clusters, este não foi capaz de fazer a reconstrução do caso (e).
+% TODO dizer que no (e) foi pior que o kmeans?
+
+\subsection{Resultados da reconstrução de dados sintéticos com \textit{ONMTF}}
+\label{subsec:results-reconstruction-onmtf}
+
+Para esse experimento, foi feita a implementação do algoritmo \textit{ONMTF} usando a linguagem Python.
+
+Como critério de parada do algoritmo, foi utilizada $1000$ como número máximo de iterações, ou a diferença do erro de minimização assumir valor menor ou igual à $1e-4$.
+Os parâmetros do número de coclusters de linhas e colunas foi configurado da seguinte maneira: $k = l = 2$ para (a) e $k = l = 3$ para (b), (c), (d) e (e).
+
+Para o funcionamento do algoritmo \textit{ONMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas seja igual à $1$.
+
+A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
+
+As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:onmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $U S V^T$.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-reconstruction-onmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-reconstruction-onmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-reconstruction-onmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-reconstruction-onmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-reconstruction-onmtf.png}
+        \caption{}
+    \end{subfigure}
+
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas pelo \textit{ONMTF}.
+    }
+    \label{fig:reconstruction:onmtf}
+\end{figure}
+
+Analisando as reconstruções realizadas, é possível perceber que a reconstrução é realizada com êxito nos casos (a), (b) e (c).
+O algoritmo falhou em reconstruir as intersecções de linhas e colunas presentes nos casos (d) e (e), respectivamente.
+
+No entanto, é possível ver sombras nas regiões das matrizes reconstruídas com intersecção de biclusters, isso significa que quando observa-se a matriz $V$ (que contém as relações de pertinência entre coclusters e colunas (características)) para o caso (d), é possível ver valores associados ao segundo cocluster, porém menores que as outras associações com os clusters.
+Isso é possível pois o algoritmo não força a associação única e exclusiva entre uma linha e um cocluster ou uma coluna e um cocluster.
+
+\subsection{Resultados da reconstrução de dados sintéticos com \textit{FNMTF}}
+\label{subsec:results-reconstruction-fnmtf}
+
+Para esse experimento, foi feita a implementação do algoritmo \textit{FNMTF} usando a linguagem Python.
+
+Como critério de parada do algoritmo, foi utilizada $300$ como número máximo de iterações, ou a diferença do erro de minimização assumir valor menor ou igual à $1e-4$.
+Os parâmetros do número de coclusters de linhas e colunas foi configurado da seguinte maneira: $k = l = 2$ para (a) e $k = l = 3$ para (b), (c), (d) e (e).
+
+Para o algoritmo \textit{FNMTF} não é necessária a normalização dos dados.
+
+A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
+
+As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:fnmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $F S G^T$.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-reconstruction-fnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-reconstruction-fnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-reconstruction-fnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-reconstruction-fnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-reconstruction-fnmtf.png}
+        \caption{}
+    \end{subfigure}
+
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas pelo \textit{FNMTF}.
+    }
+    \label{fig:reconstruction:fnmtf}
+\end{figure}
+
+Este caso é semelhante ao anterior, o algoritmo conseguiu realizar a reconstrução com êxito dos casos (a), (b) e (c), falhando na reconstrução da intersecção dos casos (d) e (e).
+No entanto, como não há informação de pertinência, ou seja, o algoritmo impõem que cada linha ou coluna pode pertencer apenas a um cocluster, a informação de intersecção é corrompida.
+
+\subsection{Resultados da reconstrução de dados sintéticos com \textit{OvNMTF}}
+\label{subsec:results-reconstruction-ovnmtf}
+
+Para esse experimento, foi feita a implementação do algoritmo \textit{OvNMTF} usando a linguagem Python.
+
+Como critério de parada do algoritmo, foi utilizada $1000$ como número máximo de iterações, ou a diferença do erro de minimização assumir valor menor ou igual à $1e-4$.
+Os parâmetros do número de coclusters de linhas e colunas foi configurado da seguinte maneira: $k = l = 2$ para (a); e $k = 3$ e $l = 2$ para (b), (c), (d) e (e).
+
+Para o funcionamento do algoritmo \textit{OvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas seja igual à $1$.
+
+A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
+
+As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:ovnmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $F \sum_{p=1}^{k} I_{(p)} S G_{(p)}^T$.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-reconstruction-ovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-reconstruction-ovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-reconstruction-ovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-reconstruction-ovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-reconstruction-ovnmtf.png}
+        \caption{}
+    \end{subfigure}
+
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas pelo \textit{OvNMTF}.
+    }
+    \label{fig:reconstruction:ovnmtf}
+\end{figure}
+
+O algoritmo conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d), com valores suavemente diferentes (isso pode ser notado pela cor das matrizes reconstruídas) devido à normalização necessária.
+Note que o algoritmo é capaz de lidar com coclusters com intersecção de colunas, então é capaz de resolver o caso (d).
+Como o algoritmo não é capaz de lidar com coclusters com intersecção nas linhas, este não é capaz de realizar a reconstrução do caso (e), porém, assim como o experimento com \textit{ONMTF}, o \textit{OvNMTF} têm a informação de pertinência de cada linha ou coluna com cada cocluster.
+Por isso, as intersecções são preservadas, observando as áreas das intersecções de linhas com sombra, na matriz de dados sintéticos.
+
+\subsection{Resultados da reconstrução de dados sintéticos com \textit{BinOvNMTF}}
+\label{subsec:results-reconstruction-binovnmtf}
+
+Para esse experimento, foi feita a implementação do algoritmo \textit{BinOvNMTF} usando a linguagem Python.
+
+Como critério de parada do algoritmo, foi utilizada $1000$ como número máximo de iterações, ou a diferença do erro de minimização assumir valor menor ou igual à $1e-4$.
+Os parâmetros do número de coclusters de linhas e colunas foi configurado da seguinte maneira: $k = l = 2$ para (a); e $k = 3$ e $l = 2$ para (b), (c), (d) e (e).
+
+A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
+
+As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:binovnmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $F S G^T$.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-reconstruction-binovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-reconstruction-binovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-reconstruction-binovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-reconstruction-binovnmtf.png}
+        \caption{}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-reconstruction-binovnmtf.png}
+        \caption{}
+    \end{subfigure}
+
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas pelo \textit{BinOvNMTF}.
+    }
+    \label{fig:reconstruction:binovnmtf}
+\end{figure}
+
+
+
+\subsection{Resultados quantitativos com dados sintéticos}
+% TODO: Comparar reconstrução com dados da tabela
+
+Os mesmos modelos que foram gerados nos experimentos de reconstrução, foram usados para a construção dos resultados desta subseção.
+
+Os resultados são independentes da organização das linhas das matrizes, ou seja, com ou sem embaralhamento é obtido os mesmos resultados.
+O embaralhamento foi realizado de forma aleatória gerando novos índices das linhas a partir de uma distribuição uniforme.
+
+
+\begin{table}[H]
 \label{tab:datasetsstats}
 \centering
-\caption{Estatísticas das bases de dados usadas nos experimentos.}
-\begin{tabular}{c|c|c|c}
-\hline
-Algoritmo     & Base de dados & Rand Index (linhas)         & Rand index (colunas) \\
-\hline
-K-means       & (a)           & $1.0$                       & -                    \\
-K-means       & (b)           & $1.0$                       & -                    \\
-K-means       & (c)           & $1.0$                       & -                    \\
-K-means       & (d)           & $1.0$                       & -                    \\
-K-means       & (e)           & $0.78$                      & -                    \\
-\hline
-Fuzzy K-means & (a)           & $1.0$                       & -                    \\
-Fuzzy K-means & (b)           & $1.0$                       & -                    \\
-Fuzzy K-means & (c)           & $1.0$                       & -                    \\
-Fuzzy K-means & (d)           & $1.0$                       & -                    \\
-Fuzzy K-means & (e)           & $0.78$                      & -                    \\
-\hline
-ONMTF         & (a)           & $1.0$                       & $1.0$                \\
-ONMTF         & (b)           & $1.0$                       & $1.0$                \\
-ONMTF         & (c)           & $1.0$                       & $1.0$                \\
-ONMTF         & (d)           & $1.0$                       & $0.78$               \\
-ONMTF         & (e)           & $0.78$                      & $1.0$                \\
-\hline
-FNMTF         & (a)           & $1.0$                       & $1.0$                \\
-FNMTF         & (b)           & $1.0$                       & $1.0$                \\
-FNMTF         & (c)           & $1.0$                       & $1.0$                \\
-FNMTF         & (d)           & $1.0$                       & $0.78$               \\
-FNMTF         & (e)           & $0.78$                      & $1.0$                \\
-\hline
-OvNMTF        & (a)           & $1.0$                       & $1.0$                \\
-OvNMTF        & (b)           & $1.0$                       & $1.0$                \\
-OvNMTF        & (c)           & $1.0$                       & $1.0$                \\
-OvNMTF        & (d)           & $1.0$                       & $1.0$                \\
-OvNMTF        & (e)           & $0.78$                      & $1.0$                \\
-\hline
-BinOvNMTF     & (a)           & $1.0$                       & $1.0$                \\
-BinOvNMTF     & (b)           & $1.0$                       & $1.0$                \\
-BinOvNMTF     & (c)           & $1.0$                       & $1.0$                \\
-BinOvNMTF     & (d)           & $1.0$                       & $1.0$                \\
-BinOvNMTF     & (e)           & $0.78$                      & $1.0$                \\
-\hline
-\end{tabular}
+    \caption{Estatísticas das bases de dados usadas nos experimentos.}
+    \begin{tabular}{c|c|c|c}
+        \hline
+        Algoritmo     & Base de dados & \textit{Rand Index} (linhas) & \textit{Rand index} (colunas) \\
+        \hline
+        k-means       & (a)           & $1.0$                        & -                             \\
+        k-means       & (b)           & $1.0$                        & -                             \\
+        k-means       & (c)           & $1.0$                        & -                             \\
+        k-means       & (d)           & $1.0$                        & -                             \\
+        k-means       & (e)           & $0.78$                       & -                             \\
+        \hline
+        fuzzy k-means & (a)           & $1.0$                        & -                             \\
+        fuzzy k-means & (b)           & $1.0$                        & -                             \\
+        fuzzy k-means & (c)           & $1.0$                        & -                             \\
+        fuzzy k-means & (d)           & $1.0$                        & -                             \\
+        fuzzy k-means & (e)           & $0.78$                       & -                             \\
+        \hline
+        ONMTF         & (a)           & $1.0$                        & $1.0$                         \\
+        ONMTF         & (b)           & $1.0$                        & $1.0$                         \\
+        ONMTF         & (c)           & $1.0$                        & $1.0$                         \\
+        ONMTF         & (d)           & $1.0$                        & $0.78$                        \\
+        ONMTF         & (e)           & $0.78$                       & $1.0$                         \\
+        \hline
+        FNMTF         & (a)           & $1.0$                        & $1.0$                         \\
+        FNMTF         & (b)           & $1.0$                        & $1.0$                         \\
+        FNMTF         & (c)           & $1.0$                        & $1.0$                         \\
+        FNMTF         & (d)           & $1.0$                        & $0.78$                        \\
+        FNMTF         & (e)           & $0.78$                       & $1.0$                         \\
+        \hline
+        OvNMTF        & (a)           & $1.0$                        & $1.0$                         \\
+        OvNMTF        & (b)           & $1.0$                        & $1.0$                         \\
+        OvNMTF        & (c)           & $1.0$                        & $1.0$                         \\
+        OvNMTF        & (d)           & $1.0$                        & $1.0$                         \\
+        OvNMTF        & (e)           & $0.78$                       & $1.0$                         \\
+        \hline
+        BinOvNMTF     & (a)           & $1.0$                        & $1.0$                         \\
+        BinOvNMTF     & (b)           & $1.0$                        & $1.0$                         \\
+        BinOvNMTF     & (c)           & $1.0$                        & $1.0$                         \\
+        BinOvNMTF     & (d)           & $1.0$                        & $1.0$                         \\
+        BinOvNMTF     & (e)           & $0.53$                       & $1.0$                         \\
+        \hline
+    \end{tabular}
 \end{table}
 
-\section{Experimentos com Base de Dados reais}
+\section{Experimentos com base de dados reais}
 
-\subsection{Bases de dados}
+\subsection{Descrição das bases de dados}
 
 Nos experimentos deste trabalho foram usadas quatro base de dados de textos, sendo elas no domínio de notícias e artigos.
 Em todas as bases foram usados os rótulos verdadeiros para avaliar a qualidade dos clusters, usadas apenas após a fase de criação dos modelos, ou seja, não serviram de entrada para os algoritmos.
@@ -2055,11 +2502,37 @@ Nos experimentos presentes neste trabalho, também é usada normalização $\tex
 
 Sendo assim, são realizados experimentos com as seguintes formas: frequência de termos ($tf$), frequência de termos normalizada ($tf-norm$), frequência de termos-frequência de documentos inversa ($tfidf$), e frequência de termos-frequência de documentos inversa normalizada ($tfidf-norm$).
 
+\subsection{Experimentos quantitativos}
 
+\subsubsection{Setup dos algoritmos}
 
-\subsection{Experimentos na Base de dados \textit{\textbf{IG toy}}}
+\subsubsection{Setup dos experimentos}
 
+\subsubsection{Base de dados \textit{\textbf{NIPS}}}
 
+\subsubsection{Base de dados \textit{\textbf{20Newsgroup}}}
+
+\subsubsection{Base de dados \textit{\textbf{20Newsgroup}}}
+
+\subsubsection{Base de dados \textit{\textbf{IG toy}}}
+
+\subsection{Experimentos qualitativos}
+
+% TODO descrição
+
+\subsubsection{Análise de dados utilizando \textit{ONMTF}}
+
+% TODO Figura caderno
+
+% TODO matriz S
+
+% TODO tabela com palavras mais relevantes
+
+\subsubsection{Análise de dados utilizando \textit{FNMTF}}
+
+\subsubsection{Análise de dados utilizando \textit{OvNMTF}}
+
+\subsubsection{Análise de dados utilizando \textit{BinOvNMTF}}
 
 % ************************************************************
 % ************************************************************

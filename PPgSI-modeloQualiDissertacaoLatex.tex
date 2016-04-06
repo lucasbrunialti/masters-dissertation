@@ -2245,7 +2245,7 @@ Para o funcionamento do algoritmo \textit{OvNMTF} é necessária a normalizaçã
 
 A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
 
-As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:ovnmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $F \sum_{p=1}^{k} I_{(p)} S G_{(p)}^T$.
+As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:ovnmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T$.
 
 \begin{figure}[H]
 \centering
@@ -2307,7 +2307,7 @@ Os parâmetros do número de coclusters de linhas e colunas foi configurado da s
 
 A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
 
-As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:binovnmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $F S G^T$.
+As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:binovnmtf}, foram construídas a partir da multiplicação das matrizes fatoradas, ou seja, $F \sum_{p=1}^{k} I_{(p)} S G_{(p)}^T$.
 
 \begin{figure}[H]
 \centering
@@ -2354,63 +2354,83 @@ As reconstruções presentes nas subfiguras da Figura~\ref{fig:reconstruction:bi
     \label{fig:reconstruction:binovnmtf}
 \end{figure}
 
-
+Semelhante ao experimento anterior, o algoritmo conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d), com valores suavemente diferentes (isso pode ser notado pela cor das matrizes reconstruídas) devido à normalização necessária.
+Note que o algoritmo é capaz de lidar com coclusters com intersecção de colunas, então é capaz de resolver o caso (d).
+Como o algoritmo não é capaz de lidar com coclusters com intersecção nas linhas, este não é capaz de realizar a reconstrução do caso (e), porém, assim como o experimento com \textit{ONMTF}, o \textit{OvNMTF} têm a informação de pertinência de cada linha ou coluna com cada cocluster.
+Por isso, as intersecções são preservadas, observando as áreas das intersecções de linhas com sombra, na matriz de dados sintéticos.
 
 \subsection{Resultados quantitativos com dados sintéticos}
 % TODO: Comparar reconstrução com dados da tabela
 
 Os mesmos modelos que foram gerados nos experimentos de reconstrução, foram usados para a construção dos resultados desta subseção.
+Como os as bases de dados foram construídos de forma sintética, foi possível criá-los a partir de rótulos, ou seja, a qual cocluster uma determinada linha ou coluna pertence, permitindo a realização de avaliação externa.
 
-Os resultados são independentes da organização das linhas das matrizes, ou seja, com ou sem embaralhamento é obtido os mesmos resultados.
+% TODO: citação
+A métrica usada para validação dos cocluster foi o \textit{Rand Index}, este índice gera valores entre $0$ e $1$, com $0$ indicando que o particionamento de dados gerado pelo modelo não concorda em nenhum par de pontos com o particionamento real e $1$ indicando que o particionamento gerado pelo modelo é exatamente igual ao particionamento real.
+
+Os resultados são independentes da organização das linhas das matrizes, ou seja, com ou sem embaralhamento é obtido os mesmos resultados para as métricas.
 O embaralhamento foi realizado de forma aleatória gerando novos índices das linhas a partir de uma distribuição uniforme.
 
+É possível correlacionar os resultados obtidos nas reconstruções com os resultados obtidos através da validação com o \textit{Rand Index}.
+
+A avaliação externa foi feita para o particionamento de linhas e para o particionamento de colunas, observando os valores destacados na tabela~\ref{tab:datasetsstats} da coluna \textit{Rand Index} (linhas), é possível ver que nenhum dos algoritmos foi capaz de particionar perfeitamente (com valor $1.0$) as linhas para a base de dados (e), que contém intersecção, assim como nos experimentos com reconstrução.
+Claramente, isso ocorre pois nenhum dos algoritmos é capaz de encontrar coclusters com intersecção de linhas.
+
+Na coluna \textit{Rand index} (colunas) da tabela~\ref{tab:datasetsstats}, também é possível observar que não há resultados para os algoritmos \textit{k-means} e \textit{fuzzy k-means}, pois os mesmos não resolvem o problema de particionamento de colunas.
+Os valores destacados desta mesma coluna mostra que os algoritmos criados neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}) são capazes de particionar coclusters com intersecção de linhas, base de dados sintéticas do caso (d).
+Os algoritmos \textit{ONMTF} e \textit{FNMTF} não são capazes de lidar com intersecção nas colunas, por isso, o valor $0.78$ de \textit{Rand Index}.
+
+Todos os outros casos com valores não destacados na tabela~\ref{tab:datasetsstats} obtiveram particionamento perfeito, ou seja, \textit{Rand Index} igual à $1.0$, assim como os experimentos das reconstruções.
 
 \begin{table}[H]
 \label{tab:datasetsstats}
 \centering
     \caption{Estatísticas das bases de dados usadas nos experimentos.}
-    \begin{tabular}{c|c|c|c}
-        \hline
-        Algoritmo     & Base de dados & \textit{Rand Index} (linhas) & \textit{Rand index} (colunas) \\
-        \hline
-        k-means       & (a)           & $1.0$                        & -                             \\
-        k-means       & (b)           & $1.0$                        & -                             \\
-        k-means       & (c)           & $1.0$                        & -                             \\
-        k-means       & (d)           & $1.0$                        & -                             \\
-        k-means       & (e)           & $0.78$                       & -                             \\
-        \hline
-        fuzzy k-means & (a)           & $1.0$                        & -                             \\
-        fuzzy k-means & (b)           & $1.0$                        & -                             \\
-        fuzzy k-means & (c)           & $1.0$                        & -                             \\
-        fuzzy k-means & (d)           & $1.0$                        & -                             \\
-        fuzzy k-means & (e)           & $0.78$                       & -                             \\
-        \hline
-        ONMTF         & (a)           & $1.0$                        & $1.0$                         \\
-        ONMTF         & (b)           & $1.0$                        & $1.0$                         \\
-        ONMTF         & (c)           & $1.0$                        & $1.0$                         \\
-        ONMTF         & (d)           & $1.0$                        & $0.78$                        \\
-        ONMTF         & (e)           & $0.78$                       & $1.0$                         \\
-        \hline
-        FNMTF         & (a)           & $1.0$                        & $1.0$                         \\
-        FNMTF         & (b)           & $1.0$                        & $1.0$                         \\
-        FNMTF         & (c)           & $1.0$                        & $1.0$                         \\
-        FNMTF         & (d)           & $1.0$                        & $0.78$                        \\
-        FNMTF         & (e)           & $0.78$                       & $1.0$                         \\
-        \hline
-        OvNMTF        & (a)           & $1.0$                        & $1.0$                         \\
-        OvNMTF        & (b)           & $1.0$                        & $1.0$                         \\
-        OvNMTF        & (c)           & $1.0$                        & $1.0$                         \\
-        OvNMTF        & (d)           & $1.0$                        & $1.0$                         \\
-        OvNMTF        & (e)           & $0.78$                       & $1.0$                         \\
-        \hline
-        BinOvNMTF     & (a)           & $1.0$                        & $1.0$                         \\
-        BinOvNMTF     & (b)           & $1.0$                        & $1.0$                         \\
-        BinOvNMTF     & (c)           & $1.0$                        & $1.0$                         \\
-        BinOvNMTF     & (d)           & $1.0$                        & $1.0$                         \\
-        BinOvNMTF     & (e)           & $0.53$                       & $1.0$                         \\
-        \hline
-    \end{tabular}
+    \scalebox{0.7}{
+        \begin{tabular}{c|c|c|c}
+            \hline
+            Algoritmo              & Base de dados & \textit{Rand Index} (linhas) & \textit{Rand index} (colunas) \\
+            \hline
+            \textit{k-means}       & (a)           & $1.0$                        & -                             \\
+            \textit{k-means}       & (b)           & $1.0$                        & -                             \\
+            \textit{k-means}       & (c)           & $1.0$                        & -                             \\
+            \textit{k-means}       & (d)           & $1.0$                        & -                             \\
+            \textit{k-means}       & (e)           & $\mathbf{0.78}$              & -                             \\
+            \hline
+            \textit{fuzzy k-means} & (a)           & $1.0$                        & -                             \\
+            \textit{fuzzy k-means} & (b)           & $1.0$                        & -                             \\
+            \textit{fuzzy k-means} & (c)           & $1.0$                        & -                             \\
+            \textit{fuzzy k-means} & (d)           & $1.0$                        & -                             \\
+            \textit{fuzzy k-means} & (e)           & $\mathbf{0.78}$              & -                             \\
+            \hline
+            \textit{ONMTF}         & (a)           & $1.0$                        & $1.0$                         \\
+            \textit{ONMTF}         & (b)           & $1.0$                        & $1.0$                         \\
+            \textit{ONMTF}         & (c)           & $1.0$                        & $1.0$                         \\
+            \textit{ONMTF}         & (d)           & $1.0$                        & $\mathbf{0.78}$               \\
+            \textit{ONMTF}         & (e)           & $\mathbf{0.78}$              & $1.0$                         \\
+            \hline
+            \textit{FNMTF}         & (a)           & $1.0$                        & $1.0$                         \\
+            \textit{FNMTF}         & (b)           & $1.0$                        & $1.0$                         \\
+            \textit{FNMTF}         & (c)           & $1.0$                        & $1.0$                         \\
+            \textit{FNMTF}         & (d)           & $1.0$                        & $\mathbf{0.78}$               \\
+            \textit{FNMTF}         & (e)           & $\mathbf{0.53}$              & $1.0$                         \\
+            \hline
+            \textit{OvNMTF}        & (a)           & $1.0$                        & $1.0$                         \\
+            \textit{OvNMTF}        & (b)           & $1.0$                        & $1.0$                         \\
+            \textit{OvNMTF}        & (c)           & $1.0$                        & $1.0$                         \\
+            \textit{OvNMTF}        & (d)           & $1.0$                        & $\mathbf{1.0}$                \\
+            \textit{OvNMTF}        & (e)           & $\mathbf{0.78}$              & $1.0$                         \\
+            \hline
+            \textit{BinOvNMTF}     & (a)           & $1.0$                        & $1.0$                         \\
+            \textit{BinOvNMTF}     & (b)           & $1.0$                        & $1.0$                         \\
+            \textit{BinOvNMTF}     & (c)           & $1.0$                        & $1.0$                         \\
+            \textit{BinOvNMTF}     & (d)           & $1.0$                        & $\mathbf{1.0}$                \\
+            \textit{BinOvNMTF}     & (e)           & $\mathbf{0.53}$              & $1.0$                         \\
+            \hline
+        \end{tabular}
+    }
 \end{table}
+
 
 \section{Experimentos com base de dados reais}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 APR 2016 16:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 APR 2016 16:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1710,79 +1710,80 @@ png> </Users/lucasbrunialti/git/masters-dissertation/img/b-reconstruction-fnmtf
 f.png> </Users/lucasbrunialti/git/masters-dissertation/img/d-reconstruction-fnm
 tf.png> </Users/lucasbrunialti/git/masters-dissertation/img/e-reconstruction-fn
 mtf.png>]
-Overfull \hbox (12.37027pt too wide) in paragraph at lines 2299--2299
+Overfull \hbox (12.37027pt too wide) in paragraph at lines 2300--2300
 []\OT1/cmr/bx/n/14.4 Resultados da re-cons-tru^^Xc~ao de da-dos sint^^Seticos c
 om \OT1/cmr/bx/it/14.4 Bi-nOvNMTF 
  []
 
-File: img/a-bic-structure.png Graphic file (type png)
-<use img/a-bic-structure.png>
-Package pdftex.def Info: img/a-bic-structure.png used on input line 2316.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-File: img/b-bic-structure.png Graphic file (type png)
-<use img/b-bic-structure.png>
-Package pdftex.def Info: img/b-bic-structure.png used on input line 2319.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-File: img/c-bic-structure.png Graphic file (type png)
-<use img/c-bic-structure.png>
-Package pdftex.def Info: img/c-bic-structure.png used on input line 2322.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-File: img/d-bic-structure.png Graphic file (type png)
-<use img/d-bic-structure.png>
-Package pdftex.def Info: img/d-bic-structure.png used on input line 2325.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-File: img/e-bic-structure.png Graphic file (type png)
-<use img/e-bic-structure.png>
-Package pdftex.def Info: img/e-bic-structure.png used on input line 2328.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/a-reconstruction-binovnmtf.png, id=803, 578.16pt x 578.16pt>
-File: img/a-reconstruction-binovnmtf.png Graphic file (type png)
-<use img/a-reconstruction-binovnmtf.png>
-Package pdftex.def Info: img/a-reconstruction-binovnmtf.png used on input line 
-2332.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-reconstruction-binovnmtf.png, id=804, 578.16pt x 578.16pt>
-File: img/b-reconstruction-binovnmtf.png Graphic file (type png)
-<use img/b-reconstruction-binovnmtf.png>
-Package pdftex.def Info: img/b-reconstruction-binovnmtf.png used on input line 
-2336.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-reconstruction-binovnmtf.png, id=805, 578.16pt x 578.16pt>
-File: img/c-reconstruction-binovnmtf.png Graphic file (type png)
-<use img/c-reconstruction-binovnmtf.png>
-Package pdftex.def Info: img/c-reconstruction-binovnmtf.png used on input line 
-2340.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-binovnmtf.png, id=806, 578.16pt x 578.16pt>
-File: img/d-reconstruction-binovnmtf.png Graphic file (type png)
-<use img/d-reconstruction-binovnmtf.png>
-Package pdftex.def Info: img/d-reconstruction-binovnmtf.png used on input line 
-2344.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-binovnmtf.png, id=807, 578.16pt x 578.16pt>
-File: img/e-reconstruction-binovnmtf.png Graphic file (type png)
-<use img/e-reconstruction-binovnmtf.png>
-Package pdftex.def Info: img/e-reconstruction-binovnmtf.png used on input line 
-2348.
-(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
 [52 </Users/lucasbrunialti/git/masters-dissertation/img/a-reconstruction-ovnmtf
 .png> </Users/lucasbrunialti/git/masters-dissertation/img/b-reconstruction-ovnm
 tf.png> </Users/lucasbrunialti/git/masters-dissertation/img/c-reconstruction-ov
 nmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/d-reconstruction-
 ovnmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/e-reconstructio
-n-ovnmtf.png>] [53 </Users/lucasbrunialti/git/masters-dissertation/img/a-recons
-truction-binovnmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/b-r
-econstruction-binovnmtf.png> </Users/lucasbrunialti/git/masters-dissertation/im
-g/c-reconstruction-binovnmtf.png> </Users/lucasbrunialti/git/masters-dissertati
-on/img/d-reconstruction-binovnmtf.png> </Users/lucasbrunialti/git/masters-disse
-rtation/img/e-reconstruction-binovnmtf.png>] [54]
+n-ovnmtf.png>]
+File: img/a-bic-structure.png Graphic file (type png)
+<use img/a-bic-structure.png>
+Package pdftex.def Info: img/a-bic-structure.png used on input line 2315.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+File: img/b-bic-structure.png Graphic file (type png)
+<use img/b-bic-structure.png>
+Package pdftex.def Info: img/b-bic-structure.png used on input line 2318.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+File: img/c-bic-structure.png Graphic file (type png)
+<use img/c-bic-structure.png>
+Package pdftex.def Info: img/c-bic-structure.png used on input line 2321.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+File: img/d-bic-structure.png Graphic file (type png)
+<use img/d-bic-structure.png>
+Package pdftex.def Info: img/d-bic-structure.png used on input line 2324.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+File: img/e-bic-structure.png Graphic file (type png)
+<use img/e-bic-structure.png>
+Package pdftex.def Info: img/e-bic-structure.png used on input line 2327.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+<img/a-reconstruction-binovnmtf.png, id=812, 578.16pt x 578.16pt>
+File: img/a-reconstruction-binovnmtf.png Graphic file (type png)
+<use img/a-reconstruction-binovnmtf.png>
+Package pdftex.def Info: img/a-reconstruction-binovnmtf.png used on input line 
+2331.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+<img/b-reconstruction-binovnmtf.png, id=813, 578.16pt x 578.16pt>
+File: img/b-reconstruction-binovnmtf.png Graphic file (type png)
+<use img/b-reconstruction-binovnmtf.png>
+Package pdftex.def Info: img/b-reconstruction-binovnmtf.png used on input line 
+2335.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+<img/c-reconstruction-binovnmtf.png, id=814, 578.16pt x 578.16pt>
+File: img/c-reconstruction-binovnmtf.png Graphic file (type png)
+<use img/c-reconstruction-binovnmtf.png>
+Package pdftex.def Info: img/c-reconstruction-binovnmtf.png used on input line 
+2339.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+<img/d-reconstruction-binovnmtf.png, id=815, 578.16pt x 578.16pt>
+File: img/d-reconstruction-binovnmtf.png Graphic file (type png)
+<use img/d-reconstruction-binovnmtf.png>
+Package pdftex.def Info: img/d-reconstruction-binovnmtf.png used on input line 
+2343.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+<img/e-reconstruction-binovnmtf.png, id=816, 578.16pt x 578.16pt>
+File: img/e-reconstruction-binovnmtf.png Graphic file (type png)
+<use img/e-reconstruction-binovnmtf.png>
+Package pdftex.def Info: img/e-reconstruction-binovnmtf.png used on input line 
+2347.
+(pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
+[53 </Users/lucasbrunialti/git/masters-dissertation/img/a-reconstruction-binovn
+mtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/b-reconstruction-b
+inovnmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/c-reconstruct
+ion-binovnmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/d-recons
+truction-binovnmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/e-r
+econstruction-binovnmtf.png>] [54]
 
-Package caption Warning: \label without proper \caption on input line 2448.
+Package caption Warning: \label without proper \caption on input line 2454.
 See the caption package documentation for explanation.
 
 
 LaTeX Warning: Reference `tab:datasetsstats' on page 55 undefined on input line
- 2445.
+ 2451.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1790,7 +1791,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [55] [56] [57] [58] [59
 
 ] [60] [61] [62]
-Overfull \hbox (27.59657pt too wide) in paragraph at lines 2623--2623
+Overfull \hbox (27.59657pt too wide) in paragraph at lines 2629--2629
 []\OT1/cmr/bx/n/14.4 Arquitetura de Sis-te-mas de Re-co-menda^^Xc~ao ba-se-a-do
 s em Conte^^Sudo 
  []
@@ -1800,12 +1801,12 @@ s em Conte^^Sudo
 ] <img/approach.png, id=982, 540.51938pt x 413.29407pt>
 File: img/approach.png Graphic file (type png)
 <use img/approach.png>
-Package pdftex.def Info: img/approach.png used on input line 2642.
+Package pdftex.def Info: img/approach.png used on input line 2648.
 (pdftex.def)             Requested size: 284.52756pt x 217.5628pt.
 <img/analisador.png, id=989, 479.54156pt x 103.88812pt>
 File: img/analisador.png Graphic file (type png)
 <use img/analisador.png>
-Package pdftex.def Info: img/analisador.png used on input line 2658.
+Package pdftex.def Info: img/analisador.png used on input line 2664.
 (pdftex.def)             Requested size: 287.72716pt x 62.33334pt.
 [64 </Users/lucasbrunialti/git/masters-dissertation/img/approach.png> </Users/l
 ucasbrunialti/git/masters-dissertation/img/analisador.png>] [65] [66] [67] [68]
@@ -1814,22 +1815,22 @@ ucasbrunialti/git/masters-dissertation/img/analisador.png>] [65] [66] [67] [68]
 ] <img/proposal.png, id=1155, 771.88374pt x 430.60875pt>
 File: img/proposal.png Graphic file (type png)
 <use img/proposal.png>
-Package pdftex.def Info: img/proposal.png used on input line 2778.
+Package pdftex.def Info: img/proposal.png used on input line 2784.
 (pdftex.def)             Requested size: 341.43306pt x 190.47372pt.
 
 LaTeX Warning: Reference `misc:cronograma' on page 70 undefined on input line 2
-783.
+789.
 
 
 LaTeX Warning: Reference `app:protocolo' on page 70 undefined on input line 279
-1.
+7.
 
 
 LaTeX Warning: Reference `app:protocolo-extracao' on page 70 undefined on input
- line 2793.
+ line 2799.
 
 [70 </Users/lucasbrunialti/git/masters-dissertation/img/proposal.png>] [71]
-Overfull \hbox (10.15292pt too wide) in paragraph at lines 2811--2812
+Overfull \hbox (10.15292pt too wide) in paragraph at lines 2817--2818
 [] \OML/cmm/m/it/12 ; I[]\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 (-20) , em que cada
  not^^S^^Pcia $\OML/cmm/m/it/12 I[]$ \OT1/cmr/m/n/12 (-20) ^^Se re-pre-sen-tada
  pela tu-pla $([]\OML/cmm/m/it/12 ; []; []; []; [] 
@@ -1837,7 +1838,7 @@ Overfull \hbox (10.15292pt too wide) in paragraph at lines 2811--2812
 
 [72]
 
-LaTeX Warning: Reference `sec:sr' on page 73 undefined on input line 2868.
+LaTeX Warning: Reference `sec:sr' on page 73 undefined on input line 2874.
 
 [73] [74]
 (/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLat
@@ -1860,24 +1861,24 @@ bibitemlist
 [76
 
 ] [77] [78] [79]) [80]
-Underfull \hbox (badness 1454) in paragraph at lines 2955--2956
+Underfull \hbox (badness 1454) in paragraph at lines 2961--2962
 \OT1/cmr/m/n/12 (+20) te-riza^^Xc~ao/biclusteriza^^Xc~ao. Dis-cute di-fe-ren-te
 s or-ga-
  []
 
 
-Underfull \hbox (badness 1924) in paragraph at lines 2959--2960
+Underfull \hbox (badness 1924) in paragraph at lines 2965--2966
 []|\OT1/cmr/m/n/12 (+20) Est~ao sendo de-sen-vol-vi-dos al-go-rit-mos uti-li-za
 ndo
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 2961--2962
+Underfull \hbox (badness 1424) in paragraph at lines 2967--2968
 []|\OT1/cmr/m/n/12 (+20) Est~ao sendo usa-dos: da-dos sint^^Seticos; da-dos de
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2969
+Underfull \vbox (badness 10000) detected at line 2975
  []
 
 [81
@@ -1897,13 +1898,13 @@ AED: lastpage setting LastPage
 \tf@toc=\write9
 \openout9 = `PPgSI-modeloQualiDissertacaoLatex.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3074.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3074.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3080.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3080.
 
 (/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLat
 ex.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3074.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3074.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3080.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3080.
 
 Package rerunfilecheck Info: File `PPgSI-modeloQualiDissertacaoLatex.brf' has n
 ot changed.
@@ -1914,11 +1915,11 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3074.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3080.
  ) 
 Here is how much of TeX's memory you used:
  17883 strings out of 493089
- 272373 string characters out of 6134842
+ 272375 string characters out of 6134842
  566595 words of memory out of 5000000
  20532 multiletter control sequences out of 15000+600000
  29271 words of font info for 183 fonts, out of 8000000 for 9000
@@ -1944,7 +1945,7 @@ ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQu
-aliDissertacaoLatex.pdf (83 pages, 1494417 bytes).
+aliDissertacaoLatex.pdf (83 pages, 1496659 bytes).
 PDF statistics:
  1770 PDF objects out of 2073 (max. 8388607)
  1557 compressed objects within 16 object streams

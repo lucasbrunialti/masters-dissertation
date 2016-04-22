@@ -2523,8 +2523,10 @@ Nos experimentos presentes neste trabalho, também é usada normalização $\tex
 Sendo assim, são realizados experimentos com as seguintes formas: frequência de termos ($tf$), frequência de termos normalizada ($tf-norm$), frequência de termos-frequência de documentos inversa ($tfidf$), e frequência de termos-frequência de documentos inversa normalizada ($tfidf-norm$).
 
 \subsection{Experimentos quantitativos}
+\label{subsec:experiments-quant}
 
 \subsubsection{Setup dos algoritmos}
+
 
 \subsubsection{Setup dos experimentos}
 
@@ -2532,27 +2534,289 @@ Sendo assim, são realizados experimentos com as seguintes formas: frequência d
 
 \subsubsection{Base de dados \textit{\textbf{20Newsgroup}}}
 
-\subsubsection{Base de dados \textit{\textbf{20Newsgroup}}}
+\subsubsection{Base de dados \textit{\textbf{IG}}}
+\label{subsec:experiments-quant:ig}
 
 \subsubsection{Base de dados \textit{\textbf{IG toy}}}
+\label{subsec:experiments-quant:igtoy}
+
+% \begin{table}[H]
+% \label{tab:experiments-quant:igtoy}
+% \centering
+%     \caption{Melhores resultados dos experimentos.}
+%     \scalebox{0.7}{
+%         \begin{tabular}{c|c|c|c}
+%             \hline
+%             Algoritmo              & Representação & $l$ & \textit{Rand Index} \\
+%             \hline
+%             \textit{k-means}       & TF            & -   & $0.7967$            \\
+%             \textit{k-means}       & TF norm       & -   & $0.7879$            \\
+%             \textit{k-means}       & TF-IDF        & -   & $0.5434$            \\
+%             \textit{k-means}       & TF-IDF norm   & -   & $0.5484$            \\
+%             \hline
+%             \textit{fuzzy k-means} & TF            & -   & $0.3359$            \\
+%             \textit{fuzzy k-means} & TF norm       & -   & $0.5889$            \\
+%             \textit{fuzzy k-means} & TF-IDF        & -   & $0.5303$            \\
+%             \textit{fuzzy k-means} & TF-IDF norm   & -   & $0.3885$            \\
+%             \hline
+%             \textit{ONMTF}         & TF            & $6$ & $0.7312$            \\
+%             \textit{ONMTF}         & TF norm       & $4$ & $0.7162$            \\
+%             \textit{ONMTF}         & TF-IDF        & $5$ & $0.7598$            \\
+%             \textit{ONMTF}         & TF-IDF norm   & $3$ & $0.7700$            \\
+%             \hline
+%             \textit{FNMTF}         & TF            &     & $1.0$            \\
+%             \textit{FNMTF}         & TF norm       & $3$ & $0.3810$            \\
+%             \textit{FNMTF}         & TF-IDF        & $5$ & $0.0$            \\
+%             \textit{FNMTF}         & TF-IDF norm   & $5$ & $0.2966$            \\
+%             \hline
+%             \textit{OvNMTF}        & TF            &     & $1.0$            \\
+%             \textit{OvNMTF}        & TF norm       & $6$ & $0.8234$         \\
+%             \textit{OvNMTF}        & TF-IDF        &     & $1.0$            \\
+%             \textit{OvNMTF}        & TF-IDF norm   & $5$ & $0.6441$            \\
+%             \hline
+%             \textit{BinOvNMTF}     & TF            &     & $1.0$            \\
+%             \textit{BinOvNMTF}     & TF norm       & $5$ & $0.7197$         \\
+%             \textit{BinOvNMTF}     & TF-IDF        &     & $1.0$            \\
+%             \textit{BinOvNMTF}     & TF-IDF norm   & $4$ & $0.7133$         \\
+%             \hline
+%         \end{tabular}
+%     }
+% \end{table}
 
 \subsection{Experimentos qualitativos}
 
 % TODO descrição
+Estes experimentos mostram a aplicabilidade dos algoritmos no domínio de mineração de textos, com ênfase nas informações que são possíveis de extrair dos modelos gerados por algoritmos de coclustering baseados em fatoração de matrizes: \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}.
+
+Essa análise qualitativa se faz importante, para mostrar que os algoritmos são capazes de encontrar tópicos (grupos de palavras), e possivelmente, explicar os grupos de notícias formados, ou até mesmo, realizar rotulação dos grupos de notícias formados.
+% TODO mas pq é importante para algoritmos que tem intersecção
+
+Foi necessária a construção de um estudo de caso para avaliar os algoritmos de Coclustering baseados em Fatoração de Matrizes.
+O estudo de caso é composto por uma análise dos coclusters de palavras correlacionando-os com os coclusters de notícias.
+
+Para isso, foi usado o conjunto de dados \textit{\textbf{IG toy}}, que foi construído, justamente, para fazer esse tipo de análise.
+
+O portal IG\footnote{http://www.ig.com.br/} é um dos maiores portais de notícias brasileiro~\cite{topsites} que é composto por sites importantes como o noticiário Último Segundo, o iG Gente, o iG Esportes, a TV iG, o iG Economia, o Delas e etc.
+Cada um desses sites é caracterizado como um canal que contém notícias de um determinado assunto macro.
+
+O conjunto de dados \textit{\textbf{IG toy}} é composto por três desses canais: esportes, que contém notícias, principalmente, dos esportes mais populares no Brasil, como o futebol e o UFC; jovem, que contém notícias mais interessantes para o público jovem em geral, como notícias sobre filmes, esportes e músicas voltados para o público jovem; arena, que compõem notícias de games, novidades de todos os tipos de games, consoles e coberturas de eventos de games.
+Sendo $100$ notícias para cada canal para compor o conjunto de dados, totalizando $300$ notícias.
+
+Esses canais foram escolhidos para formar o conjunto de dados \textit{\textbf{IG toy}} por serem de assuntos similares, notícias do canal jovem podem ter semelhanças com notícias do canal esportes, como notícias sobre surfe, por exemplo, notícias do canal arena podem ser similares com notícias do canal de esportes, por existerem games que simulam esportes, ou até mesmo, possuírem similaridades com notícias do canal jovem, pois games é um assunto ligado ao público jovem na sua maioria.
+Essa escolha torna possível verificar como os algoritmos tratam essa intersecção entre palavras nas notícias.
+
+As subseções a seguir irão mostrar como cada um dos algoritmos de coclusterização baseados em fatoração de matrizes:
+são úteis para análise de tópicos e palavras no conjunto de dados \textit{\textbf{IG toy}}.
 
 \subsubsection{Análise de dados utilizando \textit{ONMTF}}
 
-% TODO Figura caderno
+O algoritmo \textit{ONMTF} é capaz de encontrar coclusters de notícias e coclusters de palavras, além disso, cada cocluster de notícias é relacionado com os coclusters de palavras por um fator, assim como cada cocluster de palavras está relacionado com os coclusters de notícias pelo mesmo fator.
+Estes fatores são extraídos da matriz $S$.
 
-% TODO matriz S
+Isso significa que o algoritmo permite que palavras ou notícias estejam presentes em múltiplos coclusters, com um fator de pertinência para cada cocluster, ou seja, é possível realizar \textit{soft clustering}.\tabularnewline
+Uma abordagem para realizar \textit{hard coclustering} é atribuir uma notícia ou palavra ao cocluster com maior pertinência, a qual foi utilizada nos experimentos quantitativos (Subseção ~\ref{subsec:experiments-quant}).
 
-% TODO tabela com palavras mais relevantes
+Note também que cada notícia esta presente em cada um dos coclusters com um fator associado, assim como cada palavra esta presente em cada um dos coclusters com um fator associado.
+
+Para as análises construídas com o \textit{ONMTF} foi utilizado o modelo que obteve a melhor taxa segundo a métrica \textit{Rand Index} no experimento descrito na seção~\ref{subsec:experiments-quant:igtoy}, que foi o modelo com $k = 3$ e $l = 3$ com a representação TF-IDF normalizado.
+
+A figura~\ref{fig:analysis-onmtf} exemplifica as informações que um modelo gerado pelo algoritmo \textit{ONMTF} provê.
+A notícia ``Avaliação do FIFA 15 por um jogador fanático'' foi usada como exemplo.
+O resultado da coclusterização de notícias foi que dos três coclusters de notícias, a notícia pertence ao cocluster (rotulado manualmente) esportes com um fator equivalente à $40\%$, também pertence ao cocluster rotulado como arena com um fator equivalente à $60\%$, e não pertence ao cocluster rotulado como jovem.
+Cada cocluster de notícias é formado pela combinação dos coclusters de palavras com os fatores que indicam a relação entre coclusters de notícias e coclusters de colunas, denotado pelas linhas que os conecta.
+Cada cocluster de palavras é ilustrado pelas palavras mais relevantes que o compõem, ou seja, as palavras que contém os maiores fatores (representado em porcentagem) para aquele determinado cocluster.
+
+Ainda sobre a Figura~\ref{fig:analysis-onmtf}, note que as palavras do corpo da notícia foram coloridas de acordo com as cores dos coclusters de palavras as quais pertencem.
+É possível perceber que existem mais palavras que caracterizam a notícia como sendo sobre o assunto games, o que vai de acordo com a coclusterização realizada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/analysis-onmtf.png}
+    \caption{Exemplo de uma notícia do canal arena e sua disposição quanto aos coclusters de notícias e palavras.}
+    \label{fig:analysis-onmtf}
+\end{figure}
+
+Os fatores que conectam os coclusters de notícias com os coclusters de palavras podem ser observados na matriz $S$.
+A matriz $S$ que foi usada nesta análise pode ser observada na Tabela~\ref{tab:onmtf:matrizS}.
+Note que os valores estão normalizados para que a soma dos elementos de cada linha tenha resultado da soma igual a $1$.
+A normalização foi feita para tornar claro que cada cocluster de palavras foi usado pelo algoritmo para caracterizar um grupo de notícias, os valores mostram que o cocluster de notícias ``arena'' está associado com um maior fator ao cocluster de palavras \#3, o cocluster de notícias ``esporte'' está associado com um maior fator ao cocluster de palavras \#1, e o cocluster de notícias ``jovem'' está associado com um maior fator ao cocluster de palavras \#2.
+
+\begin{table}[H]
+\label{tab:onmtf:matrizS}
+\centering
+    \caption{Matriz $S$ para \textit{ONMTF} com $k = l = 3$.}
+    \scalebox{0.6}{
+        \begin{tabular}{c|c|c|c}
+            \hline
+             - & \textbf{Cocluster de palavras \#1} & \textbf{Cocluster de palavras \#2} & \textbf{Cocluster de palavras \#3} \\
+            \hline
+            \textbf{Cocluster de notícias ``arena''}   & $0.0068$ & $0.0188$ & $\mathbf{0.9744}$ \\
+            \hline
+            \textbf{Cocluster de notícias ``esporte''} & $\mathbf{0.9604}$ & $0.0348$ & $0.0048$ \\
+            \hline
+            \textbf{Cocluster de notícias ``jovem''}   & $0.0444$ & $\mathbf{0.9324}$ & $0.0232$ \\
+            \hline
+        \end{tabular}
+    }
+\end{table}
+
+Os grupos de palavras foram sumarizados através da visualização em \textit{word cloud}, em que o tamanho das palavras é definido pelo seu fator de pertinência ao cocluster correspondente.
+A Figura~\ref{fig:onmtf:wordcloud} mostra essa visualização contendo as $100$ palavras com maior fator para cada cogrupo.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.31\textwidth}
+        \includegraphics[width=\textwidth]{img/onmtf-tc-1.png}
+        \caption{Cocluster de palavras \#1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.31\textwidth}
+        \includegraphics[width=\textwidth]{img/onmtf-tc-2.png}
+        \caption{Cocluster de palavras \#2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.31\textwidth}
+        \includegraphics[width=\textwidth]{img/onmtf-tc-3.png}
+        \caption{Cocluster de palavras \#3}
+    \end{subfigure}
+
+    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras gerados pelo algoritmo \textit{ONMTF}.}
+    \label{fig:onmtf:wordcloud}
+\end{figure}
+
+A Figura~\ref{fig:onmtf:wordcloud} mostra claramente que cada cocluster de palavras ficou responsável por caracterizar cada um dos três coclusters de notícias.
+O cocluster de palavras \#1 contém palavras sobre esportes, principalmente sobre futebol, como gol, minutos, nomes de seleções, times de futebol e campeonatos.
+Note que nesse cocluster aparece a palavra jogo, de tamanho pequeno, localizada entre as letras i e n da palavra minutos, que também aparece no cocluster de palavras \#3, porém, de tamanho claramente maior.
+No cocluster de palavras \#2 aparecem palavras de esportes, principalmente sobre surfe e skate, como nomes de atletas desses esportes e campeonatos.
+O cocluster de palavras \#3, como esperado, contém palavras ligadas ao assunto games, como jogo, nomes de consoles (xbox, playstation e wii), nomes de grandes empresas do ramo e nomes de games.
+
+% TODO paragrafo de conclusao
 
 \subsubsection{Análise de dados utilizando \textit{FNMTF}}
 
+% Faz sentido análise de dados com FNMTF (?)
+
 \subsubsection{Análise de dados utilizando \textit{OvNMTF}}
 
+O algoritmo \textit{OvNMTF} é capaz de encontrar coclusters de notícias e coclusters de palavras, semelhante aos outros.
+
+
+\begin{table}[H]
+\label{tab:onmtf:matrizS}
+\centering
+    \caption{Matriz $S$ para \textit{OvNMTF} com $k = 3$ e $l = 6$.}
+    \scalebox{0.6}{
+        \begin{tabular}{c|c|c|c|c|c|c}
+            \hline
+             - & \textbf{\#1} & \textbf{\#2} & \textbf{\#3} & \textbf{\#4} & \textbf{\#5} & \textbf{\#6} \\
+            \hline
+            \textbf{Cocluster de notícias ``arena''}   & $0.1465$ & $\mathbf{0.2516}$ & $0.0535$ & $\mathbf{0.3294}$ & $0.1499$ & $0.0691$ \\
+            \hline
+            \textbf{Cocluster de notícias ``esporte''} & $0.0949$ & $0.0943$ & $\mathbf{0.2239}$ & $0.1287$ & $\mathbf{0.2878}$ & $0.1703$ \\
+            \hline
+            \textbf{Cocluster de notícias ``jovem''}   & $0.0381$ & $\mathbf{0.2545}$ & $\mathbf{0.3324}$ & $\mathbf{0.2220}$ & $0.0932$ & $0.0597$ \\
+            \hline
+        \end{tabular}
+    }
+\end{table}
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-1.png}
+        \caption{\#1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-2.png}
+        \caption{\#2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-3.png}
+        \caption{\#3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-4.png}
+        \caption{\#4}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-5.png}
+        \caption{\#5}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-6.png}
+        \caption{\#6}
+    \end{subfigure}
+
+    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras do cocluster de notícias ``arena'', gerados pelo algoritmo \textit{OvNMTF}.}
+    \label{fig:ovnmtf:wordcloud-1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-1.png}
+        \caption{\#1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-2.png}
+        \caption{\#2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-3.png}
+        \caption{\#3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-4.png}
+        \caption{\#4}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-5.png}
+        \caption{\#5}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-6.png}
+        \caption{\#6}
+    \end{subfigure}
+
+    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras do cocluster de notícias ``esporte'', gerados pelo algoritmo \textit{OvNMTF}.}
+    \label{fig:ovnmtf:wordcloud-2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-1.png}
+        \caption{\#1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-2.png}
+        \caption{\#2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-3.png}
+        \caption{\#3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-4.png}
+        \caption{\#4}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-5.png}
+        \caption{\#5}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-6.png}
+        \caption{\#6}
+    \end{subfigure}
+
+    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras do cocluster de notícias ``jovem'', gerados pelo algoritmo \textit{OvNMTF}.}
+    \label{fig:ovnmtf:wordcloud-3}
+\end{figure}
+
+
+
+
 \subsubsection{Análise de dados utilizando \textit{BinOvNMTF}}
+
+% Faz sentido análise de dados com BinOvNMTF (?)
 
 % ************************************************************
 % ************************************************************

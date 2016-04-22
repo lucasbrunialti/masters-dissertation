@@ -10,6 +10,11 @@
 \contentsline {figure}{\numberline {9}{\ignorespaces As primeiras cinco matrizes s\IeC {\~a}o as matrizes originais, as demais s\IeC {\~a}o suas respectivas reconstru\IeC {\c c}\IeC {\~o}es, realizadas pelo \textit {FNMTF}. \relax }}{51}{figure.caption.24}
 \contentsline {figure}{\numberline {10}{\ignorespaces As primeiras cinco matrizes s\IeC {\~a}o as matrizes originais, as demais s\IeC {\~a}o suas respectivas reconstru\IeC {\c c}\IeC {\~o}es, realizadas pelo \textit {OvNMTF}. \relax }}{52}{figure.caption.25}
 \contentsline {figure}{\numberline {11}{\ignorespaces As primeiras cinco matrizes s\IeC {\~a}o as matrizes originais, as demais s\IeC {\~a}o suas respectivas reconstru\IeC {\c c}\IeC {\~o}es, realizadas pelo \textit {BinOvNMTF}. \relax }}{53}{figure.caption.26}
-\contentsline {figure}{\numberline {12}{\ignorespaces Arquitetura de um CBRS\relax }}{64}{figure.caption.29}
-\contentsline {figure}{\numberline {13}{\ignorespaces Analisador de Contexto.\relax }}{64}{figure.caption.30}
-\contentsline {figure}{\numberline {14}{\ignorespaces Sumariza\IeC {\c c}\IeC {\~a}o da proposta.\relax }}{70}{figure.caption.31}
+\contentsline {figure}{\numberline {12}{\ignorespaces Exemplo de uma not\IeC {\'\i }cia do canal arena e sua disposi\IeC {\c c}\IeC {\~a}o quanto aos coclusters de not\IeC {\'\i }cias e palavras.\relax }}{61}{figure.caption.29}
+\contentsline {figure}{\numberline {13}{\ignorespaces Visualiza\IeC {\c c}\IeC {\~a}o \textit {word cloud} de palavras para cada cocluster de palavras gerados pelo algoritmo \textit {ONMTF}.\relax }}{62}{figure.caption.31}
+\contentsline {figure}{\numberline {14}{\ignorespaces Visualiza\IeC {\c c}\IeC {\~a}o \textit {word cloud} de palavras para cada cocluster de palavras do cocluster de not\IeC {\'\i }cias ``arena'', gerados pelo algoritmo \textit {OvNMTF}.\relax }}{63}{figure.caption.33}
+\contentsline {figure}{\numberline {15}{\ignorespaces Visualiza\IeC {\c c}\IeC {\~a}o \textit {word cloud} de palavras para cada cocluster de palavras do cocluster de not\IeC {\'\i }cias ``esporte'', gerados pelo algoritmo \textit {OvNMTF}.\relax }}{63}{figure.caption.34}
+\contentsline {figure}{\numberline {16}{\ignorespaces Visualiza\IeC {\c c}\IeC {\~a}o \textit {word cloud} de palavras para cada cocluster de palavras do cocluster de not\IeC {\'\i }cias ``jovem'', gerados pelo algoritmo \textit {OvNMTF}.\relax }}{63}{figure.caption.35}
+\contentsline {figure}{\numberline {17}{\ignorespaces Arquitetura de um CBRS\relax }}{69}{figure.caption.36}
+\contentsline {figure}{\numberline {18}{\ignorespaces Analisador de Contexto.\relax }}{69}{figure.caption.37}
+\contentsline {figure}{\numberline {19}{\ignorespaces Sumariza\IeC {\c c}\IeC {\~a}o da proposta.\relax }}{75}{figure.caption.38}

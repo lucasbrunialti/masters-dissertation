@@ -44,52 +44,52 @@
 \contentsline {subsection}{\numberline {5.1.6}Resultados da reconstru\IeC {\c c}\IeC {\~a}o de dados sint\IeC {\'e}ticos com \textit {OvNMTF}}{51}{subsection.5.1.6}
 \contentsline {subsection}{\numberline {5.1.7}Resultados da reconstru\IeC {\c c}\IeC {\~a}o de dados sint\IeC {\'e}ticos com \textit {BinOvNMTF}}{52}{subsection.5.1.7}
 \contentsline {subsection}{\numberline {5.1.8}Resultados quantitativos com dados sint\IeC {\'e}ticos}{53}{subsection.5.1.8}
-\contentsline {section}{\numberline {5.2}Experimentos com base de dados reais}{54}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Descri\IeC {\c c}\IeC {\~a}o das bases de dados}{54}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Pr\IeC {\'e}-processamento}{56}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Experimentos quantitativos}{58}{subsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.3.1}Setup dos algoritmos}{58}{subsubsection.5.2.3.1}
-\contentsline {subsubsection}{\numberline {5.2.3.2}Setup dos experimentos}{58}{subsubsection.5.2.3.2}
-\contentsline {subsubsection}{\numberline {5.2.3.3}Base de dados \textit {\textbf {NIPS}}}{58}{subsubsection.5.2.3.3}
-\contentsline {subsubsection}{\numberline {5.2.3.4}Base de dados \textit {\textbf {20Newsgroup}}}{58}{subsubsection.5.2.3.4}
-\contentsline {subsubsection}{\numberline {5.2.3.5}Base de dados \textit {\textbf {20Newsgroup}}}{58}{subsubsection.5.2.3.5}
-\contentsline {subsubsection}{\numberline {5.2.3.6}Base de dados \textit {\textbf {IG toy}}}{58}{subsubsection.5.2.3.6}
-\contentsline {subsection}{\numberline {5.2.4}Experimentos qualitativos}{58}{subsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{58}{subsubsection.5.2.4.1}
-\contentsline {subsubsection}{\numberline {5.2.4.2}An\IeC {\'a}lise de dados utilizando \textit {FNMTF}}{58}{subsubsection.5.2.4.2}
-\contentsline {subsubsection}{\numberline {5.2.4.3}An\IeC {\'a}lise de dados utilizando \textit {OvNMTF}}{58}{subsubsection.5.2.4.3}
-\contentsline {subsubsection}{\numberline {5.2.4.4}An\IeC {\'a}lise de dados utilizando \textit {BinOvNMTF}}{58}{subsubsection.5.2.4.4}
+\contentsline {section}{\numberline {5.2}Experimentos com base de dados reais}{55}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Descri\IeC {\c c}\IeC {\~a}o das bases de dados}{55}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Pr\IeC {\'e}-processamento}{57}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Experimentos quantitativos}{59}{subsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.3.1}Setup dos algoritmos}{59}{subsubsection.5.2.3.1}
+\contentsline {subsubsection}{\numberline {5.2.3.2}Setup dos experimentos}{59}{subsubsection.5.2.3.2}
+\contentsline {subsubsection}{\numberline {5.2.3.3}Base de dados \textit {\textbf {NIPS}}}{59}{subsubsection.5.2.3.3}
+\contentsline {subsubsection}{\numberline {5.2.3.4}Base de dados \textit {\textbf {20Newsgroup}}}{59}{subsubsection.5.2.3.4}
+\contentsline {subsubsection}{\numberline {5.2.3.5}Base de dados \textit {\textbf {IG}}}{59}{subsubsection.5.2.3.5}
+\contentsline {subsubsection}{\numberline {5.2.3.6}Base de dados \textit {\textbf {IG toy}}}{59}{subsubsection.5.2.3.6}
+\contentsline {subsection}{\numberline {5.2.4}Experimentos qualitativos}{59}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{60}{subsubsection.5.2.4.1}
+\contentsline {subsubsection}{\numberline {5.2.4.2}An\IeC {\'a}lise de dados utilizando \textit {FNMTF}}{63}{subsubsection.5.2.4.2}
+\contentsline {subsubsection}{\numberline {5.2.4.3}An\IeC {\'a}lise de dados utilizando \textit {OvNMTF}}{63}{subsubsection.5.2.4.3}
+\contentsline {subsubsection}{\numberline {5.2.4.4}An\IeC {\'a}lise de dados utilizando \textit {BinOvNMTF}}{63}{subsubsection.5.2.4.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}Minera\IeC {\c c}\IeC {\~a}o de Texto}{59}{chapter.6}
-\contentsline {section}{\numberline {6.1}Tarefas de pr\IeC {\'e}-processamento}{59}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{59}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{60}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Filtragem}{61}{subsection.6.1.3}
-\contentsline {subsection}{\numberline {6.1.4}Stemming}{61}{subsection.6.1.4}
-\contentsline {subsection}{\numberline {6.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{61}{subsection.6.1.5}
+\contentsline {chapter}{\chapternumberline {6}Minera\IeC {\c c}\IeC {\~a}o de Texto}{64}{chapter.6}
+\contentsline {section}{\numberline {6.1}Tarefas de pr\IeC {\'e}-processamento}{64}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{64}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{65}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Filtragem}{66}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Stemming}{66}{subsection.6.1.4}
+\contentsline {subsection}{\numberline {6.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{66}{subsection.6.1.5}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do e Aprendizado de M\IeC {\'a}quina}{63}{chapter.7}
-\contentsline {section}{\numberline {7.1}Arquitetura de Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do}{63}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Analisador de Contexto}{64}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Aprendizado do Perfil}{66}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}Componente de Filtragem}{67}{subsection.7.1.3}
+\contentsline {chapter}{\chapternumberline {7}Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do e Aprendizado de M\IeC {\'a}quina}{68}{chapter.7}
+\contentsline {section}{\numberline {7.1}Arquitetura de Sistemas de Recomenda\IeC {\c c}\IeC {\~a}o baseados em Conte\IeC {\'u}do}{68}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Analisador de Contexto}{69}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Aprendizado do Perfil}{71}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {7.1.3}Componente de Filtragem}{72}{subsection.7.1.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {8}Proposta}{69}{chapter.8}
-\contentsline {section}{\numberline {8.1}Revis\IeC {\~o}es Bibliogr\IeC {\'a}ficas}{70}{section.8.1}
-\contentsline {section}{\numberline {8.2}Constru\IeC {\c c}\IeC {\~a}o das Bases de Dados}{72}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Corpus iG}{72}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}Pr\IeC {\'e}-processamento do corpus iG}{73}{subsection.8.2.2}
-\contentsline {subsection}{\numberline {8.2.3}Base de cliques iG}{73}{subsection.8.2.3}
-\contentsline {section}{\numberline {8.3}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o e Extens\IeC {\~o}es}{74}{section.8.3}
-\contentsline {subsection}{\numberline {8.3.1}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o}{74}{subsection.8.3.1}
-\contentsline {subsection}{\numberline {8.3.2}Poss\IeC {\'\i }veis Extens\IeC {\~o}es}{74}{subsection.8.3.2}
+\contentsline {chapter}{\chapternumberline {8}Proposta}{74}{chapter.8}
+\contentsline {section}{\numberline {8.1}Revis\IeC {\~o}es Bibliogr\IeC {\'a}ficas}{75}{section.8.1}
+\contentsline {section}{\numberline {8.2}Constru\IeC {\c c}\IeC {\~a}o das Bases de Dados}{77}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Corpus iG}{77}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Pr\IeC {\'e}-processamento do corpus iG}{78}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Base de cliques iG}{78}{subsection.8.2.3}
+\contentsline {section}{\numberline {8.3}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o e Extens\IeC {\~o}es}{79}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}Estrat\IeC {\'e}gias para Valida\IeC {\c c}\IeC {\~a}o}{79}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}Poss\IeC {\'\i }veis Extens\IeC {\~o}es}{79}{subsection.8.3.2}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{76}{section*.35}
+\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{81}{section*.42}
 \renewcommand *{\cftappendixname }{Ap\^endice \space }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}Tabela Workshop}{81}{appendix.A}
+\contentsline {appendix}{\chapternumberline {A}Tabela Workshop}{86}{appendix.A}
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{Anexo \space }

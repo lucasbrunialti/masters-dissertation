@@ -864,7 +864,7 @@ Como objetivos específicos, este trabalho mostra que a aplicação das novas es
 % \item Análise da viabilidade da modelagem proposta frente ao conjunto de dados de recomendação e frente a análise qualitativa do alcance da serendipidade.
  % \item estudo das técnicas de essemble aplicadas a texto
 
-\end{itemize}
+%\end{itemize}
 
 % ************************************************************************
 
@@ -1683,7 +1683,7 @@ sendo $\Psi = \{0, 1\}$, os índices $p = \{1, \dots, k\}$, o conjunto de matriz
                                          & \vdots                                                                     &
                             \end{bmatrix} S^{(t+1)}
                     \]
-                \State \textcolor{green}{(faz sentido essa atualização? não basta utilizar o $X$?, isto é, não precisa o $\ilde{X}$.)}
+                \State \textcolor{green}{(faz sentido essa atualização? não basta utilizar o $X$?, isto é, não precisa o $\tilde{X}$.)}
                     \[
                         {\tilde X} \gets
                             \begin{bmatrix}
@@ -1899,19 +1899,15 @@ sendo $\Psi = \{0, 1\}$, os índices $p = \{1, \dots, k\}$, o conjunto de matriz
 \chapter{Experimentos e Resultados}
 \label{ch:experiments}
 
-% TODO onde falar sobre validação de cluster \section{Validação de clusters?}
+% TODO onde falar sobre validação de cluster98\ - isso tem que ficar no capítulo 2 de conceitos básicos.
 
 Para fins de validação dos algoritmos propostos foram realizados experimentos utilizando bases de dados sintéticas e bases de dados textuais reais, sendo que sobre as bases de dados reais, foram criadas versões simplificadas para permitir análises mais detalhadas. 
 
-Esses experimentos foram projetados e executados com o fim de ilustrar as capacidades e limitações dos algoritmos de coclusterição baseados em fatoração de matrizes presentes na literatura e dos algoritmos propostos neste trabalho, todos já apresentados nos capítulos~\ref{ch:fatoracao} e~\ref{ch:proposedalgs}, respectivamente. Tais capacidades e limitações são discutidas neste capítulo em termos de resultados obtidos sobre ambientes controlados (bases de dados sintéticas), ambientes semi-controlados (bases de dados textuais simplificadas) e ambientes aqui denominados não controlados (bases de dados textuais originais). O intuito com a experimentação desses algoritmos em bases de dados textuais é ilustrar seu desempenho como um método de resolução da tarefas agrupamento de textos, da área de mineração de textos. Também, como forma de melhorar a compreensão sobre o desempenho dos algoritmos de coagrupamento, dois algoritmos clássicos de agrupamento foram aplicados sobre as mesmas bases de dados: \textit{k-means} e \textit{fuzzy k-means}. 
+Esses experimentos foram projetados e executados com o fim de ilustrar as capacidades e limitações dos algoritmos de coagrupamento baseados em fatoração de matrizes presentes na literatura e dos algoritmos propostos neste trabalho, todos já apresentados nos capítulos~\ref{ch:fatoracao} e~\ref{ch:proposedalgs}, respectivamente. Tais capacidades e limitações são discutidas neste capítulo em termos de resultados obtidos sobre ambientes controlados (bases de dados sintéticas), ambientes semi-controlados (bases de dados textuais simplificadas) e ambientes aqui denominados não controlados (bases de dados textuais originais). O intuito com a experimentação desses algoritmos em bases de dados textuais é ilustrar seu desempenho como um método de resolução da tarefa de agrupamento de textos, da área de mineração de textos. Também, como forma de melhorar a compreensão sobre o desempenho dos algoritmos de coagrupamento, dois algoritmos clássicos de agrupamento foram aplicados sobre as mesmas bases de dados: \textit{k-means} e \textit{fuzzy k-means}. 
 
 % Eu acho que não está muito bem justificado o por que de comparar com os clássicos. Acho que precisamos melhorar isso. Ou aqui ou apresentar isso na metodologia ou ainda apresentar nos dois lugares para ficar bem enfatizado.
 
-% Os algoritmos usados nos experimentos compõem algoritmos de clustering tradicionais: \textit{k-means} e \textit{fuzzy k-means}, e algoritmos de coclustering baseados em fatoração de matrizes da literatura: \textit{ONMTF}, \textit{FNMTF}; e os algoritmos propostos no capítulo~\ref{ch:proposedalgs}: \textit{OvNMTF} e \textit{BinOvNMTF}.
-
-% experimentos foram feitos para verificar que os algoritmos desenvolvidos são úteis para descobrir estrutura com intersecção, provendo evidências que suportam o objetivo principal deste trabalho
-
-Para proporcionar uma visão organizada das capacidades e limitações dos algoritmos, primeiramente são apresentados os experimentos e os resultados obtidos com as bases de dados sintéticas. Tais resultados são apresentados em termos de qualidade de \textit{reconstrução}, a qual é analisada com apoio de visualizacão gráfica, de qualidade de \textit{particionamento}, a qual é avaliada em termos de medidas de qualidade de grupos de linhas e qualidade de grupos de colunas, \textcolor{red}{e de qualidade de \textit{coagrupamento}, a qual é avaliada via medida xxxxx}. Então, a qualidade de coagrupamento é avalidada nos resultados obtidos com as bases de dados textuais reais originais e simplificadas. Para essas últimas, uma análise qualitativa é delineada de forma a ilustrar o valor agregado que a flexibilidade de modelos de coagrupamento podem trazer ao contexto de mineração de textos.
+Para proporcionar uma visão organizada das capacidades e limitações dos algoritmos, primeiramente são apresentados os experimentos e os resultados obtidos com as bases de dados sintéticas. Tais resultados são apresentados em termos de qualidade de \textit{reconstrução}, a qual é analisada com apoio de visualizacão gráfica, de qualidade de \textit{particionamento}, a qual é avaliada em termos de medidas de qualidade de grupos de linhas e \textcolor{red}{qualidade de grupos de colunas}, \textcolor{red}{e de qualidade de \textit{coagrupamento}, a qual é avaliada via medida xxxxx}. Então, a qualidade de \textcolor{red}{particionamento e de coagrupamento} é avalidada nos resultados obtidos com as bases de dados textuais reais originais e simplificadas. Para essas últimas, uma análise qualitativa é delineada de forma a ilustrar o valor agregado que a flexibilidade de modelos de coagrupamento pode trazer ao contexto de mineração de textos.
 
 
 \section{Experimentos com Base de Dados sintéticas}
@@ -1920,42 +1916,11 @@ Para proporcionar uma visão organizada das capacidades e limitações dos algor
 
 % Alternativamente, podemos mudar toda a nomenclatura usada no texto e passar a usar bicluster, e dizer que usamos coagrupamento para encontrar biclusters. Vamos pensar nisso? De qualquer forma, por enquanto estou tentando padronizar para que depois possamos substituir de maneira mais ou menos automática, se for o caso.
 
-As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de cogrupos, propostas por \citeonline{Madeira2004}, descritas com maior detalhamento no capítulo~\ref{ch:conceitos}. Dentre as nove possíveis estruturas de cogrupos apresentadas por esses autores, foram escolhidas para uso nesses experimentos as três mais simples, que comprovadamente na literatura os algoritmos \textit{ONMTF} e \textit{FNMTF} deveriam ser capazes de tratar, e duas estruturas que apresentam intersecção de linhas ou colunas, que representam os casos que tais algoritmos não são capazes de tratar e que são, portanto, o alvo dos algoritmos propostos neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}). Na figura~\ref{fig:bic-syntetic-structure} são apresentas as visualizações gráficas de cada uma das estruturas de cogrupos em estudo.
+As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de cogrupos, propostas por \citeonline{Madeira2004}, descritas com maior detalhamento no capítulo~\ref{ch:conceitos}. Dentre as nove possíveis estruturas de cogrupos apresentadas por esses autores, foram escolhidas para uso nesses experimentos as três mais simples que, comprovadamente na literatura, os algoritmos \textit{ONMTF} e \textit{FNMTF} são capazes de tratar, e duas estruturas que apresentam intersecção de linhas ou colunas, que representam os casos que tais algoritmos não são capazes de tratar e que são, portanto, o alvo dos algoritmos propostos neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}). Na figura~\ref{fig:bic-syntetic-structure} são apresentas as visualizações gráficas de cada uma das estruturas de cogrupos em estudo.
 
-\begin{figure} [htpb]  % vc viu alguma restrição no modelo de disertação sobre usar htpb???? Estou colocando nas figuras. se houver restrição, precisa tirar depois.
+\begin{figure} [htpb]  
 \centering
-    \begin{subfigure}[b]{0.25\textwidth}
-        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
-        \caption{}
-        \label{fig:bic-syntetic-structure:a}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
-      %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}[b]{0.25\textwidth}
-        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
-        \caption{}
-        \label{fig:bic-syntetic-structure:b}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[b]{0.25\textwidth}
-        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
-        \caption{}
-        \label{fig:bic-syntetic-structure:c}
-    \end{subfigure}
-
-    \begin{subfigure}[b]{0.25\textwidth}
-        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
-        \caption{}
-        \label{fig:bic-syntetic-structure:d}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[b]{0.25\textwidth}
-        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
-        \caption{}
-        \label{fig:bic-syntetic-structure:e}
-    \end{subfigure}
-
-    \caption{
+ \caption{
         Dados sintéticos gerados a partir das diferentes estruturas de cogrupos.
         (a) Um único cogrupo.
         (b) Cogrupos com linhas e colunas sem intersecção.
@@ -1964,83 +1929,91 @@ As bases de dados sintéticas foram criadas com inspiração nas diferentes estr
         (e) Cogrupos com intersecção nas linhas e sem intersecção nas colunas.
         % mudei aqui achei que ficariam mais claro dessa forma.
     }
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/a-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:a}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/b-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:b}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/c-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:c}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/d-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:d}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{img/e-bic-structure.png}
+        \caption{}
+        \label{fig:bic-syntetic-structure:e}
+    \end{subfigure}
     \label{fig:bic-syntetic-structure}
+      \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 % verificar se é cogrupo ou co-grupo
-
+% talvez tenhamos que tratar cogrupo de interesse, pod conta da definição baseada em particionamento
 Para compreender a representação gráfica apresentada na figura~\ref{fig:bic-syntetic-structure} considere que cada um dos cinco quadrados maiores representa uma base de dados sintética, que a quantidade de dados da base está representada pela altura do quadrado, que a quantidade de atributos na base está representada pela largura do quadrado. Todas as bases de dados possuem $150$ dados (linhas) e $150$ atributos (colunas). Considere ainda que cada quadrado ou retângulo, representados com diferentes tons da cor azul, representam um cogrupo, também com suas alturas e larguras representando, respectivamente, a quantidade de linhas e colunas que compõem cada cogrupo. As diferentes tonalidades da cor azul revelam a similaridade entre os valores assumidos pelos dados em subconjuntos de atributos, o que também revela a existência dos cogrupos. \textcolor{red}{A intensidade da cor é proporcional à intensidade dos valores associados a cada atributo em cada dado, então valores maiores são representados por tonalidades mais escuras e vice-versa.}
 
 % talvez fosse interessante colocarmos um exemplo bem simples, mas numérico, no estilo que tem na tese do Fabrício.
 
+Todas as bases de dados da figura~\ref{fig:bic-syntetic-structure} são \textcolor{red}{matrizes de valores reais positivos} geradas artificialmente. Primeiramente, uma matriz de tamanho $150 \times 150$ é preenchida com valores ponto flutuante, gerados aleatoriamente a partir de uma distribuição uniforme $unif(0,0, 1,0)$, no intervalo $[0,0, 1,0]$\footnote{Este processo evita que ocorram divisões por $0$ nos algoritmos. \textcolor{blue}{Que processo? O que exatamente evita? Ser positivo, ser uniforme? Sugiro que essa observação vá para um rodapé, mas precisa ser mais específica.}}. Em seguida, o tamanho em termo de linhas e colunas e disposição dos cogrupos na base de dados foram determinados de acordo com cada estrutura de cogrupos desejada. Para instanciar cada cogrupo, um conjunto de valores foi criado e distribuído pelas células do cogrupo da seguinte forma:
 
-% ************************************************************
-% ************************************************************
+% A inicialização é mesmo no intervalo de 0 a 10? Não é no intervalo de 0 a 1?
 
-% Podemos usar alguma coisa mais próxima de U para distribuição uniforme? Talvez Dist-U. Sei que o problema é que U é usado nos algoritmos e dist também. Mas unif ficou um pouco estranho.
+\begin{itemize}
+\item um valor central $c \in \mathcal{C}$, sendo $\mathcal{C} = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, foi aleatoriamente escolhido;
+\item o conjunto de valores usado para instanciar as células do cogrupo foi estabelecido por meio da adição de $c$ a valores reais, gerados a partir da função $unif(0,0, 10,0)$, sendo que $unif$ é uma função que escolhe um valor aleatório dentro do intervalo $[0,0,10,0]$, seguindo uma distribuição uniforme; 
+\item  cada um dos valores nesse conjunto foi atribuído às células previamente definidas como pertecentes ao cogrupo.
+\end{itemize}
 
-Todas as bases de dados da figura~\ref{fig:bic-syntetic-structure} são \textcolor{red}{matrizes de valores reais positivos} geradas artificialmente. Primeiramente, uma matriz de tamanho $150 \times 150$ é preenchida com valores ponto flutuante, gerados aleatoriamente a partir de uma distribuição uniforme $unif(0.0, 1.0)$, no intervalo $[0.0, 1.0]$\footnote{Este processo evita que ocorram divisões por $0$ nos algoritmos. \textcolor{red}{Que processo? O que exatamente evita? Ser positivo, ser uniforme? Sugiro que essa observação vá para um rodapé, mas precisa ser mais específica.}}. Em seguida, os cogrupos foram gerados a partir da escolha aleatória de um valor central $c \in \mathcal{C}$, sendo $\mathcal{C} = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, e da adição de valores gerados a partir da função $unif(0.0, 10.0)$ a elementos localizados a uma distância matricial \textcolor{red}{em um raio $a_1, a_2$ de $c$, respectivamente na direção das linhas e das colunas da matriz.} 
+%Lucas, eu resumi bastante aqui. Não considerei a variável B porque estava um pouco estranho criá-la com os indices ij e depois copiar para a matriz original assumindo os mesmos índices. Se você quiser voltar em como estava, você teria que definir melhor o procedimento de cópia (ou de inserção de B em X). Tenho o seu pdf original, então se for para voltar podemos olhar no original (se for difícil trabalhar com as versões que vc gerencia no git).
 
-% não entendi que valor C é esse, porque tem valor 160 e 180?????
-
-%Em seguida, foram gerados os cogrupos considerando um conjunto de valores centrais $\mathcal{C} = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, e escolhendo um valor central $c \in \mathcal{C}$ de forma aleatória, adicionado valores de $0.0$ à $10.0$, gerados a partir da função $unif(0.0, 10.0)$, que gera valores aleatórios uniformes de $0.0$ à $10.0$, para então formar um bicluster.
-
-%Conversar com Lucas, porque essa formulação não está funcionando. Creio que consigo arrumar mas não estou segura de que o meu entendimento acima (no texto) está correto.
-
-\textcolor{cyan}{Assim, considerando que um cogrupo é uma submatriz $B$ da matriz original $X$, ele pode ser gerado pela equação} % ~\ref{eq:genbic}.
+Assim, considerando que um cogrupo é uma submatriz da matriz original $X$, ele pode ser gerado pela equação % ~\ref{eq:genbic}.
 
 \begin{equation}
 \label{eq:genbic}
-    b_{ij} = c + unif(0, 10)    \nonumber
+    x_{ij} = c + unif(0,0, 10,0)    \nonumber
 \end{equation}
 
-\textcolor{cyan}{sendo $i$ e $j$ os índices das linhas e colunas de $B$ respectivamente, $b_{ij}$ um elemento de $B$, e $unif(0, 10)$ uma função geradora de números \textcolor{red}{aleatórios} no intervalor $[0,10$], que respeita a distribuição uniforme. E, considerando a matriz original como $X$, um cogrupo é inserido em $X$ fazendo $x_{ij} = b_{ij}, \forall i, j$.}
+sendo $i$ e $j$ os índices das linhas e colunas de $X$ escolhidos para compor o cogrupo.
 
-% ************************************************************
-% ************************************************************
+% Dúvida: vc faz algum controle sobre não repetir a escolha de c??? Se sim, isso precisa ficar claro aqui. E precisa também verificar a questão do 0 que você disse que evita colocar na matriz. Seu intervalor é mesmo [0,10] ou é (0,10]?
 
-Embora a visualização gráfica da figura~\ref{fig:bic-syntetic-structure} seja intuitiva, alguns detalhes em relação à sua interpretação precisam ser cuidadosamente observados. A depender do objetivo da análise de coagruamento, na figura~\ref{fig:bic-syntetic-structure:a}, por exemplo, mais de um cogrupo pode ser observado. Portanto, faz-se útil observar em mais detalhes quais são os cogrupos que podem ser considerados, \textcolor{red}{além do cogrupo que é de interesse neste trabalho}, em cada uma das bases de dados. Para isso, por conveniência de interpretação, considere que um cogrupo é sempre formado por um agrupamento de linhas e um agrupamento de colunas. Assim, tem-se os seguintes cogrupos na base de dados sintética (a):
+Ainda sobre a interpretação da figura~\ref{fig:bic-syntetic-structure}, alguns detalhes precisam ser observados. A depender do objetivo da análise de coagruamento, na figura~\ref{fig:bic-syntetic-structure:a}, por exemplo, mais de um cogrupo pode ser observado, \textcolor{red}{além daquele que é de interesse de análise neste trabalho}. Para essa interpretação, considera-se que todo agrupamento de linhas e de colunas, independente de serem úteis ou não, ou de serem interesse para análise ou não, é um cogrupo. Assim, tem-se os seguintes cogrupos na base de dados sintética (a):
 
-%Os seguintes cogrupos podem ser encontrados nas matrizes da figura~\ref{fig:bic-syntetic-structure}: considerando que cada matriz têm dimensão $150 \times 150$, então, os índices das linhas estão entre $0$ e $149$ e os índices das colunas também de $0$ à $149$:
+% Conferir
 
 \begin{itemize}
-\item O mais evidente, destacado em azul, é formado pelas linhas [60 .. 109] e pelas colunas [70 .. 139]. Esse é o cogrupo de interesse, nesse projeto, para a resolução da tarefa de coagrupamento aplicada a dados textuais.
-\item O segundo, que não está destacado na visualização, é formados por todas as linhas e as colunas [0 .. 69] e [140 .. 149].
+\item O mais evidente, destacado em azul, é formado pelas linhas [60 .. 109] e pelas colunas [70 .. 139]. Esse é o cogrupo de interesse, nesse projeto, para a resolução da tarefa de coagrupamento aplicada a dados textuais, e é representado na figura~\ref{fig:bic-syntetic-structure:a} pelo quadrado em cor azul.
+\item O segundo, que não está destacado na visualização, é formado por todas as linhas e as colunas [0 .. 69] e [140 .. 149].
 \item O terceiro, também não destacado, é formado por todas as colunas e as linhas [0 .. 59] e [110 .. 149].
 \end{itemize}
 
 Sob essa ótica de interpretação, as demais bases de dados possuem:
 
 \begin{itemize}
-\item (b): textcolor{red}{três cogrupos de principal interesse e seis cogrupos não destacados na figura;}
+\item (b): três cogrupos de principal interesse e seis cogrupos não destacados na figura;
 \item (c): seis cogrupos de principal interesse;
 \item (d): três cogrupos de princial interesse e oito cogrupos não destacados na figura;
-\item (e): três cogrupos de princial interesse e oito cogrupos não destacados na figura;
+\item (e): três cogrupos de princial interesse e oito cogrupos não destacados na figura.
 \end{itemize}
 
-% sugiro que seja colocada a descrição detalhada de cada um apenas de tivermos espaço, se o texto não ficar muito longo. Eventualmente, também podemos deixar em Apêndice, ou fazer uma figura também, para o Apêndice.
+% sugiro que seja colocada a descrição detalhada de cada um apenas se tivermos espaço, se o texto não ficar muito longo. Eventualmente, também podemos deixar em Apêndice, ou fazer uma figura também para cá ou para o Apêndice.
 
-% ***************************************************************************
-% ***************************************************************************
-
-%Lucas, eu estou deixando o seu original mas estou propondo outra forma de descrever. Precisamos discutir qual delas vai ficar. 
-
-%\begin{itemize}
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:a}}} há um bicluster, formado pelas linhas de $60$ à $110$ e pelas colunas de $70$ à $140$; sendo então, dois coclusters de linhas, o primeiro formado pelas linhas de $60$ à $110$ e o segundo pelas demais linhas, e dois cogrupos de colunas, o primeiro formado pelas colunas de $70$ à $140$ e o segundo pelas demais colunas.
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}} há três biclusters sem intersecção, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $100$ à $149$; sendo então, três coclusters de linhas sem intersecção e três coclusters de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$, respectivamente.
-%   Também existe outra forma de observar os coclusters presentes neste caso, se for considerado os coclusters de colunas para cada cocluster de linhas, seriam os mesmos três coclusters de linhas e dois coclusters de colunas para cada cocluster de linha, ou seja, para o primeiro cocluster de linhas (linhas $0$ à $49$), os dois coclusters de colunas são os coclusters formados pelas colunas de $0$ à $49$ e pelas demais colunas ($50$ à $149$), seguindo a mesma lógica para os demais coclusters.
-%    Note que desta maneira, é possível que coclusters de colunas tenham intersecção.
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:c}}} há nove biclusters com intersecção em estrutura de xadrez, formados através da divisão da matriz de dados sintética em partes iguais; sendo assim, serão 3 coclusters de linhas sem intersecção e 3 coclusters de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$.
-%    É possível fazer a mesma observação de coclusters realizada no item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}}, totalizando nove coclusters, três coclusters de linhas e três coclusters de colunas para cada cocluster de linha.
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} há três biclusters com intersecção nas colunas, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $69$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, e o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $79$ à $149$; sendo então, 3 coclusters de linhas sem intersecção e 3 coclusters de colunas com intersecção.
-%    Considerando os coclusters de colunas para cada cocluster de linhas, serão nove coclusters, dois coclusters de colunas para cada um dos três coclusters de linhas.
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:e}}} Este caso é exatamente igual ao item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} se for observado a transposição da matriz de dados sintética.
-\end{itemize}
-
-% ***************************************************************************
-% ***************************************************************************
-
-Para cada uma das bases de dados sintéticas foram executados os seguintes algoritmos: \textit{k-means}\footnote{Para os experimentos com \textit{k-means} foi usada a implementação da biblioteca \textit{scikit-learn} \cite{scikitLearn} da linguagem Python.}, \textit{fuzzy k-means}\footnote{Para experimentos com \textit{fuzzy k-means} foi usado a implementação do algoritmo \textit{fuzzy k-means} da biblioteca \textit{scikit-fuzzy} da linguagem Python.}, \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}\footnote{Os algoritmos baseadas em fatoração de matrizes foram implementados pelo autor deste trabalho usando a linguagem Python.}. Os resultados foram analisados em termos de qualidade de reconstrução, qualidade de particionamento e qualidade de coagraumento.
+Para cada uma das bases de dados sintéticas foram executados os seguintes algoritmos: \textit{k-means}\footnote{Para os experimentos com \textit{k-means} foi usada a implementação da biblioteca \textit{scikit-learn} \cite{scikitLearn} da linguagem Python.}, \textit{fuzzy k-means}\footnote{Para experimentos com \textit{fuzzy k-means} foi usado a implementação do algoritmo \textit{fuzzy k-means} da biblioteca \textit{scikit-fuzzy} da linguagem Python.}, \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}\footnote{Os algoritmos baseadas em fatoração de matrizes foram implementados pelo autor deste trabalho usando a linguagem Python.}. Os resultados foram analisados em termos de qualidade de reconstrução, qualidade de particionamento e \textcolor{red}{qualidade de coagraumento}.
 
 % não tem uma referência para a biblioteca fo fuzzy k-means??????
 
@@ -2048,26 +2021,52 @@ Para cada uma das bases de dados sintéticas foram executados os seguintes algor
 
 % para isso valer vamos ter que definir kmeans e fuzzy k means em termos de fatoração de matrizes; ou mudar um pouco essa frase aqui.
 % porém, pela forma como foi explicado mais abaixo, acho que vamos ter que melhorar aqui já explicando aqui o que é a resconstruação para o kmeans e o fuzzy k means.
-Uma forma de analisar o resultado dos algoritmos estudados neste trabalho é analisá-los quanto a sua capacidade de reconstrução. Para os algoritmos baseados em fatoração de matrizes, a reconstrucão é feita tomando as matrizes resultantes da fatoração e combinando-as \textcolor{red}{da mesma forma que o seu problema foi proposto}, de forma a reconstruir a matriz original. \textcolor{red}{Para o caso dos algoritmos \textit{k-means} e \textit{fuzzy-k-means}, a resconstrução foi representada pela substituição do valor do centróide ....}
-% eu não entendi o que foi feito não. Ver com Lucas, e no caso do fuzzy k means ver como foi o tratamento da pertinência.
+Uma forma de analisar o resultado dos algoritmos estudados neste trabalho é analisá-los quanto a sua capacidade de reconstrução. Para os algoritmos baseados em fatoração de matrizes, a reconstrucão é feita tomando as matrizes resultantes da fatoração e combinando-as \textcolor{red}{da mesma forma que o seu problema foi proposto}, de forma a reconstruir a matriz original. Para o caso dos algoritmos \textit{k-means} e \textit{fuzzy-k-means}, a resconstrução foi realizada assumindo que os centróides obtidos pelos algoritmos representam os dados originais; assim a substituição de um dado original pelo centróide do grupo ao qual ele pertence, seguindo as regras dos algoritmos \textit{k-means} e \textit{fuzzy k-means}, constitui a reconstrução aplicada nesses casos.
+% ainda acho que alguma consideração a mais deveria ser feita no fuzzy k-means.
+% e uma outra coisa importante: se os demais algoritmos também nos dão centróides, então a mesma coisa feita com kmeans e fuzzy-k-means não deveria ser feita com eles???????
 
-Essa análise se torna importante a partir do momento em que se tem como objetivo avaliar o comportamento dos algoritmos em diferentes estruturas de organização de cogrupos. A capacidade de reconstrução .... \textcolor{red}{vamos ver se colocamos alguma coisa a mais para justificar esse análise.} 
-
+Essa análise se torna importante quando se tem como objetivo avaliar o comportamento dos algoritmos em diferentes estruturas de organização de cogrupos, com destaque para a análise de maior interesse neste trabalho -- \textcolor{red}{coagrupamento com interseção de linhas ou colunas.} \textcolor{blue}{A capacidade de reconstrução .... vamos ver se colocamos alguma coisa a mais para justificar esse análise.} 
 % TODO Descrever melhor pq a reconstrução é importante
-% Foram realizados experimentos avaliando a capacidade de reconstrução dos algoritmos para cada uma das bases de dados sintéticas criadas. Esse tipo de experimento se torna importante a partir do momento que o objetivo é avaliar como os algoritmos se comportam com estruturas com intersecção de cocluster nas linhas ou colunas.
+
+Um resumo sobre os resultados obtidos nessa análise é apresentado na tabela~\ref{tab:resumoREC}. O restante dessa seção se destina a detalhar as análise de qualidade de reconstrução.
+
+\begin{table}[htpb]
+\centering
+    \caption{Resumo de qualidade de reconstrução: ok - permite reconstrução; * - sem informação sobre interseção; + - preserva informação de interseção}
+        \begin{tabular}{cccccc}
+            \hline
+            & \textbf{base (a)} & \textbf{base (b)} & \textbf{base (c)} & \textbf{base (d) }& \textbf{base (e)} \\
+            \hline
+            \textit{k-means}       & ok & ok & ok & ok*  &  \\
+            \textit{  fuzzy-k-means} & ok & ok & ok & ok*  &  \\
+            ONMTF         & ok & ok & ok & +    & +  \\
+            FNMTF         & ok & ok & ok &    &  \\
+            OvNMTF        & ok & ok & ok & ok+  & + \\
+            BinOvNMTF     & ok & ok & ok & ok+  &  \\
+            \hline
+             & & & & &  \\
+        \end{tabular}
+%    }
+    \label{tab:resumoREC}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{table}
+
+
+% uma dúvida. O que estamos fazendo é multiplicando a matriz de pertinências (que aqui assume 0 e 1 pelos centróides, correto? Esse não é o mesmo procedimento feito para os algoritmos de fatoração de matrizes? E se é, no caso do fuzzy-c-means, temos a matriz de pertinência não binária. Não deveríamos simplementes multiplicá-la pelos centróides?
 
 \subsection{Reconstrução a partir dos resultados do algoritmo \textit{k-means}}
 \label{subsec:results-reconstruction-kmeans}
 
 % Lucas, verifique o erro mínimo buscado por favor, está estranho.
-Para execução dos experimentos com o \textit{k-means} os seguintes parâmetros foram estabelecidos: número máximo de iterações ($300$) ou a diferença do erro de minimização \textcolor{red}{(alcançar pelo menos $1e-4$)}, o que ocorrer primeiro, como critérios de parada; número de grupos $k = 2$ para a base de dados sintética (a) e $k = 3$ para as bases de dados sintéticas (b), (c), (d) e (e). \textcolor{red}{A escolha de $k$ foi basicamente realizada com a prerrogativa de que o algoritmo \textit{k-means} deveria encontrar os grupos considerando todos os atributos descritivos, e desta forma, agrupar os dados de acordo com a similaridade total. A escolha de $k$ maiores levariam o algoritmo a, necessariamente, dividir em grupos diferentes os dados que deveriam pertencer a um mesmo grupo.} Foram executadas $10$ rodadas do algoritmo, com \textcolor{red}{inicialização de centróides aleatória}, sendo que o melhor modelo resultante nessas rodadas foi escolhido para ilustrar a avaliação da qualidade da resconstrução.
+Para execução dos experimentos com o \textit{k-means} os seguintes parâmetros foram estabelecidos: número máximo de iterações ($300$) ou  \textcolor{red}{a diferença do erro de minimização em duas iterações consecutivas ($\leq 1,0 * 10^{-4}$)}, o que ocorrer primeiro, como critérios de parada; número de grupos $k = 2$ para a base de dados sintética (a) e $k = 3$ para as bases de dados sintéticas (b), (c), (d) e (e). \textcolor{red}{A escolha de $k$ foi realizada com a prerrogativa de que o algoritmo \textit{k-means} deveria encontrar os grupos considerando todos os atributos descritivos, e desta forma, agrupar os dados de acordo com a similaridade total. Assim, $k$ foi escolhido a partir da quantidade de agrupamento de linhas presente na base de dados. A escolha de $k$ maiores levaria o algoritmo a, necessariamente, dividir em grupos diferentes os dados que deveriam pertencer a um mesmo agrupamento de linhas.} Foram executadas $10$ rodadas do algoritmo, com \textcolor{red}{inicialização de centróides aleatória}, sendo que o melhor modelo resultante nessas rodadas foi escolhido para ilustrar a avaliação da qualidade da reconstrução.
 % verificar com Lucas pois acho que ele usou o k-means ++
 
-% A partir da execução de $10$ rodadas do algoritmo, medindo a taxa de erro que o algoritmo minimiza, foi coletado o melhor modelo resultante para avaliar a sua capacidade.
-
-As reconstruções obtidas a partir dos centróides encontrados pelo algoritmo \textit{k-means} são ilustradas Figura~\ref{fig:reconstruction:kmeans}. As matrizes originais são repetidas na figura, nas cinco primeiras posições, de forma a facilitar a análise visual dos resultados. \textcolor{red}{Para um melhor entendimento da representação gráfica, note que uma linha recebe cores de acordo com sua pertinência a um grupo representado por um centróide, ou seja, se a linha $10$ pertencer ao centróide $1$, então os valores da linha $10$ serão os valores do centróide $1$.} \textcolor{cyan}{O problema aqui é que a linha então deveria estar toda em azul. Precisamos explicar a figura direito, pois a ideia não esta batendo. Ou a figura está errada.}
+As reconstruções obtidas a partir dos centróides encontrados pelo algoritmo \textit{k-means} são ilustradas Figura~\ref{fig:reconstruction:kmeans}. As matrizes originais são repetidas na figura, nas cinco primeiras posições, de forma a facilitar a análise visual dos resultados. Para um melhor entendimento da representação gráfica, note que cada linha recebe cores de acordo com sua pertinência a um agrupamento de linhas (ou grupo, na visão de agrupamento) representado por um centróide. Ou seja, se a linha $10$ pertencer ao centróide $1$, então os valores da linha $10$ serão substituídos pelos valores do centróide $1$. Note que o centróide é um vetor com o mesmo número de coordenadas de um dado da base de dados, sendo assim, a substituição é direta. O centróide que representa o agrupamento de linhas referente ao cogrupo de interesse (em azul na figura), possui, claramente, valores similares aos dados que pertencem a esse cogrupo, e por isso o procedimento proposto pode ser visto como uma representação de reconstrução.
 
 \begin{figure}[H]
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{k-means}.
+    }
 \centering
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/a-bic-structure.png}
@@ -2105,31 +2104,32 @@ As reconstruções obtidas a partir dos centróides encontrados pelo algoritmo \
         \includegraphics[width=\textwidth]{img/e-reconstruction-kmeans.png}
         \caption{}
     \end{subfigure}
-
-    \caption{
-        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{k-means}.
-    }
     \label{fig:reconstruction:kmeans}
+          \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-% não sei, aqui deveria ser cogrupos de linhas ... tem algo errado nessa interpretação.
-Note que o modelo resultante da execução do \textit{k-means} é capaz de realizar a \textcolor{red}{reconstrução perfeita} para as bases de dados (a) à (d). No entanto, o modelo não tem informações sobre a estrutura de cogrupos de \textcolor{cyan}{colunas} presentes nos dados e assim não é capaz de reconstruir o problema apresentado pela base de dados (e). \textcolor{red}{Esse resultado já era esperado, uma vez que para obter tal informação, o algoritmo deveria ser capaz de descobrir similaridades parciais entre os dados, e em sua concepção, o algoritmo não é preparado para isso.}
-% O caso (e) é o único que o algoritmo não é capaz de realizar a reconstrução, isso ocorre pois o algoritmo não é capaz de encontrar intersecção de clusters. % ele até é capaz de ver interseção mas não deste tipo, correto?
+% as cores não correspondem na reconstrução. Me lembro de isso ser devido a alguma normalização. Então precisa esclarecer aqui. Acho que uma nota de rodapé resolve.
+
+O modelo resultante da execução do \textit{k-means} \textcolor{red}{permite representar perfeitamente a  reconstrução} para as bases de dados (a) à (d). Porém, é preciso lembrar que não há informação sobre agrupamento de colunas no resultado do algoritmo, sendo que a visualização gráfica de cada coagrupamento é possível apenas por conta da similaridade do centróide em relação aos dados de cada agrupamento de linhas.
+
+O modelo não permite a descoberta de grupos com interseção de linhas (um dado não pode pertencer a mais de um grupo), e portanto não permite uma boa representação para a reconstrução no caso da base de dados (e). Esse resultado já era esperado devido à natureza da solução apresentada pelo \textit{k-means}. \textcolor{blue}{Tem um erro aqui, pois o centróide deveria ser único para cada um dos 3 grupos, não há como termos esse quarto quadrado em azul claro.}
+
 
 \subsection{Reconstrução a partir dos resultados do algoritmo \textit{fuzzy k-means}}
 \label{subsec:results-reconstruction-fkmeans}
 
-% tanto aqui quanto no kmeans, as cores são diferentes. Então é preciso dar mais detalhes sobre isso para que o leitor não entenda que é um erro.
-
 % verificar se podemos chamar de parâmetro de fuzzyficação
-Os mesmos critérios de parada e número de grupos usados para o \textit{k-means} foram também usados nos experimentos com o \textit{fuzzy k-means}. O valor para o parâmetro de fuzzificação $m$ foi mantido em $2$. Também, $10$ execuções foram realizadas, com iniciação aleatória de pesos e o melhor modelo obtido foi usado para avaliação da qualidade de resconstrução obtida.
-% Há uma justificativa para m=2, vamos colocar aqui. 
-% TODO eu li que esse é o usual (default), explicar pq
+Os mesmos critérios de parada e número de grupos usados para o \textit{k-means} foram também usados nos experimentos com o \textit{fuzzy k-means}. O valor para o parâmetro de fuzzificação $m$ foi mantido em $2$, como indicado em \cite{Peres2012}. Também, $10$ execuções foram realizadas, com iniciação aleatória de pesos e o melhor modelo obtido foi usado para avaliação da qualidade de reconstrução obtida.
 
-Da mesma forma que o experimento anterior, as reconstruções apresentadas na figura~\ref{fig:reconstruction:fkmeans}, foram obtidos por meio da coloração de linhas de acordo com os centróides obtidos, e as matrizes originais foram repetidas para facilitar a análise visual. % aqui tem fuzzificação, verificar com Lucas.
+% O parâmetro de fuzzyficação m é geralmente valorado com 2 para permitir que a pertinência de dados a grupos sejam obtidas unicamente em função das razões entre as distâncias entre dados e centros de grupos. Valores maiores do que 2 fazem com que as pertinências obtidas sejam influenciadas pela quantidade de grupos; valores menores do que 2 (se aproximando de 1, limite inferior para este parâmetro) aproxima o resultado do fuzzy-k-means do k-means pois as diferenças entre as pertinências tendem a aumentar. 
+
+Da mesma forma que o experimento anterior, as reconstruções apresentadas na figura~\ref{fig:reconstruction:fkmeans} foram obtidas por meio da coloração de linhas de acordo com os centróides resultantes da execução do algoritmo, e as matrizes originais foram repetidas para facilitar a análise visual. Contudo, desde que a pertinência de um dado a mais de um grupo é possível nesse algoritmo, escolheu-se o grupo ao qual o dado tem maior pertinência para usar como base para a reconstrução. 
 
 \begin{figure}[H]
 \centering
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algorimto \textit{fuzzy k-means}.
+    }
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/a-bic-structure.png}
     \end{subfigure}
@@ -2166,26 +2166,35 @@ Da mesma forma que o experimento anterior, as reconstruções apresentadas na fi
         \includegraphics[width=\textwidth]{img/e-reconstruction-fkmeans.png}
         \caption{}
     \end{subfigure}
-
-    \caption{
-        \textcolor{red}{As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algorimto \textit{fuzzy k-means}}.
-    }
     \label{fig:reconstruction:fkmeans}
+        \label{fig:reconstruction:kmeans}
+\source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-De forma semelhante ao experimento de reconstrução com o \textit{k-means}, aqui também o algoritmo é capaz de realizar a \textcolor{red}{reconstrução} perfeita dos casos (a) à (d). Porém, a reconstrução para o caso (e) não foi obtida com sucesso. Embora o \textit{fuzzy c-means} lide, em sua concepção, com sobreposição de grupos, neste caso representada pelas pertinências fuzzy dos dados a vários grupos, a similaridade parcial em termos de atributos também não é tratada. \textcolor{cyan}{Entender melhor com o Lucas e ver como explicar isso aqui ... .. ... } 
-% porém, apesar do algoritmo lidar com intersecção de clusters, este não foi capaz de fazer a reconstrução do caso (e).
-% TODO dizer que no (e) foi pior que o kmeans?
+% no kmeans parece que há uma variação dentro dos cogrupos que aqui não há. Seria interessante falar sobre isso?
+
+% o caso E aqui está fazendo mais sentido que no kmeans e considerando a maior pertinência, deveria ser parecido no kmenas. Ou aqui seria melhor por indicar que há uma influencia diferentes naqueles atributos que tem algum coloracao, o que não kmeans não ocorre. Mas deveria ocorrer pois o centróide é media na coluna.
+
+De forma semelhante à análise de reconstrução proporcionada pelo \textit{k-means}, o \textit{fuzzy k-means} também  \textcolor{red}{permite representar perfeitamente a reconstrução} para as bases de dados (a) à (d). Porém, a reconstrução para o caso (e) não foi obtida com sucesso. Embora o \textit{fuzzy c-means} lide, em sua concepção, com sobreposição de grupos, neste caso representada pelas pertinências fuzzy dos dados a vários grupos, o procedimento de escolha da maior pertinência anula essa capacidade na representação da reconstrução; \textcolor{blue}{muito embora .... é preciso fazer alguma ressalva ou análise diferente aqui.} 
+
+% aqui tem fuzzificação, verificar com Lucas. E se for feita com a segunda maior pertinência? Haverá alguma informação que complete a reconstrucão feita com a primeira???? Seria legal pensar nisso.
+
+% eu acho que tem que ter um paralelo diferente aqui, pois a matriz de pertinências nesse caso é parecida com a matriz S dos algoritmos de fatoração.
 
 \subsection{Reconstrução a partir dos resultados do algoritmo \textit{ONMTF}}
 \label{subsec:results-reconstruction-onmtf}
 
-Para execução dos experimentos com o FNMTF a seguinte parametrização foi estabelecida: número máximo de iterações ($1000$) ou o erro de minimização (\textcolor{red}{alcançar pelo menos $1e-4$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas \textcolor{red}{($k$)} e colunas \textcolor{red}{($l$)} configurados da seguinte maneira: $k = l = 2$ para (a) e $k = l = 3$ para (b), (c), (d) e (e). Novamente, escolhas baseadas no conhecimento \textit{aprioi} que se tem sobre a quantidade de cogrupos, e quais cogrupos, deseja-se obter. Para a execução do algoritmo \textit{ONMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$. % náo precisaríamos indicar a operação aqui?
+%originalmente Lucas informou que k = l = 3 para os cadaos c d e e. É isso mesmo? Eu troquei.
 
-A partir da realização de $10$ execuções do algoritmo, foi escolhido o modelo que alcançou a menor taxa de erro e a partir do resultado obtido a reconstrução foi avaliada. A qualidade das resconstruções pode ser visualmente observada na figura~\ref{fig:reconstruction:onmtf}. A resconstrução foi obtida a partir da multiplicação das matrizes fatoradas, ou seja, \textcolor{red}{$U, S$ e $V^T$}, conforme explicado no capítulo~\ref{ch:fatoracao}.
+Para execução dos experimentos com o ONMTF a seguinte parametrização foi estabelecida: número máximo de iterações ($1000$) ou \textcolor{red}{a diferença do erro de minimização em duas iterações consecutivas ($\leq 1,0 * 10^{-4})$}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas ($k$) e colunas ($l$) configurados da seguinte maneira: \textcolor{red}{$k = l = 2$ para (a), $k = 3$ e $l = 2$ para (b), (d) e (e), e $k = l = 3$ para (c)}. Novamente, as escolhas são baseadas no conhecimento \textit{apriori} que se tem sobre a quantidade de cogrupos, e quais cogrupos, deseja-se obter. Para a execução do algoritmo \textit{ONMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$. 
+% náo precisaríamos indicar a operação aqui?
 
+A partir da realização de $10$ execuções do algoritmo, foi escolhido o modelo que alcançou a menor taxa de erro e a partir do resultado obtido a reconstrução foi avaliada. A qualidade das resconstruções pode ser visualmente observada na figura~\ref{fig:reconstruction:onmtf}. A resconstrução foi obtida a partir da multiplicação das matrizes fatoradas, ou seja, \textcolor{red}{$USV^T$}, conforme explicado no capítulo~\ref{ch:fatoracao}.    
 \begin{figure}[H]
 \centering
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{ONMTF}.
+    }
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/a-bic-structure.png}
     \end{subfigure}
@@ -2220,21 +2229,18 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
     \end{subfigure}
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/e-reconstruction-onmtf.png}
-        \caption{}
+            \caption{}
     \end{subfigure}
-
-    \caption{
-        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{ONMTF}.
-    }
-    \label{fig:reconstruction:onmtf}
+\label{fig:reconstruction:onmtf}
+\source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 % Aqui até as cores são identicas nos três primeiros casos. Não deveríamos ressaltar isso?
 
-Analisando as reconstruções realizadas, é possível perceber que a reconstrução é realizada com êxito nos casos (a), (b) e (c). \textcolor{red}{O algoritmo falhou em reconstruir a matriz nas colunas se interseccionam no caso (d) e nas linhas que se intersecionam no caso (e). A falha da reconstrução é percebida na coloração diferenciada, formando regiões com sombras, nas colunas, ou linhas, envolvidas nos cogrupos que possuem alguma interseção.}
+Analisando os resultados, é possível perceber que a reconstrução é realizada com êxito nos casos (a), (b) e (c). \textcolor{red}{O algoritmo falhou em reconstruir a matriz no caso (d) pois não foi capaz de associar corretamente as colunas que pertencem a mais de um agrupamento de colunas (interseção nas colunas). O mesmo efeito ocorre com o caso (e), no qual há interseção de linhas. A falha da reconstrução é percebida na coloração diferenciada, formando regiões com sombras, nas colunas, ou linhas, envolvidas nas interseções.}
 % estava o contrário, ver com Lucas
 
-\textcolor{red}{A coloração diferenciada daquela esperada (seguindo a matriz original) é resultante do estado da matriz $V$, que contém as relações de associação de linhas e/ou colunas aos cogrupos. Para o caso (d), por exemplo, é possível deduzir, a partir da análise visual, que há valores de magnitude diferentes estabelecendo a associação das colunas X x X, Y x Y e Z x Z, ao grupo de linhas X x X. Isso é possível pois o algoritmo não força a associação única e exclusiva entre uma linha e um cocluster ou uma coluna e um cocluster.Em uma análise qualitativa, poder-se-ia então dizer que o algoritmo está indicando a formação de quatro grupos de colunas em relação ao mesmo grupo de linhas X x X.}
+A coloração diferenciada daquela esperada (seguindo a matriz original) é resultante do estado da matriz $V$, que contém as relações de associação de linhas e/ou colunas aos cogrupos. Para o caso (d), por exemplo, é possível deduzir, a partir da análise visual, que há valores de magnitude diferentes estabelecendo a associação das colunas \textcolor{blue}{X x X, Y x Y e Z x Z, ao grupo de linhas X x X}. Isso é possível pois o algoritmo não força a associação única e exclusiva entre uma linha e um agrupamento de linhas ou uma coluna e um agrupamento de colunas.Em uma análise qualitativa, poder-se-ia então dizer que o algoritmo está indicando a formação de quatro grupos de colunas em relação ao mesmo grupo de linhas \textcolor{blue}{X x X}.
 
 % reescrito acima.
 % No entanto, é possível ver sombras nas regiões das matrizes reconstruídas com intersecção de biclusters, isso significa que quando observa-se a matriz $V$ (que contém as relações de pertinência entre coclusters e colunas (características)) para o caso (d), é possível ver valores associados ao segundo cocluster, porém menores que as outras associações com os clusters. Isso é possível pois o algoritmo não força a associação única e exclusiva entre uma linha e um cocluster ou uma coluna e um cocluster.
@@ -2242,15 +2248,17 @@ Analisando as reconstruções realizadas, é possível perceber que a reconstru�
 \subsection{Reconstrução a partir dos resulatdos do algoritmo \textit{FNMTF}}
 \label{subsec:results-reconstruction-fnmtf}
 
-%Para esse experimento, foi feita a implementação do algoritmo \textit{FNMTF} usando a linguagem Python.
+%originalmente Lucas informou que k = l = 3 para os cadaos c d e e. É isso mesmo? Eu troquei.
 
-% porque o onmtf foi tão longo e esse foi tão curto quanto o kmeans e o fcm?????
-Para execução dos experimentos com o FNMTF a seguinte parametrização foi estabelecida: número máximo de iterações ($300$) ou o erro de minimização (\textcolor{red}{alcançar pelo menos $1e-4$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas \textcolor{red}{($k$)} e colunas \textcolor{red}{($l$)} configurados da seguinte maneira: $k = l = 2$ para (a) e $k = l = 3$ para (b), (c), (d) e (e). Para a execução do algoritmo ONMTF é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à 1.
+Para execução dos experimentos com o FNMTF a seguinte parametrização foi estabelecida: número máximo de iterações ($300$) ou \textcolor{red}{a diferença do erro de minimização em duas iterações consecutivas ($\leq 1,0 * 10^{-4}$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas ($k$) e colunas ($l$) configurados da seguinte maneira: \textcolor{red}{$k = l = 2$ para (a), $k = 3$ e $l = 2 $ para (b), (d) e (d), e $k = l = 3$ para (c)}. Para a execução do algoritmo ONMTF é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$.
 
-A partir da realização de $10$ execuções do algoritmo, foi escolhido o modelo que alcançou a menor taxa de erro e a partir do resultado obtido a reconstrução foi avaliada. A qualidade das reconstruções pode ser visualmente observada na figura~\ref{fig:reconstruction:fnmtf}. A reconstrução foi obtida a partir da multiplicação das matrizes fatoradas, ou seja, $F, S$ e $G^T$, conforme explicado no capítulo~\ref{ch:fatoracao}.   %$$F*S*G^T$
+A partir da realização de $10$ execuções do algoritmo, foi escolhido o modelo que alcançou a menor taxa de erro e a partir do resultado obtido a reconstrução foi avaliada. A qualidade das reconstruções pode ser visualmente observada na figura~\ref{fig:reconstruction:fnmtf}. A reconstrução foi obtida a partir da multiplicação das matrizes fatoradas, ou seja, $FSG^T$, conforme explicado no capítulo~\ref{ch:fatoracao}.  
 
 \begin{figure}[H]
 \centering
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{FNMTF}.
+    }
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/a-bic-structure.png}
     \end{subfigure}
@@ -2285,25 +2293,22 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
     \end{subfigure}
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/e-reconstruction-fnmtf.png}
-        \caption{}
+    \caption{}
     \end{subfigure}
-
-    \caption{
-        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{FNMTF}.
-    }
     \label{fig:reconstruction:fnmtf}
+\source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-Este caso é semelhante ao anterior (algoritmo \textit{ONMTF}). O algoritmo conseguiu realizar a reconstrução com êxito dos casos (a), (b) e (c), falhando na reconstrução dos casos (d) e (e), onde há intersecção de colunas ou linhas nos cogrupos de interesse. No entanto, nesse caso o algoritmo restringe a associação de linhas, ou colunas, a apenas um cogrupo, e por isso a informação referente a intersecção é totalmente descaracterizada. Observe, por exemplo, que a reconstrução no caso (d) se assemelha à reconstrução do caso (c), embora as matrizes originais nos dois casos sejam diferentes, e representam informação qualitativa sobre associação de dados e atributos em cogrupo também diferenciada.
+Este caso é semelhante ao anterior (algoritmo \textit{ONMTF}). O algoritmo permitiu a reconstrução com êxito dos casos (a), (b) e (c), falhando na reconstrução dos casos (d) e (e), nos quais há intersecção de colunas ou linhas nos cogrupos de interesse. No entanto, nesse caso o algoritmo restringe a associação de linhas (ou colunas), a apenas um agrupamento de linhas (ou de colunas), e por isso a informação referente a intersecção em cogrupos é totalmente descaracterizada. Observe, por exemplo, que a reconstrução no caso (d) se assemelha à reconstrução do caso (c), embora as matrizes originais, em cada caso, representem informação sobre associação de dados e atributos em cogrupos também diferenciada.
 
 \subsection{Reconstrução a partir dos resultados do algoritmo \textit{OvNMTF}}
 \label{subsec:results-reconstruction-ovnmtf}
 
-% Para esse experimento, foi feita a implementação do algoritmo \textit{OvNMTF} usando a linguagem Python.
+% e nessa caso, lucas informou que k = 3 e l = 2 para c d e d, mas no c precisava ser tudo igual a 3, correto?
 
-% por que l = 2????? não deveria ser l = 3?????
+Para execução dos experimentos com o \textit{OvNMTF} a seguinte parametrização foi estabelecida: número máximo de iterações ($1000$) ou \textcolor{red}{a diferença do erro de minimização ($\leq 1,0*10^{-4}$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas ($k$) e colunas ($l$) configurados da seguinte maneira: \textcolor{red}{$k = l = 2$ para (a), $k = 3$ e $l = 2 $ para (b), (d) e (d), e $k = l = 3$ para (c)}. Para a execução do algoritmo \textit{OvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$. 
 
-Para execução dos experimentos com o \textit{OvNMTF} a seguinte parametrização foi estabelecida: número máximo de iterações ($1000$) ou o erro de minimização (\textcolor{red}{alcançar pelo menos $1e-4$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas \textcolor{red}{($k$)} e colunas \textcolor{red}{($l$)} configurados da seguinte maneira: $k = l = 2$ para (a) e $k = 3$ e \textcolor{red}{$l = 2$} para (b), (c), (d) e (e). Novamente, escolhas baseadas no conhecimento \textit{aprioi} que se tem sobre a quantidade de cogrupos, e quais cogrupos, deseja-se obter. Para a execução do algoritmo \textit{OvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$. % náo precisaríamos indicar a operação aqui?
+% náo precisaríamos indicar a operação aqui?
 
 % Como critério de parada do algoritmo, foi utilizada $1000$ como número máximo de iterações, ou a diferença do erro de minimização assumir valor menor ou igual à $1e-4$. Os parâmetros do número de coclusters de linhas e colunas foi configurado da seguinte maneira: $k = l = 2$ para (a); e $k = 3$ e $l = 2$ para (b), (c), (d) e (e). Para o funcionamento do algoritmo \textit{OvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas seja igual à $1$.
 
@@ -2312,6 +2317,9 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
 
 \begin{figure}[H]
 \centering
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{OvNMTF}.
+    }
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/a-bic-structure.png}
     \end{subfigure}
@@ -2348,25 +2356,21 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
         \includegraphics[width=\textwidth]{img/e-reconstruction-ovnmtf.png}
         \caption{}
     \end{subfigure}
-
-    \caption{
-        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{OvNMTF}.
-    }
     \label{fig:reconstruction:ovnmtf}
+\source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 % Não está claro essa questão da normalização. Em B está tudo com o mesmo valor, e a banca pode querer explicações para isso. Vamos tentar colocar.
-O algoritmo conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d), com valores suavemente diferentes (isso pode ser notado pela cor das matrizes reconstruídas), devido à normalização necessária. Note que o algoritmo \textit{OvNMTF} é capaz de lidar com cogrupos com intersecção de colunas, e portanto é capaz de resolver o caso (d). Como o algoritmo não é capaz de lidar com cogrupos com intersecção nas linhas, ele não é capaz de realizar a reconstrução do caso (e), e, assim como o experimento com \textit{ONMTF}, o \textit{OvNMTF}, esse têm a informação de associação de cada linha ou coluna com cada cogrupo e por isso, preserva a informação de intersecção, porém de maneira fragmentada em vários cogrupos.
-% Por isso, as intersecções são preservadas, observando as áreas das intersecções de linhas com sombra, na matriz de dados sintéticos.
+O algoritmo conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d), com valores suavemente diferentes (isso pode ser notado pela cor das matrizes reconstruídas), devido à normalização necessária \textcolor{blue}{para .....}. Note que o algoritmo \textit{OvNMTF} é capaz de lidar com cogrupos com intersecção de colunas, e portanto é capaz de resolver o caso (d). 
+
+Como o algoritmo não é capaz de lidar com cogrupos com intersecção nas linhas, ele não é capaz de realizar a reconstrução do caso (e). No entanto, assim como o algoritmo \textit{ONMTF}, o \textit{OvNMTF} possui a informação sobre o agrupamento de linhas e permite a associação de linhas a vários agrupamentos. Assim, ele é capaz de preservar a informação referente às interseções nas linhas, porém de maneira fragmentada em vários grupos.
 
 \subsection{Reconstrução a partir dos resultados do algoritmo \textit{BinOvNMTF}}
 \label{subsec:results-reconstruction-binovnmtf}
 
-%Para esse experimento, foi feita a implementação do algoritmo \textit{BinOvNMTF} usando a linguagem Python.
+% mesmo problema com k e l
 
-% por que l = 2????? não deveria ser l = 3?????
-
-Para execução dos experimentos com o \textit{BinOvNMTF} a seguinte parametrização foi estabelecida: número máximo de iterações ($300$) ou o erro de minimização (\textcolor{red}{alcançar pelo menos $1e-4$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas \textcolor{red}{($k$)} e colunas \textcolor{red}{($l$)} configurados da seguinte maneira: $k = l = 2$ para (a) e $k = 3$ e \textcolor{red}{$l = 2$} para (b), (c), (d) e (e). Novamente, escolhas baseadas no conhecimento \textit{aprioi} que se tem sobre a quantidade de cogrupos, e quais cogrupos, deseja-se obter. Para a execução do algoritmo \textit{BinOvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$. 
+Para execução dos experimentos com o \textit{BinOvNMTF} a seguinte parametrização foi estabelecida: número máximo de iterações ($300$) ou \textcolor{red}{a diferença do erro de minimização ($\leq 1,0 * 10^{-4}$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas ($k$) e colunas ($l$) configurados da seguinte maneira: \textcolor{red}{$k = l = 2$ para (a), $k = 3$ e $l = 2 $ para (b), (d) e (d), e $k = l = 3$ para (c)}. Para a execução do algoritmo \textit{BinOvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$. 
 
 A partir da realização de $10$ execuções do algoritmo, foi escolhido o modelo que alcançou a menor taxa de erro e a partir do resultado obtido a reconstrução foi avaliada. A qualidade das reconstruções pode ser visualmente observada na figura~\ref{fig:reconstruction:binovnmtf}. A reconstrução foi obtida a partir da multiplicação das matrizes fatoradas, ou seja, $F \sum_{p=1}^{k} I_{(p)} S G_{(p)}^T$, conforme explicado no capítulo~\ref{ch:proposedalgs}.
 
@@ -2378,6 +2382,9 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
 
 \begin{figure}[H]
 \centering
+    \caption{
+        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{BinOvNMTF}.
+    }
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/a-bic-structure.png}
     \end{subfigure}
@@ -2414,14 +2421,11 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
         \includegraphics[width=\textwidth]{img/e-reconstruction-binovnmtf.png}
         \caption{}
     \end{subfigure}
-
-    \caption{
-        As primeiras cinco matrizes são as matrizes originais, as demais são suas respectivas reconstruções, realizadas a partir dos resultados obtidos com o algoritmo \textit{BinOvNMTF}.
-    }
     \label{fig:reconstruction:binovnmtf}
+    \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-Semelhante ao experimento anterior, o algoritmo \textit{BinOvNMTF} conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d), com valores suavemente diferentes (isso pode ser notado pela cor das matrizes reconstruídas) devido à normalização necessária. Também, o algoritmo é capaz de lidar com cogrupos com intersecção de colunas, então é capaz de resolver o caso (d). \textcolor{red}{Como o algoritmo não é capaz de lidar com cogrupos com intersecção nas linhas, ele não é capaz de realizar a reconstrução do caso (e). E nesse caso, também não preserva qualquer informação sobre a intersecção, já que possui a restrição de associação binária (cada linha/coluna associadas a um único cogrupo).} 
+Semelhante ao experimento anterior, o algoritmo \textit{BinOvNMTF} conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d). Como o algoritmo é capaz de lidar com cogrupos com intersecção de colunas, eke é capaz de resolver o caso (d). \textcolor{red}{No entanto, o algoritmo não é capaz de lidar com cogrupos com intersecção nas linhas, ele não é capaz de realizar a reconstrução do caso (e). E nesse caso, também não preserva qualquer informação sobre a intersecção, já que possui a restrição de associação binária (cada linha/coluna associadas a um único agrupamento de linhas/colunas).} 
 
 % isso aqui é um copypaste e uma falta de atenção que leva a uma informação totalmente errada? Ou eu não entendi nenhuma das figuras do caso (e)
 % porém, assim como o experimento com \textit{ONMTF}, o \textit{OvNMTF} têm a informação de pertinência de cada linha ou coluna com cada cocluster. Por isso, as intersecções são preservadas, observando as áreas das intersecções de linhas com sombra, na matriz de dados sintéticos.
@@ -2429,22 +2433,45 @@ Semelhante ao experimento anterior, o algoritmo \textit{BinOvNMTF} conseguiu rea
 \subsection{Análise de particionamento}
 % TODO: Comparar reconstrução com dados da tabela
 
-A análise de particionamento avaliada nesta seção diz respeito ao entendimento do quanto os grupos de linhas formados estariam adequados em relação a um modelo conhecido \textit{apriori}. Os mesmos modelos que foram analisado quanto à qualidade de reconstrução, foram usados para a análise apresentada aqui. Como os as bases de dados foram sintetizadas, foi possível rotulá-las de forma que se sabe a qual cogrupo uma determinada linha ou uma determinada coluna pertence, permitindo uma análise de particionamento via um índice de avaliação externa de agrupamentos. 
+A análise de particionamento avaliada nesta seção diz respeito ao entendimento do quanto aos agrupamentos de linhas ou agrupamento de colunas descoberto pelos algoritmos estariam adequados em relação a um modelo conhecido \textit{apriori}. Os mesmos modelos que foram analisados quanto à qualidade de reconstrução, foram usados para a análise apresentada aqui. Como as bases de dados foram sintetizadas, foi possível rotulá-las de forma que se sabe a qual cogrupo uma determinada linha ou uma determinada coluna pertence, permitindo uma análise de particionamento via um índice de avaliação externa de agrupamentos. 
 
-% TODO: citação
-% precisa colocar o indice explicitamente. Acredito que possamos colocá-lo no capítulo 2.
-O índice usado para a avaliação de particionamento foi o \textit{Rand Index}. Esse índice gera valores entre $0$ e $1$, com $0$ indicando que o particionamento de dados gerado pelo modelo não concorda em nenhum par de pontos com o particionamento real e $1$ indicando que o particionamento gerado pelo modelo é exatamente igual ao particionamento real.
+% eu estou em dúvida sobre se é necessário dizer isso aqui, porque acho que pela natureza dos algoritmos isso é deduzível, não?
+Apesar da escolha por manter a análise sobre os mesmos modelos usados na análise de reconstrução, para o caso da análise de agrupamento, foi também verificada a qualidade obtida quando da execução dos algoritmos a partir de uma entrada de dados em ordem aleatória de linhas ou colunas. Os resultados obtidos mostram que o desempenho dos algoritmos é independente da organização das linhas e colunas da matriz de entrada.
 
-% eu não entendi porque dessa observação aqui: verificar com Lucas. % voltar a observação mas entrar outra na parte da reconstrução
-%Os resultados são independentes da organização das linhas das matrizes, ou seja, com ou sem embaralhamento é obtido os mesmos resultados para as métricas. O embaralhamento foi realizado de forma aleatória gerando novos índices das linhas a partir de uma distribuição uniforme.
+% precisa colocar o indice explicitamente. Acredito que possamos colocá-lo no capítulo 2 - vou colocar aqui por enquanto para poder pensar sobre ele.
 
-A avaliação externa foi realizada para o particionamento de linhas e para o particionamento de colunas e os resultados estão listados na tabela~\ref{tab:datasetsstats}. Observando os valores destacados na coluna \textit{Rand Index} (linhas), é possível notar que nenhum dos algoritmos foi capaz de particionar perfeitamente (com valor $1.0$) as linhas para a base de dados (e), que contém intersecção de linhas. Claramente, isso ocorre pois nenhum dos algoritmos é capaz de encontrar cogrupos com intersecção de linhas.
+O índice usado para a avaliação de particionamento foi o \textit{Rand Index} \cite{Rand1971}. Esse índice gera valores entre $0$ e $1$, com $0$ indicando que o particionamento de dados gerado pelo modelo não concorda em nenhum par de pontos com o particionamento real e $1$ indicando que o particionamento gerado pelo modelo é exatamente igual ao particionamento real. \textcolor{red}{O \textit{Rand Index} é definido como} 
+% Lucas: conferir com a implementação usada
 
+\begin{equation}
+(A + D) / (A + B + C + D)   \nonumber
+\end{equation}
+
+em que 
+
+\begin{itemize}
+\item \textcolor{red}{A: quantidade de pares de pontos (pontos distintos) para os quais os pontos pertencem a uma mesma partição no particionamento gerado e a uma mesma partição no particionamento real;}
+\item \textcolor{red}{B: quantidade de pares de pontos (pontos distintos) para os quais os pontos pertencem a uma mesma partição no particionamento gerado e a partições diferentes no particionamento real;}
+\item \textcolor{red}{C: quantidade de pares de pontos (pontos distintos) para os quais os pontos pertencem à partições diferentes no particionamento gerado e a uma mesma partição no particionamento real;}
+\item \textcolor{red}{A: quantidade de pares de pontos para os quais os pontos pertencem à partições diferentes no particionamento gerado e a partições diferentes no particionamento real.}
+\end{itemize}
+
+% Não sei se Lucas fez isso, mas me parece fazer algum sentido
+\textcolor{cyan}{No caso da avaliação da qualidade de agrupamentos para bases em que há interseção de linhas ou de colunas, o \textit{Rand Index} foi modificado de forma a considerar que um ponto pode pertencer a mais de um agrupamento. Assim, na avaliação de pares de pontos nos quais um deles, ou os dois, pertenciam a mais de um agrupamento, duas possibilidades de análise foram consideradas:}
+
+% ainda teria o melhor caso, mas antes de continuar, quero discutir com Lucas e Valdinei.
+\begin{itemize}
+\item \textcolor{cyan}{caso médio: todas as situações possíveis foram consideradas, podendo este par de pontos entrar na contagem das somas de A e B, C e D, ou A e D;}
+% Caso isso tenha sido feito, então acho que é melhor formalizar o cálculo do Rand Index de forma a conseguir esclarecer
+\item \textcolor{cyan}{pior caso: das situações possíveis, a menos favorável foi considerada, ou seja, o part de pontos entrou na soma de B ou C, em detrimento de A ou D, e na soma de A em detrimento de D.}
+\end{itemize}
+
+A avaliação externa foi realizada para o particionamento de linhas e para o particionamento de colunas e os resultados estão listados na tabela~\ref{tab:datasetsstats_result}. Observando os valores destacados nos valores de \textit{Rand Index} para avaliação de agrupamento de linhas, é possível notar que nenhum dos algoritmos foi capaz de particionar perfeitamente (com valor $1.0$) as linhas para a base de dados (e), que contém intersecção de linhas. Claramente, isso ocorre pois nenhum dos algoritmos é capaz de encontrar cogrupos com intersecção de linhas.
 % uma ressalva tem que ser feita para o fuzzy k means, ele consegui sim fazer isso com as pertiências. não podemos usar fuzzy e ignorar a capacidade dele em prol da nossa proposta.
 
 % explicar porque o 0.53 - pois caiu muito né? Não dá para ignorar tem que comentar.
 
-Na coluna \textit{Rand index} (colunas) da tabela~\ref{tab:datasetsstats}, também é possível observar que não há resultados para os algoritmos \textit{k-means} e \textit{fuzzy k-means}, pois os mesmos não resolvem o problema de particionamento de colunas. Os valores destacados desta mesma coluna mostram que os algoritmos propostos neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}) são capazes de particionar as colunas corretamente tanto para o caso (d) quanto para o caso (e).
+Em relação aos valores de \textit{Rand index} para avaliação de agrupamentos de colunas, não há resultados para os algoritmos \textit{k-means} e \textit{fuzzy k-means}, pois os mesmos não resolvem o problema de particionamento de colunas. Os valores destacados para essa avaliação mostram que os algoritmos propostos neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}) são capazes de particionar as colunas corretamente tanto para o caso (d) quanto para o caso (e), embora continue havendo a perda de qualidade para o caso (e) quando se observa o resultado dos algoritmos em relação ao agrupamento de linhas (assim como ocorre para os algoritmos da literatura).
 
 % essa análise não está boa, não está claro o porque isso acontece e qual a consequência disso. Qual é o benefício disso.
 
@@ -2454,59 +2481,94 @@ Na coluna \textit{Rand index} (colunas) da tabela~\ref{tab:datasetsstats}, tamb�
 
 % Todos os outros casos com valores não destacados na tabela~\ref{tab:datasetsstats} obtiveram particionamento perfeito, ou seja, \textit{Rand Index} igual à $1.0$, assim como os experimentos das reconstruções.
 
+% Lucas, eu mudei a tabela para ela ficar menor. Mas eu não sei se ficou melhor. Se você preferir a outra tabela, ela esta ali, apenas comentada.
 \begin{table}[H]
-\label{tab:datasetsstats}
 \centering
-    \caption{Estatísticas das bases de dados usadas nos experimentos.}
-    \scalebox{0.7}{
-        \begin{tabular}{c|c|c|c}
+    \caption{Avaliação da qualidade de agrupamento de linhas (l) e colunas (c) sob a medida de avaliação \textit{Rand Index}}
+        \begin{tabular}{ccccccc}
             \hline
-            Algoritmo              & Base de dados & \textit{Rand Index} (linhas) & \textit{Rand index} (colunas) \\
+            & &\textbf{base (a)} & \textbf{base (b)} & \textbf{base (c)} & \textbf{base (d) }& \textbf{base (e)} \\
             \hline
-            \multirow{5}{*}{\textit{k-means}}  & (a)  & $1.0$     & -                                    \\
-                   & (b)           & $1.0$                        & -                             \\
-                   & (c)           & $1.0$                        & -                             \\
-                   & (d)           & $1.0$                        & -                             \\
-                   & (e)           & $\mathbf{0.78}$              & -                             \\
+            \multirow{2}{*}{\textit{k-means}}     & l &  1,0 & 1,0 & 1,0 & 1,0 & \textbf{0,78}\\
+                                                   & c &  --  & --  & --  & --  & --   \\
             \hline
-            \multirow{5}{*}{\textit{fuzzy k-means}} & (a)           & $1.0$                        & -                             \\
-             & (b)           & $1.0$                        & -                             \\
-             & (c)           & $1.0$                        & -                             \\
-             & (d)           & $1.0$                        & -                             \\
-             & (e)           & $\mathbf{0.78}$              & -                             \\
+            \multirow{2}{*}{\textit{fuzzy-k-means}} & l &  1,0 & 1,0 & 1,0 & 1,0 & \textbf{0,78} \\
+                                                    & c &  --  & --  & --  & --  & --   \\
             \hline
-            \multirow{5}{*}{\textit{ONMTF}}        & (a)           & $1.0$                        & $1.0$                         \\
-                   & (b)           & $1.0$                        & $1.0$                         \\
-               & (c)           & $1.0$                        & $1.0$                         \\
-                 & (d)           & $1.0$                        & $\mathbf{0.78}$               \\
-          & (e)           & $\mathbf{0.78}$              & $1.0$                         \\
+            \multirow{2}{*}{ONMTF}   & l &  1,0 & 1,0 & 1,0 & 1,0 & \textbf{0,78} \\
+                                     & c &  1,0 & 1,0 & 1,0 & \textbf{0,78} & 1,0 \\
             \hline
-            \multirow{5}{*}{\textit{FNMTF}}          & (a)           & $1.0$                        & $1.0$                         \\
-                   & (b)           & $1.0$                        & $1.0$                         \\
-                   & (c)           & $1.0$                        & $1.0$                         \\
-               & (d)           & $1.0$                        & $\mathbf{0.78}$               \\
-                   & (e)           & $\mathbf{0.53}$              & $1.0$                         \\
+            \multirow{2}{*}{FNMTF}   & l &  1,0 & 1,0 & 1,0 & 1,0 & \textbf{0,53} \\
+                                     & c &  1,0 & 1,0 & 1,0 & \textbf{0,78} & 1,0 \\
             \hline
-            \multirow{5}{*}{\textit{OvNMTF}}          & (a)           & $1.0$                        & $1.0$                         \\
-              & (b)           & $1.0$                        & $1.0$                         \\
-                  & (c)           & $1.0$                        & $1.0$                         \\
-               & (d)           & $1.0$                        & $\mathbf{1.0}$                \\
-               & (e)           & $\mathbf{0.78}$              & $1.0$                         \\
+            \multirow{2}{*}{OvNMTF}  & l &  1,0 & 1,0 & 1,0 & 1,0 & \textbf{0,78} \\
+                                     & c &  1,0 & 1,0 & 1,0 & \textbf{1,0} & 1,0 \\
             \hline
-           \multirow{5}{*}{\textit{BinOvNMTF}}               & (a)           & $1.0$                        & $1.0$                         \\
-                & (b)           & $1.0$                        & $1.0$                         \\
-               & (c)           & $1.0$                        & $1.0$                         \\
-                & (d)           & $1.0$                        & $\mathbf{1.0}$                \\
-                & (e)           & $\mathbf{0.53}$              & $1.0$                         \\
+            \multirow{2}{*}{BinOvNMTF} & l &  1,0 & 1,0 & 1,0 & 1,0 & \textbf{0,53} \\
+                                       & c &  1,0 & 1,0 & 1,0 & \textbf{1,0} & 1,0 \\
             \hline
+            & & & & & &   \\
         \end{tabular}
-    }
+  %      }
+        \label{tab:datasetsstats_result}
+        \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
+%\begin{table}[H]
+%\centering
+%    \caption{Estatísticas das bases de dados usadas nos experimentos.}
+%   % \scalebox{0.7}{
+%        \begin{tabular}{cccc}
+%            \hline
+%            Algoritmo              & Base de dados & \textit{Rand Index} (linhas) & \textit{Rand index} (colunas) \\
+%            \hline
+%            \multirow{5}{*}{\textit{k-means}}  & (a)  & $1.0$     & -                                    \\
+%                   & (b)           & $1.0$                        & -                             \\
+%                   & (c)           & $1.0$                        & -                             \\
+%                   & (d)           & $1.0$                        & -                             \\
+%                   & (e)           & $\mathbf{0.78}$              & -                             \\
+%            \hline
+%            \multirow{5}{*}{\textit{fuzzy k-means}} & (a)           & $1.0$                        & -                             \\
+%             & (b)           & $1.0$                        & -                             \\
+%             & (c)           & $1.0$                        & -                             \\
+%             & (d)           & $1.0$                        & -                             \\
+%             & (e)           & $\mathbf{0.78}$              & -                             \\
+%            \hline
+%            \multirow{5}{*}{\textit{ONMTF}}        & (a)           & $1.0$                        & $1.0$                         \\
+%                   & (b)           & $1.0$                        & $1.0$                         \\
+%               & (c)           & $1.0$                        & $1.0$                         \\
+%                 & (d)           & $1.0$                        & $\mathbf{0.78}$               \\
+%          & (e)           & $\mathbf{0.78}$              & $1.0$                         \\
+%            \hline
+%            \multirow{5}{*}{\textit{FNMTF}}          & (a)           & $1.0$                        & $1.0$                         \\
+%                   & (b)           & $1.0$                        & $1.0$                         \\
+%                   & (c)           & $1.0$                        & $1.0$                         \\
+%               & (d)           & $1.0$                        & $\mathbf{0.78}$               \\
+%                   & (e)           & $\mathbf{0.53}$              & $1.0$                         \\
+%            \hline
+%            \multirow{5}{*}{\textit{OvNMTF}}          & (a)           & $1.0$                        & $1.0$                         \\
+%              & (b)           & $1.0$                        & $1.0$                         \\
+%                  & (c)           & $1.0$                        & $1.0$                         \\
+%               & (d)           & $1.0$                        & $\mathbf{1.0}$                \\
+%               & (e)           & $\mathbf{0.78}$              & $1.0$                         \\
+%            \hline
+%           \multirow{5}{*}{\textit{BinOvNMTF}}               & (a)           & $1.0$                        & $1.0$                         \\
+%                & (b)           & $1.0$                        & $1.0$                         \\
+%               & (c)           & $1.0$                        & $1.0$                         \\
+%                & (d)           & $1.0$                        & $\mathbf{1.0}$                \\
+%                & (e)           & $\mathbf{0.53}$              & $1.0$                         \\
+%            \hline
+%            &&& \\ % coloquei isso porque o \source está grudando na tabela.
+%        \end{tabular}
+%    \label{tab:datasetsstats}
+%    \source{Lucas Fernandes Brunialti, 2016}
+%  %  }
+%\end{table}
 
-\textcolor{cyan}{É possível correlacionar os resultados obtidos nas reconstruções com os resultados obtidos através da validação com o \textit{Rand Index}. Então tem que colocar algo mais direto .....}
 
+\textcolor{cyan}{Os resultados obtidos na avaliações de reconstrução corroboram com os resultados obtidos na validação de agrupamento. Então tem que colocar algo mais direto ..... depois de rever as medidas, é claro.}
 % a reconstrução não foi possivel para o caso (e) assim como o particionamento das linhas tb não.
+% nós vamos sim precisar da análise de coagrupamento, pois vai dar força para o nosso algoritmo. Ver isso com Lucas e Valdinei.
 
 \subsection{Análise de coagrupamento}
 
@@ -2518,96 +2580,115 @@ Na coluna \textit{Rand index} (colunas) da tabela~\ref{tab:datasetsstats}, tamb�
 
 \section{Experimentos com base de dados reais}
 
+Quatro bases de dados reais foram usadas a fim de ilustrar a aplicação dos algoritmos de coagrupamento no contexto da resolução de uma tarefa de mineração de texto. Dessas bases, duas (\textit{20Newsgroups} e \textit{NIPS14-17}) são bases de referência, usadas pela comunidade científica para experimentação de algoritmos de mineração de textos. Duas das bases de dados, \textit{IG} e sua versão reduzida \textit{IG toy}, foram elaboradas no contexto deste trabalho, e constituem-se como uma das contribuições desta pesquisa, já que podem constituir-se como mais duas bases de referência baseada em dados reais, em língua portuguesa. Essas bases de dados estão descritas nessa seção, juntamente com o pré-processamento realizado sobre elas, e as análises quantitativas e qualitativas obtidas a partir da aplicação dos algoritmos de coagrupamento sobre elas.
+% vamos ver o que será possível finalizar e analisar até o momento de entregar a dissertação e aí precisamos refinar essa introdução desta seção.
+
 \subsection{Descrição das bases de dados}
 
-Nos experimentos deste trabalho foram usadas quatro base de dados de textos, sendo elas no domínio de notícias e artigos.
-Em todas as bases foram usados os rótulos verdadeiros para avaliar a qualidade dos clusters, usadas apenas após a fase de criação dos modelos, ou seja, não serviram de entrada para os algoritmos.
+As quatro bases de dados reais são compostas por textos referentes ao domínio de postagens em grupos discussão, textos acadêmicos e notícias de portais postagem. O contexto referente a cada uma das bases é brevemente apresentados nesta seção, sendo que na tabela~\ref{tab:datasetsstatsREAL} são listadas algumas estatísticas para cada um deles.
 
 \begin{enumerate}
-    \item \textbf{\textit{20Newsgroups}}\footnote{http://qwone.com/\textasciitilde jason/20Newsgroups/} Esta coleção de documentos se tornou popular para experimentos de algoritmos de aprendizado de máquina, nas tarefas de classificação de textos e clusterização de textos.
-    Os documentos compreendem posts de usuários anônimos do \textit{Usenet newsgroup} (um repositório para grupos de discussões de um sistema distribuído de comunicação chamado \textit{Usenet}).
-    Cada post esta organizado de forma particionada em 20 diferentes grupos, como computação, ciências, política e etc., com cada post correspondendo a um tópico, distribuídos uniformemente entre esses grupos.
+    \item \textbf{\textit{20Newsgroups}}\footnote{\url{http://qwone.com/~jason/20Newsgroups/}} Trata-se de uma coleção de documentos do tipo texto que se tornou referência para avaliação de algoritmos \textcolor{blue}{de aprendizado de máquina} aplicados a tarefas de mineração de textos (classificação e agrupamento) e outros tipos de análise como redução de dimensionalidade e recuperação de informação. Os documentos compreendem postagens de usuários anônimos do \textit{Usenet newsgroup} (um repositório para grupos de discussões de um sistema distribuído de comunicação chamado \textit{Usenet}). A coleção de documentos está organizada de forma particionada em 20 diferentes grupos temáticos, como computação, ciências, política e etc., com uma distribuição uniforme de documentos nos grupos.
 
-    \item \textbf{\textit{NIPS14-17}}\footnote{http://robotics.stanford.edu/\textasciitilde gal/data.html} Esta base de dados contém uma coleção de trabalhos acadêmicos publicados no congresso \textit{NIPS} (\textit{Neural Information Processing Systems}) no período de 2003 à 2003, dos volumes 14 à 17.
-    A construção da base de dados \textit{NIPS14-17} teve sua construção iniciada por \textit{Sam Roweis}\footnote{http://www.cs.nyu.edu/\textasciitilde roweis/data.html}, que tratou os dados que \textit{Yann LeCun} processou usando um OCR \cite{Chechik2007}.
-    Originalmente, a base de dados tem todos artigos científicos publicados no NIPS dos volumes 0 ao 17, porém apenas os artigos dos volumes 14 à 17 possuem rótulos.
-    Os documentos estão particionados em tópicos que compreendem as áreas técnicas, como teoria de aprendizado, neurociência, algoritmos e arquiteturas e etc, distribuídos de forma desbalanceada.
+    \item \textbf{\textit{NIPS14-17}}\footnote{\url{http://robotics.stanford.edu/~gal/data.html}} Esta base de dados contém uma coleção de trabalhos acadêmicos publicados no congresso \textit{NIPS} (\textit{Neural Information Processing Systems}) no período de \textcolor{blue}{2003 a 2003}, dos volumes 14 a 17.
+    A construção da base de dados \textit{NIPS14-17} foi realizada por \textit{Sam Roweis}\footnote{\url{http://www.cs.nyu.edu/~roweis/data.html}}, a partir de um processamento aplicado aos dados adquiridos por \textit{Yann LeCun} usando um dispositivo de reconhecimento ótico de caracteres (OCR) \cite{Chechik2007}. A fonte de dados original, usada na construção desta base, possui os trabalhos científicos publicados em 18 volumes (0 a 17), porém apenas os trabalhos dos volumes 14 a 17 estão rotulados. Tais documentos estão organizados sob tópicos que compreendem  áreas técnicas (teoria de aprendizado, neurociência, algoritmos e arquiteturas e etc), e estão distribuídos de forma desbalanceada entre os grupos caracterizados por cada um desses tópicos.
 
-    \item \textbf{\textit{IG}} Este conjunto de dados foi criado neste trabalho, e consiste em um corpus de notícias extraídas do portal iG\footnote{htttp://ig.com.br/}.
-    Cada documento contém o endereço eletrônico, título, subtítulo, corpo e canal da notícia, em que cada canal representa um assunto da notícia, que é usado como rótulo.
-    O número total de notícias do corpus é $4593$, sendo essas notícias formadas por mais de $250$ caracteres no seu corpo, publicadas no período de 2 de janeiro de 2012 à 11 de outubro de 2014 classificadas em 13 canais, que representam os assuntos dessas notícias.
+% estou achando melhor chamar de base e coleção; recebi críticas sobre o uso da palavra corpus para nomear uma simples coleção de textos.
+    \item \textbf{\textit{IG}} Esta base de dados foi criada como uma contribuição deste trabalho, e consiste em uma coleção de notícias extraídas do portal iG\footnote{\url{http://ig.com.br/}}.
+    Cada documento nesta base contém o endereço eletrônico no qual a notícia está publicada, título, subtítulo, corpo e canal da notícia, sendo que o canal representa uma classificação para a notícia, atribuída pelos construtores do portal. As notícias que compõem essa base foram publicadas no período de 2 de janeiro de 2012 à 11 de outubro de 2014 e estão distribuídas em 13 canais, de maneira desbalanceada.
+    
+    % isso é estatística, teria que ir para a tabela
+    % O número total de notícias do corpus é $4593$, sendo essas notícias formadas por mais de $250$ caracteres no seu corpo, publicadas no período de 2 de janeiro de 2012 à 11 de outubro de 2014 classificadas em 13 canais, que representam os assuntos dessas notícias.
 
-    \item \textbf{\textit{IG toy (ou reduzido)}} Este conjunto de dados é um subconjunto do conjunto de dados \textit{IG}.
-    Composto por apenas três canais (rótulos) de forma balanceada, foi criado para possibilitar experimentos com maior controle.
+    \item \textbf{\textit{IG toy (ou reduzido)}} Esta base de dados é um subconjunto do conjunto de dados \textit{IG}, composto por 100 notícias de três canais (esporte, arena e jovem). Esta base foi criada para possibilitar a análise mais detalhada dos resultados obtidos com os algoritmos aplicados sobre ela.
     % TODO precisa elaborar mais pq criamos este conjunto
+    % não acho necessário explicar aqui, aqui é uma apresentação dela e pronto. podemos explicar melhor na metodologia ou no momento em que a análise qualitativa é feita.
 \end{enumerate}
 
-
-A tabela~\ref{tab:datasetsstats} sumariza as estatísticas para cada conjunto de dados, contendo o número de palavras totais em todos os documentos, o número de documentos
-
 \begin{table}[h]
-\label{tab:datasetsstats}
 \centering
 \caption{Estatísticas das bases de dados usadas nos experimentos.}
-\begin{tabular}{c|c|c|c}
+\begin{tabular}{ccccc}
 \hline
-Conjuntos de dados               & \# Palavras & \# Documentos & \# Clusters reais \\
+Base de & \# Palavras & \# Documentos & \# Grupos  & \textcolor{blue}{Distribuição} \\
+dados   &  &  & reais & \textcolor{blue}{por grupo} \\
 \hline
-$\text{\textit{20 Newsgroup}}$   & $12.998$    & $18.221$      & $20$              \\
-$\text{\textit{NIPS14-17}}$      & $17.583$    & $420$         & $9$               \\
-$\text{\textit{IG}}$             & $19.563$    & $4.593$       & $13$              \\
-$\text{\textit{IG toy}}$         & $6.764$     & $3.00$        & $3$               \\
+\textit{20Newsgroup}   & $12.998$    & $18.221$      & $20$  &            \\
+$\text{\textit{NIPS14-17}}$      & $17.583$    & $420$         & $9$   &           \\
+$\text{\textit{IG}}$             & $19.563$    & $4.593$       & $13$  &            \\
+$\text{\textit{IG toy}}$         & $6.764$     & $300$        & $3$   &           \\
 \hline
+& & & & \\
 \end{tabular}
+\label{tab:datasetsstatsREAL}
+\source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-% TODO Colocar distribuição de documentos por classe (?)
+% TODO Colocar distribuição de documentos por classe (?) - sim, colocar sim. Principalmente porque o desbalanceamento atrapalha a vida, e é preciso dizer como ele ocorre. 
+% E recuperar a fala do ivandré que disse que poderíamos descrever melhor a base/coleção/corpus que foi criada no trabalho. Pelo menos para a base IG devemos dar mais informações. Eventualmente uma tabela separada para ela pode ser feita para dar mais detalhes.
 
-A fim de estruturar a informação nas bases de dados para construção dos modelos, foi necessária uma fase de pré-processamento, descrita na subseção~\ref{subsec:preproc}.
+% Particularmente eu não gosto muito deste estilo de ficar falando da próxima seção no final da seção atual. Prefiro a pequena introdução no início da seção geral e pronto. Eventualmente a banca pode gostar desse estilo que vocë seguiu. Então decida se mantém ou não, mas se decidir por manter, faça isso em TODAS as seções para manter o padrão. Sem padrão não dá para ficar.
+\textcolor{blue}{A fim de estruturar a informação nas bases de dados para construção dos modelos, foi necessária uma fase de pré-processamento, descrita na subseção~\ref{subsec:preproc}.}
 
 \subsection{Pré-processamento}
 \label{subsec:preproc}
 
-As tarefas de pré-processamento incluem rotinas, processos e métodos para a estruturação dos textos presentes nos documentos.
-A estruturação se faz necessária para a extração de informações e descoberta de conhecimento por meio de técnicas e algoritmos \cite{Hotho2005}.
+As tarefas de pré-processamento comumente executadas em dados textuais são necessárias para melhorar a qualidade dos dados que serão submetidos à análise e também adequar a representação dos textos às necessidades dos algoritmos de análise (no caso deste trabalho, é necessário criar uma representação numérica e vetorial para os textos). 
 
-Para realizar a estruturação de textos e representar os textos dos documentos em vetores de termos, o primeiro processo a ser realizado é a \textit{tokenização}, que cria um dicionário de termos para cada documento através da quebra dos textos desses documentos.
-A quebra do texto pode ser feita através de caracteres delimitadores de termos, como espaços em branco, pontuações e etc. No entanto, existem casos que esses caracteres podem não ser delimitadores de termos, como por exemplo os termos \textit{Prof.} e \textit{Sr.}.
-Este problema é chamado de determinação de fim de sentença, e pode ser resolvido por métodos estáticos (\textit{hard-coded}), baseados em regras e métodos de Aprendizado de Máquina \cite{Weiss2010}.
-Nos experimentos é utilizado como \textit{tokenizador}, uma expressão regular que separa caractéres não contíguos.
+% Lucas, vc havia citado o Hotho, porém a partir de um parágrafo com praticamente nenhuma informação. Então eu mudei bastante. Verifique se você acha que deve continuar citando essa pessoa. 
+%A estruturação se faz necessária para a extração de informações e descoberta de conhecimento por meio de técnicas e algoritmos \cite{Hotho2005}.
 
-Após isso, é realizada uma etapa de filtragem, que têm a função de retirar termos que não contribuem para distinguir ou identificar documentos, como exemplo, conjunções (\textit{e}, \textit{pois}, \textit{que}), artigos (\textit{um}, \textit{o}, \textit{a}), preposições (\textit{de}, \textit{para}) e etc.
-A técnica de retirar determinados termos a partir de uma lista, é chamada de filtro de \textit{stopwords}.
-Também são usadas outros filtros, como a exclusão de pontuações, elementos da web (como \textit{www} e links), numerais e tokens monetários, e eliminação de termos com a frequência nos documentos menor que 2.
-Para a base de dados \textit{IG} é usada uma lista de \textit{stopwords} diferente das demais, por esta se apresentar no idioma português.
+As ações executadas neste trabalho para realizar o pré-processamento dos textos foram:
 
-Para definição da representação textual dos documentos das bases de dados foram utilizadas múltiplas formas.
-Uma das representações utilizadas nos experimentos, é o modelo do espaço vetorial, ou \textit{Vector Space Model} \cite{Salton1975}.
-Esta é a representação clássica usada para representar documentos textuais \cite{Sebastiani2002,Lops2011}.
-Cada dimensão desse vetor está associada a um termo, sendo que todas as dimensões representam todos os termos do conjunto de documentos.
-Formalmente, há um conjunto de documentos $\{ d_1, \dots, d_n \}$, em que $d_i, \forall i \in \{1, \dots, n\}$ representa um documento e $n$ o número total de documentos, e um conjunto de termos $\{ t_1, \dots, t_m \}$, em que $t_j, \forall j \in \{1, \dots, m\}$ representa um termo e $m$ o número de termos em todos os documentos.
-Representando a frequência de um termo pelo número de vezes que $t_j$ aparece em um documento $d_i$, denotado por $tf(t_j, d_i)$, o vetor de termos pode ser construído e representado da seguinte forma: $\mathbf{v}_{d_i} = \big[ tf(t_1, d_i), \dots, tf(t_m, d_i) \big]$.
-\citeonline{Salton1975} argumentam que a representação textual de documentos em vetor de termos é suficiente para separar documentos.
+% pergunta: a tokenização e filtragem não foi aplicada a base de dados NIPS certo:? Isso tem que ser dito aqui. E para a 20newgroups o que foi feito? Stopwords clássicas? Tokenização padrão para ingles? Isso precisa ser mais detalhado aqui. Talvez cada um dos itens abaixo tenha que conter dois subitens, um para cada base, para melhorar a legibilidade. E precisa avisar que a NIPS já estava pronta.
 
-Ainda sobre o vetor de termos, \citeonline{Salton1975} mostram com experimentos em diversos conjuntos de dados, que o uso da normalização nos vetores usando a técnica de Frequência de Termos-Frequência de Documentos Inversa (\textit{Term Frequency-Inversed Document Frequency} - $tfidf$) é capaz de melhorar a separação de documentos.
+\begin{itemize}
+\item tokenização: o objetivo nesta ação é criar um ``dicionário de termos'' para a coleção de documentos. Para isso, um procedimento de quebra do texto em termos (\textit{tokens} ou palavras) é realizado por meio da determinação de caracteres delimitadores (espaço em branco) e eliminação de caracteres que não se constituem como termos significativos para representação do texto (pontuação, caracteres especiais, etc). A decisão sobre como decidir os caracteres delimitadores e quais símbolos serão considerados insignificantes depende do contexto dos textos. No caso deste trabalho foi usada uma expressão regular que separa caracteres não contíguos. \textcolor{blue}{Colocar a expressão regular aqui ... }
+\item filtragem: na filtragem são retirados os termos (\textit{stopwords}) que não contribuem para a descrição ou identificação de um texto. Tradicionalmente, palavras das seguintes classes gramaticais são retiradas por esse filtro: conjunções, artigos, preposições e advérbios. Podem ser adicionadas a essa lista estão outras classes de palavras como numerais, nomes próprios, elementos da web, tokens monetários, e também palavras que aparecem em todos os textos por uma questão de padrão/formato dos mesmos. Algumas palavras foram acrescentadas à lista tradicional de \textit{stopwords} no tratamento da base de dados IG: \textcolor{blue}{..... colocar as palavras.}  Ainda, como parte da filtragem, palavras cuja frequência de ocorrência \textcolor{blue}{nos documentos} é muito pequena ou muito grande, podem ser acrescentadas à lista. Neste trabalho todas as palavras com ocorrência menor que dois \textcolor{red}{em um documento} foram retiradas.  % por que eu estou com a impressão que deveria ser no corpus?!?!?!?! E não no documento ?!?!?!?!?!?!
+\end{itemize}
 
-Essa normalização pode ser calculada como descrito na equação~\ref{eq:tfidf}, e tem o efeito de fazer com que a frequência dos termos que aparecem em muitos documentos seja reduzida, e a frequência dos termos que aparecem em alguns raros documentos seja aumentada, com um fator de $\log_{2}$.
+% se vamos desconsiderar stemming temos que falar disso e justificar a não realização dessa fase.
+% também, a questão de usar palavras que aparecem poucas vezes ou muitas vezes. se não foi tratado, tem que dizer que não foi e por que. Se vc chegou a fazer esses tratamentos e não viu melhoras ou diferenças, temos que dizer isso também.
 
+%Não adianta falar de um problema de tokenização, há vários. No máximo vc deveria citar alguns trabalhos que tratam disso. Apenas um também não sei se resolve.
+
+%Para realizar a estruturação de textos e representar os textos dos documentos em vetores de termos, o primeiro processo a ser realizado é a \textit{tokenização}, que cria um dicionário de termos para cada documento através da quebra dos textos desses documentos.
+%A quebra do texto pode ser feita através de caracteres delimitadores de termos, como espaços em branco, pontuações e etc. No entanto, existem casos que esses caracteres podem não ser delimitadores de termos, como por exemplo os termos \textit{Prof.} e \textit{Sr.}.
+%Este problema é chamado de determinação de fim de sentença, e pode ser resolvido por métodos estáticos (\textit{hard-coded}), baseados em regras e métodos de Aprendizado de Máquina \cite{Weiss2010}.
+%Nos experimentos é utilizado como \textit{tokenizador}, uma expressão regular que separa caractéres não contíguos.
+
+%Após isso, é realizada uma etapa de filtragem, que têm a função de retirar termos que não contribuem para distinguir ou identificar documentos, como exemplo, conjunções (\textit{e}, \textit{pois}, \textit{que}), artigos (\textit{um}, \textit{o}, \textit{a}), preposições (\textit{de}, \textit{para}) e etc. A técnica de retirar determinados termos a partir de uma lista, é chamada de filtro de \textit{stopwords}. Também são usadas outros filtros, como a exclusão de pontuações, elementos da web (como \textit{www} e links), numerais e tokens monetários, e eliminação de termos com a frequência nos documentos menor que 2.Para a base de dados \textit{IG} é usada uma lista de \textit{stopwords} diferente das demais, por esta se apresentar no idioma português.
+
+% Lucas, veja que mudei bastante a forma de mostrar as coisas aqui. Leia com atenção e veja se está de acordo com o seu entendimento. Não estando, precisamos discutir isso com muito cuidado.
+A representação vetorial objetivada é composta por uma relação de documentos e termos, organizada em modelo conhecimento como modelo do espaço vetorial, ou \textit{Vector Space Model} \cite{Salton1975,Sebastiani2002,Lops2011}. Nesta representação, cada documento é representado por um vetor composto por tantas dimensões quanto forem os termos presentes no ``dicionário de termos''. Formalmente, há um conjunto de $n$ documentos $D = \{ d_1, \dots, d_i, \dots d_n \}$, e um conjunto de $m$ termos $\{ t_1, \dots, t_j, \dots t_m \}$, e para cada par $\langle t_j, d_i \rangle$, estabelece-se uma relação que expressa a maneira como um termo será usado na representação de um documento.
+
+A relação entre documentos e termos pode ser representada de diversas formas e, neste trabalho, foram utilizadas quatro formas: $\textit{tf}(t_j, d_i)$, $\textit{tf\_idf}(t_j, d_i)$, $\textit{tf}_{norm}(t_j, d_i)$ e $\textit{tf\_idf}_{norm}(t_j, d_i)$.
+
+A relação $\textit{tf}(t_j, d_i)$ expressa a frequência de ocorrência do termo $t_j$ no documento $d_i$, e o vetor de representação de um documento é $\mathbf{v}_{d_i} = \big[ \textit{tf}(t_1, d_i), \dots, \textit{tf}(t_j, d_i), \dots \textit{tf}(t_m, d_i) \big]$. Contudo,  \citeonline{Salton1975} mostram a partir de experimentação em diversos conjuntos de dados textuais, que o uso da relação conhecida como Frequência de Termos-Frequência de Documentos Inversa (\textit{Term Frequency-Inversed Document Frequency} - $\textit{tf\_idf}$) é capaz de melhorar a separação de documentos. Essa relação é calculado como descrito na \textcolor{cyan}{equação~\ref{eq:tfidf}}, e tem o efeito de fazer com que a frequência dos termos que aparecem em muitos documentos seja enfraquecida, e a frequência dos termos que aparecem em alguns raros documentos seja fortalecida, gerando um efeito de normalização. % com um fator de $\log_{2}$. 
+
+% eles argumento isso? ou argumenta que a frequencia de termos no documento é suficiente ??????
+%\citeonline{Salton1975} argumentam que a representação textual de documentos em vetor de termos é suficiente para separar documentos.
+
+% preciso ver o original para entender exatamente como tf_idf é considerado uma normalização. Por enquanto tirei essa afirmação: normalização nos vetores usando a técnica de
+
+% não gostei dessa maneira de colocar a fórmula, está repetitiva e parece mal feita. Vamos melhorar isso.
 \begin{equation}
 \label{eq:tfidf}
     \begin{array}{lclcl}
+        \text{\textit{tfidf}}(t_j, d_i) & = & tf(t_j, d_i) \cdot \left( log_{2} \frac{n}{df(t_j) + 1} \right) \\
         \text{\textit{tfidf}}(t_j, d_i) & = & tf(t_j, d_i) \cdot IDF(t_j) \\
-        \text{\textit{tfidf}}(t_j, d_i) & = & tf(t_j, d_i) \cdot \left( log_{2} \frac{n}{df(t_j) + 1} \right)
     \end{array}
 \end{equation}
-em que $idf(t_j)$ representa a frequência de documentos inversa do termo $t_j$, e $df(t_j)$ a frequência de documentos que contém $t_j$.
+\textcolor{cyan}{em que $idf(t_j)$ representa a frequência de documentos inversa do termo $t_j$, e $df(t_j)$ a frequência de documentos que contém $t_j$.}
 
-Nos experimentos presentes neste trabalho, também é usada normalização $\text{norma-}L_2$ para que todos os vetores de termos $\mathbf{v}_{d_i}, \forall i$ tenham comprimento iguais, ou seja, $\norm{\mathbf{v}_{d_i}} = 1$.
+Nos experimentos presentes neste trabalho, também é usada normalização $\text{norma-}L_2$ para que todos os vetores de termos $\mathbf{v}_{d_i}$ tenham comprimento iguais, ou seja, $\norm{\mathbf{v}_{d_i}} = 1$. A partir dessa normalização aplicada aos vetores gerados com as relações $\textit{tf}(t_j, d_i)$ e $\textit{tf\_idf}(t_j, d_i)$, obtem-se respectivamente, as relações $\textit{tf}_{norm}(t_j, d_i)$ e $\textit{tf\_idf}_{norm}(t_j, d_i)$.
 
-Sendo assim, são realizados experimentos com as seguintes formas: frequência de termos ($tf$), frequência de termos normalizada ($tf-norm$), frequência de termos-frequência de documentos inversa ($tfidf$), e frequência de termos-frequência de documentos inversa normalizada ($tfidf-norm$).
+% a representação binária não foi utilizada nem testada? Tem que colocar uma menção a isso também. 
 
 \subsection{Experimentos quantitativos}
 \label{subsec:experiments-quant}
+
+Em todas as bases foram usados os rótulos verdadeiros para avaliar a qualidade dos clusters, usadas apenas após a fase de criação dos modelos, ou seja, não serviram de entrada para os algoritmos.
 
 \subsubsection{Setup dos algoritmos}
 
@@ -2624,50 +2705,53 @@ Sendo assim, são realizados experimentos com as seguintes formas: frequência d
 \subsubsection{Base de dados \textit{\textbf{IG toy}}}
 \label{subsec:experiments-quant:igtoy}
 
-% \begin{table}[H]
-% \label{tab:experiments-quant:igtoy}
-% \centering
-%     \caption{Melhores resultados dos experimentos.}
+% eu também acho que essa tabela deve ser apresentada como as outras, com algoritmos nas linhas, representações nas colunas e Rand Index nas células. 
+ \begin{table}[htpb]
+%}
+ \centering
+     \caption{Melhores resultados dos experimentos.}
 %     \scalebox{0.7}{
-%         \begin{tabular}{c|c|c|c}
-%             \hline
-%             Algoritmo              & Representação & $l$ & \textit{Rand Index} \\
-%             \hline
-%             \textit{k-means}       & TF            & -   & $0.7967$            \\
-%             \textit{k-means}       & TF norm       & -   & $0.7879$            \\
-%             \textit{k-means}       & TF-IDF        & -   & $0.5434$            \\
-%             \textit{k-means}       & TF-IDF norm   & -   & $0.5484$            \\
-%             \hline
-%             \textit{fuzzy k-means} & TF            & -   & $0.3359$            \\
-%             \textit{fuzzy k-means} & TF norm       & -   & $0.5889$            \\
-%             \textit{fuzzy k-means} & TF-IDF        & -   & $0.5303$            \\
-%             \textit{fuzzy k-means} & TF-IDF norm   & -   & $0.3885$            \\
-%             \hline
-%             \textit{ONMTF}         & TF            & $6$ & $0.7312$            \\
-%             \textit{ONMTF}         & TF norm       & $4$ & $0.7162$            \\
-%             \textit{ONMTF}         & TF-IDF        & $5$ & $0.7598$            \\
-%             \textit{ONMTF}         & TF-IDF norm   & $3$ & $0.7700$            \\
-%             \hline
-%             \textit{FNMTF}         & TF            &     & $1.0$            \\
-%             \textit{FNMTF}         & TF norm       & $3$ & $0.3810$            \\
-%             \textit{FNMTF}         & TF-IDF        & $5$ & $0.0$            \\
-%             \textit{FNMTF}         & TF-IDF norm   & $5$ & $0.2966$            \\
-%             \hline
-%             \textit{OvNMTF}        & TF            &     & $1.0$            \\
-%             \textit{OvNMTF}        & TF norm       & $6$ & $0.8234$         \\
-%             \textit{OvNMTF}        & TF-IDF        &     & $1.0$            \\
-%             \textit{OvNMTF}        & TF-IDF norm   & $5$ & $0.6441$            \\
-%             \hline
-%             \textit{BinOvNMTF}     & TF            &     & $1.0$            \\
-%             \textit{BinOvNMTF}     & TF norm       & $5$ & $0.7197$         \\
-%             \textit{BinOvNMTF}     & TF-IDF        &     & $1.0$            \\
-%             \textit{BinOvNMTF}     & TF-IDF norm   & $4$ & $0.7133$         \\
-%             \hline
-%         \end{tabular}
+         \begin{tabular}{c|c|c|c}
+             \hline
+             Algoritmo              & Representação & $l$ & \textit{Rand Index} \\
+             \hline
+             \textit{k-means}       & TF            & -   & $0.7967$            \\
+             \textit{k-means}       & TF norm       & -   & $0.7879$            \\
+             \textit{k-means}       & TF-IDF        & -   & $0.5434$            \\
+             \textit{k-means}       & TF-IDF norm   & -   & $0.5484$            \\
+             \hline
+             \textit{fuzzy k-means} & TF            & -   & $0.3359$            \\
+             \textit{fuzzy k-means} & TF norm       & -   & $0.5889$            \\
+             \textit{fuzzy k-means} & TF-IDF        & -   & $0.5303$            \\
+             \textit{fuzzy k-means} & TF-IDF norm   & -   & $0.3885$            \\
+             \hline
+             \textit{ONMTF}         & TF            & $6$ & $0.7312$            \\
+             \textit{ONMTF}         & TF norm       & $4$ & $0.7162$            \\
+             \textit{ONMTF}         & TF-IDF        & $5$ & $0.7598$            \\
+             \textit{ONMTF}         & TF-IDF norm   & $3$ & $0.7700$            \\
+             \hline
+             \textit{FNMTF}         & TF            &     & $1.0$            \\
+             \textit{FNMTF}         & TF norm       & $3$ & $0.3810$            \\
+             \textit{FNMTF}         & TF-IDF        & $5$ & $0.0$            \\
+             \textit{FNMTF}         & TF-IDF norm   & $5$ & $0.2966$            \\
+             \hline
+             \textit{OvNMTF}        & TF            &     & $1.0$            \\
+             \textit{OvNMTF}        & TF norm       & $6$ & $0.8234$         \\
+             \textit{OvNMTF}        & TF-IDF        &     & $1.0$            \\
+             \textit{OvNMTF}        & TF-IDF norm   & $5$ & $0.6441$            \\
+             \hline
+             \textit{BinOvNMTF}     & TF            &     & $1.0$            \\
+             \textit{BinOvNMTF}     & TF norm       & $5$ & $0.7197$         \\
+             \textit{BinOvNMTF}     & TF-IDF        &     & $1.0$            \\
+             \textit{BinOvNMTF}     & TF-IDF norm   & $4$ & $0.7133$         \\
+             \hline
+         \end{tabular}
 %     }
-% \end{table}
+ \label{tab:experiments-quant:igtoy}
+ \source{Lucas Fernandes Brunialti, 2016}
+ \end{table}
 
-\subsection{Experimentos qualitativos}
+\subsection{Análise qualitativa}
 
 % TODO descrição
 Estes experimentos mostram a aplicabilidade dos algoritmos no domínio de mineração de textos, com ênfase nas informações que são possíveis de extrair dos modelos gerados por algoritmos de coclustering baseados em fatoração de matrizes: \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}.

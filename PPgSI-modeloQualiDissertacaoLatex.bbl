@@ -18,60 +18,21 @@
   Algorithms}. [S.l.]: Wiley, 2006.
 ISBN 9780471787761.}
 
-\bibitem[Beel et al. 2013]{Beel2013}
-\abntrefinfo{Beel et al.}{BEEL et al.}{2013}
-{BEEL, J. et al. Introducing docear's research paper recommender system. In:
-  \emph{Proceedings of the 13th ACM/IEEE-CS joint conference on Digital
-  libraries - JCDL '13}. New York, New York, USA: ACM Press, 2013. p.~459.}
-
-\bibitem[Bielikova, Kompan e Zelenik 2012]{Bielikova2012}
-\abntrefinfo{Bielikova, Kompan e Zelenik}{BIELIKOVA; KOMPAN; ZELENIK}{2012}
-{BIELIKOVA, M.; KOMPAN, M.; ZELENIK, D. Effective hierarchical vector-based
-  news representation for personalized recommendation.
-\emph{Computer Science and Information Systems}, COMSIS CONSORTIUM, v.~9, n.~1,
-  p. 303--322, jan. 2012.}
-
 \bibitem[Cabanes, Bennani e Fresneau 2012]{Cabanes2012}
 \abntrefinfo{Cabanes, Bennani e Fresneau}{CABANES; BENNANI; FRESNEAU}{2012}
 {CABANES, G.; BENNANI, Y.; FRESNEAU, D. Enriched topological learning for
   cluster detection and visualization.
 \emph{Neural Networks}, v.~32, p. 186--195, 2012.}
 
-\bibitem[Capelle et al. 2012]{Capelle2012}
-\abntrefinfo{Capelle et al.}{CAPELLE et al.}{2012}
-{CAPELLE, M. et al. Semantics-based news recommendation. In:  \emph{Proceedings
-  of the 2nd International Conference on Web Intelligence, Mining and Semantics
-  - WIMS '12}. New York, New York, USA: ACM Press, 2012. p.~1.}
-
 \bibitem[Cheng e Church 2000]{Cheng2000}
 \abntrefinfo{Cheng e Church}{CHENG; CHURCH}{2000}
 {CHENG, Y.; CHURCH, G.~M. Biclustering of expression data. In:
   \emph{Procedures of the 8th ISMB}. [S.l.]: AAAI Press, 2000. p. 93--103.}
 
-\bibitem[Cleger-Tamayo, Fern\'{a}ndez-Luna e Huete 2012]{Cleger2012}
-\abntrefinfo{Cleger-Tamayo, Fern\'{a}ndez-Luna e Huete}{CLEGER-TAMAYO;
-  FERN\'{a}NDEZ-LUNA; HUETE}{2012}
-{CLEGER-TAMAYO, S.; FERN\'{a}NDEZ-LUNA, J.; HUETE, J. Top-n news
-  recommendations in digital newspapers.
-\emph{Knowledge-Based Systems}, v.~27, p. 180--189, 2012.}
-
-\bibitem[Davoodi, Kianmehr e Afsharchi 2012]{Davoodi2012}
-\abntrefinfo{Davoodi, Kianmehr e Afsharchi}{DAVOODI; KIANMEHR; AFSHARCHI}{2012}
-{DAVOODI, E.; KIANMEHR, K.; AFSHARCHI, M. A semantic social network-based
-  expert recommender system.
-\emph{Applied Intelligence}, v.~39, n.~1, p. 1--13, out. 2012.}
-
 \bibitem[Ding et al. 2006]{Ding06}
 \abntrefinfo{Ding et al.}{DING et al.}{2006}
 {DING, C. et al. Orthogonal nonnegative matrix tri-factorizations for
   clustering. In:  \emph{In SIGKDD}. [S.l.]: Press, 2006. p. 126--135.}
-
-\bibitem[Domingues et al. 2012]{Domingues2012}
-\abntrefinfo{Domingues et al.}{DOMINGUES et al.}{2012}
-{DOMINGUES, M.~A. et al. Combining usage and content in an online
-  recommendation system for music in the long tail.
-\emph{International Journal of Multimedia Information Retrieval}, v.~2, n.~1,
-  p. 3--13, nov. 2012.}
 
 \bibitem[Edelman, Arias e Smith 1999]{Edelman1999}
 \abntrefinfo{Edelman, Arias e Smith}{EDELMAN; ARIAS; SMITH}{1999}
@@ -157,12 +118,6 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 {JANNACH, D. et al. \emph{Recommender Systems An Introduction}. [S.l.]:
   Cambridge University Press, 2011.}
 
-\bibitem[Kluger et al. 2003]{Kluger2003}
-\abntrefinfo{Kluger et al.}{KLUGER et al.}{2003}
-{KLUGER, Y. et al. Spectral biclustering of microarray data: Coclustering genes
-  and conditions.
-\emph{Genome Research}, v.~13, n.~4, p. 703--716, 2003.}
-
 \bibitem[Lee e Seung 1999]{lee99}
 \abntrefinfo{Lee e Seung}{LEE; SEUNG}{1999}
 {LEE, D.~D.; SEUNG, H.~S. Learning the parts of objects by nonnegative matrix
@@ -175,24 +130,10 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
    \emph{{NIPS}}. [s.n.], 2000. p. 556--562. Dispon{\'\i}vel em:
   $<$citeseer\-.ist\-.psu\-.edu\-/lee01algorithms\-.html$>$.}
 
-\bibitem[Lee et al. 2012]{Lee2012}
-\abntrefinfo{Lee et al.}{LEE et al.}{2012}
-{LEE, Y.-H. et al. A cost-sensitive technique for positive-example learning
-  supporting content-based product recommendations in b-to-c e-commerce.
-\emph{DECISION SUPPORT SYSTEMS}, ELSEVIER SCIENCE BV, v.~53, n.~1, p. 245--256,
-  abr. 2012.}
-
 \bibitem[Long, Zhang e Yu 2005]{Long2005}
 \abntrefinfo{Long, Zhang e Yu}{LONG; ZHANG; YU}{2005}
 {LONG, B.; ZHANG, Z.~M.; YU, P.~S. \emph{Co-clustering by block value
   decomposition}. [S.l.]: ACM Press, 2005. 635--640~p.}
-
-\bibitem[Lops et al. 2013]{Lops2013}
-\abntrefinfo{Lops et al.}{LOPS et al.}{2013}
-{LOPS, P. et al. Content-based and collaborative techniques for tag
-  recommendation: An empirical evaluation.
-\emph{Journal of Intelligent Information Systems}, v.~40, n.~1, p. 41--61,
-  2013.}
 
 \bibitem[Lops, Gemmis e Semeraro 2011]{Lops2011}
 \abntrefinfo{Lops, Gemmis e Semeraro}{LOPS; GEMMIS; SEMERARO}{2011}
@@ -208,21 +149,11 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
   Computer Society Press, Los Alamitos, CA, USA, v.~1, p. 24--45, January
   2004.}
 
-\bibitem[Mannens et al. 2011]{Mannens2011}
-\abntrefinfo{Mannens et al.}{MANNENS et al.}{2011}
-{MANNENS, E. et al. Automatic news recommendations via aggregated profiling.
-\emph{Multimedia Tools and Applications}, v.~63, n.~2, p. 407--425, jul. 2011.}
-
 \bibitem[Miner et al. 2012]{Miner2012}
 \abntrefinfo{Miner et al.}{MINER et al.}{2012}
 {MINER, G. et al. \emph{Practical Text Mining and Statistical Analysis for
   Non-structured Text Data Applications}. 1st. ed. [S.l.]: Academic Press,
   2012.}
-
-\bibitem[Moerland et al. 2013]{Moerland2013}
-\abntrefinfo{Moerland et al.}{MOERLAND et al.}{2013}
-{MOERLAND, M. et al. Semantics-based news recommendation with sf-idf. In:
-  \emph{ACM International Conference Proceeding Series}. Madrid: [s.n.], 2013.}
 
 \bibitem[Murphy 2012]{Murphy2012}
 \abntrefinfo{Murphy}{MURPHY}{2012}
@@ -240,19 +171,6 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
   methods for gene expression data.
 \emph{Bioinformatics}, Oxford University Press, Oxford, UK, v.~22, n.~9, p.
   1122--1129, maio 2006.}
-
-\bibitem[Qu e Liu 2012]{Qu2012}
-\abntrefinfo{Qu e Liu}{QU; LIU}{2012}
-{QU, Z.; LIU, Y. User participation prediction in online forums. In:
-  \emph{Proceedings of the 13th Conference of the European Chapter of the
-  Association for Computational Linguistics}. Stroudsburg, PA, USA: Association
-  for Computational Linguistics, 2012.  (EACL '12), p. 367--376.}
-
-\bibitem[Saaya et al. 2013]{Saaya2013}
-\abntrefinfo{Saaya et al.}{SAAYA et al.}{2013}
-{SAAYA, Z. et al. The curated web: A recommendation challenge. In:
-  \emph{Proceedings of the 7th ACM Conference on Recommender Systems}. New
-  York, NY, USA: ACM, 2013.  (RecSys '13), p. 101--104.}
 
 \bibitem[Salton, Wong e Yang 1975]{Salton1975}
 \abntrefinfo{Salton, Wong e Yang}{SALTON; WONG; YANG}{1975}
@@ -272,13 +190,6 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 {SEBASTIANI, F. Machine learning in automated text categorization.
 \emph{ACM Comput. Surv.}, ACM, New York, NY, USA, v.~34, n.~1, p. 1--47, 2002.}
 
-\bibitem[Semeraro et al. 2012]{Semeraro2012}
-\abntrefinfo{Semeraro et al.}{SEMERARO et al.}{2012}
-{SEMERARO, G. et al. A folksonomy-based recommender system for personalized
-  access to digital artworks.
-\emph{Journal on Computing and Cultural Heritage}, v.~5, n.~3, p. 1--22, out.
-  2012.}
-
 \bibitem[Shahnaz et al. 2006]{Shahnaz2006373}
 \abntrefinfo{Shahnaz et al.}{SHAHNAZ et al.}{2006}
 {SHAHNAZ, F. et al. Document clustering using nonnegative matrix factorization.
@@ -290,26 +201,6 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/www\-.alexa\-.com\-/topsites\-/countries;1\-/BR$>$}{http://www.alexa.com/topsites/countries;1/BR}.}
 
-\bibitem[Skillicorn 2012]{Skillicorn2012}
-\abntrefinfo{Skillicorn}{SKILLICORN}{2012}
-{SKILLICORN, D.~B. \emph{Understanding High-Dimensional Spaces.} [S.l.]:
-  Springer, 2012. I-IX, 1-108~p.}
-
-\bibitem[Spaeth e Desmarais 2013]{Spaeth2013}
-\abntrefinfo{Spaeth e Desmarais}{SPAETH; DESMARAIS}{2013}
-{SPAETH, A.; DESMARAIS, M. Combining collaborative filtering and text
-  similarity for expert profile recommendations in social websites. In:
-  CARBERRY, S. et al. (Ed.). \emph{User Modeling, Adaptation, and
-  Personalization}. [S.l.]: Springer Berlin Heidelberg, 2013,  (Lecture Notes
-  in Computer Science, v.~7899). p. 178--189.}
-
-\bibitem[Strehl e Ghosh 2003]{Strehl2002}
-\abntrefinfo{Strehl e Ghosh}{STREHL; GHOSH}{2003}
-{STREHL, A.; GHOSH, J. Cluster ensembles --- a knowledge reuse framework for
-  combining multiple partitions.
-\emph{Journal of Machine Learning Research}, JMLR.org, v.~3, p. 583--617, March
-  2003.}
-
 \bibitem[Tanay, Sharan e Shamir 2005]{Tanay2005}
 \abntrefinfo{Tanay, Sharan e Shamir}{TANAY; SHARAN; SHAMIR}{2005}
 {TANAY, A.; SHARAN, R.; SHAMIR, R. Biclustering algorithms: A survey. In:
@@ -317,33 +208,12 @@ Dispon{\'\i}vel em:
   Chapman \& Hall/CRC Computer and Information Science Series}. [S.l.: s.n.],
   2005.}
 
-\bibitem[Tantanasiriwong 2012]{Tantanasiriwong2012}
-\abntrefinfo{Tantanasiriwong}{TANTANASIRIWONG}{2012}
-{TANTANASIRIWONG, S. A comparison of clustering algorithms in article
-  recommendation system. In:  \emph{Proceedings of SPIE - The International
-  Society for Optical Engineering}. Singapore: [s.n.], 2012. v.~8349.}
-
-\bibitem[Taraghi et al. 2013]{Taraghi2013}
-\abntrefinfo{Taraghi et al.}{TARAGHI et al.}{2013}
-{TARAGHI, B. et al. Web analytics of user path tracing and a novel algorithm
-  for generating recommendations in open journal systems.
-\emph{Online Information Review}, v.~37, p. 672--691, 2013.}
-
 \bibitem[Tjhi e Chen 2009]{Tjhi2009}
 \abntrefinfo{Tjhi e Chen}{TJHI; CHEN}{2009}
 {TJHI, W.-C.; CHEN, L. Dual fuzzy-possibilistic coclustering for categorization
   of documents.
 \emph{IEEE Transactions on Fuzzy Systems}, IEEE, v.~17, p. 533 -- 543, June
   2009.}
-
-\bibitem[Vaz, {Martins de Matos} e Martins 2012]{Vaz2012}
-\abntrefinfo{Vaz, {Martins de Matos} e Martins}{VAZ; {Martins de Matos};
-  MARTINS}{2012}
-{VAZ, P.~C.; {Martins de Matos}, D.; MARTINS, B. Stylometric relevance-feedback
-  towards a hybrid book recommendation algorithm. In:  \emph{Proceedings of the
-  fifth ACM workshop on Research advances in large digital book repositories
-  and complementary media - BooksOnline '12}. New York, New York, USA: ACM
-  Press, 2012. p.~13.}
 
 \bibitem[Wang et al. 2011]{Wang2011}
 \abntrefinfo{Wang et al.}{WANG et al.}{2011}
@@ -353,11 +223,6 @@ Dispon{\'\i}vel em:
   2011.  (IJCAI'11), p. 1553--1558.
 ISBN 978-1-57735-514-4. Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/dx\-.doi\-.org\-/10\-.5591\-/978-1-57735-516-8\-/IJCAI11-261$>$}{http://dx.doi.org/10.5591/978-1-57735-516-8/IJCAI11-261}.}
-
-\bibitem[Wang et al. 2012]{Wang2012}
-\abntrefinfo{Wang et al.}{WANG et al.}{2012}
-{WANG, J. et al. Recommending flickr groups with social topic model.
-\emph{Information Retrieval}, v.~15, n.~3-4, p. 278--295, abr. 2012.}
 
 \bibitem[Weiss, Indurkhya e Zhang 2010]{Weiss2010}
 \abntrefinfo{Weiss, Indurkhya e Zhang}{WEISS; INDURKHYA; ZHANG}{2010}
@@ -385,13 +250,6 @@ ISBN 1-58113-646-3. Dispon{\'\i}vel em:
   matrix factorization approach. In:  \emph{Proceedings of the Sixth ACM
   International Conference on Web Search and Data Mining}. New York, NY, USA:
   ACM, 2013.  (WSDM '13), p. 587--596.}
-
-\bibitem[Yeung, Yang e Ndzi 2012]{Yeung2012}
-\abntrefinfo{Yeung, Yang e Ndzi}{YEUNG; YANG; NDZI}{2012}
-{YEUNG, K.~F.; YANG, Y.; NDZI, D. A proactive personalised mobile
-  recommendation system using analytic hierarchy process and bayesian network.
-\emph{Journal of Internet Services and Applications}, v.~3, n.~2, p. 195--214,
-  jul. 2012.}
 
 \bibitem[Yoo e Choi 2010]{Yoo2010}
 \abntrefinfo{Yoo e Choi}{YOO; CHOI}{2010}

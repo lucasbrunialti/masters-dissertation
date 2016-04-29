@@ -1,6 +1,7 @@
 \select@language {brazil}
-\contentsline {table}{\numberline {1}{\ignorespaces Estat\IeC {\'\i }sticas das bases de dados usadas nos experimentos.\relax }}{55}{table.caption.27}
-\contentsline {table}{\numberline {2}{\ignorespaces Estat\IeC {\'\i }sticas das bases de dados usadas nos experimentos.\relax }}{56}{table.caption.28}
-\contentsline {table}{\numberline {3}{\ignorespaces Matriz $S$ para \textit {ONMTF} com $k = l = 3$.\relax }}{62}{table.caption.30}
-\contentsline {table}{\numberline {4}{\ignorespaces Matriz $S$ para \textit {OvNMTF} com $k = 3$ e $l = 6$.\relax }}{63}{table.caption.32}
-\contentsline {table}{\numberline {5}{\ignorespaces Distribui\IeC {\c c}\IeC {\~a}o de not\IeC {\'\i }cias por canal ($ci$) do corpus iG.\relax }}{77}{table.caption.39}
+\contentsline {table}{\numberline {1}{\ignorespaces Estat\IeC {\'\i }sticas das bases de dados usadas nos experimentos.\relax }}{58}{table.caption.25}
+\contentsline {table}{\numberline {2}{\ignorespaces Estat\IeC {\'\i }sticas das bases de dados usadas nos experimentos.\relax }}{60}{table.caption.26}
+\contentsline {table}{\numberline {3}{\ignorespaces Melhores resultados dos experimentos.\relax }}{63}{table.caption.27}
+\contentsline {table}{\numberline {4}{\ignorespaces Melhores resultados dos experimentos.\relax }}{63}{table.caption.28}
+\contentsline {table}{\numberline {5}{\ignorespaces Matriz $S$ para \textit {ONMTF} com $k = l = 3$.\relax }}{66}{table.caption.30}
+\contentsline {table}{\numberline {6}{\ignorespaces Matriz $S$ para \textit {OvNMTF} com $k = 3$ e $l = 6$.\relax }}{67}{table.caption.32}

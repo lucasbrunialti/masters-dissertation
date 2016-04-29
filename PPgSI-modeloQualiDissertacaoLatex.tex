@@ -837,7 +837,7 @@ Como objetivos específicos, este trabalho mostra que a aplicação das novas es
 \begin{itemize}
     \item alcançam resultados tão bons quanto, ou melhores que, as estratégias correlatas que não permitem a sobreposição de dimensões nos cogrupos, quando medidas de qualidade quantitativas são consideradas;
     \item alcança resultados tão bons quanto, ou melhores que, estratégias de agrupamento quando análise de particionamento clássico e medidas de qualidade quantitativas são consideradas;
-    \item é capaz de melhorar a interpretabilidade qualitativa dos resultados quando comparada aos resultaods fornecidos por estratégias de agrupamento clássico. 
+    \item é capaz de melhorar a interpretabilidade qualitativa dos resultados quando comparada aos resultaods fornecidos por estratégias de agrupamento clássico.
 \end{itemize}
 
 %Assim, com o intuito de melhor definir o contexto de estudo deste trabalho, foram estabelecidos os seguintes objetivos específicos:
@@ -864,7 +864,7 @@ Como objetivos específicos, este trabalho mostra que a aplicação das novas es
 % \item Análise da viabilidade da modelagem proposta frente ao conjunto de dados de recomendação e frente a análise qualitativa do alcance da serendipidade.
  % \item estudo das técnicas de essemble aplicadas a texto
 
-\end{itemize}
+% \end{itemize}
 
 % ************************************************************************
 
@@ -954,7 +954,7 @@ Uma taxonomia dos tipos de biclusters é proposta por \citeonline{Madeira2004}:
 
 Os biclusters também diferem quanto as suas estruturas. Cada algoritmo usado para implementar Biclusterização faz uma suposição da estrutura de biclusters que é capaz de encontrar.
 A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de biclusters, com as linhas e colunas ordenadas para permitir a visualização dos biclusters por meio do mapa de calor dos valores de $A$, sendo os biclusters $A_{IJ}$ representados por cores sólidas e o fundo da matriz ruído.
-                                    
+
 % Os tipos de estruturas são: Bicluster único, tem apenas um bicluster na matriz (Figura~\ref{fig:bicstruct-a}); Bicluster com linhas e colunas exclusivas
 
 % Para melhorar esse figura, deixe na figura apenas as letras (a), (b) etc e faça uma legenda. Acho que você pode usar \caption*{} em cima do \caption{} para fazer a legenda. Ou crie um parágrafo para explicar as letras na figura. Acho que aaté fica mais simpático fazer um parágrafo, pois pode explicar com mais cuidado.
@@ -1370,7 +1370,7 @@ Colocando duas restrições para ortogonalidade nas matrizes indicadoras de grup
         Um exemplo sintético que compara o algoritmo para BVD contra o algoritmo para ONMTF, com pontos sendo dados, as linhas pontilhadas sendo os protótipos de linhas ($S V^T$), e os três conjuntos de pontos sendo os grupos.
         (a) O algoritmo para BVD encontra uma solução com dois protótipos em um mesmo grupo, deixando um dos grupos sem nenhum protótipo para representá-lo.
         Apesar de ser uma solução correta, ou seja, encontra um mínimo local, não é a desejada.
-        (b) O algoritmo para ONMTF é capaz de encontrar a solução em que cada protótipo aproxima cada grupo de dados, através das restrições referentes à ortogonalidade, este é capaz de restringir as possíveis soluções para a fatoração $X \approx U S V^T$. 
+        (b) O algoritmo para ONMTF é capaz de encontrar a solução em que cada protótipo aproxima cada grupo de dados, através das restrições referentes à ortogonalidade, este é capaz de restringir as possíveis soluções para a fatoração $X \approx U S V^T$.
         \cite{Yoo2010}
     }
     \label{fig:bvdvsonmtf}
@@ -1597,6 +1597,25 @@ Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{
 \chapter{Algoritmos propostos}
 \label{ch:proposedalgs}
 
+% Motivação
+    % tipos de estruturas que resolvem
+
+% OvNMTF
+    % Explicação -> Figura, novo significado da matriz
+    % Problema
+    % Solução
+        % - derivação
+        % - algoritmo
+        % - prova (?)
+
+% BinOvNMTF
+    % Explicação
+    % Problema
+    % Solução
+        % - derivação
+        % - algoritmo
+        % - prova (?)
+
 \section{Fatoração Tripla de Matrizes Não-negativas Sobrepostas}
 
 \begin{problem}[Problema de Fatoração Tripla de Matrizes Não-negativas Sobrepostas]
@@ -1611,9 +1630,147 @@ Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{
 \end{equation}
 \end{problem}
 
-sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{V} = \{ V_{(1)}, \dots, V_{(k)} \}$, em que cada $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
+sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, em que cada $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
 
-\begin{algorithm}
+Expandindo $\mathcal{F}_4$, para tornar o cálculo do gradiente mais simples, é possível obter a seguinte equação:
+
+\[
+    \begin{array}{lcl}
+        \displaystyle \mathcal{F}_4 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
+                                    & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T )
+    \end{array}
+\]
+
+Para o cálculo do gradiente, é usada a mesma estratégia presente em \citeonline{Yoo2010}:
+\[
+    \begin{array}{lclcl}
+        \nabla \mathcal{F}_4 & = & [\nabla \mathcal{F}_4]^+ - [\nabla \mathcal{F}_4]^-
+    \end{array}
+\]
+
+% TODO colocar isso no cap 2
+Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B$ e $C$ matrizes de quaisquers dimensões que as tornem possíveis de serem multiplicadas:
+\begin{equation}
+\label{eq:diff:AQB}
+    \begin{array}{lcl}
+        \nabla_Q tr( AQB )     & = & A^T B^T \\
+        \nabla_{Q^T} tr( AQB ) & = & BA \\
+    \end{array}
+\end{equation}
+
+\begin{equation}
+\label{eq:diff:AQBQtC}
+    \begin{array}{lcl}
+        \nabla_Q tr( AQBQ^TC )     & = & BQ^TCA + B^TQ^TA^TC^T \\
+        \nabla_{Q^T} tr( AQBQ^TC ) & = & A^TC^TQB^T + CAQB
+    \end{array}
+\end{equation}
+
+Para o cálculo de $\nabla_U \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_U \mathcal{F}_4]^+ - [\nabla_U \mathcal{F}_4]^-$.
+Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T$, $B = \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T$ e $Q = U$, é possível obter $\mathcal{F}_4]^-$.
+\[
+    \begin{array}{lcl}
+        [\nabla_U \mathcal{F}_4]^- & = & - 2 \nabla_U \Big( tr\big[ X^T U \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T \big] \Big) \\
+                                   & = & - 2 X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}
+    \end{array}
+\]
+
+Para o cálculo de $[\nabla_U \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $B = I$, $Q = U^T$ e $C = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$.
+\[
+    \begin{array}{lcl}
+        [\nabla_U \mathcal{F}_4]^+ & = & \nabla_U \Big( tr(X^TX) + tr\big[ \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \big] \Big) \\
+                                   & = & U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} \\
+                                   &   & + ~ U \sum_{p=1}^k I_{(p)} S V_{(p)}^T \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} \\
+                                   & = & 2 U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')}
+    \end{array}
+\]
+
+Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma de $p = 1, \dots, k$, com $A = X^T U I_{(p)}$, $Q = S$, e $B = V_{(p)}^T$, é possível obter $[\nabla_S \mathcal{F}_4]^-$:
+\[
+    \begin{array}{lcl}
+        [\nabla_S \mathcal{F}_4]^- & = & - 2 \nabla_S \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
+                                   & = & - 2 \Big( I_{(1)} U^T X V_{(1)} + \dots + I_{(k)} U^T X V_{(k)} \Big) \\
+                                   & = & - 2 \sum_{p=1}^{k} I_{p} U^T X V_{(p)}
+    \end{array}
+\]
+
+Para o cálculo de $[\nabla_S \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p = p' = 1, \dots, k$, com $A = V_{(p)}$, $Q = S^T$, $B = I_{(p)} U^T U I_{(p')}$ e $C = V_{(p')}^T$.
+\[
+    \begin{array}{lcl}
+        [\nabla_S \mathcal{F}_4]^+ & = & \nabla_S \Big( tr(X^TX) + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big]  \\
+                                   &   & + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
+                                   & = & \big( I_{(1)} U^T U I_{(1)} S V_{(1)}^T V_{(1)} + I_{(1)} U^T U I_{(1)} S V_{(1)}^T V_{(1)} \big) \\
+                                   &   & + \dots + \big( I_{(1)} U^T U I_{(k)} S V_{(k)}^T V_{(1)} + I_{(k)} U^T U I_{(1)} S V_{(1)}^T V_{(k)} \big) \\
+                                   &   & + \dots + \big( I_{(k)} U^T U I_{(1)} S V_{(1)}^T V_{(k)} + I_{(1)} U^T U I_{(k)} S V_{(k)}^T V_{(1)} \big) \\
+                                   &   & + \dots + \big( I_{(k)} U^T U I_{(k)} S V_{(k)}^T V_{(k)} + I_{(k)} U^T U I_{(k)} S V_{(k)}^T V_{(k)} \big) \\
+                                   & = & 2 \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)}
+    \end{array}
+\]
+
+Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T U I_{(p)} S$, $Q = V^{T}_{(p)}$, e $B = I$, $\forall p$, é possível obter $[\nabla_{V_{(p)}} \mathcal{F}_4]^-$:
+\[
+    \begin{array}{lcl}
+        [\nabla_{V_{(p)}} \mathcal{F}_4]^- & = & - 2 \nabla_{V_{(p)}} \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
+                                           & = & - 2 X^T U \sum_{p'=1}^{k} I_{(p')} S
+    \end{array}
+\]
+
+Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ é possível notar que há dois casos diferentes para a derivação.
+O caso em que $p = p'$ e o caso em que $p \neq p'$.
+Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$:
+\[
+    \begin{array}{lcl}
+        [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p=p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
+                                                    & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(p)} S^T I_{(p)} U^T U I_{(p)} S V_{(p)}^T \big] \Big)  \\
+                                                    & = & 2 V_{(p)} S^T I_{(p)} U^T U I_{(p)} S
+    \end{array}
+\]
+
+Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:AQB} em duas outras situações, a qual $V_{(p)}$ esta localizado à esquerda, então, $Q = V_{(p)}$, $A = I$ e $B = S^T I_{(p)} U^T U I_{(p')}$; e quando $V_{(p)}$ esta localizado à direita, então, $Q = V_{(p)}^T$, $A = V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T$, $\forall p, p'$:
+\[
+    \begin{array}{lcl}
+        [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(2)} S V_{(2)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big] \\
+                                   &   & + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k-1)} S V_{(k-1)}^T \big] \Big) \\
+                                   & = & \sum_{p' \neq p} \bigg[ \nabla_{V_{(p)}} \Big( tr\big[ V_{(p)} S^T I_{(p)} U^T U I_{(p')} S V_{(p')}^T \big] \Big) \\
+                                   &   & + ~ \nabla_{V_{(p)}} \Big( tr\big[ V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T \big] \Big) \bigg] \\
+                                   & = & \sum_{p' \neq p} 2 \big( V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+    \end{array}
+\]
+
+Finalmente, é possível calcular $[\nabla_{V_{(p)}} \mathcal{F}_4]^{+}$, $\forall p$:
+\[
+    \begin{array}{lcl}
+        [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} & = & [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p = p'} + [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} \\
+                                   & = & 2 \big( V_{(p)} S^T I_{(p)} U^T U I_{(p)} S + \sum_{p' \neq p} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+    \end{array}
+\]
+
+O resultado final dos gradientes para $U, S, V_{(p)}, \forall, p \in \{1, \dots, k\}$ são apresentados nas equações~\ref{eq:ovnmtf:gradU},~\ref{eq:ovnmtf:gradS} e~\ref{eq:ovnmtf:gradV}, respectivamente.
+\begin{equation}
+\label{eq:ovnmtf:gradU}
+    \begin{array}{lcl}
+        [\nabla_U \mathcal{F}_4] & = & 2 \big( - X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} + U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')} \big)
+    \end{array}
+\end{equation}
+
+\begin{equation}
+\label{eq:ovnmtf:gradS}
+    \begin{array}{lcl}
+        [\nabla_S \mathcal{F}_4] & = & 2 \big( - \sum_{p=1}^{k} I_{p} U^T X V_{(p)} + \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)} \big)
+    \end{array}
+\end{equation}
+
+\begin{equation}
+\label{eq:ovnmtf:gradV}
+    \begin{array}{lcl}
+        [\nabla_{V_{(p)}} \mathcal{F}_4] & = & 2 \big( -X^T U \sum_{p'=1}^{k} I_{(p')} S + V_{(p)} S^T I_{(p)} U^T U I_{(p)} S + \sum_{p' \neq p}  V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+    \end{array}
+\end{equation}
+
+Sendo assim, as regras de atualização para as matrizes $U, S, V_{(p)}, \forall, p \in \{1, \dots, k\}$ são mostradas nas equações~\ref{eq:ovnmtf:updateU},~\ref{eq:ovnmtf:updateS} e~\ref{eq:ovnmtf:updateV}, apresentadas no algoritmo~\ref{algo:ovnmtf}.
+Note que essa é a regra de atualização multiplicativa, adotando a mesma estratégia que em \cite{Yoo2010} (mencionada no Capítulo~\ref{ch:fatoracao} deste trabalho), que divide a parte negativa do gradiente pela parte positiva.
+
+\begin{algorithm}[H]
 \caption{Algoritmo baseado em atualização multiplicativa para solução do OvNMTF}
 \label{algo:ovnmtf}
     \begin{algorithmic}[1]
@@ -1623,19 +1780,19 @@ sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{V} = \
                 \State
                     \begin{equation}
                     \label{eq:ovnmtf:updateU}
-                        U^{(t+1)} \gets U^{(t)} \odot \sum_{p=1}^{k} \frac{ X V^{(t)^T}_{(p)} S^{(t)^T} I_{(p)} }{ \sum_{p'=1}^k U^{(t)} I_{(p)} S^{(t)} V^{(t)}_{(p)} V^{(t)^T}_{(p')} S^{(t)^T} I_{(p')} }
+                        U^{(t+1)} \gets U^{(t)} \odot \sum_{p=1}^{k} \frac{ X V^{(t)}_{(p)} S^{(t)^T} I_{(p)} }{ \sum_{p'=1}^k U^{(t)} I_{(p)} S^{(t)} V^{(t)^T}_{(p)} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} }
                     \end{equation}
                 \For{$p \leftarrow 1, k$}
                     \State
                         \begin{equation}
                         \label{eq:ovnmtf:updateV}
-                            V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ S^{(t)^T} I_{(p)} U^{(t+1)^T} X }{ S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} V^{(t)}_{(p)} }
+                            V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ \sum_{p'=1}^{k} X^T U^{(t+1) I_{(p)} S^{(t)} } }{ V^{(t)}_{(p)} S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} + \sum_{p' \neq p} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }
                         \end{equation}
                 \EndFor
                 \State
                     \begin{equation}
                     \label{eq:ovnmtf:updateS}
-                        S^{(t+1)} \gets S^{(t)} \odot \sum_{p=1}^{l} \frac{ I_{(p)} U^{(t+1)^T} X V^{(t+1)^T}_{(p)} }{ \sum_{p'=1}^{l} I_{p} U^{(t+1)^T} U^{(t+1)} I_{(p')} S^{(t)} V^{(t+1)}_{(p')} V^{(t+1)^T}_{(p)} }
+                        S^{(t+1)} \gets S^{(t)} \odot \sum_{p=1}^{l} \frac{ I_{(p)} U^{(t+1)^T} X V^{(t+1)^T}_{(p)} }{ \sum_{p'=1}^{l} I_{p} U^{(t+1)^T} U^{(t+1)} I_{(p')} S^{(t)} V^{(t+1)^T}_{(p')} V^{(t+1)}_{(p)} }
                     \end{equation}
                 \State $t \gets t + 1$
             \EndWhile\label{euclidendwhile}
@@ -1683,7 +1840,7 @@ sendo $\Psi = \{0, 1\}$, os índices $p = \{1, \dots, k\}$, o conjunto de matriz
                                          & \vdots                                                                     &
                             \end{bmatrix} S^{(t+1)}
                     \]
-                \State \textcolor{green}{(faz sentido essa atualização? não basta utilizar o $X$?, isto é, não precisa o $\ilde{X}$.)}
+                \State \textcolor{green}{(faz sentido essa atualização? não basta utilizar o $X$?, isto é, não precisa o $\tilde{X}$.)}
                     \[
                         {\tilde X} \gets
                             \begin{bmatrix}
@@ -1901,9 +2058,9 @@ sendo $\Psi = \{0, 1\}$, os índices $p = \{1, \dots, k\}$, o conjunto de matriz
 
 % TODO onde falar sobre validação de cluster \section{Validação de clusters?}
 
-Para fins de validação dos algoritmos propostos foram realizados experimentos utilizando bases de dados sintéticas e bases de dados textuais reais, sendo que sobre as bases de dados reais, foram criadas versões simplificadas para permitir análises mais detalhadas. 
+Para fins de validação dos algoritmos propostos foram realizados experimentos utilizando bases de dados sintéticas e bases de dados textuais reais, sendo que sobre as bases de dados reais, foram criadas versões simplificadas para permitir análises mais detalhadas.
 
-Esses experimentos foram projetados e executados com o fim de ilustrar as capacidades e limitações dos algoritmos de coclusterição baseados em fatoração de matrizes presentes na literatura e dos algoritmos propostos neste trabalho, todos já apresentados nos capítulos~\ref{ch:fatoracao} e~\ref{ch:proposedalgs}, respectivamente. Tais capacidades e limitações são discutidas neste capítulo em termos de resultados obtidos sobre ambientes controlados (bases de dados sintéticas), ambientes semi-controlados (bases de dados textuais simplificadas) e ambientes aqui denominados não controlados (bases de dados textuais originais). O intuito com a experimentação desses algoritmos em bases de dados textuais é ilustrar seu desempenho como um método de resolução da tarefas agrupamento de textos, da área de mineração de textos. Também, como forma de melhorar a compreensão sobre o desempenho dos algoritmos de coagrupamento, dois algoritmos clássicos de agrupamento foram aplicados sobre as mesmas bases de dados: \textit{k-means} e \textit{fuzzy k-means}. 
+Esses experimentos foram projetados e executados com o fim de ilustrar as capacidades e limitações dos algoritmos de coclusterição baseados em fatoração de matrizes presentes na literatura e dos algoritmos propostos neste trabalho, todos já apresentados nos capítulos~\ref{ch:fatoracao} e~\ref{ch:proposedalgs}, respectivamente. Tais capacidades e limitações são discutidas neste capítulo em termos de resultados obtidos sobre ambientes controlados (bases de dados sintéticas), ambientes semi-controlados (bases de dados textuais simplificadas) e ambientes aqui denominados não controlados (bases de dados textuais originais). O intuito com a experimentação desses algoritmos em bases de dados textuais é ilustrar seu desempenho como um método de resolução da tarefas agrupamento de textos, da área de mineração de textos. Também, como forma de melhorar a compreensão sobre o desempenho dos algoritmos de coagrupamento, dois algoritmos clássicos de agrupamento foram aplicados sobre as mesmas bases de dados: \textit{k-means} e \textit{fuzzy k-means}.
 
 % Eu acho que não está muito bem justificado o por que de comparar com os clássicos. Acho que precisamos melhorar isso. Ou aqui ou apresentar isso na metodologia ou ainda apresentar nos dois lugares para ficar bem enfatizado.
 
@@ -1916,7 +2073,7 @@ Para proporcionar uma visão organizada das capacidades e limitações dos algor
 
 \section{Experimentos com Base de Dados sintéticas}
 
-% Lucas, seguindo o conselho do Fabrício, não vamos tratar bicluster e cocluster como coisas diferentes. Podemos fazer uma nota de rodapó no Capítulo 2 comentado esse problema e dizendo que vamos tratar tudo como uma coisa só. Ok? 
+% Lucas, seguindo o conselho do Fabrício, não vamos tratar bicluster e cocluster como coisas diferentes. Podemos fazer uma nota de rodapó no Capítulo 2 comentado esse problema e dizendo que vamos tratar tudo como uma coisa só. Ok?
 
 % Alternativamente, podemos mudar toda a nomenclatura usada no texto e passar a usar bicluster, e dizer que usamos coagrupamento para encontrar biclusters. Vamos pensar nisso? De qualquer forma, por enquanto estou tentando padronizar para que depois possamos substituir de maneira mais ou menos automática, se for o caso.
 
@@ -1979,7 +2136,7 @@ Para compreender a representação gráfica apresentada na figura~\ref{fig:bic-s
 
 % Podemos usar alguma coisa mais próxima de U para distribuição uniforme? Talvez Dist-U. Sei que o problema é que U é usado nos algoritmos e dist também. Mas unif ficou um pouco estranho.
 
-Todas as bases de dados da figura~\ref{fig:bic-syntetic-structure} são \textcolor{red}{matrizes de valores reais positivos} geradas artificialmente. Primeiramente, uma matriz de tamanho $150 \times 150$ é preenchida com valores ponto flutuante, gerados aleatoriamente a partir de uma distribuição uniforme $unif(0.0, 1.0)$, no intervalo $[0.0, 1.0]$\footnote{Este processo evita que ocorram divisões por $0$ nos algoritmos. \textcolor{red}{Que processo? O que exatamente evita? Ser positivo, ser uniforme? Sugiro que essa observação vá para um rodapé, mas precisa ser mais específica.}}. Em seguida, os cogrupos foram gerados a partir da escolha aleatória de um valor central $c \in \mathcal{C}$, sendo $\mathcal{C} = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, e da adição de valores gerados a partir da função $unif(0.0, 10.0)$ a elementos localizados a uma distância matricial \textcolor{red}{em um raio $a_1, a_2$ de $c$, respectivamente na direção das linhas e das colunas da matriz.} 
+Todas as bases de dados da figura~\ref{fig:bic-syntetic-structure} são \textcolor{red}{matrizes de valores reais positivos} geradas artificialmente. Primeiramente, uma matriz de tamanho $150 \times 150$ é preenchida com valores ponto flutuante, gerados aleatoriamente a partir de uma distribuição uniforme $unif(0.0, 1.0)$, no intervalo $[0.0, 1.0]$\footnote{Este processo evita que ocorram divisões por $0$ nos algoritmos. \textcolor{red}{Que processo? O que exatamente evita? Ser positivo, ser uniforme? Sugiro que essa observação vá para um rodapé, mas precisa ser mais específica.}}. Em seguida, os cogrupos foram gerados a partir da escolha aleatória de um valor central $c \in \mathcal{C}$, sendo $\mathcal{C} = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, e da adição de valores gerados a partir da função $unif(0.0, 10.0)$ a elementos localizados a uma distância matricial \textcolor{red}{em um raio $a_1, a_2$ de $c$, respectivamente na direção das linhas e das colunas da matriz.}
 
 % não entendi que valor C é esse, porque tem valor 160 e 180?????
 
@@ -2023,7 +2180,7 @@ Sob essa ótica de interpretação, as demais bases de dados possuem:
 % ***************************************************************************
 % ***************************************************************************
 
-%Lucas, eu estou deixando o seu original mas estou propondo outra forma de descrever. Precisamos discutir qual delas vai ficar. 
+%Lucas, eu estou deixando o seu original mas estou propondo outra forma de descrever. Precisamos discutir qual delas vai ficar.
 
 %\begin{itemize}
 %    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:a}}} há um bicluster, formado pelas linhas de $60$ à $110$ e pelas colunas de $70$ à $140$; sendo então, dois coclusters de linhas, o primeiro formado pelas linhas de $60$ à $110$ e o segundo pelas demais linhas, e dois cogrupos de colunas, o primeiro formado pelas colunas de $70$ à $140$ e o segundo pelas demais colunas.
@@ -2035,7 +2192,7 @@ Sob essa ótica de interpretação, as demais bases de dados possuem:
 %    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} há três biclusters com intersecção nas colunas, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $69$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, e o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $79$ à $149$; sendo então, 3 coclusters de linhas sem intersecção e 3 coclusters de colunas com intersecção.
 %    Considerando os coclusters de colunas para cada cocluster de linhas, serão nove coclusters, dois coclusters de colunas para cada um dos três coclusters de linhas.
 %    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:e}}} Este caso é exatamente igual ao item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} se for observado a transposição da matriz de dados sintética.
-\end{itemize}
+% \end{itemize}
 
 % ***************************************************************************
 % ***************************************************************************
@@ -2051,7 +2208,7 @@ Para cada uma das bases de dados sintéticas foram executados os seguintes algor
 Uma forma de analisar o resultado dos algoritmos estudados neste trabalho é analisá-los quanto a sua capacidade de reconstrução. Para os algoritmos baseados em fatoração de matrizes, a reconstrucão é feita tomando as matrizes resultantes da fatoração e combinando-as \textcolor{red}{da mesma forma que o seu problema foi proposto}, de forma a reconstruir a matriz original. \textcolor{red}{Para o caso dos algoritmos \textit{k-means} e \textit{fuzzy-k-means}, a resconstrução foi representada pela substituição do valor do centróide ....}
 % eu não entendi o que foi feito não. Ver com Lucas, e no caso do fuzzy k means ver como foi o tratamento da pertinência.
 
-Essa análise se torna importante a partir do momento em que se tem como objetivo avaliar o comportamento dos algoritmos em diferentes estruturas de organização de cogrupos. A capacidade de reconstrução .... \textcolor{red}{vamos ver se colocamos alguma coisa a mais para justificar esse análise.} 
+Essa análise se torna importante a partir do momento em que se tem como objetivo avaliar o comportamento dos algoritmos em diferentes estruturas de organização de cogrupos. A capacidade de reconstrução .... \textcolor{red}{vamos ver se colocamos alguma coisa a mais para justificar esse análise.}
 
 % TODO Descrever melhor pq a reconstrução é importante
 % Foram realizados experimentos avaliando a capacidade de reconstrução dos algoritmos para cada uma das bases de dados sintéticas criadas. Esse tipo de experimento se torna importante a partir do momento que o objetivo é avaliar como os algoritmos se comportam com estruturas com intersecção de cocluster nas linhas ou colunas.
@@ -2123,7 +2280,7 @@ Note que o modelo resultante da execução do \textit{k-means} é capaz de reali
 
 % verificar se podemos chamar de parâmetro de fuzzyficação
 Os mesmos critérios de parada e número de grupos usados para o \textit{k-means} foram também usados nos experimentos com o \textit{fuzzy k-means}. O valor para o parâmetro de fuzzificação $m$ foi mantido em $2$. Também, $10$ execuções foram realizadas, com iniciação aleatória de pesos e o melhor modelo obtido foi usado para avaliação da qualidade de resconstrução obtida.
-% Há uma justificativa para m=2, vamos colocar aqui. 
+% Há uma justificativa para m=2, vamos colocar aqui.
 % TODO eu li que esse é o usual (default), explicar pq
 
 Da mesma forma que o experimento anterior, as reconstruções apresentadas na figura~\ref{fig:reconstruction:fkmeans}, foram obtidos por meio da coloração de linhas de acordo com os centróides obtidos, e as matrizes originais foram repetidas para facilitar a análise visual. % aqui tem fuzzificação, verificar com Lucas.
@@ -2173,7 +2330,7 @@ Da mesma forma que o experimento anterior, as reconstruções apresentadas na fi
     \label{fig:reconstruction:fkmeans}
 \end{figure}
 
-De forma semelhante ao experimento de reconstrução com o \textit{k-means}, aqui também o algoritmo é capaz de realizar a \textcolor{red}{reconstrução} perfeita dos casos (a) à (d). Porém, a reconstrução para o caso (e) não foi obtida com sucesso. Embora o \textit{fuzzy c-means} lide, em sua concepção, com sobreposição de grupos, neste caso representada pelas pertinências fuzzy dos dados a vários grupos, a similaridade parcial em termos de atributos também não é tratada. \textcolor{cyan}{Entender melhor com o Lucas e ver como explicar isso aqui ... .. ... } 
+De forma semelhante ao experimento de reconstrução com o \textit{k-means}, aqui também o algoritmo é capaz de realizar a \textcolor{red}{reconstrução} perfeita dos casos (a) à (d). Porém, a reconstrução para o caso (e) não foi obtida com sucesso. Embora o \textit{fuzzy c-means} lide, em sua concepção, com sobreposição de grupos, neste caso representada pelas pertinências fuzzy dos dados a vários grupos, a similaridade parcial em termos de atributos também não é tratada. \textcolor{cyan}{Entender melhor com o Lucas e ver como explicar isso aqui ... .. ... }
 % porém, apesar do algoritmo lidar com intersecção de clusters, este não foi capaz de fazer a reconstrução do caso (e).
 % TODO dizer que no (e) foi pior que o kmeans?
 
@@ -2366,7 +2523,7 @@ O algoritmo conseguiu realizar a reconstrução com êxito dos casos (a), (b), (
 
 % por que l = 2????? não deveria ser l = 3?????
 
-Para execução dos experimentos com o \textit{BinOvNMTF} a seguinte parametrização foi estabelecida: número máximo de iterações ($300$) ou o erro de minimização (\textcolor{red}{alcançar pelo menos $1e-4$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas \textcolor{red}{($k$)} e colunas \textcolor{red}{($l$)} configurados da seguinte maneira: $k = l = 2$ para (a) e $k = 3$ e \textcolor{red}{$l = 2$} para (b), (c), (d) e (e). Novamente, escolhas baseadas no conhecimento \textit{aprioi} que se tem sobre a quantidade de cogrupos, e quais cogrupos, deseja-se obter. Para a execução do algoritmo \textit{BinOvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$. 
+Para execução dos experimentos com o \textit{BinOvNMTF} a seguinte parametrização foi estabelecida: número máximo de iterações ($300$) ou o erro de minimização (\textcolor{red}{alcançar pelo menos $1e-4$)}, o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas \textcolor{red}{($k$)} e colunas \textcolor{red}{($l$)} configurados da seguinte maneira: $k = l = 2$ para (a) e $k = 3$ e \textcolor{red}{$l = 2$} para (b), (c), (d) e (e). Novamente, escolhas baseadas no conhecimento \textit{aprioi} que se tem sobre a quantidade de cogrupos, e quais cogrupos, deseja-se obter. Para a execução do algoritmo \textit{BinOvNMTF} é necessária a normalização dos dados, então, todas as matrizes de dados sintéticas foram normalizadas para que a norma das linhas fosse igual à $1$.
 
 A partir da realização de $10$ execuções do algoritmo, foi escolhido o modelo que alcançou a menor taxa de erro e a partir do resultado obtido a reconstrução foi avaliada. A qualidade das reconstruções pode ser visualmente observada na figura~\ref{fig:reconstruction:binovnmtf}. A reconstrução foi obtida a partir da multiplicação das matrizes fatoradas, ou seja, $F \sum_{p=1}^{k} I_{(p)} S G_{(p)}^T$, conforme explicado no capítulo~\ref{ch:proposedalgs}.
 
@@ -2421,7 +2578,7 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
     \label{fig:reconstruction:binovnmtf}
 \end{figure}
 
-Semelhante ao experimento anterior, o algoritmo \textit{BinOvNMTF} conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d), com valores suavemente diferentes (isso pode ser notado pela cor das matrizes reconstruídas) devido à normalização necessária. Também, o algoritmo é capaz de lidar com cogrupos com intersecção de colunas, então é capaz de resolver o caso (d). \textcolor{red}{Como o algoritmo não é capaz de lidar com cogrupos com intersecção nas linhas, ele não é capaz de realizar a reconstrução do caso (e). E nesse caso, também não preserva qualquer informação sobre a intersecção, já que possui a restrição de associação binária (cada linha/coluna associadas a um único cogrupo).} 
+Semelhante ao experimento anterior, o algoritmo \textit{BinOvNMTF} conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d), com valores suavemente diferentes (isso pode ser notado pela cor das matrizes reconstruídas) devido à normalização necessária. Também, o algoritmo é capaz de lidar com cogrupos com intersecção de colunas, então é capaz de resolver o caso (d). \textcolor{red}{Como o algoritmo não é capaz de lidar com cogrupos com intersecção nas linhas, ele não é capaz de realizar a reconstrução do caso (e). E nesse caso, também não preserva qualquer informação sobre a intersecção, já que possui a restrição de associação binária (cada linha/coluna associadas a um único cogrupo).}
 
 % isso aqui é um copypaste e uma falta de atenção que leva a uma informação totalmente errada? Ou eu não entendi nenhuma das figuras do caso (e)
 % porém, assim como o experimento com \textit{ONMTF}, o \textit{OvNMTF} têm a informação de pertinência de cada linha ou coluna com cada cocluster. Por isso, as intersecções são preservadas, observando as áreas das intersecções de linhas com sombra, na matriz de dados sintéticos.
@@ -2429,7 +2586,7 @@ Semelhante ao experimento anterior, o algoritmo \textit{BinOvNMTF} conseguiu rea
 \subsection{Análise de particionamento}
 % TODO: Comparar reconstrução com dados da tabela
 
-A análise de particionamento avaliada nesta seção diz respeito ao entendimento do quanto os grupos de linhas formados estariam adequados em relação a um modelo conhecido \textit{apriori}. Os mesmos modelos que foram analisado quanto à qualidade de reconstrução, foram usados para a análise apresentada aqui. Como os as bases de dados foram sintetizadas, foi possível rotulá-las de forma que se sabe a qual cogrupo uma determinada linha ou uma determinada coluna pertence, permitindo uma análise de particionamento via um índice de avaliação externa de agrupamentos. 
+A análise de particionamento avaliada nesta seção diz respeito ao entendimento do quanto os grupos de linhas formados estariam adequados em relação a um modelo conhecido \textit{apriori}. Os mesmos modelos que foram analisado quanto à qualidade de reconstrução, foram usados para a análise apresentada aqui. Como os as bases de dados foram sintetizadas, foi possível rotulá-las de forma que se sabe a qual cogrupo uma determinada linha ou uma determinada coluna pertence, permitindo uma análise de particionamento via um índice de avaliação externa de agrupamentos.
 
 % TODO: citação
 % precisa colocar o indice explicitamente. Acredito que possamos colocá-lo no capítulo 2.
@@ -2450,7 +2607,7 @@ Na coluna \textit{Rand index} (colunas) da tabela~\ref{tab:datasetsstats}, tamb�
 
 % , base de dados sintéticas do caso (d). % Os algoritmos \textit{ONMTF} e \textit{FNMTF} não são capazes de lidar com intersecção nas colunas, por isso, o valor $0.78$ de \textit{Rand Index}.
 
-% o caso (e) do último agoritmo parece errado. 
+% o caso (e) do último agoritmo parece errado.
 
 % Todos os outros casos com valores não destacados na tabela~\ref{tab:datasetsstats} obtiveram particionamento perfeito, ou seja, \textit{Rand Index} igual à $1.0$, assim como os experimentos das reconstruções.
 
@@ -2611,6 +2768,7 @@ Sendo assim, são realizados experimentos com as seguintes formas: frequência d
 
 \subsubsection{Setup dos algoritmos}
 
+Foi utilizado o algoritmo do CCR para otimizar as multiplicações de matrizes.
 
 \subsubsection{Setup dos experimentos}
 
@@ -2621,51 +2779,137 @@ Sendo assim, são realizados experimentos com as seguintes formas: frequência d
 \subsubsection{Base de dados \textit{\textbf{IG}}}
 \label{subsec:experiments-quant:ig}
 
+$$k = 13$$
+$$l = 7, 10, 13, 16, 19$$
+
+\begin{table}[H]
+\label{tab:experiments-quant:ig}
+\centering
+    \caption{Melhores resultados dos experimentos.}
+    \scalebox{0.7}{
+        \begin{tabular}{c|c|c|c}
+            \hline
+            Algoritmo              & Representação & $l$ & \textit{Rand Index} \\
+            \hline
+            \textit{k-means}       & TF            & -    & $0.0000$           \\
+            \textit{k-means}       & TF norm       & -    & $0.3350$           \\
+            \textit{k-means}       & TF-IDF        & -    & $0.0000$           \\
+            \textit{k-means}       & TF-IDF norm   & -    & $0.2262$           \\
+            \hline
+            \textit{fuzzy k-means} & TF            & -    & $0.0000$           \\
+            \textit{fuzzy k-means} & TF norm       & -    & $0.1757$           \\
+            \textit{fuzzy k-means} & TF-IDF        & -    & $0.0000$           \\
+            \textit{fuzzy k-means} & TF-IDF norm   & -    & $0.3832$           \\
+            \hline
+            \textit{ONMTF}         & TF            & $19$ & $0.1883$           \\
+            \textit{ONMTF}         & TF norm       & $13$ & $0.2023$           \\
+            \textit{ONMTF}         & TF-IDF        & $13$ & $0.1814$*          \\
+            \textit{ONMTF}         & TF-IDF norm   & $7$  & $0.2037$           \\
+            \hline
+            \textit{FNMTF}         & TF            & -    & $0.0000$           \\
+            \textit{FNMTF}         & TF norm       & $19$ & $0.2678$           \\
+            \textit{FNMTF}         & TF-IDF        & -    & $0.0000$           \\
+            \textit{FNMTF}         & TF-IDF norm   & $16$ & $0.2480$           \\
+            \hline
+            \textit{OvNMTF}        & TF            & -    & $0.0000$           \\
+            \textit{OvNMTF}        & TF norm       & -    & $0.0000$           \\
+            \textit{OvNMTF}        & TF-IDF        & -    & $0.0000$           \\
+            \textit{OvNMTF}        & TF-IDF norm   & -    & $0.0000$           \\
+            \hline
+            \textit{BinOvNMTF}     & TF            & $16$ & $0.4415$           \\
+            \textit{BinOvNMTF}     & TF norm       & $7$  & $0.4081$*          \\
+            \textit{BinOvNMTF}     & TF-IDF        & $7$  & $0.3681$*          \\
+            \textit{BinOvNMTF}     & TF-IDF norm   & $10$ & $0.3261$*          \\
+            \hline
+        \end{tabular}
+    }
+\end{table}
+
+% ## ONMTF
+% X_train,       13,7,0.358424057657,0.166650449527,nan
+% X_train_tfidf, 13,7,0.407079389804,0.168302037106,9.34452871655
+
+% X_train,       13,10,0.371332720718,0.17999804395,6.97201376701
+% X_train_tfidf, 13,10,0.449662741443,0.0904253666977,6.61987198467
+
+% X_train,       13,13,0.414751851935,0.131776024704,6.23679979879
+% X_train_tfidf, 13,13,0.438928039908,0.181419108952,6.96808968729
+
+% X_train,       13,16,0.412981591973,0.171343773185,6.4664093075
+% X_train_tfidf, 13,16,0.399166866119,0.0554075131956,5.62306633682
+
+% X_train,       13,19,0.440056718459,0.188303945851,5.95500343009
+
+
+% ## BinOvNMTF
+% X_train,            13, 10, 0.539939904317, 0.337874110379, 7.26259257677
+% X_train_norm,       13, 10, 0.552127322258, 0.361470434066, 6.90570931952
+% X_train_tfidf,      13, 10, 0.526257384662, 0.245384611114, 7.12949507515
+% X_train_norm_tfidf, 13, 10, 0.552096453449, 0.326102103386, 7.02791404839
+
+% X_train,            13, 13, 0.570128154855, 0.391010999085, 6.11227833775
+% X_train_norm,       13, 13, 0.574045098408, 0.372734330458, 6.6645121317
+% X_train_tfidf,      13, 13, 0.556712198261, 0.327741354845, 7.84724506865
+
+% X_train,            13, 16, 0.603773894562, 0.441457414964, 6.29526185067
+% X_train_norm,       13, 16, 0.570318191107, 0.362510209352, 6.75551043908
+
+% X_train,            13, 19, 0.568688365411, 0.360289259914, 7.19972820986
+
+% X_train,            13, 7,  0.571806642143, 0.389605764753, 6.42261831839
+% X_train_norm,       13, 7,  0.594631400095, 0.408057471114, 6.57089473377
+% X_train_tfidf,      13, 7,  0.577035089006, 0.368067975012, 7.91523404668
+% X_train_norm_tfidf, 13, 7,  0.524933996653, 0.253605310526, 7.56675613743
+
 \subsubsection{Base de dados \textit{\textbf{IG toy}}}
 \label{subsec:experiments-quant:igtoy}
 
-% \begin{table}[H]
-% \label{tab:experiments-quant:igtoy}
-% \centering
-%     \caption{Melhores resultados dos experimentos.}
-%     \scalebox{0.7}{
-%         \begin{tabular}{c|c|c|c}
-%             \hline
-%             Algoritmo              & Representação & $l$ & \textit{Rand Index} \\
-%             \hline
-%             \textit{k-means}       & TF            & -   & $0.7967$            \\
-%             \textit{k-means}       & TF norm       & -   & $0.7879$            \\
-%             \textit{k-means}       & TF-IDF        & -   & $0.5434$            \\
-%             \textit{k-means}       & TF-IDF norm   & -   & $0.5484$            \\
-%             \hline
-%             \textit{fuzzy k-means} & TF            & -   & $0.3359$            \\
-%             \textit{fuzzy k-means} & TF norm       & -   & $0.5889$            \\
-%             \textit{fuzzy k-means} & TF-IDF        & -   & $0.5303$            \\
-%             \textit{fuzzy k-means} & TF-IDF norm   & -   & $0.3885$            \\
-%             \hline
-%             \textit{ONMTF}         & TF            & $6$ & $0.7312$            \\
-%             \textit{ONMTF}         & TF norm       & $4$ & $0.7162$            \\
-%             \textit{ONMTF}         & TF-IDF        & $5$ & $0.7598$            \\
-%             \textit{ONMTF}         & TF-IDF norm   & $3$ & $0.7700$            \\
-%             \hline
-%             \textit{FNMTF}         & TF            &     & $1.0$            \\
-%             \textit{FNMTF}         & TF norm       & $3$ & $0.3810$            \\
-%             \textit{FNMTF}         & TF-IDF        & $5$ & $0.0$            \\
-%             \textit{FNMTF}         & TF-IDF norm   & $5$ & $0.2966$            \\
-%             \hline
-%             \textit{OvNMTF}        & TF            &     & $1.0$            \\
-%             \textit{OvNMTF}        & TF norm       & $6$ & $0.8234$         \\
-%             \textit{OvNMTF}        & TF-IDF        &     & $1.0$            \\
-%             \textit{OvNMTF}        & TF-IDF norm   & $5$ & $0.6441$            \\
-%             \hline
-%             \textit{BinOvNMTF}     & TF            &     & $1.0$            \\
-%             \textit{BinOvNMTF}     & TF norm       & $5$ & $0.7197$         \\
-%             \textit{BinOvNMTF}     & TF-IDF        &     & $1.0$            \\
-%             \textit{BinOvNMTF}     & TF-IDF norm   & $4$ & $0.7133$         \\
-%             \hline
-%         \end{tabular}
-%     }
-% \end{table}
+$$k = 3$$
+$$l = 2, 3, 4, 5, 6$$
+
+\begin{table}[H]
+\label{tab:experiments-quant:igtoy}
+\centering
+    \caption{Melhores resultados dos experimentos.}
+    \scalebox{0.7}{
+        \begin{tabular}{c|c|c|c}
+            \hline
+            Algoritmo              & Representação & $l$ & \textit{Rand Index} \\
+            \hline
+            \textit{k-means}       & TF            & -   & $0.0002$            \\
+            \textit{k-means}       & TF norm       & -   & $0.6496$            \\
+            \textit{k-means}       & TF-IDF        & -   & $0.0004$            \\
+            \textit{k-means}       & TF-IDF norm   & -   & $0.3381$            \\
+            \hline
+            \textit{fuzzy k-means} & TF            & -   & $0.0044$            \\
+            \textit{fuzzy k-means} & TF norm       & -   & $0.0043$            \\
+            \textit{fuzzy k-means} & TF-IDF        & -   & $0.0413$            \\
+            \textit{fuzzy k-means} & TF-IDF norm   & -   & $0.0778$            \\
+            \hline
+            \textit{ONMTF}         & TF            & $6$ & $0.3910$            \\
+            \textit{ONMTF}         & TF norm       & $5$ & $0.7485$            \\
+            \textit{ONMTF}         & TF-IDF        & $5$ & $0.4099$            \\
+            \textit{ONMTF}         & TF-IDF norm   & $3$ & $0.7098$            \\
+            \hline
+            \textit{FNMTF}         & TF            & $2$ & $0.0383$            \\
+            \textit{FNMTF}         & TF norm       & $3$ & $0.3810$            \\
+            \textit{FNMTF}         & TF-IDF        & $5$ & $0.0387$            \\
+            \textit{FNMTF}         & TF-IDF norm   & $5$ & $0.2966$            \\
+            \hline
+            \textit{OvNMTF}        & TF            & -   & $0.0000$            \\
+            \textit{OvNMTF}        & TF norm       & -   & $0.0000$            \\
+            \textit{OvNMTF}        & TF-IDF        & -   & $0.0000$            \\
+            \textit{OvNMTF}        & TF-IDF norm   & -   & $0.0000$            \\
+            \hline
+            \textit{BinOvNMTF}     & TF            & $3$ & $0.0509$            \\
+            \textit{BinOvNMTF}     & TF norm       & $5$ & $0.7197$            \\
+            \textit{BinOvNMTF}     & TF-IDF        & $5$ & $0.2263$            \\
+            \textit{BinOvNMTF}     & TF-IDF norm   & $4$ & $0.7133$            \\
+            \hline
+        \end{tabular}
+    }
+\end{table}
+
 
 \subsection{Experimentos qualitativos}
 
@@ -3310,6 +3554,8 @@ Depois de encontrados os vetores $\vec{v}$, é feita a projeção dos dados ness
 % *** comentei ****  \end{apendicesenv}
 % ---
 
+\end{apendicesenv}
+
 
 % ----------------------------------------------------------
 % Anexos
@@ -3318,8 +3564,8 @@ Depois de encontrados os vetores $\vec{v}$, é feita a projeção dos dados ness
 % ---
 % Inicia os anexos
 % ---
-\begin{anexosenv}
-
+% \begin{anexosenv}
+% \end{anexosenv}
 % Imprime uma página indicando o início dos anexos
 %\partanexos
 
@@ -3400,7 +3646,7 @@ Depois de encontrados os vetores $\vec{v}$, é feita a projeção dos dados ness
 %     \item    Ano do depósito (entrega).
 % \end{enumerate}
 
-\end{anexosenv}
+% \end{anexosenv}
 
 %---------------------------------------------------------------------
 % INDICE REMISSIVO

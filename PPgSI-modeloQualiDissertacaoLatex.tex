@@ -1147,82 +1147,95 @@ C(A_{IJ}) = \frac{|I| \cdot C_l + |J| \cdot C_c}{|I| + |J|}
 
 Uma das métricas externas que são usadas para comparar biclusters encontrados com biclusters reais em um conjunto de dados, é a métrica \textit{concensus score} \cite{Hochreiter2010}. Essa métrica calcula a maximização das similaridades entre biclusters encontrados e reais, usando o \textit{índice de Jaccard} como medida de similaridade e o algoritmo Húngaro para solucionar o problema de maximização. A saída da avaliação é um $\textit{score} \in [0,1]$, em que $0$ significa que os biclusters comparados são totalmente diferentes, e $1$ o inverso.
 
-% ************************************************************
-% ************************************************************
-% ************************************************************
-% ************************************************************
+% ********************************************************************************
+% ********************************************************************************
+% ********************************************************************************
+% ********************************************************************************
 
-\chapter{Fatoração de matrizes na tarefa de coagrupamento}
+\chapter{Fatoração de matrizes não-negativas para coagrupamento}
 \label{ch:fatoracao}
 
 % TODO: resgatar fatoração de matrizes tradicionais
+% Acredito que não precisamos de mais do que já foi dito na introdução sobre fatoração de matrizes. A menos que se deseje explicar como se implementar a fataração. Então por enquanto estou suprimindo este passo.
 
-\section{Non-negative Matrix Factorization}
+% \section{Non-negative Matrix Factorization}
+
+Fatoração de matrizes não-negativas (FMNN) foi estudada como um método para análise de dados capaz de extrair conhecimento sobre um objeto a partir do estudo de suas partes \cite{lee99}, como um contraponto a métodos mais populares como Análise de Componentes Principais e Quantização Vetorial. \citeonline{lee99} apresentam tal abordagem a partir de sua aplicação no aprendizado de características de faces (em dados do tipo imagem) e na análise de características semânticas de textos.  A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por \citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por \citeonline{Long2005,Ding06,Yoo2010}, que formulam o problema como coagrupamento (coclustering). Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos a clusterização de genes e análise de microarry em bioinformática~\cite{Kluger2003} e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
+
+A adequação da fatoração de matrizes para tarefas modeladas como agrupamento ou coagrupamento ocorre porque muitas das representações usadas em aplicações nessas áreas se apresentam como uma relação entre pares de elementos pertencentes a conjuntos finitos, como apresentado em \cite{Long2005}. Por exemplo, na resolução da tarefa de agrupamento de documentos, em mineração de textos, usa-se, comumente, dois conjuntos finitos, documentos e palavras, sendo que a relação entre eles é representada pela ocorrência de uma determinada palavra em um determinado documento. Note ainda que a relação expressa entre os elementos, como no contexto de palavras e documentos, apresenta-se como uma matriz de dados positiva, característica que ilustra a aplicabilidade de FMNN.
+
+% em tuplas contendo um par de elementos \textcolor{green}{(não seria uma tripla: documento, palavra, e ocorrência?, acho mais fácil falar que é uma matriz, já que em nosso caso temos os dados completos, faz mais sentido falar em tuplas quando os dados não são completos.)}, cada um pertencendo a um conjunto finito~\cite{Long2005}.
+%Por exemplo, na aplicação de clusterização de documentos em mineração de textos, usa-se, comumente, dois conjuntos: documentos e palavras, sendo cada observação representada pela contagem de uma determinada palavra em um determinado documento.
+%Note ainda, que conjuntos de dados utilizados nos contextos citados, apresentam-se como uma matriz de dados positiva, expondo outra característica em que NMF podem ser úteis para esses tipos de dados.
+
+% Além disso, essas técnicas, por reduzir a dimensionalidade original do conjunto de dados, são capazes de lidar com dados de alta dimensionalidade e/ou esparsos, que são geralmente presentes nessas aplicações. \textcolor{green}{(Essa motivação que aparece em outras partes do texto não me convence muito, tem que deixar mais claro.)}
 
 % justificar non-negative
 % NMF baseado em partes (ver tese RHO)
 % NMF formalização
 
-\section{Fatoração de Matrizes Não-Negativas para Coclustering}
-
-Algoritmos de coclustering baseados em Fatoração de Matrizes Não-negativas (\textit{Non-negative Matrix Factorization} - NMF) podem ser úteis em múltiplos contextos, aparecendo em diversos tipos de aplicações, como clusterização de genes e análise de microarray em bioinformática, filtragem colaborativa em sistemas de recomendação, e clusterização de documentos em mineração de textos. % TODO Citação para cada um
-Isso acontece pois muitas das representações usadas nessas aplicações se apresentam em tuplas contendo um par de elementos \textcolor{green}{(não seria uma tripla: documento, palavra, e ocorrência?, acho mais fácil falar que é uma matriz, já que em nosso caso temos os dados completos, faz mais sentido falar em tuplas quando os dados não são completos.)}, cada um pertencendo a um conjunto finito~\cite{Long2005}.
-Por exemplo, na aplicação de clusterização de documentos em mineração de textos, usa-se, comumente, dois conjuntos: documentos e palavras, sendo cada observação representada pela contagem de uma determinada palavra em um determinado documento.
-Note ainda, que conjuntos de dados utilizados nos contextos citados, apresentam-se como uma matriz de dados positiva, expondo outra característica em que NMF podem ser úteis para esses tipos de dados.
-Além disso, essas técnicas, por reduzir a dimensionalidade original do conjunto de dados, são capazes de lidar com dados de alta dimensionalidade e/ou esparsos, que são geralmente presentes nessas aplicações. \textcolor{green}{(Essa motivação que aparece em outras partes do texto não me convence muito, tem que deixar mais claro.)}
-
+% \section{Fatoração de Matrizes Não-Negativas para Coclustering}
 % TODO como melhorar a notação
-\textcolor{red}{Formalizando, algoritmos de Coclusterização baseados em Fatoração de Matrizes Não-negativas, têm como entrada uma matriz de dados $X$ que representa uma aplicação em algum contexto, sendo $X \in \mathbb{R}^{n \times m}_{+}$, contendo números reais positivos com $n$ linhas e $m$ colunas.
-Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{X} = \{ x_{1 \cdot}, \dots, x_{n \cdot} \}$ e um conjunto de vetores de colunas ${\mathcal{Y}} = \{ y_{\cdot 1}, \dots, y_{\cdot m} \}$, e cada observação representada por $x_{ij}$, que é justamente um valor da matriz $X$.}
-\textcolor{green}{(Em outra parte do texto utilizava $N$ como tamanho e $n$ como índice, aqui já está utilizando $n$ como tamanho.)}
 
-\textcolor{red}{O objetivo é particionar $\mathcal{X}$ em $k$ grupos de linhas, denotados pelos subconjuntos ordenados $I_p \subseteq \mathcal{X}$, e $l$ grupos de colunas, subconjuntos $J_q \subseteq \mathcal{Y}$, podendo assim, pela junção desses subconjuntos, formar cogrupos $(I_p, J_q)$.
-Note então, que os algoritmos tradicionais presentes na literatura são capazes de formar $k l$ cogrupos.}
-\textcolor{green}{(Como escrevi anteriormente, prefiro dizer que $\mathcal{X}=\{1,2,\ldots,n\}$ e o mesmo para $\mathcal{Y}$, então faz mais sentido formar os cogrupos com $I\subseteq\mathcal{X}$ e o mesmo para $J$. Além disso, os índices $p$ e $q$ não foram mencionados. Finalmente, aqui já está considerando que os clusters de linha são separados dos cluster de colunas, como é utilizado tradicionalmente na literatura. Dessa forma, deve-se dizer que os conjuntos $I$ devem formar uma partição de $\mathcal{X}$.)}
+% estou usando partições como sinônimo de grupo.
 
-As próximas subseções irão mostrar definições dos algoritmos de coclusterização baseados em NMF presentes na literatura, assim como estratégias usadas para selecionar os cogrupos mais relevantes dos $k l$ possíveis. \textcolor{green}{($kl$ possíveis? existem muito mais cogrupos possíveis.)}
+Formalmente, algoritmos de coagrupamento baseados em FMNN têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}_{+}$, contendo números reais positivos com $n$ linhas e $m$ colunas. Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{X} = \{ x_{1 \cdot}, \dots, x_{n \cdot} \}$ e um conjunto de vetores de colunas ${\mathcal{Y}} = \{ y_{\cdot 1}, \dots, y_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$, que é justamente um valor da matriz $X$. Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse. O objetivo é encontrar $k$ grupos (ou partições, nesse contexto) para $\mathcal{X}$, denotadas \textcolor{red}{pelos subconjuntos ordenados} $I_p \subseteq \mathcal{X}$, $p = 1 \cdots k$, $l$ partições para $\mathcal{Y}$, denotadas \textcolor{red}{pelos subconjuntos ordenados} $I_q \subseteq \mathcal{X}$, $q = 1 \cdots l$, e então interpretar a junção desses subconjuntos como cogrupos $(I_p, J_q)$, ou copartições para esse contexto.
 
-\subsection{Decomposição de Valores em Blocos para Coclustering}
-\label{subsec:bvd}
+% verificar a observação do Valdinei sobre tamanho e índice: Em outra parte do texto utilizava $N$ como tamanho e $n$ como índice, aqui já está utilizando $n$ como tamanho. Eu acho que índice deveria ser i e j mesmo, como está aqui.
 
-Um dos primeiros algoritmos propostos na literatura para a resolução do problema de \textit{coclustering} baseado em NMF, é o Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD).
-Esta decomposição recebe esse nome, justamente, por ter capacidade de encontrar estruturas em blocos na matriz de dados.
-Isso é possível pois o algoritmo é capaz de explorar a relação entre linhas e colunas, através da decomposição em três matrizes, $U$ a matriz de coeficientes de linhas, $S$ a matriz com estrutura em blocos, e $V$ a matriz de coeficientes de colunas, sendo os coeficientes o grau com que cada vetor (linha ou coluna) de $X$ pertence a um grupo, e a estrutura em blocos, uma representação compacta da matriz original.
-Sendo assim, multiplicando as três matrizes geradas pela fatoração, é possível reconstruir a matriz original $X$ por partes.
+%\textcolor{red}{O objetivo é particionar $\mathcal{X}$ em $k$ grupos de linhas, denotados pelos subconjuntos ordenados $I_p \subseteq \mathcal{X}$, e $l$ grupos de colunas, subconjuntos $J_q \subseteq \mathcal{Y}$, podendo assim, pela junção desses subconjuntos, formar cogrupos $(I_p, J_q)$. Note então, que os algoritmos tradicionais presentes na literatura são capazes de formar $k l$ cogrupos.}
 
-O objetivo é encontrar grupos de forma simultânea, sendo $k$ grupos de $\mathcal{X}$ (linhas) e $l$ grupos de $\mathcal{Y}$ (colunas) \cite{Long2005}.
+% Não sei se entendi bem, mas mudei o texto para colocar como partições. Sobre a questão da forma de representa X e Y, posso estar falando besteira, mas me parece que tanto faz de um jeito o de outro, visto que o que tem dentro de partições de linhas e colunas são linhas e colunas. Eu só estou um pouco receosa de chamar de vetores de colunas. Em clustering a notação para as linhas é essa, mas lá não faz sentido chamar de vetores de colunas.
 
-A aproximação $X \approx USV^T$ é capaz de gerar diversas informações interpretáveis através da análise do resultado da fatoração.
-Os valores da matriz $U$ podem ser interpretados como o grau com que cada objeto $x_{i \cdot}$ $\forall i = \{1, \dots, n\}$ pertence à um dos $k$ grupos de linhas, da mesma forma, os valores da matriz $V$ podem ser interpretados como o grau com que cada objeto $y_{\cdot j}$ $\forall j = \{1, \dots, m\}$ pertence à um dos $l$ grupos de colunas.
-A matriz $S$ também permite interpretação quando são considerados os grupos formados por $U$ e $V$, cada valor $s_{pq}$ $\forall p = \{1, \dots, k\}, \forall q = \{1, \dots, l\}$ representa a intensidade em que o grupo de objetos $J_p$ e o grupo de características $J_q$ se relacionam, ou seja, fixando um grupo de objetos $I_p$, $s_{pq}$ representa a intensidade que $J_q$ colaborou para a sua formação, alternadamente, fixando um grupo de características $J_q$, $s_{pq}$ representa a intensidade na qual o grupo de objetos $I_p$ colaborou para a sua formação. \textcolor{green}{(Parece que aqui é a primeira vez aparece "características" e "objetos", essa interpretação da matriz tem que ser dada mais força anteriormente. Além disso, essa interpretação da matriz $S$ não me convence muito. Se restringirmos as matrizes $U$ e $V$ a serem binárias, a interpretação de $S$ fica sendo o valor de $\mu$ comentado no capítulo de "Tipos de Cocluster".)}
+%%% comentário do Valdinei: Como escrevi anteriormente, prefiro dizer que $\mathcal{X}=\{1,2,\ldots,n\}$ e o mesmo para $\mathcal{Y}$, então faz mais sentido formar os cogrupos com $I\subseteq\mathcal{X}$ e o mesmo para $J$. Além disso, os índices $p$ e $q$ não foram mencionados. Finalmente, aqui já está considerando que os clusters de linha são separados dos cluster de colunas, como é utilizado tradicionalmente na literatura. Dessa forma, deve-se dizer que os conjuntos $I$ devem formar uma partição de $\mathcal{X}$.)}
 
-Um exemplo de fatoração em três matrizes e sua interpretação pode ser visto na Figura~\ref{fig:bvd}.
+%As próximas subseções irão mostrar definições dos algoritmos de coclusterização baseados em NMF presentes na literatura, assim como estratégias usadas para selecionar os cogrupos mais relevantes dos $k l$ possíveis. 
+%\textcolor{green}{($kl$ possíveis? existem muito mais cogrupos possíveis.)}
+
+Para implementação da FMNN como uma estratégia para resolução do problema de coagruamento, diferentes algoritmos foram apresentados na literatura. Cada uma delas considera o problema de FMNN com diferentes restrições que permitem \textcolor{red}{propor soluções para problema de coagrupamento de diferentes naturezas.} Este capítulo se destina a apresentar três das implementações existentes que são usadas como base para a proposta desta dissertação: decomposição de valores em blocos (Seção~\ref{lab:sec:bvd} introduzida por\citeonline{Long2005}; fatoração ortogonal tripla de matrizes não-negativas (Seção~\ref{sec:ONMTF}) introduzida por \citeonline{Ding06}; e fatoração tripla rápida de matrizes não-negativas (Seção~\ref{sec:FNMTF}) introduzida por \citeonline{Wang2011}. Outras implementações correlatas podem ser encontradas em \textcolor{red}{referências}.
+
+% eu imagino que o final deste capítulo deveria ser a interpretação do problema como compactador ou como o tipo de informação que ele traz quando resolvido pelos algoritmos, seguindo a ideia do Valdinei e fazendo o link para o próximo capítulo que é a proposta. Não consegui colocar aqui aquelas ideias. 
+
+\section{Decomposição de Valores em Blocos para Coagrupamento}
+\label{sec:bvd}
+
+A Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD) foi proposto por \citeonline{Long2005} como uma abordagem para tratar o problema de coagruapmento, com base em fatoração de matrizes não-negativas. Esta decomposição recebe esse nome por ter a capacidade de encontrar estruturas em blocos escondidas na matriz de dados. Isso é possível porque o algoritmo BVD é capaz de explorar a relação entre linhas e colunas da matriz de dados por meio da decomposição dela em três matrizes: $U$ uma matriz de coeficientes de linhas, $S$ uma matriz com estrutura em blocos, e $V$ uma matriz de coeficientes de colunas. Segundo os autores, tais coeficientes em $U$ e $V$ podem ser vistos como um grau que associa linhas à partições encontradas no conjunto de linhas, e que associa as colunas à partições encontradas no conjunto de colunas, respectivamente; e $S$ pode ser vista como uma representação compacta da matriz original de entrada e permite sua reconstrução aproximada a partir da operação $USV^T$. Sob o ponto de vista de resolução do problema de coagrupamento, então, o objetivo no BVD é encontrar grupos de linhas e colunas de forma simultânea, sendo $k$ grupos de $\mathcal{X}$ (linhas) e $l$ grupos de $\mathcal{Y}$ (colunas).
+
+% Sendo assim, multiplicando as três matrizes geradas pela fatoração, é possível reconstruir a matriz original $X$ por partes.
+
+Ainda, os autores proponentes da abordagem BVD defendem que interpretações intuitivas podem ser derivadas da análise das combinações das matrizes geradas na fatoração, quando aplicadas a um contexto específico. Um exemplo fornecido no trabalho de \citeonline{Long2005} é que, considerando uma matriz de entrada que representa a relação ``documentos por palavras'' (linhas por colunas) cada coluna de $US$ captura a ideia de uma base para a representação de grupos de palavras; e cada linha em $SV^T$ captura a ideia de uma base para a representação de grupos de documentos. Uma representação gráfica para o resultado de uma fatoração de matrizes pode ser visto na figura~\ref{fig:bvd}.
+
+%A aproximação $X \approx USV^T$ é capaz de gerar informação que permite interpretações intuitivas informações interpretáveis através da análise do resultado da fatoração. Os valores da matriz $U$ podem ser interpretados como o grau com que cada objeto $x_{i \cdot}$ $\forall i = \{1, \dots, n\}$ pertence à um dos $k$ grupos de linhas, da mesma forma, os valores da matriz $V$ podem ser interpretados como o grau com que cada objeto $y_{\cdot j}$ $\forall j = \{1, \dots, m\}$ pertence à um dos $l$ grupos de colunas. A matriz $S$ também permite interpretação quando são considerados os grupos formados por $U$ e $V$, cada valor $s_{pq}$ $\forall p = \{1, \dots, k\}, \forall q = \{1, \dots, l\}$ representa a intensidade em que o grupo de objetos $J_p$ e o grupo de características $J_q$ se relacionam, ou seja, fixando um grupo de objetos $I_p$, $s_{pq}$ representa a intensidade que $J_q$ colaborou para a sua formação, alternadamente, fixando um grupo de características $J_q$, $s_{pq}$ representa a intensidade na qual o grupo de objetos $I_p$ colaborou para a sua formação. 
+
+% tentei deixar menos associado à S e mais genérico, independente de S - exatamente como estava no artigo original. Talvez tenha melhorado.4
+% Obeservação do Valdinei: Parece que aqui é a primeira vez aparece "características" e "objetos", essa interpretação da matriz tem que ser dada mais força anteriormente. 
+% Além disso, essa interpretação da matriz $S$ não me convence muito. Se restringirmos as matrizes $U$ e $V$ a serem binárias, a interpretação de $S$ fica sendo o valor de $\mu$ comentado no capítulo de "Tipos de Cocluster".)}
 
 % TODO explicar melhor as figuras
 \begin{figure}[H]
 \centering
-    \includegraphics[width=0.7\textwidth]{img/factorizationXUSV.png}
     \caption{
-        Fatoração da matriz original de dados $X$ em três outras matrizes: $U$, $S$ e $V$ (Adaptado de \citeonline{Yoo2010}).
-    }
+        Fatoração da matriz original de dados $X$ em três outras matrizes: $U$, $S$ e $V$}
+    \includegraphics[width=0.7\textwidth]{img/factorizationXUSV.png}
     \label{fig:bvd}
+\source{Adaptado de \citeonline{Yoo2010}}
 \end{figure}
 
-Note ainda, que é possível obter os protótipos responsáveis por cada parte da reconstrução da matriz original $X$.
-Os vetores das colunas de $(US)$ são vetores base (protótipos de colunas), geradores de vetores de colunas de $X$.
-Assim como os vetores de linhas de $(SV^T)$, que são vetores base (protótipo de linhas), geradores de vetores e linhas de $X$.
-A Figura~\ref{fig:bvd:reconstruction} mostra um exemplo de como os protótipos são responsáveis pela reconstrução de $X$.
+Na figura~\ref{fig:bvd} considere que uma célula com cor escura representa a existência de uma relação entre linha e coluna, e uma célula com cor clara representa a inexistência de uma relação entre linha e coluna, e que essas relações são estabelecidas adequadamente em cada contexto de aplicação. Transportando o exemplo da figura para o contexto de uma matriz de ``documentos por palavras'' tem-se um conjunto de seis documentos e quatro palavras, sendo que, por exemplo, o primeiro documento possui uma relação com as duas primeiras palavras, e não possui relação com as terceira e a quarta palavras. A matriz $U$ pode ser interpretada como uma matriz ``documentos por grupos de documentos'', sendo portanto uma situação em que seis documentos estão agrupados em três grupos ($k = 3$); os dois primeiros documentos no primeiro grupo, os dois próximos no segundo grupo e os dois últimos no terceiro grupo. A matriz $V^T$ pode ser interpretada como uma matriz de ``grupos de palavras por palavras'', sendo portanto uma situação em que há dois grupos de palavras ($l = 2$) no contexto das quatro palavras existentes. Finalmente, a matriz $S$ representa uma relação entre ``grupos de documentos'' e ``grupos de palavras''. A primeira linha da matriz $S$ indica que há uma relação entre o primeiro grupo de linhas e o primeiro grupos de palavras, e que não há uma relação entre o primeiro grupo de linhas e o segundo grupo de palavras. Seguindo a interpretação intuitiva apresentada por \cite{Long2005}, uma das combinações possíveis, $SV^T$, está ilustrada na figura~\ref{fig:bvd:reconstruction}. Observe que a matriz $SV^T$ representa ``três grupos de documentos por quatro palavras'', constituindo-se como uma base de representação para grupos de documentos.
 
 \begin{figure}[H]
 \centering
-    \includegraphics[width=0.7\textwidth]{img/reconstruction.png}
     \caption{
         A reconstrução da primeira linha $x_{1 \cdot}$ de $X$, através da multiplicação da matriz indicadora de grupos de linhas $U$ pela matriz dos protótipos de linhas $(S V^T)$. %que para a primeira linha seleciona apenas o primeiro protótipo,
     }
+    \includegraphics[width=0.7\textwidth]{img/reconstruction.png}
     \label{fig:bvd:reconstruction}
+\source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-Apresentando o problema formalmente, temos:
+Note ainda que nessa estrutura de matrizes fatoradas é possível identificar protótipos responsáveis por cada parte da reconstrução da matriz original $X$, visto que cada base de representação pode ser vista como um conjunto de vetores protótipos: as linhas de $(SV^T)$ são vetores base (protótipos de grupos de linhas). O raciocínio apresentado para interpretação da figura~\ref{fig:bvd:reconstruction} pode também ser feito para a interpretação da combinação $US$. \textcolor{red}{Importante salientar que, assim como ocorre na resolução da tarefa de agrupamento, diferentes grupos de linhas e de colunas podem ser obtidos, representando diferentes soluções para o problema. E, neste caso ainda, diferentes matrizes $S$ podem ser obtidas para uma mesma organização de grupos de linhas e colunas. Portanto, qualquer interpretação derivada dessa análise deve ser considerada como apenas uma das formas possíveis de análise dos dados provenientes do contexto de aplicação.\footnote{Medidas de avaliação de agruapmento ou coagrupamento internas podem ser aplicadas às diferentes soluções encontradas de maneira a guiar um processo decisório no contexto de aplicação.}}
+
+O problema de coagrupamento implementado sob a abordagem BVD é formalmente apresentado como \cite{Long2005}:
 
 \begin{problem}[Problema de Decomposição de Valores em Blocos]
 \label{def:bvd:problem}
@@ -1232,67 +1245,83 @@ Apresentando o problema formalmente, temos:
                                            &   & \text{suj. a}                & U \geq 0,                \\
                                            &   &                              & S \geq 0,                \\
                                            &   &                              & V \geq 0
-    \end{array}
+    \end{array}   \nonumber
 \end{equation}
 \end{problem}
 
-onde $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$ e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, \textcolor{red}{$k \ll n$, $l \ll m$}, e $\norm{\cdot}_F$ denota a norma de Frobenius.
+%para matrizes - tem norma de Frobenius para outra coisa????
 
-Introduzindo a função lagrangeana, associada à $\mathcal{F}_1$:
-\[
-    \displaystyle \mathcal{L}(U, S, V, \Lambda_1, \Lambda_2, \Lambda_3) = \norm{X - USV^T}^{2}_{F} - tr(\Lambda_1 U^T) - tr(\Lambda_2 S^T) - tr(\Lambda_3 V^T) \\
-\]
+%% *******************************************************************************************************
+%% *******************************************************************************************************
+%% *******************************************************************************************************
+%% Bom, entendi que essa parte de Lagrange é para provar que o problema vai convergir, então por enquanto comentei visto que nós não vamos fazer provas nos outros algoritmos. Se não for para tirar, voltamos. Como entendi que era para tirar, não li.
+%
+%Introduzindo a função lagrangeana, associada à $\mathcal{F}_1$:
+%\[
+%    \displaystyle \mathcal{L}(U, S, V, \Lambda_1, \Lambda_2, \Lambda_3) = \norm{X - USV^T}^{2}_{F} - tr(\Lambda_1 U^T) - tr(\Lambda_2 S^T) - tr(\Lambda_3 V^T) \\
+%\]
+%
+%onde $\Lambda_1 \in \mathbb{R}^{n \times k}$, $\Lambda_2 \in \mathbb{R}^{k \times l}$ e $\Lambda_3 \in \mathbb{R}^{m \times l}$ são os multiplicadores de Lagrange.
+%
+%Pela teoria de otimização não-linear com restrições, $\Theta = (U^{*}, S^{*}, V^{*}, \Lambda_{1}^*, \Lambda_{2}^*, \Lambda_{3}^*)$ será um mínimo local estacionário de $\mathcal{F}_1$, se e somente se, respeitar as condições de regularidade de \textit{Karush-Kuhn-Tucker} (KKT)~\cite{bazaraa2006}:
+%
+%\begin{subequations}
+%    \begin{alignat}{3}
+%        U^* \geq 0, \quad                  && S^* \geq 0, \quad                     && V^* \geq 0                  \label{eq:bvd:kkt1} \\
+%        \quad                              && \nabla_{\Theta} \mathcal{L} = 0 \quad &&                             \label{eq:bvd:kkt2} \\
+%        \Lambda_{1}^* \odot U^* = 0, \quad && \Lambda_{2}^* \odot S^* = 0, \quad    && \Lambda_{3}^* \odot V^* = 0 \label{eq:bvd:kkt3}
+%    \end{alignat}
+%\end{subequations}
+%
+%onde $\odot$ denota o produto de Hadamard.
+%
+%É possível expandir as equações em~\ref{eq:bvd:kkt2}, calculando as derivadas:
+%
+%\[
+%\begin{array}{lclclclcl}
+%    \nabla_U \mathcal{L} & = & U S V^{T} V S^{T}     & - & X V^{T} S^{T} & - & \Lambda_1 & = & 0 \\
+%    \nabla_S \mathcal{L} & = & U^{T} U S V^{T} V     & - & U^{T} X V     & - & \Lambda_2 & = & 0 \\
+%    \nabla_V \mathcal{L} & = & S^{T} U^{T} U S V^{T} & - & S^{T} U^{T} X & - & \Lambda_3 & = & 0
+%\end{array}
+%\]
+%
+%Aplicando o produto Hadamard dos dois lados de cada uma das equações e utilizando das condições em~\ref{eq:bvd:kkt3}:
+%\[
+%\begin{array}{lclclclclcl}
+%    \nabla_U \mathcal{L} & = & U & \odot & U S V^{T} V S^{T}     & - & U & \odot & X V^{T} S^{T} & = & 0 \\
+%    \nabla_S \mathcal{L} & = & S & \odot & U^{T} U S V^{T} V     & - & S & \odot & U^{T} X V     & = & 0 \\
+%    \nabla_V \mathcal{L} & = & V & \odot & S^{T} U^{T} U S V^{T} & - & V & \odot & S^{T} U^{T} X & = & 0
+%\end{array}
+%\]
+%
+%Desta forma, é possível resolver para $U$ de forma algébrica:
+%\[
+%\begin{array}{lclclcl}
+%             & U \odot U S V^{T} V S^{T}                           & = & U \odot X V^{T} S^{T} \\
+%    \implies & U \odot \frac{U S V^{T} V S^{T}}{U S V^{T} V S^{T}} & = & U \odot \frac{X V^{T} S^{T}}{U S V^{T} V S^{T}}
+%\end{array}
+%\]
+%
+%\[
+%    \begin{array}{lclcl}
+%        \therefore & U & = & U \odot \frac{X V^{T} S^{T}}{U S V^{T} V S^{T}}
+%    \end{array}
+%\]
+%
+%% *******************************************************************************************************
+%% *******************************************************************************************************
+%% *******************************************************************************************************
 
-onde $\Lambda_1 \in \mathbb{R}^{n \times k}$, $\Lambda_2 \in \mathbb{R}^{k \times l}$ e $\Lambda_3 \in \mathbb{R}^{m \times l}$ são os multiplicadores de Lagrange.
+A implementação para o processo de minimização do problema~\ref{def:bvd:problem} é descrito no algoritmo~\ref{algo:bvd}, \textcolor{red}{o qual é baseado em atualizações multiplicativas e tem sua convergência demonstrada via teoria de otimização não linear (veja \cite{Long2005})}. Nesse algoritmo considere $t$ o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$}, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard.}
+% ué gente, porque t+1 para iteração atual em S e V ????
+% gente, o produto de Hadamard foi usado??????
 
-Pela teoria de otimização não-linear com restrições, $\Theta = (U^{*}, S^{*}, V^{*}, \Lambda_{1}^*, \Lambda_{2}^*, \Lambda_{3}^*)$ será um mínimo local estacionário de $\mathcal{F}_1$, se e somente se, respeitar as condições de regularidade de \textit{Karush-Kuhn-Tucker} (KKT)~\cite{bazaraa2006}:
+% a questão da convergência é isso mesmo? esse esquema de multiplicação de matrizes vai convergir certo? Mesmo sem haver um direcionamento por uma métrica, correto?
 
-\begin{subequations}
-    \begin{alignat}{3}
-        U^* \geq 0, \quad                  && S^* \geq 0, \quad                     && V^* \geq 0                  \label{eq:bvd:kkt1} \\
-        \quad                              && \nabla_{\Theta} \mathcal{L} = 0 \quad &&                             \label{eq:bvd:kkt2} \\
-        \Lambda_{1}^* \odot U^* = 0, \quad && \Lambda_{2}^* \odot S^* = 0, \quad    && \Lambda_{3}^* \odot V^* = 0 \label{eq:bvd:kkt3}
-    \end{alignat}
-\end{subequations}
+% Da mesma maneira é possível resolver para $S$ e $V$, assim como mostram as equações~\ref{eq:bvd:updateS} e \ref{eq:bvd:updateV}, descritas no algoritmo~\ref{algo:bvd} \cite{Long2005}.
 
-onde $\odot$ denota o produto de Hadamard.
-
-É possível expandir as equações em~\ref{eq:bvd:kkt2}, calculando as derivadas:
-
-\[
-\begin{array}{lclclclcl}
-    \nabla_U \mathcal{L} & = & U S V^{T} V S^{T}     & - & X V^{T} S^{T} & - & \Lambda_1 & = & 0 \\
-    \nabla_S \mathcal{L} & = & U^{T} U S V^{T} V     & - & U^{T} X V     & - & \Lambda_2 & = & 0 \\
-    \nabla_V \mathcal{L} & = & S^{T} U^{T} U S V^{T} & - & S^{T} U^{T} X & - & \Lambda_3 & = & 0
-\end{array}
-\]
-
-Aplicando o produto Hadamard dos dois lados de cada uma das equações e utilizando das condições em~\ref{eq:bvd:kkt3}:
-\[
-\begin{array}{lclclclclcl}
-    \nabla_U \mathcal{L} & = & U & \odot & U S V^{T} V S^{T}     & - & U & \odot & X V^{T} S^{T} & = & 0 \\
-    \nabla_S \mathcal{L} & = & S & \odot & U^{T} U S V^{T} V     & - & S & \odot & U^{T} X V     & = & 0 \\
-    \nabla_V \mathcal{L} & = & V & \odot & S^{T} U^{T} U S V^{T} & - & V & \odot & S^{T} U^{T} X & = & 0
-\end{array}
-\]
-
-Desta forma, é possível resolver para $U$ de forma algébrica:
-\[
-\begin{array}{lclclcl}
-             & U \odot U S V^{T} V S^{T}                           & = & U \odot X V^{T} S^{T} \\
-    \implies & U \odot \frac{U S V^{T} V S^{T}}{U S V^{T} V S^{T}} & = & U \odot \frac{X V^{T} S^{T}}{U S V^{T} V S^{T}}
-\end{array}
-\]
-
-\[
-    \begin{array}{lclcl}
-        \therefore & U & = & U \odot \frac{X V^{T} S^{T}}{U S V^{T} V S^{T}}
-    \end{array}
-\]
-
-Da mesma maneira é possível resolver para $S$ e $V$, assim como mostram as equações~\ref{eq:bvd:updateS} e \ref{eq:bvd:updateV}, descritas no algoritmo~\ref{algo:bvd} \cite{Long2005}.
 % Através da iteração do ponto fixo é possível encontrar regras para atualização multiplicativa de $U$, $S$ e $V$, assim como mostra as equações~\ref{eq:bvd:updateU}, \ref{eq:bvd:updateS} e \ref{eq:bvd:updateV}, respectivamente, assim como mostram o algoritmo~\ref{algo:bvd} \cite{Long2005}.
-Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente.
 
 \begin{algorithm}
 \caption{Algoritmo baseado em atualização multiplicativa para solução do BVD}
@@ -1300,21 +1329,21 @@ Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$,
     \begin{algorithmic}[1]
         \Function{BVD}{$X$, $maxIter$}
             \State \textbf{Inicialize:} $U^{(0)} \geq 0, V^{(0)} \geq 0, S^{(0)} \geq 0$ e $t \gets 0$.
-            \While{(não convergiu \textcolor{green}{(tem que comentar no texto alguma condição de convergência)}) ou ($t \leq maxIter$)} %\Comment{We have the answer if r is 0}
+            \While{(não convergiu) ou ($t \leq maxIter$)} %\Comment{We have the answer if r is 0}
                 \State
                     \begin{equation}
                     \label{eq:bvd:updateU}
-                        U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)^T} S^{(t)^T} }{ U^{(t)} S^{(t)} V^{(t)^T} V^{(t)} S^{(t)^T} }
+                        U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)^T} S^{(t)^T} }{ U^{(t)} S^{(t)} \textcolor{blue}{V^{(t)^T} V^{(t)}} S^{(t)^T} }    \nonumber
                     \end{equation}
                 \State
                     \begin{equation}
                     \label{eq:bvd:updateV}
-                        V^{(t+1)} \gets V^{(t)} \odot \frac{ S^{(t)^T} U^{(t+1)^T} X }{ S^{(t)^T} U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t)^T} }
+                        V^{(t+1)} \gets V^{(t)} \odot \frac{ S^{(t)^T} U^{(t+1)^T} X }{ S^{(t)^T} U^{(t+1)^T} U^{(t+1)} S^{(t)} \textcolor{blue}{V^{(t)^T}} }    \nonumber
                     \end{equation}
                 \State
                     \begin{equation}
                     \label{eq:bvd:updateS}
-                        S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t+1)^T} V^{(t+1)} }
+                        S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} \textcolor{blue}{V^{(t+1)^T} V^{(t+1)}} }    \nonumber
                     \end{equation}
                 \State $t \gets t + 1$
             \EndWhile\label{euclidendwhile}
@@ -1322,6 +1351,10 @@ Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$,
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
+
+% essa ordem de alteração das matrizes está correta??? No artigo não é essa, mas lá não entendi que ele dá a ordem. De onde veio a ordem?
+
+\textcolor{red}{Como condições para assumir a convergência, neste trabalho, considera-se a diferença do erro de minimização (ou de aproximação), $\norm{X - USV^T}^{2}_{F}$, em duas iterações consecutivas.}
 
 % \begin{theorem}[Corretude]
 % \label{def:bvd:correctness}
@@ -1347,34 +1380,10 @@ Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$,
 %     Seja uma função auxiliar $G(U)$ para $F(U)$.
 % \end{proof}
 
-\subsection{Fatoração Ortogonal tripla de Matrizes Não-negativas}
+\section{Fatoração Ortogonal Tripla de Matrizes Não-negativas}
+\label{sec:ONMTF}
 
-Baseado no Problema de decomposição em blocos, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chama de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - ONMTF).
-Colocando duas restrições para ortogonalidade nas matrizes indicadoras de grupos de linhas e colunas, restringe o problema da fatoração $X \approx USV^T$ para um número menor de possíveis soluções, buscando a unicidade, assim como mostra a figura~\ref{fig:bvdvsonmtf}.
-
-\begin{figure}
-\centering
-    \begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\textwidth]{img/bvdVsOnmtf1.png}
-        \caption{}
-        \label{fig:bvdvsonmtf:1}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
-      %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\textwidth]{img/bvdVsOnmtf2.png}
-        \caption{}
-        \label{fig:bvdvsonmtf:2}
-    \end{subfigure}
-    \caption{
-        Um exemplo sintético que compara o algoritmo para BVD contra o algoritmo para ONMTF, com pontos sendo dados, as linhas pontilhadas sendo os protótipos de linhas ($S V^T$), e os três conjuntos de pontos sendo os grupos.
-        (a) O algoritmo para BVD encontra uma solução com dois protótipos em um mesmo grupo, deixando um dos grupos sem nenhum protótipo para representá-lo.
-        Apesar de ser uma solução correta, ou seja, encontra um mínimo local, não é a desejada.
-        (b) O algoritmo para ONMTF é capaz de encontrar a solução em que cada protótipo aproxima cada grupo de dados, através das restrições referentes à ortogonalidade, este é capaz de restringir as possíveis soluções para a fatoração $X \approx U S V^T$.
-        \cite{Yoo2010}
-    }
-    \label{fig:bvdvsonmtf}
-\end{figure}
+Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chamam de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - ONMTF). 
 
 \begin{problem}[Problema de Fatoração Ortogonal tripla de Matrizes Não-negativas]
 \label{def:onmtf:problem}
@@ -1384,14 +1393,44 @@ Colocando duas restrições para ortogonalidade nas matrizes indicadoras de grup
                                              &   & \text{suj. a}                & U \geq 0, S \geq 0, V \geq 0, \\
                                              &   &                              & U^T U = I,                    \\
                                              &   &                              & V^T V = I
-    \end{array}
+    \end{array}   \nonumber
 \end{equation}
 \end{problem}
 
-onde $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, $U \geq 0, S \geq 0, V \geq 0$ sendo todos os elementos de $U$, $S$ e $V$, maior que $0$, respectivamente, $U^T U = I$ e $V^T V = I$ as restrições de ortonomalidade para as matrizes indicadoras de grupos de linhas e colunas, respectivamente, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, \textcolor{red}{$k \ll n$, $l \ll m$} e $\norm{\cdot}_F$ denota a norma de Frobenius. Na formulação desse problemas, duas restrições de ortogonalidade são acrescentadas, $U^T U = I$ e $V^T V = I$, \textcolor{red}{em que $I$ é a matriz identidade}, para as matrizes de grupos de linhas e grupos de colunas, respectivamente. Tais restrições restringem o problema da fatoração $X \approx USV^T$ para um número menor de possíveis soluções, buscando a unicidade, como mostrado na figura~\ref{fig:bvdvsonmtf}.
 
-\citeonline{Ding06} propõem uma solução semelhante ao que foi apresentado na subseção~\ref{subsec:bvd}, fazendo a derivação através da função lagrangeana e a introdução dos multiplicadores de lagrange, utilizando as condições de otimização não-linear de KKT, derivando as regras para atualização multiplicativa para $U$, $S$ e $V$, apresentadas no algoritmo~\ref{algo:onmtf}.
-Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente.
+% no artigo é dito que são restrições de ortogonalidade e não de ortonormalidade
+% acredito que a ortonormalidade diz respeito às linhas e colunas da matriz
+
+% $U \geq 0, S \geq 0, V \geq 0$ sendo todos os elementos de $U$, $S$ e $V$, maior que $0$, respectivamente, $U^T U = I$ e $V^T V = I$ as restrições de ortonomalidade para as matrizes indicadoras de grupos de linhas e colunas, respectivamente, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+
+\begin{figure} [htpb]
+\centering
+    \caption{Base de protótipos obtidas com FMN sem restrições (a) e com restrições de ortogonalidade nas matrizes}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{img/bvdVsOnmtf1.png}
+        \caption{}
+        \label{fig:bvdvsonmtf:1}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{img/bvdVsOnmtf2.png}
+        \caption{}
+        \label{fig:bvdvsonmtf:2}
+    \end{subfigure}
+
+ %       Um exemplo sintético que compara o algoritmo para BVD contra o algoritmo para ONMTF, com pontos sendo dados, as linhas pontilhadas sendo os protótipos de linhas ($S V^T$), e os três conjuntos de pontos sendo os grupos. (a) O algoritmo para BVD encontra uma solução com dois protótipos em um mesmo grupo, deixando um dos grupos sem nenhum protótipo para representá-lo. Apesar de ser uma solução correta, ou seja, encontra um mínimo local, não é a desejada. (b) O algoritmo para ONMTF é capaz de encontrar a solução em que cada protótipo aproxima cada grupo de dados, através das restrições referentes à ortogonalidade, este é capaz de restringir as possíveis soluções para a fatoração $X \approx U S V^T$.
+
+    \label{fig:bvdvsonmtf}
+    \source{\citeonline{Yoo2010}}
+\end{figure}
+
+A figura~\ref{fig:bvdvsonmtf} representa um problema com três grupos (três nuvens de pontos). As linhas pontilhadas representam os protótipos obtidos por FMN (a) sem restrição de ortogonalidade nas matrizes, como o BVD (a), e (b) com restrição de ortogonalidade nas matrizes, como o ONMTF. Note que a base obtida com FMN ortogonal tende a encontrar protótipos mais centralizados nos grupos. Já a base obtida com FMN sem restrições tende a encontrar uma região convexa que contém os pontos dos grupos (incluindo regiões que abrangem pontos de grupos originalmente projetados como sendo diferentes). A solução obtida em (a), embora correta, não é desejável. 
+
+\citeonline{Ding06} propõem uma solução para implementação do processo de minimização para o problema~\ref{def:onmtf:problem} semelhante ao que foi apresentado na seção~\ref{sec:bvd}, \textcolor{red}{também baseado em atualizações multiplicativas e com convergência demonstrada com base na teoria de otimização não linear, porém com uso de uma abordagem mais simples para derivação das regras de atualizacão multiplicativas}. O algoritmo para tal processo de minimização é apresentado no algoritmo~\ref{algo:onmtf}, no qual  $t$ o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$}, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard. Também, a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd} pode ser aplicada nesse caso.}
+
+%fazendo a derivação através da função lagrangeana e a introdução dos multiplicadores de lagrange, utilizando as condições de otimização não-linear de KKT, derivando as regras para atualização multiplicativa para $U$, $S$ e $V$, apresentadas no algoritmo~\ref{algo:onmtf}.
 
 \begin{algorithm}
 \caption{Algoritmo baseado em atualização multiplicativa para solução do ONMTF}
@@ -1403,17 +1442,17 @@ Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$,
                 \State
                     \begin{equation}
                     \label{eq:onmtf:updateU}
-                        U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} U^{(t)^T} X V^{(t)} S^{(t)^T} }
+                        U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} U^{(t)^T} X V^{(t)} S^{(t)^T} }      \nonumber
                     \end{equation}
                 \State
                     \begin{equation}
                     \label{eq:onmtf:updateV}
-                        V^{(t+1)} \gets V^{(t)} \odot \frac{ X^T U^{(t+1)} S }{ V^{(t)} V^{(t)^T} X^T U^{(t+1)} S^{(t)} }
+                        V^{(t+1)} \gets V^{(t)} \odot \frac{ X^T U^{(t+1)} S }{ \textcolor{blue}{V^{(t)} V^{(t)^T}} X^T U^{(t+1)} S^{(t)} }      \nonumber
                     \end{equation}
                 \State
                     \begin{equation}
                     \label{eq:onmtf:updateS}
-                        S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t+1)^T} V^{(t+1)} }
+                        S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X \textcolor{blue}{V^{(t+1)}} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} \textcolor{blue}{V^{(t+1)^T} V^{(t+1)}} }    \nonumber
                     \end{equation}
                 \State $t \gets t + 1$
             \EndWhile\label{euclidendwhile}
@@ -1422,91 +1461,109 @@ Considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$,
     \end{algorithmic}
 \end{algorithm}
 
-No artigo de \citeonline{Yoo2010}, é proposta uma abordagem mais simples para a derivação das regras de atualização multiplicaticas, considere uma função de otimização qualquer $\mathcal{J}$ e seu respectivo gradiente $\nabla \mathcal{J}$:
+% a ordem de multiplicação de matrizes está diferente - acredito que não tem problema porque é associativo
 
-\[
-    \begin{array}{lclcl}
-        \nabla \mathcal{J} & = & [\nabla \mathcal{J}]^+ - [\nabla \mathcal{J}]^-
-    \end{array}
-\]
+\textcolor{red}{Note que no algoritmo ONMTF, a matriz de dados de entrada é considerada .... não deveríamos falar alguma coisa aqui sobre as principais diferenças das regras de atualização das matrizes????}
 
-onde $[\nabla \mathcal{J}]^+$ é a parte positiva do gradiente, $[\nabla \mathcal{J}]^-$ a parte negativa do gradiente.
-Se $[\nabla \mathcal{J}]^+ \geq 0$ e $[\nabla \mathcal{J}]^- \geq 0$, então, é possível definir uma regra de atualização multiplicativa, para otimizar os parâmetros $\Theta$ da função $\mathcal{J}$:
+%%% *****************************************************************************************************
+%%% *****************************************************************************************************
+%%% *****************************************************************************************************
 
-\begin{equation}
-\label{eq:onmtf:updateTheta}
-    \Theta \gets \Theta \odot \left ( \frac{ [\nabla \mathcal{J}]^- }{ [\nabla \mathcal{J}]^+ } \right )^{\cdot \eta}
-\end{equation}
+% Novamente, entendendo que aqui temos uma reprodução direta do artigo e que isso não precisa ser reproduzido, coloquei em comentário. Se precisar voltar ok, mas eu não li essa parte ainda.
 
-onde $\odot$ representa o produto Hadamard, $(\cdot)^{\cdot \eta}$ representa a potência para cada elemento, e $\eta$ uma taxa de aprendizado ($0 < \eta \leq 1$).
-Então, se $\Theta$ for inicializado com elementos positivos, é possível verificar que a regra de atualização multiplicativa da equação~\ref{eq:onmtf:updateTheta} mantém a não-negatividade de $\Theta$.
+%No artigo de \citeonline{Yoo2010}, é proposta uma abordagem mais simples para a derivação das regras de atualização multiplicaticas, considere uma função de otimização qualquer $\mathcal{J}$ e seu respectivo gradiente $\nabla \mathcal{J}$:
 
-Também, é utilizada uma abordagem diferente para a derivação de regras de atualização multiplicativas, visando um algoritmo para a solução do problema~\ref{def:onmtf:problem}.
-Neste caso, o gradiente é calculado com base em uma superfície com restrições que preserva a ortogonalidade.
-Essa superfície com restrições é chamada de Variedade de Stiefel (\textit{Stiefel Manifold}), neste caso é usada a Variedade de Stiefel no espaço euclidiano, denotada por $\mathcal{H}_{a,b}$, sendo essa variedade o conjunto de $a \times b$ matrizes ortonormais no espaço $\mathbb{R}^a$, formalmente:
+%\[
+%    \begin{array}{lclcl}
+%        \nabla \mathcal{J} & = & [\nabla \mathcal{J}]^+ - [\nabla \mathcal{J}]^-
+%    \end{array}
+%\]
 
-\[
-    \begin{array}{lclcl}
-        \mathcal{H}_{a, b} & = & \{ Y \in \mathbb{R}^{a \times b}: Y^T Y = I \}
-    \end{array}
-\]
+%onde $[\nabla \mathcal{J}]^+$ é a parte positiva do gradiente, $[\nabla \mathcal{J}]^-$ a parte negativa do gradiente.
+%Se $[\nabla \mathcal{J}]^+ \geq 0$ e $[\nabla \mathcal{J}]^- \geq 0$, então, é possível definir uma regra de atualização multiplicativa, para otimizar os parâmetros $\Theta$ da função $\mathcal{J}$:
 
-Note que quando $b = 1$, a superfície se torna uma esfera.
-Para otimização, considerando que essa esfera sejam as restrições do problema, o ideal é propor métodos que permanecam na esfera, então, todos os vetores tangentes à essa esfera, podem ser direções possíveis para um algoritmo de otimização iterativo, como mostra a Figura~\ref{fig:stiefel}.
+%\begin{equation}
+%\label{eq:onmtf:updateTheta}
+%    \Theta \gets \Theta \odot \left ( \frac{ [\nabla \mathcal{J}]^- }{ [\nabla \mathcal{J}]^+ } \right )^{\cdot \eta}
+%\end{equation}
 
-\begin{figure}[H]
-\centering
-    \includegraphics[width=0.3\textwidth]{img/stiefel.png}
-    \caption{
-        Uma Variedade Stiefel no espaço Euclidiano, que quando $b = 1$ essa superfície será uma esfera, e um dos possíveis vetores que está contido no conjunto dessa variedade (tangente à esfera).
-    }
-    \label{fig:stiefel}
-\end{figure}
+%onde $\odot$ representa o produto Hadamard, $(\cdot)^{\cdot \eta}$ representa a potência para cada elemento, e $\eta$ uma taxa de aprendizado ($0 < \eta \leq 1$).
+%Então, se $\Theta$ for inicializado com elementos positivos, é possível verificar que a regra de atualização multiplicativa da equação~\ref{eq:onmtf:updateTheta} mantém a não-negatividade de $\Theta$.
 
-\citeonline{Edelman1999} definem o gradiente em um ponto $Y$, com a restrição $Y^T Y = I$, de uma função $\mathcal{J}$ definida em uma Variedade Stiefel no espaço euclidiano como:
+%Também, é utilizada uma abordagem diferente para a derivação de regras de atualização multiplicativas, visando um algoritmo para a solução do problema~\ref{def:onmtf:problem}.
+%Neste caso, o gradiente é calculado com base em uma superfície com restrições que preserva a ortogonalidade.
+%Essa superfície com restrições é chamada de Variedade de Stiefel (\textit{Stiefel Manifold}), neste caso é usada a Variedade de Stiefel no espaço euclidiano, denotada por $\mathcal{H}_{a,b}$, sendo essa variedade o conjunto de $a \times b$ matrizes ortonormais no espaço $\mathbb{R}^a$, formalmente:
 
-\begin{equation}
-\label{eq:stiefeldiff}
-    \begin{array}{lclcl}
-        {\tilde \nabla}_Y \mathcal{J} & = & \nabla_Y \mathcal{J} - Y (\nabla_Y \mathcal{J})^T Y
-    \end{array}
-\end{equation}
+%\[
+%    \begin{array}{lclcl}
+%        \mathcal{H}_{a, b} & = & \{ Y \in \mathbb{R}^{a \times b}: Y^T Y = I \}
+%    \end{array}
+%\]
 
-onde $\nabla_Y \mathcal{J}$ é o gradiente da função $\mathcal{J}$ para todos os elementos da matriz $Y$.
+%Note que quando $b = 1$, a superfície se torna uma esfera.
+%Para otimização, considerando que essa esfera sejam as restrições do problema, o ideal é propor métodos que permanecam na esfera, então, todos os vetores tangentes à essa esfera, podem ser direções possíveis para um algoritmo de otimização iterativo, como mostra a Figura~\ref{fig:stiefel}.
 
-Dada a equação~\ref{eq:stiefeldiff}, \citeonline{Yoo2010} propõem os seguintes cálculos dos gradientes em Variedades Stiefel para $\mathcal{F}_2$, com $U$ no conjunto $\{ U^T U = I \}$, e com $V$ no conjunto $\{ V^T V = I \}$:
+%\begin{figure}[H]
+%\centering
+%    \includegraphics[width=0.3\textwidth]{img/stiefel.png}
+%    \caption{
+%        Uma Variedade Stiefel no espaço Euclidiano, que quando $b = 1$ essa superfície será uma esfera, e um dos possíveis vetores que está contido no conjunto dessa variedade (tangente à esfera).
+%    }
+%    \label{fig:stiefel}
+%\end{figure}
 
-\[
-    \begin{array}{lclclclcl}
-        {\tilde \nabla_U} \mathcal{F}_2 & = & \nabla_U \mathcal{F}_2 - U (\nabla_U \mathcal{F}_2)^T U & = & U S V^T X^T U - X V S^T \\
-        {\tilde \nabla_V} \mathcal{F}_2 & = & \nabla_V \mathcal{F}_2 - V (\nabla_V \mathcal{F}_2)^T V & = & V S^T U^T X V - X^T U S
-    \end{array}
-\]
+%\citeonline{Edelman1999} definem o gradiente em um ponto $Y$, com a restrição $Y^T Y = I$, de uma função $\mathcal{J}$ definida em uma Variedade Stiefel no espaço euclidiano como:
 
-Restando apenas o cálculo do gradiente para $S$, que como não há restrições, será igual à atualização do algoritmo para solução do BVD:
+%\begin{equation}
+%\label{eq:stiefeldiff}
+%    \begin{array}{lclcl}
+%        {\tilde \nabla}_Y \mathcal{J} & = & \nabla_Y \mathcal{J} - Y (\nabla_Y \mathcal{J})^T Y
+%    \end{array}
+%\end{equation}
 
-\[
-    \begin{array}{lclcl}
-        {\tilde \nabla_S} \mathcal{F}_2 & = & \nabla_S \mathcal{F}_2 & = & U^T U S V^T V - U^T X V
-    \end{array}
-\]
+%onde $\nabla_Y \mathcal{J}$ é o gradiente da função $\mathcal{J}$ para todos os elementos da matriz $Y$.
 
-É possível, assim, usar a estratégia da equação~\ref{eq:onmtf:updateTheta} e os gradientes calculados, para propor uma solução para o problema de ONMTF, alternativas às atualizações das equações~\ref{eq:onmtf:updateU}, \ref{eq:onmtf:updateV} e~\ref{eq:onmtf:updateS}, através da atualização multiplicativa.
-Essas atualizações são apresentadas nas equações~\ref{eq:onmtf2:updateU}, ~\ref{eq:onmtf2:updateV} e~\ref{eq:onmtf2:updateS}.
+%Dada a equação~\ref{eq:stiefeldiff}, \citeonline{Yoo2010} propõem os seguintes cálculos dos gradientes em Variedades Stiefel para $\mathcal{F}_2$, com $U$ no conjunto $\{ U^T U = I \}$, e com $V$ no conjunto $\{ V^T V = I \}$:
 
-\begin{subequations}
-    \begin{alignat}{2}
-        U^{(t+1)} \gets \quad && U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} S^{(t)} V^{(t)^T} X^T U^{(t)} }                   \label{eq:onmtf2:updateU} \\
-        V^{(t+1)} \gets \quad && U^{(t)} \odot \frac{ X^T U^{(t+1)} S^{(t)} }{ V^{(t)} S^{(t)^T} U^{(t+1)^T} X V^{(t)} }               \label{eq:onmtf2:updateV} \\
-        S^{(t+1)} \gets \quad && S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t+1)^T} V^{(t+1)} } \label{eq:onmtf2:updateS}
-    \end{alignat}
-\end{subequations}
+%\[
+%    \begin{array}{lclclclcl}
+%        {\tilde \nabla_U} \mathcal{F}_2 & = & \nabla_U \mathcal{F}_2 - U (\nabla_U \mathcal{F}_2)^T U & = & U S V^T X^T U - X V S^T \\
+%        {\tilde \nabla_V} \mathcal{F}_2 & = & \nabla_V \mathcal{F}_2 - V (\nabla_V \mathcal{F}_2)^T V & = & V S^T U^T X V - X^T U S
+%    \end{array}
+%\]
+
+%Restando apenas o cálculo do gradiente para $S$, que como não há restrições, será igual à atualização do algoritmo para solução do BVD:
+
+%\[
+%    \begin{array}{lclcl}
+%        {\tilde \nabla_S} \mathcal{F}_2 & = & \nabla_S \mathcal{F}_2 & = & U^T U S V^T V - U^T X V
+%    \end{array}
+%\]
+
+%É possível, assim, usar a estratégia da equação~\ref{eq:onmtf:updateTheta} e os gradientes calculados, para propor uma solução para o problema de ONMTF, alternativas às atualizações das equações~\ref{eq:onmtf:updateU}, \ref{eq:onmtf:updateV} e~\ref{eq:onmtf:updateS}, através da atualização multiplicativa.
+%Essas atualizações são apresentadas nas equações~\ref{eq:onmtf2:updateU}, ~\ref{eq:onmtf2:updateV} e~\ref{eq:onmtf2:updateS}.
+
+%\begin{subequations}
+%    \begin{alignat}{2}
+%        U^{(t+1)} \gets \quad && U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} S^{(t)} V^{(t)^T} X^T U^{(t)} }                   \label{eq:onmtf2:updateU} \\
+%        V^{(t+1)} \gets \quad && U^{(t)} \odot \frac{ X^T U^{(t+1)} S^{(t)} }{ V^{(t)} S^{(t)^T} U^{(t+1)^T} X V^{(t)} }               \label{eq:onmtf2:updateV} \\
+%        S^{(t+1)} \gets \quad && S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} V^{(t+1)^T} V^{(t+1)} } \label{eq:onmtf2:updateS}
+%    \end{alignat}
+%\end{subequations}
 
 % TODO: Falar do algoritmo que considera probabilidades
+% precisamos mesmo falar dele? Se não foi usado. Já achei que falar do BVD quase que não era necessário!!!!!
 
-\section{Fatoração tripla rápida de Matrizes Não-negativas}
+\section{Fatoração Tripla Rápida de Matrizes Não-negativas}
+\label{sec:FNMTF}
 
-O problema de Fatoração tripla rápida de Matrizes Não-negativas (\textit{Fast Non-negative Matrix Tri Factorization} - FNMTF) foi proposto por \citeonline{Wang2011}, com os seguintes argumentos contra o uso prático dos problemas até agora propostos para encontrar cogrupos: os problemas de fatoração em três matrizes propostos até o momento, envolviam soluções algorítmicas iterativas, com multiplicações de matrizes intensas em cada etapa; e pelo fato dos algoritmos propostos realizarem coagrupamento relaxado, necessitando de pós-processamento \textcolor{green}{(como é feito o pós-processamento? deve-se falar disso.)} para a extração dos grupos, o que implica em inúmeras soluções para o agrupamento.
+% porque mudou U e V para F e G? Por que aqui ha a restrição de serem binários? É para atender a diferenciação de notação???? Como continua sendo matrizes de grupos de linhas e de colunas não deveria continuar com a mesma notação, apenas sujeita a restrições diferentes?
+
+O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fast Non-negative Matrix Tri Factorization} - FNMTF), formalizado no problema~\ref{def:fnmtf:problem}, foi proposto por \citeonline{Wang2011} com os seguintes argumentos contra o uso prático dos problemas até então propostos para encontrar cogrupos: eles exigem soluções algorítmicas iterativas, com intensas multiplicações de matrizes em cada passo do algoritmo; eles propõem encontrar coagrupamentos flexíveis (com restrições relaxadas), o que implica em encontrar inúmeras soluções para a tarefa de coagrupamento.
+
+%, necessitando de pós-processamento \textcolor{green}{(como é feito o pós-processamento? deve-se falar disso.)} para a extração dos grupos, o que implica em inúmeras soluções para o agrupamento.
+
+% eu acho que está aí o nosso problema de interpretação do resultado, e como não temos maturidade para falar disso, melhor que deixemos essas observações de lado.
 
 \begin{problem}[Fatoração tripla rápida de Matrizes Não-negativas]
 \label{def:fnmtf:problem}
@@ -1515,45 +1572,53 @@ O problema de Fatoração tripla rápida de Matrizes Não-negativas (\textit{Fas
         \displaystyle \mathcal{F}_3(F, S, G) & = & \displaystyle \min_{F, S, G} & \norm{X - FSG^T}^{2}_{F} \\
                                              &   &                              & F \in \Psi^{n \times k}, \\
                                              &   &                              & G \in \Psi^{m \times l}
-    \end{array}
+    \end{array}    \nonumber
 \end{equation}
 \end{problem}
 
-onde $X \in \mathbb{R}^{n \times m}$, $S \in \mathbb{R}^{k \times l}$, $\Psi = \{0, 1\}$. \textcolor{green}{(Acho que a restrição binária não é a única. Temos que a soma de linhas ou colunas deve somar 1.)}
+em que  $S \in \mathbb{R}^{k \times l}$, $\Psi = \{0, 1\}$, \textcolor{red}{$\sum_{p=1}^{k} F_{\cdot p} = 1$ e $\sum_{q=1}^{l} G_{\cdot q} = 1$}.
 
-Assim como nos outros algoritmos, $F$ é uma matriz indicadora dos grupos de linhas, $G$ uma matriz indicadora dos grupos de colunas, e $S$ contém os fatores que conectam um grupo de linhas aos grupos de colunas, e, um grupo de colunas aos grupos de linhas.
+% $X \in \mathbb{R}^{n \times m}$, - nos outros não foi colocado o X e o X foi definido no inicio do capítulo. Acho que nao precisa colocar aqui, ou tem que colocar em todos
 
-Como não há restrições em $\mathcal{F}_3$ \textcolor{green}{(não há restrições em $S$?)}, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_3$:
+% Observação do Valdinei: Acho que a restrição binária não é a única. Temos que a soma de linhas ou colunas deve somar 1.) -- Sim, no artigo os autores fazem essa restrição já no Psi, na seção de notação que precede todo o desenvolvimento do restante.
+
+\citeonline{Wang2011} denominam $F$ como uma matriz indicadora dos grupos de linhas, $G$ como uma matriz indicadora dos grupos de colunas, e $S$ como uma matriz que contém os fatores que conectam um grupo de linhas aos grupos de colunas, e um grupo de colunas aos grupos de linhas.  % essa parte final aqui ficou um pouco confusa pra mim, é isso mesmo? não é a mesma ideia dos anteriores? Relação entre grupos de linhas e colunas, normalmente?
+
+% olha, eu acho que, embora aqui tenha ficado bem simples, não seria necessário mostrar isso e simplesmente mandar para a referência como foi feito nos outros. 
+Como não há restrições \textcolor{red}{em $S$}, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_3$:
 \[
     \begin{array}{lclcl}
         \nabla_S \mathcal{L} &     =    & F^T X G - F^T F S G^T G                 & = & 0                                 \\
                              & \implies & F^TFSG^TG                               & = & F^TXG                             \\
                              & \implies & (F^T F)^{-1} F^T F S G^T G (G^T G)^{-1} & = & (F^T F)^{-1} F^T X G (G^T G)^{-1}
-    \end{array}
+    \end{array}   \nonumber
 \]
 
 \begin{equation}
 \label{eq:fnmtf:updateS}
     \begin{array}{lclcl}
-        \therefore & S & = & (F^T F)^{-1} F^T X G (G^T G)^{-1}
+        \therefore & S & = & (F^T F)^{-1} F^T X G (G^T G)^{-1}    \nonumber
     \end{array}
 \end{equation}
 
-Sendo assim, é possível resolver os subproblema para atualizar $F$ e $G$.
-Primeiramente, fixando $S$ e $G$ e resolvendo o problema~\ref{def:fnmtf:problem} para $F$ de forma iterativa, verificando para cada linha de $X$, qual o protótipo mais o aproxima (semelhante ao algoritmo de agrupamento \textit{K-means}), da mesma forma, é possível fixar $S$ e $F$ para alcançar uma solução iterativa para $G$, assim como mostra o algoritmo~\ref{algo:fnmtf}.
-Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, e $U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente.
+\textcolor{red}{Assim, o problema de minimização se transforma nos subproblemas de atualização de $F$ e $G$. Uma estratégia semelhante aquela aplicada no clássico algoritmo \textit{k-means} pode ser aplicada. Primeiramente, fixa-se $S$ e $G$ e resolve-se o problema~\ref{def:fnmtf:problem} para $F$ de forma iterativa, verificando qual o protótipo mais o aproxima a cada linha de $X$. Em seguida, fixa-se $S$ e $F$ para alcançar uma solução iterativa para $G$, assim como mostrado no algoritmo~\ref{algo:fnmtf}.}
 
+O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema~\ref{def:fnmtf:problem}. Nesse algoritmo considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$} como sendo as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, \textcolor{red}{e $\norm{ \cdot }^2$ é a norma XXXXX}. \textcolor{red}{Também, a mesma condição de convergência usada nos algoritmos anteriores pode ser aplicada nessa caso.}
+
+% a ordem de cálculo de F e G aqui também está trocada. Isso não importa, certo?
+% me perdi toda na indexação - vou ter que olhar isso novamente outro dia, de preferência junto com Lucas e Valdinei.
 \begin{algorithm}
 \caption{Algoritmo FNMTF}
 \label{algo:fnmtf}
     \begin{algorithmic}[1]
         \Function{FNMTF}{$X$, $maxIter$}
-            \State \textbf{Inicialize:} $F^{(0)} \geq 0$ \textcolor{green}{($\in\{0,1\}$ e somatório igual a 1)}, $S^{(0)} \geq 0, G^{(0)} \geq 0$ e $t \gets 0$.
+            % \State \textbf{Inicialize:} $F^{(0)} \geq 0$ \textcolor{green}{($\in\{0,1\}$ e somatório igual a 1)}, $S^{(0)} \geq 0, G^{(0)} \geq 0$ e $t \gets 0$.
+            \State \textbf{Inicialize:} \textcolor{red}{$F^{(0)},G^{(0)} \gets {0,1}$ com $\sum_{p=1}^{k} F_{\cdot p} = 1$ e $\sum_{q=1}^{l} G_{\cdot q} = 1$, $S^{(0)} \geq 0$ e $t \gets 0$.}
             \While{(não convergiu) ou ($t \leq maxIter$)}
                 \State
                     \begin{equation}
                     \label{eq:fnmtf:updateS}
-                        S^{(t+1)} \gets (F^{(t)^T} F^{(t)})^{-1} F^{(t)^T} X G^{(t)} (G^{(t)^T} G^{(t)})^{-1}
+                        S^{(t+1)} \gets (F^{(t)^T} F^{(t)})^{-1} F^{(t)^T} X G^{(t)} (G^{(t)^T} G^{(t)})^{-1}   \nonumber
                     \end{equation}
                 \State
                     \[
@@ -1566,7 +1631,7 @@ Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{
                             \begin{array}{ll}
                                 1 & p = \argmin_{p' \in \{1, \dots, k\}} \norm{ x_{i \cdot} - {\tilde g}_{p' \cdot} }^2 \\
                                 0 & \textit{caso contrário}
-                            \end{array}
+                            \end{array}    \nonumber
                         \right. \forall i, p
                     \end{equation}
                 \State
@@ -1580,7 +1645,7 @@ Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{
                             \begin{array}{ll}
                                 1 & q = \argmin_{q' \in \{1, \dots, l\}} \norm{ x_{\cdot j} - {\tilde f}_{\cdot q'} }^2 \\
                                 0 & \textit{caso contrário}
-                            \end{array}
+                            \end{array}      \nonumber
                         \right. \forall j, q
                     \end{equation}
                 \State $t \gets t + 1$
@@ -1589,6 +1654,23 @@ Considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
+
+% ************************************************************
+
+\section{\textcolor{red}{Considerações Finais}}
+
+% não consigo colocar o exemplo do Valdinei, pois eu precisaria de um exemplo real para conseguir explicar com números e esse exemplo só virá no Capítulo 5. Colocar de forma genérica, eu também não consegui. Tentei mas tive a impressão de estar apenas repetindo as formulações dos problemas já apresentadas. Então resolve usar "prosa" mesmo. Um texto equivalente deveria ser feito para o K-means e para o Fuzzy-K-means no final do capítulo 2.
+
+A fim de melhor motivar a proposta dos novos algoritmos, apresentada no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos ONMTF e FNMTF em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos. 
+
+Do ponto de vista de quantização do espaço dos dados, a quantidade de informação que precisa ser armazenada é dependente a organização da matriz $S$, ou seja, do número de grupos de linhas $k$ e do número de colunas $l$ necessários para explicar a matriz de dados original. Como será discutido mais à frente neste trabalho, para determinados tipos de organização de cogrupos, especificamente aqueles em que há sobreposição de colunas nos grupos de colunas, os algoritmos implementados sob essas estratégias exigem uma quantidade de grupos de colunas ($l$) que pode ser maior do que o número de grupos de colunas desejados. Os algoritmos propostos tem o objetivo de superar essa limitação, permitindo que a quantização do espaço seja mais próxima da desejada em termos de grupos de colunas.
+
+Do ponto de vista de geração de informação sobre os dados, os algoritmos ONMTF e FNMTF são capazes de fornecer como as linhas da matriz se organizam em grupos e como as colunas da matriz se organizam em grupos. Transferindo essa informação para um contexto de aplicação, significa dizer que os algoritmos são capazes de explicar como os dados se organizam no espaço (matriz $U$) e, intuitivamente e sob uma forma de organização, como grupos de atributos desses dados (matriz $V$) podem estar associados (por meio da matriz $S$) à essa organização dos dados. Esse tipor de informação, também presente nos algoritmos propostos, não é explicitamente fornecida por algoritmos de agrupamento como \textit{k-means} e \textit{fuzzy-k-means}, brevemente discutidos no capítulo~\ref{ch:conceitos}.
+
+Do ponto de vista do processo de descoberta dos cogrupos, os algoritmos ONMTF e FNMTF são capazes de considerar simultaneamente ambas organizações na resolução do problema de minimização do erro de aproximação da matriz original. Porém, possuem um processo que pode ser caracterizado por um tipo de interdependência entre grupos de linhas, que é na realidade o causador da possibilidade de chegar a uma quantidade de grupos de colunas ($l$) maior do que é realmente necessário para explicar os dados que possuem uma organização de cogrupos com sobreposição de colunas. Esta é a segunda meta de superação obtida nos algoritmos propostos, que por sua formulação, são capazes de resolver o problema de fatoração das matrizes de maneira independente para cada grupo de linhas.
+
+% Esses problemas devem ficar para o final, para dar o link para trabalhos futuros e para limitações deste trabalho
+% Finalmente, é preciso salientar que embora os algoritmos ONMTF e FNMTF possuam características interessantes sobre análise de dados, que superam algoritmos clássicos de análise de dados como k-means e fuzzy-k-means (como mostrado nos resultados apresentados no capítulo~\ref{ch:experiments}, esses são computacionalmente mais caros. E, ainda, os algoritmos propostos, embora sejam capazes de superar limitações do ONMTF e FNMTF, se apresentam como algoritmos de um custo ainda mais elevado computacionalmente. 
 
 % ************************************************************
 % ************************************************************

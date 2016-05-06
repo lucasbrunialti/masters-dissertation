@@ -18,61 +18,67 @@ I was expecting a `,' or a `}'---line 369 of file referencias.bib
  :   month = 8
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 697 of file referencias.bib
+I was expecting a `,' or a `}'---line 501 of file referencias.bib
+ :   
+ :   year = 2012
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 723 of file referencias.bib
  :   
  :   number = {5}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--entry type for "Long2005" isn't style-file defined
---line 861 of file referencias.bib
+--line 887 of file referencias.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--existe o campo month (mês) mas não o campo year (ano) em Peres2012
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v<VERSION>           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
-You've used 42 entries,
+You've used 44 entries,
             6711 wiz_defined-function locations,
-            1494 strings with 17210 characters,
-and the built_in function-call counts, 52077 in all, are:
-= -- 5705
-> -- 1573
-< -- 491
-+ -- 1062
-- -- 465
-* -- 3396
-:= -- 5878
-add.period$ -- 156
-call.type$ -- 42
-change.case$ -- 507
-chr.to.int$ -- 111
-cite$ -- 41
-duplicate$ -- 4390
-empty$ -- 2696
-format.name$ -- 2223
-if$ -- 11912
+            1511 strings with 17695 characters,
+and the built_in function-call counts, 53739 in all, are:
+= -- 5821
+> -- 1631
+< -- 499
++ -- 1083
+- -- 482
+* -- 3521
+:= -- 6095
+add.period$ -- 162
+call.type$ -- 44
+change.case$ -- 528
+chr.to.int$ -- 119
+cite$ -- 44
+duplicate$ -- 4481
+empty$ -- 2808
+format.name$ -- 2307
+if$ -- 12301
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 779
-newline$ -- 201
-num.names$ -- 201
-pop$ -- 1062
+missing$ -- 814
+newline$ -- 211
+num.names$ -- 211
+pop$ -- 1103
 preamble$ -- 1
-purify$ -- 184
+purify$ -- 192
 quote$ -- 0
-skip$ -- 4609
+skip$ -- 4701
 stack$ -- 1
-substring$ -- 1938
-swap$ -- 1378
-text.length$ -- 63
+substring$ -- 2017
+swap$ -- 1430
+text.length$ -- 69
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 19
-warning$ -- 0
-while$ -- 312
+warning$ -- 1
+while$ -- 328
 width$ -- 0
-write$ -- 681
-(There were 2 error messages)
+write$ -- 715
+(There were 3 error messages)

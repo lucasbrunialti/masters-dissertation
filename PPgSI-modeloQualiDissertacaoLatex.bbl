@@ -172,6 +172,20 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 \emph{Bioinformatics}, Oxford University Press, Oxford, UK, v.~22, n.~9, p.
   1122--1129, maio 2006.}
 
+\bibitem[Rand 1971]{Rand1971}
+\abntrefinfo{Rand}{RAND}{1971}
+{RAND, W.~M. Objective criteria for the evaluation of clustering methods.
+\emph{Journal of the American Statistical Association}, v.~66, n.~336, p.
+  846--850, December 1971.}
+
+\bibitem[Rocha et al.]{Peres2012}
+\abntrefinfo{Rocha et al.}{ROCHA et al.}{}
+{ROCHA, T. et al. Tutorial sobre fuzzy-c-means e fuzzy learning vector
+  quantization: Abordagens híbridas para tarefas de agrupamento e
+  classificação.
+\emph{RITA - Revista de Informática Teórica e Aplicada}, v.~19, n.~1, p.
+  120-- 163, March.}
+
 \bibitem[Salton, Wong e Yang 1975]{Salton1975}
 \abntrefinfo{Salton, Wong e Yang}{SALTON; WONG; YANG}{1975}
 {SALTON, G.; WONG, A.; YANG, C.~S. A vector space model for automatic indexing.

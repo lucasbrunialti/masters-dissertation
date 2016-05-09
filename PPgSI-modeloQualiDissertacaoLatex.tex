@@ -1189,12 +1189,12 @@ Formalmente, algoritmos de coagrupamento baseados em FMNN têm como entrada uma 
 
 %%% comentário do Valdinei: Como escrevi anteriormente, prefiro dizer que $\mathcal{X}=\{1,2,\ldots,n\}$ e o mesmo para $\mathcal{Y}$, então faz mais sentido formar os cogrupos com $I\subseteq\mathcal{X}$ e o mesmo para $J$. Além disso, os índices $p$ e $q$ não foram mencionados. Finalmente, aqui já está considerando que os clusters de linha são separados dos cluster de colunas, como é utilizado tradicionalmente na literatura. Dessa forma, deve-se dizer que os conjuntos $I$ devem formar uma partição de $\mathcal{X}$.)}
 
-%As próximas subseções irão mostrar definições dos algoritmos de coclusterização baseados em NMF presentes na literatura, assim como estratégias usadas para selecionar os cogrupos mais relevantes dos $k l$ possíveis. 
+%As próximas subseções irão mostrar definições dos algoritmos de coclusterização baseados em NMF presentes na literatura, assim como estratégias usadas para selecionar os cogrupos mais relevantes dos $k l$ possíveis.
 %\textcolor{green}{($kl$ possíveis? existem muito mais cogrupos possíveis.)}
 
 Para implementação da FMNN como uma estratégia para resolução do problema de coagruamento, diferentes algoritmos foram apresentados na literatura. Cada uma delas considera o problema de FMNN com diferentes restrições que permitem \textcolor{red}{propor soluções para problema de coagrupamento de diferentes naturezas.} Este capítulo se destina a apresentar três das implementações existentes que são usadas como base para a proposta desta dissertação: decomposição de valores em blocos (Seção~\ref{lab:sec:bvd} introduzida por\citeonline{Long2005}; fatoração ortogonal tripla de matrizes não-negativas (Seção~\ref{sec:ONMTF}) introduzida por \citeonline{Ding06}; e fatoração tripla rápida de matrizes não-negativas (Seção~\ref{sec:FNMTF}) introduzida por \citeonline{Wang2011}. Outras implementações correlatas podem ser encontradas em \textcolor{red}{referências}.
 
-% eu imagino que o final deste capítulo deveria ser a interpretação do problema como compactador ou como o tipo de informação que ele traz quando resolvido pelos algoritmos, seguindo a ideia do Valdinei e fazendo o link para o próximo capítulo que é a proposta. Não consegui colocar aqui aquelas ideias. 
+% eu imagino que o final deste capítulo deveria ser a interpretação do problema como compactador ou como o tipo de informação que ele traz quando resolvido pelos algoritmos, seguindo a ideia do Valdinei e fazendo o link para o próximo capítulo que é a proposta. Não consegui colocar aqui aquelas ideias.
 
 \section{Decomposição de Valores em Blocos para Coagrupamento}
 \label{sec:bvd}
@@ -1205,10 +1205,10 @@ A Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD)
 
 Ainda, os autores proponentes da abordagem BVD defendem que interpretações intuitivas podem ser derivadas da análise das combinações das matrizes geradas na fatoração, quando aplicadas a um contexto específico. Um exemplo fornecido no trabalho de \citeonline{Long2005} é que, considerando uma matriz de entrada que representa a relação ``documentos por palavras'' (linhas por colunas) cada coluna de $US$ captura a ideia de uma base para a representação de grupos de palavras; e cada linha em $SV^T$ captura a ideia de uma base para a representação de grupos de documentos. Uma representação gráfica para o resultado de uma fatoração de matrizes pode ser visto na figura~\ref{fig:bvd}.
 
-%A aproximação $X \approx USV^T$ é capaz de gerar informação que permite interpretações intuitivas informações interpretáveis através da análise do resultado da fatoração. Os valores da matriz $U$ podem ser interpretados como o grau com que cada objeto $x_{i \cdot}$ $\forall i = \{1, \dots, n\}$ pertence à um dos $k$ grupos de linhas, da mesma forma, os valores da matriz $V$ podem ser interpretados como o grau com que cada objeto $y_{\cdot j}$ $\forall j = \{1, \dots, m\}$ pertence à um dos $l$ grupos de colunas. A matriz $S$ também permite interpretação quando são considerados os grupos formados por $U$ e $V$, cada valor $s_{pq}$ $\forall p = \{1, \dots, k\}, \forall q = \{1, \dots, l\}$ representa a intensidade em que o grupo de objetos $J_p$ e o grupo de características $J_q$ se relacionam, ou seja, fixando um grupo de objetos $I_p$, $s_{pq}$ representa a intensidade que $J_q$ colaborou para a sua formação, alternadamente, fixando um grupo de características $J_q$, $s_{pq}$ representa a intensidade na qual o grupo de objetos $I_p$ colaborou para a sua formação. 
+%A aproximação $X \approx USV^T$ é capaz de gerar informação que permite interpretações intuitivas informações interpretáveis através da análise do resultado da fatoração. Os valores da matriz $U$ podem ser interpretados como o grau com que cada objeto $x_{i \cdot}$ $\forall i = \{1, \dots, n\}$ pertence à um dos $k$ grupos de linhas, da mesma forma, os valores da matriz $V$ podem ser interpretados como o grau com que cada objeto $y_{\cdot j}$ $\forall j = \{1, \dots, m\}$ pertence à um dos $l$ grupos de colunas. A matriz $S$ também permite interpretação quando são considerados os grupos formados por $U$ e $V$, cada valor $s_{pq}$ $\forall p = \{1, \dots, k\}, \forall q = \{1, \dots, l\}$ representa a intensidade em que o grupo de objetos $J_p$ e o grupo de características $J_q$ se relacionam, ou seja, fixando um grupo de objetos $I_p$, $s_{pq}$ representa a intensidade que $J_q$ colaborou para a sua formação, alternadamente, fixando um grupo de características $J_q$, $s_{pq}$ representa a intensidade na qual o grupo de objetos $I_p$ colaborou para a sua formação.
 
 % tentei deixar menos associado à S e mais genérico, independente de S - exatamente como estava no artigo original. Talvez tenha melhorado.4
-% Obeservação do Valdinei: Parece que aqui é a primeira vez aparece "características" e "objetos", essa interpretação da matriz tem que ser dada mais força anteriormente. 
+% Obeservação do Valdinei: Parece que aqui é a primeira vez aparece "características" e "objetos", essa interpretação da matriz tem que ser dada mais força anteriormente.
 % Além disso, essa interpretação da matriz $S$ não me convence muito. Se restringirmos as matrizes $U$ e $V$ a serem binárias, a interpretação de $S$ fica sendo o valor de $\mu$ comentado no capítulo de "Tipos de Cocluster".)}
 
 % TODO explicar melhor as figuras
@@ -1383,7 +1383,7 @@ A implementação para o processo de minimização do problema~\ref{def:bvd:prob
 \section{Fatoração Ortogonal Tripla de Matrizes Não-negativas}
 \label{sec:ONMTF}
 
-Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chamam de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - ONMTF). 
+Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chamam de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - ONMTF).
 
 \begin{problem}[Problema de Fatoração Ortogonal tripla de Matrizes Não-negativas]
 \label{def:onmtf:problem}
@@ -1426,7 +1426,7 @@ em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$,
     \source{\citeonline{Yoo2010}}
 \end{figure}
 
-A figura~\ref{fig:bvdvsonmtf} representa um problema com três grupos (três nuvens de pontos). As linhas pontilhadas representam os protótipos obtidos por FMN (a) sem restrição de ortogonalidade nas matrizes, como o BVD (a), e (b) com restrição de ortogonalidade nas matrizes, como o ONMTF. Note que a base obtida com FMN ortogonal tende a encontrar protótipos mais centralizados nos grupos. Já a base obtida com FMN sem restrições tende a encontrar uma região convexa que contém os pontos dos grupos (incluindo regiões que abrangem pontos de grupos originalmente projetados como sendo diferentes). A solução obtida em (a), embora correta, não é desejável. 
+A figura~\ref{fig:bvdvsonmtf} representa um problema com três grupos (três nuvens de pontos). As linhas pontilhadas representam os protótipos obtidos por FMN (a) sem restrição de ortogonalidade nas matrizes, como o BVD (a), e (b) com restrição de ortogonalidade nas matrizes, como o ONMTF. Note que a base obtida com FMN ortogonal tende a encontrar protótipos mais centralizados nos grupos. Já a base obtida com FMN sem restrições tende a encontrar uma região convexa que contém os pontos dos grupos (incluindo regiões que abrangem pontos de grupos originalmente projetados como sendo diferentes). A solução obtida em (a), embora correta, não é desejável.
 
 \citeonline{Ding06} propõem uma solução para implementação do processo de minimização para o problema~\ref{def:onmtf:problem} semelhante ao que foi apresentado na seção~\ref{sec:bvd}, \textcolor{red}{também baseado em atualizações multiplicativas e com convergência demonstrada com base na teoria de otimização não linear, porém com uso de uma abordagem mais simples para derivação das regras de atualizacão multiplicativas}. O algoritmo para tal processo de minimização é apresentado no algoritmo~\ref{algo:onmtf}, no qual  $t$ o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$}, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard. Também, a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd} pode ser aplicada nesse caso.}
 
@@ -1584,7 +1584,7 @@ em que  $S \in \mathbb{R}^{k \times l}$, $\Psi = \{0, 1\}$, \textcolor{red}{$\su
 
 \citeonline{Wang2011} denominam $F$ como uma matriz indicadora dos grupos de linhas, $G$ como uma matriz indicadora dos grupos de colunas, e $S$ como uma matriz que contém os fatores que conectam um grupo de linhas aos grupos de colunas, e um grupo de colunas aos grupos de linhas.  % essa parte final aqui ficou um pouco confusa pra mim, é isso mesmo? não é a mesma ideia dos anteriores? Relação entre grupos de linhas e colunas, normalmente?
 
-% olha, eu acho que, embora aqui tenha ficado bem simples, não seria necessário mostrar isso e simplesmente mandar para a referência como foi feito nos outros. 
+% olha, eu acho que, embora aqui tenha ficado bem simples, não seria necessário mostrar isso e simplesmente mandar para a referência como foi feito nos outros.
 Como não há restrições \textcolor{red}{em $S$}, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_3$:
 \[
     \begin{array}{lclcl}
@@ -1661,7 +1661,7 @@ O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema
 
 % não consigo colocar o exemplo do Valdinei, pois eu precisaria de um exemplo real para conseguir explicar com números e esse exemplo só virá no Capítulo 5. Colocar de forma genérica, eu também não consegui. Tentei mas tive a impressão de estar apenas repetindo as formulações dos problemas já apresentadas. Então resolve usar "prosa" mesmo. Um texto equivalente deveria ser feito para o K-means e para o Fuzzy-K-means no final do capítulo 2.
 
-A fim de melhor motivar a proposta dos novos algoritmos, apresentada no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos ONMTF e FNMTF em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos. 
+A fim de melhor motivar a proposta dos novos algoritmos, apresentada no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos ONMTF e FNMTF em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos.
 
 Do ponto de vista de quantização do espaço dos dados, a quantidade de informação que precisa ser armazenada é dependente a organização da matriz $S$, ou seja, do número de grupos de linhas $k$ e do número de colunas $l$ necessários para explicar a matriz de dados original. Como será discutido mais à frente neste trabalho, para determinados tipos de organização de cogrupos, especificamente aqueles em que há sobreposição de colunas nos grupos de colunas, os algoritmos implementados sob essas estratégias exigem uma quantidade de grupos de colunas ($l$) que pode ser maior do que o número de grupos de colunas desejados. Os algoritmos propostos tem o objetivo de superar essa limitação, permitindo que a quantização do espaço seja mais próxima da desejada em termos de grupos de colunas.
 
@@ -1670,7 +1670,7 @@ Do ponto de vista de geração de informação sobre os dados, os algoritmos ONM
 Do ponto de vista do processo de descoberta dos cogrupos, os algoritmos ONMTF e FNMTF são capazes de considerar simultaneamente ambas organizações na resolução do problema de minimização do erro de aproximação da matriz original. Porém, possuem um processo que pode ser caracterizado por um tipo de interdependência entre grupos de linhas, que é na realidade o causador da possibilidade de chegar a uma quantidade de grupos de colunas ($l$) maior do que é realmente necessário para explicar os dados que possuem uma organização de cogrupos com sobreposição de colunas. Esta é a segunda meta de superação obtida nos algoritmos propostos, que por sua formulação, são capazes de resolver o problema de fatoração das matrizes de maneira independente para cada grupo de linhas.
 
 % Esses problemas devem ficar para o final, para dar o link para trabalhos futuros e para limitações deste trabalho
-% Finalmente, é preciso salientar que embora os algoritmos ONMTF e FNMTF possuam características interessantes sobre análise de dados, que superam algoritmos clássicos de análise de dados como k-means e fuzzy-k-means (como mostrado nos resultados apresentados no capítulo~\ref{ch:experiments}, esses são computacionalmente mais caros. E, ainda, os algoritmos propostos, embora sejam capazes de superar limitações do ONMTF e FNMTF, se apresentam como algoritmos de um custo ainda mais elevado computacionalmente. 
+% Finalmente, é preciso salientar que embora os algoritmos ONMTF e FNMTF possuam características interessantes sobre análise de dados, que superam algoritmos clássicos de análise de dados como k-means e fuzzy-k-means (como mostrado nos resultados apresentados no capítulo~\ref{ch:experiments}, esses são computacionalmente mais caros. E, ainda, os algoritmos propostos, embora sejam capazes de superar limitações do ONMTF e FNMTF, se apresentam como algoritmos de um custo ainda mais elevado computacionalmente.
 
 % ************************************************************
 % ************************************************************
@@ -1793,7 +1793,7 @@ Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T U I_{(p)} S$, $Q
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_4]^- & = & - 2 \nabla_{V_{(p)}} \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
-                                           & = & - 2 X^T U \sum_{p'=1}^{k} I_{(p')} S
+                                           & = & - 2 X^T U I_{(p)} S
     \end{array}
 \]
 
@@ -1845,7 +1845,7 @@ O resultado final dos gradientes para $U, S, V_{(p)}, \forall, p \in \{1, \dots,
 \begin{equation}
 \label{eq:ovnmtf:gradV}
     \begin{array}{lcl}
-        [\nabla_{V_{(p)}} \mathcal{F}_4] & = & 2 \big( -X^T U \sum_{p'=1}^{k} I_{(p')} S + V_{(p)} S^T I_{(p)} U^T U I_{(p)} S + \sum_{p' \neq p}  V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+        [\nabla_{V_{(p)}} \mathcal{F}_4] & = & 2 \big( -X^T U I_{(p)} S + V_{(p)} S^T I_{(p)} U^T U I_{(p)} S + \sum_{p' \neq p}  V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
     \end{array}
 \end{equation}
 
@@ -1868,13 +1868,13 @@ Note que essa é a regra de atualização multiplicativa, adotando a mesma estra
                     \State
                         \begin{equation}
                         \label{eq:ovnmtf:updateV}
-                            V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ \sum_{p'=1}^{k} X^T U^{(t+1) I_{(p)} S^{(t)} } }{ V^{(t)}_{(p)} S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} + \sum_{p' \neq p} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }
+                            V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ X^T U^{(t+1)} I_{(p)} S^{(t)} }{ V^{(t)}_{(p)} S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} + \sum_{p' \neq p} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }
                         \end{equation}
                 \EndFor
                 \State
                     \begin{equation}
                     \label{eq:ovnmtf:updateS}
-                        S^{(t+1)} \gets S^{(t)} \odot \sum_{p=1}^{l} \frac{ I_{(p)} U^{(t+1)^T} X V^{(t+1)^T}_{(p)} }{ \sum_{p'=1}^{l} I_{p} U^{(t+1)^T} U^{(t+1)} I_{(p')} S^{(t)} V^{(t+1)^T}_{(p')} V^{(t+1)}_{(p)} }
+                        S^{(t+1)} \gets S^{(t)} \odot \sum_{p=1}^{l} \frac{ I_{(p)} U^{(t+1)^T} X V^{(t+1)}_{(p)} }{ \sum_{p'=1}^{l} I_{p} U^{(t+1)^T} U^{(t+1)} I_{(p')} S^{(t)} V^{(t+1)^T}_{(p')} V^{(t+1)}_{(p)} }
                     \end{equation}
                 \State $t \gets t + 1$
             \EndWhile\label{euclidendwhile}

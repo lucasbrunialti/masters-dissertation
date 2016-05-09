@@ -12,12 +12,6 @@
 \emph{IEEE Transactions on Knowledge and Data Engineering}, v.~17, n.~6, p.
   734--749, 2005.}
 
-\bibitem[Bazaraa, Sherali e Shetty 2006]{bazaraa2006}
-\abntrefinfo{Bazaraa, Sherali e Shetty}{BAZARAA; SHERALI; SHETTY}{2006}
-{BAZARAA, M.; SHERALI, H.; SHETTY, C. \emph{Nonlinear Programming: Theory and
-  Algorithms}. [S.l.]: Wiley, 2006.
-ISBN 9780471787761.}
-
 \bibitem[Cabanes, Bennani e Fresneau 2012]{Cabanes2012}
 \abntrefinfo{Cabanes, Bennani e Fresneau}{CABANES; BENNANI; FRESNEAU}{2012}
 {CABANES, G.; BENNANI, Y.; FRESNEAU, D. Enriched topological learning for
@@ -33,16 +27,6 @@ ISBN 9780471787761.}
 \abntrefinfo{Ding et al.}{DING et al.}{2006}
 {DING, C. et al. Orthogonal nonnegative matrix tri-factorizations for
   clustering. In:  \emph{In SIGKDD}. [S.l.]: Press, 2006. p. 126--135.}
-
-\bibitem[Edelman, Arias e Smith 1999]{Edelman1999}
-\abntrefinfo{Edelman, Arias e Smith}{EDELMAN; ARIAS; SMITH}{1999}
-{EDELMAN, A.; ARIAS, T.~A.; SMITH, S.~T. The geometry of algorithms with
-  orthogonality constraints.
-\emph{SIAM J. Matrix Anal. Appl.}, Society for Industrial and Applied
-  Mathematics, Philadelphia, PA, USA, v.~20, n.~2, p. 303--353, abr. 1999.
-ISSN 0895-4798.
-Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/dx\-.doi\-.org\-/10\-.1137\-/S0895479895290954$>$}{http://dx.doi.org/10.1137/S0895479895290954}.}
 
 \bibitem[Feldman e Sanger 2006]{Feldman2006}
 \abntrefinfo{Feldman e Sanger}{FELDMAN; SANGER}{2006}
@@ -118,6 +102,18 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 {JANNACH, D. et al. \emph{Recommender Systems An Introduction}. [S.l.]:
   Cambridge University Press, 2011.}
 
+\bibitem[Kluger et al. 2003]{Kluger2003}
+\abntrefinfo{Kluger et al.}{KLUGER et al.}{2003}
+{KLUGER, Y. et al. Spectral biclustering of microarray data: Coclustering genes
+  and conditions.
+\emph{Genome Research}, v.~13, n.~4, p. 703--716, 2003.}
+
+\bibitem[Kuang 2014]{Kuang2014}
+\abntrefinfo{Kuang}{KUANG}{2014}
+{KUANG, D.
+\emph{Nonnegative Matrix Factorization For Clustering}.
+Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
+
 \bibitem[Lee e Seung 1999]{lee99}
 \abntrefinfo{Lee e Seung}{LEE; SEUNG}{1999}
 {LEE, D.~D.; SEUNG, H.~S. Learning the parts of objects by nonnegative matrix
@@ -185,6 +181,12 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
   classificação.
 \emph{RITA - Revista de Informática Teórica e Aplicada}, v.~19, n.~1, p.
   120-- 163, March.}
+
+\bibitem[Salakhutdinov e Mnih 2008]{SalMnih08}
+\abntrefinfo{Salakhutdinov e Mnih}{SALAKHUTDINOV; MNIH}{2008}
+{SALAKHUTDINOV, R.; MNIH, A. Probabilistic matrix factorization. In:
+  \emph{Advances in Neural Information Processing Systems}. [S.l.: s.n.], 2008.
+  v.~20.}
 
 \bibitem[Salton, Wong e Yang 1975]{Salton1975}
 \abntrefinfo{Salton, Wong e Yang}{SALTON; WONG; YANG}{1975}

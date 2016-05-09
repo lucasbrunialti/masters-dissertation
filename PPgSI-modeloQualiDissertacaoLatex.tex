@@ -76,6 +76,18 @@
 % \usepackage{subfig}
 % \usepackage{subfigure}
 
+
+%%% SARA COLOCOU ISSO AQUI - se der problema com numeracao de footnote, tirar isso.
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+%%%%%%%%%%%%%%
+
+
+
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
@@ -1043,12 +1055,12 @@ Nesse algoritmo, para encontrar biclusters, ou $\delta$-biclusters, na matriz $A
 \begin{split}
     H_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
     H_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
-    H_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2
+    H_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2   \nonumber
 \end{split}
 \end{equation}
 em que
 \begin{equation}
-    a_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} a_{ij},\quad a_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} a_{ij},\quad a_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} a_{ij}
+    a_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} a_{ij},\quad a_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} a_{ij},\quad a_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} a_{ij}   \nonumber
 \end{equation}
 onde $H_{IJ}$ é o RQM de uma submatriz $A_{IJ}$, $H_{iJ}$ o RQM da linha $i$, $H_{Ij}$ o RQM da coluna $j$, $a_{iJ}$ a média dos valores da linha $i$, $a_{Ij}$ a média dos valores da coluna $j$ e $a_{IJ}$ a média dos valores da submatriz $A_{IJ}$, definida pelos subconjuntos $I$ e $J$.
 
@@ -1137,12 +1149,12 @@ A avaliação interna pode não ser tão precisa quanto a avaliação externa, p
 \begin{equation}
 \begin{split}
 C_l(A_{IJ}) = \frac{1}{|I|} \displaystyle\sum_{i = 1}^{|I| - 1} \displaystyle\sum_{j = i + 1}^{|I|} \sqrt{ \displaystyle\sum_{k = 1}^{|J|} (a_{ik} - a_{jk})^2 } \\
-C_c(A_{IJ}) = \frac{1}{|J|} \displaystyle\sum_{i = 1}^{|J| - 1} \displaystyle\sum_{j = i + 1}^{|J|} \sqrt{ \displaystyle\sum_{k = 1}^{|I|} (a_{ki} - a_{kj})^2 }
+C_c(A_{IJ}) = \frac{1}{|J|} \displaystyle\sum_{i = 1}^{|J| - 1} \displaystyle\sum_{j = i + 1}^{|J|} \sqrt{ \displaystyle\sum_{k = 1}^{|I|} (a_{ki} - a_{kj})^2 }    \nonumber
 \end{split}
 \end{equation}
 em que $C_l(A_{IJ})$ é o índice de consistência das linhas do bicluster $A_{IJ}$ e $C_c(A_{IJ})$ é o índice de consistência das colunas do bicluster $A_{IJ}$. Ainda, a consistência do bicluster inteiro $C$ pode ser definida pela média:
 \begin{equation}
-C(A_{IJ}) = \frac{|I| \cdot C_l + |J| \cdot C_c}{|I| + |J|}
+C(A_{IJ}) = \frac{|I| \cdot C_l + |J| \cdot C_c}{|I| + |J|}   \nonumber
 \end{equation}
 
 Uma das métricas externas que são usadas para comparar biclusters encontrados com biclusters reais em um conjunto de dados, é a métrica \textit{concensus score} \cite{Hochreiter2010}. Essa métrica calcula a maximização das similaridades entre biclusters encontrados e reais, usando o \textit{índice de Jaccard} como medida de similaridade e o algoritmo Húngaro para solucionar o problema de maximização. A saída da avaliação é um $\textit{score} \in [0,1]$, em que $0$ significa que os biclusters comparados são totalmente diferentes, e $1$ o inverso.
@@ -1603,7 +1615,7 @@ Como não há restrições \textcolor{red}{em $S$}, é possível encontrar uma r
 
 \textcolor{red}{Assim, o problema de minimização se transforma nos subproblemas de atualização de $F$ e $G$. Uma estratégia semelhante aquela aplicada no clássico algoritmo \textit{k-means} pode ser aplicada. Primeiramente, fixa-se $S$ e $G$ e resolve-se o problema~\ref{def:fnmtf:problem} para $F$ de forma iterativa, verificando qual o protótipo mais o aproxima a cada linha de $X$. Em seguida, fixa-se $S$ e $F$ para alcançar uma solução iterativa para $G$, assim como mostrado no algoritmo~\ref{algo:fnmtf}.}
 
-O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema~\ref{def:fnmtf:problem}. Nesse algoritmo considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$} como sendo as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, \textcolor{red}{e $\norm{ \cdot }^2$ é a norma XXXXX}. \textcolor{red}{Também, a mesma condição de convergência usada nos algoritmos anteriores pode ser aplicada nessa caso.}
+O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema~\ref{def:fnmtf:problem}. Nesse algoritmo considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$} como sendo as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, \textcolor{red}{e $\norm{ \cdot }^2$ é a norma XXXXX}. \textcolor{red}{Também, a mesma condição de convergência usada nos algoritmos anteriores pode ser aplicada nesse caso.}
 
 % a ordem de cálculo de F e G aqui também está trocada. Isso não importa, certo?
 % me perdi toda na indexação - vou ter que olhar isso novamente outro dia, de preferência junto com Lucas e Valdinei.
@@ -1661,7 +1673,7 @@ O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema
 
 % não consigo colocar o exemplo do Valdinei, pois eu precisaria de um exemplo real para conseguir explicar com números e esse exemplo só virá no Capítulo 5. Colocar de forma genérica, eu também não consegui. Tentei mas tive a impressão de estar apenas repetindo as formulações dos problemas já apresentadas. Então resolve usar "prosa" mesmo. Um texto equivalente deveria ser feito para o K-means e para o Fuzzy-K-means no final do capítulo 2.
 
-A fim de melhor motivar a proposta dos novos algoritmos, apresentada no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos ONMTF e FNMTF em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos.
+A fim de melhor motivar a proposta dos novos algoritmos, apresentados no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos ONMTF e FNMTF em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos.
 
 Do ponto de vista de quantização do espaço dos dados, a quantidade de informação que precisa ser armazenada é dependente a organização da matriz $S$, ou seja, do número de grupos de linhas $k$ e do número de colunas $l$ necessários para explicar a matriz de dados original. Como será discutido mais à frente neste trabalho, para determinados tipos de organização de cogrupos, especificamente aqueles em que há sobreposição de colunas nos grupos de colunas, os algoritmos implementados sob essas estratégias exigem uma quantidade de grupos de colunas ($l$) que pode ser maior do que o número de grupos de colunas desejados. Os algoritmos propostos tem o objetivo de superar essa limitação, permitindo que a quantização do espaço seja mais próxima da desejada em termos de grupos de colunas.
 
@@ -1676,11 +1688,51 @@ Do ponto de vista do processo de descoberta dos cogrupos, os algoritmos ONMTF e 
 % ************************************************************
 % ************************************************************
 
-\chapter{Algoritmos propostos}
+\chapter{Fatoração de matrizes não-negativas para coagrupamento com sobreposição \textcolor{red}{uni-dimensional}}
 \label{ch:proposedalgs}
+
+% chamei de uni-dimensional porque o algoritmo poderia resolver sobreposição de colunas, ou de linhas, a depender de como o problema é visto. Então, colocar sobreposição de colunas eu achei que ficaria incompleto e colocar só sopreposição eu achei que ficar mal especificado.
 
 % Motivação
     % tipos de estruturas que resolvem
+
+Como discutido no capítulo~\ref{ch:fatoracao}, a fatoração de matrizes aplicada ao problema de agrupamento ou coagrupamento pode ser analisada sob, pelo menos, três aspectos: quantização do espaço dos dados; geração de informação sobre os dados; processo de descoberta de cogrupos. Também, para cada uma dessas análises, diferentes estratégias apresentam vantagens e desvantagens.
+
+Com o intuito de apresentar uma alternativa às estratégias de fatoração de matrizes não-negativas para coagrupamento presentes na literatura, objetivando superar algumas das dificuldades apresentadas por eles, propõe-se duas novas estratégias que propõem o uso de $k$ matrizes $V$ na fatoração, ao invés de uma única matriz $V$. Basicamente, \textcolor{red}{cada uma dessas matrizes representará uma organização de cogrupos de colunas independente, de maneira que aumentar-se-á a flexibilidade para o estabelecimento de relações entre cogrupos de linhas e cogrupos de colunas.} As estratégias são:
+
+\begin{itemize}
+\item OvNMTF: uma estratégia de fatoração tripla de matrizes não-negativas sobrepostas, baseada na estratégia ONMTF;
+\item BinOvNMTF: uma estratégia de fatoração binária tripla de matrizes não-negativas sobrepostas, baseada na estratégia FNMTF.
+\end{itemize}
+
+Sob o ponto de vista de resolução de problemas de coagrupamento, o objetivo dessas estratégias é o mesmo das estratégias já apresentadas neste texto, qual seja, encontrar grupos de linhas e colunas de forma simultânea. Entretanto, visto que se tem a liberdade de organizar um conjunto de matrizes $V$, que abstrai grupos e colunas, para ser associado a cada matriz $U$, que abstrai os grupos de linhas, é possível que grupos de colunas diferentes sejam formados, a depender do grupo de linhas sendo considerado. Isso significa que problemas em que há interseção de colunas na formação de cogrupos poderão ser adequadamente tratados pelas estratégias propostas. Observe na figura~\ref{fig:repgrafica} uma representação gráfica da estrutura de cogrupos com sobreposição de colunas, e também um exemplo da contextualização dessa característica em um problema de análise de textos. Note que, na realidade, trata-se de busca por uma solução adequada para um problema com sobreposição unidimensional, ou seja, sobreposição de colunas ou de linhas, já que a sobreposição de linhas é justamente o problema transposto.
+
+% Lucas, eu pensei em colocar aqui uma figura que tenha os quadradinhos com sobreposição de colunas, e também um outro com sobreposição de linhas e um exemplo contextualizado notícias.
+
+% acertar a figura
+
+\begin{figure}[H]
+\centering
+    \caption{Representação gráfica do problema de coagruamento com sobreposição unidimensional e contextualização do domínio de notícias}
+    %\includegraphics[width=0.7\textwidth]{img/factorizationXUSV.png}
+    \label{fig:repgrafica}
+\source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+Da mesma maneira que foi ilustrado no capítulo~\ref{ch:fatoracao} que é possível derivar interpretações intuitivas da análise das combinações de matrizes geradas na fatoração produzido pelos algoritmos lá discutidos, para os algoritmos discutidos no presente capítulo, interpretações análogas podem ser feitas, porém, consirando a existências das várias matrizes $V$. Assumindo novamente que uma matriz de entrada representação a relação ``documento por palavras'' (linhas por colunas), cada coluna de $US$ captura a ideia de uma base para representação de grupos de palavras; e cada linha em cada $SV_k^T$ captura a ideia de uma base de representação de grupos de documentos, sendo portanto um conjunto de $k$ bases. A representação gráfica para o resultado de uma fatoração de matrizes que permite esse raciocínio é apresentada na figura~\ref{fig:fatproposta}.
+
+\begin{figure}[H]
+\centering
+    \caption{
+        Fatoração da matriz original de dados $X$ em seis outras matrizes: $U$, $S$, $V_1$, $V_2$ e $V_3$}
+    %\includegraphics[width=0.7\textwidth]{img/factorizationXUSV.png}
+    \label{fig:fatproposta}
+\source{Adaptado de \citeonline{Yoo2010}}
+\end{figure}
+
+Todo o universo de interpretações delineado para os algoritmos da literatura podem ser estendidos para esse novo contexto de problema de agrupamento. Assim, .... \textcolor{red}{depois de termos a figura, o raciocínio pode ser realizado da mesma forma que foi feito no capítulo anterior.}
+
+O restante deste capítulo é destinado a apresentar a formulação dos problemas para cada uma das estratégias, incluindo a apresentação de uma derivação teórica para um algoritmo que implementa o processo de resolução para os problemas. Finalmente, as considerações finais apresentam uma discussão sobre o diferencial dessas estratégias no que diz respeito aos três aspectos citados no início do capítulo.
 
 % OvNMTF
     % Explicação -> Figura, novo significado da matriz
@@ -1690,48 +1742,28 @@ Do ponto de vista do processo de descoberta dos cogrupos, os algoritmos ONMTF e 
         % - algoritmo
         % - prova (?)
 
-% BinOvNMTF
-    % Explicação
-    % Problema
-    % Solução
-        % - derivação
-        % - algoritmo
-        % - prova (?)
-
 \section{Fatoração Tripla de Matrizes Não-negativas Sobrepostas}
+
+% se ficar a ideia de unidimensional, talvez isso fosse interessante aqui no nome do problema.
+
+Baseado no problema~\ref{def:onmtf:problem} \cite{Ding06}, \textcolor{red}{porém desconsiderando a restrição de ortogonalidade}, o problema~\ref{def:ovnmtf:problem} é apresentado neste trabalho, e recebe aqui o nome de Fatoração Tripla de Matrizes Não-negativas Sobrepostas (Overlapped Non-negative Matrix Tri-factorization - OvNMTF).
 
 \begin{problem}[Problema de Fatoração Tripla de Matrizes Não-negativas Sobrepostas]
 \label{def:ovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
         \displaystyle \mathcal{F}_4(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T}^{2}_{F} \\
-                                                                   &   & \text{suj. a}                & U \geq 0, \\
-                                                                   &   &                              & S \geq 0, \\
+                                                                   &   & \text{suj. a}                & U \geq 0, S \geq 0, \\
                                                                    &   &                              & V_{(p)} \geq 0, \quad \forall p
-    \end{array}
+    \end{array} \nonumber
 \end{equation}
 \end{problem}
 
-sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, em que cada $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p = \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \textcolor{red}{\in \{0,1\}^{k \times k}}$ é uma matriz identidade seletora, \textcolor{red}{$k \ll n$, $l \ll m$} e $\norm{\cdot}_F$ denota a norma de Frobenius. \textcolor{red}{Na formulação, o papel das matrizes $I_k$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $V_k$.}
 
-Expandindo $\mathcal{F}_4$, para tornar o cálculo do gradiente mais simples, é possível obter a seguinte equação:
+% sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, em que cada $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
 
-\[
-    \begin{array}{lcl}
-        \displaystyle \mathcal{F}_4 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
-                                    & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T )
-    \end{array}
-\]
-
-Para o cálculo do gradiente, é usada a mesma estratégia presente em \citeonline{Yoo2010}:
-\[
-    \begin{array}{lclcl}
-        \nabla \mathcal{F}_4 & = & [\nabla \mathcal{F}_4]^+ - [\nabla \mathcal{F}_4]^-
-    \end{array}
-\]
-
-% TODO colocar isso no cap 2
-Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B$ e $C$ matrizes de quaisquers dimensões que as tornem possíveis de serem multiplicadas:
+Desde que o problema~\ref{def:ovnmtf:problem} é derivado do problema~\ref{def:onmtf:problem}, é esperado que ele possa também ser resolvido por meio de regras de atualização multiplicativas. Assim, seguindo o exposto em \cite{Ding06}, a derivação das regras é aqui apresentada por meio de um abordagem baseada no cálculo do gradiente. Contudo, para o cálculo do gradiente de $\mathcal{F}_4$ a estratégia usada aqui é a apresentada em \citeonline{Yoo2010}, de forma que $\nabla \mathcal{F}_4 = [\nabla \mathcal{F}_4]^+ - [\nabla \mathcal{F}_4]^-$. \blfootnote{Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B$ e $C$ matrizes de quaisquers dimensões adequadas para a realização das multiplicações:
 \begin{equation}
 \label{eq:diff:AQB}
     \begin{array}{lcl}
@@ -1747,17 +1779,65 @@ Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B
         \nabla_{Q^T} tr( AQBQ^TC ) & = & A^TC^TQB^T + CAQB
     \end{array}
 \end{equation}
+}
+% pergunta, se entraram essas regras também não tinha que entrar aqui a regra que permitir reescrever o problema (expandir o problema)???
 
-Para o cálculo de $\nabla_U \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_U \mathcal{F}_4]^+ - [\nabla_U \mathcal{F}_4]^-$.
-Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T$, $B = \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T$ e $Q = U$, é possível obter $\mathcal{F}_4]^-$.
+%\[
+%    \begin{array}{lclcl}
+%        \nabla \mathcal{F}_4 & = & [\nabla \mathcal{F}_4]^+ - [\nabla \mathcal{F}_4]^-
+%   \end{array}
+%\].
+
+Expandindo $\mathcal{F}_4$, \textcolor{red}{com base nas propriedade de traço de matrizes}, para tornar o cálculo do gradiente mais simples, é possível obter: %a seguinte equação:
+
+% pessoal, não deveria ser F4 linha???
+
+\[
+    \begin{array}{lcl}
+        \displaystyle \mathcal{F}_4 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
+                                    & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T )
+    \end{array}
+\].
+
+%Para o cálculo do gradiente de $\mathcal{F}_4'$ a estratégia usada é a apresentada em \citeonline{Yoo2010}:
+
+%\[
+%    \begin{array}{lclcl}
+%        \nabla \mathcal{F}_4 & = & [\nabla \mathcal{F}_4]^+ - [\nabla \mathcal{F}_4]^-
+%   \end{array}
+%\].
+
+% não precisaria específicar o que é o + e o - ????? Isso é auto explicativo?
+
+% TODO colocar isso no cap 2
+%Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B$ e $C$ matrizes de quaisquers dimensões que as tornem possíveis de serem multiplicadas:
+%\begin{equation}
+%\label{eq:diff:AQB}
+%    \begin{array}{lcl}
+%        \nabla_Q tr( AQB )     & = & A^T B^T \\
+%        \nabla_{Q^T} tr( AQB ) & = & BA \\
+%    \end{array}
+%\end{equation}
+%\begin{equation}
+%\label{eq:diff:AQBQtC}
+%    \begin{array}{lcl}
+%        \nabla_Q tr( AQBQ^TC )     & = & BQ^TCA + B^TQ^TA^TC^T \\
+%        \nabla_{Q^T} tr( AQBQ^TC ) & = & A^TC^TQB^T + CAQB
+%    \end{array}
+%\end{equation}
+
+
+%Para o cálculo de $\nabla_U \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_U \mathcal{F}_4]^+ - [\nabla_U \mathcal{F}_4]^-$.
+
+Para o cálculo de $\nabla_U \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_U \mathcal{F}_4]^+$ e $[\nabla_U \mathcal{F}_4]^-$, respectivamente. Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T$, $B = \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T$ e $Q = U$, é possível obter $\textcolor{red}{[\nabla_U}\mathcal{F}_4]^-$, como segue.
 \[
     \begin{array}{lcl}
         [\nabla_U \mathcal{F}_4]^- & = & - 2 \nabla_U \Big( tr\big[ X^T U \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T \big] \Big) \\
                                    & = & - 2 X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}
     \end{array}
-\]
+\].
 
-Para o cálculo de $[\nabla_U \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $B = I$, $Q = U^T$ e $C = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$.
+Para o cálculo de $[\nabla_U \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $B = I$, $Q = U^T$ e $C = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$. Então tem-se
 \[
     \begin{array}{lcl}
         [\nabla_U \mathcal{F}_4]^+ & = & \nabla_U \Big( tr(X^TX) + tr\big[ \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \big] \Big) \\
@@ -1765,18 +1845,18 @@ Para o cálculo de $[\nabla_U \mathcal{F}_4]^+$, é utilizado a igualdade da equ
                                    &   & + ~ U \sum_{p=1}^k I_{(p)} S V_{(p)}^T \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} \\
                                    & = & 2 U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')}
     \end{array}
-\]
+\].
 
-Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma de $p = 1, \dots, k$, com $A = X^T U I_{(p)}$, $Q = S$, e $B = V_{(p)}^T$, é possível obter $[\nabla_S \mathcal{F}_4]^-$:
+De forma similar, para o cálculo de $\nabla_S \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_S \mathcal{F}_4]^+$ e $[\nabla_S \mathcal{F}_4]^-$, respectivamente. Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma de $p = 1, \dots, k$, com $A = X^T U I_{(p)}$, $Q = S$, e $B = V_{(p)}^T$, é possível obter $[\nabla_S \mathcal{F}_4]^-$, como segue:
 \[
     \begin{array}{lcl}
         [\nabla_S \mathcal{F}_4]^- & = & - 2 \nabla_S \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
                                    & = & - 2 \Big( I_{(1)} U^T X V_{(1)} + \dots + I_{(k)} U^T X V_{(k)} \Big) \\
                                    & = & - 2 \sum_{p=1}^{k} I_{p} U^T X V_{(p)}
     \end{array}
-\]
+\].
 
-Para o cálculo de $[\nabla_S \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p = p' = 1, \dots, k$, com $A = V_{(p)}$, $Q = S^T$, $B = I_{(p)} U^T U I_{(p')}$ e $C = V_{(p')}^T$.
+Para o cálculo de $[\nabla_S \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p = p' = 1, \dots, k$, com $A = V_{(p)}$, $Q = S^T$, $B = I_{(p)} U^T U I_{(p')}$ e $C = V_{(p')}^T$. Então tem-se
 \[
     \begin{array}{lcl}
         [\nabla_S \mathcal{F}_4]^+ & = & \nabla_S \Big( tr(X^TX) + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big]  \\
@@ -1787,28 +1867,27 @@ Para o cálculo de $[\nabla_S \mathcal{F}_4]^+$, é utilizado a igualdade da equ
                                    &   & + \dots + \big( I_{(k)} U^T U I_{(k)} S V_{(k)}^T V_{(k)} + I_{(k)} U^T U I_{(k)} S V_{(k)}^T V_{(k)} \big) \\
                                    & = & 2 \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)}
     \end{array}
-\]
+\].
 
-Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T U I_{(p)} S$, $Q = V^{T}_{(p)}$, e $B = I$, $\forall p$, é possível obter $[\nabla_{V_{(p)}} \mathcal{F}_4]^-$:
+
+Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ e $[\nabla_{V_{(p)}} \mathcal{F}_4]^-$, respectivamente. Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T U I_{(p)} S$, $Q = V^{T}_{(p)}$, e $B = I$, $\forall p$, é possível obter $[\nabla_{V_{(p)}} \mathcal{F}_4]^-$, da seguinte forma:
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_4]^- & = & - 2 \nabla_{V_{(p)}} \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
                                            & = & - 2 X^T U I_{(p)} S
     \end{array}
-\]
+\].
 
-Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ é possível notar que há dois casos diferentes para a derivação.
-O caso em que $p = p'$ e o caso em que $p \neq p'$.
-Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$:
+Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ é nota-se que há dois casos diferentes para a derivação. O caso em que $p = p'$ e o caso em que $p \neq p'$. Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$, de forma que
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p=p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
                                                     & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(p)} S^T I_{(p)} U^T U I_{(p)} S V_{(p)}^T \big] \Big)  \\
                                                     & = & 2 V_{(p)} S^T I_{(p)} U^T U I_{(p)} S
     \end{array}
-\]
+\].
 
-Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:AQB} em duas outras situações, a qual $V_{(p)}$ esta localizado à esquerda, então, $Q = V_{(p)}$, $A = I$ e $B = S^T I_{(p)} U^T U I_{(p')}$; e quando $V_{(p)}$ esta localizado à direita, então, $Q = V_{(p)}^T$, $A = V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T$, $\forall p, p'$:
+Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:AQB} em duas outras situações, aquela em que $V_{(p)}$ esta localizado à esquerda, então, $Q = V_{(p)}$, $A = I$ e $B = S^T I_{(p)} U^T U I_{(p')}$; e aquela em que $V_{(p)}$ esta localizado à direita, então, $Q = V_{(p)}^T$, $A = V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T$, $\forall p, p'$. Assim,
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(2)} S V_{(2)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big] \\
@@ -1817,9 +1896,9 @@ Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:A
                                    &   & + ~ \nabla_{V_{(p)}} \Big( tr\big[ V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T \big] \Big) \bigg] \\
                                    & = & \sum_{p' \neq p} 2 \big( V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
     \end{array}
-\]
+\].
 
-Finalmente, é possível calcular $[\nabla_{V_{(p)}} \mathcal{F}_4]^{+}$, $\forall p$:
+Então, é possível calcular $[\nabla_{V_{(p)}} \mathcal{F}_4]^{+}$, $\forall p$, fazendo:
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} & = & [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p = p'} + [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} \\
@@ -1849,8 +1928,12 @@ O resultado final dos gradientes para $U, S, V_{(p)}, \forall, p \in \{1, \dots,
     \end{array}
 \end{equation}
 
-Sendo assim, as regras de atualização para as matrizes $U, S, V_{(p)}, \forall, p \in \{1, \dots, k\}$ são mostradas nas equações~\ref{eq:ovnmtf:updateU},~\ref{eq:ovnmtf:updateS} e~\ref{eq:ovnmtf:updateV}, apresentadas no algoritmo~\ref{algo:ovnmtf}.
-Note que essa é a regra de atualização multiplicativa, adotando a mesma estratégia que em \cite{Yoo2010} (mencionada no Capítulo~\ref{ch:fatoracao} deste trabalho), que divide a parte negativa do gradiente pela parte positiva.
+Sendo assim, as regras de atualização para as matrizes $U, S, V_{(p)}, \forall p \in \{1, \dots, k\}$, são mostradas nas equações~\ref{eq:ovnmtf:updateU},~\ref{eq:ovnmtf:updateS} e~\ref{eq:ovnmtf:updateV}, apresentadas no algoritmo~\ref{algo:ovnmtf}, o qual implementa o processo de minimização para o problema~\ref{def:ovnmtf:problem}. Nesse algoritmo $t$ é o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V_{k}^{(t+1)}$} são as matrizes $U$, $S$ e $V_{k}$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard.}
+
+% condições de convergência não foram provadas, mas podemos dar algum insight sobre isso?
+
+% Eu tirei essa nota pois não há nada mais sobre isso no cap 3 correto. Há a necessidade de chamar a atenção para isso mesmo? Se sim, é preciso apenas referenciar o artigo.
+%Note que essa é a regra de atualização multiplicativa, adotando a mesma estratégia que em \cite{Yoo2010} (mencionada no Capítulo~\ref{ch:fatoracao} deste trabalho), que divide a parte negativa do gradiente pela parte positiva.
 
 \begin{algorithm}[H]
 \caption{Algoritmo baseado em atualização multiplicativa para solução do OvNMTF}
@@ -1886,19 +1969,36 @@ Note que essa é a regra de atualização multiplicativa, adotando a mesma estra
 
 \section{Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas}
 
+% BinOvNMTF
+    % Explicação
+    % Problema
+    % Solução
+        % - derivação
+        % - algoritmo
+        % - prova (?)
+
+A segunda estratégia proposta nesta dissertação segue os pressupostos estabelecidos por \citeonline{Wang2011} no problema~\ref{def:fnmtf:problem}. O problema~\ref{def:binovnmtf:problem}, então denominado Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas (Overlapped Binary Non-negative Matrix Tri-factorization - BinOvNMTF) também está associado a diminuição da flexibilidade da solução de coagrupamento apresentada no que diz respeito à relação de associação entre grupos de linhas e grupos de colunas, a qual aqui é binária. Porém, mantem a independência do estabelecimento de diferentes bases para os grupos de linhas, uma vez que também assume a existência de $k$ matrizes $G$.
+
 \begin{problem}[Problema de Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas]
 \label{def:binovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
         \displaystyle \mathcal{F}_5(F, S, G_{(1)}, \dots, G_{(k)}) & = & \displaystyle \min_{F, S, G_{(1)}, \dots, G_{(k)}} & \norm{ X - F \sum_{p=1}^{k} I_{(p)} S G_{(p)}^T }^{2}_{F} \\
                                                                    &   & \text{suj. a}                & F \in \Psi^{n \times k}, \\
-                                                                   &   &                              & S \geq 0, \\
+                                                                   &   &                              & \textcolor{blue}{S \geq 0}, \\ % não tem isso no problema 3
                                                                    &   &                              & G_{(p)} \in \Psi^{m \times l}, \quad \forall p
-    \end{array}
+    \end{array}   \nonumber
 \end{equation}
 \end{problem}
 
-sendo $\Psi = \{0, 1\}$, os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\mathcal{G} = \{ G_{(1)}, \dots, G_{(k)} \}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $S \in \mathbb{R}^{k \times l}_{+}$, $X \in \mathbb{R}^{n \times m}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
+% o X não está definido nos outros problemas. Até estava em um mas eu retirei pois estava somente em um deles. Ou coloca em todos ou não coloca em nenhum
+
+% nos outros algoritmos também não tem o + na definicão das matrizes no texto, só como restrição no problema.
+em que  $S \in \mathbb{R}^{k \times l}_{+}$, $\Psi = \{0, 1\}$, \textcolor{red}{$\sum_{p=1}^{k} F_{\cdot p} = 1$ e $\sum_{q=1}^{l} G_p{_{\cdot q}} = 1$}, $p = \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\mathcal{G} = \{ G_{(1)}, \dots, G_{(k)} \}$, $I_{(p)} \textcolor{red}{\in \{0,1\}^{k \times k}}$ é uma matriz identidade seletora, \textcolor{red}{$k \ll n$, $l \ll m$} e $\norm{\cdot}_F$ denota a norma de Frobenius. \textcolor{red}{Na formulação, o papel das matrizes $I_k$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $G_k$.}
+
+% aqui não tem derivação????
+
+O algoritmo para implementação do processo de resolução do problema~\ref{def:binovnmtf:problem} proposto aqui (Algoritmo~\ref{algo:binovbnmtf}) é uma extensão do algoritmo~\ref{algo:fnmtf} \cite{Wang2011}, apresentado no capítulo~\ref{ch:fatoracao}. \textcolor{red}{Nele ....}
 
 \begin{algorithm}
 \caption{Algoritmo BinOvNMTF}
@@ -1962,6 +2062,19 @@ sendo $\Psi = \{0, 1\}$, os índices $p = \{1, \dots, k\}$, o conjunto de matriz
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
+
+\section{Considerações Finais}
+
+A motivação para a apresentação das novas estratégias (OvNMTF e BinOvNMTF), era a possibilidade de superar algumas das dificuldades apresentas nas estratégias da literatura (ONMTF e FNMTF).
+
+Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas estratégias tem o potencial de superar as estratégias da literatura no que diz respeito ao tamanho da matriz $S$. Isso ocorre porque nas estratégias propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há interseção de colunas entre as diferentes bases dos grupos de linhas. Entretanto, as estratégias propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas.
+
+% eu passei a chamar de estratégia ao invés de algoritmo - precisamos padronizar isso
+Do ponto de vista de geração de informação sobre os dados, as estratégias propostas são capazes de fornece o mesmo tipo de informação: como as linhas da matriz de entrada se organizam em grupos e como as colunas da matriz de entrada se organizam em grupo. Porém, desde que se tem $k$ organização de grupos de colunas, sabe-se que há várias possibilidades dessa organização ocorrer para cada um dos grupos de linhas. Transferindo essa informação para um contexto de aplicação, entende-se que há um conjunto de organização de atributos que estão associados à organização assumida pelos dados no espaço dos dados. Intuitivamente, pode-se dizer que há diferentes maneiras de justificar o agrupamento de dados descoberto, com base nas similaridades parciais dos atributos que os descrevem.
+
+Do ponto de vista do processo de descoberta dos cogrupos, as estratégias propostas seguem o mesmo principio seguido nas estratégias da literatura, qual seja, considerar a informação de similaridade de dados e de atributos simultaneamente para resolver o problema de minimização do erro de aproximação da matriz original, e consequentemente apresentar protótipos que expliquem os cogrupos. Porém, as estratégias propostas liberam os algoritmos de minimização da necessidade de considerar todos os grupos de linhas na otimização dos grupos de colunas. Desta forma, implementa-se um processo no qual não existe mais a interdependência entre grupos de linhas. Esse fato é que, na realidade, possibilita aproximar a quantidade de cogrupos utilizada para explicar os dados daquela que é a desejada, ainda que a sobreposição de colunas ocorra nos dados.
+
+Essa considerações, assim como aquelas delineadas nos capítulos~\ref{ch:conceitos} e~\ref{ch:fatoracao}, são ilustradas no próximo capítulo, no qual resultados experimentais são apresentados.
 
 % ************************************************************
 % ************************************************************

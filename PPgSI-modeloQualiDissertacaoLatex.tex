@@ -1172,7 +1172,7 @@ Uma das métricas externas que são usadas para comparar biclusters encontrados 
 
 % \section{Non-negative Matrix Factorization}
 
-Fatoração de matrizes não-negativas (FMNN) foi estudada como um método para análise de dados capaz de extrair conhecimento sobre um objeto a partir do estudo de suas partes \cite{lee99}, como um contraponto a métodos mais populares como Análise de Componentes Principais e Quantização Vetorial. \citeonline{lee99} apresentam tal abordagem a partir de sua aplicação no aprendizado de características de faces (em dados do tipo imagem) e na análise de características semânticas de textos.  A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por \citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por \citeonline{Long2005,Ding06,Yoo2010}, que formulam o problema como coagrupamento (coclustering). Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos a clusterização de genes e análise de microarry em bioinformática~\cite{Kluger2003} e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
+Fatoração de matrizes não-negativas (FMNN) foi estudada como um método para análise de dados capaz de extrair conhecimento sobre um objeto a partir do estudo de suas partes \cite{lee99}, como um contraponto a métodos mais populares como Análise de Componentes Principais e Quantização Vetorial. \citeonline{lee99} apresentam tal abordagem a partir de sua aplicação no aprendizado de características de faces (em dados do tipo imagem) e na análise de características semânticas de textos.  A análise de textos também foi usada como aplicação na ilustração da aplicação de fatoração de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por \citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por \citeonline{Long2005,Ding06,Yoo2010}, que formulam o problema como coagrupamento (coclustering). Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos a clusterização de genes e análise de microarray em bioinformática~\cite{Kluger2003} e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
 
 A adequação da fatoração de matrizes para tarefas modeladas como agrupamento ou coagrupamento ocorre porque muitas das representações usadas em aplicações nessas áreas se apresentam como uma relação entre pares de elementos pertencentes a conjuntos finitos, como apresentado em \cite{Long2005}. Por exemplo, na resolução da tarefa de agrupamento de documentos, em mineração de textos, usa-se, comumente, dois conjuntos finitos, documentos e palavras, sendo que a relação entre eles é representada pela ocorrência de uma determinada palavra em um determinado documento. Note ainda que a relação expressa entre os elementos, como no contexto de palavras e documentos, apresenta-se como uma matriz de dados positiva, característica que ilustra a aplicabilidade de FMNN.
 
@@ -1191,7 +1191,7 @@ A adequação da fatoração de matrizes para tarefas modeladas como agrupamento
 
 % estou usando partições como sinônimo de grupo.
 
-Formalmente, algoritmos de coagrupamento baseados em FMNN têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}_{+}$, contendo números reais positivos com $n$ linhas e $m$ colunas. Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{X} = \{ x_{1 \cdot}, \dots, x_{n \cdot} \}$ e um conjunto de vetores de colunas ${\mathcal{Y}} = \{ y_{\cdot 1}, \dots, y_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$, que é justamente um valor da matriz $X$. Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse. O objetivo é encontrar $k$ grupos (ou partições, nesse contexto) para $\mathcal{X}$, denotadas \textcolor{red}{pelos subconjuntos ordenados} $I_p \subseteq \mathcal{X}$, $p = 1 \cdots k$, $l$ partições para $\mathcal{Y}$, denotadas \textcolor{red}{pelos subconjuntos ordenados} $I_q \subseteq \mathcal{X}$, $q = 1 \cdots l$, e então interpretar a junção desses subconjuntos como cogrupos $(I_p, J_q)$, ou copartições para esse contexto.
+Formalmente, algoritmos de coagrupamento baseados em FMNN têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}_{+}$, contendo números reais positivos com $n$ linhas e $m$ colunas. Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{X} = \{ x_{1 \cdot}, \dots, x_{n \cdot} \}$ e um conjunto de vetores de colunas ${\mathcal{Y}} = \{ y_{\cdot 1}, \dots, y_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$, que é justamente um valor da matriz $X$. Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse. O objetivo é encontrar $k$ grupos (ou partições, nesse contexto) para $\mathcal{X}$, denotadas \textcolor{red}{pelos subconjuntos ordenados} $I_p \subseteq \mathcal{X}$, $p = 1 \cdots k$, $l$ partições para $\mathcal{Y}$, denotadas \textcolor{red}{pelos subconjuntos ordenados} $J_q \subseteq \mathcal{Y}$, $q = 1 \cdots l$, e então interpretar a junção desses subconjuntos como cogrupos $(I_p, J_q)$, ou copartições para esse contexto.
 
 % verificar a observação do Valdinei sobre tamanho e índice: Em outra parte do texto utilizava $N$ como tamanho e $n$ como índice, aqui já está utilizando $n$ como tamanho. Eu acho que índice deveria ser i e j mesmo, como está aqui.
 
@@ -1204,14 +1204,14 @@ Formalmente, algoritmos de coagrupamento baseados em FMNN têm como entrada uma 
 %As próximas subseções irão mostrar definições dos algoritmos de coclusterização baseados em NMF presentes na literatura, assim como estratégias usadas para selecionar os cogrupos mais relevantes dos $k l$ possíveis.
 %\textcolor{green}{($kl$ possíveis? existem muito mais cogrupos possíveis.)}
 
-Para implementação da FMNN como uma estratégia para resolução do problema de coagruamento, diferentes algoritmos foram apresentados na literatura. Cada uma delas considera o problema de FMNN com diferentes restrições que permitem \textcolor{red}{propor soluções para problema de coagrupamento de diferentes naturezas.} Este capítulo se destina a apresentar três das implementações existentes que são usadas como base para a proposta desta dissertação: decomposição de valores em blocos (Seção~\ref{lab:sec:bvd} introduzida por\citeonline{Long2005}; fatoração ortogonal tripla de matrizes não-negativas (Seção~\ref{sec:ONMTF}) introduzida por \citeonline{Ding06}; e fatoração tripla rápida de matrizes não-negativas (Seção~\ref{sec:FNMTF}) introduzida por \citeonline{Wang2011}. Outras implementações correlatas podem ser encontradas em \textcolor{red}{referências}.
+Para implementação da FMNN como uma estratégia para resolução do problema de coagruamento, diferentes algoritmos foram apresentados na literatura. Cada uma delas considera o problema de FMNN com diferentes restrições que permitem \textcolor{red}{propor soluções para problema de coagrupamento de diferentes naturezas.} Este capítulo se destina a apresentar três das implementações existentes que são usadas como base para a proposta desta dissertação: decomposição de valores em blocos (Seção~\ref{lab:sec:bvd} introduzida por \citeonline{Long2005}; fatoração ortogonal tripla de matrizes não-negativas (Seção~\ref{sec:ONMTF}) introduzida por \citeonline{Ding06}; e fatoração tripla rápida de matrizes não-negativas (Seção~\ref{sec:FNMTF}) introduzida por \citeonline{Wang2011}. Outras implementações correlatas podem ser encontradas em \textcolor{red}{referências}.
 
 % eu imagino que o final deste capítulo deveria ser a interpretação do problema como compactador ou como o tipo de informação que ele traz quando resolvido pelos algoritmos, seguindo a ideia do Valdinei e fazendo o link para o próximo capítulo que é a proposta. Não consegui colocar aqui aquelas ideias.
 
 \section{Decomposição de Valores em Blocos para Coagrupamento}
 \label{sec:bvd}
 
-A Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD) foi proposto por \citeonline{Long2005} como uma abordagem para tratar o problema de coagruapmento, com base em fatoração de matrizes não-negativas. Esta decomposição recebe esse nome por ter a capacidade de encontrar estruturas em blocos escondidas na matriz de dados. Isso é possível porque o algoritmo BVD é capaz de explorar a relação entre linhas e colunas da matriz de dados por meio da decomposição dela em três matrizes: $U$ uma matriz de coeficientes de linhas, $S$ uma matriz com estrutura em blocos, e $V$ uma matriz de coeficientes de colunas. Segundo os autores, tais coeficientes em $U$ e $V$ podem ser vistos como um grau que associa linhas à partições encontradas no conjunto de linhas, e que associa as colunas à partições encontradas no conjunto de colunas, respectivamente; e $S$ pode ser vista como uma representação compacta da matriz original de entrada e permite sua reconstrução aproximada a partir da operação $USV^T$. Sob o ponto de vista de resolução do problema de coagrupamento, então, o objetivo no BVD é encontrar grupos de linhas e colunas de forma simultânea, sendo $k$ grupos de $\mathcal{X}$ (linhas) e $l$ grupos de $\mathcal{Y}$ (colunas).
+A Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD) foi proposta por \citeonline{Long2005} como uma abordagem para tratar o problema de coagruapmento, com base em fatoração de matrizes não-negativas. Esta decomposição recebe esse nome por ter a capacidade de encontrar estruturas em blocos escondidas na matriz de dados. Isso é possível porque o algoritmo BVD é capaz de explorar a relação entre linhas e colunas da matriz de dados por meio da decomposição dela em três matrizes: $U$ uma matriz de coeficientes de linhas, $S$ uma matriz com estrutura em blocos, e $V$ uma matriz de coeficientes de colunas. Segundo os autores, tais coeficientes em $U$ e $V$ podem ser vistos como um grau que associa linhas a partições encontradas no conjunto de linhas, e que associa colunas a partições encontradas no conjunto de colunas, respectivamente; e $S$ pode ser vista como uma representação compacta da matriz original de entrada e permite sua reconstrução aproximada a partir da operação $USV^T$. Sob o ponto de vista de resolução do problema de coagrupamento, então, o objetivo no BVD é encontrar grupos de linhas e colunas de forma simultânea, sendo $k$ grupos de $\mathcal{X}$ (linhas) e $l$ grupos de $\mathcal{Y}$ (colunas).
 
 % Sendo assim, multiplicando as três matrizes geradas pela fatoração, é possível reconstruir a matriz original $X$ por partes.
 
@@ -1259,9 +1259,8 @@ O problema de coagrupamento implementado sob a abordagem BVD é formalmente apre
                                            &   &                              & V \geq 0
     \end{array}   \nonumber
 \end{equation}
-\end{problem}
-
 em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, \textcolor{red}{$k \ll n$, $l \ll m$}, e $\norm{\cdot}_F$ denota a norma de Frobenius.
+\end{problem}
 %para matrizes - tem norma de Frobenius para outra coisa????
 
 %% *******************************************************************************************************
@@ -1325,7 +1324,7 @@ em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$,
 %% *******************************************************************************************************
 %% *******************************************************************************************************
 
-A implementação para o processo de minimização do problema~\ref{def:bvd:problem} é descrito no algoritmo~\ref{algo:bvd}, \textcolor{red}{o qual é baseado em atualizações multiplicativas e tem sua convergência demonstrada via teoria de otimização não linear (veja \cite{Long2005})}. Nesse algoritmo considere $t$ o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$}, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard.}
+A implementação para o processo de minimização do problema~\ref{def:bvd:problem} é descrito no algoritmo~\ref{algo:bvd}, \textcolor{red}{o qual é baseado em atualizações multiplicativas e tem sua convergência demonstrada via teoria de otimização não linear (veja \cite{Long2005})}. Nesse algoritmo considere $t$ o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t)}$ e $V^{(t)}$}, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard.}
 % ué gente, porque t+1 para iteração atual em S e V ????
 % gente, o produto de Hadamard foi usado??????
 
@@ -1407,9 +1406,10 @@ Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o proble
                                              &   &                              & V^T V = I
     \end{array}   \nonumber
 \end{equation}
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, \textcolor{red}{$k \ll n$, $l \ll m$} e $\norm{\cdot}_F$ denota a norma de Frobenius. 
 \end{problem}
 
-em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, \textcolor{red}{$k \ll n$, $l \ll m$} e $\norm{\cdot}_F$ denota a norma de Frobenius. Na formulação desse problemas, duas restrições de ortogonalidade são acrescentadas, $U^T U = I$ e $V^T V = I$, \textcolor{red}{em que $I$ é a matriz identidade}, para as matrizes de grupos de linhas e grupos de colunas, respectivamente. Tais restrições restringem o problema da fatoração $X \approx USV^T$ para um número menor de possíveis soluções, buscando a unicidade, como mostrado na figura~\ref{fig:bvdvsonmtf}.
+Na formulação desse problemas, duas restrições de ortogonalidade são acrescentadas, $U^T U = I$ e $V^T V = I$, \textcolor{red}{em que $I$ é a matriz identidade}, para as matrizes de grupos de linhas e grupos de colunas, respectivamente. Tais restrições restringem o problema da fatoração $X \approx USV^T$ para um número menor de possíveis soluções, buscando a unicidade, como mostrado na figura~\ref{fig:bvdvsonmtf}.
 
 % no artigo é dito que são restrições de ortogonalidade e não de ortonormalidade
 % acredito que a ortonormalidade diz respeito às linhas e colunas da matriz
@@ -1438,9 +1438,9 @@ em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$,
     \source{\citeonline{Yoo2010}}
 \end{figure}
 
-A figura~\ref{fig:bvdvsonmtf} representa um problema com três grupos (três nuvens de pontos). As linhas pontilhadas representam os protótipos obtidos por FMN (a) sem restrição de ortogonalidade nas matrizes, como o BVD (a), e (b) com restrição de ortogonalidade nas matrizes, como o ONMTF. Note que a base obtida com FMN ortogonal tende a encontrar protótipos mais centralizados nos grupos. Já a base obtida com FMN sem restrições tende a encontrar uma região convexa que contém os pontos dos grupos (incluindo regiões que abrangem pontos de grupos originalmente projetados como sendo diferentes). A solução obtida em (a), embora correta, não é desejável.
+A figura~\ref{fig:bvdvsonmtf} representa um problema com três grupos (três nuvens de pontos). As linhas pontilhadas representam os protótipos obtidos por FMN (a) sem restrição de ortogonalidade nas matrizes, como o BVD, e (b) com restrição de ortogonalidade nas matrizes, como o ONMTF. Note que a base obtida com FMNN ortogonal tende a encontrar protótipos mais centralizados nos grupos. Já a base obtida com FMNN sem restrições tende a encontrar uma região convexa que contém os pontos dos grupos (incluindo regiões que abrangem pontos de grupos originalmente projetados como sendo diferentes). A solução obtida em (a), embora correta, não é desejável.
 
-\citeonline{Ding06} propõem uma solução para implementação do processo de minimização para o problema~\ref{def:onmtf:problem} semelhante ao que foi apresentado na seção~\ref{sec:bvd}, \textcolor{red}{também baseado em atualizações multiplicativas e com convergência demonstrada com base na teoria de otimização não linear, porém com uso de uma abordagem mais simples para derivação das regras de atualizacão multiplicativas}. O algoritmo para tal processo de minimização é apresentado no algoritmo~\ref{algo:onmtf}, no qual  $t$ o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$}, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard. Também, a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd} pode ser aplicada nesse caso.}
+\citeonline{Ding06} propõem uma solução para implementação do processo de minimização para o problema~\ref{def:onmtf:problem} semelhante ao que foi apresentado na seção~\ref{sec:bvd}, \textcolor{red}{também baseado em atualizações multiplicativas e com convergência demonstrada com base na teoria de otimização não linear, porém com uso de uma abordagem mais simples para derivação das regras de atualizacão multiplicativas}. O algoritmo para tal processo de minimização é apresentado no algoritmo~\ref{algo:onmtf}, no qual  $t$ o contador de iterações, \textcolor{blue}{$U^{(t)}$, $S^{(t)}$ e $V^{(t)}$}, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e \textcolor{red}{$\odot$ é o produto de Hadamard. Também, a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd} pode ser aplicada nesse caso.}
 
 %fazendo a derivação através da função lagrangeana e a introdução dos multiplicadores de lagrange, utilizando as condições de otimização não-linear de KKT, derivando as regras para atualização multiplicativa para $U$, $S$ e $V$, apresentadas no algoritmo~\ref{algo:onmtf}.
 
@@ -1456,17 +1456,27 @@ A figura~\ref{fig:bvdvsonmtf} representa um problema com três grupos (três nuv
                     \label{eq:onmtf:updateU}
                         U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} U^{(t)^T} X V^{(t)} S^{(t)^T} }      \nonumber
                     \end{equation}
+                    \begin{equation}
+                    \label{eq:onmtf:updateU}
+                        \textcolor{green}{U^{(t+1)} \gets U^{(t)} \odot \sqrt{\frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} U^{(t)^T} X V^{(t)} S^{(t)^T} }}}      \nonumber
+                    \end{equation}
                 \State
                     \begin{equation}
                     \label{eq:onmtf:updateV}
                         V^{(t+1)} \gets V^{(t)} \odot \frac{ X^T U^{(t+1)} S }{ \textcolor{blue}{V^{(t)} V^{(t)^T}} X^T U^{(t+1)} S^{(t)} }      \nonumber
                     \end{equation}
-                \State
+                    \begin{equation}
+                    \label{eq:onmtf:updateV}
+                        \textcolor{green}{V^{(t+1)} \gets V^{(t)} \odot \sqrt{\frac{ X^T U^{(t+1)} S }{ \textcolor{blue}{V^{(t)} V^{(t)^T}} X^T U^{(t+1)} S^{(t)} }}}      \nonumber
+                    \end{equation}                \State
                     \begin{equation}
                     \label{eq:onmtf:updateS}
                         S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X \textcolor{blue}{V^{(t+1)}} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} \textcolor{blue}{V^{(t+1)^T} V^{(t+1)}} }    \nonumber
                     \end{equation}
-                \State $t \gets t + 1$
+                    \begin{equation}
+                    \label{eq:onmtf:updateS}
+                        \textcolor{green}{S^{(t+1)} \gets S^{(t)} \odot \sqrt{\frac{ U^{(t+1)^T} X \textcolor{blue}{V^{(t+1)}} }{ U^{(t+1)^T} U^{(t+1)} S^{(t)} \textcolor{blue}{V^{(t+1)^T} V^{(t+1)}} }}}    \nonumber
+                    \end{equation}                \State $t \gets t + 1$
             \EndWhile\label{euclidendwhile}
             \State \textbf{return} $U^{(t+1)}, S^{(t+1)}, V^{(t+1)}$
         \EndFunction
@@ -1586,9 +1596,9 @@ O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fas
                                              &   &                              & G \in \Psi^{m \times l}
     \end{array}    \nonumber
 \end{equation}
+em que  $S \in \mathbb{R}^{k \times l}$, $\Psi = \{0, 1\}$, \textcolor{red}{$\sum_{p=1}^{k} F_{\cdot p} = 1$ e $\sum_{q=1}^{l} G_{\cdot q} = 1$}.
 \end{problem}
 
-em que  $S \in \mathbb{R}^{k \times l}$, $\Psi = \{0, 1\}$, \textcolor{red}{$\sum_{p=1}^{k} F_{\cdot p} = 1$ e $\sum_{q=1}^{l} G_{\cdot q} = 1$}.
 
 % $X \in \mathbb{R}^{n \times m}$, - nos outros não foi colocado o X e o X foi definido no inicio do capítulo. Acho que nao precisa colocar aqui, ou tem que colocar em todos
 
@@ -1597,7 +1607,7 @@ em que  $S \in \mathbb{R}^{k \times l}$, $\Psi = \{0, 1\}$, \textcolor{red}{$\su
 \citeonline{Wang2011} denominam $F$ como uma matriz indicadora dos grupos de linhas, $G$ como uma matriz indicadora dos grupos de colunas, e $S$ como uma matriz que contém os fatores que conectam um grupo de linhas aos grupos de colunas, e um grupo de colunas aos grupos de linhas.  % essa parte final aqui ficou um pouco confusa pra mim, é isso mesmo? não é a mesma ideia dos anteriores? Relação entre grupos de linhas e colunas, normalmente?
 
 % olha, eu acho que, embora aqui tenha ficado bem simples, não seria necessário mostrar isso e simplesmente mandar para a referência como foi feito nos outros.
-Como não há restrições \textcolor{red}{em $S$}, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_3$:
+Como não há restrições \textcolor{red}{em $S$}, fixados $F$ e $G$, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_3$:
 \[
     \begin{array}{lclcl}
         \nabla_S \mathcal{L} &     =    & F^T X G - F^T F S G^T G                 & = & 0                                 \\
@@ -1615,7 +1625,7 @@ Como não há restrições \textcolor{red}{em $S$}, é possível encontrar uma r
 
 \textcolor{red}{Assim, o problema de minimização se transforma nos subproblemas de atualização de $F$ e $G$. Uma estratégia semelhante aquela aplicada no clássico algoritmo \textit{k-means} pode ser aplicada. Primeiramente, fixa-se $S$ e $G$ e resolve-se o problema~\ref{def:fnmtf:problem} para $F$ de forma iterativa, verificando qual o protótipo mais o aproxima a cada linha de $X$. Em seguida, fixa-se $S$ e $F$ para alcançar uma solução iterativa para $G$, assim como mostrado no algoritmo~\ref{algo:fnmtf}.}
 
-O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema~\ref{def:fnmtf:problem}. Nesse algoritmo considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, \textcolor{blue}{$U^{(t)}$, $S^{(t+1)}$ e $V^{(t+1)}$} como sendo as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, \textcolor{red}{e $\norm{ \cdot }^2$ é a norma XXXXX}. \textcolor{red}{Também, a mesma condição de convergência usada nos algoritmos anteriores pode ser aplicada nesse caso.}
+O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema~\ref{def:fnmtf:problem}. Nesse algoritmo considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, \textcolor{blue}{$U^{(t)}$, $S^{(t)}$ e $V^{(t)}$} como sendo as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, \textcolor{red}{e $\norm{ \cdot }^2$ é a norma XXXXX}. \textcolor{red}{Também, a mesma condição de convergência usada nos algoritmos anteriores pode ser aplicada nesse caso.}
 
 % a ordem de cálculo de F e G aqui também está trocada. Isso não importa, certo?
 % me perdi toda na indexação - vou ter que olhar isso novamente outro dia, de preferência junto com Lucas e Valdinei.
@@ -1625,7 +1635,7 @@ O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema
     \begin{algorithmic}[1]
         \Function{FNMTF}{$X$, $maxIter$}
             % \State \textbf{Inicialize:} $F^{(0)} \geq 0$ \textcolor{green}{($\in\{0,1\}$ e somatório igual a 1)}, $S^{(0)} \geq 0, G^{(0)} \geq 0$ e $t \gets 0$.
-            \State \textbf{Inicialize:} \textcolor{red}{$F^{(0)},G^{(0)} \gets {0,1}$ com $\sum_{p=1}^{k} F_{\cdot p} = 1$ e $\sum_{q=1}^{l} G_{\cdot q} = 1$, $S^{(0)} \geq 0$ e $t \gets 0$.}
+            \State \textbf{Inicialize:} \textcolor{red}{$F^{(0)},G^{(0)} \gets \{0,1\}$ com $\sum_{p=1}^{k} F_{\cdot p} = 1$ e $\sum_{q=1}^{l} G_{\cdot q} = 1$, e $t \gets 0$.}
             \While{(não convergiu) ou ($t \leq maxIter$)}
                 \State
                     \begin{equation}
@@ -1675,7 +1685,7 @@ O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema
 
 A fim de melhor motivar a proposta dos novos algoritmos, apresentados no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos ONMTF e FNMTF em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos.
 
-Do ponto de vista de quantização do espaço dos dados, a quantidade de informação que precisa ser armazenada é dependente a organização da matriz $S$, ou seja, do número de grupos de linhas $k$ e do número de colunas $l$ necessários para explicar a matriz de dados original. Como será discutido mais à frente neste trabalho, para determinados tipos de organização de cogrupos, especificamente aqueles em que há sobreposição de colunas nos grupos de colunas, os algoritmos implementados sob essas estratégias exigem uma quantidade de grupos de colunas ($l$) que pode ser maior do que o número de grupos de colunas desejados. Os algoritmos propostos tem o objetivo de superar essa limitação, permitindo que a quantização do espaço seja mais próxima da desejada em termos de grupos de colunas.
+Do ponto de vista de quantização do espaço dos dados, a quantidade de informação que precisa ser armazenada é dependente da organização da matriz $S$, ou seja, do número de grupos de linhas $k$ e do número de colunas $l$ necessários para explicar a matriz de dados original. Como será discutido mais à frente neste trabalho, para determinados tipos de organização de cogrupos, especificamente aqueles em que há sobreposição de colunas nos grupos de colunas, os algoritmos implementados sob essas estratégias exigem uma quantidade de grupos de colunas ($l$) que pode ser maior do que o número de grupos de colunas desejados. Os algoritmos propostos tem o objetivo de superar essa limitação, permitindo que a quantização do espaço seja mais próxima da desejada em termos de grupos de colunas.
 
 Do ponto de vista de geração de informação sobre os dados, os algoritmos ONMTF e FNMTF são capazes de fornecer como as linhas da matriz se organizam em grupos e como as colunas da matriz se organizam em grupos. Transferindo essa informação para um contexto de aplicação, significa dizer que os algoritmos são capazes de explicar como os dados se organizam no espaço (matriz $U$) e, intuitivamente e sob uma forma de organização, como grupos de atributos desses dados (matriz $V$) podem estar associados (por meio da matriz $S$) à essa organização dos dados. Esse tipor de informação, também presente nos algoritmos propostos, não é explicitamente fornecida por algoritmos de agrupamento como \textit{k-means} e \textit{fuzzy-k-means}, brevemente discutidos no capítulo~\ref{ch:conceitos}.
 
@@ -1757,9 +1767,10 @@ Baseado no problema~\ref{def:onmtf:problem} \cite{Ding06}, \textcolor{red}{poré
                                                                    &   &                              & V_{(p)} \geq 0, \quad \forall p
     \end{array} \nonumber
 \end{equation}
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p = \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \textcolor{red}{\in \{0,1\}^{k \times k}}$ é uma matriz identidade seletora, \textcolor{red}{$k \ll n$, $l \ll m$} e $\norm{\cdot}_F$ denota a norma de Frobenius. 
 \end{problem}
 
-em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p = \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \textcolor{red}{\in \{0,1\}^{k \times k}}$ é uma matriz identidade seletora, \textcolor{red}{$k \ll n$, $l \ll m$} e $\norm{\cdot}_F$ denota a norma de Frobenius. \textcolor{red}{Na formulação, o papel das matrizes $I_k$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $V_k$.}
+\textcolor{red}{Na formulação, o papel das matrizes $I_k$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $V_k$.}
 
 % sendo os índices $p = \{1, \dots, k\}$, o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, em que cada $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, uma matriz seletora $I_{(p)}$ que contém $1$ na posição $I_{p,p}$ da sua diagonal e $0$ no resto, $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, e $\norm{\cdot}_F$ a norma de Frobenius para matrizes.
 
@@ -1776,7 +1787,9 @@ Desde que o problema~\ref{def:ovnmtf:problem} é derivado do problema~\ref{def:o
 \label{eq:diff:AQBQtC}
     \begin{array}{lcl}
         \nabla_Q tr( AQBQ^TC )     & = & BQ^TCA + B^TQ^TA^TC^T \\
-        \nabla_{Q^T} tr( AQBQ^TC ) & = & A^TC^TQB^T + CAQB
+        \nabla_{Q^T} tr( AQBQ^TC ) & = & A^TC^TQB^T + CAQB \\
+        \textcolor{green}{\nabla_Q tr( AQBQ^TC )}     & = & \textcolor{green}{A^TC^TQB^T + CAQB} \\
+        \textcolor{green}{\nabla_{Q^T} tr( AQBQ^TC )} & = & \textcolor{green}{BQ^TCA + B^TQ^TA^TC^T}
     \end{array}
 \end{equation}
 }
@@ -1794,7 +1807,7 @@ Expandindo $\mathcal{F}_4$, \textcolor{red}{com base nas propriedade de traço d
 
 \[
     \begin{array}{lcl}
-        \displaystyle \mathcal{F}_4 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
+        \displaystyle \mathcal{F}_4 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
                                     & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T )
     \end{array}
 \].
@@ -1878,7 +1891,7 @@ Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_4$, considere as pa
     \end{array}
 \].
 
-Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ é nota-se que há dois casos diferentes para a derivação. O caso em que $p = p'$ e o caso em que $p \neq p'$. Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$, de forma que
+Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ nota-se que há dois casos diferentes para a derivação. O caso em que $p = p'$ e o caso em que $p \neq p'$. Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$, de forma que
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p=p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
@@ -1947,13 +1960,20 @@ Sendo assim, as regras de atualização para as matrizes $U, S, V_{(p)}, \forall
                     \label{eq:ovnmtf:updateU}
                         U^{(t+1)} \gets U^{(t)} \odot \sum_{p=1}^{k} \frac{ X V^{(t)}_{(p)} S^{(t)^T} I_{(p)} }{ \sum_{p'=1}^k U^{(t)} I_{(p)} S^{(t)} V^{(t)^T}_{(p)} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} }
                     \end{equation}
-                \For{$p \leftarrow 1, k$}
+                    \begin{equation}
+                    \label{eq:ovnmtf:updateU}
+                        \textcolor{green}{U^{(t+1)} \gets U^{(t)} \odot  \frac{ \sum_{p=1}^{k} X V^{(t)}_{(p)} S^{(t)^T} I_{(p)} }{ \sum_{p=1}^{k}\sum_{p'=1}^k U^{(t)} I_{(p)} S^{(t)} V^{(t)^T}_{(p)} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} }}
+                    \end{equation}
+                    \For{$p \leftarrow 1, k$}
                     \State
                         \begin{equation}
                         \label{eq:ovnmtf:updateV}
                             V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ X^T U^{(t+1)} I_{(p)} S^{(t)} }{ V^{(t)}_{(p)} S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} + \sum_{p' \neq p} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }
                         \end{equation}
-                \EndFor
+                        \label{eq:ovnmtf:updateV}
+                            V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ X^T U^{(t+1)} I_{(p)} S^{(t)} }{ V^{(t)}_{(p)} S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} + \sum_{p' \neq p} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }
+                        \end{equation}
+                    \EndFor
                 \State
                     \begin{equation}
                     \label{eq:ovnmtf:updateS}

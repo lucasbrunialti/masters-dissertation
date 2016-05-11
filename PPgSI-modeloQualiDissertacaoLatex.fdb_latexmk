@@ -1,5 +1,5 @@
 # Fdb version 3
-["bibtex PPgSI-modeloQualiDissertacaoLatex"] 1462773712 "PPgSI-modeloQualiDissertacaoLatex.aux" "PPgSI-modeloQualiDissertacaoLatex.bbl" "PPgSI-modeloQualiDissertacaoLatex" 1462773954
+["bibtex PPgSI-modeloQualiDissertacaoLatex"] 1462773712 "PPgSI-modeloQualiDissertacaoLatex.aux" "PPgSI-modeloQualiDissertacaoLatex.bbl" "PPgSI-modeloQualiDissertacaoLatex" 1462855901
   "./abntex2-alf.bst" 1453838285 60030 7131b334d5c7081e749c5e07289765be ""
   "/usr/local/texlive/2015/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1356995954 5396 4eb260dac60f150ae608d45252853090 ""
   "PPgSI-modeloQualiDissertacaoLatex.aux" 1462773954 64457 3b34d3b69a075ef09763c7897da67a99 ""
@@ -8,14 +8,14 @@
   (generated)
   "PPgSI-modeloQualiDissertacaoLatex.blg"
   "PPgSI-modeloQualiDissertacaoLatex.bbl"
-["makeindex PPgSI-modeloQualiDissertacaoLatex.idx"] 1453838370 "PPgSI-modeloQualiDissertacaoLatex.idx" "PPgSI-modeloQualiDissertacaoLatex.ind" "PPgSI-modeloQualiDissertacaoLatex" 1462773954
+["makeindex PPgSI-modeloQualiDissertacaoLatex.idx"] 1453838370 "PPgSI-modeloQualiDissertacaoLatex.idx" "PPgSI-modeloQualiDissertacaoLatex.ind" "PPgSI-modeloQualiDissertacaoLatex" 1462855901
   "PPgSI-modeloQualiDissertacaoLatex.idx" 1462773947 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "PPgSI-modeloQualiDissertacaoLatex.ilg"
   "PPgSI-modeloQualiDissertacaoLatex.ind"
-["pdflatex"] 1462773946 "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.tex" "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.pdf" "PPgSI-modeloQualiDissertacaoLatex" 1462773954
+["pdflatex"] 1462773946 "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.tex" "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.pdf" "PPgSI-modeloQualiDissertacaoLatex" 1462855901
   "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.aux" 1462773954 64457 3b34d3b69a075ef09763c7897da67a99 ""
-  "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.tex" 1462773944 339785 b54930fba23f9c2ba14e45842087f4b5 ""
+  "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.tex" 1462855899 339785 b54930fba23f9c2ba14e45842087f4b5 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -182,7 +182,7 @@
   "PPgSI-modeloQualiDissertacaoLatex.loa" 1462773954 769 dd1f9c6beb0c16f528a89f56cafe9065 ""
   "PPgSI-modeloQualiDissertacaoLatex.lof" 1462773954 4879 8118656943f175712aac910fa904ab34 ""
   "PPgSI-modeloQualiDissertacaoLatex.lot" 1462773954 1260 c6a8e6766c440f922ddcc47e2abb3ef5 ""
-  "PPgSI-modeloQualiDissertacaoLatex.tex" 1462773944 339785 b54930fba23f9c2ba14e45842087f4b5 ""
+  "PPgSI-modeloQualiDissertacaoLatex.tex" 1462855899 339785 b54930fba23f9c2ba14e45842087f4b5 ""
   "PPgSI-modeloQualiDissertacaoLatex.toc" 1462773954 7955 a24f798b80e2d94f3b874f150b4657ec ""
   "abntex2abrev.sty" 1453838285 5735 9a333e0f4b39334e9b41d1902f0c3a97 ""
   "abntex2cite.sty" 1453838285 43475 2daa4d7a3414e3f10297388469c0b582 ""
@@ -250,14 +250,14 @@
   "img/ovnmtf-nc-3-tc-6.png" 1461345083 111743 bc94d83a1348eed69da7b891e2ef8fa3 ""
   "img/reconstruction.png" 1456977913 56043 662a9abdb49149c607ff71bc6d4cb5b9 ""
   (generated)
-  "PPgSI-modeloQualiDissertacaoLatex.lot"
   "PPgSI-modeloQualiDissertacaoLatex.brf"
   "PPgSI-modeloQualiDissertacaoLatex.lof"
-  "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.log"
-  "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.pdf"
-  "PPgSI-modeloQualiDissertacaoLatex.aux"
-  "PPgSI-modeloQualiDissertacaoLatex.pdf"
-  "PPgSI-modeloQualiDissertacaoLatex.toc"
   "PPgSI-modeloQualiDissertacaoLatex.idx"
+  "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.pdf"
+  "PPgSI-modeloQualiDissertacaoLatex.pdf"
   "PPgSI-modeloQualiDissertacaoLatex.loa"
+  "/Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.log"
+  "PPgSI-modeloQualiDissertacaoLatex.toc"
+  "PPgSI-modeloQualiDissertacaoLatex.aux"
+  "PPgSI-modeloQualiDissertacaoLatex.lot"
   "PPgSI-modeloQualiDissertacaoLatex.log"

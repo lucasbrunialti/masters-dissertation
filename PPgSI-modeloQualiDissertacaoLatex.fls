@@ -248,6 +248,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.lof
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.lof
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.loa
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.loa
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.lot
@@ -271,6 +273,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmsy7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
@@ -279,6 +283,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
@@ -310,8 +316,12 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf1.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf2.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf2.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf2.png
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/ovnmtfNewsApplication.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/ovnmtfNewsApplication.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/ovnmtfNewsApplication.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV1tok.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV1tok.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV1tok.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/a-bic-structure.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/a-bic-structure.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/a-bic-structure.png
@@ -327,9 +337,6 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/img/d-bic-structure.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/e-bic-structure.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/e-bic-structure.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/e-bic-structure.png
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/a-bic-structure.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/a-bic-structure.png
@@ -556,8 +563,6 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertaca
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
 INPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
 OUTPUT /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQualiDissertacaoLatex.brf
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/doublestroke/dsrom12.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/doublestroke/dsrom10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm

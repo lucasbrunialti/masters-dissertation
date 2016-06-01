@@ -23,6 +23,12 @@
 {CHENG, Y.; CHURCH, G.~M. Biclustering of expression data. In:
   \emph{Procedures of the 8th ISMB}. [S.l.]: AAAI Press, 2000. p. 93--103.}
 
+\bibitem[Cormen et al. 2001]{Cormen2001}
+\abntrefinfo{Cormen et al.}{CORMEN et al.}{2001}
+{CORMEN, T.~H. et al. \emph{Introduction to Algorithms}. 2nd. ed. [S.l.]:
+  McGraw-Hill Higher Education, 2001.
+ISBN 0070131511.}
+
 \bibitem[Ding et al. 2006]{Ding06}
 \abntrefinfo{Ding et al.}{DING et al.}{2006}
 {DING, C. et al. Orthogonal nonnegative matrix tri-factorizations for
@@ -108,6 +114,10 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
   and conditions.
 \emph{Genome Research}, v.~13, n.~4, p. 703--716, 2003.}
 
+\bibitem[Koren 2009]{Koren09}
+\abntrefinfo{Koren}{KOREN}{2009}
+{KOREN, Y. \emph{1 The BellKor Solution to the Netflix Grand Prize}. 2009.}
+
 \bibitem[Kuang 2014]{Kuang2014}
 \abntrefinfo{Kuang}{KUANG}{2014}
 {KUANG, D.
@@ -125,6 +135,15 @@ Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
 {LEE, D.~D.; SEUNG, H.~S. Algorithms for non-negative matrix factorization. In:
    \emph{{NIPS}}. [s.n.], 2000. p. 556--562. Dispon{\'\i}vel em:
   $<$citeseer\-.ist\-.psu\-.edu\-/lee01algorithms\-.html$>$.}
+
+\bibitem[Li e Ding 2006]{Li2006}
+\abntrefinfo{Li e Ding}{LI; DING}{2006}
+{LI, T.; DING, C. The relationships among various nonnegative matrix
+  factorization methods for clustering. In:  \emph{Proceedings of the Sixth
+  International Conference on Data Mining}. Washington, DC, USA: IEEE Computer
+  Society, 2006.  (ICDM '06), p. 362--371.
+ISBN 0-7695-2701-9. Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$http:\-/\-/dx\-.doi\-.org\-/10\-.1109\-/ICDM\-.2006\-.160$>$}{http://dx.doi.org/10.1109/ICDM.2006.160}.}
 
 \bibitem[Long, Zhang e Yu 2005]{Long2005}
 \abntrefinfo{Long, Zhang e Yu}{LONG; ZHANG; YU}{2005}

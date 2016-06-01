@@ -1,5 +1,6 @@
-\contentsline {algorithm}{\numberline {1}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do BVD\relax }}{34}{algorithm.1}
-\contentsline {algorithm}{\numberline {2}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do ONMTF\relax }}{36}{algorithm.2}
-\contentsline {algorithm}{\numberline {3}{\ignorespaces Algoritmo FNMTF\relax }}{38}{algorithm.3}
-\contentsline {algorithm}{\numberline {4}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do OvNMTF\relax }}{45}{algorithm.4}
-\contentsline {algorithm}{\numberline {5}{\ignorespaces Algoritmo BinOvNMTF\relax }}{47}{algorithm.5}
+\contentsline {algorithm}{\numberline {1}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do BVD\relax }}{35}{algorithm.1}
+\contentsline {algorithm}{\numberline {2}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do ONMTF\relax }}{37}{algorithm.2}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa e na teoria de de deriva\IeC {\c c}\IeC {\~a}o na superf\IeC {\'\i }cie com restri\IeC {\c c}\IeC {\~o}es (Variedade Stiefel) para solu\IeC {\c c}\IeC {\~a}o do ONMTF\relax }}{39}{algorithm.3}
+\contentsline {algorithm}{\numberline {4}{\ignorespaces Algoritmo FNMTF\relax }}{43}{algorithm.4}
+\contentsline {algorithm}{\numberline {5}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do OvNMTF\relax }}{53}{algorithm.5}
+\contentsline {algorithm}{\numberline {6}{\ignorespaces Algoritmo BinOvNMTF\relax }}{55}{algorithm.6}

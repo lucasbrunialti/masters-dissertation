@@ -1970,16 +1970,21 @@ Sendo assim, as regras de atualização para as matrizes $U, S, V_{(p)}, \forall
                         \label{eq:ovnmtf:updateV}
                             V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ X^T U^{(t+1)} I_{(p)} S^{(t)} }{ V^{(t)}_{(p)} S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} + \sum_{p' \neq p} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }
                         \end{equation}
+                        \begin{equation}
                         \label{eq:ovnmtf:updateV}
-                            V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ X^T U^{(t+1)} I_{(p)} S^{(t)} }{ V^{(t)}_{(p)} S^{(t)^T} I_{(p)} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} + \sum_{p' \neq p} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }
+                            \textcolor{green}{ V^{(t+1)}_{(p)} \gets V^{(t)}_{(p)} \odot \frac{ X^T U^{(t+1)} I_{(p)} S^{(t)} }{ \sum_{p'=1}^{k} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} U^{(t+1)^T} U^{(t+1)} I_{(p)} S^{(t)} }}
                         \end{equation}
-                    \EndFor
+
+                        \EndFor
                 \State
                     \begin{equation}
                     \label{eq:ovnmtf:updateS}
                         S^{(t+1)} \gets S^{(t)} \odot \sum_{p=1}^{l} \frac{ I_{(p)} U^{(t+1)^T} X V^{(t+1)}_{(p)} }{ \sum_{p'=1}^{l} I_{p} U^{(t+1)^T} U^{(t+1)} I_{(p')} S^{(t)} V^{(t+1)^T}_{(p')} V^{(t+1)}_{(p)} }
                     \end{equation}
-                \State $t \gets t + 1$
+                    \begin{equation}
+                    \label{eq:ovnmtf:updateS}
+                        \textcolor{green}{ S^{(t+1)} \gets S^{(t)} \odot  \frac{ \sum_{p=1}^{l} I_{(p)} U^{(t+1)^T} X V^{(t+1)}_{(p)} }{ \sum_{p=1}^{l} \sum_{p'=1}^{l} I_{p} U^{(t+1)^T} U^{(t+1)} I_{(p')} S^{(t)} V^{(t+1)^T}_{(p')} V^{(t+1)}_{(p)} }}
+                    \end{equation}                \State $t \gets t + 1$
             \EndWhile\label{euclidendwhile}
             \State \textbf{return} $U^{(t+1)}, S^{(t+1)}, V_{(1)}^{(t+1)}, \dots, V_{(k)}^{(t+1)}$
         \EndFunction

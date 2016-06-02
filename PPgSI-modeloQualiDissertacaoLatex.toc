@@ -30,46 +30,46 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {4}Fatora\IeC {\c c}\IeC {\~a}o de matrizes n\IeC {\~a}o-negativas para coagrupamento com sobreposi\IeC {\c c}\IeC {\~a}o unidimensional}{46}{chapter.4}
 \contentsline {section}{\numberline {4.1}Fatora\IeC {\c c}\IeC {\~a}o Tripla de Matrizes N\IeC {\~a}o-negativas com Sobreposi\IeC {\c c}\IeC {\~a}o Unidimensional}{49}{section.4.1}
-\contentsline {section}{\numberline {4.2}Fatora\IeC {\c c}\IeC {\~a}o Bin\IeC {\'a}ria Tripla de Matrizes N\IeC {\~a}o-negativas Sobrepostas}{53}{section.4.2}
-\contentsline {section}{\numberline {4.3}Considera\IeC {\c c}\IeC {\~o}es Finais}{54}{section.4.3}
+\contentsline {section}{\numberline {4.2}Fatora\IeC {\c c}\IeC {\~a}o Bin\IeC {\'a}ria Tripla de Matrizes N\IeC {\~a}o-negativas com Sobreposi\IeC {\c c}\IeC {\~a}o Unilateral}{54}{section.4.2}
+\contentsline {section}{\numberline {4.3}Considera\IeC {\c c}\IeC {\~o}es Finais}{56}{section.4.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}Experimentos e Resultados}{57}{chapter.5}
-\contentsline {section}{\numberline {5.1}Experimentos com Base de Dados sint\IeC {\'e}ticas}{57}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}An\IeC {\'a}lise da reconstru\IeC {\c c}\IeC {\~a}o}{60}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {k-means}}{61}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {fuzzy k-means}}{63}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {ONMTF}}{64}{subsection.5.1.4}
-\contentsline {subsection}{\numberline {5.1.5}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resulatdos do algoritmo \textit {FNMTF}}{65}{subsection.5.1.5}
-\contentsline {subsection}{\numberline {5.1.6}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {OvNMTF}}{66}{subsection.5.1.6}
-\contentsline {subsection}{\numberline {5.1.7}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {BinOvNMTF}}{67}{subsection.5.1.7}
-\contentsline {subsection}{\numberline {5.1.8}An\IeC {\'a}lise de particionamento}{69}{subsection.5.1.8}
-\contentsline {subsection}{\numberline {5.1.9}An\IeC {\'a}lise de coagrupamento}{71}{subsection.5.1.9}
-\contentsline {section}{\numberline {5.2}Experimentos com base de dados reais}{71}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Descri\IeC {\c c}\IeC {\~a}o das bases de dados}{72}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Pr\IeC {\'e}-processamento}{73}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Experimentos quantitativos}{75}{subsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.3.1}Setup dos algoritmos}{75}{subsubsection.5.2.3.1}
-\contentsline {subsubsection}{\numberline {5.2.3.2}Setup dos experimentos}{76}{subsubsection.5.2.3.2}
-\contentsline {subsubsection}{\numberline {5.2.3.3}Base de dados \textit {\textbf {NIPS}}}{76}{subsubsection.5.2.3.3}
-\contentsline {subsubsection}{\numberline {5.2.3.4}Base de dados \textit {\textbf {20Newsgroup}}}{76}{subsubsection.5.2.3.4}
-\contentsline {subsubsection}{\numberline {5.2.3.5}Base de dados \textit {\textbf {IG}}}{76}{subsubsection.5.2.3.5}
-\contentsline {subsubsection}{\numberline {5.2.3.6}Base de dados \textit {\textbf {IG toy}}}{76}{subsubsection.5.2.3.6}
-\contentsline {subsection}{\numberline {5.2.4}An\IeC {\'a}lise qualitativa}{77}{subsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{78}{subsubsection.5.2.4.1}
-\contentsline {subsubsection}{\numberline {5.2.4.2}An\IeC {\'a}lise de dados utilizando \textit {FNMTF}}{81}{subsubsection.5.2.4.2}
-\contentsline {subsubsection}{\numberline {5.2.4.3}An\IeC {\'a}lise de dados utilizando \textit {OvNMTF}}{81}{subsubsection.5.2.4.3}
-\contentsline {subsubsection}{\numberline {5.2.4.4}An\IeC {\'a}lise de dados utilizando \textit {BinOvNMTF}}{82}{subsubsection.5.2.4.4}
+\contentsline {chapter}{\chapternumberline {5}Experimentos e Resultados}{59}{chapter.5}
+\contentsline {section}{\numberline {5.1}Experimentos com Base de Dados sint\IeC {\'e}ticas}{59}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}An\IeC {\'a}lise da reconstru\IeC {\c c}\IeC {\~a}o}{62}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {k-means}}{63}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {fuzzy k-means}}{65}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {ONMTF}}{66}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resulatdos do algoritmo \textit {FNMTF}}{67}{subsection.5.1.5}
+\contentsline {subsection}{\numberline {5.1.6}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {OvNMTF}}{68}{subsection.5.1.6}
+\contentsline {subsection}{\numberline {5.1.7}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {BinOvNMTF}}{69}{subsection.5.1.7}
+\contentsline {subsection}{\numberline {5.1.8}An\IeC {\'a}lise de particionamento}{71}{subsection.5.1.8}
+\contentsline {subsection}{\numberline {5.1.9}An\IeC {\'a}lise de coagrupamento}{73}{subsection.5.1.9}
+\contentsline {section}{\numberline {5.2}Experimentos com base de dados reais}{73}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Descri\IeC {\c c}\IeC {\~a}o das bases de dados}{74}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Pr\IeC {\'e}-processamento}{75}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Experimentos quantitativos}{77}{subsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.3.1}Setup dos algoritmos}{77}{subsubsection.5.2.3.1}
+\contentsline {subsubsection}{\numberline {5.2.3.2}Setup dos experimentos}{78}{subsubsection.5.2.3.2}
+\contentsline {subsubsection}{\numberline {5.2.3.3}Base de dados \textit {\textbf {NIPS}}}{78}{subsubsection.5.2.3.3}
+\contentsline {subsubsection}{\numberline {5.2.3.4}Base de dados \textit {\textbf {20Newsgroup}}}{78}{subsubsection.5.2.3.4}
+\contentsline {subsubsection}{\numberline {5.2.3.5}Base de dados \textit {\textbf {IG}}}{78}{subsubsection.5.2.3.5}
+\contentsline {subsubsection}{\numberline {5.2.3.6}Base de dados \textit {\textbf {IG toy}}}{78}{subsubsection.5.2.3.6}
+\contentsline {subsection}{\numberline {5.2.4}An\IeC {\'a}lise qualitativa}{79}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{80}{subsubsection.5.2.4.1}
+\contentsline {subsubsection}{\numberline {5.2.4.2}An\IeC {\'a}lise de dados utilizando \textit {FNMTF}}{83}{subsubsection.5.2.4.2}
+\contentsline {subsubsection}{\numberline {5.2.4.3}An\IeC {\'a}lise de dados utilizando \textit {OvNMTF}}{83}{subsubsection.5.2.4.3}
+\contentsline {subsubsection}{\numberline {5.2.4.4}An\IeC {\'a}lise de dados utilizando \textit {BinOvNMTF}}{84}{subsubsection.5.2.4.4}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{83}{section*.40}
+\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{85}{section*.40}
 \renewcommand *{\cftappendixname }{Ap\^endice \space }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}Minera\IeC {\c c}\IeC {\~a}o de Texto}{87}{appendix.A}
-\contentsline {section}{\numberline {A.1}Tarefas de pr\IeC {\'e}-processamento}{87}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{87}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{88}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}Filtragem}{88}{subsection.A.1.3}
-\contentsline {subsection}{\numberline {A.1.4}Stemming}{89}{subsection.A.1.4}
-\contentsline {subsection}{\numberline {A.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{89}{subsection.A.1.5}
+\contentsline {appendix}{\chapternumberline {A}Minera\IeC {\c c}\IeC {\~a}o de Texto}{89}{appendix.A}
+\contentsline {section}{\numberline {A.1}Tarefas de pr\IeC {\'e}-processamento}{89}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{89}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{90}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Filtragem}{90}{subsection.A.1.3}
+\contentsline {subsection}{\numberline {A.1.4}Stemming}{91}{subsection.A.1.4}
+\contentsline {subsection}{\numberline {A.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{91}{subsection.A.1.5}

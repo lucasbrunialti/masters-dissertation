@@ -49,14 +49,14 @@
 \contentsline {subsection}{\numberline {5.2.3}Experimentos quantitativos}{78}{subsection.5.2.3}
 \contentsline {subsubsection}{\numberline {5.2.3.1}Configura\IeC {\c c}\IeC {\~a}o dos experimentos}{78}{subsubsection.5.2.3.1}
 \contentsline {subsubsection}{\numberline {5.2.3.2}Resultados}{80}{subsubsection.5.2.3.2}
-\contentsline {subsection}{\numberline {5.2.4}An\IeC {\'a}lise qualitativa}{84}{subsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{85}{subsubsection.5.2.4.1}
+\contentsline {subsection}{\numberline {5.2.4}An\IeC {\'a}lise qualitativa}{85}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{86}{subsubsection.5.2.4.1}
 \contentsline {subsubsection}{\numberline {5.2.4.2}An\IeC {\'a}lise de dados utilizando \textit {FNMTF}}{88}{subsubsection.5.2.4.2}
 \contentsline {subsubsection}{\numberline {5.2.4.3}An\IeC {\'a}lise de dados utilizando \textit {OvNMTF}}{88}{subsubsection.5.2.4.3}
 \contentsline {subsubsection}{\numberline {5.2.4.4}An\IeC {\'a}lise de dados utilizando \textit {BinOvNMTF}}{89}{subsubsection.5.2.4.4}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{90}{section*.52}
+\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{90}{section*.53}
 \renewcommand *{\cftappendixname }{Ap\^endice \space }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}

@@ -1,8 +1,13 @@
 \select@language {brazil}
-\contentsline {table}{\numberline {1}{\ignorespaces Resumo de qualidade de reconstru\IeC {\c c}\IeC {\~a}o: ok - permite reconstru\IeC {\c c}\IeC {\~a}o; * - sem informa\IeC {\c c}\IeC {\~a}o sobre interse\IeC {\c c}\IeC {\~a}o; + - preserva informa\IeC {\c c}\IeC {\~a}o de interse\IeC {\c c}\IeC {\~a}o\relax }}{63}{table.caption.20}
-\contentsline {table}{\numberline {2}{\ignorespaces Avalia\IeC {\c c}\IeC {\~a}o da qualidade de agrupamento de linhas (l) e colunas (c) sob a medida de avalia\IeC {\c c}\IeC {\~a}o \textit {Rand Index}\relax }}{73}{table.caption.27}
-\contentsline {table}{\numberline {3}{\ignorespaces Estat\IeC {\'\i }sticas das bases de dados usadas nos experimentos.\relax }}{75}{table.caption.28}
-\contentsline {table}{\numberline {4}{\ignorespaces Melhores resultados dos experimentos.\relax }}{78}{table.caption.29}
-\contentsline {table}{\numberline {5}{\ignorespaces Melhores resultados dos experimentos.\relax }}{79}{table.caption.30}
-\contentsline {table}{\numberline {6}{\ignorespaces Matriz $S$ para \textit {ONMTF} com $k = l = 3$.\relax }}{82}{table.caption.32}
-\contentsline {table}{\numberline {7}{\ignorespaces Matriz $S$ para \textit {OvNMTF} com $k = 3$ e $l = 6$.\relax }}{83}{table.caption.34}
+\contentsline {table}{\numberline {1}{\ignorespaces Resumo de qualidade de reconstru\IeC {\c c}\IeC {\~a}o: $ok$ - permite reconstru\IeC {\c c}\IeC {\~a}o de forma natural; $\times $ - sem informa\IeC {\c c}\IeC {\~a}o sobre interse\IeC {\c c}\IeC {\~a}o parcial; $+$ - preserva informa\IeC {\c c}\IeC {\~a}o de interse\IeC {\c c}\IeC {\~a}o parcial\relax }}{62}{table.caption.20}
+\contentsline {table}{\numberline {2}{\ignorespaces Avalia\IeC {\c c}\IeC {\~a}o da capacidade de quantiza\IeC {\c c}\IeC {\~a}o segundo o erro de quantiza\IeC {\c c}\IeC {\~a}o com os melhores destacados em negrito.\relax }}{72}{table.caption.32}
+\contentsline {table}{\numberline {3}{\ignorespaces Estat\IeC {\'\i }sticas das bases de dados usadas nos experimentos.\relax }}{74}{table.caption.33}
+\contentsline {table}{\numberline {4}{\ignorespaces Distribui\IeC {\c c}\IeC {\~a}o de not\IeC {\'\i }cias por ano (base de dados \textit {IG}).\relax }}{74}{table.caption.34}
+\contentsline {table}{\numberline {5}{\ignorespaces Distribui\IeC {\c c}\IeC {\~a}o de not\IeC {\'\i }cias por canal (base de dados \textit {IG}).\relax }}{75}{table.caption.35}
+\contentsline {table}{\numberline {6}{\ignorespaces Distribui\IeC {\c c}\IeC {\~a}o de trabalhos acad\IeC {\^e}micos por ano (base de dados \textit {NIPS}).\relax }}{75}{table.caption.36}
+\contentsline {table}{\numberline {7}{\ignorespaces Distribui\IeC {\c c}\IeC {\~a}o de trabalhos acad\IeC {\^e}micos por \IeC {\'a}reas t\IeC {\'e}cnicas (base de dados \textit {NIPS}).\relax }}{76}{table.caption.37}
+\contentsline {table}{\numberline {8}{\ignorespaces \IeC {\'I}ndice de Rand m\IeC {\'e}dio por representa\IeC {\c c}\IeC {\~a}o do conjunto de dados \textit {IG toy}, destacando os melhores resultados por algoritmo.\relax }}{82}{table.caption.38}
+\contentsline {table}{\numberline {9}{\ignorespaces Informa\IeC {\c c}\IeC {\~a}o M\IeC {\'u}tua Normalizada m\IeC {\'e}dia por representa\IeC {\c c}\IeC {\~a}o do conjunto de dados \textit {IG toy}, destacando os melhores resultados por algoritmo.\relax }}{82}{table.caption.39}
+\contentsline {table}{\numberline {10}{\ignorespaces Melhores resultados do \IeC {\'I}ndice de Rand para experimentos com a base de dados IG. * - testes n\IeC {\~a}o finalizados\relax }}{84}{table.caption.42}
+\contentsline {table}{\numberline {11}{\ignorespaces Matriz $S$ para \textit {ONMTF} com $k = l = 3$.\relax }}{87}{table.caption.44}
+\contentsline {table}{\numberline {12}{\ignorespaces Matriz $S$ para \textit {OvNMTF} com $k = 3$ e $l = 6$.\relax }}{88}{table.caption.46}

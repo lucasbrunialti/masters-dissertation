@@ -5,13 +5,6 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
-\bibitem[Adomavicius e Tuzhilin 2005]{Adomavicius2005}
-\abntrefinfo{Adomavicius e Tuzhilin}{ADOMAVICIUS; TUZHILIN}{2005}
-{ADOMAVICIUS, G.; TUZHILIN, A. Toward the next generation of recommender
-  systems: A survey of the state-of-the-art and possible extensions.
-\emph{IEEE Transactions on Knowledge and Data Engineering}, v.~17, n.~6, p.
-  734--749, 2005.}
-
 \bibitem[Cabanes, Bennani e Fresneau 2012]{Cabanes2012}
 \abntrefinfo{Cabanes, Bennani e Fresneau}{CABANES; BENNANI; FRESNEAU}{2012}
 {CABANES, G.; BENNANI, Y.; FRESNEAU, D. Enriched topological learning for
@@ -29,10 +22,26 @@
   McGraw-Hill Higher Education, 2001.
 ISBN 0070131511.}
 
+\bibitem[Ding, He e Simon 2005]{Ding05}
+\abntrefinfo{Ding, He e Simon}{DING; HE; SIMON}{2005}
+{DING, C.; HE, X.; SIMON, H.~D. On the equivalence of nonnegative matrix
+  factorization and spectral clustering. In:  \emph{in SIAM International
+  Conference on Data Mining}. [S.l.: s.n.], 2005.}
+
 \bibitem[Ding et al. 2006]{Ding06}
 \abntrefinfo{Ding et al.}{DING et al.}{2006}
 {DING, C. et al. Orthogonal nonnegative matrix tri-factorizations for
   clustering. In:  \emph{In SIGKDD}. [S.l.]: Press, 2006. p. 126--135.}
+
+\bibitem[Fatahalian, Sugerman e Hanrahan 2004]{Fatahalian2004}
+\abntrefinfo{Fatahalian, Sugerman e Hanrahan}{FATAHALIAN; SUGERMAN;
+  HANRAHAN}{2004}
+{FATAHALIAN, K.; SUGERMAN, J.; HANRAHAN, P. Understanding the efficiency of gpu
+  algorithms for matrix-matrix multiplication. In:  \emph{Proceedings of the
+  ACM SIGGRAPH/EUROGRAPHICS Conference on Graphics Hardware}. New York, NY,
+  USA: ACM, 2004.  (HWWS '04), p. 133--137.
+ISBN 3-905673-15-0. Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/1058129\-.1058148$>$}{http://doi.acm.org/10.1145/1058129.1058148}.}
 
 \bibitem[Feldman e Sanger 2006]{Feldman2006}
 \abntrefinfo{Feldman e Sanger}{FELDMAN; SANGER}{2006}
@@ -102,11 +111,6 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 \abntrefinfo{Jain, Murty e Flynn}{JAIN; MURTY; FLYNN}{1999}
 {JAIN, A.~K.; MURTY, M.~N.; FLYNN, P.~J. Data clustering: A review.
 \emph{ACM Computing Surveys}, ACM, v.~31, p. 264 -- 323, September 1999.}
-
-\bibitem[Jannach et al. 2011]{Jannach2011}
-\abntrefinfo{Jannach et al.}{JANNACH et al.}{2011}
-{JANNACH, D. et al. \emph{Recommender Systems An Introduction}. [S.l.]:
-  Cambridge University Press, 2011.}
 
 \bibitem[Kluger et al. 2003]{Kluger2003}
 \abntrefinfo{Kluger et al.}{KLUGER et al.}{2003}
@@ -187,19 +191,13 @@ ISBN 0-7695-2701-9. Dispon{\'\i}vel em:
 \emph{Bioinformatics}, Oxford University Press, Oxford, UK, v.~22, n.~9, p.
   1122--1129, maio 2006.}
 
-\bibitem[Rand 1971]{Rand1971}
-\abntrefinfo{Rand}{RAND}{1971}
-{RAND, W.~M. Objective criteria for the evaluation of clustering methods.
-\emph{Journal of the American Statistical Association}, v.~66, n.~336, p.
-  846--850, December 1971.}
-
 \bibitem[Rocha et al.]{Peres2012}
 \abntrefinfo{Rocha et al.}{ROCHA et al.}{}
 {ROCHA, T. et al. Tutorial sobre fuzzy-c-means e fuzzy learning vector
   quantization: Abordagens híbridas para tarefas de agrupamento e
   classificação.
 \emph{RITA - Revista de Informática Teórica e Aplicada}, v.~19, n.~1, p.
-  120-- 163, March.}
+  120--163, March.}
 
 \bibitem[Salakhutdinov e Mnih 2008]{SalMnih08}
 \abntrefinfo{Salakhutdinov e Mnih}{SALAKHUTDINOV; MNIH}{2008}
@@ -212,6 +210,12 @@ ISBN 0-7695-2701-9. Dispon{\'\i}vel em:
 {SALTON, G.; WONG, A.; YANG, C.~S. A vector space model for automatic indexing.
 \emph{Communications of the ACM}, ACM, New York, NY, USA, v.~18, n.~11, p.
   613--620, 1975.}
+
+\bibitem[Sanderson 2010]{armadillo}
+\abntrefinfo{Sanderson}{SANDERSON}{2010}
+{SANDERSON, C. \emph{{Armadillo: An Open Source C++ Linear Algebra Library for
+  Fast Prototyping and Computationally Intensive Experiments}}.
+[S.l.], 2010.}
 
 \bibitem[Santamaría, Miguel e Therón 2007]{Santamaria2007}
 \abntrefinfo{Santamaría, Miguel e Therón}{SANTAMARíA; MIGUEL; THERóN}{2007}
@@ -258,6 +262,15 @@ Dispon{\'\i}vel em:
   2011.  (IJCAI'11), p. 1553--1558.
 ISBN 978-1-57735-514-4. Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/dx\-.doi\-.org\-/10\-.5591\-/978-1-57735-516-8\-/IJCAI11-261$>$}{http://dx.doi.org/10.5591/978-1-57735-516-8/IJCAI11-261}.}
+
+\bibitem[Wang et al. 2013]{openblas}
+\abntrefinfo{Wang et al.}{WANG et al.}{2013}
+{WANG, Q. et al. Augem: Automatically generate high performance dense linear
+  algebra kernels on x86 cpus. In:  \emph{Proceedings of the International
+  Conference on High Performance Computing, Networking, Storage and Analysis}.
+  New York, NY, USA: ACM, 2013.  (SC '13), p. 25:1--25:12.
+ISBN 978-1-4503-2378-9. Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/2503210\-.2503219$>$}{http://doi.acm.org/10.1145/2503210.2503219}.}
 
 \bibitem[Weiss, Indurkhya e Zhang 2010]{Weiss2010}
 \abntrefinfo{Weiss, Indurkhya e Zhang}{WEISS; INDURKHYA; ZHANG}{2010}

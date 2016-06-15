@@ -73,6 +73,7 @@
 \usepackage{longtable, multirow}
 \usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
 \usepackage{dsfont}
+\usepackage{rotating}
 % \usepackage{subfig}
 % \usepackage{subfigure}
 
@@ -602,7 +603,7 @@ Palavras-chaves: Coagrupamento. Fatoração de Matrizes. \textcolor{red}{Esparsi
 %
 %-------------------------------------------------------------------------
 \begin{flushleft}
-BRUNIALTI, Lucas Fernandes. \textbf{Matrix Factorization for coclustering in sparse data matrices}. \imprimirdata. \pageref{LastPage} p. Dissertation (Master of Science) – School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, DefenseYear.
+BRUNIALTI, Lucas Fernandes. \textbf{Matrix Factorization for cogrupoing in sparse data matrices}. \imprimirdata. \pageref{LastPage} p. Dissertation (Master of Science) – School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, DefenseYear.
 \end{flushleft}
 
 Coagrupamento é uma estratégia para análise de dados capaz de encontrar grupos de objetos, então denomidados cogrupos, que são similares entre si de acordo com um subconjunto dos seus atributos descritivos, e assim, um objeto pode pertencer a mais de um grupo se subconjuntos diferentes de atributos forem considerados. Essa característica pode ser particularmente útil para aplicações nas quais a similaridade parcial entre objetos faz sentido, conferindo ao resultado da análise de dados algumas características interessantes como \textcolor{red}{serendipidade} ou flexibilidade no modelo de agrupamento. Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de textos, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamente mais adequado à tal subjetividade. Entretanto, análise de grupos considerando dados textuais representa um contexto no qual existe o \textcolor{red}{problema de esparsidade de dados, que precisa ser adequadamente tratado para que os bons resultados sejam obtidos}. Um método para implementação de coagrupamento capaz de lidar com esse tipo de dados é a fatoração de matrizes. Nesta dissertação de mestrado são propostas duas estratégias para coagrupamento baseadas em fatoração de matrizes, capazes de encontrar cogrupos organizados com sobreposição em uma matriz esparsa de valores reais positivos. As estratégias são apresentadas em termos de suas definições formais e seus algoritmos para implementação. Resultados experimentais são fornecidos a partir de problemas baseados em conjuntos de dados sintéticos e em conjuntos de dados reais contextualizados na área de mineração de textos. Os resultados confirmam a hipótese de que as estratégias propostas são capazes de descobrir cogrupos com sobreposição, e que tal organização de cogrupos fornece informação detalhada, e portanto de valor diferenciado, para a mineração de textos.
@@ -738,7 +739,7 @@ Segundo~\citeonline{Jain1999}, a análise de agrupamento pode ser vista como uma
 
 Estratégias de diferentes naturezas -- particional, hierárquica, baseada em densidade, etc \cite{Xu2005, han2006data}, podem ser usadas para alcançar o objetivo da análise de agrupamento, e cada uma delas possui características que as fazem mais ou menos suscetiveis para conjuntos de dados de diferentes naturezas. Ainda, sob o contexto clássico da tarefa de agrupamento, os métodos precisam lidar com a similaridade intrínseca entre os dados tomando como base a comparação de todas as suas características descritivas e, de alguma forma, precisam ser capazes de descobrir quais características de fato tornam dados em um grupo de dados mais similares entre si.
 
-% citar aqui alguns artigos um surveys e reviews que tratem de fuzzy clustering, probabilistic clustering e também coclustering.
+% citar aqui alguns artigos um surveys e reviews que tratem de fuzzy clustering, probabilistic clustering e também cogrupoing.
 Ao longo do tempo, pesquisadores da área de análise de agrupamento vêm propondo flexibilizações na definição da tarefa de agrupamento de forma a adequá-la a contextos mais realísticos nos quais a organização natural dos dados em um conjunto de dados não pressupõe restrições como a pertinência de um dado a um único grupo ou a possibilidade de agrupar dados de acordo com similaridades em subconjuntos de atributos descritivos \textcolor{blue}{(referência, referência, referência)}. Essa forma de tratar a tarefa de agrupamento permite melhorias no processo de descoberta de agrupamentos sobre dois aspectos: facilita o trabalho do método que busca os grupos, pois flexibiliza a maneira como os atributos descritivos dos dados ou a pertinência do dado aos grupos influencia o processo de agrupamento; fornece um conjunto de informações diferenciado que permite que análises mais refinadas sejam realizadas quando da interpretação dos grupos apresentados como resultado.
 
 % Lucas, eu deixei o exemplo de SR mas tentei dar uma cara apenas de análise de texto. Não sei se ficou bom. Você pode alterar o exemplo se achar melhor.
@@ -1177,7 +1178,7 @@ Uma das métricas externas que são usadas para comparar biclusters encontrados 
 
 Fatoração de matrizes não-negativas (\textit{Non-negative Matrix Factorization} - NMF) foi estudada como um método para análise de dados capaz de extrair conhecimento sobre um objeto a partir do estudo de suas partes \cite{lee99}, como um contraponto a métodos mais populares como Análise de Componentes Principais (\textit{Principal Component Analysis - PCA}) e Quantização Vetorial, porém, considerando a fatoração matrizes positivas ou negativas.
 \citeonline{lee99} apresentam tal abordagem a partir de sua aplicação no aprendizado de características de faces (em dados do tipo imagem) e na análise de características semânticas de textos.
-A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por \citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por~\citeonline{Long2005, Ding06, Yoo2010}, que formulam o problema como coagrupamento (coclustering).
+A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por \citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por~\citeonline{Long2005, Ding06, Yoo2010}, que formulam o problema como coagrupamento (cogrupoing).
 Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos a clusterização de genes e análise de microarry em bioinformática~\cite{Kluger2003} e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
 Na aplicação de NMF em filtragem colaborativa em sistemas de recomendação, destaca-se o modelo baseado em NMF de~\citeonline{Koren09} para predição de preferências de usuários por filmes, que ganhou em primeiro lugar o Prêmio Netflix (\textit{Netflix Prize})\footnote{http://www.netflixprize.com/}.
 
@@ -2536,8 +2537,8 @@ Para essas últimas, uma análise qualitativa é delineada de forma a ilustrar o
 \section{Experimentos com Bases de Dados sintéticas}
 \label{sec:experiments:synthetic}
 
-% Sara: Lucas, seguindo o conselho do Fabrício, não vamos tratar bicluster e cocluster como coisas diferentes. Podemos fazer uma nota de rodapó no Capítulo 2 comentado esse problema e dizendo que vamos tratar tudo como uma coisa só. Ok?
-% Lucas: Eu não gosto muito disso, todo mundo usa coclustering como particionamento e biclustering como achar uma submatriz, e se falar que é isso, parece que o universo vai entrar em colapso... E se tratarmos igual, o trabalho inteiro fica meio inconsistente... Por enquanto podemos deixar assim, mas vamos conversar sobre isso...
+% Sara: Lucas, seguindo o conselho do Fabrício, não vamos tratar bicluster e cogrupo como coisas diferentes. Podemos fazer uma nota de rodapó no Capítulo 2 comentado esse problema e dizendo que vamos tratar tudo como uma coisa só. Ok?
+% Lucas: Eu não gosto muito disso, todo mundo usa cogrupoing como particionamento e biclustering como achar uma submatriz, e se falar que é isso, parece que o universo vai entrar em colapso... E se tratarmos igual, o trabalho inteiro fica meio inconsistente... Por enquanto podemos deixar assim, mas vamos conversar sobre isso...
 
 % Sara: Alternativamente, podemos mudar toda a nomenclatura usada no texto e passar a usar bicluster, e dizer que usamos coagrupamento para encontrar biclusters. Vamos pensar nisso? De qualquer forma, por enquanto estou tentando padronizar para que depois possamos substituir de maneira mais ou menos automática, se for o caso.
 
@@ -2590,10 +2591,10 @@ Na figura~\ref{fig:bic-syntetic-structure} são apresentas as visualizações gr
 \end{figure}
 
 % Sara: verificar se é cogrupo ou co-grupo
-% Lucas: acho que podemos usar cogrupo, na literatura, tem gente que usa co-clustering e tem gente q usa coclustering
+% Lucas: acho que podemos usar cogrupo, na literatura, tem gente que usa co-clustering e tem gente q usa cogrupoing
 
 % Sara: talvez tenhamos que tratar cogrupo de interesse, pod conta da definição baseada em particionamento
-% Lucas: Se usassemos bicluster para falar de encontrar submatriz e cocluster fazer particionamento não teríamos esse problema
+% Lucas: Se usassemos bicluster para falar de encontrar submatriz e cogrupo fazer particionamento não teríamos esse problema
 Para compreender a representação gráfica apresentada na figura~\ref{fig:bic-syntetic-structure} considere que cada um dos cinco quadrados maiores representa uma base de dados sintética, que a quantidade de dados da base está representada pela altura do quadrado, que a quantidade de atributos na base está representada pela largura do quadrado.
 Todas as bases de dados possuem $150$ dados (linhas) e $150$ atributos (colunas).
 Considere ainda que cada quadrado ou retângulo, representados com diferentes tons da cor azul, representam um cogrupo, também com suas alturas e larguras representando, respectivamente, a quantidade de linhas e colunas que compõem cada cogrupo.
@@ -2663,14 +2664,14 @@ Sob essa ótica de interpretação, as demais bases de dados possuem:
 %Lucas, eu estou deixando o seu original mas estou propondo outra forma de descrever. Precisamos discutir qual delas vai ficar.
 
 %\begin{itemize}
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:a}}} há um bicluster, formado pelas linhas de $60$ à $110$ e pelas colunas de $70$ à $140$; sendo então, dois coclusters de linhas, o primeiro formado pelas linhas de $60$ à $110$ e o segundo pelas demais linhas, e dois cogrupos de colunas, o primeiro formado pelas colunas de $70$ à $140$ e o segundo pelas demais colunas.
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}} há três biclusters sem intersecção, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $100$ à $149$; sendo então, três coclusters de linhas sem intersecção e três coclusters de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$, respectivamente.
-%   Também existe outra forma de observar os coclusters presentes neste caso, se for considerado os coclusters de colunas para cada cocluster de linhas, seriam os mesmos três coclusters de linhas e dois coclusters de colunas para cada cocluster de linha, ou seja, para o primeiro cocluster de linhas (linhas $0$ à $49$), os dois coclusters de colunas são os coclusters formados pelas colunas de $0$ à $49$ e pelas demais colunas ($50$ à $149$), seguindo a mesma lógica para os demais coclusters.
-%    Note que desta maneira, é possível que coclusters de colunas tenham intersecção.
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:c}}} há nove biclusters com intersecção em estrutura de xadrez, formados através da divisão da matriz de dados sintética em partes iguais; sendo assim, serão 3 coclusters de linhas sem intersecção e 3 coclusters de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$.
-%    É possível fazer a mesma observação de coclusters realizada no item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}}, totalizando nove coclusters, três coclusters de linhas e três coclusters de colunas para cada cocluster de linha.
-%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} há três biclusters com intersecção nas colunas, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $69$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, e o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $79$ à $149$; sendo então, 3 coclusters de linhas sem intersecção e 3 coclusters de colunas com intersecção.
-%    Considerando os coclusters de colunas para cada cocluster de linhas, serão nove coclusters, dois coclusters de colunas para cada um dos três coclusters de linhas.
+%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:a}}} há um bicluster, formado pelas linhas de $60$ à $110$ e pelas colunas de $70$ à $140$; sendo então, dois cogrupos de linhas, o primeiro formado pelas linhas de $60$ à $110$ e o segundo pelas demais linhas, e dois cogrupos de colunas, o primeiro formado pelas colunas de $70$ à $140$ e o segundo pelas demais colunas.
+%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}} há três biclusters sem intersecção, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $100$ à $149$; sendo então, três cogrupos de linhas sem intersecção e três cogrupos de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$, respectivamente.
+%   Também existe outra forma de observar os cogrupos presentes neste caso, se for considerado os cogrupos de colunas para cada cogrupo de linhas, seriam os mesmos três cogrupos de linhas e dois cogrupos de colunas para cada cogrupo de linha, ou seja, para o primeiro cogrupo de linhas (linhas $0$ à $49$), os dois cogrupos de colunas são os cogrupos formados pelas colunas de $0$ à $49$ e pelas demais colunas ($50$ à $149$), seguindo a mesma lógica para os demais cogrupos.
+%    Note que desta maneira, é possível que cogrupos de colunas tenham intersecção.
+%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:c}}} há nove biclusters com intersecção em estrutura de xadrez, formados através da divisão da matriz de dados sintética em partes iguais; sendo assim, serão 3 cogrupos de linhas sem intersecção e 3 cogrupos de colunas sem intersecção, o primeiro formado pelas linhas de $0$ à $49$, o segundo formado pelas linhas de $50$ à $99$, o terceiro formado pelas linhas de $100$ à $149$, o quarto formado pelas colunas de $0$ à $49$, o quinto formado pelas colunas de $50$ à $99$, e o sexto formado pelas colunas de $100$ à $149$.
+%    É possível fazer a mesma observação de cogrupos realizada no item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:b}}}, totalizando nove cogrupos, três cogrupos de linhas e três cogrupos de colunas para cada cogrupo de linha.
+%    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} há três biclusters com intersecção nas colunas, o primeiro formado pelas linhas de $0$ à $49$ e pelas colunas de $0$ à $69$, o segundo formado pelas linhas de $50$ à $99$ e pelas colunas $50$ à $99$, e o terceiro formado pelas linhas de $100$ à $149$ e pelas colunas de $79$ à $149$; sendo então, 3 cogrupos de linhas sem intersecção e 3 cogrupos de colunas com intersecção.
+%    Considerando os cogrupos de colunas para cada cogrupo de linhas, serão nove cogrupos, dois cogrupos de colunas para cada um dos três cogrupos de linhas.
 %    \item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:e}}} Este caso é exatamente igual ao item \textit{\textbf{Figura~\ref{fig:bic-syntetic-structure:d}}} se for observado a transposição da matriz de dados sintética.
 % \end{itemize}
 
@@ -3398,12 +3399,13 @@ Essas bases de dados estão descritas nessa seção, juntamente com o pré-proce
 % As quatro bases de dados reais são compostas por textos referentes ao domínio de postagens em grupos discussão, textos acadêmicos e notícias de portais postagem. O contexto referente a cada uma das bases é brevemente apresentados nesta seção, sendo que na tabela~\ref{tab:datasetsstatsREAL} são listadas algumas estatísticas para cada um deles.
 As três bases de dados reais são compostas por textos referentes à textos acadêmicos e notícias de portais postagem.
 O contexto referente a cada uma das bases é brevemente apresentados nesta seção, sendo que na tabela~\ref{tab:datasetsstatsREAL} são listadas algumas estatísticas para cada um deles.
+A esparsidade foi calculada da seguinte forma: $1 - \frac{ \text{\# Total de palavras} }{ \text{\# Documentos} \times \text{\# Palavras únicas} }$.
 
 \begin{enumerate}
     % \item \textbf{\textit{20Newsgroups}}\footnote{\url{http://qwone.com/~jason/20Newsgroups/}} Trata-se de uma coleção de documentos do tipo texto que se tornou referência para avaliação de algoritmos \textcolor{blue}{de aprendizado de máquina} aplicados a tarefas de mineração de textos (classificação e agrupamento) e outros tipos de análise como redução de dimensionalidade e recuperação de informação. Os documentos compreendem postagens de usuários anônimos do \textit{Usenet newsgroup} (um repositório para grupos de discussões de um sistema distribuído de comunicação chamado \textit{Usenet}). A coleção de documentos está organizada de forma particionada em 20 diferentes grupos temáticos, como computação, ciências, política e etc., com uma distribuição uniforme de documentos nos grupos.
 
     \item \textbf{\textit{NIPS14-17}}\footnote{\url{http://robotics.stanford.edu/~gal/data.html}} Esta base de dados contém uma coleção de trabalhos acadêmicos publicados no congresso \textit{NIPS} (\textit{Neural Information Processing Systems}) no período de 2001 a 2003, dos volumes 14 a 17.
-    A construção da base de dados \textit{NIPS14-17} foi realizada por \textit{Sam Roweis}\footnote{\url{http://www.cs.nyu.edu/~roweis/data.html}}, a partir de um processamento aplicado aos dados adquiridos por \textit{Yann LeCun} usando um dispositivo de reconhecimento ótico de caracteres (OCR) \cite{Chechik2007}. A fonte de dados original, usada na construção desta base, possui os trabalhos científicos publicados em 18 volumes (0 a 17), porém apenas os trabalhos dos volumes 14 a 17 estão rotulados. Tais documentos estão organizados sob tópicos que compreendem  áreas técnicas (teoria de aprendizado, neurociência, algoritmos e arquiteturas e etc), e estão distribuídos de forma desbalanceada entre os grupos caracterizados por cada um desses tópicos.
+    A construção da base de dados \textit{NIPS14-17} foi realizada por \textit{Sam Roweis}\footnote{\url{http://www.cs.nyu.edu/~roweis/data.html}}, a partir de um processamento aplicado aos dados adquiridos por \textit{Yann LeCun} usando um dispositivo de reconhecimento ótico de caracteres (OCR) \cite{Chechik2007}. A fonte de dados original, usada na construção desta base, possui os trabalhos científicos publicados em 18 volumes (0 a 17), porém apenas os trabalhos dos volumes 14 a 17 estão rotulados. Tais documentos estão organizados sob tópicos que compreendem áreas técnicas (teoria de aprendizado, neurociência, algoritmos e arquiteturas e etc), e estão distribuídos de forma desbalanceada entre os grupos caracterizados por cada um desses tópicos, por isso, foram usados documentos das $9$ áreas técnicas com mais documentos, das $13$ áreas técnicas originalmente disponibilizadas.
 
     \item \textbf{\textit{IG}} Esta base de dados foi criada como uma contribuição deste trabalho, e consiste em uma coleção de notícias extraídas do portal iG\footnote{\url{http://ig.com.br/}}.
     Cada documento nesta base contém o endereço eletrônico no qual a notícia está publicada, título, subtítulo, corpo e canal da notícia, sendo que o canal representa uma classificação para a notícia, atribuída pelos construtores do portal. As notícias que compõem essa base foram publicadas no período de 2 de janeiro de 2012 à 11 de outubro de 2014 e estão distribuídas em 13 canais, de maneira desbalanceada.
@@ -3416,16 +3418,16 @@ O contexto referente a cada uma das bases é brevemente apresentados nesta seç�
 \begin{table}[h]
     \centering
     \caption{Estatísticas das bases de dados usadas nos experimentos.}
-    \begin{tabular}{ccccc}
+    \begin{tabular}{cccccc}
         \hline
-        Base de & \# Palavras & \# Documentos & \# Grupos \\
-        dados   &  &  & reais \\
+        Base     & \# Palavras & \# Total de & \# Documentos & \# Grupos & Esparsidade \\
+        de dados & únicas      & palavras    &               &           &             \\
         \hline
-        $\text{\textit{NIPS14-17}}$ & $2.484$  & $593$   & $13$ \\
-        $\text{\textit{IG}}$        & $19.563$ & $4.593$ & $13$ \\
-        $\text{\textit{IG toy}}$    & $6.764$  & $300$   & $3$  \\
+        $\text{\textit{NIPS14-17}}$ & $6.881$  & $746.826$   & $555$   & $9$  & $0,804$ \\
+        $\text{\textit{IG}}$        & $19.563$ & $1.187.334$ & $4.593$ & $13$ & $0,987$ \\
+        $\text{\textit{IG toy}}$    & $6.764$  & $70.169$    & $300$   & $3$  & $0,965$ \\
         \hline
-        & & & & \\
+        & & & & & \\
         \end{tabular}
     \label{tab:datasetsstatsREAL}
     \source{Lucas Fernandes Brunialti, 2016}
@@ -3459,18 +3461,18 @@ Todas as notícias coletadas para compor a base tem no mínimo $250$ caracteres 
         \hline
         Canal & \# Notícias \\
         \hline
-        $\text{\textit{gente}}$         & $196$ \\
-        $\text{\textit{ultimosegundo}}$ & $555$ \\
-        $\text{\textit{delas}}$         & $252$ \\
         $\text{\textit{economia}}$      & $907$ \\
-        $\text{\textit{esporte}}$       & $342$ \\
-        $\text{\textit{saude}}$         & $88$  \\
-        $\text{\textit{igay}}$          & $210$ \\
-        $\text{\textit{deles}}$         & $141$ \\
-        $\text{\textit{tecnologia}}$    & $359$ \\
+        $\text{\textit{ultimosegundo}}$ & $555$ \\
         $\text{\textit{igirl}}$         & $527$ \\
         $\text{\textit{jovem}}$         & $524$ \\
         $\text{\textit{arena}}$         & $421$ \\
+        $\text{\textit{tecnologia}}$    & $359$ \\
+        $\text{\textit{esporte}}$       & $342$ \\
+        $\text{\textit{delas}}$         & $252$ \\
+        $\text{\textit{igay}}$          & $210$ \\
+        $\text{\textit{gente}}$         & $196$ \\
+        $\text{\textit{deles}}$         & $141$ \\
+        $\text{\textit{saude}}$         & $88$  \\
         $\text{\textit{luxo}}$          & $71$  \\
         \hline
         & \\
@@ -3483,7 +3485,8 @@ Analisando a distribuição de notícias por ano foi possível verificar que os 
 Contrariamente, a distribuição de notícias por canal não ficou perto do uniforme, com média e desvio padrão de aproximadamente $353 \pm 225$ notícias.
 Uma hipótese é que isso se deve à idade e popularidade do canal, por exemplo, os canais $\text{\textit{luxo}}$ e $\text{\textit{deles}}$ são muito mais recentes e menos populares que o $\text{\textit{ultimosegundo}}$.
 
-Para a base de dados \textit{NIPS}, da mesma forma, é mostrada, nas tabelas~\ref{tab:nips:distano} e~\ref{tab:nips:distpapers}, as distribuições de trabalhos acadêmicos por áreas técnicas e trabalhos acadêmicos por ano.
+Para a base de dados \textit{NIPS}, da mesma forma, é mostrada, nas tabelas~\ref{tab:nips:distano} e~\ref{tab:nips:distpapers}, as distribuições de trabalhos acadêmicos por ano e trabalhos acadêmicos por áreas técnicas, respectivamente.
+Note que os documentos rotulados como as seguintes áreas técnicas não foram usados nos experimentos: $\text{\textit{Control \& Reinforcement Learning}}$, $\text{\textit{Vision (Biological)}}$, $\text{\textit{Brain Imaging}}$ e $\text{\textit{Speech and Signal Processing}}$.
 
 \begin{table}[h]
 \centering
@@ -3509,18 +3512,18 @@ Para a base de dados \textit{NIPS}, da mesma forma, é mostrada, nas tabelas~\re
         Áreas técnicas & \# Trabalhos acadêmicos \\
         \hline
         $\text{\textit{Algorithms \& Architectures}}$       & $209$ \\
-        $\text{\textit{Neuroscience}}$                      & $47$  \\
-        $\text{\textit{Brain Imaging}}$                     & $7$   \\
-        $\text{\textit{Vision}}$                            & $50$  \\
-        $\text{\textit{Vision (Machine)}}$                  & $40$  \\
-        $\text{\textit{Vision (Biological)}}$               & $9$   \\
-        $\text{\textit{Learning Theory}}$                   & $16$  \\
         $\text{\textit{Cognitive Science \& AI}}$           & $68$  \\
         $\text{\textit{Implementations}}$                   & $66$  \\
-        $\text{\textit{Applications}}$                      & $26$  \\
-        $\text{\textit{Speech and Signal Processing}}$      & $7$   \\
-        $\text{\textit{Control \& Reinforcement Learning}}$ & $15$  \\
+        $\text{\textit{Vision}}$                            & $50$  \\
+        $\text{\textit{Neuroscience}}$                      & $47$  \\
+        $\text{\textit{Vision (Machine)}}$                  & $40$  \\
         $\text{\textit{Emerging Technologies}}$             & $33$  \\
+        $\text{\textit{Applications}}$                      & $26$  \\
+        $\text{\textit{Learning Theory}}$                   & $16$  \\
+        $\text{\textit{Control \& Reinforcement Learning}}$ & $15$  \\
+        $\text{\textit{Vision (Biological)}}$               & $9$   \\
+        $\text{\textit{Brain Imaging}}$                     & $7$   \\
+        $\text{\textit{Speech and Signal Processing}}$      & $7$   \\
         \hline
         & \\
     \end{tabular}
@@ -3545,7 +3548,7 @@ As ações executadas neste trabalho para realizar o pré-processamento dos text
 % Sara: também, a questão de usar palavras que aparecem poucas vezes ou muitas vezes. se não foi tratado, tem que dizer que não foi e por que. Se vc chegou a fazer esses tratamentos e não viu melhoras ou diferenças, temos que dizer isso também.
 
 % Lucas: Stemming -> eu não concordo muito que tem que falar de stemming se ele não foi nem usado no trabalho.
-% Existem várias técnicas que podem melhorar a performance dos algoritmos, por exemplo, n-gram, eu poderia ter aplicado tambem, e poderia melhorar o resultado, mas não apliquei, e não acho que seja necessario ter que dar argumentos do porque eu não ter aplicado... Nos trabalhos de coclustering, pelo que eu percebi, é raro usar stemming, no entanto, pra information retrieval, é muito comum. Então, eu vejo stemming assim como n-gram, uma técnica que não é tão essencial como o tfidf, na realidade, eu vejo stemming como uma técnica ruim para text mining e topic modeling, poderia falar de stemming, só que nesse sentido.
+% Existem várias técnicas que podem melhorar a performance dos algoritmos, por exemplo, n-gram, eu poderia ter aplicado tambem, e poderia melhorar o resultado, mas não apliquei, e não acho que seja necessario ter que dar argumentos do porque eu não ter aplicado... Nos trabalhos de cogrupoing, pelo que eu percebi, é raro usar stemming, no entanto, pra information retrieval, é muito comum. Então, eu vejo stemming assim como n-gram, uma técnica que não é tão essencial como o tfidf, na realidade, eu vejo stemming como uma técnica ruim para text mining e topic modeling, poderia falar de stemming, só que nesse sentido.
 % Lucas: Sobre o filtro com base no doc. frequency: eu fiz, mas a idéia que tenho é que isso melhora a perf., por causa daquela teoria que termos com doc. freq. alto ou baixo, tem menor capacidade de representação (Salton).
 
 % Lucas: Os filtros que apliquei pro IG, mas não coloquei no texto, não sei se são necessários:
@@ -3616,10 +3619,12 @@ Se a ordem das multiplicões for $(U (U^T X))$, serão realizadas $nmk + nk^2 \a
 Ainda na configuração dos experimentos para parametrização dos algoritmos, foi usado o número de classes presentes em cada base de dados, para determinar o número de grupos de documentos ($k$).
 Já o número de grupos de termos ($l$), presentes nos algoritmos \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}, como não existe nenhuma evidência de quantos grupos de termos existem nas bases de dados, foram gerados modelos de agrupamento considerando os seguintes valores de $l$ para cada base de dados:
 \begin{itemize}
-    \item \textit{NIPS} e \textit{IG}: $l \in \{7, 10, 13, 16, 19\}$;
-    \item \textit{IG toy}: $l \in \{2, 3, 4, 5, 6\}$;
+    \item \textit{NIPS}: $l \in \{6, 9, 12, 15, 18\}$;
+    \item \textit{IG}: $l \in \{7, 10, 13, 16, 19\}$;
+    \item \textit{IG toy}: $l \in \{2, 3, 4, 5, 6\}$.
 \end{itemize}
-note que para as bases de dados \textit{NIPS} e \textit{IG}, $k$ é justamente a mediana dos possíveis valores de $l$, para verificar como os algoritmos iriam se comportar para $l < k$ e $l > k$.
+
+Os valores de $l$ foram escolhidos desta forma a fim de verificar como os algoritmos iriam se comportar para $l = k$, $l < k$ e $l > k$.
 
 Para todas as bases de dados foram criadas quatro representações que serviram de entrada para os algoritmos: $\textit{tf}$, $\textit{tfidf}$, $\textit{tf}_{norm}$ e $\textit{tfidf}_{norm}$, visando comparar o efeito que os algoritmos têm sob cada representação.
 
@@ -3653,55 +3658,90 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
 
 \begin{table}[H]
 \centering
-    \caption{Índice de Rand médio por representação do conjunto de dados \textit{IG toy}, destacando os melhores resultados por algoritmo.}
-        \begin{tabular}{ccccc}
-            \hline
-            Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
-            \hline
-            \textit{k-means}       & $0,7017$                    & $\mathbf{0,7086}$           & $0,4701$           & $0,3869$           \\
-            \textit{fuzzy k-means} & $0,4966$                    & $\mathbf{0,4970}$           & $0,4673$           & $0,4390$           \\
-            \textit{ONMTF}         & $0,3372$ ($l = 5$)          & $\mathbf{0,6479}$ ($l = 5$) & $0,5717$ ($l = 3$) & $0,1758$ ($l = 3$) \\
-            \textit{FNMTF}         & $\mathbf{0,2615}$ ($l = 3$) & $0,2590$ ($l = 3$)          & $0,1535$ ($l = 6$) & $0,1543$ ($l = 3$) \\
-            \textit{OvNMTF}        & $0,7466$ ($l = 4$)          & $\mathbf{0,7487}$ ($l = 3$) & $0,6755$ ($l = 6$) & $0,6674$ ($l = 6$) \\
-            \textit{BinOvNMTF}     & $0,4360$ ($l = 5$)          & $\mathbf{0,4818}$ ($l = 5$) & $0,2943$ ($l = 5$) & $0,4079$ ($l = 3$) \\
-            \hline \\
-        \end{tabular}
+    \caption{Índice de Rand médio por representação do conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados por representação.}
+    \begin{tabular}{ccccc}
+        \hline
+        Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
+        \hline
+        \textit{k-means}       & $0,7017$                    & $0,7086$           & $0,4701$           & $0,3869$           \\
+        \textit{fuzzy k-means} & $0,4966$                    & $0,4970$           & $0,4673$           & $0,4390$           \\
+        \textit{ONMTF}         & $0,3372$ ($l = 5$)          & $0,6479$ ($l = 5$) & $0,5717$ ($l = 3$) & $0,1758$ ($l = 3$) \\
+        \textit{FNMTF}         & $0,2615$ ($l = 3$)          & $0,2590$ ($l = 3$) & $0,1535$ ($l = 6$) & $0,1543$ ($l = 3$) \\
+        \textit{OvNMTF}        & $\mathbf{0,7466}$ ($l = 4$) & $\mathbf{0,7487}$ ($l = 3$) & $\mathbf{0,6755}$ ($l = 6$) & $\mathbf{0,6674}$ ($l = 6$) \\
+        \textit{BinOvNMTF}     & $0,4360$ ($l = 5$)          & $0,4818$ ($l = 5$) & $0,2943$ ($l = 5$) & $0,4079$ ($l = 3$) \\
+        \hline \\
+    \end{tabular}
     \label{tab:experiments-quant-rand:igtoy}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
 \begin{table}[H]
 \centering
-    \caption{Informação Mútua Normalizada média por representação do conjunto de dados \textit{IG toy}, destacando os melhores resultados por algoritmo.}
-        \begin{tabular}{ccccc}
-            \hline
-            Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
-            \hline
-            \textit{k-means}       & $\mathbf{0,7169}$           & $0,7134$                    & $0,5467$           & $0,4668$           \\
-            \textit{fuzzy k-means} & $0,0694$                    & $\mathbf{0,5421}$           & $0,4701$           & $0,0836$           \\
-            \textit{ONMTF}         & $0,3704$ ($l = 5$)          & $\mathbf{0,6720}$ ($l = 5$) & $0,6411$ ($l = 3$) & $0,2143$ ($l = 3$) \\
-            \textit{FNMTF}         & $\mathbf{0,2770}$ ($l = 3$) & $0,2734$ ($l = 3$)          & $0,2039$ ($l = 6$) & $0,1690$ ($l = 3$) \\
-            \textit{OvNMTF}        & $0,7257$ ($l = 4$)          & $\mathbf{0,7288}$ ($l = 3$) & $0,7033$ ($l = 6$) & $0,6964$ ($l = 6$) \\
-            \textit{BinOvNMTF}     & $0,4975$ ($l = 5$)          & $\mathbf{0,5500}$ ($l = 5$) & $0,3559$ ($l = 5$) & $0,4343$ ($l = 3$) \\
-            \hline \\
-        \end{tabular}
+    \caption{Informação Mútua Normalizada média por representação do conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados por representação.}
+    \begin{tabular}{ccccc}
+        \hline
+        Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
+        \hline
+        \textit{k-means}       & $0,7169$                    & $0,7134$                    & $0,5467$           & $0,4668$           \\
+        \textit{fuzzy k-means} & $0,0694$                    & $0,5421$                    & $0,4701$           & $0,0836$           \\
+        \textit{ONMTF}         & $0,3704$ ($l = 5$)          & $0,6720$ ($l = 5$)          & $0,6411$ ($l = 3$) & $0,2143$ ($l = 3$) \\
+        \textit{FNMTF}         & $0,2770$ ($l = 3$)          & $0,2734$ ($l = 3$)          & $0,2039$ ($l = 6$) & $0,1690$ ($l = 3$) \\
+        \textit{OvNMTF}        & $\mathbf{0,7257}$ ($l = 4$) & $\mathbf{0,7288}$ ($l = 3$) & $\mathbf{0,7033}$ ($l = 6$) & $\mathbf{0,6964}$ ($l = 6$) \\
+        \textit{BinOvNMTF}     & $0,4975$ ($l = 5$)          & $0,5500$ ($l = 5$)          & $0,3559$ ($l = 5$) & $0,4343$ ($l = 3$) \\
+        \hline \\
+    \end{tabular}
     \label{tab:experiments-quant-nmi:igtoy}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{table}
+
+\begin{table}[H]
+\centering
+    \caption{Melhores resultados obtidos para o conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados por algoritmo.}
+    \begin{tabular}{ccc}
+        \hline
+        Algoritmo              & Índice de Rand & Informação Mútua Normalizada \\
+        \hline
+        \textit{k-means}       & $0,8152*$ ($\textit{tf}_{norm}$)            & $\mathbf{0,8110}$ ($\textit{tf}_{norm}$) \\
+        \textit{fuzzy k-means} & $0,6669$ ($\textit{tf}_{norm}$)             & $0,6785$ ($\textit{tf}$) \\
+        \textit{ONMTF}         & $0,7885$ ($\textit{tfidf}_{norm}$, $l=5$)   & $0,7719$ ($\textit{tfidf}_{norm}$, $l=5$) \\
+        \textit{FNMTF}         & $0,4502$ ($\textit{tfidf}$, $l=4$)          & $0,5041$ ($\textit{tfidf}$, $l=4$) \\
+        \textit{OvNMTF}        & $0,8208*$ ($\textit{tf}_{norm}$, $l=2$)     & $0,7855*$ ($\textit{tf}_{norm}$, $l=2$) \\
+        \textit{BinOvNMTF}     & $\mathbf{0,8261}$ ($\textit{tfidf}$, $l=3$) & $0,8024*$ ($\textit{tfidf}$, $l=3$) \\
+        \hline \\
+    \end{tabular}
+    \label{tab:experiments-quant-best-nmi:igtoy}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{img/boxplot-rand-igtoy.png}
     \caption{Distribuições em formato de diagrama de caixa do Índice de Rand para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{IG toy}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-rand-igtoy.png}
     \label{fig:boxplot-rand:igtoy}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-igtoy.png}
     \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{IG toy}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-igtoy.png}
     \label{fig:boxplot-nmi:igtoy}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand de todas as configurações para cada algoritmo na base de dados \textit{IG toy}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-rand-igtoy.png}
+    \label{fig:boxplot-all-rand:igtoy}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada de todas as configurações para cada algoritmo na base de dados \textit{IG toy}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-nmi-igtoy.png}
+    \label{fig:boxplot-all-nmi:igtoy}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
@@ -3749,250 +3789,345 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
     }
 \end{table}
 
+\begin{table}[H]
+\centering
+    \caption{Índice de Rand médio por representação do conjunto de dados \textit{NIPS} com $k = 9$, destacando os melhores resultados por representação.}
+    \begin{tabular}{ccccc}
+        \hline
+        Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
+        \hline
+        \textit{k-means}       & $0.1573$            & $0.1527$            & $0.1519$            & $0.1368$ \\
+        \textit{fuzzy k-means} & $0.1223$            & $0.1240$            & $0.1736$            & $0.1882$ \\
+        \textit{ONMTF}         & $0,1579$ ($l = 6$)  & $0,1352$ ($l = 15$) & $0,1318$ ($l = 9$)  & $0,1442$ ($l = 18$) \\
+        \textit{FNMTF}         & $0,1293$ ($l = 18$) & $0,1325$ ($l = 18$) & $0,2128$ ($l = 18$) & $0,2199$ ($l = 18$) \\
+        \textit{OvNMTF}        & $0,1672$ ($l = 6$)  & $0,1641$ ($l = 9$)  & $0,1742$ ($l = 12$) & $0,1711$ ($l = 9$) \\
+        \textit{BinOvNMTF}     & $\mathbf{0,2247}$ ($l = 9$) & $\mathbf{0,2118}$ ($l = 15$) & $\mathbf{0,2811}$ ($l = 6$) & $\mathbf{0,2813}$ ($l = 15$) \\
+        \hline \\
+    \end{tabular}
+    \label{tab:experiments-quant-rand:nips}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{table}
+
+\begin{table}[H]
+\centering
+    \caption{Informação Mútua Normalizada média por representação do conjunto de dados \textit{NIPS} com $k = 9$, destacando os melhores resultados por representação.}
+    \begin{tabular}{ccccc}
+        \hline
+        Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
+        \hline
+        \textit{k-means}       & $0.3226$            & $0.3106$            & $0.3506$            & $0.3476$ \\
+        \textit{fuzzy k-means} & $0.1876$            & $0.1929$            & $0.2575$            & $0.2496$ \\
+        \textit{ONMTF}         & $0,2930$ ($l = 15$) & $0,2832$ ($l = 18$) & $0,3361$ ($l = 18$) & $0,3441$ ($l = 18$) \\
+        \textit{FNMTF}         & $0,2272$ ($l = 18$) & $0,2312$ ($l = 18$) & $0,3109$ ($l = 18$) & $0,3017$ ($l = 18$) \\
+        \textit{OvNMTF}        & $0,3090$ ($l = 6$)  & $0,3092$ ($l = 9$)  & $0,3541$ ($l = 12$) & $0,3493$ ($l = 15$) \\
+        \textit{BinOvNMTF}     & $\mathbf{0,3255}$ ($l = 15$) & $\mathbf{0,3139}$ ($l = 9$)  & $\mathbf{0,4013}$ ($l = 12$) & $\mathbf{0,4009}$ ($l = 15$) \\
+        \hline \\
+    \end{tabular}
+    \label{tab:experiments-quant-nmi:nips}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{table}
+
+\begin{table}[H]
+\centering
+    \caption{Melhores resultados obtidos para o conjunto de dados \textit{NIPS} com $k = 9$, destacando os melhores resultados por algoritmo.}
+    \begin{tabular}{ccc}
+        \hline
+        Algoritmo              & Índice de Rand & Informação Mútua Normalizada \\
+        \hline
+        \textit{k-means}       & $0,2006$ ($\textit{tfidf}_{norm}$)           & $0,3952$ ($\textit{tfidf}_{norm}$) \\
+        \textit{fuzzy k-means} & $0,2728$ ($\textit{tfidf}$)                  & $0,3115$ ($\textit{tfidf}$) \\
+        \textit{ONMTF}         & $0,2704$ ($\textit{tfidf}$, $l=18$)          & $0,3997*$ ($\textit{tfidf}$, $l=18$) \\
+        \textit{FNMTF}         & $0,3009*$ ($\textit{tfidf}$, $l=15$)         & $0,3744$ ($\textit{tfidf}_{norm}$, $l=18$) \\
+        \textit{OvNMTF}        & $0,1992$ ($\textit{tfidf}$, $l=9$)           & $0,3870$ ($\textit{tfidf}$, $l=9$) \\
+        \textit{BinOvNMTF}     & $\mathbf{0,3670}$ ($\textit{tfidf}$, $l=15$) & $\mathbf{0,4589}$ ($\textit{tfidf}_{norm}$, $l=9$) \\
+        \hline \\
+    \end{tabular}
+    \label{tab:experiments-quant-best-nmi:nips}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{table}
+
 \begin{figure}[H]
     \centering
+    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{NIPS}.}
     \includegraphics[width=0.7\textwidth]{img/boxplot-rand-nips.png}
-    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{NIPS}.}
     \label{fig:boxplot-rand:nips}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-% TODO: análise comparando todos os resultados
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{NIPS}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-nips.png}
+    \label{fig:boxplot-nmi:nips}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand de todas as configurações para cada algoritmo na base de dados \textit{NIPS}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-rand-nips.png}
+    \label{fig:boxplot-all-rand:nips}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada de todas as configurações para cada algoritmo na base de dados \textit{NIPS}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-nmi-nips.png}
+    \label{fig:boxplot-all-nmi:nips}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
 
 \subsection{Análise qualitativa}
 
 % TODO descrição
-Estes experimentos mostram a aplicabilidade dos algoritmos no domínio de mineração de textos, com ênfase nas informações que são possíveis de extrair dos modelos gerados por algoritmos de coclustering baseados em fatoração de matrizes: \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}.
+Estes experimentos mostram a aplicabilidade dos algoritmos no domínio de mineração de textos, com ênfase nas informações que são possíveis de extrair dos modelos gerados por algoritmos de coagrupamento baseados em fatoração de matrizes: \textit{ONMTF} e \textit{OvNMTF}.
 
 Essa análise qualitativa se faz importante, para mostrar que os algoritmos são capazes de encontrar tópicos (grupos de palavras), e possivelmente, explicar os grupos de notícias formados, ou até mesmo, realizar rotulação dos grupos de notícias formados.
 % TODO mas pq é importante para algoritmos que tem intersecção
 
-Foi necessária a construção de um estudo de caso para avaliar os algoritmos de Coclustering baseados em Fatoração de Matrizes.
-O estudo de caso é composto por uma análise dos coclusters de palavras correlacionando-os com os coclusters de notícias.
+Foi necessária a construção de um estudo de caso para avaliar os algoritmos de Coagrupamento baseados em Fatoração de Matrizes.
+O estudo de caso é composto por uma análise dos cogrupos de palavras correlacionando-os com os cogrupos de notícias.
 
-Para isso, foi usado o conjunto de dados \textit{\textbf{IG toy}}, que foi construído, justamente, para fazer esse tipo de análise.
+Para isso, foi usado o conjunto de dados \textit{IG toy}, que foi construído, justamente, para fazer esse tipo de análise em um ambiente com maior controle.
 
 O portal IG\footnote{http://www.ig.com.br/} é um dos maiores portais de notícias brasileiro~\cite{topsites} que é composto por sites importantes como o noticiário Último Segundo, o iG Gente, o iG Esportes, a TV iG, o iG Economia, o Delas e etc.
 Cada um desses sites é caracterizado como um canal que contém notícias de um determinado assunto macro.
 
-O conjunto de dados \textit{\textbf{IG toy}} é composto por três desses canais: esportes, que contém notícias, principalmente, dos esportes mais populares no Brasil, como o futebol e o UFC; jovem, que contém notícias mais interessantes para o público jovem em geral, como notícias sobre filmes, esportes e músicas voltados para o público jovem; arena, que compõem notícias de games, novidades de todos os tipos de games, consoles e coberturas de eventos de games.
+O conjunto de dados \textit{IG toy} é composto por três desses canais: esportes, que contém notícias, principalmente, dos esportes mais populares no Brasil, como o futebol e o UFC; jovem, que contém notícias mais interessantes para o público jovem em geral, como notícias sobre filmes, esportes e músicas voltados para o público jovem; arena, que compõem notícias de games, novidades de todos os tipos de games, consoles e coberturas de eventos de games.
 Sendo $100$ notícias para cada canal para compor o conjunto de dados, totalizando $300$ notícias.
 
-Esses canais foram escolhidos para formar o conjunto de dados \textit{\textbf{IG toy}} por serem de assuntos similares, notícias do canal jovem podem ter semelhanças com notícias do canal esportes, como notícias sobre surfe, por exemplo, notícias do canal arena podem ser similares com notícias do canal de esportes, por existerem games que simulam esportes, ou até mesmo, possuírem similaridades com notícias do canal jovem, pois games é um assunto ligado ao público jovem na sua maioria.
+Esses canais foram escolhidos para formar o conjunto de dados \textit{IG toy} por serem de assuntos similares, notícias do canal jovem podem ter semelhanças com notícias do canal esportes, como notícias sobre surfe, por exemplo, notícias do canal arena podem ser similares com notícias do canal de esportes, por existerem games que simulam esportes, ou até mesmo, possuírem similaridades com notícias do canal jovem, pois games é um assunto ligado ao público jovem na sua maioria.
 Essa escolha torna possível verificar como os algoritmos tratam essa intersecção entre palavras nas notícias.
 
-As subseções a seguir irão mostrar como cada um dos algoritmos de coclusterização baseados em fatoração de matrizes:
-são úteis para análise de tópicos e palavras no conjunto de dados \textit{\textbf{IG toy}}.
+As subseções a seguir irão mostrar como os algoritmos \textit{ONMTF} e \textit{OvNMTF} são úteis para análise de tópicos e palavras no conjunto de dados \textit{IG toy}.
+% TODO: dizer pq não faz sentido fazer a análise com FNMTF e OvNMTF
 
 \subsubsection{Análise de dados utilizando \textit{ONMTF}}
 
-O algoritmo \textit{ONMTF} é capaz de encontrar coclusters de notícias e coclusters de palavras, além disso, cada cocluster de notícias é relacionado com os coclusters de palavras por um fator, assim como cada cocluster de palavras está relacionado com os coclusters de notícias pelo mesmo fator.
-Estes fatores são extraídos da matriz $S$.
+Para as análises construídas com o \textit{ONMTF} foi utilizado o modelo que obteve o melhor resultado considerando o \textit{Índice de Rand} na base de dados \textit{IG toy},  descrito na seção~\ref{subsec:experiments-quant:results}, que foi o modelo com a configuração: $k = 3$, $l = 5$ e representação $\textit{tfidf}_{norm}$.
 
-Isso significa que o algoritmo permite que palavras ou notícias estejam presentes em múltiplos coclusters, com um fator de pertinência para cada cocluster, ou seja, é possível realizar \textit{soft clustering}.\tabularnewline
-Uma abordagem para realizar \textit{hard coclustering} é atribuir uma notícia ou palavra ao cocluster com maior pertinência, a qual foi utilizada nos experimentos quantitativos (Subseção ~\ref{subsec:experiments-quant}).
+O algoritmo \textit{ONMTF} é capaz de encontrar cogrupos de notícias e cogrupos de palavras, além disso, cada cogrupo de notícias é relacionado com os cogrupos de palavras por um fator, assim como cada cogrupo de palavras está relacionado com os cogrupos de notícias pelo mesmo fator.
 
-Note também que cada notícia esta presente em cada um dos coclusters com um fator associado, assim como cada palavra esta presente em cada um dos coclusters com um fator associado.
+Os fatores que conectam os cogrupos de notícias com os cogrupos de palavras podem ser observados na matriz $S$.
+A matriz $S$ que foi usada nesta análise pode ser observada na Tabela~\ref{tab:onmtf:matrizS}.
+Note que os valores estão normalizados para que a soma dos elementos de cada linha seja igual à $1$.
+A normalização foi feita para tornar claro que cada cogrupo de palavras foi usado pelo algoritmo para caracterizar um grupo de notícias, os valores mostram que o cogrupo de notícias ``arena'' está associado com um maior fator ao cogrupo de palavras \#4, o cogrupo de notícias ``esporte'' está associado com fatores semelhantes aos cogrupo de palavras \#2 e \#5, e o cogrupo de notícias ``jovem'' está associado com fatores semelhantes aos cogrupos de palavras \#1 e \#3.
+No entanto, essa normalização muda a solução obtida anteriormente, então, foi realizada apenas como caráter ilustrativo.
 
-Para as análises construídas com o \textit{ONMTF} foi utilizado o modelo que obteve a melhor taxa segundo a métrica \textit{Rand Index} no experimento descrito na seção~\ref{subsec:experiments-quant:igtoy}, que foi o modelo com $k = 3$ e $l = 3$ com a representação TF-IDF normalizado.
+\begin{table}[H]
+\label{tab:onmtf:matrizS}
+\centering
+    \caption{Matriz $S$ para o algoritmo \textit{ONMTF} com $k = 3$ e $l = 5$ na base de dados \textit{IG toy} normalizada para que a soma da linha seja igual à $1$}
+    \begin{tabular}{cccccc}
+        \hline
+         & \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} \\
+        \hline
+        \textbf{CN ``esportes''} & $0,0$ & $\mathbf{0,5}$  & $0,1$  & $0,0$ & $\mathbf{0,4}$ \\
+        \textbf{CN ``arena''}    & $0,0$ & $0,05$ & $0,05$ & $\mathbf{0,9}$ & $0,0$ \\
+        \textbf{CN ``jovem''}    & $\mathbf{0,4}$ & $0,1$  & $\mathbf{0,5}$  & $0,0$ & $0,0$ \\
+        \hline \\
+    \end{tabular}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{table}
 
 A figura~\ref{fig:analysis-onmtf} exemplifica as informações que um modelo gerado pelo algoritmo \textit{ONMTF} provê.
 A notícia ``Avaliação do FIFA 15 por um jogador fanático'' foi usada como exemplo.
-O resultado da coclusterização de notícias foi que dos três coclusters de notícias, a notícia pertence ao cocluster (rotulado manualmente) esportes com um fator equivalente à $40\%$, também pertence ao cocluster rotulado como arena com um fator equivalente à $60\%$, e não pertence ao cocluster rotulado como jovem.
-Cada cocluster de notícias é formado pela combinação dos coclusters de palavras com os fatores que indicam a relação entre coclusters de notícias e coclusters de colunas, denotado pelas linhas que os conecta.
-Cada cocluster de palavras é ilustrado pelas palavras mais relevantes que o compõem, ou seja, as palavras que contém os maiores fatores (representado em porcentagem) para aquele determinado cocluster.
+O resultado do coagrupamento de notícias foi que dos três cogrupos de notícias, a notícia pertence ao cogrupo (rotulado manualmente através da análise de palavras) ``esportes'' com um fator equivalente à $40\%$, também pertence ao cogrupo rotulado como ``arena'' com um fator equivalente à $60\%$, e não pertence ao cogrupo rotulado como ``jovem''.
+Cada cogrupo de notícias é formado pela combinação dos cogrupos de palavras com os fatores que indicam a relação entre cogrupos de notícias e cogrupos de colunas, denotado pelas linhas que os conecta.
+Cada cogrupo de palavras é ilustrado pelas palavras mais relevantes que o compõem, ou seja, as palavras que contém os maiores fatores (representado em porcentagem) para aquele determinado cogrupo.
 
-Ainda sobre a Figura~\ref{fig:analysis-onmtf}, note que as palavras do corpo da notícia foram coloridas de acordo com as cores dos coclusters de palavras as quais pertencem.
-É possível perceber que existem mais palavras que caracterizam a notícia como sendo sobre o assunto games, o que vai de acordo com a coclusterização realizada.
+Ainda sobre a Figura~\ref{fig:analysis-onmtf}, note que as palavras do corpo da notícia foram coloridas de acordo com as cores dos cogrupos de palavras as quais pertencem.
+É possível perceber que existem mais palavras que caracterizam a notícia como sendo sobre o assunto ``games'', o que vai de acordo com o coagrupamento realizado.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{img/analysis-onmtf.png}
-    \caption{Exemplo de uma notícia do canal arena e sua disposição quanto aos coclusters de notícias e palavras.}
+    \caption{Exemplo de uma notícia do canal arena e sua disposição quanto aos cogrupos de notícias e palavras.}
     \label{fig:analysis-onmtf}
+    \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-Os fatores que conectam os coclusters de notícias com os coclusters de palavras podem ser observados na matriz $S$.
-A matriz $S$ que foi usada nesta análise pode ser observada na Tabela~\ref{tab:onmtf:matrizS}.
-Note que os valores estão normalizados para que a soma dos elementos de cada linha tenha resultado da soma igual a $1$.
-A normalização foi feita para tornar claro que cada cocluster de palavras foi usado pelo algoritmo para caracterizar um grupo de notícias, os valores mostram que o cocluster de notícias ``arena'' está associado com um maior fator ao cocluster de palavras \#3, o cocluster de notícias ``esporte'' está associado com um maior fator ao cocluster de palavras \#1, e o cocluster de notícias ``jovem'' está associado com um maior fator ao cocluster de palavras \#2.
+A rotulação dos grupos de notícias foi possível através da análise de palavras em cada cogrupo de palavras e da matriz $S$, utilizando o particionamento (descrito no capítulo~\ref{ch:fatoracao}), que atribui cada palavra ao cogrupo que possui o maior fator na matriz $V$.
+O resultado das palavras mais relevantes para cada cogrupo de palavras, gerado pelo algoritmo \textit{ONMTF}, é mostrado na tabela~\ref{tab:experiments-quali-words:onmtf}.
+A ordenação foi feita através dos fatores de cada palavra para cada cogrupo de palavras, presentes na matriz $V$.
 
 \begin{table}[H]
-\label{tab:onmtf:matrizS}
 \centering
-    \caption{Matriz $S$ para \textit{ONMTF} com $k = l = 3$.}
-    \scalebox{0.6}{
-        \begin{tabular}{c|c|c|c}
-            \hline
-             - & \textbf{Cocluster de palavras \#1} & \textbf{Cocluster de palavras \#2} & \textbf{Cocluster de palavras \#3} \\
-            \hline
-            \textbf{Cocluster de notícias ``arena''}   & $0.0068$ & $0.0188$ & $\mathbf{0.9744}$ \\
-            \hline
-            \textbf{Cocluster de notícias ``esporte''} & $\mathbf{0.9604}$ & $0.0348$ & $0.0048$ \\
-            \hline
-            \textbf{Cocluster de notícias ``jovem''}   & $0.0444$ & $\mathbf{0.9324}$ & $0.0232$ \\
-            \hline
-        \end{tabular}
-    }
+    \caption{top-$20$ palavras para cada cogrupo de palavras, após a realização do particionamento}
+    \begin{tabular}{ccccc}
+        \hline
+        \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} \\
+        \textit{``esportes radicais''} & \textit{``futebol''} & \textit{``esportes em geral''} & \textit{``games''} & \textit{``futebol''} \\
+        \hline
+        skate      & real       & anos       & jogos              & gol \\
+        surfe      & breno      & mundial    & xbox               & madrid \\
+        bob        & time       & brasil     & playstation        & gols \\
+        burnquist  & barcelona  & etapa      & wii                & messi \\
+        circuito   & partida    & brasileiro & jogo               & euro \\
+        games      & equipe     & jovem      & of                 & guardiola \\
+        mineirinho & minutos    & rio        & console            & ronaldo \\
+        slater     & jogador    & dias       & sony               & itália \\
+        rampa      & campeonato & música     & legends            & cristiano \\
+        medina     & liga       & pedro      & nintendo           & bola \\
+        manobras   & futebol    & atleta     & game               & bayern \\
+        mega       & casa       & americano  & league             & pontos \\
+        megarampa  & temporada  & gente      & one                & espanhol \\
+        kelly      & grupo      & esporte    & novo               & zagueiro \\
+        prova      & feira      & campeão    & ps                 & atacante \\
+        bmx        & dois       & competição & microsoft          & defesa \\
+        pista      & vitória    & mundo      & the                & técnico \\
+        barros     & tempo      & ano        & usmonetáriointerno & placar \\
+        skatistas  & área       & janeiro    & controle           & atlético \\
+        rony       & copa       & ufc        & versão             & polônia \\
+        \hline \\
+    \end{tabular}
+    \label{tab:experiments-quali-words:onmtf}
+    \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-Os grupos de palavras foram sumarizados através da visualização em \textit{word cloud}, em que o tamanho das palavras é definido pelo seu fator de pertinência ao cocluster correspondente.
-A Figura~\ref{fig:onmtf:wordcloud} mostra essa visualização contendo as $100$ palavras com maior fator para cada cogrupo.
+A tabela~\ref{tab:experiments-quali-words:onmtf} mostra claramente que os cogrupos de palavras \# 2 e \# 5 (rotulados como ``futebol'') foram responsáveis por caracterizar o cogrupo de notícias do canal ``esportes'', o cogrupo de palavras \# 4 (rotulado como ``games'') foi responsável por caracterizar o cogrupo de notícias do canal ``arena'', e por fim, os cogrupos de palavras \# 1 e \# 3 (rotulados como ``esportes radicais'' e ``esportes em geral'', respectivamente) foram responsáveis por caracterizar as notícias do cogrupo do canal ``jovem''.
+
+Foi criada outra forma de visualização para as palavras do resultado do coagrupamento nesse experimento, essa visualização apresenta-se como \textit{word cloud}, em que o tamanho das palavras é definido pelo seu fator de pertinência ao cogrupo correspondente.
+A Figura~\ref{fig:onmtf:wordcloud} mostra essa visualização contendo as $100$ palavras com maior fator para cada coluna da matriz $V$.
 
 \begin{figure}[H]
 \centering
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-1.png}
-        \caption{Cocluster de palavras \#1}
+        \caption{CP \#1}
     \end{subfigure}
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-2.png}
-        \caption{Cocluster de palavras \#2}
+        \caption{CP \#2}
     \end{subfigure}
-    \begin{subfigure}[b]{0.31\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-3.png}
-        \caption{Cocluster de palavras \#3}
+        \caption{CP \#3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/onmtf-tc-4.png}
+        \caption{CP \#4}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/onmtf-tc-5.png}
+        \caption{CP \#5}
     \end{subfigure}
 
-    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras gerados pelo algoritmo \textit{ONMTF}.}
+    \caption{Visualização \textit{word cloud} das top-$100$ palavras, dispostas em uma área quadrada, para cada cogrupo gerados pelo algoritmo \textit{ONMTF}}
     \label{fig:onmtf:wordcloud}
+    \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-A Figura~\ref{fig:onmtf:wordcloud} mostra claramente que cada cocluster de palavras ficou responsável por caracterizar cada um dos três coclusters de notícias.
-O cocluster de palavras \#1 contém palavras sobre esportes, principalmente sobre futebol, como gol, minutos, nomes de seleções, times de futebol e campeonatos.
-Note que nesse cocluster aparece a palavra jogo, de tamanho pequeno, localizada entre as letras i e n da palavra minutos, que também aparece no cocluster de palavras \#3, porém, de tamanho claramente maior.
-No cocluster de palavras \#2 aparecem palavras de esportes, principalmente sobre surfe e skate, como nomes de atletas desses esportes e campeonatos.
-O cocluster de palavras \#3, como esperado, contém palavras ligadas ao assunto games, como jogo, nomes de consoles (xbox, playstation e wii), nomes de grandes empresas do ramo e nomes de games.
-
-% TODO paragrafo de conclusao
-
-\subsubsection{Análise de dados utilizando \textit{FNMTF}}
-% Faz sentido análise de dados com FNMTF (?)
-
+Note que neste caso uma palavra se apresenta em diferentes cogrupos de palavras, como exemplo a palavra \textit{jogo} presente nos cogrupos \# 4 e \# 5 (a maior palavra do cogrupo \# 4 e no centro do `o' da palavra gol para o cogrupo \# 5), que significa que existem notícias em que a palavra ocorre para os cogrupos de notícias do canal ``arena'' e ``esportes'', respectivamente, com maior ocorrência no primeiro do que no segundo.
+Isso ocorre pois foram usados os $100$ maiores de cada uma das $l$ colunas na matriz $V$, gerada pela fatoração \textit{ONMTF}.
+Note que é possível dizer que a palavra \textit{jogo}, por exemplo, possui diferentes significados para cada cogrupo de palavras.
+No entanto, como há interdependência entre cogrupos de palavras, essa afirmação não é totalmente verdadeira, pois a palavra \textit{jogo} carregando o significado de ``futebol'' pode afetar negativamente o cogrupo de palavras \# 4, assim como, a palavra \textit{jogo} com o significado de ``game'' pode afetar negativamente o cogrupo de palavras \# 5.
 
 \subsubsection{Análise de dados utilizando \textit{OvNMTF}}
 
-O algoritmo \textit{OvNMTF} é capaz de encontrar coclusters de notícias e coclusters de palavras, semelhante aos outros.
-
+O algoritmo \textit{OvNMTF} é capaz de encontrar cogrupos de notícias e cogrupos de palavras, semelhante aos outros.
 
 \begin{table}[H]
-\label{tab:onmtf:matrizS}
+\label{tab:ovnmtf:matrizS}
 \centering
-    \caption{Matriz $S$ para \textit{OvNMTF} com $k = 3$ e $l = 6$.}
-    \scalebox{0.6}{
-        \begin{tabular}{c|c|c|c|c|c|c}
-            \hline
-             - & \textbf{\#1} & \textbf{\#2} & \textbf{\#3} & \textbf{\#4} & \textbf{\#5} & \textbf{\#6} \\
-            \hline
-            \textbf{Cocluster de notícias ``arena''}   & $0.1465$ & $\mathbf{0.2516}$ & $0.0535$ & $\mathbf{0.3294}$ & $0.1499$ & $0.0691$ \\
-            \hline
-            \textbf{Cocluster de notícias ``esporte''} & $0.0949$ & $0.0943$ & $\mathbf{0.2239}$ & $0.1287$ & $\mathbf{0.2878}$ & $0.1703$ \\
-            \hline
-            \textbf{Cocluster de notícias ``jovem''}   & $0.0381$ & $\mathbf{0.2545}$ & $\mathbf{0.3324}$ & $\mathbf{0.2220}$ & $0.0932$ & $0.0597$ \\
-            \hline
-        \end{tabular}
-    }
+    \caption{Matriz $S$ para execução do algoritmo \textit{OvNMTF} com $k = 3$ e $l = 2$ na base de dados \textit{IG toy}.}
+    \begin{tabular}{ccc}
+        \hline
+        & \textbf{CP \#1, \#3, \#4} & \textbf{CP \#2, \#4, \#6} \\
+        \hline
+        \textbf{CN ``arena''}    & $0.38$ & $0.62$ \\
+        \textbf{CN ``jovem''}    & $0.46$ & $0.54$ \\
+        \textbf{CN ``esportes''} & $0.94$ & $0.06$ \\
+        \hline \\
+    \end{tabular}
+    \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
+
+\begin{sidewaystable}
+    \begin{table}[H]
+    \centering
+        \caption{top-$20$ palavras para cada cogrupo de palavras, após a realização do particionamento}
+        \begin{tabular}{cccccc}
+            \hline
+            \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} & \textbf{CP \#6} \\
+            \textit{``esportes radicais''} & \textit{``futebol''} & \textit{``esportes em geral''} & \textit{``games''} & \textit{``futebol''} & \textit{``x''} \\
+            \hline
+            jogos      & jogo               & games      & anos              & time       & breno  \\
+            sony       & of                 & jovem      & skate             & real       & casa  \\
+            ps         & playstation        & brasileiro & mundial           & feira      & gol  \\
+            the        & game               & paulo      & brasil            & final      & bayern  \\
+            pessoas    & novo               & dia        & surfe             & gols       & minutos  \\
+            wii        & console            & mundo      & música            & madrid     & clube  \\
+            microsoft  & xbox               & ano        & rio               & jogador    & partida  \\
+            nintendo   & games              & esporte    & conta             & tempo      & técnico  \\
+            estúdio    & league             & vai        & dias              & pontos     & título  \\
+            one        & legends            & janeiro    & primeira          & grupo      & livre  \\
+            arena      & brasil             & bem        & final             & liga       & jogo  \\
+            melhor     & além               & burnquist  & atleta            & fez        & meia  \\
+            apenas     & nova               & além       & pessoas           & brasileiro & volta  \\
+            lançamento & jogadores          & gente      & casa              & jogadores  & segunda  \\
+            versão     & dia                & bob        & paulista          & campo      & técnica  \\
+            opiniões   & lançado            & série      & ficou             & rodada     & casillas  \\
+            caio       & usmonetáriointerno & etapa      & fim               & três       & espanha  \\
+            site       & personagens        & história   & monetáriointerno  & cristiano  & equipe  \\
+            and        & feira              & melhor     & melhores          & copa       & argentino  \\
+            forma      & dois               & circuito   & amigos            & deixe      & semana  \\
+            \hline \\
+        \end{tabular}
+        \label{tab:experiments-quali-words:ovnmtf}
+        \source{Lucas Fernandes Brunialti, 2016}
+    \end{table}
+\end{sidewaystable}
 
 \begin{figure}[H]
 \centering
-    \begin{subfigure}[b]{0.15\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-1.png}
         \caption{\#1}
     \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-2.png}
         \caption{\#2}
     \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-3.png}
-        \caption{\#3}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-4.png}
-        \caption{\#4}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-5.png}
-        \caption{\#5}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-6.png}
-        \caption{\#6}
-    \end{subfigure}
 
-    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras do cocluster de notícias ``arena'', gerados pelo algoritmo \textit{OvNMTF}.}
+    \caption{Visualização \textit{word cloud} de palavras para cada cogrupo de palavras do cogrupo de notícias ``arena'', gerados pelo algoritmo \textit{OvNMTF}.}
     \label{fig:ovnmtf:wordcloud-1}
+    \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-1.png}
-        \caption{\#1}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-2.png}
-        \caption{\#2}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-3.png}
-        \caption{\#3}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-4.png}
-        \caption{\#4}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-5.png}
-        \caption{\#5}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-6.png}
-        \caption{\#6}
-    \end{subfigure}
-
-    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras do cocluster de notícias ``esporte'', gerados pelo algoritmo \textit{OvNMTF}.}
-    \label{fig:ovnmtf:wordcloud-2}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-    \begin{subfigure}[b]{0.15\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-1.png}
-        \caption{\#1}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-2.png}
-        \caption{\#2}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-3.png}
         \caption{\#3}
     \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-4.png}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-2.png}
         \caption{\#4}
     \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-5.png}
+
+    \caption{Visualização \textit{word cloud} de palavras para cada cogrupo de palavras do cogrupo de notícias ``jovem'', gerados pelo algoritmo \textit{OvNMTF}.}
+    \label{fig:ovnmtf:wordcloud-2}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-1.png}
         \caption{\#5}
     \end{subfigure}
-    \begin{subfigure}[b]{0.15\textwidth}
-        \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-6.png}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-2.png}
         \caption{\#6}
     \end{subfigure}
 
-    \caption{Visualização \textit{word cloud} de palavras para cada cocluster de palavras do cocluster de notícias ``jovem'', gerados pelo algoritmo \textit{OvNMTF}.}
+    \caption{Visualização \textit{word cloud} de palavras para cada cogrupo de palavras do cogrupo de notícias ``esportes'', gerados pelo algoritmo \textit{OvNMTF}.}
     \label{fig:ovnmtf:wordcloud-3}
+    \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-
-
-
-\subsubsection{Análise de dados utilizando \textit{BinOvNMTF}}
-
-% Faz sentido análise de dados com BinOvNMTF (?)
 
 % ************************************************************
 % ************************************************************
@@ -4376,25 +4511,25 @@ Depois de encontrados os vetores $\vec{v}$, é feita a projeção dos dados ness
 
 % *** comentei ****  \begin{longtable}{c|p{0.6\linewidth}}
 % *** comentei ****  \hline
-% *** comentei ****  Contextualização / motivação & Algoritmos de coclusterização tem o objetivo de encontrar grupos em uma matriz de dados. Tais grupos são chamados coclusters por se caracterizarem como um subconjunto de linhas e colunas, e podem apresentar sob diferentes tipos de organização. Especialmente, organizações nas quais diferentes coclusters possuem linhas e/ou colunas em comum (organização com sobreposição) podem ser úteis para diversas aplicações, como mineração de textos, filtro colaborativo, recuperação de informação, etc. \\
+% *** comentei ****  Contextualização / motivação & Algoritmos de cogrupoização tem o objetivo de encontrar grupos em uma matriz de dados. Tais grupos são chamados cogrupos por se caracterizarem como um subconjunto de linhas e colunas, e podem apresentar sob diferentes tipos de organização. Especialmente, organizações nas quais diferentes cogrupos possuem linhas e/ou colunas em comum (organização com sobreposição) podem ser úteis para diversas aplicações, como mineração de textos, filtro colaborativo, recuperação de informação, etc. \\
 % *** comentei ****  \hline
-% *** comentei ****  Problema de pesquisa & Encontrar coclusters organizados com sobreposição em uma matriz de dados esparsa contendo valores reais positivos que representam dados de um domínio de aplicação. \\
+% *** comentei ****  Problema de pesquisa & Encontrar cogrupos organizados com sobreposição em uma matriz de dados esparsa contendo valores reais positivos que representam dados de um domínio de aplicação. \\
 % *** comentei ****  \hline
-% *** comentei ****  Objetivo geral & Propor estratégias algorítmicas baseadas em Fatoração de Matrizes (FM) que sejam capazes de encontrar coclusters organizados com sobreposição em uma matriz esparsa de valores reais positivos. \\
+% *** comentei ****  Objetivo geral & Propor estratégias algorítmicas baseadas em Fatoração de Matrizes (FM) que sejam capazes de encontrar cogrupos organizados com sobreposição em uma matriz esparsa de valores reais positivos. \\
 % *** comentei ****  \hline
-% *** comentei ****  Trabalhos relacionados & Biclustering algorithms for Biological Data Analysis: A Survey - Survey em algoritmos de coclusterização/biclusterização. Discute diferentes organizações de coclusters e algoritmos para cada uma delas. Fast Nonnegative Matrix Tri-Factorization for Large-Scale Data Co-clustering - Apresenta algoritmos de FM para coclusterização em dados binários. Não trata coclusters organizados com sobreposição. Orthogonal nonnegative matrix tri-factorization for co-clustering: Multiplicative updates on Stiefel manifolds - Apresenta uma survey com algoritmos baseados em FM juntamente com um novo algoritmo que encontra coclusters ortogonais. Estes algoritmos não encontram coclusters organizados com sobreposição. \\
+% *** comentei ****  Trabalhos relacionados & Biclustering algorithms for Biological Data Analysis: A Survey - Survey em algoritmos de cogrupoização/biclusterização. Discute diferentes organizações de cogrupos e algoritmos para cada uma delas. Fast Nonnegative Matrix Tri-Factorization for Large-Scale Data Co-clustering - Apresenta algoritmos de FM para cogrupoização em dados binários. Não trata cogrupos organizados com sobreposição. Orthogonal nonnegative matrix tri-factorization for co-clustering: Multiplicative updates on Stiefel manifolds - Apresenta uma survey com algoritmos baseados em FM juntamente com um novo algoritmo que encontra cogrupos ortogonais. Estes algoritmos não encontram cogrupos organizados com sobreposição. \\
 % *** comentei ****  \hline
-% *** comentei ****  Justificativa e relevância & Problemas reais se manifestam em domínios que podem apresentar coclusters organizados com sobreposição sobre matrizes de dados esparsas. Um exemplo é a mineração de textos aplicada à agrupamento de notícias. A representação vetorial de textos (as notícias), conhecidamente, gera matrizes esparsas. Notícias podem ser agrupadas em diferentes grupos a depender de quais de suas características são analisadas. Tais fatores caracterizam o problema sob estudo neste projeto. \\
+% *** comentei ****  Justificativa e relevância & Problemas reais se manifestam em domínios que podem apresentar cogrupos organizados com sobreposição sobre matrizes de dados esparsas. Um exemplo é a mineração de textos aplicada à agrupamento de notícias. A representação vetorial de textos (as notícias), conhecidamente, gera matrizes esparsas. Notícias podem ser agrupadas em diferentes grupos a depender de quais de suas características são analisadas. Tais fatores caracterizam o problema sob estudo neste projeto. \\
 % *** comentei ****  \hline
-% *** comentei ****  Proposta para Solução & Estão sendo desenvolvidos algoritmos utilizando técnicas de FM com o intuito de resolver o problema de encontrar coclusters organizados com sobreposição em domínio nos quais os dados se apresentam como uma matriz esparsa. \\
+% *** comentei ****  Proposta para Solução & Estão sendo desenvolvidos algoritmos utilizando técnicas de FM com o intuito de resolver o problema de encontrar cogrupos organizados com sobreposição em domínio nos quais os dados se apresentam como uma matriz esparsa. \\
 % *** comentei ****  \hline
 % *** comentei ****  Dados & Estão sendo usados: dados sintéticos; dados de notícias da base de dados Reuters; dados de trabalhos acadêmicos da Rochester University; dados de notícias de um grande portal brasileiro; e um conjunto de dados (movie lens) para teste também na área de filtro colaborativo. \\
 % *** comentei ****  \hline
-% *** comentei ****  Forma de validação & Provas de correção e convergência dos algoritmos desenvolvidos; comparação e experimentação com os algoritmos presentes nos trabalhos correlatos. Avaliação via índices de validação de clustering e coclusterização. \\
+% *** comentei ****  Forma de validação & Provas de correção e convergência dos algoritmos desenvolvidos; comparação e experimentação com os algoritmos presentes nos trabalhos correlatos. Avaliação via índices de validação de clustering e cogrupoização. \\
 % *** comentei ****  \hline
 % *** comentei ****  Limitações & FM supõe que os dados e características são separáveis linearmente. Esta restrição não é garantida em problemas reais, mas não impede que soluções baseadas em FM gerem resultados úteis. \\
 % *** comentei ****  \hline
-% *** comentei ****  Resultados esperados & Contribuições científicas: desenvolvimento de algoritmos inéditos baseados em FM para coclusterização organizados com sobreposição em matrizes esparsas positivas.
+% *** comentei ****  Resultados esperados & Contribuições científicas: desenvolvimento de algoritmos inéditos baseados em FM para cogrupoização organizados com sobreposição em matrizes esparsas positivas.
 
 % *** comentei ****  \end{longtable}
 

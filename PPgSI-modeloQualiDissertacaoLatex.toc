@@ -49,20 +49,20 @@
 \contentsline {subsection}{\numberline {5.2.3}Experimentos quantitativos}{80}{subsection.5.2.3}
 \contentsline {subsubsection}{\numberline {5.2.3.1}Configura\IeC {\c c}\IeC {\~a}o dos experimentos}{80}{subsubsection.5.2.3.1}
 \contentsline {subsubsection}{\numberline {5.2.3.2}Resultados}{82}{subsubsection.5.2.3.2}
-\contentsline {subsection}{\numberline {5.2.4}An\IeC {\'a}lise qualitativa}{90}{subsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{91}{subsubsection.5.2.4.1}
-\contentsline {subsubsection}{\numberline {5.2.4.2}An\IeC {\'a}lise de dados utilizando \textit {OvNMTF}}{96}{subsubsection.5.2.4.2}
+\contentsline {subsection}{\numberline {5.2.4}An\IeC {\'a}lise qualitativa}{92}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.1}An\IeC {\'a}lise de dados utilizando \textit {ONMTF}}{93}{subsubsection.5.2.4.1}
+\contentsline {subsubsection}{\numberline {5.2.4.2}An\IeC {\'a}lise de dados utilizando \textit {OvNMTF}}{99}{subsubsection.5.2.4.2}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{99}{section*.65}
+\contentsline {chapter}{Refer\^encias\footnote {De acordo com a Associa\c {c}\~ao Brasileira de Normas T\'ecnicas. NBR 6023.}}{103}{section*.67}
 \renewcommand *{\cftappendixname }{Ap\^endice \space }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}Minera\IeC {\c c}\IeC {\~a}o de Texto}{103}{appendix.A}
-\contentsline {section}{\numberline {A.1}Tarefas de pr\IeC {\'e}-processamento}{103}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{103}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{104}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}Filtragem}{104}{subsection.A.1.3}
-\contentsline {subsection}{\numberline {A.1.4}Stemming}{105}{subsection.A.1.4}
-\contentsline {subsection}{\numberline {A.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{105}{subsection.A.1.5}
+\contentsline {appendix}{\chapternumberline {A}Minera\IeC {\c c}\IeC {\~a}o de Texto}{107}{appendix.A}
+\contentsline {section}{\numberline {A.1}Tarefas de pr\IeC {\'e}-processamento}{107}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Representa\IeC {\c c}\IeC {\~a}o textual}{107}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Tokeniza\IeC {\c c}\IeC {\~a}o}{108}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Filtragem}{108}{subsection.A.1.3}
+\contentsline {subsection}{\numberline {A.1.4}Stemming}{109}{subsection.A.1.4}
+\contentsline {subsection}{\numberline {A.1.5}Redu\IeC {\c c}\IeC {\~a}o de Dimensionalidade}{109}{subsection.A.1.5}

@@ -735,6 +735,23 @@ Keywords: Coclustering. Matrix Factorization. Sparsity. Clustering Analysis. Tex
 
 \chapter{Introdução}
 
+% Não há padronização nas representações para as melhores representações.
+% - Não colocar que uma representação é melhor que a outra
+% - Conclusao:
+%     * pensei nos algos, qual contribuição:
+%        - entender os algoritmos originais
+%        - propor mudança de concepcao no modelo
+%        - verificar se isso era possivel
+%        - teste empirico
+%        - derivação
+%        - experimentacao onde percebo algos, destaque especifico para os algoritmos BinOvNMTF
+%        - Hipotese: pq eles se destacam
+
+% Introducao:
+%     - como os algos da literatura tratam sobreposicao
+%     - estudando quantizacao, etc (final cap 3 e 5)
+
+
 Segundo~\citeonline{Jain1999}, a análise de agrupamento pode ser vista como uma tarefa exploratória que tem o objetivo de organizar uma coleção de dados em um conjunto de grupos, segundo a similaridade ou dissimilaridade existente entre esses dados. Tradicionalmente, os métodos usados para análise de agrupamento são desenvolvidos para minimizar a similaridade intragrupo e maximizar a similaridade intergrupos; e precisam encontrar uma organização ``natural'' em grupos que acomode cada dado do conjunto sob análise em um grupo específico.
 
 Estratégias de diferentes naturezas -- particional, hierárquica, baseada em densidade, etc \cite{Xu2005, han2006data}, podem ser usadas para alcançar o objetivo da análise de agrupamento, e cada uma delas possui características que as fazem mais ou menos suscetiveis para conjuntos de dados de diferentes naturezas. Ainda, sob o contexto clássico da tarefa de agrupamento, os métodos precisam lidar com a similaridade intrínseca entre os dados tomando como base a comparação de todas as suas características descritivas e, de alguma forma, precisam ser capazes de descobrir quais características de fato tornam dados em um grupo de dados mais similares entre si.
@@ -3635,30 +3652,16 @@ Também, o valor $1 \times 10^{-4}$ foi configurado para a diferença do erro de
 
 \subsubsection{Resultados}
 \label{subsec:experiments-quant:results}
-% Lucas: Coloco uma tabela pra todos os resultados de todos os l?
 
 Com a parametrização dos experimentos quantitativos realizada, foram criados $10$ modelos para cada combinação, por exemplo, para a representação \textit{tf}, com $k = 3$, $l = 3$, para a base de dados \textit{IG toy} e o algoritmo \textit{ONMTF}, foram gerados $10$ modelos.
 
-Os resultados obtidos para a base de dados \textit{IG toy} são sumarizados nas tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}, e nas figuras~\ref{fig:boxplot-rand:igtoy} e~\ref{fig:boxplot-nmi:igtoy}.
-Analisando as tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}, a primeira conclusão que se pode fazer, é que o índice de Rand é consistente com a informação mútua normalizada, na maioria dos casos, os melhores resultados representados em uma também são os melhores resultados representados em outra, considerando as configurações de representação e número de grupos de termos ($l$), a única exceção é para o resultado do algoritmo \textit{k-means}, que para os resultados com o índice de Rand a melhor representação foi $\textit{tf}_{norm}$, enquanto nos resultados com a informação mútua normalizada, o melhor resultado foi com a representação $\textit{tf}$.
-
-Ainda nas tabelas que mostram os resultados para a base de dados \textit{IG toy}, é possível ver que as representações que tem maior capacidade de separar os grupos de notícias são as $\textit{tf}$ e $\textit{tf}_{norm}$, que apresentam os melhores resultados para todos os algoritmos, especialmente a representação $\textit{tf}_{norm}$.
-Os algoritmos que mais sofreram com ...
-
-Analisando o parâmetro de número de grupos de termos, para os algoritmos de FM para coagrupamento, é possível perceber que a melhor escolha é quando $l \geq k$, pois não há nenhum resultado com $l = 2$, que teve média do índice de Rand ou informação mútua normalizada para uma representação.
-Isso impacta diretamente na qualidade dos grupos de documentos, pois os grupos de termos são usados para formar os grupos de documentos.
-
-O algoritmo \textit{OvNMTF}, proposto nesse trabalho, teve o melhor resultado nos experimentos com a base de dados \textit{IG toy}, além de ter maior estabilidade, isso pode ser visto nas tabelas e especialmente nas figuras~\ref{fig:boxplot-rand:igtoy} e~\ref{fig:boxplot-nmi:igtoy}, que mostram as distribuições das medidas índice de Rand e informação mútua normalizada para a melhor configuração de representação e número de grupos de termos para cada algoritmo.
-
-Os resultados para a base de dados \textit{IG toy} também mostram a instabilidade e capacidade de agrupamento inferior dos algoritmos que tem as restrições binárias nas matrizes indicadoras de grupos de documentos e termos.
-É interessante ver que esse comportamento não acontece com os algoritmos clássicos, isto é, o algoritmo \textit{k-means} tem capacidade de agrupamento superior ao \textit{fuzzy k-means}.
-Uma possível razão para isso, pode ser as restrições binárias nas matrizes que representam os termos, enquanto o \textit{k-means} não faz nenhuma compactação no espaço de termos, então, é capaz de representar esse espaço exatamente como ele é, os algoritmos \textit{FNMTF} e \textit{BinOvNMTF}, fazem essa compactação e além de fazer essa compactação, restringem essa representação para ser binária, podendo levá-los à uma representação de termos de má qualidade, e portanto, grupos de termos de má qualidade, que diretamente influencia nos grupos de documentos.
-Esse efeito parece ser amenizado para o algoritmo \textit{BinOvNMTF}, já que a capacidade de agrupamento é maior que que o \textit{FNMTF}.
-Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de representação dos termos devido ao uso das $k$ matrizes $V$.
+Os resultados médios aplicando as métricas índice de Rand e informação mútua normalizada para a base de dados \textit{IG toy} são sumarizados nas tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}, e nas figuras~\ref{fig:boxplot-rand:igtoy} e~\ref{fig:boxplot-nmi:igtoy}.
+Analisando as tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}, a primeira conclusão que se pode fazer, é que o índice de Rand é consistente com a informação mútua normalizada para estes resultados.
+Na maioria dos casos, os melhores resultados médios representados pela métrica índice de Rand, também são os melhores resultados médios representados pela métrica informação mútua normalizada, considerando as configurações de representação e número de grupos de termos ($l$), apesar de haver algumas diferenças em alguns casos.
 
 \begin{table}[H]
 \centering
-    \caption{Índice de Rand médio por representação do conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados por representação.}
+    \caption{Índice de Rand médio por representação do conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados médios por representação.}
     \begin{tabular}{ccccc}
         \hline
         Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
@@ -3677,7 +3680,7 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
 
 \begin{table}[H]
 \centering
-    \caption{Informação Mútua Normalizada média por representação do conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados por representação.}
+    \caption{Informação Mútua Normalizada média por representação do conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados médios por representação.}
     \begin{tabular}{ccccc}
         \hline
         Algoritmo              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
@@ -3694,9 +3697,30 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
+O algoritmo \textit{OvNMTF}, proposto nesse trabalho, obteve os melhores resultados médios nos experimentos com a base de dados \textit{IG toy}, além de ter maior estabilidade, isso pode ser visto nas tabelas e especialmente nas figuras~\ref{fig:boxplot-rand:igtoy} e~\ref{fig:boxplot-nmi:igtoy}, que mostram as distribuições das medidas índice de Rand e informação mútua normalizada para os melhores resultados médios para cada algoritmo.
+As figuras~\ref{fig:boxplot-all-rand:igtoy} e~\ref{fig:boxplot-all-nmi:igtoy}, que mostram a distribuição em formato de diagrama de caixa, considerando todos os resultados obtidos com as métricas índice de Rand e informação mútua normalizada, respectivamente, também suportam essa afirmação.
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand para os melhores resultados médios para cada algoritmo na base de dados \textit{IG toy}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-rand-igtoy.png}
+    \label{fig:boxplot-rand:igtoy}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada para os melhores resultados médios para cada algoritmo na base de dados \textit{IG toy}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-igtoy.png}
+    \label{fig:boxplot-nmi:igtoy}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+No entanto, analisando os melhores resultados obtidos, ao invés da média, destacados em negrito na tabela~\ref{tab:experiments-quant-best:igtoy} os algoritmos que se saem melhor são o \textit{BinOvNMTF} considerando o índice de Rand, e o \textit{k-means} considerando o índice informação mútua normalizada, apesar dos resultados serem bem semelhantes.
+
 \begin{table}[H]
 \centering
-    \caption{Melhores resultados obtidos para o conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados por algoritmo.}
+    \caption{Melhores (máximos) resultados obtidos para o conjunto de dados \textit{IG toy} com $k = 3$, destacando os melhores resultados por algoritmo.}
     \begin{tabular}{ccc}
         \hline
         Algoritmo              & Índice de Rand & Informação Mútua Normalizada \\
@@ -3705,29 +3729,27 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
         \textit{fuzzy k-means} & $0,6669$ ($\textit{tf}_{norm}$)             & $0,6785$ ($\textit{tf}$) \\
         \textit{ONMTF}         & $0,7885$ ($\textit{tfidf}_{norm}$, $l=5$)   & $0,7719$ ($\textit{tfidf}_{norm}$, $l=5$) \\
         \textit{FNMTF}         & $0,4502$ ($\textit{tfidf}$, $l=4$)          & $0,5041$ ($\textit{tfidf}$, $l=4$) \\
-        \textit{OvNMTF}        & $0,8208*$ ($\textit{tf}_{norm}$, $l=2$)     & $0,7855*$ ($\textit{tf}_{norm}$, $l=2$) \\
+        \textit{OvNMTF}        & $0,8208*$ ($\textit{tf}_{norm}$, $l=2$)     & $0,7855$ ($\textit{tf}_{norm}$, $l=2$) \\
         \textit{BinOvNMTF}     & $\mathbf{0,8261}$ ($\textit{tfidf}$, $l=3$) & $0,8024*$ ($\textit{tfidf}$, $l=3$) \\
         \hline \\
     \end{tabular}
-    \label{tab:experiments-quant-best-nmi:igtoy}
+    \label{tab:experiments-quant-best:igtoy}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-\begin{figure}[H]
-    \centering
-    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{IG toy}.}
-    \includegraphics[width=0.7\textwidth]{img/boxplot-rand-igtoy.png}
-    \label{fig:boxplot-rand:igtoy}
-    \source{Lucas Fernandes Brunialti, 2016}
-\end{figure}
+Sob a ótica de representação, as tabelas~\ref{tab:experiments-quant-rand:igtoy} e ~\ref{tab:experiments-quant-nmi:igtoy} mostram que os algoritmos que tem como entrada a base de dados \textit{IG toy} na representação $\textit{tf}_{norm}$, apresentam resultados médios melhores que as demais representações.
+Ainda, a maioria dos melhores resultados (tabela~\ref{tab:experiments-quant-best:igtoy}), se apresentaram com a configuração de representação normalizada.
 
-\begin{figure}[H]
-    \centering
-    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{IG toy}.}
-    \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-igtoy.png}
-    \label{fig:boxplot-nmi:igtoy}
-    \source{Lucas Fernandes Brunialti, 2016}
-\end{figure}
+Analisando o parâmetro de número de grupos de termos, para os algoritmos de FM para coagrupamento, é possível perceber que a melhor escolha é quando $l \geq k$, pois não há nenhum resultado com $l = 2$, que teve média do índice de Rand ou informação mútua normalizada para uma representação.
+Isso impacta diretamente na qualidade dos grupos de documentos, pois os grupos de termos são usados para formar os grupos de documentos.
+Ainda, é possível observar um padrão analisando a configuração do parâmetro $l$ para os melhores resultados (tabela~\ref{tab:experiments-quant-best:igtoy}): os valores de $l$ para os resultados obtidos com os algoritmos (\textit{OvNMTF} e \textit{BinOvNMTF}), são em todos os casos, menores que os valores obtidos
+No entanto, esse padrão não pode observado para os resultados médios (tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}).
+
+Os resultados para a base de dados \textit{IG toy} também mostram a instabilidade e capacidade de agrupamento médio inferior dos algoritmos que tem as restrições binárias (ou ortogonais) nas matrizes indicadoras de grupos de documentos e termos.
+Uma possível razão para essa instabilidade, pode ser pelo fato desses algoritmos, por ter convergência mais rápida e restrições binárias ou ortogonais, não serem capazes de convergir tão bem quanto o algoritmo \textit{OvNMTF}.
+% as restrições binárias nas matrizes que representam os termos, enquanto o \textit{k-means} não faz nenhuma compactação no espaço de termos, então, é capaz de representar esse espaço exatamente como ele é, os algoritmos \textit{FNMTF} e \textit{BinOvNMTF}, fazem essa compactação e além de fazer essa compactação, restringem essa representação para ser binária, podendo levá-los à uma representação de termos de má qualidade, e portanto, grupos de termos de má qualidade, que diretamente influencia nos grupos de documentos.
+% Esse efeito parece ser amenizado para o algoritmo \textit{BinOvNMTF}, já que a capacidade de agrupamento é maior que que o \textit{FNMTF}.
+% Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de representação dos termos devido ao uso das $k$ matrizes $V$.
 
 \begin{figure}[H]
     \centering
@@ -3745,49 +3767,34 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-% TODO: fazer igual /\
-\begin{table}[H]
-\label{tab:experiments-quant:ig}
-\centering
-    \caption{Melhores resultados do Índice de Rand para experimentos com a base de dados IG. * - testes não finalizados}
-    \scalebox{0.7}{
-        \begin{tabular}{c|c|c|c}
-            \hline
-            Algoritmo              & Representação & $l$ & \textit{Rand Index} \\
-            \hline
-            \textit{k-means}       & TF            & -    & $0.3082$           \\
-            \textit{k-means}       & TF norm       & -    & $0.3350$           \\
-            \textit{k-means}       & TF-IDF        & -    & $0.2750$           \\
-            \textit{k-means}       & TF-IDF norm   & -    & $0.2262$           \\
-            \hline
-            \textit{fuzzy k-means} & TF            & -    & $0.2681$           \\
-            \textit{fuzzy k-means} & TF norm       & -    & $0.1757$           \\
-            \textit{fuzzy k-means} & TF-IDF        & -    & $0.2347$           \\
-            \textit{fuzzy k-means} & TF-IDF norm   & -    & $0.3832$           \\
-            \hline
-            \textit{ONMTF}         & TF            & $19$ & $0.1883$           \\
-            \textit{ONMTF}         & TF norm       & $13$ & $0.2023$           \\
-            \textit{ONMTF}         & TF-IDF        & $13$ & $0.1814$           \\
-            \textit{ONMTF}         & TF-IDF norm   & $7$  & $0.2037$           \\
-            \hline
-            \textit{FNMTF}         & TF            & $13$ & $0.2367$           \\
-            \textit{FNMTF}         & TF norm       & $19$ & $0.2678$           \\
-            \textit{FNMTF}         & TF-IDF        & $7$  & $0.2410$           \\
-            \textit{FNMTF}         & TF-IDF norm   & $16$ & $0.2480$           \\
-            \hline
-            \textit{OvNMTF}        & TF            & $19$ & $0.3520$*          \\
-            \textit{OvNMTF}        & TF norm       & $16$ & $0.3360$*          \\
-            \textit{OvNMTF}        & TF-IDF        & $10$ & $0.3682$*          \\
-            \textit{OvNMTF}        & TF-IDF norm   & $10$ & $0.3724$*          \\
-            \hline
-            \textit{BinOvNMTF}     & TF            & $16$ & $0.4415$           \\
-            \textit{BinOvNMTF}     & TF norm       & $7$  & $0.4081$           \\
-            \textit{BinOvNMTF}     & TF-IDF        & $7$  & $0.3681$           \\
-            \textit{BinOvNMTF}     & TF-IDF norm   & $16$ & $0.3883$           \\
-            \hline
-        \end{tabular}
-    }
-\end{table}
+------------------------------------------------------------------------------------------------------------
+
+Faltam experimentos para o IG, mas já coloquei essa figura para ter uma idéia melhor de como estão os resultados.
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand de todas as configurações para cada algoritmo na base de dados \textit{IG}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-rand-ig.png}
+    \label{fig:boxplot-all-rand:ig}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada de todas as configurações para cada algoritmo na base de dados \textit{IG}.}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-nmi-ig.png}
+    \label{fig:boxplot-all-nmi:ig}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
+--------------------------------------------------------------------------------------------------------------
+
+Para a base de dados \textit{NIPS}, foi realizada a mesma organização dos resultados.
+As tabelas~\ref{tab:experiments-quant-rand:nips} e~\ref{tab:experiments-quant-nmi:nips} mostram os resultados médios para a base de dados \textit{NIPS} por algoritmo e por representação, dos índices Rand e informação mútua normalizada, respectivamente, destacando os resultados dos melhores algoritmos por representação, mostrando quais parâmetros foram usados, e a tabela~\ref{tab:experiments-quant-best-nmi:nips} mostram os melhores resultados.
+As figuras~\ref{fig:boxplot-rand:nips} e~\ref{fig:boxplot-nmi:igtoy} mostram as distribuições em formato de diagrama de caixa dos melhores resultados médios para ambas as medidas utilizadas, e as figuras~\ref{fig:boxplot-all-rand:nips} e~\ref{fig:boxplot-all-nmi:nips} mostram as distribuições em formato de diagrama de caixa de todos os resultados obtidos para a base de dados \textit{NIPS}, para ambas as medidas.
+
+Observando todos os resultados para a base de dados \textit{NIPS} é visível que o algoritmo \textit{BinOvNMTF} foi o que mais se destacou, considerando ambas as medidas.
+Tanto para os melhores resultados (máximos - tabela~\ref{tab:experiments-quant-best-nmi:nips}) quanto para os resultados médios (tabelas~\ref{tab:experiments-quant-rand:nips} e~\ref{tab:experiments-quant-nmi:nips}), apesar de ter alta variabilidade (observada nas distribuições das figuras~\ref{fig:boxplot-rand:nips, fig:boxplot-nmi:nips, fig:boxplot-all-rand:nips} e~\ref{fig:boxplot-all-nmi:nips}).
 
 \begin{table}[H]
 \centering
@@ -3846,9 +3853,16 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
+Observando os melhores resultados e os resultados médios, o parâmetro $l$ se apresentou ligeiramente menor para os algoritmos \textit{OvNMTF} e \textit{OvNMTF}, comparando com os algoritmos \textit{ONMTF} e \textit{FNMTF}, como esperado.
+Ainda para os resultados com o conjunto de dados \textit{NIPS}, analisando os resultados por representação, é possível perceber uma tendência de melhor representação desse conjunto de dados, para a representação \textit{tfidf}, tanto não normalizada quanto a normalizada.
+
+Comparando os resultados obtidos pelo algoritmo \textit{OvNMTF} e \textit{BinOvNMTF}, claramente, o algoritmo \textit{BinOvNMTF} apresentou melhores resultados para esta base de dados, uma provável razão para isso, é a restrição binária, que pode fazê-lo encontrar cogrupos com maior ortogonalidade.
+Esse argumento também se suporta pelos resultados apresentados pelo algoritmo \textit{FNMTF}, que apresentou o segundo melhor resultado considerando o índice de Rand (tabela~\ref{tab:experiments-quant-best-nmi:nips}).
+Ainda, comparando-o com os resultados do \textit{BinOvNMTF}, é possível observar que o mecanismo de independência entre cogrupos de palavras de diferentes cogrupos de documentos, adicionado ao algoritmo \textit{FNMTF}, resultando na criação do algoritmo \textit{BinOvNMTF}, claramente, apresentou melhoras significativas, considerando a figura~\ref{fig:boxplot-all-rand:nips}.
+
 \begin{figure}[H]
     \centering
-    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{NIPS}.}
+    \caption{Distribuições em formato de diagrama de caixa do Índice de Rand para os melhores resultados médios para cada algoritmo na base de dados \textit{NIPS}.}
     \includegraphics[width=0.7\textwidth]{img/boxplot-rand-nips.png}
     \label{fig:boxplot-rand:nips}
     \source{Lucas Fernandes Brunialti, 2016}
@@ -3856,7 +3870,7 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
 
 \begin{figure}[H]
     \centering
-    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada para as melhores configurações de $l$ e representação para cada algoritmo na base de dados \textit{NIPS}.}
+    \caption{Distribuições em formato de diagrama de caixa da Informação Mútua Normalizada para os melhores resultados médios para cada algoritmo na base de dados \textit{NIPS}.}
     \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-nips.png}
     \label{fig:boxplot-nmi:nips}
     \source{Lucas Fernandes Brunialti, 2016}
@@ -3880,11 +3894,13 @@ Isso provavelmente ocorre pois o \textit{BinOvNMTF} tem maior capacidade de repr
 
 \subsection{Análise qualitativa}
 
-% TODO descrição
 Estes experimentos mostram a aplicabilidade dos algoritmos no domínio de mineração de textos, com ênfase nas informações que são possíveis de extrair dos modelos gerados por algoritmos de coagrupamento baseados em fatoração de matrizes: \textit{ONMTF} e \textit{OvNMTF}.
+Os algoritmos \textit{FNMTF} e \textit{BinOvNMTF} não foram considerados nesta análise pois a restrições binárias invalidam a análise de palavras nos cogrupos de palavras, dado que não há um fator de pertinência, então não é possível realizar um filtro das palavras mais relevantes para cada cogrupo de palavras.
+Isso apresenta-se como uma desvantagem desses algoritmos.
 
 Essa análise qualitativa se faz importante, para mostrar que os algoritmos são capazes de encontrar tópicos (grupos de palavras), e possivelmente, explicar os grupos de notícias formados, ou até mesmo, realizar rotulação dos grupos de notícias formados.
 % TODO mas pq é importante para algoritmos que tem intersecção
+%  FNMTF e BinOvNMTF apresentam desvantagem
 
 Foi necessária a construção de um estudo de caso para avaliar os algoritmos de Coagrupamento baseados em Fatoração de Matrizes.
 O estudo de caso é composto por uma análise dos cogrupos de palavras correlacionando-os com os cogrupos de notícias.
@@ -3894,18 +3910,17 @@ Para isso, foi usado o conjunto de dados \textit{IG toy}, que foi construído, j
 O portal IG\footnote{http://www.ig.com.br/} é um dos maiores portais de notícias brasileiro~\cite{topsites} que é composto por sites importantes como o noticiário Último Segundo, o iG Gente, o iG Esportes, a TV iG, o iG Economia, o Delas e etc.
 Cada um desses sites é caracterizado como um canal que contém notícias de um determinado assunto macro.
 
-O conjunto de dados \textit{IG toy} é composto por três desses canais: esportes, que contém notícias, principalmente, dos esportes mais populares no Brasil, como o futebol e o UFC; jovem, que contém notícias mais interessantes para o público jovem em geral, como notícias sobre filmes, esportes e músicas voltados para o público jovem; arena, que compõem notícias de games, novidades de todos os tipos de games, consoles e coberturas de eventos de games.
+O conjunto de dados \textit{IG toy} é composto por três desses canais: esportes, que contém notícias, principalmente, dos esportes mais populares no Brasil, como o futebol e o UFC; jovem, que contém notícias mais interessantes para o público jovem em geral, como notícias sobre esportes radicais, filmes e músicas voltados para o público jovem; arena, que compõem notícias de games, novidades de todos os tipos de games, consoles e coberturas de eventos de games.
 Sendo $100$ notícias para cada canal para compor o conjunto de dados, totalizando $300$ notícias.
 
 Esses canais foram escolhidos para formar o conjunto de dados \textit{IG toy} por serem de assuntos similares, notícias do canal jovem podem ter semelhanças com notícias do canal esportes, como notícias sobre surfe, por exemplo, notícias do canal arena podem ser similares com notícias do canal de esportes, por existerem games que simulam esportes, ou até mesmo, possuírem similaridades com notícias do canal jovem, pois games é um assunto ligado ao público jovem na sua maioria.
 Essa escolha torna possível verificar como os algoritmos tratam essa intersecção entre palavras nas notícias.
 
 As subseções a seguir irão mostrar como os algoritmos \textit{ONMTF} e \textit{OvNMTF} são úteis para análise de tópicos e palavras no conjunto de dados \textit{IG toy}.
-% TODO: dizer pq não faz sentido fazer a análise com FNMTF e OvNMTF
 
 \subsubsection{Análise de dados utilizando \textit{ONMTF}}
 
-Para as análises construídas com o \textit{ONMTF} foi utilizado o modelo que obteve o melhor resultado considerando o \textit{Índice de Rand} na base de dados \textit{IG toy},  descrito na seção~\ref{subsec:experiments-quant:results}, que foi o modelo com a configuração: $k = 3$, $l = 5$ e representação $\textit{tfidf}_{norm}$.
+Para as análises construídas com o \textit{ONMTF} foi utilizado o modelo que obteve o melhor resultado considerando o \textit{índice de Rand} na base de dados \textit{IG toy},  descrito na seção~\ref{subsec:experiments-quant:results}, que foi o modelo com a configuração: $k = 3$, $l = 5$ e representação $\textit{tfidf}_{norm}$.
 
 O algoritmo \textit{ONMTF} é capaz de encontrar cogrupos de notícias e cogrupos de palavras, além disso, cada cogrupo de notícias é relacionado com os cogrupos de palavras por um fator, assim como cada cogrupo de palavras está relacionado com os cogrupos de notícias pelo mesmo fator.
 
@@ -3916,9 +3931,8 @@ A normalização foi feita para tornar claro que cada cogrupo de palavras foi us
 No entanto, essa normalização muda a solução obtida anteriormente, então, foi realizada apenas como caráter ilustrativo.
 
 \begin{table}[H]
-\label{tab:onmtf:matrizS}
-\centering
-    \caption{Matriz $S$ para o algoritmo \textit{ONMTF} com $k = 3$ e $l = 5$ na base de dados \textit{IG toy} normalizada para que a soma da linha seja igual à $1$}
+    \centering
+    \caption{Matriz $S$ para o algoritmo \textit{ONMTF} com $k = 3$ e $l = 5$ na base de dados \textit{IG toy} normalizada para que a soma da linha seja igual à $1$, destacando os valores mais relevantes para a formação dos cogrupos de notícias}
     \begin{tabular}{cccccc}
         \hline
          & \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} \\
@@ -3928,23 +3942,19 @@ No entanto, essa normalização muda a solução obtida anteriormente, então, f
         \textbf{CN ``jovem''}    & $\mathbf{0,4}$ & $0,1$  & $\mathbf{0,5}$  & $0,0$ & $0,0$ \\
         \hline \\
     \end{tabular}
+    \label{tab:onmtf:matrizS}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-A figura~\ref{fig:analysis-onmtf} exemplifica as informações que um modelo gerado pelo algoritmo \textit{ONMTF} provê.
-A notícia ``Avaliação do FIFA 15 por um jogador fanático'' foi usada como exemplo.
-O resultado do coagrupamento de notícias foi que dos três cogrupos de notícias, a notícia pertence ao cogrupo (rotulado manualmente através da análise de palavras) ``esportes'' com um fator equivalente à $40\%$, também pertence ao cogrupo rotulado como ``arena'' com um fator equivalente à $60\%$, e não pertence ao cogrupo rotulado como ``jovem''.
-Cada cogrupo de notícias é formado pela combinação dos cogrupos de palavras com os fatores que indicam a relação entre cogrupos de notícias e cogrupos de colunas, denotado pelas linhas que os conecta.
-Cada cogrupo de palavras é ilustrado pelas palavras mais relevantes que o compõem, ou seja, as palavras que contém os maiores fatores (representado em porcentagem) para aquele determinado cogrupo.
-
-Ainda sobre a Figura~\ref{fig:analysis-onmtf}, note que as palavras do corpo da notícia foram coloridas de acordo com as cores dos cogrupos de palavras as quais pertencem.
-É possível perceber que existem mais palavras que caracterizam a notícia como sendo sobre o assunto ``games'', o que vai de acordo com o coagrupamento realizado.
+Com o objetivo de exemplificar as informações que um modelo gerado pelo algoritmo \textit{ONMTF} provê, a notícia ``Avaliação do FIFA 15 por um jogador fanático'' foi usada como exemplo, mostrada na figura~\ref{fig:sample-news}.
+O resultado do coagrupamento para essa notícia foi que dos três cogrupos de notícias, a notícia pertence ao cogrupo (rotulado manualmente através da análise de palavras) ``esportes'' com um fator equivalente à $43\%$, também pertence ao cogrupo rotulado como ``arena'' com um fator equivalente à $57\%$, e não pertence ao cogrupo rotulado como ``jovem''.
+Cada cogrupo de notícias é formado pela combinação dos cogrupos de palavras com os fatores que indicam a relação entre cogrupos de notícias e cogrupos de colunas.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{img/analysis-onmtf.png}
-    \caption{Exemplo de uma notícia do canal arena e sua disposição quanto aos cogrupos de notícias e palavras.}
-    \label{fig:analysis-onmtf}
+    \caption{Exemplo de uma notícia do canal ``arena''}
+    \includegraphics[width=0.65\textwidth]{img/arenaNews.png}
+    \label{fig:sample-news}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
@@ -3955,38 +3965,41 @@ A ordenação foi feita através dos fatores de cada palavra para cada cogrupo d
 \begin{table}[H]
 \centering
     \caption{top-$20$ palavras para cada cogrupo de palavras, após a realização do particionamento}
-    \begin{tabular}{ccccc}
-        \hline
-        \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} \\
-        \textit{``esportes radicais''} & \textit{``futebol''} & \textit{``esportes em geral''} & \textit{``games''} & \textit{``futebol''} \\
-        \hline
-        skate      & real       & anos       & jogos              & gol \\
-        surfe      & breno      & mundial    & xbox               & madrid \\
-        bob        & time       & brasil     & playstation        & gols \\
-        burnquist  & barcelona  & etapa      & wii                & messi \\
-        circuito   & partida    & brasileiro & jogo               & euro \\
-        games      & equipe     & jovem      & of                 & guardiola \\
-        mineirinho & minutos    & rio        & console            & ronaldo \\
-        slater     & jogador    & dias       & sony               & itália \\
-        rampa      & campeonato & música     & legends            & cristiano \\
-        medina     & liga       & pedro      & nintendo           & bola \\
-        manobras   & futebol    & atleta     & game               & bayern \\
-        mega       & casa       & americano  & league             & pontos \\
-        megarampa  & temporada  & gente      & one                & espanhol \\
-        kelly      & grupo      & esporte    & novo               & zagueiro \\
-        prova      & feira      & campeão    & ps                 & atacante \\
-        bmx        & dois       & competição & microsoft          & defesa \\
-        pista      & vitória    & mundo      & the                & técnico \\
-        barros     & tempo      & ano        & usmonetáriointerno & placar \\
-        skatistas  & área       & janeiro    & controle           & atlético \\
-        rony       & copa       & ufc        & versão             & polônia \\
-        \hline \\
-    \end{tabular}
+    \resizebox{\linewidth}{!}{
+        \begin{tabular}{ccccc}
+            \hline
+            \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} \\
+            \textit{``esportes radicais''} & \textit{``futebol''} & \textit{``esportes em geral''} & \textit{``games''} & \textit{``futebol''} \\
+            \hline
+            skate      & real       & anos       & jogos              & gol \\
+            surfe      & breno      & mundial    & xbox               & madrid \\
+            bob        & time       & brasil     & playstation        & gols \\
+            burnquist  & barcelona  & etapa      & wii                & messi \\
+            circuito   & partida    & brasileiro & jogo               & euro \\
+            games      & equipe     & jovem      & of                 & guardiola \\
+            mineirinho & minutos    & rio        & console            & ronaldo \\
+            slater     & jogador    & dias       & sony               & itália \\
+            rampa      & campeonato & música     & legends            & cristiano \\
+            medina     & liga       & pedro      & nintendo           & bola \\
+            manobras   & futebol    & atleta     & game               & bayern \\
+            mega       & casa       & americano  & league             & pontos \\
+            megarampa  & temporada  & gente      & one                & espanhol \\
+            kelly      & grupo      & esporte    & novo               & zagueiro \\
+            prova      & feira      & campeão    & ps                 & atacante \\
+            bmx        & dois       & competição & microsoft          & defesa \\
+            pista      & vitória    & mundo      & the                & técnico \\
+            barros     & tempo      & ano        & usmonetáriointerno & placar \\
+            skatistas  & área       & janeiro    & controle           & atlético \\
+            rony       & copa       & ufc        & versão             & polônia \\
+            \hline \\
+        \end{tabular}
+    }
     \label{tab:experiments-quali-words:onmtf}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-A tabela~\ref{tab:experiments-quali-words:onmtf} mostra claramente que os cogrupos de palavras \# 2 e \# 5 (rotulados como ``futebol'') foram responsáveis por caracterizar o cogrupo de notícias do canal ``esportes'', o cogrupo de palavras \# 4 (rotulado como ``games'') foi responsável por caracterizar o cogrupo de notícias do canal ``arena'', e por fim, os cogrupos de palavras \# 1 e \# 3 (rotulados como ``esportes radicais'' e ``esportes em geral'', respectivamente) foram responsáveis por caracterizar as notícias do cogrupo do canal ``jovem''.
+A tabela~\ref{tab:experiments-quali-words:onmtf} mostra claramente que os cogrupos de palavras \#2 e \#5 (rotulados como ``futebol'') foram responsáveis por caracterizar o cogrupo de notícias que representa o canal ``esportes'', o cogrupo de palavras \#4 (rotulado como ``games'') foi responsável por caracterizar o cogrupo de notícias que representa o canal ``arena'', e por fim, os cogrupos de palavras \#1 e \#3 (rotulados como ``esportes radicais'' e ``esportes em geral'', respectivamente) foram responsáveis por caracterizar as notícias do cogrupo que representa o canal ``jovem''.
+Note que a relação feita dos cogrupos de palavras com os cogrupos de notícias é condizente com a matriz $S$ (tabela~\ref{tab:onmtf:matrizS}), os cogrupos de palavras rotulados como ``futebol'' têm fatores $0,5$ e $0,4$ para o cogrupo de notícias que representa o canal ``esportes'', o cogrupo rotulado como ``games'' tem fator $0,9$ para o cogrupo de notícias que representa o canal ``arena'', e os cogrupos rotulados como ``esportes radicais'' e ``esportes em geral'' têm fatores $0,4$ e $0,5$ para o cogrupo de notícias que representa o canal ``jovem''.
 
 Foi criada outra forma de visualização para as palavras do resultado do coagrupamento nesse experimento, essa visualização apresenta-se como \textit{word cloud}, em que o tamanho das palavras é definido pelo seu fator de pertinência ao cogrupo correspondente.
 A Figura~\ref{fig:onmtf:wordcloud} mostra essa visualização contendo as $100$ palavras com maior fator para cada coluna da matriz $V$.
@@ -3995,23 +4008,23 @@ A Figura~\ref{fig:onmtf:wordcloud} mostra essa visualização contendo as $100$ 
 \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-1.png}
-        \caption{CP \#1}
+        \caption{CP \#1 \textit{``esportes radicais''}}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-2.png}
-        \caption{CP \#2}
+        \caption{CP \#2 \textit{``futebol''}}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-3.png}
-        \caption{CP \#3}
+        \caption{CP \#3 \textit{``esportes em geral''}}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-4.png}
-        \caption{CP \#4}
+        \caption{CP \#4 \textit{``games''}}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/onmtf-tc-5.png}
-        \caption{CP \#5}
+        \caption{CP \#5 \textit{``futebol''}}
     \end{subfigure}
 
     \caption{Visualização \textit{word cloud} das top-$100$ palavras, dispostas em uma área quadrada, para cada cogrupo gerados pelo algoritmo \textit{ONMTF}}
@@ -4019,30 +4032,114 @@ A Figura~\ref{fig:onmtf:wordcloud} mostra essa visualização contendo as $100$ 
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-Note que neste caso uma palavra se apresenta em diferentes cogrupos de palavras, como exemplo a palavra \textit{jogo} presente nos cogrupos \# 4 e \# 5 (a maior palavra do cogrupo \# 4 e no centro do `o' da palavra gol para o cogrupo \# 5), que significa que existem notícias em que a palavra ocorre para os cogrupos de notícias do canal ``arena'' e ``esportes'', respectivamente, com maior ocorrência no primeiro do que no segundo.
+Note que neste caso uma palavra se apresenta em diferentes cogrupos de palavras, como exemplo a palavra \textit{jogo} presente nos cogrupos \#4 e \#5 (a maior palavra do cogrupo \#4 e no centro do `o' da palavra gol para o cogrupo \#5), que significa que existem notícias em que a palavra ocorre para os cogrupos de notícias do canal ``arena'' e ``esportes'', respectivamente, com maior ocorrência no primeiro do que no segundo.
 Isso ocorre pois foram usados os $100$ maiores de cada uma das $l$ colunas na matriz $V$, gerada pela fatoração \textit{ONMTF}.
-Note que é possível dizer que a palavra \textit{jogo}, por exemplo, possui diferentes significados para cada cogrupo de palavras.
-No entanto, como há interdependência entre cogrupos de palavras, essa afirmação não é totalmente verdadeira, pois a palavra \textit{jogo} carregando o significado de ``futebol'' pode afetar negativamente o cogrupo de palavras \# 4, assim como, a palavra \textit{jogo} com o significado de ``game'' pode afetar negativamente o cogrupo de palavras \# 5.
+Então, é possível dizer que a palavra \textit{jogo}, por exemplo, possui diferentes significados para cada cogrupo de palavras.
+No entanto, como há interdependência entre cogrupos de palavras, a palavra \textit{jogo} carregando o significado de ``futebol'' pode afetar negativamente o cogrupo de palavras \#4, assim como, a palavra \textit{jogo} com o significado de ``games'' pode afetar negativamente o cogrupo de palavras \#5.
+
+Ainda, alternativamente à análise das top-palavras para cada cogrupo,~\citeonline{Ding06} sugere a análise de palavras verificando a probabilidade de uma palavra pertencer à um cogrupo, então, palavras quase que igualmente prováveis para dois ou mais cogrupos, pertencerão à esses cogrupos.
+É análogo dizer que estão quase que igualmente próximas de dois ou mais centróides, então, se a matriz $V$ for normalizada para que a soma dos fatores em uma linha some $1$, é possível realizar este tipo de análise.
+As palavras pertencentes à dois e três cogrupos de palavras são mostradas na tabela~\ref{tab:experiments-quali-peak-words:onmtf}.
+
+% Lucas: Será q essa análise vale a pena?
+\begin{table}[H]
+\centering
+    \caption{Análise de palavras pertencentes à dois e três cogrupos, com os fatores da matriz $V$ normalizados}
+    \resizebox{\linewidth}{!}{
+        \begin{tabular}{cccccc}
+            \hline
+            \multicolumn{6}{c}{\textbf{$2$ cogrupos}} \\
+            \hline
+            & \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} \\
+            & \textit{``esportes radicais''} & \textit{``futebol''} & \textit{``esportes em geral''} & \textit{``games''} & \textit{``futebol''} \\
+            \hline
+            tento          & $0,6$ & $0,0$ & $0,4$ & $0,0$ & $0,0$ \\
+            brinquedo      & $0,6$ & $0,0$ & $0,4$ & $0,0$ & $0,0$ \\
+            up             & $0,6$ & $0,0$ & $0,4$ & $0,0$ & $0,0$ \\
+            stop           & $0,6$ & $0,0$ & $0,4$ & $0,0$ & $0,0$ \\
+            bósnia         & $0,0$ & $0,6$ & $0,0$ & $0,0$ & $0,4$ \\
+            cooperação     & $0,0$ & $0,6$ & $0,0$ & $0,4$ & $0,0$ \\
+            raras          & $0,0$ & $0,6$ & $0,0$ & $0,0$ & $0,4$ \\
+            entrar         & $0,0$ & $0,6$ & $0,4$ & $0,0$ & $0,0$ \\
+            vergonha       & $0,4$ & $0,0$ & $0,6$ & $0,0$ & $0,0$ \\
+            comenta        & $0,4$ & $0,0$ & $0,6$ & $0,0$ & $0,0$ \\
+            off            & $0,0$ & $0,0$ & $0,6$ & $0,4$ & $0,0$ \\
+            bom            & $0,0$ & $0,0$ & $0,6$ & $0,0$ & $0,4$ \\
+            raros          & $0,0$ & $0,4$ & $0,0$ & $0,6$ & $0,0$ \\
+            paga           & $0,4$ & $0,0$ & $0,0$ & $0,6$ & $0,0$ \\
+            chamam         & $0,0$ & $0,4$ & $0,0$ & $0,6$ & $0,0$ \\
+            transferir     & $0,0$ & $0,4$ & $0,0$ & $0,6$ & $0,0$ \\
+            insistiu       & $0,4$ & $0,0$ & $0,0$ & $0,0$ & $0,6$ \\
+            dores          & $0,0$ & $0,4$ & $0,0$ & $0,0$ & $0,6$ \\
+            brigando       & $0,4$ & $0,0$ & $0,0$ & $0,0$ & $0,6$ \\
+            empatou        & $0,0$ & $0,4$ & $0,0$ & $0,0$ & $0,6$ \\
+            \hline
+            \multicolumn{6}{c}{\textbf{$3$ cogrupos}} \\
+            \hline
+            ruivo          & $0,4$ & $0,0$ & $0,3$ & $0,3$ & $0,0$ \\
+            maiorais       & $0,4$ & $0,0$ & $0,3$ & $0,3$ & $0,0$ \\
+            vlogueiroé     & $0,4$ & $0,0$ & $0,3$ & $0,3$ & $0,0$ \\
+            youpìx         & $0,4$ & $0,0$ & $0,3$ & $0,3$ & $0,0$ \\
+            bronca         & $0,0$ & $0,4$ & $0,3$ & $0,3$ & $0,0$ \\
+            emicida        & $0,0$ & $0,4$ & $0,3$ & $0,3$ & $0,0$ \\
+            queda          & $0,0$ & $0,4$ & $0,3$ & $0,3$ & $0,0$ \\
+            parado         & $0,3$ & $0,4$ & $0,0$ & $0,0$ & $0,3$ \\
+            big            & $0,3$ & $0,0$ & $0,4$ & $0,3$ & $0,0$ \\
+            períodos       & $0,0$ & $0,3$ & $0,4$ & $0,3$ & $0,0$ \\
+            bolada         & $0,3$ & $0,0$ & $0,4$ & $0,3$ & $0,0$ \\
+            reunirá        & $0,0$ & $0,3$ & $0,4$ & $0,3$ & $0,0$ \\
+            possuir        & $0,3$ & $0,0$ & $0,3$ & $0,4$ & $0,0$ \\
+            mudaram        & $0,3$ & $0,0$ & $0,3$ & $0,4$ & $0,0$ \\
+            mangá          & $0,3$ & $0,0$ & $0,3$ & $0,4$ & $0,0$ \\
+            doutor         & $0,3$ & $0,0$ & $0,3$ & $0,4$ & $0,0$ \\
+            dedicando      & $0,3$ & $0,0$ & $0,3$ & $0,0$ & $0,4$ \\
+            disputou       & $0,3$ & $0,0$ & $0,3$ & $0,0$ & $0,4$ \\
+            quinze         & $0,3$ & $0,3$ & $0,0$ & $0,0$ & $0,4$ \\
+            veterano       & $0,3$ & $0,3$ & $0,0$ & $0,0$ & $0,4$ \\
+            \hline \\
+        \end{tabular}
+    }
+    \label{tab:experiments-quali-peak-words:onmtf}
+    \source{Lucas Fernandes Brunialti, 2016}
+\end{table}
 
 \subsubsection{Análise de dados utilizando \textit{OvNMTF}}
 
-O algoritmo \textit{OvNMTF} é capaz de encontrar cogrupos de notícias e cogrupos de palavras, semelhante aos outros.
+Semelhante à análise com o modelo gerado pelo algoritmo \textit{ONMTF}, o modelo usado para a análise com o algoritmo \textit{OvNMTF} foi baseada no melhor resultado considerando o índice de Rand para a base de dados \textit{IG toy}, descrito na seção~\ref{subsec:experiments-quant:results}, que foi o modelo com a seguinte configuração: $k = 3$, $l = 2$ e representação $\textit{tf}_{norm}$.
+
+Assim como o \textit{ONMTF}, o algoritmo \textit{OvNMTF}, proposto neste trabalho, é capaz de encontrar cogrupos de notícias e cogrupos de palavras, ainda, com a particularidade de que cogrupos de palavras são relativos à um cogrupo de notícias.
+Desta forma, cogrupos de palavras de diferentes cogrupos de notícias, são formados de forma independente.
+Note que ainda é possível relacionar cada linha da matriz $S$ aos cogrupos de palavras correspondentes à essa linha, isto é, cada fator da linha $1$ da matriz $S$ pode ser correlacionado com os cogrupos de palavras da linha $1$ (extraídos da matriz resultante da fatoração $V_{(1)}$).
+A matriz $S$ que foi usada nessa análise pode ser observada na tabela~\ref{tab:ovnmtf:matrizS}.
+A mesma normalização da análise com o algoritmo \textit{ONMTF} foi realizada e as mesmas ressalvas quanto a normalização também servem para este caso.
+
+Note que existem do parâmetro $l = 2$, existem $6$ cogrupos de palavras, $2$ cogrupos de palavras para cada cogrupo de notícia.
+Os cogrupos \#1 e \#2 referentes ao cogrupo de notícias relacionado ao canal ``arena'', os cogrupos \#3 e \#4 referentes ao cogrupo de notícias relacionado ao canal ``jovem'', e por fim, os cogrupos \#5 e \#6 referentes ao cogrupos de notícias relacionado ao canal ``esportes''.
 
 \begin{table}[H]
-\label{tab:ovnmtf:matrizS}
 \centering
-    \caption{Matriz $S$ para execução do algoritmo \textit{OvNMTF} com $k = 3$ e $l = 2$ na base de dados \textit{IG toy}.}
+    \caption{Matriz $S$ para execução do algoritmo \textit{OvNMTF} com $k = 3$ e $l = 2$ na base de dados \textit{IG toy}, normalizada para que a soma da linha seja igual à $1$, destacando os valores mais relevantes para formação dos cogrupos de notícias}
     \begin{tabular}{ccc}
         \hline
         & \textbf{CP \#1, \#3, \#4} & \textbf{CP \#2, \#4, \#6} \\
         \hline
-        \textbf{CN ``arena''}    & $0.38$ & $0.62$ \\
-        \textbf{CN ``jovem''}    & $0.46$ & $0.54$ \\
-        \textbf{CN ``esportes''} & $0.94$ & $0.06$ \\
+        \textbf{CN ``arena''}    & $\mathbf{0.38}$ & $\mathbf{0.62}$ \\
+        \textbf{CN ``jovem''}    & $\mathbf{0.46}$ & $\mathbf{0.54}$ \\
+        \textbf{CN ``esportes''} & $\mathbf{0.94}$ & $0.06$ \\
         \hline \\
     \end{tabular}
+    \label{tab:ovnmtf:matrizS}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
+
+Interpretando os fatores da matriz $S$ da tabela~\ref{tab:ovnmtf:matrizS}, é possível verificar que o cogrupo de notícias referente ao canal ``arena'' esta associado com um fator maior ao cogrupo de palavras \#2 e com um fator menor ao cogrupo de palavras \#1, o cogrupo de notícias referente ao canal ``jovem'' esta associado com fatores similares aos cogrupos de palavras \#3 e \#4, e o cogrupo de notícias referente ao canal ``esportes'' é caracterizado, principalmente, pelo cogrupo de palavras \#5.
+
+A rotulação dos cogrupos de notícias foi feita através da análise de palavras presente em cada cogrupo de palavras.
+As palavras mais relevantes presentes em cada cogrupo de palavras são mostradas na tabela~\ref{tab:experiments-quali-words:ovnmtf}.
+A estratégia utilizada foi a mesma da análise com o algoritmo \textit{ONMTF}: foi realizado o particionamento das palavras (como descrito no capítulo~\ref{ch:proposedalgs}) e foram utilizados os fatores presentes nas matrizes $V_{(p)}, \forall p$ para realizar a ordenação e mostrar as $20$ palavras com maiores fatores para cada cogrupo de palavras.
+Note que no caso do \textit{OvNMTF} a mesma palavra pode aparecer em diferentes cogrupos de palavras, como \textit{games}, que aparece nos cogrupos \#2 e \#3, ou \textit{jogo} que aparece nos cogrupos \#2 e \#6.
+Isso acontece pois os cogrupos \#1 e \#2 são formados de forma independente dos cogrupos \#3 e \#4, e dos cogrupos \#5 e \#6, e assim com cada par.
+Porém, ainda há interdependência entre os cogrupos de palavras relacionados à um mesmo cogrupo de notícias, por exemplo, os cogrupos de palavras \#3 e \#4, como os valores na matriz $S$ referentes a esses dois cogrupos de palavras são similares, cada um deles é responsável pela reconstrução de uma parte das notícias do cogrupo de notícias relacionados ao canal ``jovem''.
 
 \begin{sidewaystable}
     \begin{table}[H]
@@ -4051,7 +4148,7 @@ O algoritmo \textit{OvNMTF} é capaz de encontrar cogrupos de notícias e cogrup
         \begin{tabular}{cccccc}
             \hline
             \textbf{CP \#1} & \textbf{CP \#2} & \textbf{CP \#3} & \textbf{CP \#4} & \textbf{CP \#5} & \textbf{CP \#6} \\
-            \textit{``esportes radicais''} & \textit{``futebol''} & \textit{``esportes em geral''} & \textit{``games''} & \textit{``futebol''} & \textit{``x''} \\
+            \textit{``games''} & \textit{``games''} & \textit{``esportes em geral''} & \textit{``esportes radicais + música''} & \textit{``futebol''} & \textit{``futebol''} \\
             \hline
             jogos      & jogo               & games      & anos              & time       & breno  \\
             sony       & of                 & jovem      & skate             & real       & casa  \\
@@ -4080,15 +4177,22 @@ O algoritmo \textit{OvNMTF} é capaz de encontrar cogrupos de notícias e cogrup
     \end{table}
 \end{sidewaystable}
 
+Sendo assim, o possível problema colocado na análise feita com o algoritmo \textit{ONMTF}, utilizando a palavra \textit{jogo}, que possivelmente carregaria significados que prejudicasse a formação dos cogrupos, é amenizado nesse caso.
+Isso se explica no exemplo dado da palavra \textit{jogo} para a análise com o algoritmo \textit{OvNMTF}: no cogrupo de palavras \#2, rotulado como ``games'' a palavra \textit{jogo} tem um significado totalmente diferente da palavra \textit{jogo} que aparece no cogrupo de palavras \# 6, rotulado como ``futebol'', isso porque estes são formados de maneira independentes.
+
+Ainda, assim como na análise com o algoritmo \textit{ONMTF}, foram criadas visualizações de cada cogrupo de palavras no formato \textit{word cloud}.
+Da mesma forma, essas visualizações foram feitas considerando as $100$ palavras com maiores fatores para cada coluna de cada matriz $V_{(p)}$, sem a realização do particionamento (figuras~\ref{fig:ovnmtf:wordcloud-1, fig:ovnmtf:wordcloud-2, fig:ovnmtf:wordcloud-3}).
+Assim, é possível haver sobreposição entre todos os cogrupos de palavras.
+
 \begin{figure}[H]
 \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-1.png}
-        \caption{\#1}
+        \caption{\#1 ``games''}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-1-tc-2.png}
-        \caption{\#2}
+        \caption{\#2 ``games''}
     \end{subfigure}
 
     \caption{Visualização \textit{word cloud} de palavras para cada cogrupo de palavras do cogrupo de notícias ``arena'', gerados pelo algoritmo \textit{OvNMTF}.}
@@ -4100,11 +4204,11 @@ O algoritmo \textit{OvNMTF} é capaz de encontrar cogrupos de notícias e cogrup
 \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-1.png}
-        \caption{\#3}
+        \caption{\#3 ``esportes em geral''}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-2-tc-2.png}
-        \caption{\#4}
+        \caption{\#4 ``esportes radicais + música''}
     \end{subfigure}
 
     \caption{Visualização \textit{word cloud} de palavras para cada cogrupo de palavras do cogrupo de notícias ``jovem'', gerados pelo algoritmo \textit{OvNMTF}.}
@@ -4116,11 +4220,11 @@ O algoritmo \textit{OvNMTF} é capaz de encontrar cogrupos de notícias e cogrup
 \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-1.png}
-        \caption{\#5}
+        \caption{\#5 ``futebol''}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/ovnmtf-nc-3-tc-2.png}
-        \caption{\#6}
+        \caption{\#6 ``futebol''}
     \end{subfigure}
 
     \caption{Visualização \textit{word cloud} de palavras para cada cogrupo de palavras do cogrupo de notícias ``esportes'', gerados pelo algoritmo \textit{OvNMTF}.}
@@ -4207,7 +4311,7 @@ O algoritmo \textit{OvNMTF} é capaz de encontrar cogrupos de notícias e cogrup
 % *** comentei ****  \subsection{Componente de Filtragem}
 % *** comentei ****  \label{subsec:filtragem}
 
-% *** comentei ****  Essa é a etapa mais simples, por ser na maioria das vezes, apenas uma filtragem das recomendações já calculadas na etapa de Aprendizagem do Perfil, essa estratégia é apresentada em \citeonline{Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}. Outra estratégia simples é a determinação de um limiar \cite{Capelle2012, Lops2013}, ou seja, os valores da lista de recomendação gerada são filtradas pelo limiar estabelecido. Nos estudos apresentados, foram encontrados muitos SRs Híbridos, que faziam uma outra abordagem para a filtragem, usando uma combinação dos métodos de Filtro Colaborativo e baseados em conteúdo \cite{Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}.
+% *** comentei ****  Essa é a etapa mais simples, por ser na maioria das vezes, apenas uma filtragem das recomendações já calculadas na etapa de Aprendizagem do Perfil, essa estratégia é apresentada em \citeonline{Cleger2012, Qu2012, Wang2012, Davoodi2012, Mannens2011, Semeraro2012}. Outra estratégia simples é a determinação de um limiar \cite{Capelle2012, Lops2013}, ou seja, os fatores da lista de recomendação gerada são filtradas pelo limiar estabelecido. Nos estudos apresentados, foram encontrados muitos SRs Híbridos, que faziam uma outra abordagem para a filtragem, usando uma combinação dos métodos de Filtro Colaborativo e baseados em conteúdo \cite{Lops2013, Qu2012, Domingues2012, Spaeth2013, Vaz2012}.
 
 % *** comentei ****  O trabalho desenvolvido por \citeonline{Bielikova2012} foi o único que apresentou uma estratégia diferente para o Componente de Filtragem, com a árvore binária montada, todas as notícias dos menores para os maiores grupos, que não foram lidas pelo usuário, foram separadas para a recomendação. Então, é construída uma matriz com as recomendações, sendo as linhas ordenadas pelos grupos menores para os grupos maiores, e as colunas ordenadas pelas notícias mais recentes. Assim, cada coluna é transformada em um vetor, concatenando-os e formando uma lista que é apresentada para o usuário.
 

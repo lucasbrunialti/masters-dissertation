@@ -5,6 +5,27 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
+\bibitem[Bauckhage 2015]{Bauckhage2015}
+\abntrefinfo{Bauckhage}{BAUCKHAGE}{2015}
+{BAUCKHAGE, C. \emph{k-Means Clustering Is Matrix Factorization}. 2015.}
+
+\bibitem[Bezdek 1981]{Bezdek1981}
+\abntrefinfo{Bezdek}{BEZDEK}{1981}
+{BEZDEK, J.~C. \emph{Pattern Recognition with Fuzzy Objective Function
+  Algorithms}. Norwell, MA, USA: Kluwer Academic Publishers, 1981.
+ISBN 0306406713.}
+
+\bibitem[Bottou e Bengio 1995]{Bottou95}
+\abntrefinfo{Bottou e Bengio}{BOTTOU; BENGIO}{1995}
+{BOTTOU, L.; BENGIO, Y. Convergence properties of the {K}-means algorithm. In:
+  . [S.l.: s.n.], 1995. p. 585--592.}
+
+\bibitem[Boyd e Vandenberghe 2004]{Boyd2004}
+\abntrefinfo{Boyd e Vandenberghe}{BOYD; VANDENBERGHE}{2004}
+{BOYD, S.; VANDENBERGHE, L. \emph{Convex Optimization}. New York, NY, USA:
+  Cambridge University Press, 2004.
+ISBN 0521833787.}
+
 \bibitem[Cabanes, Bennani e Fresneau 2012]{Cabanes2012}
 \abntrefinfo{Cabanes, Bennani e Fresneau}{CABANES; BENNANI; FRESNEAU}{2012}
 {CABANES, G.; BENNANI, Y.; FRESNEAU, D. Enriched topological learning for
@@ -74,15 +95,53 @@ Tese (Doutorado) --- Universidade Estadual de Campinas, Campinas, SP, BR, 11
 \emph{The Journal of Machine Learning Research}, MIT Press Cambridge, MA, USA,
   v.~8, p. 2265--2295, 2007.}
 
+\bibitem[Golub e Loan 1996]{Golub1996}
+\abntrefinfo{Golub e Loan}{GOLUB; LOAN}{1996}
+{GOLUB, G.~H.; LOAN, C.~F. V. \emph{Matrix Computations (3rd Ed.)}. Baltimore,
+  MD, USA: Johns Hopkins University Press, 1996.
+ISBN 0-8018-5414-8.}
+
+\bibitem[Govaert e Nadif 2013]{Govaert2013}
+\abntrefinfo{Govaert e Nadif}{GOVAERT; NADIF}{2013}
+{GOVAERT, G.; NADIF, M. \emph{Co-Clustering}. [S.l.]: Wiley, 2013.
+ISBN 9781848214736.}
+
+\bibitem[Halkidi, Batistakis e Vazirgiannis 2002]{Halkidi2002a}
+\abntrefinfo{Halkidi, Batistakis e Vazirgiannis}{HALKIDI; BATISTAKIS;
+  VAZIRGIANNIS}{2002a}
+{HALKIDI, M.; BATISTAKIS, Y.; VAZIRGIANNIS, M. Cluster validity methods: Part
+  i.
+\emph{SIGMOD Record}, ACM Press, v.~31, n.~2, p. 40--45, 2002.}
+
+\bibitem[Halkidi, Batistakis e Vazirgiannis 2002]{Halkidi2002b}
+\abntrefinfo{Halkidi, Batistakis e Vazirgiannis}{HALKIDI; BATISTAKIS;
+  VAZIRGIANNIS}{2002b}
+{HALKIDI, M.; BATISTAKIS, Y.; VAZIRGIANNIS, M. Clustering validity checking
+  methods: Part ii.
+\emph{SIGMOD Rec.}, ACM, New York, NY, USA, v.~31, n.~3, p. 19--27, set. 2002.
+ISSN 0163-5808.}
+
 \bibitem[Han e Kamber 2006]{han2006data}
 \abntrefinfo{Han e Kamber}{HAN; KAMBER}{2006}
 {HAN, J.; KAMBER, M. \emph{Data mining: Concepts and Techniques}. 2. ed.
   [S.l.]: Morgan Kaufmann San Francisco, Calif, USA, 2006.}
 
+\bibitem[Han, Kamber e Pei 2011]{Han2011}
+\abntrefinfo{Han, Kamber e Pei}{HAN; KAMBER; PEI}{2011a}
+{HAN, J.; KAMBER, M.; PEI, J. \emph{Data Mining: Concepts and Techniques}. 3rd.
+  ed. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc., 2011.
+ISBN 0123814790, 9780123814791.}
+
 \bibitem[Han, Kamber e Pei 2011]{Kamber2011}
-\abntrefinfo{Han, Kamber e Pei}{HAN; KAMBER; PEI}{2011}
+\abntrefinfo{Han, Kamber e Pei}{HAN; KAMBER; PEI}{2011b}
 {HAN, J.; KAMBER, M.; PEI, J. \emph{Data Mining: Concepts and Techniques}. 3rd.
   ed. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc., 2011.}
+
+\bibitem[Hartigan 1972]{Hartigan1972}
+\abntrefinfo{Hartigan}{HARTIGAN}{1972}
+{HARTIGAN, J.~A. Direct clustering of a data matrix.
+\emph{Journal of the American Statistical Association}, American Statistical
+  Association, v.~67, n.~337, p. 123--129, 1972.}
 
 \bibitem[Haykin 2008]{Haykin2008}
 \abntrefinfo{Haykin}{HAYKIN}{2008}
@@ -168,6 +227,20 @@ ISBN 0-7695-2701-9. Dispon{\'\i}vel em:
   Computer Society Press, Los Alamitos, CA, USA, v.~1, p. 24--45, January
   2004.}
 
+\bibitem[Magnus e Neudecker 1999]{Magnus1999}
+\abntrefinfo{Magnus e Neudecker}{MAGNUS; NEUDECKER}{1999}
+{MAGNUS, J.; NEUDECKER, H. \emph{Matrix Differential Calculus with Applications
+  in Statistics and Econometrics}. Wiley, 1999.
+ISBN 9780471986331. Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$https:\-/\-/books\-.google\-.com\-.br\-/books?id=0CXXdKKiIpQC$>$}{https://books.google.com.br/books?id=0CXXdKKiIpQC}.}
+
+\bibitem[Manning, Raghavan e Sch\"{u}tze 2008]{Manning2008}
+\abntrefinfo{Manning, Raghavan e Sch\"{u}tze}{MANNING; RAGHAVAN;
+  SCH\"{u}TZE}{2008}
+{MANNING, C.~D.; RAGHAVAN, P.; SCH\"{u}TZE, H. \emph{Introduction to
+  Information Retrieval}. New York, NY, USA: Cambridge University Press, 2008.
+ISBN 0521865719, 9780521865715.}
+
 \bibitem[Miner et al. 2012]{Miner2012}
 \abntrefinfo{Miner et al.}{MINER et al.}{2012}
 {MINER, G. et al. \emph{Practical Text Mining and Statistical Analysis for
@@ -184,12 +257,19 @@ ISBN 0-7695-2701-9. Dispon{\'\i}vel em:
 {PEDREGOSA, F. et al. Scikit-learn: Machine learning in {P}ython.
 \emph{Journal of Machine Learning Research}, v.~12, p. 2825--2830, 2011.}
 
-\bibitem[Preli\'{C} et al. 2006]{Prelic2006}
-\abntrefinfo{Preli\'{C} et al.}{PRELI\'{C} et al.}{2006}
-{PRELI\'{C}, A. et al. A systematic comparison and evaluation of biclustering
-  methods for gene expression data.
-\emph{Bioinformatics}, Oxford University Press, Oxford, UK, v.~22, n.~9, p.
-  1122--1129, maio 2006.}
+\bibitem[Petersen e Pedersen 2012]{Petersen2012}
+\abntrefinfo{Petersen e Pedersen}{PETERSEN; PEDERSEN}{2012}
+{PETERSEN, K.~B.; PEDERSEN, M.~S. \emph{The Matrix Cookbook}. Technical
+  University of Denmark, 2012.
+Version 20121115.
+Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$http:\-/\-/www2\-.imm\-.dtu\-.dk\-/pubdb\-/p\-.php?3274$>$}{http://www2.imm.dtu.dk/pubdb/p.php?3274}.}
+
+\bibitem[Rand 1971]{Rand1971}
+\abntrefinfo{Rand}{RAND}{1971}
+{RAND, W.~M. Objective criteria for the evaluation of clustering methods.
+\emph{Journal of the American Statistical Association}, v.~66, n.~336, p.
+  846--850, December 1971.}
 
 \bibitem[Rocha et al.]{Peres2012}
 \abntrefinfo{Rocha et al.}{ROCHA et al.}{}

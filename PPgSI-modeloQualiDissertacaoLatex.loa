@@ -1,6 +1,8 @@
-\contentsline {algorithm}{\numberline {1}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do BVD\relax }}{36}{algorithm.1}
-\contentsline {algorithm}{\numberline {2}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do ONMTF\relax }}{38}{algorithm.2}
-\contentsline {algorithm}{\numberline {3}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa e na teoria de de deriva\IeC {\c c}\IeC {\~a}o na superf\IeC {\'\i }cie com restri\IeC {\c c}\IeC {\~o}es (Variedade Stiefel) para solu\IeC {\c c}\IeC {\~a}o do ONMTF\relax }}{40}{algorithm.3}
-\contentsline {algorithm}{\numberline {4}{\ignorespaces Algoritmo FNMTF\relax }}{44}{algorithm.4}
-\contentsline {algorithm}{\numberline {5}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do OvNMTF\relax }}{54}{algorithm.5}
-\contentsline {algorithm}{\numberline {6}{\ignorespaces Algoritmo iterativo para solu\IeC {\c c}\IeC {\~a}o do BinOvNMTF\relax }}{58}{algorithm.6}
+\contentsline {algorithm}{\numberline {1}{\ignorespaces Algoritmo \textit {k-means}\relax }}{32}{algorithm.1}
+\contentsline {algorithm}{\numberline {2}{\ignorespaces Algoritmo \textit {fuzzy k-means}\relax }}{34}{algorithm.2}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do BVD\relax }}{46}{algorithm.3}
+\contentsline {algorithm}{\numberline {4}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do ONMTF\relax }}{48}{algorithm.4}
+\contentsline {algorithm}{\numberline {5}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa e na teoria de de deriva\IeC {\c c}\IeC {\~a}o na superf\IeC {\'\i }cie com restri\IeC {\c c}\IeC {\~o}es (Variedade Stiefel) para solu\IeC {\c c}\IeC {\~a}o do ONMTF\relax }}{50}{algorithm.5}
+\contentsline {algorithm}{\numberline {6}{\ignorespaces Algoritmo FNMTF\relax }}{54}{algorithm.6}
+\contentsline {algorithm}{\numberline {7}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do OvNMTF\relax }}{64}{algorithm.7}
+\contentsline {algorithm}{\numberline {8}{\ignorespaces Algoritmo iterativo para solu\IeC {\c c}\IeC {\~a}o do BinOvNMTF\relax }}{68}{algorithm.8}

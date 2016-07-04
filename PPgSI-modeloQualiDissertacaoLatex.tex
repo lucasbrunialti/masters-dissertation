@@ -74,6 +74,7 @@
 \usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
 \usepackage{dsfont}
 \usepackage{rotating}
+\usepackage{mathrsfs}
 % \usepackage{subfig}
 % \usepackage{subfigure}
 
@@ -965,237 +966,433 @@ A principal contribuição deste trabalho, as estratégias ... ...., é apresent
 \chapter{Conceitos Fundamentais}
 \label{ch:conceitos}
 
-\textcolor{red}{Esses conceitos fundamentais ainda vem na qualificação. Não estão ajustados ao que está sendo discutido agora, para a fase final.}
+Esse capítulo introduz os principais conceitos e definições para a leitura dos demais capítulos desse trabalho. São apresentados os conceitos e notações referentes à Teoria de Matrizes e Álgebra Linear na seção~\ref{sec:matrix-alglin}, em seguida são mostrados técnicas e conceitos referentes à Agrupamento (seção~\ref{sec:clustering}), e por fim, os conceitos referentes à Coagrupamento (seção~\ref{sec:coclustering}).
 
-Técnicas e algoritmos de Biclusterização são usados, principalmente, no contexto de expressão genética. No entanto, algoritmos de Biclusterização se fazem úteis quando se deseja encontrar \textit{modelos locais}. Ou seja, enquanto algoritmos de clusterização têm o intuito de encontrar \textit{modelos globais}, que geram grupos de dados levando em consideração todas as características, algoritmos de Biclusterização geram grupos de dados em que as características tem alta correlação \cite{Franca2010,Madeira2004}.
+\section{Teoria de Matrizes e Álgebra Linear}
+\label{sec:matrix-alglin}
+
+Considere o conjunto de todos os números reais $\mathbb{R}$, uma matriz com elementos reais é considerada uma tabela com $n$ linhas e $m$ colunas no espaço $\mathbb{R}^{n \times m}$, então:
+\[
+    A \in \mathbb{R}^{n \times m} \Leftrightarrow A = (A)_{ij} = \begin{bmatrix}
+                                                                     a_{1 1} & \hdots & a_{m 1} \\
+                                                                     \vdots  &        & \vdots  \\
+                                                                     a_{n 1} & \hdots & a_{n m}
+                                                                 \end{bmatrix}
+\]
+sendo $a_{i j} \in \mathbb{R}$ para representar o elemento da $i$-ésima linha e $j$-ésima coluna da matriz $A$, e os índices $i = \{1, \dots, n\}$ e $j = \{1, \dots, m\}$ para indexar as linhas e colunas dessa matriz, respectivamente.
+Sendo assim, neste trabalho, a notação em letras maiúsculas representam matrizes (ex.: $A$), assim como a notação em letras minúsculas com duas letras subscritas representam seus repectivos valores (ex.: $a_{ij}$).
+Também é possível definir essa mesma matriz em $\mathbb{R}^{n \times m}_{+}$, isso implica em $a_{ij} > 0, \forall i,j$.
+
+De forma semelhante é possível definir uma notação para vetores no espaço $\mathbb{R}^n$:
+\[
+    \mathbf{a} \in \mathbb{R}^n \Leftrightarrow \mathbf{a} = \begin{bmatrix}
+                                                                     a_{1}  \\
+                                                                     \vdots \\
+                                                                     a_{n}
+                                                                 \end{bmatrix}
+\]
+sendo $a_i \in \mathbb{R}, \forall i$ para representar o $i$-ésimo elemento do vetor.
+Ainda, neste trabalho também usa-se a notação de vetores para representação das linhas e colunas de uma matriz:
+\[
+    A = \begin{bmatrix}
+            \horzbar & \mathbf{a}_{1 \cdot} & \horzbar \\
+                     & \vdots               &          \\
+            \horzbar & \mathbf{a}_{n \cdot} & \horzbar
+        \end{bmatrix}
+      = \begin{bmatrix}
+            \vertbar             & \vertbar & \vertbar             \\
+            \mathbf{a}_{\cdot 1} & \dots    & \mathbf{a}_{\cdot m} \\
+            \vertbar             & \vertbar & \vertbar
+        \end{bmatrix}
+\]
+sendo $\mathbf{a}_{i \cdot}$ e $\mathbf{a}_{\cdot j}, \forall i,j$ os vetores que representam as linhas e colunas da matriz $A$, respectivamente.
+
+Neste trabalho são usadas algumas operações em matrizes~\cite{Golub1996}:
+\begin{itemize}
+    \item Transposição de matrizes: $A^T = (A)_{ji}$, $\forall j, i$, $A^T \in \mathbb{R}^{m \times n}$;
+    \item Produto de Hadamart: $c_{ij} = a_{ij} b_{ij}, \forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$;
+    \item Divisão: $c_{ij} = \frac{a_{ij}}{b_{ij}}$, $\forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$;
+    \item Produto de matrizes: $C = AB = \sum_{p = 1}^k$ $a_{ip} b_{pj}$, sendo $C \in \mathbb{R}^{n \times m}, A \in \mathbb{R}^{n \times k}, B \in \mathbb{R}^{k \times m}$, e o índice $p = \{1, \dots, k\}$.
+    \item Inversa: $AB = BA = I \Leftrightarrow B = A^{-1}$, sendo $A \in \mathbb{R}^{n \times n}, B \in \mathbb{R}^{n \times n}$, e $I$ a matriz identidade.
+\end{itemize}
+
+Ainda sobre operações em matrizes, uma operação usada neste trabalho para definição de problemas em fatoração é o traço da matriz, e pode ser definido da seguinte forma, considerando uma matriz simétrica $A \in \mathbb{R}^{n \times n}$~\cite{Magnus1999}:
+\[
+    tr(A) = \sum_{i=1}^n a_{ii}
+\]
+Algumas igualdades são possíveis a partir deste operador, considere as matrizes $A, B, C$, em um espaço que torne as multiplicações possíveis~\cite{Magnus1999}:
+\begin{itemize}
+    \item $tr(A^T) = tr(A)$;
+    \item $tr(A^TB) = tr(B^TA)$;
+    \item $tr(AB) = tr(BA)$;
+    \item $tr(ABC) = tr(CAB) = tr(BCA)$ (propriedade circular).
+\end{itemize}
+Note que a matriz resultante das operações dentro do traço tem de ser sempre simétrica.
+
+Definido o operador de traço, é possível definir o operador chamado produto interno entre dois vetores $\mathbf{a}, \mathbf{b} \in \mathbb{R}^n$~\cite{Boyd2004}:
+\[
+    \langle \mathbf{a}, \mathbf{b} \rangle = \sum_{i=1}^n a_i b_i = \begin{bmatrix}
+                                                                        a_{1} & \dots & a_{n}
+                                                                    \end{bmatrix}
+                                                                    \begin{bmatrix}
+                                                                        b_{1}  \\
+                                                                        \vdots \\
+                                                                        b_{n}
+                                                                    \end{bmatrix}
+                                                                  = \mathbf{a}^T \mathbf{b}
+\]
+
+Da mesma forma é possível definir o produto interno entre duas matrizes $A \in \mathbb{R}^{n \times k}$ e $B \in \mathbb{R}^{k \times n}$, verificando como os operadores de traço e produto interno se relacionam~\cite{Boyd2004}:
+\[
+    \langle \mathbf{A}, \mathbf{B} \rangle = \sum_{i=1}^n \sum_{p=1}^k a_{ip} b_{pi} =
+        \begin{bmatrix}
+            \vertbar             & \vertbar & \vertbar             \\
+            \mathbf{a}_{\cdot 1} & \dots    & \mathbf{a}_{\cdot n} \\
+            \vertbar             & \vertbar & \vertbar
+        \end{bmatrix}
+        \begin{bmatrix}
+            \horzbar & \mathbf{b}_{1 \cdot} & \horzbar \\
+                     & \vdots               &          \\
+            \horzbar & \mathbf{b}_{n \cdot} & \horzbar
+        \end{bmatrix}
+        = tr(A^TB)
+\]
+
+\subsection{Norma em matrizes}
+
+A norma é uma função que toma como parâmetro um vetor ou matriz nos espaços $\mathbb{R}^n$ ou $\mathbb{R}^{n \times m}$, respectivamente, e gera um valor real, este valor real é a magnitude do vetor ou matriz.
+Uma das normas mais conhecidas é a norma de Frobenius, usada nas definições dos problemas de fatoração deste trabalho, e pode ser definida da seguinte forma, para um vetor $\mathbf{a} \in \mathbb{R}^n$~\cite{Boyd2004}:
+\[
+    \norm{\mathbf{a}}_F = \sqrt{a_1^2 + \dots + a_n^2} = \sqrt{\mathbf{a}^T \mathbf{a}} = \sqrt{\langle \mathbf{a}, \mathbf{a} \rangle}
+\]
+Essa norma também é chamada de norma Euclidiana e $\text{norma-}L_2$.
+Da mesma forma, existe a norma de Frobenius para matrizes, considere $A \in \mathbb{R}^{n \times m}$~\cite{Boyd2004}:
+\[
+    \norm{A}_F = \sqrt{\sum_{i=1}^n \sum_{j=1}^m |a_{ij}^2|} = \sqrt{tr(A^T A)}
+\]
+
+Ainda, considerando dois vetores $\mathbf{a}$ e $\mathbf{b}$, é possível dizer que estes são ortogonais se o produto interno entre eles for $0$, ou seja, não há projeção de $\mathbf{a}$ em $\mathbf{b}$, e vice-versa~\cite{Magnus1999}:
+\[
+    \langle \mathbf{a}, \mathbf{b} \rangle = 0
+\]
+Também podem ser ditos ortonormais se, além da condição anterior, a sua norma for igual à $1$.
+A mesma definição pode ser extendida para matrizes, então, uma matriz é dita ortnormal se todos os seus vetores forem ortonormais~\cite{Magnus1999}:
+\[
+    A^T A = I
+\]
+
+\subsection{Cálculo em matrizes}
+\label{subsec:matrixcalculus}
+
+Cálculo em matrizes define uma notação e uma série de notações que ajudaram nas soluções dos problemas de otimização, baseados em FM, propostos neste trabalho.
+Extendendo a definição de derivadas, tradicionalmente conhecida, é possível obter relações para derivação de funções em relação a matrizes~\cite{Magnus1999}.
+Considere a seguinte notação para derivada de uma função de traço em relação à uma matriz $A$, sendo $F(A)$ uma função diferenciável em todos os elementos de $A$~\cite{Petersen2012}:
+\[
+    \frac{\partial tr(F(A))}{\partial A} = f(A)^T
+\]
+em que $f(\cdot)$ é a derivada escalar de $F(\cdot)$.
+
+Algumas relações podem ser mostradas, sendo quaisquer matrizes $A, B, C, D$~\cite{Petersen2012}:
+\begin{itemize}
+    \item $\frac{\partial}{\partial A} tr(A) = I$ (matriz identidade);
+    \item $\frac{\partial}{\partial A} tr(B A) = B^T$;
+    \item $\frac{\partial}{\partial A} tr(B A^T) = \frac{\partial}{\partial A} tr(A^T B) = B$;
+    \item $\frac{\partial}{\partial A} tr(B A C) = B^T C^T$;
+    \item $\frac{\partial}{\partial A} tr(B A^T C) = CB$;
+    \item $\frac{\partial}{\partial A} tr(B A C A^T D) = B^T D^T A C^T + D B A D$;
+    \item $\frac{\partial}{\partial A} tr(C^T A^T D A C) = D^T A D C^T + D A C B^T$.
+\end{itemize}
+
+\section{Agrupamento}
+\label{sec:clustering}
+
+A tarefa de agrupamento é o processo de agrupar dados em diferentes classes ou grupos, também pode ser visto como o processo de particionamento das linhas de uma matriz que representa um conjunto de dados, que contém objetos e características desses objetos, apesar de existir variações dessa visão~\cite{Han2011}.
+Sendo assim, os dados pertencentes à um mesmo grupo são similares uns com os outros, e por consequência, dados presentes em diferentes grupos são dissimilares uns com os outros, similaridades e dissimilaridades que são geralmente calculadas através de medidas de distância~\cite{Han2011}.
+Note que como os grupos podem representar um conjunto de dados com seus objetos e características, a tarefa de agrupamento pode ser vista como uma forma de compressão de dados.
+
+A tarefa de agrupamento é uma vertente da área de Aprendizado de Máquina, do tipo Aprendizado Não-supervisionado, no qual não se sabe o rótulo de cada dado do conjunto de dados.
+Ainda, essa tarefa também é estudada em diversas áreas, como Mineração de Dados, Estatística, Biologia e etc.
+
+Formalmente, os algoritmos de agrupamento com a visão de particionamento têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}$, contendo números reais positivos com $n$ linhas (dados) e $m$ colunas (características) que representam um conjunto de dados em algum domínio de aplicação.
+Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$.
+O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas pelo subconjunto ordenado $\mathcal{K}_p \subseteq \mathcal{N}$, considerando o índice $p = \{ 1, \dots, k\}$.
+Então, o subconjunto $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ é justamente os grupos de linhas resultantes de um algoritmo que soluciona a tarefa de agrupamento.
+
+\subsection{Algoritmos para Agrupamento}
+\label{sec:clustering:algos}
+
+O problema de agrupamento \textit{k-means} é provavelmente um dos problemas mais estudados para agrupamento, e seu algoritmo mais famoso (algoritmo de \textit{Lloyd}, também chamado algoritmo \textit{k-means}), um dos algoritmos mais usados para solução do problema de agrupamento.
+
+O objetivo do \textit{k-means} é encontrar $k$ representantes da matriz de dados $X$, esses representantes, também chamados centróides ou médias, são representados em uma matriz $C$ com $k$ linhas e $m$ colunas, sendo que cada vetor de linha é um representante dos dados, por isso estes têm a mesma dimensão dos objetos da matriz $X$.
+De forma direta é possível perceber que serão formados $k$ grupos de dados.
+
+O problema de otimização do erro de quantização, com a finalidade da resolução da tarefa de agrupamento (\textit{k-means}), formalizado em~\ref{def:kmeans:problem}, foi proposto com o objetivo de encontrar grupos em um conjunto de dados, solucionando a tarefa de agrupamento.
+Neste trabalho é mostrada uma visão de fatoração de matrizes ao problema \textit{k-means}, assim como em~\citeonline{Ding05}, pois tem-se como objetivo encontrar uma solução para aproximar $X$ pela multiplicação de duas matrizes $UC$: $X \approx UC$.
+Além disso, em~\citeonline{Ding05} também é mostrada a relação de aproximação entre os algoritmos de agrupamento mais tradicionais de agrupamento, como o \textit{k-means} e o \textit{fuzzy k-means} e o problema de Fatoração de Matrizes Não-negativas (NMF - \textit{Non-negative Matrix Factorization}), que apesar de ter sido desenvolvido como um método de redução de dimensionalidade, também é considerado um método de agrupamento.
+
+\begin{problem}[Problema de \textit{K-means}]
+\label{def:kmeans:problem}
+\begin{equation}
+    \begin{array}{lclcl}
+        \displaystyle \mathcal{F}_1(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip} \norm{\mathbf{x_{i \cdot} - \mathbf{c_{i \cdot}}}}^2 = \displaystyle \min_{U, C} & \norm{X - UC}^{2}_{F} \\
+                                          &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
+                                          &   &                              & C \in \mathbb{R}^{k \times m}
+    \end{array} \nonumber
+\end{equation}
+\end{problem}
+
+em que $\Psi = \{0, 1\}$, $\sum_{p=1}^{k} u_{ip} = 1, \forall i$ e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+
+A restrição da soma de cada linha da matriz $U$ ser igual à $1$, garante que cada dado de $X$ pertença a apenas um grupo, já que o objetivo é particionar os dados.
+
+É possível perceber que o problema apresentado compacta a matriz $X$ em duas outras matrizes: a matriz $U$, de dimensão $n$ por $k$ que contém apenas zeros e uns, e fará a associação de cada linha de $X$ com um dos $k$ grupos; e a matriz $C$, de dimensão $k$ por $m$, que será uma base para representação das linhas em $X$.
+Portanto, a compactação transformará os $nm$ elementos originais em $n + km$ novos elementos, desconsiderando os zeros da matriz $U$.
+
+A implementação para o problema~\ref{def:kmeans:problem} apresentado é descrito no algoritmo~\ref{algo:kmeans}~\cite{Peres2012,Han2011,Bottou95}, o qual é baseado no algoritmo de EM (Esperança-Maximização - \textit{Expectation-Maximization}) e tem sua convergência para um mínimo local demonstrada (veja em~\citeonline{Bottou95}).
+Nesse algoritmo considere os índices $i = \{1, \dots, n\}$ e $p = p' = \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, e $\norm{ \cdot }^2$ é a norma frobenius para vetores.
+
+\begin{algorithm}
+\caption{Algoritmo \textit{k-means}}
+\label{algo:kmeans}
+    \begin{algorithmic}[1]
+        \Function{k-means}{$X$, $t_{max}$, $k$}
+            \State \textbf{Inicialize:} $U^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} u_{ip} = 1, \forall i$, $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+            \While{(não convergiu) ou ($t \leq t_{max}$)}
+                \State
+                    \begin{equation}
+                    \label{eq:kmeans:updateU}
+                        (U^{(t+1)})_{ip} \gets \left\{
+                            \begin{array}{ll}
+                                1 & p = \argmin_{p' \in \{1, \dots, k\}} \norm{ \mathbf{x}_{i \cdot} - \mathbf{c}^{(t)}_{p' \cdot} }^2 \\
+                                0 & \textit{caso contrário}
+                            \end{array}    \nonumber
+                        \right. \forall i, p
+                    \end{equation}
+                    \Comment{Etapa de Esperança}
+                \State
+                    \begin{equation}
+                    \label{eq:kmeans:updateC}
+                        (C^{(t+1)})_{p \cdot} \gets \frac{\sum_{i=1}^{n} u_{ip} \mathbf{x}_{i \cdot} }{\sum_{i=1}^{n} u_{ip}}, \forall p \nonumber
+                    \end{equation}
+                    \Comment{Etapa de Maximização}
+
+                \State $t \gets t + 1$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $U^{(t)}, C^{(t)}$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+A inicialização dos elementos das matrizes $U$, $S$ e $V$ são gerados através de uma distribuição uniforme que ignora zeros ($\mathcal{U}(0, 1) \in~]0, 1]$).
+Como condições para assumir a convergência, neste trabalho, considera-se a diferença do erro de aproximação em duas iterações consecutivas menor ou igual a um $\epsilon$:
+$$\norm{X - U^{(t)} C^{(t)}}^{2}_{F} - \norm{X - U^{(t+1)} C^{(t+1)}}^{2}_{F} \leq \epsilon$$.
+O algoritmo também pára caso a $t$-ésima iteração seja igual ao número máximo de iterações ($t_{max}$).
+Note que o particionamento é direto, analisando a matriz $U$.
+
+Ainda, a atualização de $C$ também pode ser derivada de forma matricial, expandindo a função apresentada no problema~\ref{def:kmeans:problem} e derivando em relação à $C$, usando as relações definidas na seção~\ref{subsec:matrixcalculus}, é possível chegar na seguinte formulação que é equivalente à apresentada no algoritmo~\ref{algo:kmeans}~\cite{Bauckhage2015}:
+\[
+    C = (U^T U)^{-1} U^T X
+\]
+
+O algoritmo \textit{k-means} tem complexidade de tempo $\mathcal{O}(t_{max} nmk)$.
+Isso mostra a escalabilidade do algoritmo para grandes bases de dados, ou seja, matrizes com $n$ e/ou $m$ grandes~\cite{Han2011}.
+
+Outro problema semelhante ao \textit{k-means} é o \textit{fuzzy k-means}, o qual, ao invés de colocar que cada dado pertence única e exclusivamente à um grupo, cado dado pertencerá à um grupo com um fator de pertinência.
+Então, a matriz $U$ será a matriz responsável por conter a pertinência de cada dado (ou linha) de $X$, com um dos $k$ cada grupos.
+
+O problema de otimização do erro de quantização, com a finalidade da resolução da tarefa de agrupamento (\textit{fuzzy k-means}), é apresentado formalmente em~\ref{def:kmeans:problem}~\cite{Bezdek1981,Peres2012,Ding05}.
+
+\begin{problem}[Problema de \textit{Fuzzy K-means}]
+\label{def:fkmeans:problem}
+\begin{equation}
+    \begin{array}{lclcl}
+        \displaystyle \mathcal{F}_2(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^w \norm{\mathbf{x_{i \cdot} - \mathbf{c_{i \cdot}}}}^2 \\
+                                          &   & \text{suj. a}                & U \in \mathbb{R}^{n \times k}, \\
+                                          &   &                              & C \in \mathbb{R}^{k \times m}
+    \end{array} \nonumber
+\end{equation}
+\end{problem}
+
+em que $w \in \{1, 2, \dots, \infty\}$ e $\sum_{p=1}^{k} u_{ip} = 1, \forall i$.
+
+O expoente $w$ é chamado de parâmetro de ``fuzificação'' e tem a função de controlar a relação de pertinência de um dado entre os $k$ grupos, isto é, o parâmetro controla a ortogonalidade dos grupos, quanto maior o seu valor, menor a ortogonalidade entre grupos. % Isso pode ser percebido, observando a análise de limite de $w$ na função de atualização de $U$, realizada em \citeonline{Peres2012}
+Se $w = 2$ é possível modificar o problema~\ref{def:fkmeans:problem} tal que seja possível observá-lo sob uma ótica de fatoração de matrizes, que tem o objetivo de aproximar $X$ das matrizes $U$ e $C$, assim como no \textit{k-means}: $X \approx UC$.
+O problema~\ref{def:fkmeans:problem} é apresentado com $w = 2$ para obtenção da ótica de fatoração de matrizes~\cite{Ding05}:
+\[
+\begin{array}{lclcl}
+    \displaystyle \mathcal{F}_{2}^{w=2}(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^2 \norm{\mathbf{x_{i \cdot} - \mathbf{c_{i \cdot}}}}^2 = \min_{U, C} & \norm{X - UC}^{2}_{F} \\
+                                              &   & \text{suj. a}                & U \in \mathbb{R}^{n \times k}, \\
+                                              &   &                              & C \in \mathbb{R}^{k \times m}, \\
+                                              &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
+\end{array}
+\]
+
+Da mesma forma que o \textit{k-means}, o \textit{fuzzy k-means} compacta os dados de $X$, sendo um mapeamento de $nm$ elementos para $nk + km$ elementos.
+Então, teoricamente, o \textit{fuzzy k-means} é capaz de preservar mais informações do que o \textit{k-means}.
+
+A implementação para o problema~\ref{def:fkmeans:problem} apresentado é descrito no algoritmo~\ref{algo:fkmeans}~\cite{Peres2012,Ding05,Bezdek1981}, o qual é baseado no algoritmo \textit{k-means} juntamente com a teoria de conjuntos fuzzy e tem sua convergência para um mínimo local demonstrada via teoria de otimização não linear (veja em~\citeonline{Bezdek1981}).
+Nesse algoritmo considere os índices $i = \{1, \dots, n\}$ e $p = p' = \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, e $\norm{ \cdot }^2$ é a norma frobenius para vetores.
+Ainda, a mesma condição de convergência aplicada ao algoritmo~\ref{algo:kmeans} pode ser aplicada para este algoritmo.
+
+\begin{algorithm}
+\caption{Algoritmo \textit{fuzzy k-means}}
+\label{algo:fkmeans}
+    \begin{algorithmic}[1]
+        \Function{fuzzyk-means}{$X$, $t_{max}$, $k$}
+            \State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1)~|~\sum_{p=1}^{k} u_{ip} = 1, \forall i$, $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+            \While{(não convergiu) ou ($t \leq t_{max}$)}
+                \State
+                    \begin{equation}
+                    \label{eq:fkmeans:updateU}
+                        (U^{(t+1)})_{ip} \gets \Bigg[ \sum_{p'=1}^k \bigg( \frac{\norm{\mathbf{x}_{i \cdot} - \mathbf{c}_{p \cdot}}}{\norm{\mathbf{x}_{i \cdot} - \mathbf{c}_{p' \cdot}}} \bigg)^{\frac{1}{w - 1}} \Bigg]^{-1}, \forall i,p
+                    \end{equation}
+                \State
+                    \begin{equation}
+                    \label{eq:fkmeans:updateC}
+                        (C^{(t+1)})_{p \cdot} \gets \frac{\sum_{i=1}^{n} u_{ip}^w \mathbf{x}_{i \cdot} }{\sum_{i=1}^{n} u_{ip}^w}, \forall p \nonumber
+                    \end{equation}
+
+                \State $t \gets t + 1$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $U^{(t)}, C^{(t)}$
+        \EndFunction
+    \end{algorithmic}
+\end{algorithm}
+
+Note que como $U$ possui valores no domínio dos reais, não é possível obter as partições diretamente, sem um processo de pós-processamento.
+Um método de pós-processamento, é o seguinte:
+$$\mathcal{K}_p = \mathcal{K}_p + \{ x_{i \cdot} \}~|~p = \argmax_{p'} \mathbf{u}_{i \cdot}~\forall i = \{1, \dots, n\}, \forall p, p' = \{1, \dots, k\}$$
+
+Isso significa que uma linha $i$ pertencerá a um grupo $p$ (ou partição) se para todos os $k$ grupos, o fator $u_{ip}$ for maior que todos os outros fatores para os outros grupos, presentes no vetor $\mathbf{u}_{i \cdot}$.
+
+Analisando a complexidade de tempo do algoritmo é possível chegar em: $\mathcal{O}( t_{max} nmk^2 )$.
+
+Além dos algoritmos apresentados, existem outros que buscam resolver diferentes tipos de problemas dentro da área de Agrupamento, como agrupamento por densidade, agrupamento hierárquico, agrupamento baseado em grade e agrupamento baseado em modelos~\cite{Han2011}.
+
+\subsection{Validação de Agrupamento}
+\label{sec:clustering:eval}
+
+Para determinar parâmetros, descobrir a capacidade ou estabilidade de um agrupamento encontrado, é necessário estabelecer métricas de avaliação.
+Então, o tema de validação do agrupamento gerado por um algoritmo se torna importante.
+Como neste trabalho são feitas comparações entre diversos algoritmos quanto às suas capacidades de agrupamento, os métodos e métricas estudados na área de validação de agrupamento trazem recursos e ferramentas para tornar possível análises quantitativas, considerando os resultados de agrupamento desses algoritmos.
+
+\citeonline{Halkidi2002a,Halkidi2002b} propõem a seguinte taxonomia para métricas de validação de agrupamento: \textit{interna}, utilizando apenas o resultado de um agrupamento gerado, estabelece métricas de qualidade ou estabilidade, para avaliar as soluções geradas; \textit{externa}, tem como entrada para as métricas duas informações, o particionamento real dos dados, rotulado de forma manual, e o resultado de um agrupamento gerado, muitas vezes, verificando como essas duas informações se relacionam; e \textit{relativa}, utilizando diferentes soluções geradas por um mesmo algoritmo diante de diferentes parametrizações, estabelece métricas para encontrar a melhor solução das disponíveis, comparando as diferentes soluções geradas.
+
+Neste trabalho, são utilizadas apenas métricas de validação externa, para validar a capacidade de agrupamento dos diferentes algoritmos apresentados.
+Dentre as muitas métricas de validação externa presentes na literatura~\cite{Halkidi2002a,Halkidi2002b}, foram escolhidas as métricas Índice de Rand Ajustado ($\text{\textit{RI}}$ - \textit{Rand Index})~\cite{Rand1971} e Informação Mútua Normalizada ($\text{\textit{NMI}}$ - \textit{Normalized Mutual Information}).
+
+O RI gera valores entre $0$ e $1$, com $0$ indicando que o particionamento de dados gerado por um algoritmo não concorda em nenhum par de elementos com o particionamento real e $1$ indicando que o particionamento gerado pelo mesmo algoritmo, é exatamente igual ao particionamento real.
+
+Considere que um algoritmo encontrou um particionamento denotado pelo conjunto $\mathscr{\widetilde{K}} = \{\mathcal{\widetilde{K}}_1, \dots, \mathcal{\widetilde{K}}_k\}$ com $\widetilde{k}$ grupos, sendo $\mathcal{\widetilde{K}}_p, \forall p = \{1, \dots, \widetilde{k}\}$ um subconjuto que contém elementos pertencentes ao $p$-ésimo grupo.
+Também, o particionamento real, rotulado previamente, para comparação com o particionamento gerado por este algoritmo: $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ com $k$ grupos.
+Assim, é possível fazer a seguinte definição, sendo os dados as linhas da matriz de dados $X$, denotado pelo conjunto $\mathcal{N}$:
+\begin{itemize}
+    % \item a: quantidade de pares de elementos (elementos distintos) para os quais os elementos pertencem a uma mesma partição no particionamento gerado e a uma mesma partição no particionamento real;
+    % \item b: quantidade de pares de elementos (elementos distintos) para os quais os elementos pertencem a uma mesma partição no particionamento gerado e a partições diferentes no particionamento real;
+    % \item c: quantidade de pares de elementos (elementos distintos) para os quais os elementos pertencem à partições diferentes no particionamento gerado e a uma mesma partição no particionamento real;
+    % \item d: quantidade de pares de elementos para os quais os elementos pertencem à partições diferentes no particionamento gerado e a partições diferentes no particionamento real.
+    \item $a$: quantidade de pares de dados em $\mathcal{N}$ que estão nos mesmos conjuntos em $\mathscr{K}$ e também nos mesmos conjuntos em $\mathscr{\widetilde{K}}$;
+    \item $b$: quantidade de pares de dados em $\mathcal{N}$ que estão em diferentes conjuntos em $\mathscr{K}$ e também estão em diferentes conjuntos em $\mathscr{\widetilde{K}}$;
+    \item $c$: quantidade de pares de dados em $\mathcal{N}$ que estão nos mesmos conjuntos em $\mathscr{K}$ e em diferentes conjuntos em $\mathscr{\widetilde{K}}$;
+    \item $d$: quantidade de pares de dados em $\mathcal{N}$ que estão em diferentes conjuntos em $\mathscr{K}$ e estão nos mesmos conjuntos em $\mathscr{\widetilde{K}}$.
+\end{itemize}
+
+Note então, que $a$ e $b$ denotam que o resultado de particionamento do algoritmo esta de acordo com o particionamento real ou verdadeiro, e $c$ e $d$ denotam que o particionamento resultante do algoritmo não esta de acordo com o particionamento real.
+
+Sendo assim, o Índice de Rand ($\text{\textit{RI}}$) pode ser definido pela fração com que o particionamento obtido esta de acordo com o particionamento real dado todos os outros casos:
+\[
+    \text{\textit{RI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{a + b}{a + b + c + d}
+\]
+
+A métrica de validação externa, $\text{\textit{NMI}}$, tem efeito semelhante ao RI~\cite{Manning2008}.
+Utilizando a mesma notação, essa métrica é baseada na Informação Mútua (MI - \textit{Mutual Information}) entre o resultado de particionamento de um algoritmo ($\mathscr{\widetilde{K}}$) e o particionamento real ($\mathscr{K}$), gera valores entre $0$ e $1$, com $0$ indicando que não há informação mútua entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$, e $1$ indicando correlação perfeita entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$.
+
+Sendo $\text{\textit{MI}}$ definido como:
+\[
+    \text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \displaystyle \sum_{p=1}^k \sum_{p'=1}^{\widetilde{k}} \frac{|\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{n} \log \frac{n |\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{|\mathcal{K}_p| |\mathcal{\widetilde{K}}_{p'}|}
+\]
+
+E a entropia de um particionamento ($H(\cdot)$):
+\[
+    H(\mathscr{K}) = \displaystyle \sum_{p=1}^k \frac{\mathcal{K}_p}{n} \log \frac{\mathcal{K}_p}{n}
+\]
+
+Finalmente, a métrica $\text{\textit{NMI}}$ pode ser definida como:
+\[
+    \text{\textit{NMI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{\text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}})}{\sqrt{H(\mathscr{K}) H(\mathscr{\widetilde{K}})}}
+\]
+
+Note então, que ambas as métricas têm capacidade de lidar com a caso em que a ordem do particionamento em $\mathscr{K}$ não corresponde com a ordem do particionamento em $\mathscr{\widetilde{K}}$.
+Além disso, ambas as métricas têm sido efetivas como um método de análise quantitativa na análise de qualidade de agrupamento entre diferentes algoritmos, principalmente no que diz respeito ao domínio de agrupamento de documentos~\cite{Kuang2014,Ho2008,Wang2011,Ding06,Xu2003,Yoo2010}.
+
+\section{Coagrupamento}
+\label{sec:coclustering}
+
+Grande parte dos estudos da área de Mineração de Dados é devotada ao estudo da tarefa de agrupamento~\cite{Kamber2011}, no entanto, ainda há muito estudo a ser realizado quando se considera dados com alta dimensionalidade e/ou quando se deseja interpretabilidade do agrupamento gerado por um algoritmo.
+Então, surge a ideia de analisar as características que tornam dados tão similares a ponto de poderem ser agrupados, daí surgem questões na utilização e definição de medidas que tem o poder de analisar essa similaridade baseada em partes, que analisa apenas parte das características.
+Assim, um dos primeiros trabalhos a pensar nesse tipo de problema foi apresentado em~\citeonline{Hartigan1972}, colocando métodos para agrupar dados baseando-se na análise de particionamento de dados e característica, além da análise dessas partições e taxonomia das diversas estruturas dessas partições.
+
+Com o passar do tempo, esse problema foi se tornando mais recorrente no mundo real nas mais diferentes áreas, como Mineração de Textos, Mineração da Web, Bioinformática, Marketing, Ecologia, Arqueologia e Ciência da Computação~\cite{Govaert2013}.
+E hoje, o processo de agrupamento que se baseia na similaridade em partes das características, é chamado Coagrupamento ou Biagrupamento.
+O termo Biagrupamento é usado, principalmente, no contexto de expressão genética, enquanto o termo Coagrupamento é usado, principalmente, em aplicações de Mineração de Textos.
+
+Então, os algoritmos do processo de Coagrupamento são capazes de gerar grupos de dados levando em consideração todas as características, ou apenas as características que tem alta correlação \cite{Franca2010,Madeira2004}.
+Existem diversas maneiras de visualizar o problema de coagrupamento, a visão que mais se adequa à este trabalho é a de encontrar um particionamento de dados e características e relacionamento entre eles, que é definida com maiores detalhes no capítulo~\ref{ch:fatoracao}.
+Porém, uma visão importante é de encontrar submatrizes de uma matriz de dados.
+Formalizando esta visão e apresentando uma definição formal~\cite{Madeira2004}: considere uma matriz $X$, de dimensão $n \times m$, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$.
+O problema de Biagrupamento ou Coagrupamento, dentro desta visão, é encontrar cogrupos, que são submatrizes de $X$, denotados por $X_{\mathcal{K}_p \mathcal{L}_q}$, considerando $k$ subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, e os índices $p = \{ 1, \dots, k\}$ e $q = \{1, \dots, l\}$.
+Assim, o cogrupo $X_{\mathcal{K}_p \mathcal{L}_q}$ é um grupo dos dados em $\mathcal{K}_p$, perante as características com alta correlação em $\mathcal{L}_q$.
 
 % lembrar de inserir informação sobre two-way clustering e FCA - conforme informação passada pelo Fabrício no email.
 
-Para a descrição do problema formal de Biclusterização usa-se a seguinte definição \cite{Madeira2004}: seja uma matriz $A$, de dimensão $N \times M$, um conjunto de linhas $X = \{ x_1, \dots, x_n, \dots, x_N \}$ \textcolor{green}{(aqui deveria ser $X=\{1,2,\ldots,n,\ldots,N\}$)} e um conjunto de colunas $Y = \{ y_1, \dots, y_m, \dots, y_M \}$ \textcolor{green}{(mesmo comentário anterior)}, em que $a_{nm}$ geralmente é um número real e representa a relação entre a linha $x_n$ e a coluna $y_m$; o problema de Biclusterização é encontrar biclusters, que são submatrizes de $A$, denotados por $A_{IJ}$, em que $I \subseteq X$ e $J \subseteq Y$. Assim, o bicluster $A_{IJ}$ é um grupo dos objetos em $I$, perante as características com alta correlação $J$.
-
-\section{Tipos de cogrupos }
-\label{sec:tiposbic}
-
-Como a definição de bicluster não inclui uma prévia estrutura da matriz $A$ e dos biclusters $A_{IJ}$, diversos algoritmos propostos na literatura diferem quanto ao tipo de bicluster que são capazes de encontrar.
-Uma taxonomia dos tipos de biclusters é proposta por \citeonline{Madeira2004}:
+Como a definição apresentada não inclui uma prévia estrutura da matriz $X$ e dos cogrupos $X_{\mathcal{K}_p \mathcal{L}_q}$, os algoritmos propostos na literatura diferem quanto ao tipo de cogrupo que são capazes de encontrar.
+Uma taxonomia dos tipos de cogrupos é proposta por~\citeonline{Madeira2004}:
  \begin{itemize}
-  \item \textit{Biclusters com valores constantes}, se trata de biclusters em que todos os valores de $A_{IJ}$ são constantes: $a_{ij} = \mu, \forall i,j \in I,J$, \textcolor{green}{(aqui o valor de $\mu$ não deveria ser indexado por $IJ$, isto é, $\mu_{IJ}$? O mesmo para os outros $\mu$ que aparecem abaixo.)} onde $\mu$ é um valor constante dentro de $A_{IJ}$. Porém, em conjuntos de dados reais, esses biclusters estão presentes com algum tipo de ruído $\mu + \eta_{ij}$, onde $\eta_{ij}$ é o ruído associado com os valores de $\mu$ e $a_{ij}$ \cite{Madeira2004}.
-  \item \textit{Biclusters com valores constantes nas linhas ou colunas}, se trata de biclusters com valores constantes nas linhas: $a_{ij} = \mu + \alpha_i, \forall i,j \in I,J$ ou $a_{ij} = \mu \cdot \alpha_i, \forall i,j \in I,J$, onde $\alpha_i$ é um fator aditivo ou multiplicativo para cada linha; ou ainda biclusters com valores constantes nas colunas: $a_{ij} = \mu + \beta_j, \forall i,j \in I,J$ ou $a_{ij} = \mu \cdot \beta_j, \forall i,j \in I,J$, onde $\beta_j$ é um fator aditivo ou multiplicativo para cada coluna \cite{Madeira2004}.
-  \item \textit{Biclusters com valores coerentes}, em que são considerados valores próximos entre si (coerentes) para definição de um bicluster: $a_{ij} = \mu + \alpha_i + \beta_j, \forall i,j \in I,J$, ou $a_{ij} = \mu' \cdot \alpha_i' \cdot \beta_j', \forall i,j \in I,J$, sendo que se $\mu = \log \mu'\implies \alpha_i = \alpha_i', \beta_j = \beta_j'$ \cite{Madeira2004}.
-  \item \textit{Biclusters com evoluções coerentes} têm seus valores com evoluções coerentes, por exemplo, um bicluster com $a_{i4} \leq a_{i3} \leq a_{i2} \leq a_{i1}$ tem valores com evolução coerente na coluna \cite{Madeira2004} \textcolor{green}{(estranho considerar a ordem das colunas ou das linhas, já que na maioria dos problemas pode ser bem arbitrário.)}. Seus valores podem ser gerados por uma função geradora de valores com evolução coerente $a_{ij} = g(a_{ij}), \forall i,j \in I,J$, sendo $g(\cdot)$ não linear e não constante, para que o tipo de bicluster não seja classificado nos casos anteriores. \textcolor{green}{(Muito estranho $a=g(a)$, pois $g()$ deveria ser a identidade)}
+ %  \item \textit{Cogrupos com valores constantes}, se trata de cogrupos em que todos os valores de são constantes: $\mu_{pq} \in X_{\mathcal{K}_p \mathcal{L}_q}, \forall p, q$, onde $\mu_{pq}$ é um valor constante para um cogrupo. Porém, em conjuntos de dados reais, esses cogrupos estão presentes com algum tipo de ruído $\mu_{pq} + \eta$, onde $\eta$ é o ruído associado com os valores de $\mu_{pq}$;
+ %  \item \textit{Cogrupos com valores constantes nas linhas ou colunas}, se trata de cogrupos com valores constantes nas linhas: $\mathbf{\mu}_{p \cdot} + \alpha_p \in X_{\mathcal{K}_p \mathcal{L}_q}$ ou $\mathbf{\mu}_{p \cdot} \alpha_p \in X_{\mathcal{K}_p \mathcal{L}_q}$, onde $\alpha_p$ é um fator aditivo ou multiplicativo para cada linha; ou ainda cogrupos com valores constantes nas colunas: $\mathbf{\mu}_{\cdot q} + \beta_q \in X_{\mathcal{K}_p \mathcal{L}_q}$ ou $\mathbf{\mu}_{\cdot q} \beta_q \in X_{\mathcal{K}_p \mathcal{L}_q}$, onde $\beta_jq$ é um fator aditivo ou multiplicativo para cada coluna;
+ %  \item \textit{Cogrupos com valores coerentes}, em que são considerados valores próximos entre si (coerentes) para definição de um cogrupo: $a_{ij} = \mu + \alpha_i + \beta_j, \forall i,j \in I,J$, ou $a_{ij} = \mu' \cdot \alpha_i' \cdot \beta_j', \forall i,j \in I,J$, sendo que se $\mu = \log \mu'\implies \alpha_i = \alpha_i', \beta_j = \beta_j'$;
+ %  \item \textit{Cogrupos com evoluções coerentes} têm seus valores com evoluções coerentes, por exemplo, um cogrupo com $x_{i4} \leq x_{i3} \leq x_{i2} \leq x_{i1}$ tem valores com evolução coerente na coluna. Seus valores podem ser gerados por uma função geradora de valores com evolução coerente $x_{ij} = g(a_{ij}), \forall i,j \in I,J$, sendo $g(\cdot)$ não linear e não constante, para que o tipo de cogrupo não seja classificado nos casos anteriores. \textcolor{green}{(Muito estranho $a=g(a)$, pois $g()$ deveria ser a identidade)}
+    \item \textit{Cogrupos com valores constantes};
+    \item \textit{Cogrupos com valores constantes nas linhas ou colunas};
+    \item \textit{Cogrupos com valores coerentes};
+    \item \textit{Cogrupos com evoluções coerentes}.
  \end{itemize}
 
-Os biclusters também diferem quanto as suas estruturas. Cada algoritmo usado para implementar Biclusterização faz uma suposição da estrutura de biclusters que é capaz de encontrar.
-A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de biclusters, com as linhas e colunas ordenadas para permitir a visualização dos biclusters por meio do mapa de calor dos valores de $A$, sendo os biclusters $A_{IJ}$ representados por cores sólidas e o fundo da matriz ruído.
+Os cogrupos também diferem quanto as suas estruturas.
+Cada algoritmo usado para implementar Coagrupamento faz uma suposição da estrutura de cogrupos que é capaz de encontrar.
+A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de cogrupos, com as linhas e colunas ordenadas para permitir a visualização dos cogrupos por meio de cada retângulo em cada uma das nove matrizes apresentadas.
 
-% Os tipos de estruturas são: Bicluster único, tem apenas um bicluster na matriz (Figura~\ref{fig:bicstruct-a}); Bicluster com linhas e colunas exclusivas
+\begin{figure}[H]
+\centering
+    \caption{Estruturas de cogrupos}
+    \includegraphics[width=0.7\textwidth]{img/synteticBiclusters.png}
+    \label{fig:bicstruct}
+\source{\citeonline{Madeira2004}}
+\end{figure}
 
-% Para melhorar esse figura, deixe na figura apenas as letras (a), (b) etc e faça uma legenda. Acho que você pode usar \caption*{} em cima do \caption{} para fazer a legenda. Ou crie um parágrafo para explicar as letras na figura. Acho que aaté fica mais simpático fazer um parágrafo, pois pode explicar com mais cuidado.
+É possível nomear cada uma das estruturas apresentadas na figura~\ref{fig:bicstruct}, considerando as imagens da esquerda para a direita em linha: 1) único cogrupo; 2) cogrupos com linhas e colunas exclusivas; 3) cogrupos com estrutura em xadrez; 4) cogrupos com linhas exclusivas e sobreposição nas colunas; 5) cogrupos com colunas exclusivas e sobreposição nas linhas; 6) cogrupos com estrutura em árvore; 7) cogrupos não exclusivos sem sobreposição; 8) cogrupos com sobreposição e estrutura hierárquica; 9) cogrupos arbitrariamente posicionados.
+No capítulo~\ref{ch:experiments} são mostrados experimentos considerando dados sintéticos baseados nessas estruturas, com ênfase às estruturas que apresentam cogrupos com sobreposição e provendo mais detalhes dessas estruturas.
 
-% \begin{figure}[h]
-%     % \captionsetup[subfigure]{labelformat=simple}
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/a-bic-struct.png}
-%             \caption{Bicluster único}
-%             \label{fig:bicstruct-a}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/b-bic-struct.png}
-%             \caption{Biclusters com linhas e colunas exclusivas}
-%             \label{fig:bicstruct-b}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/c-bic-struct.png}
-%             \caption{Biclusters com estrutura de tabuleiro de xadrez}
-%             \label{fig:bicstruct-c}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/d-bic-struct.png}
-%             \caption{Biclusters com linhas exclusivas}
-%             \label{fig:bicstruct-d}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/e-bic-struct.png}
-%             \caption{Biclusters com colunas exclusivas}
-%             \label{fig:bicstruct-e}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/f-bic-struct.png}
-%             \caption{Biclusters sem sobreposição com estrutura em árvore}
-%             \label{fig:bicstruct-f}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/g-bic-struct.png}
-%             \caption{Biclusters sem sobreposição e não exclusivos}
-%             \label{fig:bicstruct-g}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/h-bic-struct.png}
-%             \caption{Biclusters com sobreposição com estrutura hierarquica}
-%             \label{fig:bicstruct-h}
-%     \end{subfigure}
-%     ~
-%     \centering
-%     \begin{subfigure}[b]{0.3\textwidth}
-%             \includegraphics[width=30mm]{img/i-bic-struct.png}
-%             \caption{Biclusters com sobreposição arbitrariamente posicionados}
-%             \label{fig:bicstruct-i}
-%     \end{subfigure}
-%     \caption{Diferentes estruturas de biclusters, quadrados e retângulos com cores sólidas representam biclusters e o fundo representa ruído.}% (Adaptado de \cite{Madeira2004})}
-%     \label{fig:bicstruct}
-% \end{figure}
+Diversos algoritmos para encontrar cogrupos, de diferentes tipos e estruturas, foram propostos na literatura \cite{Tanay2005,Madeira2004}.
 
-\section{Algoritmos para Biclusterização}
+Um dos algoritmos mais simples para a resolução da tarefa de Coagrupamento, que é capaz de encontrar cogrupos com valores coerentes em estrutura com sobreposição e arbitrariamente posicionados, é chamado de \textit{Coupled Two-way Clustering} (CTWC)~\cite{Getz2000}.
+O algoritmo CTWC é capaz de encontrar cogrupos através da agrupamento de dados e atributos (linhas e colunas), separadamente.
+\citeonline{Getz2000} utiliza o algoritmo de agrupamento \textit{Superparamagnetic Clustering} (SPC), o qual é capaz de determinar o número de grupos automaticamente com uma estratégia de agrupamento hierárquica.
 
-Diversos algoritmos para encontrar biclusters, de diferentes tipos e estruturas, foram propostos na literatura \cite{Tanay2005,Madeira2004}.
+Já o algoritmo de~\citeonline{Cheng2000} é capaz de encontrar o mesmo tipo de cogrupo que o algoritmo CTWC, porém usando uma estratégia gulosa: cogrupos com valores coerentes e estrutura com sobreposição e arbitrariamente posicionados.
+Para encontrar cogrupos, ou $\delta$-cogrupos,~\citeonline{Cheng2000} usam uma estratégia gulosa que retira linhas e colunas de $X$, respeitando um parâmetro $\delta$, que é calibrado pelo usuário.
 
-Um dos algoritmos de Biclusterização mais comum e simples. que encontra biclusters com valores coerentes, em estrutura com sobreposição e arbitrariamente posicionados, é o \textit{Coupled Two-way Clustering} (CTWC) \cite{Getz2000}. O algoritmo CTWC é capaz de encontrar biclusters através da clusterização de objetos e atributos (linhas e colunas), separadamente.
-O algoritmo de clusterização usado por \citeonline{Getz2000} foi o \textit{Superparamagnetic Clustering} (SPC), o qual é capaz de determinar o número de clusters automaticamente, e com uma estratégia de clusterização hierárquica \textit{top-down} é capaz de gerar clusters estáveis \cite{Getz2000}.
-O SPC tem como entrada uma matriz de similaridade e um parâmetro temperatura, que controla o quão estáveis serão os clusters que o algoritmo gerará.
-Assim, o CTWC encontra clusters estáveis de linhas e colunas através do SPC, e iterativamente executa o SPC nos clusters de linhas e colunas encontrados, mantendo na memória um par do subconjunto de linhas e do subconjunto de colunas (biclusters), assim como os clusters estáveis de linhas e colunas, separadamente.
-% O algoritmo se inicia com dois subconjuntos: um para exemplos (linhas) $I = \{ X \}$ e um para características (colunas) $J = \{ Y \}$, então, através do algoritmo de SPC
+Além dos algoritmos apresentados, existem outros algoritmos que são capazes de encontrar outros tipos de cogrupos~\cite{Franca20102,Yang2013,Hochreiter2010,Cabanes2012}.
 
-Já o algoritmo de \citeonline{Cheng2000} é capaz de encontrar o mesmo tipo de bicluster que o algoritmo CTWC, porém usando uma estratégia gulosa: biclusters com valores coerentes e estrutura com sobreposição e arbitrariamente posicionados. Este algoritmo esta sendo objeto de estudo desse projeto de mestrado para aplicação em dados textuais e por isso segue aqui descrito em mais detalhes.
-Nesse algoritmo, para encontrar biclusters, ou $\delta$-biclusters, na matriz $A$, os autores definem o \textit{Resíduo Quadrático Médio} (RQM):
-\begin{equation}
-\begin{split}
-    H_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
-    H_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \\
-    H_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2   \nonumber
-\end{split}
-\end{equation}
-em que
-\begin{equation}
-    a_{iJ} = \frac{1}{|J|} \displaystyle\sum_{j \in J} a_{ij},\quad a_{Ij} = \frac{1}{|I|} \displaystyle\sum_{i \in I} a_{ij},\quad a_{IJ} = \frac{1}{|I||J|} \displaystyle\sum_{i,j \in I,J} a_{ij}   \nonumber
-\end{equation}
-onde $H_{IJ}$ é o RQM de uma submatriz $A_{IJ}$, $H_{iJ}$ o RQM da linha $i$, $H_{Ij}$ o RQM da coluna $j$, $a_{iJ}$ a média dos valores da linha $i$, $a_{Ij}$ a média dos valores da coluna $j$ e $a_{IJ}$ a média dos valores da submatriz $A_{IJ}$, definida pelos subconjuntos $I$ e $J$.
-
-Então, um bicluster perfeito $A_{IJ}$ teria o RQM $H_{IJ} = 0$, pois $a_{ij} = a_{ij}, \forall i,j \in I,J$, \textcolor{green}{($a_{ij}=a_{ij}$, hein? não seria $a_{ij}=a_{iJ}+a_{Ij}-a_{IJ}$?)} fazendo $a_{iJ} = a_{Ij} = a_{IJ}$. No entanto, se apenas minizar o RQM, um bicluster com apenas um elemento seria perfeito, o que pode não refletir a realidade. Além disso, em conjunto de dados reais existe ruído, podendo esconder o bicluster perfeito.
-
-Para encontrar biclusters, ou $\delta$-biclusters, \citeonline{Cheng2000} usam uma estratégia gulosa que retira linhas e colunas, visando a minimização do RQM, respeitando um parâmetro $\delta$, que é calibrado pelo usuário. Então, um bicluster é encontrado quando o RQM de uma submatriz $A_{IJ}$ é $H_{IJ} \leq \delta$, para algum $\delta \geq 0$. As etapas de remoções de elementos da matriz são apresentadas nos algoritmos 1 e 2.
-
-% \begin{algorithm}[H]
-% \label{algo:cc1}
-%  \KwData{$A, I, J, \delta$}
-%  \KwResult{$I,J$ onde $H_{IJ} \leq \delta$}
-%  \While{$H_{IJ} > \delta$}{
-%   encontre a linha $l_{max} = \operatorname*{arg\,max}_{i \in I} H_{iJ}$\;
-%   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
-%   \eIf{$l_{max} > c_{max}$}{
-%    remova $l_{max}$ do subconjunto $I$\;
-%    }{
-%    remova $c_{max}$ do subconjunto $J$\;
-%   }
-%  }
-%  \caption{Remove uma linha ou coluna a cada iteração.}
-% \end{algorithm}
-
-% \begin{algorithm}[H]
-% \label{algo:cc2}
-%  \KwIn{$A, I, J, \delta, \alpha$}
-%  \KwOut{$I,J$ onde $H_{IJ} \leq \delta$}
-%  \While{$H_{IJ} > \delta$}{
-%   remova $i \in I$ onde $H_{iJ} > \alpha \cdot H_{IJ}$\;
-%   remova $j \in J$ onde $H_{Ij} > \alpha \cdot H_{IJ}$\;
-%   encontre a coluna $c_{max} = \operatorname*{arg\,max}_{j \in J} H_{Ij}$\;
-%   \If{não houve nenhuma remoção}{
-%    chame o algoritmo 1
-%   }
-%  }
-%  \caption{Remove múltiplas linhas e colunas de $A$ a cada iteração.}
-% \end{algorithm}
-
-O algoritmo 2 é usado para acelerar o processo de busca de um $\delta$-bicluster, convergindo mais rapidamente para uma solução quanto maior for o parâmetro $\alpha$, em que $\alpha \geq 0$. Ainda, para amenização do problema de encontrar $\delta$-biclusters perfeitos com apenas um elemento, ou poucos elemento, é utilizado o algoritmo 3, que adiciona nós sem aumentar o RQM do bicluster.
-
-% deu problema nessas referencias cruzadas, verifique.
-
-% \begin{algorithm}[h]
-% \label{algo:cc3}
-%  \KwIn{$A, I, J$}
-%  \KwOut{$I',J'$ onde $H_{I'J'} \leq H_{IJ}$}
-%  \While{$H_{IJ} > \delta$}{
-%   compute $a_{iJ}$ e $a_{Ij}$ para todo $i,j$ e $H_{IJ}$\;
-%   remova $j \notin J$ onde $\frac{1}{|I|} \sum_{j \in J} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
-%   recompute $a_{iJ}$ e $H_{IJ}$\;
-%   remova $i \notin I$ onde $\frac{1}{|J|} \sum_{i \in I} (a_{ij} - a_{iJ} - a_{Ij} + a_{IJ})^2 \leq H_{IJ}$\;
-%   \If{não houve nenhuma adição}{
-%    $I' \longleftarrow I$\;
-%    $J' \longleftarrow J$\;
-%   }
-%  }
-%  \caption{Adiciona linhas e colunas de $A_{IJ}$ a cada iteração.}
-% \end{algorithm}
-
-Por fim, o algoritmo 4 é a consolidação dos algoritmos 3, 2 e 1 e a iteração para encontrar $k$ $\delta$-biclusters, um a um, sendo $k$ fornecido pelo usuário.
-
-% \begin{algorithm}[h]
-% \label{algo:cc4}
-%  \KwIn{$A, k, \delta, \alpha$}
-%  \KwOut{$k$ $\delta$-biclusters}
-%  $A' \leftarrow A$\;
-%  \For{$1$ \KwTo $k$}{
-%    $B \leftarrow$ algoritmo 2 com $A', \delta, \alpha$\;
-%    $C \leftarrow$ algoritmo 1 com $B, \delta$\;
-%    $D \leftarrow$ algoritmo 3 com $A, C$\;
-%    reporte $D$ como uma solução\;
-%    adicione ruído em $A'$ para a submatriz $D$\;
-%  }
-%  \caption{Algoritmo Cheng \& Church, encontra $k$ $\delta$-biclusters.}
-% \end{algorithm}
-
-% Algoritmo Spectral (?)
-
-Além dos algoritmos apresentados, existem outros algoritmos que são capazes de encontrar outros tipos de biclusters (Seção~\ref{sec:tiposbic}), além de serem recentes \cite{Franca20102,Yang2013,Hochreiter2010,Cabanes2012}, mostrando que ainda há interesse na área de pesquisa de Biclusterização.
-
- \section{Avaliação de Biclusterização}
-
-Para determinar parâmetros, descobrir a qualidade e/ou estabilidade dos biclusters encontrados por algoritmos, é necessário estabelecer métricas de avaliação. Existem duas maneiras de avaliar biclusters \cite{Hochreiter2010}: \textit{interna}, usa os dados dos resultados dos algoritmos, juntamente com métricas de qualidade e/ou estabilidade, para avaliar as soluções geradas; \textit{externa}, utiliza os dados reais das soluções de biclusters de um conjunto de dados, usando estratégias para comparação, obtendo assim, maior confiança nas soluções.
-
-A avaliação interna pode não ser tão precisa quanto a avaliação externa, porém é útil para descobrir parâmetros ótimos. Apesar de \citeonline{Prelic2006} sugerirem não usar avaliações internas, por não estar claro como estender noções de separação e homogeneidade, \citeonline{Santamaria2007} descreveu métricas de consistência para verificar se um bicluster é consistente com a sua definição, seja aditiva, multiplicativa e/ou constante, fazendo uma comparação dos elementos do bicluster:
-\begin{equation}
-\begin{split}
-C_l(A_{IJ}) = \frac{1}{|I|} \displaystyle\sum_{i = 1}^{|I| - 1} \displaystyle\sum_{j = i + 1}^{|I|} \sqrt{ \displaystyle\sum_{k = 1}^{|J|} (a_{ik} - a_{jk})^2 } \\
-C_c(A_{IJ}) = \frac{1}{|J|} \displaystyle\sum_{i = 1}^{|J| - 1} \displaystyle\sum_{j = i + 1}^{|J|} \sqrt{ \displaystyle\sum_{k = 1}^{|I|} (a_{ki} - a_{kj})^2 }    \nonumber
-\end{split}
-\end{equation}
-em que $C_l(A_{IJ})$ é o índice de consistência das linhas do bicluster $A_{IJ}$ e $C_c(A_{IJ})$ é o índice de consistência das colunas do bicluster $A_{IJ}$. Ainda, a consistência do bicluster inteiro $C$ pode ser definida pela média:
-\begin{equation}
-C(A_{IJ}) = \frac{|I| \cdot C_l + |J| \cdot C_c}{|I| + |J|}   \nonumber
-\end{equation}
-
-Uma das métricas externas que são usadas para comparar biclusters encontrados com biclusters reais em um conjunto de dados, é a métrica \textit{concensus score} \cite{Hochreiter2010}. Essa métrica calcula a maximização das similaridades entre biclusters encontrados e reais, usando o \textit{índice de Jaccard} como medida de similaridade e o algoritmo Húngaro para solucionar o problema de maximização. A saída da avaliação é um $\textit{score} \in [0,1]$, em que $0$ significa que os biclusters comparados são totalmente diferentes, e $1$ o inverso.
-
-% ********************************************************************************
-% ********************************************************************************
-% ********************************************************************************
-% ********************************************************************************
+Ainda, de forma semelhante à tarefa de agrupamento, existem métricas de avaliação da qualidade e estabilidade de cogrupos, que são separadas em duas das categorias também presentes em agrupamento \cite{Hochreiter2010}: \textit{interna} e \textit{externa}.
+No entanto, uma das formas de avaliar a qualidade e ou estabilidade é pela próprima medida de minimização de cada algoritmo, pode não ser tão efetiva quando medidas de avaliação, mas torna-se como uma alternativa.
 
 \chapter{Fatoração de matrizes não-negativas para coagrupamento}
 \label{ch:fatoracao}
 
-% TODO: resgatar fatoração de matrizes tradicionais
-% Acredito que não precisamos de mais do que já foi dito na introdução sobre fatoração de matrizes. A menos que se deseje explicar como se implementar a fataração. Então por enquanto estou suprimindo este passo.
-
-% \section{Non-negative Matrix Factorization}
-
-Fatoração de matrizes não-negativas (\textit{Non-negative Matrix Factorization} - NMF) foi estudada como um método para análise de dados capaz de extrair conhecimento sobre um objeto a partir do estudo de suas partes \cite{lee99}, como um contraponto a métodos mais populares como Análise de Componentes Principais (\textit{Principal Component Analysis - PCA}) e Quantização Vetorial, porém, considerando a fatoração matrizes positivas ou negativas.
+Fatoração de matrizes não-negativas (\textit{Non-negative Matrix Factorization} - NMF) foi estudada como um método para análise de dados capaz de extrair conhecimento sobre um objeto a partir do estudo de suas partes~\cite{lee99}, como um contraponto a métodos mais populares como Análise de Componentes Principais (\textit{Principal Component Analysis - PCA}) e Quantização Vetorial, porém, considerando a fatoração matrizes positivas ou negativas.
 \citeonline{lee99} apresentam tal abordagem a partir de sua aplicação no aprendizado de características de faces (em dados do tipo imagem) e na análise de características semânticas de textos.
-A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por \citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por~\citeonline{Long2005, Ding06, Yoo2010}, que formulam o problema como coagrupamento (cogrupoing).
+A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por~\citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por~\citeonline{Long2005, Ding06, Yoo2010}, que formulam o problema como coagrupamento (cogrupoing).
 Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos a clusterização de genes e análise de microarry em bioinformática~\cite{Kluger2003} e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
 Na aplicação de NMF em filtragem colaborativa em sistemas de recomendação, destaca-se o modelo baseado em NMF de~\citeonline{Koren09} para predição de preferências de usuários por filmes, que ganhou em primeiro lugar o Prêmio Netflix (\textit{Netflix Prize})\footnote{http://www.netflixprize.com/}.
 
@@ -1282,7 +1479,7 @@ O problema de coagrupamento implementado sob a abordagem BVD é formalmente apre
 \label{def:bvd:problem}
 \begin{equation}
     \begin{array}{lclcl}
-        \displaystyle \mathcal{F}_1(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
+        \displaystyle \mathcal{F}_3(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
                                            &   & \text{suj. a}                & U \geq 0,                  \\
                                            &   &                              & S \geq 0,                  \\
                                            &   &                              & V \geq 0
@@ -1353,7 +1550,7 @@ em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$,
 %% *******************************************************************************************************
 %% *******************************************************************************************************
 
-A implementação para o processo de minimização do problema~\ref{def:bvd:problem} é descrito no algoritmo~\ref{algo:bvd}, o qual é baseado em atualizações multiplicativas e tem sua convergência demonstrada via teoria de otimização não linear (veja \cite{Long2005}).
+A implementação para o processo de minimização do problema~\ref{def:bvd:problem} é descrito no algoritmo~\ref{algo:bvd}, o qual é baseado em atualizações multiplicativas e tem sua convergência demonstrada via teoria de otimização não linear (veja \citeonline{Long2005}).
 Nesse algoritmo considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V^{(t)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, e $\odot$ é o produto de Hadamard.
 % Sara: ué gente, porque t+1 para iteração atual em S e V ????
 % Sara: essa ordem de alteração das matrizes está correta??? No artigo não é essa, mas lá não entendi que ele dá a ordem. De onde veio a ordem?
@@ -1436,7 +1633,7 @@ Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o proble
 \label{def:onmtf:problem}
 \begin{equation}
     \begin{array}{lclcl}
-        \displaystyle \mathcal{F}_2(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F}      \\
+        \displaystyle \mathcal{F}_6(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F}      \\
                                              &   & \text{suj. a}                & U \geq 0, S \geq 0, V \geq 0, \\
                                              &   &                              & U^T U = I,                    \\
                                              &   &                              & V^T V = I
@@ -1664,7 +1861,7 @@ O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fas
 \label{def:fnmtf:problem}
 \begin{equation}
     \begin{array}{lclcl}
-        \displaystyle \mathcal{F}_3(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
+        \displaystyle \mathcal{F}_7(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
                                              &   &                              & U \in \Psi^{n \times k}, \\
                                              &   &                              & V \in \Psi^{m \times l}
     \end{array} \nonumber
@@ -1682,10 +1879,10 @@ Então, apesar dessas restrições serem semelhantes à ortonormalidade, elas n�
 Como $U$ e $V$ neste caso têm as restrições descritas, e são capazes de fornecer o particionamento de linhas e colunas, respectivamente, de forma direta, a capacidade de compactação nesse caso é semelhante ao algoritmo \textit{k-means}, brevemente descrito no Capítulo~\ref{ch:conceitos}.
 Porém, como a fatoração compacta as colunas e as relações entre grupos de linhas e colunas (matriz $S$), a matriz $X$ é compactada em $n + kl + m$ elementos.
 
-Como não há restrições em $S$, com exceção da positividade que é garantida pela positividade de $X$, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_3$:
+Como não há restrições em $S$, com exceção da positividade que é garantida pela positividade de $X$, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_7$:
 \[
     \begin{array}{lclcl}
-        \nabla_S \mathcal{F}_3 &     =    & U^T X V - U^T U S V^T V                     & = & 0                             \\
+        \nabla_S \mathcal{F}_7 &     =    & U^T X V - U^T U S V^T V                     & = & 0                             \\
                                & \implies & U^T U S V^T V                               & = & U^T X V                       \\
                                & \implies & (U^T U)^{-1} U^T U S V^T V (V^T V)^{-1} & = & (U^T U)^{-1} U^T X V (V^T V)^{-1}
     \end{array}   \nonumber
@@ -1984,7 +2181,7 @@ Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:o
 \label{def:ovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
-        \displaystyle \mathcal{F}_4(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T}^{2}_{F} \\
+        \displaystyle \mathcal{F}_6(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T}^{2}_{F} \\
                                                                    &   & \text{suj. a}                & U \geq 0, S \geq 0, \\
                                                                    &   &                              & V_{(p)} \geq 0, \quad \forall p
     \end{array} \nonumber
@@ -1999,7 +2196,7 @@ Isso se explica, pois a partir dos $nm$ elementos da matriz de dados, são gerad
 
 Desde que o problema~\ref{def:ovnmtf:problem} é semelhante ao problema~\ref{def:onmtf:problem}, é esperado que ele possa também ser resolvido por meio de regras de atualização multiplicativas.
 Assim, seguindo o exposto em~\cite{Yoo2010}, a derivação das regras é aqui apresentada por meio de um abordagem baseada no cálculo do gradiente.
-Contudo, para o cálculo do gradiente de $\mathcal{F}_4$ a estratégia usada aqui é a apresentada em~\citeonline{Yoo2010}, de forma que $\nabla \mathcal{F}_4 = [\nabla \mathcal{F}_4]^+ - [\nabla \mathcal{F}_4]^-$.\blfootnote{Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B$ e $C$ matrizes de quaisquers dimensões adequadas para a realização das multiplicações:
+Contudo, para o cálculo do gradiente de $\mathcal{F}_6$ a estratégia usada aqui é a apresentada em~\citeonline{Yoo2010}, de forma que $\nabla \mathcal{F}_6 = [\nabla \mathcal{F}_6]^+ - [\nabla \mathcal{F}_6]^-$.\blfootnote{Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B$ e $C$ matrizes de quaisquers dimensões adequadas para a realização das multiplicações:
 \begin{equation}
 \label{eq:diff:AQB}
     \begin{array}{lcl}
@@ -2017,49 +2214,49 @@ Contudo, para o cálculo do gradiente de $\mathcal{F}_4$ a estratégia usada aqu
 \end{equation}
 }
 
-Expandindo $\mathcal{F}_4$, com base nas propriedade de traço de matrizes, para tornar o cálculo do gradiente mais simples, é possível obter:
+Expandindo $\mathcal{F}_6$, com base nas propriedade de traço de matrizes, para tornar o cálculo do gradiente mais simples, é possível obter:
 \[
     \begin{array}{lcl}
-        \displaystyle \mathcal{F}_4 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
+        \displaystyle \mathcal{F}_6 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
                                     & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T )
     \end{array}
 \]
 
 Note que a matriz seletora tem a seguinte propriedade: $I_{(p)}^T = I_{(p)}$.
 
-Para o cálculo de $\nabla_U \mathcal{F}_4$, considere as partes positiva e negativa desse gradiente, $[\nabla_U \mathcal{F}_4]^+$ e $[\nabla_U \mathcal{F}_4]^-$, respectivamente.
-Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T$, $B = \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T$ e $Q = U$, é possível obter $[\nabla_U \mathcal{F}_4]^-$, como segue.
+Para o cálculo de $\nabla_U \mathcal{F}_6$, considere as partes positiva e negativa desse gradiente, $[\nabla_U \mathcal{F}_6]^+$ e $[\nabla_U \mathcal{F}_6]^-$, respectivamente.
+Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T$, $B = \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T$ e $Q = U$, é possível obter $[\nabla_U \mathcal{F}_6]^-$, como segue.
 \[
     \begin{array}{lcl}
-        [\nabla_U \mathcal{F}_4]^- & = & - 2 \nabla_U \Big( tr\big[ X^T U \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T \big] \Big) \\
+        [\nabla_U \mathcal{F}_6]^- & = & - 2 \nabla_U \Big( tr\big[ X^T U \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T \big] \Big) \\
                                    & = & - 2 X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}
     \end{array}
 \]
 
-Para o cálculo de $[\nabla_U \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $B = I$, $Q = U^T$ e $C = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$. Então tem-se
+Para o cálculo de $[\nabla_U \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $B = I$, $Q = U^T$ e $C = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$. Então tem-se
 \[
     \begin{array}{lcl}
-        [\nabla_U \mathcal{F}_4]^+ & = & \nabla_U \Big( tr(X^TX) + tr\big[ \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \big] \Big) \\
+        [\nabla_U \mathcal{F}_6]^+ & = & \nabla_U \Big( tr(X^TX) + tr\big[ \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \big] \Big) \\
                                    & = & U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} \\
                                    &   & + ~ U \sum_{p=1}^k I_{(p)} S V_{(p)}^T \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} \\
                                    & = & 2 U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')}
     \end{array}
 \]
 
-De forma similar, para o cálculo de $\nabla_S \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_S \mathcal{F}_4]^+$ e $[\nabla_S \mathcal{F}_4]^-$, respectivamente.
-Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma de $p = 1, \dots, k$, com $A = X^T U I_{(p)}$, $Q = S$, e $B = V_{(p)}^T$, é possível obter $[\nabla_S \mathcal{F}_4]^-$, como segue:
+De forma similar, para o cálculo de $\nabla_S \mathcal{F}_6$, considere as partes positiva e negativa, $[\nabla_S \mathcal{F}_6]^+$ e $[\nabla_S \mathcal{F}_6]^-$, respectivamente.
+Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma de $p = 1, \dots, k$, com $A = X^T U I_{(p)}$, $Q = S$, e $B = V_{(p)}^T$, é possível obter $[\nabla_S \mathcal{F}_6]^-$, como segue:
 \[
     \begin{array}{lcl}
-        [\nabla_S \mathcal{F}_4]^- & = & - 2 \nabla_S \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
+        [\nabla_S \mathcal{F}_6]^- & = & - 2 \nabla_S \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
                                    & = & - 2 \Big( I_{(1)} U^T X V_{(1)} + \dots + I_{(k)} U^T X V_{(k)} \Big) \\
                                    & = & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)}
     \end{array}
 \]
 
-Para o cálculo de $[\nabla_S \mathcal{F}_4]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p = p' = 1, \dots, k$, com $A = V_{(p)}$, $Q = S^T$, $B = I_{(p)} U^T U I_{(p')}$ e $C = V_{(p')}^T$. Então tem-se
+Para o cálculo de $[\nabla_S \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p = p' = 1, \dots, k$, com $A = V_{(p)}$, $Q = S^T$, $B = I_{(p)} U^T U I_{(p')}$ e $C = V_{(p')}^T$. Então tem-se
 \[
     \begin{array}{lcl}
-        [\nabla_S \mathcal{F}_4]^+ & = & \nabla_S \Big( tr(X^TX) + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big]  \\
+        [\nabla_S \mathcal{F}_6]^+ & = & \nabla_S \Big( tr(X^TX) + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big]  \\
                                    &   & + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
                                    & = & \big( I_{(1)} U^T U I_{(1)} S V_{(1)}^T V_{(1)} + I_{(1)} U^T U I_{(1)} S V_{(1)}^T V_{(1)} \big) \\
                                    &   & + \dots + \big( I_{(1)} U^T U I_{(k)} S V_{(k)}^T V_{(1)} + I_{(k)} U^T U I_{(1)} S V_{(1)}^T V_{(k)} \big) \\
@@ -2070,18 +2267,18 @@ Para o cálculo de $[\nabla_S \mathcal{F}_4]^+$, é utilizado a igualdade da equ
 \]
 
 
-Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_4$, considere as partes positiva e negativa, $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ e $[\nabla_{V_{(p)}} \mathcal{F}_4]^-$, respectivamente. Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T U I_{(p)} S$, $Q = V^{T}_{(p)}$, e $B = I$, $\forall p$, é possível obter $[\nabla_{V_{(p)}} \mathcal{F}_4]^-$, da seguinte forma:
+Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_6$, considere as partes positiva e negativa, $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ e $[\nabla_{V_{(p)}} \mathcal{F}_6]^-$, respectivamente. Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T U I_{(p)} S$, $Q = V^{T}_{(p)}$, e $B = I$, $\forall p$, é possível obter $[\nabla_{V_{(p)}} \mathcal{F}_6]^-$, da seguinte forma:
 \[
     \begin{array}{lcl}
-        [\nabla_{V_{(p)}} \mathcal{F}_4]^- & = & - 2 \nabla_{V_{(p)}} \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
+        [\nabla_{V_{(p)}} \mathcal{F}_6]^- & = & - 2 \nabla_{V_{(p)}} \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
                                            & = & - 2 X^T U I_{(p)} S
     \end{array}
 \]
 
-Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ é nota-se que há dois casos diferentes para a derivação. O caso em que $p = p'$ e o caso em que $p \neq p'$. Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$, de forma que
+Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ é nota-se que há dois casos diferentes para a derivação. O caso em que $p = p'$ e o caso em que $p \neq p'$. Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$, de forma que
 \[
     \begin{array}{lcl}
-        [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p=p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
+        [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p=p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
                                                     & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(p)} S^T I_{(p)} U^T U I_{(p)} S V_{(p)}^T \big] \Big)  \\
                                                     & = & 2 V_{(p)} S^T I_{(p)} U^T U I_{(p)} S
     \end{array}
@@ -2090,7 +2287,7 @@ Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_4]^+$ é nota-se que h
 Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:AQB} em duas outras situações, aquela em que $V_{(p)}$ esta localizado à esquerda, então, $Q = V_{(p)}$, $A = I$ e $B = S^T I_{(p)} U^T U I_{(p')}$; e aquela em que $V_{(p)}$ esta localizado à direita, então, $Q = V_{(p)}^T$, $A = V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T$, $\forall p, p'$. Assim,
 \[
     \begin{array}{lcl}
-        [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(2)} S V_{(2)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big] \\
+        [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p \neq p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(2)} S V_{(2)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big] \\
                                    &   & + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k-1)} S V_{(k-1)}^T \big] \Big) \\
                                    & = & \sum_{p' \neq p} \bigg[ \nabla_{V_{(p)}} \Big( tr\big[ V_{(p)} S^T I_{(p)} U^T U I_{(p')} S V_{(p')}^T \big] \Big) \\
                                    &   & + ~ \nabla_{V_{(p)}} \Big( tr\big[ V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T \big] \Big) \bigg] \\
@@ -2098,10 +2295,10 @@ Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:A
     \end{array}
 \]
 
-Então, é possível calcular $[\nabla_{V_{(p)}} \mathcal{F}_4]^{+}$, $\forall p$, fazendo:
+Então, é possível calcular $[\nabla_{V_{(p)}} \mathcal{F}_6]^{+}$, $\forall p$, fazendo:
 \[
     \begin{array}{lcl}
-        [\nabla_{V_{(p)}} \mathcal{F}_4]^{+} & = & [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p = p'} + [\nabla_{V_{(p)}} \mathcal{F}_4]^{+}_{p \neq p'} \\
+        [\nabla_{V_{(p)}} \mathcal{F}_6]^{+} & = & [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p = p'} + [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p \neq p'} \\
                                              & = & 2 \big( V_{(p)} S^T I_{(p)} U^T U I_{(p)} S + \sum_{p' \neq p} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big) \\
                                              & = & 2 \big( \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
     \end{array}
@@ -2111,19 +2308,19 @@ O resultado final dos gradientes para $U, S, V_{(p)}, \forall, p \in \{1, \dots,
 \begin{equation}
 \label{eq:ovnmtf:gradU}
     \begin{array}{lcl}
-        \nabla_U \mathcal{F}_4 & = & 2 \big( - X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} + U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')} \big)
+        \nabla_U \mathcal{F}_6 & = & 2 \big( - X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} + U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')} \big)
     \end{array}
 \end{equation}
 \begin{equation}
 \label{eq:ovnmtf:gradS}
     \begin{array}{lcl}
-        \nabla_S \mathcal{F}_4 & = & 2 \big( - \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)} \big)
+        \nabla_S \mathcal{F}_6 & = & 2 \big( - \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)} \big)
     \end{array}
 \end{equation}
 \begin{equation}
 \label{eq:ovnmtf:gradV}
     \begin{array}{lcl}
-        \nabla_{V_{(p)}} \mathcal{F}_4 & = & 2 \big( -X^T U I_{(p)} S + \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+        \nabla_{V_{(p)}} \mathcal{F}_6 & = & 2 \big( -X^T U I_{(p)} S + \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
     \end{array}
 \end{equation}
 
@@ -2198,7 +2395,7 @@ Porém, mantém a independência do estabelecimento de diferentes bases para os 
 \label{def:binovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
-        \displaystyle \mathcal{F}_5(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{ X - U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T }^{2}_{F} \\
+        \displaystyle \mathcal{F}_7(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{ X - U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T }^{2}_{F} \\
                                                                    &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
                                                                    &   &                              & V_{(p)} \in \Psi^{m \times l}, \quad \forall p
     \end{array}   \nonumber
@@ -2211,10 +2408,10 @@ Ainda, as restrições $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{
 Em termos de compactação, a interpretação é semelhante à interpretação feita para o problema~\ref{def:ovnmtf:problem}, porém, por causa das restrições serem binárias, os $nm$ elementos da matriz de dados serão compactados em $n + kl + km$ elementos.
 
 A mesma estratégia de derivação utilizada no algoritmo~\ref{algo:fnmtf}, também pode ser feita para propor uma solução para o problema~\ref{def:binovnmtf:problem}: solucionar o problema para $S$ para obter subproblemas que podem ser solucionados através de uma estratégia iterativa.
-Então, recapitulando o gradiente $[\nabla_S \mathcal{F}_4]^+$, já calculado para solução do problema~\ref{def:ovnmtf:problem}, será o mesmo para $\mathcal{F}_5$, porém passível de simplificação, como $(U^T U)$, para o problema~\ref{def:binovnmtf:problem} que tem restrições binárias em $U$, é uma matriz que contém zeros em todos elementos, com exceção da diagonal principal:
+Então, recapitulando o gradiente $[\nabla_S \mathcal{F}_6]^+$, já calculado para solução do problema~\ref{def:ovnmtf:problem}, será o mesmo para $\mathcal{F}_7$, porém passível de simplificação, como $(U^T U)$, para o problema~\ref{def:binovnmtf:problem} que tem restrições binárias em $U$, é uma matriz que contém zeros em todos elementos, com exceção da diagonal principal:
 \[
     \begin{array}{lcl}
-        [\nabla_S \mathcal{F}_5]^+ & = & \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)} \\
+        [\nabla_S \mathcal{F}_7]^+ & = & \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)} \\
                                    & = & \sum_{p=1}^{k} \sum_{p'=1}^{k} \Bigg( I_{(p)}
                                    \begin{bmatrix}
                                        (U^T U)_{11}            &        & \smash{\text{\large 0}} \\
@@ -2255,14 +2452,14 @@ Note que se $p \neq p'$, $I_{(p)} U^T U I_{(p)}$ e toda expressão, será uma ma
 \]
 \[
     \begin{array}{lclcl}
-        \therefore & [\nabla_S \mathcal{F}_5]^+ & = & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)}
+        \therefore & [\nabla_S \mathcal{F}_7]^+ & = & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)}
     \end{array}
 \]
 
-Assim, é possível escrever o gradiente $\nabla_S \mathcal{F}_5$, a fim de encontrar uma expressão para atualização de $S$.
+Assim, é possível escrever o gradiente $\nabla_S \mathcal{F}_7$, a fim de encontrar uma expressão para atualização de $S$.
 \[
     \begin{array}{lcl}
-        [\nabla_S \mathcal{F}_5]^+ &     =    & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + 2 \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = 0 \\
+        [\nabla_S \mathcal{F}_7]^+ &     =    & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + 2 \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = 0 \\
                                    & \implies & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)}
     \end{array}   \nonumber
 \]

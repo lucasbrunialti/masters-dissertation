@@ -33,8 +33,15 @@ I was expecting a `,' or a `}'---line 739 of file referencias.bib
  :   number = {5}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Repeated entry---line 1039 of file referencias.bib
+ : @inproceeedings{Ding05
+ :                       ,
+I'm skipping whatever remains of this entry
 Warning--entry type for "Long2005" isn't style-file defined
---line 910 of file referencias.bib
+--line 1046 of file referencias.bib
+A bad cross reference---entry "Bottou95"
+refers to entry "NIPS7", which doesn't exist
+Warning--I didn't find a database entry for "NIPS7"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -45,45 +52,45 @@ Warning--existe o campo month (mês) mas não o campo year (ano) em Peres2012
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
-You've used 49 entries,
+You've used 62 entries,
             6711 wiz_defined-function locations,
-            1545 strings with 18709 characters,
-and the built_in function-call counts, 62872 in all, are:
-= -- 7121
-> -- 1775
-< -- 661
-+ -- 1301
-- -- 526
-* -- 3987
-:= -- 6981
-add.period$ -- 191
-call.type$ -- 49
-change.case$ -- 580
-chr.to.int$ -- 124
-cite$ -- 49
-duplicate$ -- 5614
-empty$ -- 3172
-format.name$ -- 2522
-if$ -- 14293
-int.to.chr$ -- 0
+            1629 strings with 20184 characters,
+and the built_in function-call counts, 78930 in all, are:
+= -- 9005
+> -- 2194
+< -- 855
++ -- 1635
+- -- 654
+* -- 4939
+:= -- 8744
+add.period$ -- 244
+call.type$ -- 62
+change.case$ -- 713
+chr.to.int$ -- 147
+cite$ -- 62
+duplicate$ -- 7201
+empty$ -- 3965
+format.name$ -- 3115
+if$ -- 17872
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 898
-newline$ -- 233
-num.names$ -- 236
-pop$ -- 1221
+missing$ -- 1146
+newline$ -- 298
+num.names$ -- 301
+pop$ -- 1563
 preamble$ -- 1
-purify$ -- 212
+purify$ -- 263
 quote$ -- 0
-skip$ -- 5868
+skip$ -- 7446
 stack$ -- 1
-substring$ -- 2324
-swap$ -- 1673
-text.length$ -- 71
+substring$ -- 2822
+swap$ -- 2107
+text.length$ -- 85
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 26
+type$ -- 27
 warning$ -- 1
-while$ -- 366
+while$ -- 459
 width$ -- 0
-write$ -- 795
-(There were 4 error messages)
+write$ -- 1001
+(There were 6 error messages)

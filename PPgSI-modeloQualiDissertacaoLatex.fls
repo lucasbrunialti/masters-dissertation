@@ -164,6 +164,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/rotating/rotating.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/rotating/rotating.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lipsum/lipsum.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lipsum/lipsum.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/backref.sty
@@ -227,6 +229,11 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msb.cfg
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msb.cfg
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/ursfs.fd
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/ursfs.fd
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /Users/lucasbrunialti/git/masters-dissertation/fig_ficha_catalografica.pdf
 INPUT /Users/lucasbrunialti/git/masters-dissertation/fig_ficha_catalografica.pdf
 INPUT /Users/lucasbrunialti/git/masters-dissertation/fig_ficha_catalografica.pdf
@@ -283,6 +290,9 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
@@ -293,6 +303,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/doublestroke/dsrom12.tfm
@@ -305,13 +317,16 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
-INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png
-INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png
-INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png
-INPUT /Users/lucasbrunialti/git/masters-dissertation/img/reconstruction.png
-INPUT /Users/lucasbrunialti/git/masters-dissertation/img/reconstruction.png
-INPUT /Users/lucasbrunialti/git/masters-dissertation/img/reconstruction.png
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/synteticBiclusters.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/synteticBiclusters.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/synteticBiclusters.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/reconstruction.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/reconstruction.png
+INPUT /Users/lucasbrunialti/git/masters-dissertation/img/reconstruction.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf1.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf1.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/bvdVsOnmtf1.png
@@ -602,6 +617,7 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
@@ -622,3 +638,4 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb

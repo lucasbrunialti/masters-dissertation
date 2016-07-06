@@ -45,9 +45,8 @@ ISBN 0070131511.}
 
 \bibitem[Ding, He e Simon 2005]{Ding05}
 \abntrefinfo{Ding, He e Simon}{DING; HE; SIMON}{2005}
-{DING, C.; HE, X.; SIMON, H.~D. On the equivalence of nonnegative matrix
-  factorization and spectral clustering. In:  \emph{in SIAM International
-  Conference on Data Mining}. [S.l.: s.n.], 2005.}
+{DING, C.; HE, X.; SIMON, H.~D. \emph{On the equivalence of nonnegative matrix
+  factorization and spectral clustering}. 2005.}
 
 \bibitem[Ding et al. 2006]{Ding06}
 \abntrefinfo{Ding et al.}{DING et al.}{2006}
@@ -63,12 +62,6 @@ ISBN 0070131511.}
   USA: ACM, 2004.  (HWWS '04), p. 133--137.
 ISBN 3-905673-15-0. Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/1058129\-.1058148$>$}{http://doi.acm.org/10.1145/1058129.1058148}.}
-
-\bibitem[Feldman e Sanger 2006]{Feldman2006}
-\abntrefinfo{Feldman e Sanger}{FELDMAN; SANGER}{2006}
-{FELDMAN, R.; SANGER, J. \emph{The Text Mining Handbook: Advanced Approaches in
-  Analyzing Unstructured Data}. Cambridge, MA, USA: Cambridge University Press,
-  2006. Hardcover.}
 
 \bibitem[Franca 2010]{Franca2010}
 \abntrefinfo{Franca}{FRANCA}{2010}
@@ -121,32 +114,17 @@ ISBN 9781848214736.}
 \emph{SIGMOD Rec.}, ACM, New York, NY, USA, v.~31, n.~3, p. 19--27, set. 2002.
 ISSN 0163-5808.}
 
-\bibitem[Han e Kamber 2006]{han2006data}
-\abntrefinfo{Han e Kamber}{HAN; KAMBER}{2006}
-{HAN, J.; KAMBER, M. \emph{Data mining: Concepts and Techniques}. 2. ed.
-  [S.l.]: Morgan Kaufmann San Francisco, Calif, USA, 2006.}
-
 \bibitem[Han, Kamber e Pei 2011]{Han2011}
-\abntrefinfo{Han, Kamber e Pei}{HAN; KAMBER; PEI}{2011a}
+\abntrefinfo{Han, Kamber e Pei}{HAN; KAMBER; PEI}{2011}
 {HAN, J.; KAMBER, M.; PEI, J. \emph{Data Mining: Concepts and Techniques}. 3rd.
   ed. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc., 2011.
 ISBN 0123814790, 9780123814791.}
-
-\bibitem[Han, Kamber e Pei 2011]{Kamber2011}
-\abntrefinfo{Han, Kamber e Pei}{HAN; KAMBER; PEI}{2011b}
-{HAN, J.; KAMBER, M.; PEI, J. \emph{Data Mining: Concepts and Techniques}. 3rd.
-  ed. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc., 2011.}
 
 \bibitem[Hartigan 1972]{Hartigan1972}
 \abntrefinfo{Hartigan}{HARTIGAN}{1972}
 {HARTIGAN, J.~A. Direct clustering of a data matrix.
 \emph{Journal of the American Statistical Association}, American Statistical
   Association, v.~67, n.~337, p. 123--129, 1972.}
-
-\bibitem[Haykin 2008]{Haykin2008}
-\abntrefinfo{Haykin}{HAYKIN}{2008}
-{HAYKIN, S. \emph{Neural Networks and Learning Machines (3rd Edition)}. 3. ed.
-  [S.l.]: Prentice Hall, 2008. Hardcover.}
 
 \bibitem[Ho 2008]{Ho2008}
 \abntrefinfo{Ho}{HO}{2008}
@@ -159,12 +137,6 @@ Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
 \abntrefinfo{Hochreiter et al.}{HOCHREITER et al.}{2010}
 {HOCHREITER, S. et al. Fabia: factor analysis for bicluster acquisition.
 \emph{Bioinformatics}, v.~26, n.~12, p. 1520--1527, 2010.}
-
-\bibitem[HOTHO, NÜRNBERGER e PAAß 2005]{Hotho2005}
-\abntrefinfo{HOTHO, NÜRNBERGER e PAAß}{HOTHO; NÜRNBERGER; PAAß}{2005}
-{HOTHO, A.; NÜRNBERGER, A.; PAAß, G. A brief survey of text mining.
-\emph{LDV Forum - GLDV Journal for Computational Linguistics and Language
-  Technology}, v.~20, n.~1, p. 19--62, maio 2005.}
 
 \bibitem[Jain, Murty e Flynn 1999]{Jain1999}
 \abntrefinfo{Jain, Murty e Flynn}{JAIN; MURTY; FLYNN}{1999}
@@ -241,16 +213,10 @@ ISBN 9780471986331. Dispon{\'\i}vel em:
   Information Retrieval}. New York, NY, USA: Cambridge University Press, 2008.
 ISBN 0521865719, 9780521865715.}
 
-\bibitem[Miner et al. 2012]{Miner2012}
-\abntrefinfo{Miner et al.}{MINER et al.}{2012}
-{MINER, G. et al. \emph{Practical Text Mining and Statistical Analysis for
-  Non-structured Text Data Applications}. 1st. ed. [S.l.]: Academic Press,
-  2012.}
-
-\bibitem[Murphy 2012]{Murphy2012}
-\abntrefinfo{Murphy}{MURPHY}{2012}
-{MURPHY, K.~P. \emph{Machine Learning: A Probabilistic Perspective}. [S.l.]:
-  The MIT Press, 2012.}
+\bibitem[Mirkin 1996]{Mirkin1996}
+\abntrefinfo{Mirkin}{MIRKIN}{1996}
+{MIRKIN, B. \emph{Mathematical Classification and Clustering}. [S.l.]: Kluwer
+  Academic Pubishers, 1996.}
 
 \bibitem[Pedregosa et al. 2011]{scikitLearn}
 \abntrefinfo{Pedregosa et al.}{PEDREGOSA et al.}{2011}
@@ -296,13 +262,6 @@ Dispon{\'\i}vel em:
 {SANDERSON, C. \emph{{Armadillo: An Open Source C++ Linear Algebra Library for
   Fast Prototyping and Computationally Intensive Experiments}}.
 [S.l.], 2010.}
-
-\bibitem[Santamaría, Miguel e Therón 2007]{Santamaria2007}
-\abntrefinfo{Santamaría, Miguel e Therón}{SANTAMARíA; MIGUEL; THERóN}{2007}
-{SANTAMARíA, R.; MIGUEL, L.; THERóN, R. Methods to bicluster validation and
-  comparison in microarray data.
-\emph{Lecture Notes in Computer Science: Proceedings of IDEAL'07}, v.~4881, p.
-  780--789, 2007.}
 
 \bibitem[Sebastiani 2002]{Sebastiani2002}
 \abntrefinfo{Sebastiani}{SEBASTIANI}{2002}
@@ -351,11 +310,6 @@ ISBN 978-1-57735-514-4. Dispon{\'\i}vel em:
   New York, NY, USA: ACM, 2013.  (SC '13), p. 25:1--25:12.
 ISBN 978-1-4503-2378-9. Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/2503210\-.2503219$>$}{http://doi.acm.org/10.1145/2503210.2503219}.}
-
-\bibitem[Weiss, Indurkhya e Zhang 2010]{Weiss2010}
-\abntrefinfo{Weiss, Indurkhya e Zhang}{WEISS; INDURKHYA; ZHANG}{2010}
-{WEISS, S.~M.; INDURKHYA, N.; ZHANG, T. \emph{Fundamentals of predictive text
-  mining}. London; New York: Springer-Verlag, 2010.}
 
 \bibitem[Xu e Wunsch 2005]{Xu2005}
 \abntrefinfo{Xu e Wunsch}{XU; WUNSCH}{2005}

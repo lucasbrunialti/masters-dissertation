@@ -33,12 +33,10 @@ I was expecting a `,' or a `}'---line 739 of file referencias.bib
  :   number = {5}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 1039 of file referencias.bib
- : @inproceeedings{Ding05
- :                       ,
-I'm skipping whatever remains of this entry
+Warning--entry type for "Ding05" isn't style-file defined
+--line 1032 of file referencias.bib
 Warning--entry type for "Long2005" isn't style-file defined
---line 1046 of file referencias.bib
+--line 1039 of file referencias.bib
 A bad cross reference---entry "Bottou95"
 refers to entry "NIPS7", which doesn't exist
 Warning--I didn't find a database entry for "NIPS7"
@@ -52,45 +50,45 @@ Warning--existe o campo month (mês) mas não o campo year (ano) em Peres2012
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
-You've used 62 entries,
+You've used 54 entries,
             6711 wiz_defined-function locations,
-            1629 strings with 20184 characters,
-and the built_in function-call counts, 78930 in all, are:
-= -- 9005
-> -- 2194
-< -- 855
-+ -- 1635
-- -- 654
-* -- 4939
-:= -- 8744
-add.period$ -- 244
-call.type$ -- 62
-change.case$ -- 713
-chr.to.int$ -- 147
-cite$ -- 62
-duplicate$ -- 7201
-empty$ -- 3965
-format.name$ -- 3115
-if$ -- 17872
-int.to.chr$ -- 2
+            1588 strings with 19069 characters,
+and the built_in function-call counts, 71794 in all, are:
+= -- 8475
+> -- 1864
+< -- 844
++ -- 1511
+- -- 557
+* -- 4385
+:= -- 7821
+add.period$ -- 213
+call.type$ -- 54
+change.case$ -- 609
+chr.to.int$ -- 122
+cite$ -- 54
+duplicate$ -- 6842
+empty$ -- 3477
+format.name$ -- 2657
+if$ -- 16173
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 1146
-newline$ -- 298
-num.names$ -- 301
-pop$ -- 1563
+missing$ -- 981
+newline$ -- 264
+num.names$ -- 261
+pop$ -- 1334
 preamble$ -- 1
-purify$ -- 263
+purify$ -- 227
 quote$ -- 0
-skip$ -- 7446
+skip$ -- 7099
 stack$ -- 1
-substring$ -- 2822
-swap$ -- 2107
-text.length$ -- 85
+substring$ -- 2638
+swap$ -- 1938
+text.length$ -- 80
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 27
+type$ -- 26
 warning$ -- 1
-while$ -- 459
+while$ -- 408
 width$ -- 0
-write$ -- 1001
-(There were 6 error messages)
+write$ -- 876
+(There were 5 error messages)

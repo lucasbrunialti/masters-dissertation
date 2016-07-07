@@ -779,10 +779,10 @@ Keywords: Coclustering. Non-negative Matrix Factorization. Cluster Analysis. Tex
 Segundo~\citeonline{Jain1999}, a análise de agrupamento pode ser vista como uma tarefa exploratória que tem o objetivo de organizar uma coleção de dados em um conjunto de grupos, segundo a similaridade ou dissimilaridade existente entre esses dados.
 Tradicionalmente, os métodos usados para análise de agrupamento são desenvolvidos para minimizar a similaridade intragrupo e maximizar a similaridade intergrupos; e precisam encontrar uma organização ``natural'' em grupos que acomode cada dado do conjunto sob análise em um grupo específico.
 
-Estratégias de diferentes naturezas -- particional, hierárquica, baseada em densidade, etc~\cite{Xu2005, Han2011}, podem ser usadas para alcançar o objetivo da análise de agrupamento, e cada uma delas possui características que as fazem mais ou menos suscetiveis para conjuntos de dados de diferentes naturezas.
+Estratégias de diferentes naturezas -- particional, hierárquica, baseada em densidade, etc~\cite{Han2011,Xu2005}, podem ser usadas para alcançar o objetivo da análise de agrupamento, e cada uma delas possui características que as fazem mais ou menos suscetiveis para conjuntos de dados de diferentes naturezas.
 Ainda, sob o contexto clássico da tarefa de agrupamento, os métodos precisam lidar com a similaridade intrínseca entre os dados tomando como base a comparação de todas as suas características descritivas e, de alguma forma, precisam ser capazes de descobrir quais características de fato tornam dados em um grupo de dados mais similares entre si.
 
-Ao longo do tempo, pesquisadores da área de análise de agrupamento vêm propondo flexibilizações na definição da tarefa de agrupamento de forma a adequá-la a contextos mais realísticos nos quais a organização natural dos dados em um conjunto de dados não pressupõe restrições como a pertinência de um dado a um único grupo ou a possibilidade de agrupar dados de acordo com similaridades em subconjuntos de atributos descritivos~\cite{Han2011,Bezdek1981,Peres2012}.
+Ao longo do tempo, pesquisadores da área de análise de agrupamento vêm propondo flexibilizações na definição da tarefa de agrupamento de forma a adequá-la a contextos mais realísticos nos quais a organização natural dos dados em um conjunto de dados não pressupõe restrições como a pertinência de um dado a um único grupo ou a possibilidade de agrupar dados de acordo com similaridades em subconjuntos de atributos descritivos~\cite{Bezdek1981,Han2011,Peres2012}.
 Essa forma de tratar a tarefa de agrupamento permite melhorias no processo de descoberta de agrupamentos sobre dois aspectos: facilita o trabalho do método que busca os grupos, pois flexibiliza a maneira como os atributos descritivos dos dados ou a pertinência do dado aos grupos influencia o processo de agrupamento; fornece um conjunto de informações diferenciado que permite que análises mais refinadas sejam realizadas quando da interpretação dos grupos apresentados como resultado.
 
 Esse diferencial pode ser especialmente útil quando o contexto da aplicação da análise de agrupamento apresenta alguma subjetividade em termos de interpretação de resultados, um fato bastante comum em tarefas de mineração de textos, por exemplo.
@@ -790,13 +790,13 @@ Considere um contexto de uma aplicação de mineração de textos em que o objet
 A análise de agrupamento com base na similaridade que considera todos os atributos, em um conjunto de notícias com palavras como características que representam os temas esportes (colunas \#1, \#2 e \#3 na figura~\ref{fig:sistema:a}) e música (colunas \#4, \#5 e \#6 na figura~\ref{fig:sistema:a}), seria capaz de particionar as notícias em dois grupos, que representariam esses dois temas.
 Embora essas recomendações pareçam ser ideais, e sob algum aspecto de análise elas são, é factível assumir que essa análise de agrupamento é prática, mas talvez menos útil e interessante do que poderia ser.
 
-Uma possibilidade de melhoria dessa aplicação hipotética seria usar um algoritmo de análise de agrupamento que permitisse descobrir uma organização de grupos de notícias baseada em similaridades parciais ou baseada em partes~\cite{Franca2010, Ho2008}.
+Uma possibilidade de melhoria dessa aplicação hipotética seria usar um algoritmo de análise de agrupamento que permitisse descobrir uma organização de grupos de notícias baseada em similaridades parciais ou baseada em partes~\cite{Franca2010,Ho2008}.
 Assim, seria possível encontrar grupos que não seriam encontrados caso fosse consideradas todas as características na análise de agrupamento.
 
 Portanto, a aplicação seria dotada da capacidade de perceber, por exemplo, que algumas notícias podem trazer conteúdo referente a diferentes contextos se forem analisadas apenas sob determinados aspectos.
 Nesse caso, os grupos formados durante a análise de agrupamento seriam capazes de refletir a diversidade de contextos abordados em uma notícia, fazendo-a pertencer a diferentes grupos, por diferentes motivos.
 Por exemplo, é sabido que eventos de beisebol -- o \textit{superbowl} -- possuem uma abertura cultural na qual grandes artistas da música fazem apresentações; ou eventos de esportes radicais, como tirolesa, acontecem em eventos de música contemporâneos -- \textit{rock in rio}.
-Tais notícias deveriam aparecer em grupos caracterizados por notícias referentes à esportes, notícias referentes à música, ou notícias referentes à esporte e música (Figuras~\ref{fig:sistema:b, fig:sistema:c}.
+Tais notícias deveriam aparecer em grupos caracterizados por notícias referentes à esportes, notícias referentes à música, ou notícias referentes à esporte e música (Figuras~\ref{fig:sistema:b} e~\ref{fig:sistema:c}.
 
 \begin{figure} [htpb]
 \centering
@@ -823,7 +823,7 @@ Tais notícias deveriam aparecer em grupos caracterizados por notícias referent
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-Nas figuras~\ref{fig:sistema:b, fig:sistema:c} é introduzido graficamente o conceito de coagrupamento.
+Nas figuras~\ref{fig:sistema:b} e~\ref{fig:sistema:c} é introduzido graficamente o conceito de coagrupamento.
 Nesse contexto, o problema de mineração de textos é modelado como o problema de encontrar uma organização dos textos em grupos que considerem similaridades parciais.
 Assim, um texto pode pertencer a um ou mais cogrupos, a depender dos atributos descritivos sendo considerados.
 
@@ -836,7 +836,7 @@ A associação da análise de coagrupamentos a mineração de textos é interess
 A mineração de textos constitui-se como um problema no qual é preciso lidar com a necessidade de apresentação de resultados que gerem informações passíveis de serem interpretadas.
 O primeiro problema é bem resolvido com a estratégia de coagrupamento pois os grupos de atributos que são gerados por ela podem revelar informação antes escondida nos dados~\cite{Tjhi2009}, e que em um processo de agrupamento tradicional não poderiam ser, pelo menos diretamente, descobertas.
 
-Dentre os diferentes métodos existentes na literatura referentes à implementação de análise de coagrupamento~\cite{Franca2010,Mirkin1996,Madeira2004}, métodos que usam fatoração de matrizes não negativas~\cite{lee:nnmf00, lee99} têm sido vistos como uma boa alternativa a ser aplicada no contexto de mineração de textos, dado que esses métodos têm vantagens para lidar com dados representados como matrizes positivas~\cite{Xu2003, Shahnaz2006373, Yoo2010}.
+Dentre os diferentes métodos existentes na literatura referentes à implementação de análise de coagrupamento~\cite{Franca2010,Mirkin1996,Madeira2004}, métodos que usam fatoração de matrizes não negativas~\cite{lee:nnmf00,lee99} têm sido vistos como uma boa alternativa a ser aplicada no contexto de mineração de textos, dado que esses métodos têm vantagens para lidar com dados representados como matrizes positivas~\cite{Xu2003,Shahnaz2006373,Yoo2010}.
 %Lucas precisa olhar esses artigos direitinho para validar essas referências nesses lugares.
 
 Assim, este trabalho explora o uso dos métodos de fatoração de matrizes não negativas, no contexto de coagrupamento de dados textuais, visto como uma tarefa de mineração de textos, de maneira a apresentar melhorias para o tratamento das similaridades parciais.

@@ -623,19 +623,19 @@ Palavras-chaves: Coagrupamento. Fatoração de Matrizes Não-negaticas. Análise
 BRUNIALTI, Lucas Fernandes. \textbf{Matrix Factorization for overlapping columns coclustering}. \imprimirdata. \pageref{LastPage} p. Dissertation (Master of Science) – School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, DefenseYear.
 \end{flushleft}
 
-Coclustering is a data analysis strategy able to discover data clusters, known as coclusters. This technique allows data to be clustered considering different subset of it's
-descriptive features.
-Application contexts characterized by presenting subjectivity, such as text mining, are candidates to be submitted to coclustering strategy; the flexibility to associate documents according to partial features is a more appropriate treatment to such subjectivity
-This method, coclustering, can be implemented by means of matrix factorization, which is suitable to handle this type of data.
-In this master thesis two strategies are proposed in Non-negative matrix Factorization for coclustering.
-These strategies are able to find overlapping coclusters in a given dataset of positive data.
-Strategies are presented in terms of their formal definitions and their algorithms's implementation.
-Quantitative and qualitative experimental results are provided applying synthetic datasets and real datasets contextualized in the text mining area, by analyzing them in terms of space quantization, generated information (interpretability of models) and clustering capabilities, using the well known external metrics Rand Index and Normalized Mutual Information.
-Results confirm the hypothesis that the proposed strategies are able to discover overlapping cocluster naturally.
-Also, coclusters provided by the new algorithms provides detailed information and thus differentiated value for the areas of cluster analysis and text mining.
+Coclustering is a data analysis strategy which is able to discover data clusters, known as coclusters.
+This technique allows data to be clustered based on different subsets defined by descriptive features.
+Application contexts characterized by subjectivity, such as text mining, are applicable candidates for applying coclustering strategy due to the flexibility to associate documents according to partial features.
+The coclustering method can be implemented by means of matrix factorization, which is suitable to handle this type of data.
+In this thesis two strategies are proposed in non-negative matrix factorization for coclustering.
+These strategies are able to find overlapping coclusters in a given dataset of positive data and are presented in terms of their formal definitions as well as their algorithms' implementation.
+Quantitative and qualitative experimental results are presented through applying synthetic datasets and real datasets contextualized in text mining.
+This is done by analyzing them in terms of space quantization, generated information (interpretability of models), and clustering capabilities.
+The well known external metrics Rand Index and Normalized Mutual Information are used to achieve this analysis.
+Results confirm the hypothesis that the proposed strategies are able to discover overlapping coclusters naturally.
+Moreover, these coclusters produced by the new algorithms provide detailed information and are thus valuable for future research in cluster analysis and text mining.
 
-
-Keywords: Coclustering. Non-negative Matrix Factorization. Clustering Analysis. Text Mining.
+Keywords: Coclustering. Non-negative Matrix Factorization. Cluster Analysis. Text Mining.
 \end{otherlanguage*}
 \end{resumo}
 
@@ -801,7 +801,7 @@ Tais notícias deveriam aparecer em grupos caracterizados por notícias referent
 \begin{figure} [htpb]
 \centering
  \caption{
-        Representação de uma aplicação de mineração de dados implementado a partir de análise de agrupamento com similaridade total (a) e similaridade parcial (b,c,d). Os grupos são diferenciados por cores.
+        Representação de uma aplicação de mineração de dados implementado a partir de análise de agrupamento com similaridade total (a) e similaridade parcial (b,c). Os grupos são diferenciados por cores.
     }
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/sistema0.png}
@@ -3969,36 +3969,36 @@ Para a base de dados \textit{IG}, os resultados apontam uma superioridade do alg
 
 \begin{table}[H]
 \centering
-    \caption{Índice de Rand médio por experimento com o conjunto de dados \textit{IG}: com $k = 9$, e variações de $l$ e de representação para os textos}
+    \caption{Índice de Rand médio por experimento com o conjunto de dados \textit{IG}: com $k = 13$, e variações de $l$ e de representação para os textos}
     \begin{tabular}{lllll}
         \hline
-        \textbf{Algoritmo}              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
+        \textbf{Algoritmo} & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
         \hline
-        \textit{k-means}       & $0,1573$            & $0,1527$            & $0,1519$            & $0,1368$ \\
-        \textit{fuzzy k-means} & $0,1223$            & $0,1240$            & $0,1736$            & $0,1882$ \\
-        \textit{ONMTF}         & $0,1579$ : $l = 6$  & $0,1352$ : $l = 15$ & $0,1318$ : $l = 9$  & $0,1442$ : $l = 18$ \\
-        \textit{FNMTF}         & $0,1293$ : $l = 18$ & $0,1325$ : $l = 18$ & $0,2128$ : $l = 18$ & $0,2199$ : $l = 18$ \\
-        \textit{OvNMTF}        & $0,1672$ : $l = 6$  & $0,1641$ : $l = 9$  & $0,1742$ : $l = 12$ & $0,1711$ : $l = 9$ \\
-        \textit{BinOvNMTF}     & $\mathbf{0,2247}$ : $l = 9$ & $\mathbf{0,2118}$ : $l = 15$ & $\mathbf{0,2811}$ : $l = 6$ & $\mathbf{0,2813}$ : $l = 15$ \\
+        \textit{k-means}       & $0,3137$            & $0,3049$            & $0,2750$            & $0,2784$ \\
+        \textit{fuzzy k-means} & $0,1694$            & $0,1619$            & $0,2429$            & $0,2662$ \\
+        \textit{ONMTF}         & $0,1437$ : $l = 16$ & $0,1802$ : $l = 19$ & $0,1184$ : $l = 7$  & $0,1279$ : $l = 7$ \\
+        \textit{FNMTF}         & $0,2327$ : $l = 19$ & $0,2399$ : $l = 19$ & $0,2165$ : $l = 19$ & $0,2124$ : $l = 13$ \\
+        \textit{OvNMTF}        & $0,3384$ : $l = 10$ & $0,3455$ : $l = 16$ & $\mathbf{0,3554}$ : $l = 16$ & $\mathbf{0,3534}$ : $l = 7$ \\
+        \textit{BinOvNMTF}     & $\mathbf{0,3784}$ : $l = 16$ & $\mathbf{0,3591}$ : $l = 7$ & $0,2807$ : $l = 19$ & $0,2868$ : $l = 19$ \\
         \hline \\
     \end{tabular}
-    \label{tab:experiments-quant-rand:nips}
+    \label{tab:experiments-quant-rand:ig}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
 \begin{table}[H]
 \centering
-    \caption{Informação Mútua Normalizada média por representação do conjunto de dados \textit{IG} com $k = 9$, e variações de $l$ e de representação para os textos}
+    \caption{Informação Mútua Normalizada média por representação do conjunto de dados \textit{IG} com $k = 13$, e variações de $l$ e de representação para os textos}
     \begin{tabular}{lllll}
         \hline
-        \textbf{Algoritmo}              & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
+        \textbf{Algoritmo} & $\textit{tf}$ & $\textit{tf}_{norm}$ & $\textit{tfidf}_{norm}$ & $\textit{tfidf}$ \\
         \hline
-        \textit{k-means}       & $0,3226$            & $0,3106$            & $0,3506$            & $0,3476$ \\
-        \textit{fuzzy k-means} & $0,1876$            & $0,1929$            & $0,2575$            & $0,2496$ \\
-        \textit{ONMTF}         & $0,2930$ : $l = 15$ & $0,2832$ : $l = 18$ & $0,3361$ : $l = 18$ & $0,3441$ : $l = 18$ \\
-        \textit{FNMTF}         & $0,2272$ : $l = 18$ & $0,2312$ : $l = 18$ & $0,3109$ : $l = 18$ & $0,3017$ : $l = 18$ \\
-        \textit{OvNMTF}        & $0,3090$ : $l = 6$  & $0,3092$ : $l = 9$  & $0,3541$ : $l = 12$ & $0,3493$ : $l = 15$ \\
-        \textit{BinOvNMTF}     & $\mathbf{0,3255}$ : $l = 15$ & $\mathbf{0,3139}$ : $l = 9$  & $\mathbf{0,4013}$ : $l = 12$ & $\mathbf{0,4009}$ : $l = 15$ \\
+        \textit{k-means}       & $0,5235$            & $0,5240$            & $0,5361$            & $0,5350$ \\
+        \textit{fuzzy k-means} & $0,2548$            & $0,2518$            & $0,3769$            & $0,3929$ \\
+        \textit{ONMTF}         & $0,4186$ : $l = 19$ & $0,4312$ : $l = 19$ & $0,4338$ : $l = 19$ & $0,4416$ : $l = 19$ \\
+        \textit{FNMTF}         & $0,4412$ : $l = 19$ & $0,4492$ : $l = 19$ & $0,4518$ : $l = 19$ & $0,4593$ : $l = 19$ \\
+        \textit{OvNMTF}        & $0,4930$ : $l = 7$  & $0,5001$ : $l = 16$ & $\mathbf{0,5493}$ : $l = 16$ & $\mathbf{0,5451}$ : $l = 7$ \\
+        \textit{BinOvNMTF}     & $\mathbf{0,5563}$ : $l = 16$ & $\mathbf{0,5424}$ : $l = 7$  & $0,5423$ : $l = 19$ & $0,5327$ : $l = 19$ \\
         \hline \\
     \end{tabular}
     \label{tab:experiments-quant-nmi:nips}
@@ -4007,20 +4007,20 @@ Para a base de dados \textit{IG}, os resultados apontam uma superioridade do alg
 
 \begin{table}[H]
 \centering
-    \caption{Melhores resultados obtidos para o conjunto de dados \textit{IG} com $k = 9$, destacando os melhores resultados por algoritmo}
+    \caption{Melhores resultados obtidos para o conjunto de dados \textit{IG} com $k = 13$, destacando os melhores resultados por algoritmo}
     \begin{tabular}{lll}
         \hline
-        \textbf{Algoritmo}              & \textbf{Índice de Rand} & \textbf{Informação Mútua Normalizada} \\
+        \textbf{Algoritmo} & \textbf{Índice de Rand} & \textbf{Informação Mútua Normalizada} \\
         \hline
-        \textit{k-means}       & $0,2006$ : $\textit{tfidf}_{norm}$           & $0,3952$ : $\textit{tfidf}_{norm}$ \\
-        \textit{fuzzy k-means} & $0,2728$ : $\textit{tfidf}$                  & $0,3115$ : $\textit{tfidf}$ \\
-        \textit{ONMTF}         & $0,2704$ : $l=18$, $\textit{tfidf}$          & $0,3997*$ : $l=18$, $\textit{tfidf}$\\
-        \textit{FNMTF}         & $0,3009*$ : $l=15$, $\textit{tfidf}$         & $0,3744$ : $l=18$, $\textit{tfidf}_{norm}$ \\
-        \textit{OvNMTF}        & $0,1992$ : $l=9$, $\textit{tfidf}$           & $0,3870$ : $l=9$, $\textit{tfidf}$\\
-        \textit{BinOvNMTF}     & $\mathbf{0,3670}$ : $l=15$, $\textit{tfidf}$ & $\mathbf{0,4589}$ : $l=9$, $\textit{tfidf}_{norm}$ \\
+        \textit{k-means}       & $0,3955$ : $\textit{tf}$                     & $0,5826*$ : $\textit{tfidf}_{norm}$ \\
+        \textit{fuzzy k-means} & $0,3557$ : $\textit{tfidf}$                  & $0,4365$ : $\textit{tfidf}_{norm}$ \\
+        \textit{ONMTF}         & $0,2884$ : $l=10$, $\textit{tf}_{norm}$      & $0,4938$ : $l=16$, $\textit{tfidf}$ \\
+        \textit{FNMTF}         & $0,2813$ : $l=16$, $\textit{tfidf}_{norm}$   & $0,5047$ : $l=19$, $\textit{tfidf}$ \\
+        \textit{OvNMTF}        & $0,4251*$ : $l=10$, $\textit{tfidf}_{norm}$  & $0,5778$ : $l=16$, $\textit{tfidf}_{norm}$ \\
+        \textit{BinOvNMTF}     & $\mathbf{0,5743}$ : $l=10$, $\textit{tf}$    & $\mathbf{0,6064}$ : $l=7$, $\textit{tfidf}_{norm}$ \\
         \hline \\
     \end{tabular}
-    \label{tab:experiments-quant-best-nmi:nips}
+    \label{tab:experiments-quant-best-nmi:ig}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
@@ -4030,32 +4030,32 @@ Tanto para os melhores resultados (máximos - tabela~\ref{tab:experiments-quant-
 \begin{figure}[H]
     \centering
     \caption{Distribuições dos valores do índice de Rand para os melhores resultados médios para cada algoritmo na base de dados \textit{IG}}
-    \includegraphics[width=0.7\textwidth]{img/boxplot-rand-nips.png}
-    \label{fig:boxplot-rand:nips}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-rand-ig.png}
+    \label{fig:boxplot-rand:ig}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Distribuições dos valores de informação mútua normalizada para os melhores resultados médios para cada algoritmo na base de dados \textit{IG}}
-    \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-nips.png}
-    \label{fig:boxplot-nmi:nips}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-nmi-ig.png}
+    \label{fig:boxplot-nmi:ig}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Distribuições dos valores do índice de Rand para todas as execuções para cada algoritmo na base de dados \textit{IG}}
-    \includegraphics[width=0.7\textwidth]{img/boxplot-all-rand-nips.png}
-    \label{fig:boxplot-all-rand:nips}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-rand-ig.png}
+    \label{fig:boxplot-all-rand:ig}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Distribuições dos valores de informação mútua normalizada para todas as execuções para cada algoritmo na base de dados \textit{IG}}
-    \includegraphics[width=0.7\textwidth]{img/boxplot-all-nmi-nips.png}
-    \label{fig:boxplot-all-nmi:nips}
+    \includegraphics[width=0.7\textwidth]{img/boxplot-all-nmi-ig.png}
+    \label{fig:boxplot-all-nmi:ig}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 

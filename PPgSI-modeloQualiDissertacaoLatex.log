@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 JUL 2016 06:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  7 JUL 2016 03:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1070,25 +1070,7 @@ LaTeX Warning: Label `euclidendwhile' multiply defined.
 LaTeX Warning: Label `fig:reconstruction:kmeans' multiply defined.
 
 
-LaTeX Warning: Label `tab:experiments-quant-rand:nips' multiply defined.
-
-
 LaTeX Warning: Label `tab:experiments-quant-nmi:nips' multiply defined.
-
-
-LaTeX Warning: Label `tab:experiments-quant-best-nmi:nips' multiply defined.
-
-
-LaTeX Warning: Label `fig:boxplot-rand:nips' multiply defined.
-
-
-LaTeX Warning: Label `fig:boxplot-nmi:nips' multiply defined.
-
-
-LaTeX Warning: Label `fig:boxplot-all-rand:nips' multiply defined.
-
-
-LaTeX Warning: Label `fig:boxplot-all-nmi:nips' multiply defined.
 
 )
 \openout1 = `PPgSI-modeloQualiDissertacaoLatex.aux'.
@@ -1321,21 +1303,21 @@ Package hyperref Warning: Suppressing empty link on input line 785.
 LaTeX Warning: Reference `fig:sistema:b, fig:sistema:c' on page 16 undefined on
  input line 799.
 
-<img/sistema0.png, id=433, 864.22874pt x 565.11125pt>
+<img/sistema0.png, id=434, 1027.84pt x 654.445pt>
 File: img/sistema0.png Graphic file (type png)
 <use img/sistema0.png>
 Package pdftex.def Info: img/sistema0.png used on input line 807.
-(pdftex.def)             Requested size: 204.74861pt x 133.87901pt.
-<img/sistema1.png, id=434, 871.255pt x 561.09625pt>
+(pdftex.def)             Requested size: 204.74861pt x 130.3674pt.
+<img/sistema1.png, id=436, 1038.88126pt x 654.445pt>
 File: img/sistema1.png Graphic file (type png)
 <use img/sistema1.png>
 Package pdftex.def Info: img/sistema1.png used on input line 813.
-(pdftex.def)             Requested size: 204.74861pt x 131.85764pt.
-<img/sistema2.png, id=435, 862.22125pt x 566.115pt>
+(pdftex.def)             Requested size: 204.74861pt x 128.97935pt.
+<img/sistema2.png, id=437, 1038.88126pt x 710.655pt>
 File: img/sistema2.png Graphic file (type png)
 <use img/sistema2.png>
 Package pdftex.def Info: img/sistema2.png used on input line 819.
-(pdftex.def)             Requested size: 204.74861pt x 134.4278pt.
+(pdftex.def)             Requested size: 204.74861pt x 140.05733pt.
 
 LaTeX Warning: Reference `fig:sistema:b, fig:sistema:c' on page 16 undefined on
  input line 825.
@@ -1394,12 +1376,12 @@ Se poss^^S^^Pvel che-gar em: $\OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (-20) (\OML/cmm
 /m/it/12 t[]nmk[]\OT1/cmr/m/n/12 (-20) )$. 
  []
 
-[31] [32] [33] <img/bicluster.png, id=698, 260.975pt x 234.8775pt>
+[31] [32] [33] <img/bicluster.png, id=703, 260.975pt x 234.8775pt>
 File: img/bicluster.png Graphic file (type png)
 <use img/bicluster.png>
 Package pdftex.def Info: img/bicluster.png used on input line 1355.
 (pdftex.def)             Requested size: 159.25278pt x 143.32881pt.
-[34] <img/synteticBiclusters.png, id=714, 1023.825pt x 393.47pt>
+[34] <img/synteticBiclusters.png, id=718, 1023.825pt x 393.47pt>
 File: img/synteticBiclusters.png Graphic file (type png)
 <use img/synteticBiclusters.png>
 Package pdftex.def Info: img/synteticBiclusters.png used on input line 1382.
@@ -1408,13 +1390,13 @@ Package pdftex.def Info: img/synteticBiclusters.png used on input line 1382.
 lucasbrunialti/git/masters-dissertation/img/synteticBiclusters.png>] [36] [37] 
 [38
 
-] [39] <img/factorizationXUSV.png, id=823, 1450.41875pt x 346.29375pt>
+] [39] <img/factorizationXUSV.png, id=827, 1450.41875pt x 346.29375pt>
 File: img/factorizationXUSV.png Graphic file (type png)
 <use img/factorizationXUSV.png>
 Package pdftex.def Info: img/factorizationXUSV.png used on input line 1457.
 (pdftex.def)             Requested size: 318.49861pt x 76.04219pt.
 [40 </Users/lucasbrunialti/git/masters-dissertation/img/factorizationXUSV.png>]
-<img/reconstruction.png, id=838, 1482.53876pt x 1342.01375pt>
+<img/reconstruction.png, id=842, 1482.53876pt x 1342.01375pt>
 File: img/reconstruction.png Graphic file (type png)
 <use img/reconstruction.png>
 Package pdftex.def Info: img/reconstruction.png used on input line 1476.
@@ -1441,12 +1423,12 @@ plicate ignored
                                                   \fi \fi 
 l.1648 ...gonal tripla de Matrizes Não-negativas]
                                                   ] <img/bvdVsOnmtf1.png, id=87
-0, 339.2675pt x 360.34625pt>
+4, 339.2675pt x 360.34625pt>
 File: img/bvdVsOnmtf1.png Graphic file (type png)
 <use img/bvdVsOnmtf1.png>
 Package pdftex.def Info: img/bvdVsOnmtf1.png used on input line 1671.
 (pdftex.def)             Requested size: 136.50139pt x 144.9772pt.
-<img/bvdVsOnmtf2.png, id=871, 333.245pt x 354.32375pt>
+<img/bvdVsOnmtf2.png, id=875, 333.245pt x 354.32375pt>
 File: img/bvdVsOnmtf2.png Graphic file (type png)
 <use img/bvdVsOnmtf2.png>
 Package pdftex.def Info: img/bvdVsOnmtf2.png used on input line 1678.
@@ -1498,13 +1480,13 @@ ier (name{equation.3.3.6}) has been already used, duplicate ignored
 l.2059 \begin{equation}
                         [51] [52] [53] [54
 
-] <img/ovnmtfNewsApplication.png, id=989, 1194.4625pt x 795.97375pt>
+] <img/ovnmtfNewsApplication.png, id=993, 1194.4625pt x 795.97375pt>
 File: img/ovnmtfNewsApplication.png Graphic file (type png)
 <use img/ovnmtfNewsApplication.png>
 Package pdftex.def Info: img/ovnmtfNewsApplication.png used on input line 2154.
 
 (pdftex.def)             Requested size: 318.49861pt x 212.24376pt.
-[55] <img/factorizationXUSV1tok.png, id=996, 1519.6775pt x 371.3875pt>
+[55] <img/factorizationXUSV1tok.png, id=1000, 1519.6775pt x 371.3875pt>
 File: img/factorizationXUSV1tok.png Graphic file (type png)
 <use img/factorizationXUSV1tok.png>
 Package pdftex.def Info: img/factorizationXUSV1tok.png used on input line 2167.
@@ -1550,27 +1532,27 @@ Overfull \hbox (22.38815pt too wide) detected at line 2468
 l.2513                     \begin{equation}
                                             [64] [65] [66] [67
 
-] <img/a-bic-structure.png, id=1126, 578.16pt x 578.16pt>
+] <img/a-bic-structure.png, id=1130, 578.16pt x 578.16pt>
 File: img/a-bic-structure.png Graphic file (type png)
 <use img/a-bic-structure.png>
 Package pdftex.def Info: img/a-bic-structure.png used on input line 2791.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-bic-structure.png, id=1127, 578.16pt x 578.16pt>
+<img/b-bic-structure.png, id=1131, 578.16pt x 578.16pt>
 File: img/b-bic-structure.png Graphic file (type png)
 <use img/b-bic-structure.png>
 Package pdftex.def Info: img/b-bic-structure.png used on input line 2797.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-bic-structure.png, id=1128, 578.16pt x 578.16pt>
+<img/c-bic-structure.png, id=1132, 578.16pt x 578.16pt>
 File: img/c-bic-structure.png Graphic file (type png)
 <use img/c-bic-structure.png>
 Package pdftex.def Info: img/c-bic-structure.png used on input line 2803.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-bic-structure.png, id=1129, 578.16pt x 578.16pt>
+<img/d-bic-structure.png, id=1133, 578.16pt x 578.16pt>
 File: img/d-bic-structure.png Graphic file (type png)
 <use img/d-bic-structure.png>
 Package pdftex.def Info: img/d-bic-structure.png used on input line 2809.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-bic-structure.png, id=1130, 578.16pt x 578.16pt>
+<img/e-bic-structure.png, id=1134, 578.16pt x 578.16pt>
 File: img/e-bic-structure.png Graphic file (type png)
 <use img/e-bic-structure.png>
 Package pdftex.def Info: img/e-bic-structure.png used on input line 2815.
@@ -1600,31 +1582,31 @@ File: img/e-bic-structure.png Graphic file (type png)
 <use img/e-bic-structure.png>
 Package pdftex.def Info: img/e-bic-structure.png used on input line 2989.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/a-reconstruction-kmeans.png, id=1171, 578.16pt x 578.16pt>
+<img/a-reconstruction-kmeans.png, id=1175, 578.16pt x 578.16pt>
 File: img/a-reconstruction-kmeans.png Graphic file (type png)
 <use img/a-reconstruction-kmeans.png>
 Package pdftex.def Info: img/a-reconstruction-kmeans.png used on input line 299
 3.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-reconstruction-kmeans.png, id=1172, 578.16pt x 578.16pt>
+<img/b-reconstruction-kmeans.png, id=1176, 578.16pt x 578.16pt>
 File: img/b-reconstruction-kmeans.png Graphic file (type png)
 <use img/b-reconstruction-kmeans.png>
 Package pdftex.def Info: img/b-reconstruction-kmeans.png used on input line 299
 7.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-reconstruction-kmeans.png, id=1173, 578.16pt x 578.16pt>
+<img/c-reconstruction-kmeans.png, id=1177, 578.16pt x 578.16pt>
 File: img/c-reconstruction-kmeans.png Graphic file (type png)
 <use img/c-reconstruction-kmeans.png>
 Package pdftex.def Info: img/c-reconstruction-kmeans.png used on input line 300
 1.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-kmeans.png, id=1174, 578.16pt x 578.16pt>
+<img/d-reconstruction-kmeans.png, id=1178, 578.16pt x 578.16pt>
 File: img/d-reconstruction-kmeans.png Graphic file (type png)
 <use img/d-reconstruction-kmeans.png>
 Package pdftex.def Info: img/d-reconstruction-kmeans.png used on input line 300
 5.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-kmeans.png, id=1175, 578.16pt x 578.16pt>
+<img/e-reconstruction-kmeans.png, id=1179, 578.16pt x 578.16pt>
 File: img/e-reconstruction-kmeans.png Graphic file (type png)
 <use img/e-reconstruction-kmeans.png>
 Package pdftex.def Info: img/e-reconstruction-kmeans.png used on input line 300
@@ -1635,7 +1617,7 @@ Package pdftex.def Info: img/e-reconstruction-kmeans.png used on input line 300
 ns.png> </Users/lucasbrunialti/git/masters-dissertation/img/c-reconstruction-km
 eans.png> </Users/lucasbrunialti/git/masters-dissertation/img/d-reconstruction-
 kmeans.png> </Users/lucasbrunialti/git/masters-dissertation/img/e-reconstructio
-n-kmeans.png>] <img/e-reconstruction-2-kmeans.png, id=1188, 578.16pt x 578.16pt
+n-kmeans.png>] <img/e-reconstruction-2-kmeans.png, id=1192, 578.16pt x 578.16pt
 >
 File: img/e-reconstruction-2-kmeans.png Graphic file (type png)
 <use img/e-reconstruction-2-kmeans.png>
@@ -1671,38 +1653,38 @@ File: img/e-bic-structure.png Graphic file (type png)
 <use img/e-bic-structure.png>
 Package pdftex.def Info: img/e-bic-structure.png used on input line 3069.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/a-reconstruction-fkmeans.png, id=1191, 578.16pt x 578.16pt>
+<img/a-reconstruction-fkmeans.png, id=1195, 578.16pt x 578.16pt>
 File: img/a-reconstruction-fkmeans.png Graphic file (type png)
 <use img/a-reconstruction-fkmeans.png>
 Package pdftex.def Info: img/a-reconstruction-fkmeans.png used on input line 30
 73.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-reconstruction-fkmeans.png, id=1192, 578.16pt x 578.16pt>
+<img/b-reconstruction-fkmeans.png, id=1196, 578.16pt x 578.16pt>
 File: img/b-reconstruction-fkmeans.png Graphic file (type png)
 <use img/b-reconstruction-fkmeans.png>
 Package pdftex.def Info: img/b-reconstruction-fkmeans.png used on input line 30
 77.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-reconstruction-fkmeans.png, id=1193, 578.16pt x 578.16pt>
+<img/c-reconstruction-fkmeans.png, id=1197, 578.16pt x 578.16pt>
 File: img/c-reconstruction-fkmeans.png Graphic file (type png)
 <use img/c-reconstruction-fkmeans.png>
 Package pdftex.def Info: img/c-reconstruction-fkmeans.png used on input line 30
 81.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-fkmeans.png, id=1194, 578.16pt x 578.16pt>
+<img/d-reconstruction-fkmeans.png, id=1198, 578.16pt x 578.16pt>
 File: img/d-reconstruction-fkmeans.png Graphic file (type png)
 <use img/d-reconstruction-fkmeans.png>
 Package pdftex.def Info: img/d-reconstruction-fkmeans.png used on input line 30
 85.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-fkmeans.png, id=1195, 578.16pt x 578.16pt>
+<img/e-reconstruction-fkmeans.png, id=1199, 578.16pt x 578.16pt>
 File: img/e-reconstruction-fkmeans.png Graphic file (type png)
 <use img/e-reconstruction-fkmeans.png>
 Package pdftex.def Info: img/e-reconstruction-fkmeans.png used on input line 30
 89.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
 [73 </Users/lucasbrunialti/git/masters-dissertation/img/e-reconstruction-2-kmea
-ns.png>] <img/e-reconstruction-2-fkmeans.png, id=1201, 578.16pt x 578.16pt>
+ns.png>] <img/e-reconstruction-2-fkmeans.png, id=1205, 578.16pt x 578.16pt>
 File: img/e-reconstruction-2-fkmeans.png Graphic file (type png)
 <use img/e-reconstruction-2-fkmeans.png>
 Package pdftex.def Info: img/e-reconstruction-2-fkmeans.png used on input line 
@@ -1735,31 +1717,31 @@ File: img/e-bic-structure.png Graphic file (type png)
 <use img/e-bic-structure.png>
 Package pdftex.def Info: img/e-bic-structure.png used on input line 3151.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/a-reconstruction-onmtf.png, id=1218, 578.16pt x 578.16pt>
+<img/a-reconstruction-onmtf.png, id=1222, 578.16pt x 578.16pt>
 File: img/a-reconstruction-onmtf.png Graphic file (type png)
 <use img/a-reconstruction-onmtf.png>
 Package pdftex.def Info: img/a-reconstruction-onmtf.png used on input line 3155
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-reconstruction-onmtf.png, id=1219, 578.16pt x 578.16pt>
+<img/b-reconstruction-onmtf.png, id=1223, 578.16pt x 578.16pt>
 File: img/b-reconstruction-onmtf.png Graphic file (type png)
 <use img/b-reconstruction-onmtf.png>
 Package pdftex.def Info: img/b-reconstruction-onmtf.png used on input line 3159
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-reconstruction-onmtf.png, id=1220, 578.16pt x 578.16pt>
+<img/c-reconstruction-onmtf.png, id=1224, 578.16pt x 578.16pt>
 File: img/c-reconstruction-onmtf.png Graphic file (type png)
 <use img/c-reconstruction-onmtf.png>
 Package pdftex.def Info: img/c-reconstruction-onmtf.png used on input line 3163
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-onmtf.png, id=1221, 578.16pt x 578.16pt>
+<img/d-reconstruction-onmtf.png, id=1225, 578.16pt x 578.16pt>
 File: img/d-reconstruction-onmtf.png Graphic file (type png)
 <use img/d-reconstruction-onmtf.png>
 Package pdftex.def Info: img/d-reconstruction-onmtf.png used on input line 3167
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-onmtf.png, id=1222, 578.16pt x 578.16pt>
+<img/e-reconstruction-onmtf.png, id=1226, 578.16pt x 578.16pt>
 File: img/e-reconstruction-onmtf.png Graphic file (type png)
 <use img/e-reconstruction-onmtf.png>
 Package pdftex.def Info: img/e-reconstruction-onmtf.png used on input line 3171
@@ -1770,13 +1752,13 @@ png> </Users/lucasbrunialti/git/masters-dissertation/img/b-reconstruction-onmtf
 .png> </Users/lucasbrunialti/git/masters-dissertation/img/c-reconstruction-onmt
 f.png> </Users/lucasbrunialti/git/masters-dissertation/img/d-reconstruction-onm
 tf.png> </Users/lucasbrunialti/git/masters-dissertation/img/e-reconstruction-on
-mtf.png>] <img/d-reconstruction-2-onmtf.png, id=1233, 578.16pt x 578.16pt>
+mtf.png>] <img/d-reconstruction-2-onmtf.png, id=1237, 578.16pt x 578.16pt>
 File: img/d-reconstruction-2-onmtf.png Graphic file (type png)
 <use img/d-reconstruction-2-onmtf.png>
 Package pdftex.def Info: img/d-reconstruction-2-onmtf.png used on input line 32
 00.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-2-onmtf.png, id=1234, 578.16pt x 578.16pt>
+<img/e-reconstruction-2-onmtf.png, id=1238, 578.16pt x 578.16pt>
 File: img/e-reconstruction-2-onmtf.png Graphic file (type png)
 <use img/e-reconstruction-2-onmtf.png>
 Package pdftex.def Info: img/e-reconstruction-2-onmtf.png used on input line 32
@@ -1805,43 +1787,43 @@ File: img/e-bic-structure.png Graphic file (type png)
 <use img/e-bic-structure.png>
 Package pdftex.def Info: img/e-bic-structure.png used on input line 3236.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/a-reconstruction-fnmtf.png, id=1243, 578.16pt x 578.16pt>
+<img/a-reconstruction-fnmtf.png, id=1247, 578.16pt x 578.16pt>
 File: img/a-reconstruction-fnmtf.png Graphic file (type png)
 <use img/a-reconstruction-fnmtf.png>
 Package pdftex.def Info: img/a-reconstruction-fnmtf.png used on input line 3240
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-reconstruction-fnmtf.png, id=1244, 578.16pt x 578.16pt>
+<img/b-reconstruction-fnmtf.png, id=1248, 578.16pt x 578.16pt>
 File: img/b-reconstruction-fnmtf.png Graphic file (type png)
 <use img/b-reconstruction-fnmtf.png>
 Package pdftex.def Info: img/b-reconstruction-fnmtf.png used on input line 3244
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-reconstruction-fnmtf.png, id=1245, 578.16pt x 578.16pt>
+<img/c-reconstruction-fnmtf.png, id=1249, 578.16pt x 578.16pt>
 File: img/c-reconstruction-fnmtf.png Graphic file (type png)
 <use img/c-reconstruction-fnmtf.png>
 Package pdftex.def Info: img/c-reconstruction-fnmtf.png used on input line 3248
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-fnmtf.png, id=1246, 578.16pt x 578.16pt>
+<img/d-reconstruction-fnmtf.png, id=1250, 578.16pt x 578.16pt>
 File: img/d-reconstruction-fnmtf.png Graphic file (type png)
 <use img/d-reconstruction-fnmtf.png>
 Package pdftex.def Info: img/d-reconstruction-fnmtf.png used on input line 3252
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-fnmtf.png, id=1247, 578.16pt x 578.16pt>
+<img/e-reconstruction-fnmtf.png, id=1251, 578.16pt x 578.16pt>
 File: img/e-reconstruction-fnmtf.png Graphic file (type png)
 <use img/e-reconstruction-fnmtf.png>
 Package pdftex.def Info: img/e-reconstruction-fnmtf.png used on input line 3256
 .
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-2-fnmtf.png, id=1249, 578.16pt x 578.16pt>
+<img/d-reconstruction-2-fnmtf.png, id=1253, 578.16pt x 578.16pt>
 File: img/d-reconstruction-2-fnmtf.png Graphic file (type png)
 <use img/d-reconstruction-2-fnmtf.png>
 Package pdftex.def Info: img/d-reconstruction-2-fnmtf.png used on input line 32
 76.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-2-fnmtf.png, id=1250, 578.16pt x 578.16pt>
+<img/e-reconstruction-2-fnmtf.png, id=1254, 578.16pt x 578.16pt>
 File: img/e-reconstruction-2-fnmtf.png Graphic file (type png)
 <use img/e-reconstruction-2-fnmtf.png>
 Package pdftex.def Info: img/e-reconstruction-2-fnmtf.png used on input line 32
@@ -1873,31 +1855,31 @@ File: img/e-bic-structure.png Graphic file (type png)
 <use img/e-bic-structure.png>
 Package pdftex.def Info: img/e-bic-structure.png used on input line 3316.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/a-reconstruction-ovnmtf.png, id=1262, 578.16pt x 578.16pt>
+<img/a-reconstruction-ovnmtf.png, id=1266, 578.16pt x 578.16pt>
 File: img/a-reconstruction-ovnmtf.png Graphic file (type png)
 <use img/a-reconstruction-ovnmtf.png>
 Package pdftex.def Info: img/a-reconstruction-ovnmtf.png used on input line 332
 0.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-reconstruction-ovnmtf.png, id=1263, 578.16pt x 578.16pt>
+<img/b-reconstruction-ovnmtf.png, id=1267, 578.16pt x 578.16pt>
 File: img/b-reconstruction-ovnmtf.png Graphic file (type png)
 <use img/b-reconstruction-ovnmtf.png>
 Package pdftex.def Info: img/b-reconstruction-ovnmtf.png used on input line 332
 4.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-reconstruction-ovnmtf.png, id=1264, 578.16pt x 578.16pt>
+<img/c-reconstruction-ovnmtf.png, id=1268, 578.16pt x 578.16pt>
 File: img/c-reconstruction-ovnmtf.png Graphic file (type png)
 <use img/c-reconstruction-ovnmtf.png>
 Package pdftex.def Info: img/c-reconstruction-ovnmtf.png used on input line 332
 8.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-ovnmtf.png, id=1265, 578.16pt x 578.16pt>
+<img/d-reconstruction-ovnmtf.png, id=1269, 578.16pt x 578.16pt>
 File: img/d-reconstruction-ovnmtf.png Graphic file (type png)
 <use img/d-reconstruction-ovnmtf.png>
 Package pdftex.def Info: img/d-reconstruction-ovnmtf.png used on input line 333
 2.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-ovnmtf.png, id=1266, 578.16pt x 578.16pt>
+<img/e-reconstruction-ovnmtf.png, id=1270, 578.16pt x 578.16pt>
 File: img/e-reconstruction-ovnmtf.png Graphic file (type png)
 <use img/e-reconstruction-ovnmtf.png>
 Package pdftex.def Info: img/e-reconstruction-ovnmtf.png used on input line 333
@@ -1931,31 +1913,31 @@ File: img/e-bic-structure.png Graphic file (type png)
 <use img/e-bic-structure.png>
 Package pdftex.def Info: img/e-bic-structure.png used on input line 3372.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/a-reconstruction-binovnmtf.png, id=1276, 578.16pt x 578.16pt>
+<img/a-reconstruction-binovnmtf.png, id=1280, 578.16pt x 578.16pt>
 File: img/a-reconstruction-binovnmtf.png Graphic file (type png)
 <use img/a-reconstruction-binovnmtf.png>
 Package pdftex.def Info: img/a-reconstruction-binovnmtf.png used on input line 
 3376.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/b-reconstruction-binovnmtf.png, id=1277, 578.16pt x 578.16pt>
+<img/b-reconstruction-binovnmtf.png, id=1281, 578.16pt x 578.16pt>
 File: img/b-reconstruction-binovnmtf.png Graphic file (type png)
 <use img/b-reconstruction-binovnmtf.png>
 Package pdftex.def Info: img/b-reconstruction-binovnmtf.png used on input line 
 3380.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/c-reconstruction-binovnmtf.png, id=1278, 578.16pt x 578.16pt>
+<img/c-reconstruction-binovnmtf.png, id=1282, 578.16pt x 578.16pt>
 File: img/c-reconstruction-binovnmtf.png Graphic file (type png)
 <use img/c-reconstruction-binovnmtf.png>
 Package pdftex.def Info: img/c-reconstruction-binovnmtf.png used on input line 
 3384.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/d-reconstruction-binovnmtf.png, id=1279, 578.16pt x 578.16pt>
+<img/d-reconstruction-binovnmtf.png, id=1283, 578.16pt x 578.16pt>
 File: img/d-reconstruction-binovnmtf.png Graphic file (type png)
 <use img/d-reconstruction-binovnmtf.png>
 Package pdftex.def Info: img/d-reconstruction-binovnmtf.png used on input line 
 3388.
 (pdftex.def)             Requested size: 81.89667pt x 81.89462pt.
-<img/e-reconstruction-binovnmtf.png, id=1280, 578.16pt x 578.16pt>
+<img/e-reconstruction-binovnmtf.png, id=1284, 578.16pt x 578.16pt>
 File: img/e-reconstruction-binovnmtf.png Graphic file (type png)
 <use img/e-reconstruction-binovnmtf.png>
 Package pdftex.def Info: img/e-reconstruction-binovnmtf.png used on input line 
@@ -1966,7 +1948,7 @@ Package pdftex.def Info: img/e-reconstruction-binovnmtf.png used on input line
 tf.png> </Users/lucasbrunialti/git/masters-dissertation/img/c-reconstruction-ov
 nmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/d-reconstruction-
 ovnmtf.png> </Users/lucasbrunialti/git/masters-dissertation/img/e-reconstructio
-n-ovnmtf.png>] <img/e-reconstruction-2-binovnmtf.png, id=1291, 578.16pt x 578.1
+n-ovnmtf.png>] <img/e-reconstruction-2-binovnmtf.png, id=1295, 578.16pt x 578.1
 6pt>
 File: img/e-reconstruction-2-binovnmtf.png Graphic file (type png)
 <use img/e-reconstruction-2-binovnmtf.png>
@@ -1999,25 +1981,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[84] [85] [86] [87] [88] [89] [90] <img/boxplot-rand-igtoy.png, id=1428, 673.51
+[84] [85] [86] [87] [88] [89] [90] <img/boxplot-rand-igtoy.png, id=1432, 673.51
 625pt x 498.86375pt>
 File: img/boxplot-rand-igtoy.png Graphic file (type png)
 <use img/boxplot-rand-igtoy.png>
 Package pdftex.def Info: img/boxplot-rand-igtoy.png used on input line 3909.
 (pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-<img/boxplot-nmi-igtoy.png, id=1429, 673.51625pt x 498.86375pt>
+<img/boxplot-nmi-igtoy.png, id=1433, 673.51625pt x 498.86375pt>
 File: img/boxplot-nmi-igtoy.png Graphic file (type png)
 <use img/boxplot-nmi-igtoy.png>
 Package pdftex.def Info: img/boxplot-nmi-igtoy.png used on input line 3917.
 (pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
 [91 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-rand-igtoy.png>
-] <img/boxplot-all-rand-igtoy.png, id=1435, 673.51625pt x 498.86375pt>
+] <img/boxplot-all-rand-igtoy.png, id=1439, 673.51625pt x 498.86375pt>
 File: img/boxplot-all-rand-igtoy.png Graphic file (type png)
 <use img/boxplot-all-rand-igtoy.png>
 Package pdftex.def Info: img/boxplot-all-rand-igtoy.png used on input line 3925
 .
 (pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-<img/boxplot-all-nmi-igtoy.png, id=1436, 673.51625pt x 498.86375pt>
+<img/boxplot-all-nmi-igtoy.png, id=1440, 673.51625pt x 498.86375pt>
 File: img/boxplot-all-nmi-igtoy.png Graphic file (type png)
 <use img/boxplot-all-nmi-igtoy.png>
 Package pdftex.def Info: img/boxplot-all-nmi-igtoy.png used on input line 3933.
@@ -2026,77 +2008,81 @@ Package pdftex.def Info: img/boxplot-all-nmi-igtoy.png used on input line 3933.
 [92 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-nmi-igtoy.png> 
 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-rand-igtoy.png>
 ] [93 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-nmi-igtoy
-.png>] [94] <img/boxplot-rand-nips.png, id=1468, 673.51625pt x 498.86375pt>
-File: img/boxplot-rand-nips.png Graphic file (type png)
-<use img/boxplot-rand-nips.png>
-Package pdftex.def Info: img/boxplot-rand-nips.png used on input line 4033.
-(pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-[95] <img/boxplot-nmi-nips.png, id=1473, 673.51625pt x 498.86375pt>
-File: img/boxplot-nmi-nips.png Graphic file (type png)
-<use img/boxplot-nmi-nips.png>
-Package pdftex.def Info: img/boxplot-nmi-nips.png used on input line 4041.
-(pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-<img/boxplot-all-rand-nips.png, id=1474, 673.51625pt x 498.86375pt>
-File: img/boxplot-all-rand-nips.png Graphic file (type png)
-<use img/boxplot-all-rand-nips.png>
-Package pdftex.def Info: img/boxplot-all-rand-nips.png used on input line 4049.
-
-(pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-[96 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-rand-nips.png> 
-</Users/lucasbrunialti/git/masters-dissertation/img/boxplot-nmi-nips.png>] <img
-/boxplot-all-nmi-nips.png, id=1482, 673.51625pt x 498.86375pt>
-File: img/boxplot-all-nmi-nips.png Graphic file (type png)
-<use img/boxplot-all-nmi-nips.png>
-Package pdftex.def Info: img/boxplot-all-nmi-nips.png used on input line 4057.
-(pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-[97 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-rand-nips.p
-ng> </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-nmi-nips.pn
-g>] [98]
+.png>] [94] <img/boxplot-rand-ig.png, id=1472, 722.7pt x 578.16pt>
+File: img/boxplot-rand-ig.png Graphic file (type png)
+<use img/boxplot-rand-ig.png>
+Package pdftex.def Info: img/boxplot-rand-ig.png used on input line 4033.
+(pdftex.def)             Requested size: 318.49861pt x 254.797pt.
+[95] <img/boxplot-nmi-ig.png, id=1477, 722.7pt x 578.16pt>
+File: img/boxplot-nmi-ig.png Graphic file (type png)
+<use img/boxplot-nmi-ig.png>
+Package pdftex.def Info: img/boxplot-nmi-ig.png used on input line 4041.
+(pdftex.def)             Requested size: 318.49861pt x 254.797pt.
+<img/boxplot-all-rand-ig.png, id=1478, 722.7pt x 578.16pt>
+File: img/boxplot-all-rand-ig.png Graphic file (type png)
+<use img/boxplot-all-rand-ig.png>
+Package pdftex.def Info: img/boxplot-all-rand-ig.png used on input line 4049.
+(pdftex.def)             Requested size: 318.49861pt x 254.797pt.
+[96 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-rand-ig.png> </
+Users/lucasbrunialti/git/masters-dissertation/img/boxplot-nmi-ig.png>] <img/box
+plot-all-nmi-ig.png, id=1486, 722.7pt x 578.16pt>
+File: img/boxplot-all-nmi-ig.png Graphic file (type png)
+<use img/boxplot-all-nmi-ig.png>
+Package pdftex.def Info: img/boxplot-all-nmi-ig.png used on input line 4057.
+(pdftex.def)             Requested size: 318.49861pt x 254.797pt.
+[97 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-rand-ig.png
+> </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-nmi-ig.png>] 
+[98] <img/boxplot-rand-nips.png, id=1510, 673.51625pt x 498.86375pt>
 File: img/boxplot-rand-nips.png Graphic file (type png)
 <use img/boxplot-rand-nips.png>
 Package pdftex.def Info: img/boxplot-rand-nips.png used on input line 4139.
 (pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-[99]
+[99] <img/boxplot-nmi-nips.png, id=1515, 673.51625pt x 498.86375pt>
 File: img/boxplot-nmi-nips.png Graphic file (type png)
 <use img/boxplot-nmi-nips.png>
 Package pdftex.def Info: img/boxplot-nmi-nips.png used on input line 4147.
 (pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
+<img/boxplot-all-rand-nips.png, id=1516, 673.51625pt x 498.86375pt>
 File: img/boxplot-all-rand-nips.png Graphic file (type png)
 <use img/boxplot-all-rand-nips.png>
 Package pdftex.def Info: img/boxplot-all-rand-nips.png used on input line 4155.
 
 (pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-[100]
+[100 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-rand-nips.png>
+ </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-nmi-nips.png>] <im
+g/boxplot-all-nmi-nips.png, id=1523, 673.51625pt x 498.86375pt>
 File: img/boxplot-all-nmi-nips.png Graphic file (type png)
 <use img/boxplot-all-nmi-nips.png>
 Package pdftex.def Info: img/boxplot-all-nmi-nips.png used on input line 4163.
 (pdftex.def)             Requested size: 318.49861pt x 235.91228pt.
-[101] [102] [103] [104] <img/arenaNews.png, id=1545, 690.58pt x 711.65875pt>
+[101 </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-rand-nips.
+png> </Users/lucasbrunialti/git/masters-dissertation/img/boxplot-all-nmi-nips.p
+ng>] [102] [103] [104] <img/arenaNews.png, id=1557, 690.58pt x 711.65875pt>
 File: img/arenaNews.png Graphic file (type png)
 <use img/arenaNews.png>
 Package pdftex.def Info: img/arenaNews.png used on input line 4264.
 (pdftex.def)             Requested size: 409.49722pt x 422.00339pt.
-[105] <img/onmtf-tc-1.png, id=1551, 1156.32pt x 578.16pt>
+[105] <img/onmtf-tc-1.png, id=1563, 1156.32pt x 578.16pt>
 File: img/onmtf-tc-1.png Graphic file (type png)
 <use img/onmtf-tc-1.png>
 Package pdftex.def Info: img/onmtf-tc-1.png used on input line 4280.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/onmtf-tc-2.png, id=1552, 1156.32pt x 578.16pt>
+<img/onmtf-tc-2.png, id=1564, 1156.32pt x 578.16pt>
 File: img/onmtf-tc-2.png Graphic file (type png)
 <use img/onmtf-tc-2.png>
 Package pdftex.def Info: img/onmtf-tc-2.png used on input line 4284.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/onmtf-tc-3.png, id=1553, 1156.32pt x 578.16pt>
+<img/onmtf-tc-3.png, id=1565, 1156.32pt x 578.16pt>
 File: img/onmtf-tc-3.png Graphic file (type png)
 <use img/onmtf-tc-3.png>
 Package pdftex.def Info: img/onmtf-tc-3.png used on input line 4288.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/onmtf-tc-4.png, id=1554, 1156.32pt x 578.16pt>
+<img/onmtf-tc-4.png, id=1566, 1156.32pt x 578.16pt>
 File: img/onmtf-tc-4.png Graphic file (type png)
 <use img/onmtf-tc-4.png>
 Package pdftex.def Info: img/onmtf-tc-4.png used on input line 4292.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/onmtf-tc-5.png, id=1555, 1156.32pt x 578.16pt>
+<img/onmtf-tc-5.png, id=1567, 1156.32pt x 578.16pt>
 File: img/onmtf-tc-5.png Graphic file (type png)
 <use img/onmtf-tc-5.png>
 Package pdftex.def Info: img/onmtf-tc-5.png used on input line 4296.
@@ -2106,33 +2092,33 @@ Package pdftex.def Info: img/onmtf-tc-5.png used on input line 4296.
 sbrunialti/git/masters-dissertation/img/onmtf-tc-2.png> </Users/lucasbrunialti/
 git/masters-dissertation/img/onmtf-tc-3.png> </Users/lucasbrunialti/git/masters
 -dissertation/img/onmtf-tc-4.png> </Users/lucasbrunialti/git/masters-dissertati
-on/img/onmtf-tc-5.png>] [108] [109] [110] <img/ovnmtf-nc-1-tc-1.png, id=1594, 1
+on/img/onmtf-tc-5.png>] [108] [109] [110] <img/ovnmtf-nc-1-tc-1.png, id=1606, 1
 156.32pt x 578.16pt>
 File: img/ovnmtf-nc-1-tc-1.png Graphic file (type png)
 <use img/ovnmtf-nc-1-tc-1.png>
 Package pdftex.def Info: img/ovnmtf-nc-1-tc-1.png used on input line 4465.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/ovnmtf-nc-1-tc-2.png, id=1595, 1156.32pt x 578.16pt>
+<img/ovnmtf-nc-1-tc-2.png, id=1607, 1156.32pt x 578.16pt>
 File: img/ovnmtf-nc-1-tc-2.png Graphic file (type png)
 <use img/ovnmtf-nc-1-tc-2.png>
 Package pdftex.def Info: img/ovnmtf-nc-1-tc-2.png used on input line 4469.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/ovnmtf-nc-2-tc-1.png, id=1596, 1156.32pt x 578.16pt>
+<img/ovnmtf-nc-2-tc-1.png, id=1608, 1156.32pt x 578.16pt>
 File: img/ovnmtf-nc-2-tc-1.png Graphic file (type png)
 <use img/ovnmtf-nc-2-tc-1.png>
 Package pdftex.def Info: img/ovnmtf-nc-2-tc-1.png used on input line 4480.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/ovnmtf-nc-2-tc-2.png, id=1597, 1156.32pt x 578.16pt>
+<img/ovnmtf-nc-2-tc-2.png, id=1609, 1156.32pt x 578.16pt>
 File: img/ovnmtf-nc-2-tc-2.png Graphic file (type png)
 <use img/ovnmtf-nc-2-tc-2.png>
 Package pdftex.def Info: img/ovnmtf-nc-2-tc-2.png used on input line 4484.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/ovnmtf-nc-3-tc-1.png, id=1598, 1156.32pt x 578.16pt>
+<img/ovnmtf-nc-3-tc-1.png, id=1610, 1156.32pt x 578.16pt>
 File: img/ovnmtf-nc-3-tc-1.png Graphic file (type png)
 <use img/ovnmtf-nc-3-tc-1.png>
 Package pdftex.def Info: img/ovnmtf-nc-3-tc-1.png used on input line 4495.
 (pdftex.def)             Requested size: 204.74861pt x 102.37048pt.
-<img/ovnmtf-nc-3-tc-2.png, id=1599, 1156.32pt x 578.16pt>
+<img/ovnmtf-nc-3-tc-2.png, id=1611, 1156.32pt x 578.16pt>
 File: img/ovnmtf-nc-3-tc-2.png Graphic file (type png)
 <use img/ovnmtf-nc-3-tc-2.png>
 Package pdftex.def Info: img/ovnmtf-nc-3-tc-2.png used on input line 4499.
@@ -2199,10 +2185,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5041.
  ) 
 Here is how much of TeX's memory you used:
- 18150 strings out of 493089
- 278915 string characters out of 6134842
- 581061 words of memory out of 5000000
- 20707 multiletter control sequences out of 15000+600000
+ 18176 strings out of 493089
+ 279621 string characters out of 6134842
+ 583203 words of memory out of 5000000
+ 20729 multiletter control sequences out of 15000+600000
  32036 words of font info for 197 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,19n,42p,1641b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2233,10 +2219,10 @@ f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
 Output written on /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQu
-aliDissertacaoLatex.pdf (123 pages, 3160433 bytes).
+aliDissertacaoLatex.pdf (123 pages, 3050983 bytes).
 PDF statistics:
- 2117 PDF objects out of 2487 (max. 8388607)
- 1792 compressed objects within 18 object streams
+ 2129 PDF objects out of 2487 (max. 8388607)
+ 1793 compressed objects within 18 object streams
  358 named destinations out of 1000 (max. 500000)
- 28994 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 29014 words of extra memory for PDF output out of 29859 (max. 10000000)
 

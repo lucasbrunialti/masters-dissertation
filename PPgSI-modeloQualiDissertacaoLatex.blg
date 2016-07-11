@@ -13,30 +13,20 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: referencias.bib
-I was expecting a `,' or a `}'---line 326 of file referencias.bib
+I was expecting a `,' or a `}'---line 281 of file referencias.bib
  :   
  :   month = 8
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 380 of file referencias.bib
+I was expecting a `,' or a `}'---line 321 of file referencias.bib
  :   
  :   month = 8
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 509 of file referencias.bib
- :   
- :   year = 2012
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 739 of file referencias.bib
- :   
- :   number = {5}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--entry type for "Ding05" isn't style-file defined
---line 1032 of file referencias.bib
+--line 929 of file referencias.bib
 Warning--entry type for "Long2005" isn't style-file defined
---line 1039 of file referencias.bib
+--line 936 of file referencias.bib
 A bad cross reference---entry "Bottou95"
 refers to entry "NIPS7", which doesn't exist
 Warning--I didn't find a database entry for "NIPS7"
@@ -44,51 +34,50 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Warning--existe o campo month (mês) mas não o campo year (ano) em Peres2012
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v<VERSION>           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
-You've used 54 entries,
+You've used 55 entries,
             6711 wiz_defined-function locations,
-            1588 strings with 19069 characters,
-and the built_in function-call counts, 71794 in all, are:
-= -- 8475
-> -- 1864
-< -- 844
-+ -- 1511
-- -- 557
-* -- 4385
-:= -- 7821
-add.period$ -- 213
-call.type$ -- 54
-change.case$ -- 609
-chr.to.int$ -- 122
+            1587 strings with 18880 characters,
+and the built_in function-call counts, 51492 in all, are:
+= -- 4385
+> -- 1906
+< -- 180
++ -- 859
+- -- 569
+* -- 3769
+:= -- 6558
+add.period$ -- 208
+call.type$ -- 55
+change.case$ -- 622
+chr.to.int$ -- 126
 cite$ -- 54
-duplicate$ -- 6842
-empty$ -- 3477
-format.name$ -- 2657
-if$ -- 16173
+duplicate$ -- 2836
+empty$ -- 3525
+format.name$ -- 2718
+if$ -- 12223
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 981
-newline$ -- 264
-num.names$ -- 261
-pop$ -- 1334
+missing$ -- 998
+newline$ -- 268
+num.names$ -- 266
+pop$ -- 1286
 preamble$ -- 1
-purify$ -- 227
+purify$ -- 232
 quote$ -- 0
-skip$ -- 7099
+skip$ -- 3137
 stack$ -- 1
-substring$ -- 2638
-swap$ -- 1938
-text.length$ -- 80
+substring$ -- 2019
+swap$ -- 1310
+text.length$ -- 68
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 26
-warning$ -- 1
-while$ -- 408
+warning$ -- 0
+while$ -- 402
 width$ -- 0
-write$ -- 876
-(There were 5 error messages)
+write$ -- 884
+(There were 3 error messages)

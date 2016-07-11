@@ -900,9 +900,9 @@ A adequação deste processo manterá informações da matriz original a fim de 
 % ************************************************************************
 
 \section{Objetivos}
-
+quantização do espaço e capacidade de reconstrução
 O objetivo geral desse trabalho foi o desenvolvimento de novas estratégias de coagrupamento baseadas em fatoração de matrizes, aqui então nomeadas \textit{OvNMTF} e \textit{BinOvNMTF}, capazes de lidar com a existência de cogrupos de colunas com sobreposição, de maneira mais adequada que os algoritmos atualmente apresentados na literatura.
-A adequabilidade das estratégias propostas foi avaliada em termos de: capacidade de reconstrução da matriz original, capacidade de quantização, capacidade de agrupamento e capacidade de possibilitar a extração de informação.
+A adequabilidade das estratégias propostas foi avaliada em termos de: capacidade de quantização do espaço e capacidade de reconstrução da matriz original, capacidade de agrupamento e capacidade de possibilitar a extração de informação.
 
 Como objetivos específicos, este trabalho:
 
@@ -915,36 +915,35 @@ Como objetivos específicos, este trabalho:
 O atendimento aos objetivos delineados permitiu a esse trabalho:
 
 \begin{itemize}
-\item aprimorar a área de coagrupamento baseado em algoritmos de fatoração de matrizes, de forma a contribuir com a pesquisa em Análise de Agrupamento;
-\item demonstrar que elas tem potencial de revelar informações úteis provenientes da sobreposição natural dos atributos descritivos de um dado real, em especial para aplicações de Mineração de Textos.
+\item aprimorar a área de coagrupamento baseado em algoritmos de fatoração de matrizes, de forma a contribuir com a pesquisa em análise de agrupamento;
+\item demonstrar que as estratégias de coagrupamento propostas têm potencial de revelar informações úteis provenientes da sobreposição natural dos atributos descritivos de um dado real, em especial para aplicações de mineração de texto.
 \end{itemize}
 
 % ************************************************************************
 
 \section{Método}
 
-A análise exploratória da literatura especilizada foi escolhida como estratégia para a aquisição de conhecimento sobre a área de coagrupamento e Fatoração de Matrizes aplicada à resolução da tarefa de coagrupamento.
+A análise exploratória da literatura especilizada foi escolhida como estratégia para a aquisição de conhecimento sobre a área de coagrupamento e fatoração de matrizes aplicada à resolução da tarefa de coagrupamento.
 
-A partir da análise exploratória, os algoritmos \textit{BVD}, \textit{ONMTF} e\textit{FNMTF} foram estudados em profundidade com o fim de verificar a sua adequabilidade para tratar a análise de coagruamento, sobre dados sintéticos e textuais, considerando a sobreposição de colunas.
-Nesse estudo verificou-se a possibilidade da proposiçào de melhorias no tratamento do problema.
-A partir do qual, os algoritmos \textit{OvNMTF} e \textit{BinOvNMTF} foram criados.
-Para cada um deles, o problema formal de otimização foi definido e uma derivação formal foi realizada usando cálculo em matrizes a com o intuito de propor uma solução algoritmica.
+A partir da análise exploratória, os algoritmos \textit{BVD}, \textit{ONMTF} e \textit{FNMTF} foram estudados em profundidade com o fim de verificar a sua adequabilidade para tratar a análise de coagrupamento sobre dados sintéticos e textuais, considerando a sobreposição de colunas.
+Nesse estudo verificou-se a possibilidade da proposição de melhorias no tratamento do problema, e então, os algoritmos \textit{OvNMTF} e \textit{BinOvNMTF} foram criados.
+Para cada um deles, o problema formal de otimização foi definido e uma derivação formal foi realizada usando cálculo em matrizes com o intuito de propor uma solução algorítmica para tais problemas.
 
-A fim de permitir a validação das estratégias propostas e, portanto, a verificação da hipótese, fez-se necessário a definição de: (a) um ambiente de teste controlado, representado por uma coleção de conjuntos de dados sintéticos, contendo em cada um dos conjuntos situações diferentes referentes às estruturas de coagrupamento; (b) um contexto para realização de uma experimentação com dados reais.
+A fim de permitir a validação das estratégias propostas e, portanto, a verificação da hipótese delineada neste trabalho, fez-se necessária a definição de: (a) um ambiente de teste controlado, representado por uma coleção de conjuntos de dados sintéticos, contendo em cada um dos conjuntos situações diferentes referentes às estruturas de coagrupamento; (b) um contexto para realização de uma experimentação com dados reais.
 
 Para tal experimentação foi escolhido usar o conteúdo referente à notícias publicadas no portal iG\footnote{http://ig.com.br/} e trabalhos acadêmicos publicadas na conferência \textit{NIPS}.
-iG é um portal de notícias brasileiro muito conhecido, com um volume de notícias bastante grande e com notícias categorizadas em canais, que representam os assuntos dessas notícias.
+iG é um portal de notícias brasileiro muito conhecido, com um grande volume de notícias categorizadas em canais, os quais representam os assuntos dessas notícias.
 Essas características conferem liberdade para a configuração de experimentos de diferentes naturezas, como experimentos considerando determinadas categorias de notícias, tipos de notícias ou datas de publicação das notícias.
 
 A partir do conteúdo de notícias do portal iG foi construído um corpus de dados textuais, categorizados de acordo com as categorias já usadas no referido portal.
-Todo o conteúdo do corpus passou por rotinas de pré-processamento comuns na área de Mineração de Texto: \textit{tokenização}, filtragem de \textit{stopwords}, representação da relação ``termos $\times$ documentos'' usando estratégias de frequência de termos, como $\text{\textit{tf-idf}}$.
+Todo o conteúdo do corpus passou por rotinas de pré-processamento comuns na área de mineração de texto: \textit{tokenização}, filtragem de \textit{stopwords}, representação da relação ``termos $\times$ documentos'' usando estratégias de frequência de termos, como $\text{\textit{tf-idf}}$.
 
 Os resultados da aplicação das estratégias de coagrupamento foram validados utilizando:
 
 \begin{itemize}
     \item inspeção visual e erro de quantização para análise da capacidade de reconstrução;
     \item técnicas de avaliação externa representadas pelo índice de Rand e pela informação mútua normalizada, para análise da capacidade de agrupamento;
-    \item análise empírica através de experimentos qualitativos para avaliação da capacidade de extração de informação.
+    \item análise empírica por meio de experimentos qualitativos para avaliação da capacidade de extração de informação e interpretabilidade dos modelos.
 \end{itemize}
 
 % ************************************************************************
@@ -954,13 +953,22 @@ Os resultados da aplicação das estratégias de coagrupamento foram validados u
 Esta dissertação é composta por $6$ capítulos incluindo esta introdução.
 
 No capítulo~\ref{ch:conceitos} são apresentados os principais conceitos referentes à teoria de matrizes, agrupamento e coagrupamento.
-Estratégias de Fatoração de Matrizes aplicadas à resolução da tarefa de coagrupamento são discutidas no capítulo~\ref{ch:fatoracao}.
+O objetivo deste capítulo é fornecer diretrizes para entendimento dos assuntos tratados nos capítulos posteriores e indicar literatura na qual podem ser encontradas informações mais detalhadas sobre tais assuntos.
+
+Estratégias de fatoração de matrizes aplicadas à resolução da tarefa de coagrupamento são discutidas no capítulo~\ref{ch:fatoracao}.
+A discussão é apresenta em termos da definição de problemas e apresentação de soluções algorítmicas para os problemas.
+Algumas discussões sobre o problemas e algoritmos são apresentados sempre que um conceito é mais relevante para o entendimento da proposta deste trabalho.
+Detalhes sobre cada um dos problemas e algoritmos são encontrados na literatura sugerida nesse capítulo.
 
 A principal contribuição deste trabalho, estratégias algorítmicas baseadas em fatoração de matrizes para encontrar cogrupos com sobreposição, é apresentada em detalhes no capítulo~\ref{ch:proposedalgs}.
+A principal contribuição deste trabalho é apresentada com detalhes no capítulo~\ref{ch:proposedalgs}.
+As definições dos problemas propostos, as regras de derivação formais juntamente com as suas implementações algoritmicas propostas para solução desses problemas.
 
 Os experimentos a cerca dos algorimos apresentados nos outros capítulos são apresentados no capítulo~\ref{ch:experiments}.
+Os experimentos apresentados no capítulo~\ref{ch:experiments} ilustram a aplicabilidade e adequabilidade das estratégias apresentadas no capitulo~\ref{ch:fatoracao} e~\ref{ch:proposedalgs}, com destaque para as vantagens e limitações das estratégias propostas neste trabalho de mestrado.
+As análises apresentadas neste capítulo são de natureza quantitativa e qualitativa.
 
-E, por fim, as conclusões deste trabalho são apresentadas no capítulo~\ref{ch:conclusoes}.
+E, por fim, as conclusões deste trabalho são apresentadas no capítulo~\ref{ch:conclusoes}, destacando as contribuições aqui elaboradas e as questões em aberto na área, sendo algumas delas decorrentes de novas hipóteses, cuja formulação se tornou possível por conta das proposições realizadas no presente trabalho.
 
 % ************************************************************
 % ************************************************************
@@ -969,12 +977,15 @@ E, por fim, as conclusões deste trabalho são apresentadas no capítulo~\ref{ch
 \chapter{Conceitos Fundamentais}
 \label{ch:conceitos}
 
-Esse capítulo introduz os principais conceitos e definições para a leitura dos demais capítulos desse trabalho. São apresentados os conceitos e notações referentes à Teoria de Matrizes e Álgebra Linear na seção~\ref{sec:matrix-alglin}, em seguida são mostrados técnicas e conceitos referentes à Agrupamento (seção~\ref{sec:clustering}), e por fim, os conceitos referentes à Coagrupamento (seção~\ref{sec:coclustering}).
+Este capítulo introduz os principais conceitos e definições necessárias para suportar a leitura dos demais capítulos deste trabalho.
+São apresentados os conceitos e notações referentes à teoria de matrizes e álgebra linear (seção~\ref{sec:matrix-alglin}), em seguida são mostrados técnicas e conceitos referentes à agrupamento (seção~\ref{sec:clustering}), e por fim, os conceitos referentes à coagrupamento (seção~\ref{sec:coclustering}).
 
 \section{Teoria de Matrizes e Álgebra Linear}
 \label{sec:matrix-alglin}
 
-Considere o conjunto de todos os números reais $\mathbb{R}$, uma matriz com elementos reais é considerada uma tabela com $n$ linhas e $m$ colunas no espaço $\mathbb{R}^{n \times m}$, então:
+Considere R o conjunto de todos os números reais. Uma matriz, no espaço Rnxm, é definida como uma tabela com n linhas e m colunas, na forma:
+
+Considere $\mathbb{R}$ o conjunto de todos os números reais, então, uma matriz no espaço $\mathbb{R}^{n \times m}$, é definida como uma tabela com $n$ linhas e $m$ colunas, na forma:
 \[
     A \in \mathbb{R}^{n \times m} \Leftrightarrow A = (A)_{ij} = \begin{bmatrix}
                                                                      a_{1 1} & \hdots & a_{m 1} \\
@@ -982,11 +993,11 @@ Considere o conjunto de todos os números reais $\mathbb{R}$, uma matriz com ele
                                                                      a_{n 1} & \hdots & a_{n m}
                                                                  \end{bmatrix}
 \]
-sendo $a_{i j} \in \mathbb{R}$ para representar o elemento da $i$-ésima linha e $j$-ésima coluna da matriz $A$, e os índices $i = \{1, \dots, n\}$ e $j = \{1, \dots, m\}$ para indexar as linhas e colunas dessa matriz, respectivamente.
-Sendo assim, neste trabalho, a notação em letras maiúsculas representam matrizes (ex.: $A$), assim como a notação em letras minúsculas com duas letras subscritas representam seus repectivos valores (ex.: $a_{ij}$).
-Também é possível definir essa mesma matriz em $\mathbb{R}^{n \times m}_{+}$, isso implica em $a_{ij} > 0, \forall i,j$.
+sendo $a_{i j} \in \mathbb{R}, \forall i, j$ o elemento da $i$-ésima linha e $j$-ésima coluna da matriz $A$, e os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$ para indexar as linhas e colunas dessa matriz, respectivamente.
+Na notação usada neste trabalho, letras maiúsculas representam matrizes (ex.: $A$), letras minúsculas com duas letras subscritas representam valores na matriz (ex.: $a_{ij}$ representa um valor da matriz $A$).
+Também é possível definir essa mesma matriz em $\mathbb{R}^{n \times m}_{+}$, por meio da determinação da restrição $a_{ij} > 0, \forall i,j$.
 
-De forma semelhante é possível definir uma notação para vetores no espaço $\mathbb{R}^n$:
+De forma semelhante define-se uma notação para vetores no espaço $\mathbb{R}^n$, na forma:
 \[
     \mathbf{a} \in \mathbb{R}^n \Leftrightarrow \mathbf{a} = \begin{bmatrix}
                                                                      a_{1}  \\
@@ -994,8 +1005,8 @@ De forma semelhante é possível definir uma notação para vetores no espaço $
                                                                      a_{n}
                                                                  \end{bmatrix}
 \]
-sendo $a_i \in \mathbb{R}, \forall i$ para representar o $i$-ésimo elemento do vetor.
-Ainda, neste trabalho também usa-se a notação de vetores para representação das linhas e colunas de uma matriz:
+sendo $a_i \in \mathbb{R}, \forall i$ o $i$-ésimo elemento do vetor.
+Ainda neste trabalho é usada a notação de vetores para representação das linhas e colunas de uma matriz, da seguinte forma:
 \[
     A = \begin{bmatrix}
             \horzbar & \mathbf{a}_{1 \cdot} & \horzbar \\
@@ -1003,36 +1014,38 @@ Ainda, neste trabalho também usa-se a notação de vetores para representação
             \horzbar & \mathbf{a}_{n \cdot} & \horzbar
         \end{bmatrix}
       = \begin{bmatrix}
-            \vertbar             & \vertbar & \vertbar             \\
+            \vertbar             &          & \vertbar             \\
             \mathbf{a}_{\cdot 1} & \dots    & \mathbf{a}_{\cdot m} \\
-            \vertbar             & \vertbar & \vertbar
+            \vertbar             &          & \vertbar
         \end{bmatrix}
 \]
 sendo $\mathbf{a}_{i \cdot}$ e $\mathbf{a}_{\cdot j}, \forall i,j$ os vetores que representam as linhas e colunas da matriz $A$, respectivamente.
 
-Neste trabalho são usadas algumas operações em matrizes~\cite{Golub1996}:
+Neste trabalho as seguintes operações em matrizes são usadas~\cite{Golub1996}:
 \begin{itemize}
-    \item Transposição de matrizes: $A^T = (A)_{ji}$, $\forall j, i$, $A^T \in \mathbb{R}^{m \times n}$;
-    \item Produto de Hadamart: $c_{ij} = a_{ij} b_{ij}, \forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$;
-    \item Divisão: $c_{ij} = \frac{a_{ij}}{b_{ij}}$, $\forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$;
-    \item Produto de matrizes: $C = AB = \sum_{p = 1}^k$ $a_{ip} b_{pj}$, sendo $C \in \mathbb{R}^{n \times m}, A \in \mathbb{R}^{n \times k}, B \in \mathbb{R}^{k \times m}$, e o índice $p = \{1, \dots, k\}$.
-    \item Inversa: $AB = BA = I \Leftrightarrow B = A^{-1}$, sendo $A \in \mathbb{R}^{n \times n}, B \in \mathbb{R}^{n \times n}$, e $I$ a matriz identidade.
+    \item Transposição de matrizes: $A^T = (A)_{ji}$, $\forall j, i$, $A^T \in \mathbb{R}^{m \times n}$, $A \in \mathbb{R}^{n \times m}$.
+    \item Produto de Hadamard: $c_{ij} = a_{ij} b_{ij}, \forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$.
+    \item Divisão de matrizes: $c_{ij} = \frac{a_{ij}}{b_{ij}}$, $\forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$.
+    \item Produto de matrizes: $C = AB = \sum_{p = 1}^k$ $a_{ip} b_{pj}$, sendo $C \in \mathbb{R}^{n \times m}, A \in \mathbb{R}^{n \times k}, B \in \mathbb{R}^{k \times m}$, e o índice $p \in \{1, \dots, k\}$.
+    \item Matriz inversa: $AB = BA = I \Leftrightarrow B = A^{-1}$, sendo $A \in \mathbb{R}^{n \times n}, B \in \mathbb{R}^{n \times n}$, e $I$ a matriz identidade.
 \end{itemize}
 
-Ainda sobre operações em matrizes, uma operação usada neste trabalho para definição de problemas em fatoração é o traço da matriz, e pode ser definido da seguinte forma, considerando uma matriz simétrica $A \in \mathbb{R}^{n \times n}$~\cite{Magnus1999}:
+Para definição de problemas em fatoração, também é usado neste trabalho um operador: traço da matriz.
+Considerando uma matriz simétrica $A \in \mathbb{R}^{n \times n}$~\cite{Magnus1999}, o traço da matriz é definido da seguinte forma:
 \[
     tr(A) = \sum_{i=1}^n a_{ii}
 \]
-Algumas igualdades são possíveis a partir deste operador, considere as matrizes $A, B, C$, em um espaço que torne as multiplicações possíveis~\cite{Magnus1999}:
+Algumas igualdades são possíveis a partir da aplicação deste operador.
+Considerando as matrizes $A, B, C$, em um espaço que torne as multiplicações possíveis, define-se as seguintes igualdades~\cite{Magnus1999}:
 \begin{itemize}
-    \item $tr(A^T) = tr(A)$;
-    \item $tr(A^TB) = tr(B^TA)$;
-    \item $tr(AB) = tr(BA)$;
+    \item $tr(A^T) = tr(A)$.
+    \item $tr(A^TB) = tr(B^TA)$.
+    \item $tr(AB) = tr(BA)$.
     \item $tr(ABC) = tr(CAB) = tr(BCA)$ (propriedade circular).
 \end{itemize}
-Note que a matriz resultante das operações dentro do traço tem de ser sempre simétrica.
+Note que a matriz resultante das operações dentro do traço é sempre simétrica.
 
-Definido o operador de traço, é possível definir o operador chamado produto interno entre dois vetores $\mathbf{a}, \mathbf{b} \in \mathbb{R}^n$~\cite{Boyd2004}:
+Definido o operador de traço, é possível definir o operador para o produto interno entre dois vetores $\mathbf{a}, \mathbf{b} \in \mathbb{R}^n$~\cite{Boyd2004}, da seguinte forma:
 \[
     \langle \mathbf{a}, \mathbf{b} \rangle = \sum_{i=1}^n a_i b_i = \begin{bmatrix}
                                                                         a_{1} & \dots & a_{n}
@@ -1045,13 +1058,13 @@ Definido o operador de traço, é possível definir o operador chamado produto i
                                                                   = \mathbf{a}^T \mathbf{b}
 \]
 
-Da mesma forma é possível definir o produto interno entre duas matrizes $A \in \mathbb{R}^{n \times k}$ e $B \in \mathbb{R}^{k \times n}$, verificando como os operadores de traço e produto interno se relacionam~\cite{Boyd2004}:
+Da mesma forma define-se o produto interno entre duas matrizes $A \in \mathbb{R}^{n \times k}$ e $B \in \mathbb{R}^{k \times n}$, mostrando como os operadores de traço e produto interno se relacionam~\cite{Boyd2004}:
 \[
     \langle \mathbf{A}, \mathbf{B} \rangle = \sum_{i=1}^n \sum_{p=1}^k a_{ip} b_{pi} =
         \begin{bmatrix}
-            \vertbar             & \vertbar & \vertbar             \\
+            \vertbar             &          & \vertbar             \\
             \mathbf{a}_{\cdot 1} & \dots    & \mathbf{a}_{\cdot n} \\
-            \vertbar             & \vertbar & \vertbar
+            \vertbar             &          & \vertbar
         \end{bmatrix}
         \begin{bmatrix}
             \horzbar & \mathbf{b}_{1 \cdot} & \horzbar \\
@@ -1063,13 +1076,14 @@ Da mesma forma é possível definir o produto interno entre duas matrizes $A \in
 
 \subsection{Norma em matrizes}
 
-A norma é uma função que toma como parâmetro um vetor ou matriz nos espaços $\mathbb{R}^n$ ou $\mathbb{R}^{n \times m}$, respectivamente, e gera um valor real, este valor real é a magnitude do vetor ou matriz.
-Uma das normas mais conhecidas é a norma de Frobenius, usada nas definições dos problemas de fatoração deste trabalho, e pode ser definida da seguinte forma, para um vetor $\mathbf{a} \in \mathbb{R}^n$~\cite{Boyd2004}:
+A norma é uma função que recebe como parâmetro de entrada um vetor ou matriz nos espaços $\mathbb{R}^n$ ou $\mathbb{R}^{n \times m}$, respectivamente, e gera um valor real, o qual representa a magnitude do vetor ou matriz.
+Uma das normas mais conhecidas é a norma de Frobenius, usada nas definições dos problemas de fatoração deste trabalho.
+A norma de Frobenius é definida da seguinte forma para um vetor $\mathbf{a} \in \mathbb{R}^n$~\cite{Boyd2004}:
 \[
     \norm{\mathbf{a}}_F = \sqrt{a_1^2 + \dots + a_n^2} = \sqrt{\mathbf{a}^T \mathbf{a}} = \sqrt{\langle \mathbf{a}, \mathbf{a} \rangle}
 \]
 Essa norma também é chamada de norma Euclidiana e $\text{norma-}L_2$.
-Da mesma forma, existe a norma de Frobenius para matrizes, considere $A \in \mathbb{R}^{n \times m}$~\cite{Boyd2004}:
+Neste caso, a norma é definida da seguinte forma para uma matriz $A \in \mathbb{R}^{n \times m}$~\cite{Boyd2004}:
 \[
     \norm{A}_F = \sqrt{\sum_{i=1}^n \sum_{j=1}^m |a_{ij}^2|} = \sqrt{tr(A^T A)}
 \]
@@ -1078,8 +1092,8 @@ Ainda, considerando dois vetores $\mathbf{a}$ e $\mathbf{b}$, é possível dizer
 \[
     \langle \mathbf{a}, \mathbf{b} \rangle = 0
 \]
-Também podem ser ditos ortonormais se, além da condição anterior, a sua norma for igual à $1$.
-A mesma definição pode ser extendida para matrizes, então, uma matriz é dita ortnormal se todos os seus vetores forem ortonormais~\cite{Magnus1999}:
+Os vetores $\mathbf{a}$ e $\mathbf{b}$ também podem ser ditos ortonormais se, além da condição anterior, a suas normas forem igual à $1$.
+A mesma definição pode ser extendida para matrizes, então, uma matriz é dita ortonormal se todos os seus vetores forem ortonormais~\cite{Magnus1999}:
 \[
     A^T A = I
 \]
@@ -1087,7 +1101,7 @@ A mesma definição pode ser extendida para matrizes, então, uma matriz é dita
 \subsection{Cálculo em matrizes}
 \label{subsec:matrixcalculus}
 
-Cálculo em matrizes define uma notação e uma série de notações que ajudaram nas soluções dos problemas de otimização, baseados em FM, propostos neste trabalho.
+Cálculo em matrizes define uma notação que suportou a derivação de soluções para os problemas de otimização, baseados em fatoração de matrizes, propostos neste trabalho.
 Extendendo a definição de derivadas, tradicionalmente conhecida, é possível obter relações para derivação de funções em relação a matrizes~\cite{Magnus1999}.
 Considere a seguinte notação para derivada de uma função de traço em relação à uma matriz $A$, sendo $F(A)$ uma função diferenciável em todos os elementos de $A$~\cite{Petersen2012}:
 \[
@@ -1095,72 +1109,76 @@ Considere a seguinte notação para derivada de uma função de traço em relaç
 \]
 em que $f(\cdot)$ é a derivada escalar de $F(\cdot)$.
 
-Algumas relações podem ser mostradas, sendo quaisquer matrizes $A, B, C, D$~\cite{Petersen2012}:
+Diante desta definição, algumas relações podem ser mostradas~\cite{Petersen2012}.
+Sendo $A, B, C$ e $D$ matrizes quaisquers definidas em um espaço que tornem as multiplicações possíveis, para cada caso:
 \begin{itemize}
-    \item $\frac{\partial}{\partial A} tr(A) = I$ (matriz identidade);
-    \item $\frac{\partial}{\partial A} tr(B A) = B^T$;
-    \item $\frac{\partial}{\partial A} tr(B A^T) = \frac{\partial}{\partial A} tr(A^T B) = B$;
-    \item $\frac{\partial}{\partial A} tr(B A C) = B^T C^T$;
-    \item $\frac{\partial}{\partial A} tr(B A^T C) = CB$;
-    \item $\frac{\partial}{\partial A} tr(B A C A^T D) = B^T D^T A C^T + D B A D$;
+    \item $\frac{\partial}{\partial A} tr(A) = I$ (matriz identidade).
+    \item $\frac{\partial}{\partial A} tr(B A) = B^T$.
+    \item $\frac{\partial}{\partial A} tr(B A^T) = \frac{\partial}{\partial A} tr(A^T B) = B$.
+    \item $\frac{\partial}{\partial A} tr(B A C) = B^T C^T$.
+    \item $\frac{\partial}{\partial A} tr(B A^T C) = CB$.
+    \item $\frac{\partial}{\partial A} tr(B A C A^T D) = B^T D^T A C^T + D B A D$.
     \item $\frac{\partial}{\partial A} tr(C^T A^T D A C) = D^T A D C^T + D A C B^T$.
 \end{itemize}
 
 \section{Agrupamento}
 \label{sec:clustering}
 
-A tarefa de agrupamento é o processo de agrupar dados em diferentes classes ou grupos, também pode ser visto como o processo de particionamento das linhas de uma matriz que representa um conjunto de dados, que contém objetos e características desses objetos, apesar de existir variações dessa visão~\cite{Han2011}.
-Sendo assim, os dados pertencentes à um mesmo grupo são similares uns com os outros, e por consequência, dados presentes em diferentes grupos são dissimilares uns com os outros, similaridades e dissimilaridades que são geralmente calculadas através de medidas de distância~\cite{Han2011}.
-Note que como os grupos podem representar um conjunto de dados com seus objetos e características, a tarefa de agrupamento pode ser vista como uma forma de compressão de dados.
+Classicamente, a tarefa de agrupamento de dados é definida como o processo de agrupar dados de acordo com a similaridade existente entre eles.
+Sendo assim, os dados alocados a um mesmo grupo são aqueles mais similares entre si, enquanto que os dados alocados em grupos diferentes são dissimilares entre si.
+Nesse contexto, similaridades, e dissimilaridades, são geralmente calculadas por meio de medidas de distâncias~\cite{Han2011}.
+A tarefa de agrupamento pode também ser vista como um processo de particionamento das linhas de uma matriz que representa um conjunto de dados, sendo que esse conjunto de dados contém dados e características desses dados~\cite{Han2011}.
+Ainda, os grupos podem ser vistos como uma forma de compressão de dados.
 
-A tarefa de agrupamento é uma vertente da área de Aprendizado de Máquina, do tipo Aprendizado Não-supervisionado, no qual não se sabe o rótulo de cada dado do conjunto de dados.
-Ainda, essa tarefa também é estudada em diversas áreas, como Mineração de Dados, Estatística, Biologia e etc.
+A tarefa de agrupamento pode ser resolvida a partir de técnicas provenientes da área de aprendizado de máquina, mais especificamente por um subconjunto de técnicas de aprendizado não-supervisionado, nas quais tem-se mecanismos para realizar análise de dados para os quais não se tem informação a priori sobre como os dados estão organizados.
+A resolução da tarefa de agrupamento pode ser útil em diversas áreas do conhecimento, tais como Mineração de Dados, Estatística, Tomada de Decisão, etc.
 
-Formalmente, os algoritmos de agrupamento com a visão de particionamento têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}$, contendo números reais positivos com $n$ linhas (dados) e $m$ colunas (características) que representam um conjunto de dados em algum domínio de aplicação.
+Formalmente, os algoritmos de agrupamento implementados sob estratégias de particionamento têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}$, com $n$ linhas (dados) e $m$ colunas (características) que representam um conjunto de dados em algum domínio de aplicação.
 Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$.
 O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas pelo subconjunto ordenado $\mathcal{K}_p \subseteq \mathcal{N}$, considerando o índice $p = \{ 1, \dots, k\}$.
 Então, o subconjunto $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ é justamente os grupos de linhas resultantes de um algoritmo que soluciona a tarefa de agrupamento.
+Note que este problema é NP-difícil, então faz sentido buscar por algoritmos que se baseiam em alguma heurística, já que não existe uma solução algoritmica em tempo polinomial~\cite{Aloise2009}.
 
 \subsection{Algoritmos para Agrupamento}
 \label{sec:clustering:algos}
 
 O problema de agrupamento \textit{k-means} é provavelmente um dos problemas mais estudados para agrupamento, e seu algoritmo mais famoso (algoritmo de \textit{Lloyd}, também chamado algoritmo \textit{k-means}), um dos algoritmos mais usados para solução do problema de agrupamento.
+Trata-se de um problema de otimização do erro de quantização, formalizado no problema~\ref{def:kmeans:problem}, proposto com o objetivo de encontrar grupos em um conjunto de dados, solucionando a tarefa de agrupamento.
 
-O objetivo do \textit{k-means} é encontrar $k$ representantes da matriz de dados $X$, esses representantes, também chamados centróides ou médias, são representados em uma matriz $C$ com $k$ linhas e $m$ colunas, sendo que cada vetor de linha é um representante dos dados, por isso estes têm a mesma dimensão dos objetos da matriz $X$.
+O objetivo do \textit{k-means} é encontrar $k$ representantes da matriz de dados $X$.
+Esses representantes, também chamados centróides ou médias, são organizados em uma matriz $C$ com $k$ linhas e $m$ colunas, sendo que cada vetor de linha é um representante dos dados, por isso estes têm a mesma dimensão dos dados da matriz $X$.
 De forma direta é possível perceber que serão formados $k$ grupos de dados.
 
-O problema de otimização do erro de quantização, com a finalidade da resolução da tarefa de agrupamento (\textit{k-means}), formalizado em~\ref{def:kmeans:problem}, foi proposto com o objetivo de encontrar grupos em um conjunto de dados, solucionando a tarefa de agrupamento.
-Neste trabalho é mostrada uma visão de fatoração de matrizes ao problema \textit{k-means}, assim como em~\citeonline{Ding05}, pois tem-se como objetivo encontrar uma solução para aproximar $X$ pela multiplicação de duas matrizes $UC$: $X \approx UC$.
-Além disso, em~\citeonline{Ding05} também é mostrada a relação de aproximação entre os algoritmos de agrupamento mais tradicionais de agrupamento, como o \textit{k-means} e o \textit{fuzzy k-means} e o problema de Fatoração de Matrizes Não-negativas (NMF - \textit{Non-negative Matrix Factorization}), que apesar de ter sido desenvolvido como um método de redução de dimensionalidade, também é considerado um método de agrupamento.
+Neste trabalho o problema \textit{k-means} é mostrado sob uma visão de fatoração de matrizes, assim como em~\citeonline{Ding05}, pois tem-se como objetivo encontrar uma solução para aproximar $X$ pela multiplicação de duas matrizes $UC$: $X \approx UC$.
+Além disso, em~\citeonline{Ding05} também é mostrada a relação de aproximação entre os algoritmos de agrupamento mais tradicionais, como o \textit{k-means}, o \textit{fuzzy k-means} e o problema de Fatoração de Matrizes Não-negativas (NMF - \textit{Non-negative Matrix Factorization}), que apesar de ter sido desenvolvido como um método de redução de dimensionalidade, também é considerado um método de agrupamento.
 
-\begin{problem}[Problema de \textit{K-means}]
+\begin{problem}[Problema de \textit{k-means}]
 \label{def:kmeans:problem}
 \begin{equation}
     \begin{array}{lclcl}
-        \displaystyle \mathcal{F}_1(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip} \norm{\mathbf{x_{i \cdot} - \mathbf{c_{i \cdot}}}}^2 = \displaystyle \min_{U, C} & \norm{X - UC}^{2}_{F} \\
+        \displaystyle \mathcal{F}_1(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip} \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 = \displaystyle \min_{U, C} & \norm{X - UC}^{2}_{F} \\
                                           &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
-                                          &   &                              & C \in \mathbb{R}^{k \times m}
+                                          &   &                              & C \in \mathbb{R}^{k \times m}, \\
+                                          &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
     \end{array} \nonumber
 \end{equation}
 \end{problem}
-
-em que $\Psi = \{0, 1\}$, $\sum_{p=1}^{k} u_{ip} = 1, \forall i$ e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
-
+em que $\Psi = \{0, 1\}$ e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
 A restrição da soma de cada linha da matriz $U$ ser igual à $1$, garante que cada dado de $X$ pertença a apenas um grupo, já que o objetivo é particionar os dados.
 
-É possível perceber que o problema apresentado compacta a matriz $X$ em duas outras matrizes: a matriz $U$, de dimensão $n$ por $k$ que contém apenas zeros e uns, e fará a associação de cada linha de $X$ com um dos $k$ grupos; e a matriz $C$, de dimensão $k$ por $m$, que será uma base para representação das linhas em $X$.
+É possível perceber que o problema apresentado compacta a matriz $X$ em duas outras matrizes: a matriz $U$, de dimensão $n$ por $k$ que contém apenas valores binários, e fará a associação de cada linha de $X$ com um dos $k$ grupos; e a matriz $C$, de dimensão $k$ por $m$, que será uma base para representação das linhas em $X$.
 Portanto, a compactação transformará os $nm$ elementos originais em $n + km$ novos elementos, desconsiderando os zeros da matriz $U$.
 
 A implementação para o problema~\ref{def:kmeans:problem} apresentado é descrito no algoritmo~\ref{algo:kmeans}~\cite{Peres2012,Han2011,Bottou95}, o qual é baseado no algoritmo de EM (Esperança-Maximização - \textit{Expectation-Maximization}) e tem sua convergência para um mínimo local demonstrada (veja em~\citeonline{Bottou95}).
-Nesse algoritmo considere os índices $i = \{1, \dots, n\}$ e $p = p' = \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, e $\norm{ \cdot }^2$ é a norma frobenius para vetores.
+Nesse algoritmo considere os índices $i = \{1, \dots, n\}$ e $p = p' = \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\norm{ \cdot }^2$ é a norma de Frobenius para vetores.
 
 \begin{algorithm}
 \caption{Algoritmo \textit{k-means}}
 \label{algo:kmeans}
     \begin{algorithmic}[1]
-        \Function{k-means}{$X$, $t_{max}$, $k$}
+        \Function{k-means}{$X$, $k$, $t_{max}$}
             \State \textbf{Inicialize:} $U^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} u_{ip} = 1, \forall i$, $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
-            \While{(não convergiu) ou ($t \leq t_{max}$)}
+            \While{(não convergiu) e ($t \leq t_{max}$)}
                 \State
                     \begin{equation}
                     \label{eq:kmeans:updateU}
@@ -1186,13 +1204,13 @@ Nesse algoritmo considere os índices $i = \{1, \dots, n\}$ e $p = p' = \{1, \do
     \end{algorithmic}
 \end{algorithm}
 
-A inicialização dos elementos das matrizes $U$, $S$ e $V$ são gerados através de uma distribuição uniforme que ignora zeros ($\mathcal{U}(0, 1) \in~]0, 1]$).
 Como condições para assumir a convergência, neste trabalho, considera-se a diferença do erro de aproximação em duas iterações consecutivas menor ou igual a um $\epsilon$:
-$$\norm{X - U^{(t)} C^{(t)}}^{2}_{F} - \norm{X - U^{(t+1)} C^{(t+1)}}^{2}_{F} \leq \epsilon$$.
+$$\norm{X - U^{(t)} C^{(t)}}^{2}_{F} - \norm{X - U^{(t+1)} C^{(t+1)}}^{2}_{F} \leq \epsilon$$
 O algoritmo também pára caso a $t$-ésima iteração seja igual ao número máximo de iterações ($t_{max}$).
 Note que o particionamento é direto, analisando a matriz $U$.
 
-Ainda, a atualização de $C$ também pode ser derivada de forma matricial, expandindo a função apresentada no problema~\ref{def:kmeans:problem} e derivando em relação à $C$, usando as relações definidas na seção~\ref{subsec:matrixcalculus}, é possível chegar na seguinte formulação que é equivalente à apresentada no algoritmo~\ref{algo:kmeans}~\cite{Bauckhage2015}:
+Ainda, a atualização de $C$ também pode ser derivada de forma matricial, expandindo a função apresentada no problema~\ref{def:kmeans:problem} e derivando em relação à $C$, usando as relações definidas na seção~\ref{subsec:matrixcalculus}.
+Assim, obtem-se a seguinte formulação, que é equivalente à apresentada no algoritmo~\ref{algo:kmeans}~\cite{Bauckhage2015}:
 \[
     C = (U^T U)^{-1} U^T X
 \]
@@ -1200,30 +1218,31 @@ Ainda, a atualização de $C$ também pode ser derivada de forma matricial, expa
 O algoritmo \textit{k-means} tem complexidade de tempo $\mathcal{O}(t_{max} nmk)$.
 Isso mostra a escalabilidade do algoritmo para grandes bases de dados, ou seja, matrizes com $n$ e/ou $m$ grandes~\cite{Han2011}.
 
-Outro problema semelhante ao \textit{k-means} é o \textit{fuzzy k-means}, o qual, ao invés de colocar que cada dado pertence única e exclusivamente à um grupo, cado dado pertencerá à um grupo com um fator de pertinência.
-Então, a matriz $U$ será a matriz responsável por conter a pertinência de cada dado (ou linha) de $X$, com um dos $k$ cada grupos.
+Outro problema semelhante ao \textit{k-means} é o \textit{fuzzy k-means}, o qual, ao invés de restringir a pertinência de cada dado à exclusivamente um grupo, permite que o dado pertença à diferentes grupos com diferentes graus de pertinência.
+Então, a matriz $U$ será a matriz responsável por armazenar a pertinência de cada dado (ou linha) de $X$, à cada um dos $k$ grupos.
 
-O problema de otimização do erro de quantização, com a finalidade da resolução da tarefa de agrupamento (\textit{fuzzy k-means}), é apresentado formalmente em~\ref{def:kmeans:problem}~\cite{Bezdek1981,Peres2012,Ding05}.
+O problema de otimização do erro de quantização, com a finalidade da resolução da tarefa de agrupamento (\textit{fuzzy k-means}), é apresentado formalmente no problema~\ref{def:kmeans:problem}~\cite{Bezdek1981,Peres2012,Ding05}.
 
-\begin{problem}[Problema de \textit{Fuzzy K-means}]
+\begin{problem}[Problema de \textit{fuzzy k-means}]
 \label{def:fkmeans:problem}
 \begin{equation}
     \begin{array}{lclcl}
-        \displaystyle \mathcal{F}_2(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^w \norm{\mathbf{x_{i \cdot} - \mathbf{c_{i \cdot}}}}^2 \\
+        \displaystyle \mathcal{F}_2(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^w \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 \\
                                           &   & \text{suj. a}                & U \in \mathbb{R}^{n \times k}, \\
-                                          &   &                              & C \in \mathbb{R}^{k \times m}
+                                          &   &                              & C \in \mathbb{R}^{k \times m}, \\
+                                          &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
     \end{array} \nonumber
 \end{equation}
 \end{problem}
+em que $w \in [1, 2, \dots, \infty]$.
+O expoente $w$ é chamado de parâmetro de ``fuzificação'', e tem a função de controlar a relação de pertinência de um dado entre os $k$ grupos, isto é, pode se dizer que o parâmetro controla a ortogonalidade dos grupos, quanto maior o seu valor, menor a ortogonalidade entre grupos.
+Isso pode ser percebido, observando a análise de limite de $w$ na função de atualização de $U$, realizada em~\citeonline{Peres2012}.
 
-em que $w \in \{1, 2, \dots, \infty\}$ e $\sum_{p=1}^{k} u_{ip} = 1, \forall i$.
-
-O expoente $w$ é chamado de parâmetro de ``fuzificação'' e tem a função de controlar a relação de pertinência de um dado entre os $k$ grupos, isto é, o parâmetro controla a ortogonalidade dos grupos, quanto maior o seu valor, menor a ortogonalidade entre grupos. % Isso pode ser percebido, observando a análise de limite de $w$ na função de atualização de $U$, realizada em \citeonline{Peres2012}
 Se $w = 2$ é possível modificar o problema~\ref{def:fkmeans:problem} tal que seja possível observá-lo sob uma ótica de fatoração de matrizes, que tem o objetivo de aproximar $X$ das matrizes $U$ e $C$, assim como no \textit{k-means}: $X \approx UC$.
 O problema~\ref{def:fkmeans:problem} é apresentado com $w = 2$ para obtenção da ótica de fatoração de matrizes~\cite{Ding05}:
 \[
 \begin{array}{lclcl}
-    \displaystyle \mathcal{F}_{2}^{w=2}(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^2 \norm{\mathbf{x_{i \cdot} - \mathbf{c_{i \cdot}}}}^2 = \min_{U, C} & \norm{X - UC}^{2}_{F} \\
+    \displaystyle \mathcal{F}_{2}^{w=2}(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^2 \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 = \min_{U, C} & \norm{X - UC}^{2}_{F} \\
                                               &   & \text{suj. a}                & U \in \mathbb{R}^{n \times k}, \\
                                               &   &                              & C \in \mathbb{R}^{k \times m}, \\
                                               &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
@@ -1233,21 +1252,21 @@ O problema~\ref{def:fkmeans:problem} é apresentado com $w = 2$ para obtenção 
 Da mesma forma que o \textit{k-means}, o \textit{fuzzy k-means} compacta os dados de $X$, sendo um mapeamento de $nm$ elementos para $nk + km$ elementos.
 Então, teoricamente, o \textit{fuzzy k-means} é capaz de preservar mais informações do que o \textit{k-means}.
 
-A implementação para o problema~\ref{def:fkmeans:problem} apresentado é descrito no algoritmo~\ref{algo:fkmeans}~\cite{Peres2012,Ding05,Bezdek1981}, o qual é baseado no algoritmo \textit{k-means} juntamente com a teoria de conjuntos fuzzy e tem sua convergência para um mínimo local demonstrada via teoria de otimização não linear (veja em~\citeonline{Bezdek1981}).
-Nesse algoritmo considere os índices $i = \{1, \dots, n\}$ e $p = p' = \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, e $\norm{ \cdot }^2$ é a norma frobenius para vetores.
+A implementação para o problema~\ref{def:fkmeans:problem} é descrita no algoritmo~\ref{algo:fkmeans}~\cite{Peres2012,Ding05,Bezdek1981}, o qual é baseado na combinação do algoritmo \textit{k-means} com conceitos da teoria de conjuntos fuzzy e tem sua convergência para um mínimo local demonstrada via teoria de otimização não linear (veja em~\citeonline{Bezdek1981}).
+Nesse algoritmo considere os índices $i \in \{1, \dots, n\}$ e $p = p' \in \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\norm{ \cdot }^2$ é a norma de Frobenius para vetores.
 Ainda, a mesma condição de convergência aplicada ao algoritmo~\ref{algo:kmeans} pode ser aplicada para este algoritmo.
 
 \begin{algorithm}
 \caption{Algoritmo \textit{fuzzy k-means}}
 \label{algo:fkmeans}
     \begin{algorithmic}[1]
-        \Function{fuzzyk-means}{$X$, $t_{max}$, $k$}
+        \Function{fuzzy k-means}{$X$, $k$, $t_{max}$}
             \State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1)~|~\sum_{p=1}^{k} u_{ip} = 1, \forall i$, $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
-            \While{(não convergiu) ou ($t \leq t_{max}$)}
+            \While{(não convergiu) e ($t \leq t_{max}$)}
                 \State
                     \begin{equation}
                     \label{eq:fkmeans:updateU}
-                        (U^{(t+1)})_{ip} \gets \Bigg[ \sum_{p'=1}^k \bigg( \frac{\norm{\mathbf{x}_{i \cdot} - \mathbf{c}_{p \cdot}}}{\norm{\mathbf{x}_{i \cdot} - \mathbf{c}_{p' \cdot}}} \bigg)^{\frac{1}{w - 1}} \Bigg]^{-1}, \forall i,p
+                        (U^{(t+1)})_{ip} \gets \Bigg[ \sum_{p'=1}^k \bigg( \frac{\norm{\mathbf{x}_{i \cdot} - \mathbf{c}_{p \cdot}}}{\norm{\mathbf{x}_{i \cdot} - \mathbf{c}_{p' \cdot}}} \bigg)^{\frac{1}{w - 1}} \Bigg]^{-1}, \forall i,p \nonumber
                     \end{equation}
                 \State
                     \begin{equation}
@@ -1264,117 +1283,113 @@ Ainda, a mesma condição de convergência aplicada ao algoritmo~\ref{algo:kmean
 
 Note que como $U$ possui valores no domínio dos reais, não é possível obter as partições diretamente, sem um processo de pós-processamento.
 Um método de pós-processamento, é o seguinte:
-$$\mathcal{K}_p = \mathcal{K}_p + \{ x_{i \cdot} \}~|~p = \argmax_{p'} \mathbf{u}_{i \cdot}~\forall i = \{1, \dots, n\}, \forall p, p' = \{1, \dots, k\}$$
+$$\mathcal{K}_{p} = \{ x_{i\cdot}~|~i \in \{1,\ldots,n\} \text{ e } p = \argmax_{p'\in\{1, \dots, k\}} u_{ip'} \}, \forall p \in \{1, \dots, k\}$$
 
-Isso significa que uma linha $i$ pertencerá a um grupo $p$ (ou partição) se para todos os $k$ grupos, o fator $u_{ip}$ for maior que todos os outros fatores para os outros grupos, presentes no vetor $\mathbf{u}_{i \cdot}$.
+Isso significa que uma linha $i$ pertencerá a um grupo $p$ (ou partição) se para todos os $k$ grupos, o grau de pertinência $u_{ip}$ for maior que todos os outros graus de pertinência para os outros grupos, presentes no vetor $\mathbf{u}_{i \cdot}$. Analisando a complexidade de tempo do algoritmo é possível chegar em: $\mathcal{O}( t_{max} nmk^2 )$.
 
-Analisando a complexidade de tempo do algoritmo é possível chegar em: $\mathcal{O}( t_{max} nmk^2 )$.
-
-Além dos algoritmos apresentados, existem outros que buscam resolver diferentes tipos de problemas dentro da área de Agrupamento, como agrupamento por densidade, agrupamento hierárquico, agrupamento baseado em grade e agrupamento baseado em modelos~\cite{Han2011}.
+Além dos algoritmos apresentados, existem outros que buscam resolver diferentes tipos de problemas dentro da área de agrupamento, como agrupamento por densidade, agrupamento hierárquico, agrupamento baseado em grade e agrupamento baseado em modelos~\cite{Han2011}.
 
 \subsection{Validação de Agrupamento}
 \label{sec:clustering:eval}
 
-Para determinar parâmetros, descobrir a capacidade ou estabilidade de um agrupamento encontrado, é necessário estabelecer métricas de avaliação.
-Então, o tema de validação do agrupamento gerado por um algoritmo se torna importante.
-Como neste trabalho são feitas comparações entre diversos algoritmos quanto às suas capacidades de agrupamento, os métodos e métricas estudados na área de validação de agrupamento trazem recursos e ferramentas para tornar possível análises quantitativas, considerando os resultados de agrupamento desses algoritmos.
+Para avaliar a qualidade de um agrupamento obtido a partir da execução de um algoritmo, e consequentemente, avaliar a adequabilidade dos parâmetros usados nesse algoritmo, a capacidade de agrupamento ou a estabilidade do processo por ele executado, é necessário fazer uso de métricas de validação (ou avaliação).
+Como neste trabalho são feitas comparações entre diversos algoritmos quanto às suas capacidades de agrupamento, os métodos e métricas estudados na área de validação de agrupamento precisam ser estudados, pois trazem recursos e ferramentas que tornam possíveis análises quantitativas, considerando os resultados de agrupamento desses algoritmos.
 
-\citeonline{Halkidi2002a,Halkidi2002b} propõem a seguinte taxonomia para métricas de validação de agrupamento: \textit{interna}, utilizando apenas o resultado de um agrupamento gerado, estabelece métricas de qualidade ou estabilidade, para avaliar as soluções geradas; \textit{externa}, tem como entrada para as métricas duas informações, o particionamento real dos dados, rotulado de forma manual, e o resultado de um agrupamento gerado, muitas vezes, verificando como essas duas informações se relacionam; e \textit{relativa}, utilizando diferentes soluções geradas por um mesmo algoritmo diante de diferentes parametrizações, estabelece métricas para encontrar a melhor solução das disponíveis, comparando as diferentes soluções geradas.
+\citeonline{Halkidi2002a, Halkidi2002b} propõem a seguinte taxonomia para métricas de validação de agrupamento: \textit{validação interna}, que utiliza apenas o resultado de um agrupamento gerado para estabelecer métricas de qualidade ou estabilidade, permitindo avaliar as soluções geradas; \textit{validação externa}, tem como entrada para o cálculo das medidas dois tipos de informação: o particionamento real dos dados, e o resultado de um agrupamento gerado, essas informações são usadas para verificar o quanto o agrupamento gerado corresponde ao particionamento real; e \textit{validação relativa}, que analisa diferentes soluções geradas por um mesmo algoritmo diante de diferentes parametrizações e estabelece métricas para encontrar a melhor solução dentre as soluções disponíveis.
 
-Neste trabalho, são utilizadas apenas métricas de validação externa, para validar a capacidade de agrupamento dos diferentes algoritmos apresentados.
-Dentre as muitas métricas de validação externa presentes na literatura~\cite{Halkidi2002a,Halkidi2002b}, foram escolhidas as métricas Índice de Rand Ajustado ($\text{\textit{RI}}$ - \textit{Rand Index})~\cite{Rand1971} e Informação Mútua Normalizada ($\text{\textit{NMI}}$ - \textit{Normalized Mutual Information}).
+Neste trabalho, são utilizadas apenas métricas de validação externa para validar a capacidade de agrupamento dos diferentes algoritmos apresentados.
+Dentre as muitas métricas de validação externa presentes na literatura~\cite{Halkidi2002a,Halkidi2002b}, foram escolhidas as métricas Índice de Rand ($\text{\textit{RI}}$ - \textit{Rand Index})~\cite{Rand1971} e Informação Mútua Normalizada ($\text{\textit{NMI}}$ - \textit{Normalized Mutual Information}).
 
 O RI gera valores entre $0$ e $1$, com $0$ indicando que o particionamento de dados gerado por um algoritmo não concorda em nenhum par de elementos com o particionamento real e $1$ indicando que o particionamento gerado pelo mesmo algoritmo, é exatamente igual ao particionamento real.
 
 Considere que um algoritmo encontrou um particionamento denotado pelo conjunto $\mathscr{\widetilde{K}} = \{\mathcal{\widetilde{K}}_1, \dots, \mathcal{\widetilde{K}}_k\}$ com $\widetilde{k}$ grupos, sendo $\mathcal{\widetilde{K}}_p, \forall p = \{1, \dots, \widetilde{k}\}$ um subconjuto que contém elementos pertencentes ao $p$-ésimo grupo.
-Também, o particionamento real, rotulado previamente, para comparação com o particionamento gerado por este algoritmo: $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ com $k$ grupos.
-Assim, é possível fazer a seguinte definição, sendo os dados as linhas da matriz de dados $X$, denotado pelo conjunto $\mathcal{N}$:
+Considere também, o particionamento real: $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ com $k$ grupos.
+Então, determine as seguintes quantidades, sendo os dados as linhas da matriz de dados $X$ denotado pelo conjunto $\mathcal{N}$:
 \begin{itemize}
     % \item a: quantidade de pares de elementos (elementos distintos) para os quais os elementos pertencem a uma mesma partição no particionamento gerado e a uma mesma partição no particionamento real;
     % \item b: quantidade de pares de elementos (elementos distintos) para os quais os elementos pertencem a uma mesma partição no particionamento gerado e a partições diferentes no particionamento real;
     % \item c: quantidade de pares de elementos (elementos distintos) para os quais os elementos pertencem à partições diferentes no particionamento gerado e a uma mesma partição no particionamento real;
     % \item d: quantidade de pares de elementos para os quais os elementos pertencem à partições diferentes no particionamento gerado e a partições diferentes no particionamento real.
-    \item $a$: quantidade de pares de dados em $\mathcal{N}$ que estão nos mesmos conjuntos em $\mathscr{K}$ e também nos mesmos conjuntos em $\mathscr{\widetilde{K}}$;
-    \item $b$: quantidade de pares de dados em $\mathcal{N}$ que estão em diferentes conjuntos em $\mathscr{K}$ e também estão em diferentes conjuntos em $\mathscr{\widetilde{K}}$;
-    \item $c$: quantidade de pares de dados em $\mathcal{N}$ que estão nos mesmos conjuntos em $\mathscr{K}$ e em diferentes conjuntos em $\mathscr{\widetilde{K}}$;
-    \item $d$: quantidade de pares de dados em $\mathcal{N}$ que estão em diferentes conjuntos em $\mathscr{K}$ e estão nos mesmos conjuntos em $\mathscr{\widetilde{K}}$.
+    \item $a$: quantidade de pares de dados em $\mathcal{N}$ que estão nos mesmos subconjuntos em $\mathscr{K}$ e também nos mesmos subconjuntos em $\mathscr{\widetilde{K}}$;
+    \item $b$: quantidade de pares de dados em $\mathcal{N}$ que estão em diferentes subconjuntos em $\mathscr{K}$ e também estão em diferentes subconjuntos em $\mathscr{\widetilde{K}}$;
+    \item $c$: quantidade de pares de dados em $\mathcal{N}$ que estão nos mesmos subconjuntos em $\mathscr{K}$ e em diferentes subconjuntos em $\mathscr{\widetilde{K}}$;
+    \item $d$: quantidade de pares de dados em $\mathcal{N}$ que estão em diferentes subconjuntos em $\mathscr{K}$ e estão nos mesmos subconjuntos em $\mathscr{\widetilde{K}}$.
 \end{itemize}
 
-Note então, que $a$ e $b$ denotam que o resultado de particionamento do algoritmo esta de acordo com o particionamento real ou verdadeiro, e $c$ e $d$ denotam que o particionamento resultante do algoritmo não esta de acordo com o particionamento real.
+Note então, que $a$ e $b$ denotam que o resultado de particionamento do algoritmo esta de acordo com o particionamento real, e $c$ e $d$ denotam que o particionamento resultante do algoritmo não esta de acordo com o particionamento real.
 
-Sendo assim, o Índice de Rand ($\text{\textit{RI}}$) pode ser definido pela fração com que o particionamento obtido esta de acordo com o particionamento real dado todos os outros casos:
+Sendo assim, o Índice de Rand ($\text{\textit{RI}}$) pode ser definido pela fração com que o particionamento obtido esta de acordo com o particionamento real, da seguinte forma:
 \[
     \text{\textit{RI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{a + b}{a + b + c + d}
 \]
 
 A métrica de validação externa, $\text{\textit{NMI}}$, tem efeito semelhante ao RI~\cite{Manning2008}.
-Utilizando a mesma notação, essa métrica é baseada na Informação Mútua (MI - \textit{Mutual Information}) entre o resultado de particionamento de um algoritmo ($\mathscr{\widetilde{K}}$) e o particionamento real ($\mathscr{K}$), gera valores entre $0$ e $1$, com $0$ indicando que não há informação mútua entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$, e $1$ indicando correlação perfeita entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$.
-
-Sendo $\text{\textit{MI}}$ definido como:
+Utilizando a mesma notação, essa métrica é baseada na Informação Mútua (MI - \textit{Mutual Information}) entre o resultado de particionamento de um algoritmo ($\mathscr{\widetilde{K}}$) e o particionamento real ($\mathscr{K}$), e gera valores entre $0$ e $1$, com $0$ indicando que não há informação mútua entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$, e $1$ indicando correlação perfeita entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$.
+Então $\text{\textit{MI}}$ é definido da seguinte forma:
 \[
     \text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \displaystyle \sum_{p=1}^k \sum_{p'=1}^{\widetilde{k}} \frac{|\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{n} \log \frac{n |\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{|\mathcal{K}_p| |\mathcal{\widetilde{K}}_{p'}|}
 \]
-
-E a entropia de um particionamento ($H(\cdot)$):
+A normalização de $\text{\textit{MI}}$ é realizada usando a entropia dos particionamentos.
+A entropia de um particionamento, $H(\cdot)$, é dada da seguinte forma:
 \[
     H(\mathscr{K}) = \displaystyle \sum_{p=1}^k \frac{\mathcal{K}_p}{n} \log \frac{\mathcal{K}_p}{n}
 \]
-
 Finalmente, a métrica $\text{\textit{NMI}}$ pode ser definida como:
 \[
     \text{\textit{NMI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{\text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}})}{\sqrt{H(\mathscr{K}) H(\mathscr{\widetilde{K}})}}
 \]
 
-Note então, que ambas as métricas têm capacidade de lidar com a caso em que a ordem do particionamento em $\mathscr{K}$ não corresponde com a ordem do particionamento em $\mathscr{\widetilde{K}}$.
+Note, então, que ambas as métricas têm capacidade de lidar com a caso em que a ordem do particionamento no subconjunto $\mathscr{K}$ não corresponde com a ordem do particionamento no subconjunto $\mathscr{\widetilde{K}}$.
 Além disso, ambas as métricas têm sido efetivas como um método de análise quantitativa na análise de qualidade de agrupamento entre diferentes algoritmos, principalmente no que diz respeito ao domínio de agrupamento de documentos~\cite{Kuang2014,Ho2008,Wang2011,Ding06,Xu2003,Yoo2010}.
 
 \section{Coagrupamento}
 \label{sec:coclustering}
 
-Grande parte dos estudos da área de Mineração de Dados é devotada ao estudo da tarefa de agrupamento~\cite{Han2011}, no entanto, ainda há muito estudo a ser realizado quando se considera dados com alta dimensionalidade e/ou quando se deseja interpretabilidade do agrupamento gerado por um algoritmo.
-Então, surge a ideia de analisar as características que tornam dados tão similares a ponto de poderem ser agrupados, daí surgem questões na utilização e definição de medidas que tem o poder de analisar essa similaridade baseada em partes, que analisa apenas parte das características.
-Assim, um dos primeiros trabalhos a pensar nesse tipo de problema foi apresentado em~\citeonline{Hartigan1972}, colocando métodos para agrupar dados baseando-se na análise de particionamento de dados e característica, além da análise dessas partições e taxonomia das diversas estruturas dessas partições.
+Grande parte dos esforços de pesquisa da área de mineração de dados é voltada ao estudo da tarefa de agrupamento~\cite{Han2011}, no entanto, ainda há muito estudo a ser realizado quando se considera dados com alta dimensionalidade e/ou quando se deseja interpretabilidade do agrupamento gerado por um algoritmo.
 
-Com o passar do tempo, esse problema foi se tornando mais recorrente no mundo real nas mais diferentes áreas, como Mineração de Textos, Mineração da Web, Bioinformática, Marketing, Ecologia, Arqueologia e Ciência da Computação~\cite{Govaert2013}.
-E hoje, o processo de agrupamento que se baseia na similaridade em partes das características, é chamado Coagrupamento ou Biagrupamento.
-O termo Biagrupamento é usado, principalmente, no contexto de expressão genética, enquanto o termo Coagrupamento é usado, principalmente, em aplicações de Mineração de Textos.
+Nesse contexto, faz-se interessante analisar de forma mais detalhada, as características que, dentre todas as disponíveis, tornam os dados mais similares entre si a ponto de poderem ser associados a um mesmo grupo.
+Mais do que isso, a ideia é saber se ao considerar apenas parte das características, um dado pode ser associado a um grupo diferente.
+Essa análise leva ao estudo de questões referentes a estratégias capazes de usar a similaridade baseada em partes, a qual analisa subconjuntos de características.
+Um dos primeiros trabalhos a tratar esse tipo de problema foi apresentado por~\citeonline{Hartigan1972}.
+Nesse trabalho, o autor apresenta métodos de agrupamento de dados que particionam tanto os dados quanto as características, a análise das partições e uma taxonomia referente às diversas estruturas que essas partições podem compor.
 
-Então, os algoritmos do processo de Coagrupamento são capazes de gerar grupos de dados levando em consideração todas as características, ou apenas as características que tem alta correlação \cite{Franca2010,Madeira2004}.
-Existem diversas maneiras de visualizar o problema de coagrupamento, a visão que mais se adequa à este trabalho é a de encontrar um particionamento de dados e características e relacionamento entre eles, que é definida com maiores detalhes no capítulo~\ref{ch:fatoracao}.
-Porém, uma visão importante é de encontrar submatrizes de uma matriz de dados.
-Formalizando esta visão e apresentando uma definição formal~\cite{Madeira2004}: considere uma matriz $X$, de dimensão $n \times m$, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$.
-O problema de Biagrupamento ou Coagrupamento, dentro desta visão, é encontrar cogrupos, que são submatrizes de $X$, denotados por $X_{\mathcal{K}_p \mathcal{L}_q}$, considerando $k$ subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, e os índices $p = \{ 1, \dots, k\}$ e $q = \{1, \dots, l\}$.
-Assim, o cogrupo $X_{\mathcal{K}_p \mathcal{L}_q}$ é um grupo dos dados em $\mathcal{K}_p$, perante as características com alta correlação em $\mathcal{L}_q$.
+Com o passar do tempo, esse problema foi se tornando mais presente em aplicações reais, nas mais diferentes áreas, como Mineração de Textos, Mineração da Web, Bioinformática, Marketing, Ecologia, Arqueologia e Ciência da Computação~\cite{Govaert2013}.
+E hoje, o processo de agrupamento que se baseia na similaridade baseada em partes das características é conhecido como coagrupamento ou biagrupamento.
+O termo biagrupamento é usado principalmente no contexto de expressão genética, enquanto o termo Coagrupamento é usado principalmente em aplicações de mineração de texto.
 
-Essa visão do problema de coagrupamento pode ser ilustrado na figura~\ref{fig:bicluster-exp}, onde se tem um conjunto de dados que possui as linhas (dados) $\{\mathbf{x}_{1 \cdot}, \mathbf{x}_{2 \cdot}, \mathbf{x}_{2 \cdot}, \mathbf{x}_{4 \cdot}, \mathbf{x}_{5 \cdot}$ e $\mathbf{x}_{6 \cdot}$ que são representados pelas colunas (características) $\mathbf{x}_{1 \cdot}, \mathbf{x}_{\cdot 2}, \mathbf{x}_{\cdot 3}, \mathbf{x}_{\cdot 4}, \mathbf{x}_{\cdot 5}$ e $\mathbf{x}_{\cdot 6}$, onde $n,m = 6$.
-Na Figura~\ref{fig:bicluster-exp} também estão ilustrados dois cogrupos hipotéticos: o primeiro formado pelas linhas $\mathbf{x}_{5 \cdot}$ e $\mathbf{x}_{6 \cdot}$ e todos os atributos ($\mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot 6}$), representando um cogrupo com \textit{modelo global}; e o segundo formado pelos objetos $\mathbf{x}_{2 \cdot}, \mathbf{x}_{3 \cdot}, \mathbf{x}_{4 \cdot}$ e $\mathbf{x}_{5 \cdot}$ e atributos $\mathbf{x}_{\cdot 4}, \mathbf{x}_{\cdot 5}$ e $\mathbf{x}_{\cdot 6}$, representando um cogrupo com \textit{modelo local}, que leva em consideração apenas um subconjunto dos atributos.
+Os algoritmos do processo de coagrupamento são capazes de gerar grupos de dados levando em consideração todas as características, ou apenas algumas características~\cite{Franca2010,Madeira2004}.
+Existem diversas maneiras de visualizar o problema de coagrupamento, uma visão importante é de encontrar submatrizes de uma matriz de dados.
+Formalizando esta visão e apresentando uma definição formal~\cite{Madeira2004}: tem-se uma matriz $X$, de dimensão $n \times m$, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$.
+O problema de coagrupamento, dentro desta visão, é encontrar cogrupos, que são submatrizes de $X$, denotados por $X_{\mathcal{K}_p \mathcal{L}_q}$, considerando $k$ subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, e os índices $p = \{ 1, \dots, k\}$ e $q = \{1, \dots, l\}$.
+Assim, o cogrupo $X_{\mathcal{K}_p \mathcal{L}_q}$ é um grupo dos dados em $\mathcal{K}_p$, perante as características em $\mathcal{L}_q$.
+
+Essa visão do problema de coagrupamento está ilustrada na figura~\ref{fig:bicluster-exp}, na qual é apresentado um conjunto de dados que possui as linhas (dados) $\mathbf{x}_{1 \cdot}, \mathbf{x}_{2 \cdot}, \mathbf{x}_{2 \cdot}, \mathbf{x}_{4 \cdot}, \mathbf{x}_{5 \cdot}$ e $\mathbf{x}_{6 \cdot}$ que são representados pelas colunas (características) $\mathbf{x}_{1 \cdot}, \mathbf{x}_{\cdot 2}, \mathbf{x}_{\cdot 3}, \mathbf{x}_{\cdot 4}, \mathbf{x}_{\cdot 5}$ e $\mathbf{x}_{\cdot 6}$, sendo $n,m = 6$.
+Na figura~\ref{fig:bicluster-exp} também estão ilustrados dois cogrupos hipotéticos: o primeiro formado pelas linhas $\mathbf{x}_{5 \cdot}$ e $\mathbf{x}_{6 \cdot}$ e todos os atributos $\mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot 6}$, representando um cogrupo com \textit{modelo global}; e o segundo formado pelos objetos $\mathbf{x}_{2 \cdot}, \mathbf{x}_{3 \cdot}, \mathbf{x}_{4 \cdot}$ e $\mathbf{x}_{5 \cdot}$, e as características $\mathbf{x}_{\cdot 4}, \mathbf{x}_{\cdot 5}$ e $\mathbf{x}_{\cdot 6}$, representando um cogrupo com \textit{modelo local}, que leva em consideração apenas um subconjunto dos atributos.
 
 \begin{figure}[H]
 \centering
     \caption{Conjunto de dados com dois cogrupos}
-    \includegraphics[width=0.35\textwidth]{img/bicluster.png}
+    \includegraphics[width=0.55\textwidth]{img/bicluster.png}
     \label{fig:bicluster-exp}
 \source{Adaptado de \citeonline{Madeira2004}}
 \end{figure}
 
-% lembrar de inserir informação sobre two-way clustering e FCA - conforme informação passada pelo Fabrício no email.
-
-Como a definição apresentada não inclui uma prévia estrutura da matriz $X$ e dos cogrupos $X_{\mathcal{K}_p \mathcal{L}_q}$, os algoritmos propostos na literatura diferem quanto ao tipo de cogrupo que são capazes de encontrar.
+Como a definição apresentada não inclui uma estrutura a priori da matriz $X$ e dos cogrupos $X_{\mathcal{K}_p \mathcal{L}_q}$, os algoritmos propostos na literatura diferem quanto ao tipo de cogrupo que são capazes de encontrar.
 Uma taxonomia dos tipos de cogrupos é proposta por~\citeonline{Madeira2004}:
  \begin{itemize}
  %  \item \textit{Cogrupos com valores constantes}, se trata de cogrupos em que todos os valores de são constantes: $\mu_{pq} \in X_{\mathcal{K}_p \mathcal{L}_q}, \forall p, q$, onde $\mu_{pq}$ é um valor constante para um cogrupo. Porém, em conjuntos de dados reais, esses cogrupos estão presentes com algum tipo de ruído $\mu_{pq} + \eta$, onde $\eta$ é o ruído associado com os valores de $\mu_{pq}$;
  %  \item \textit{Cogrupos com valores constantes nas linhas ou colunas}, se trata de cogrupos com valores constantes nas linhas: $\mathbf{\mu}_{p \cdot} + \alpha_p \in X_{\mathcal{K}_p \mathcal{L}_q}$ ou $\mathbf{\mu}_{p \cdot} \alpha_p \in X_{\mathcal{K}_p \mathcal{L}_q}$, onde $\alpha_p$ é um fator aditivo ou multiplicativo para cada linha; ou ainda cogrupos com valores constantes nas colunas: $\mathbf{\mu}_{\cdot q} + \beta_q \in X_{\mathcal{K}_p \mathcal{L}_q}$ ou $\mathbf{\mu}_{\cdot q} \beta_q \in X_{\mathcal{K}_p \mathcal{L}_q}$, onde $\beta_jq$ é um fator aditivo ou multiplicativo para cada coluna;
  %  \item \textit{Cogrupos com valores coerentes}, em que são considerados valores próximos entre si (coerentes) para definição de um cogrupo: $a_{ij} = \mu + \alpha_i + \beta_j, \forall i,j \in I,J$, ou $a_{ij} = \mu' \cdot \alpha_i' \cdot \beta_j', \forall i,j \in I,J$, sendo que se $\mu = \log \mu'\implies \alpha_i = \alpha_i', \beta_j = \beta_j'$;
  %  \item \textit{Cogrupos com evoluções coerentes} têm seus valores com evoluções coerentes, por exemplo, um cogrupo com $x_{i4} \leq x_{i3} \leq x_{i2} \leq x_{i1}$ tem valores com evolução coerente na coluna. Seus valores podem ser gerados por uma função geradora de valores com evolução coerente $x_{ij} = g(a_{ij}), \forall i,j \in I,J$, sendo $g(\cdot)$ não linear e não constante, para que o tipo de cogrupo não seja classificado nos casos anteriores. \textcolor{green}{(Muito estranho $a=g(a)$, pois $g()$ deveria ser a identidade)}
-    \item \textit{Cogrupos com valores constantes};
-    \item \textit{Cogrupos com valores constantes nas linhas ou colunas};
-    \item \textit{Cogrupos com valores coerentes};
-    \item \textit{Cogrupos com evoluções coerentes}.
+    \item Cogrupos com valores constantes.
+    \item Cogrupos com valores constantes nas linhas ou colunas.
+    \item Cogrupos com valores coerentes.
+    \item Cogrupos com evoluções coerentes.
  \end{itemize}
 
 Os cogrupos também diferem quanto as suas estruturas.
-Cada algoritmo usado para implementar Coagrupamento faz uma suposição da estrutura de cogrupos que é capaz de encontrar.
-A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de cogrupos, com as linhas e colunas ordenadas para permitir a visualização dos cogrupos por meio de cada retângulo em cada uma das nove matrizes apresentadas.
+Cada algoritmo usado para implementar coagrupamento faz uma suposição da estrutura de cogrupos que é capaz de encontrar.
+A figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de cogrupos, com as linhas e colunas ordenadas para permitir a visualização dos cogrupos por meio de cada retângulo em cada uma das nove matrizes apresentadas.
 
 \begin{figure}[H]
 \centering
@@ -1385,23 +1400,24 @@ A Figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de cogrupos, com 
 \end{figure}
 
 É possível nomear cada uma das estruturas apresentadas na figura~\ref{fig:bicstruct}, considerando as imagens da esquerda para a direita em linha: 1) único cogrupo; 2) cogrupos com linhas e colunas exclusivas; 3) cogrupos com estrutura em xadrez; 4) cogrupos com linhas exclusivas e sobreposição nas colunas; 5) cogrupos com colunas exclusivas e sobreposição nas linhas; 6) cogrupos com estrutura em árvore; 7) cogrupos não exclusivos sem sobreposição; 8) cogrupos com sobreposição e estrutura hierárquica; 9) cogrupos arbitrariamente posicionados.
-No capítulo~\ref{ch:experiments} são mostrados experimentos considerando dados sintéticos baseados nessas estruturas, com ênfase às estruturas que apresentam cogrupos com sobreposição e provendo mais detalhes dessas estruturas.
+No capítulo~\ref{ch:experiments} são mostrados experimentos considerando dados sintéticos baseados nessas estruturas, com ênfase nas estruturas que apresentam cogrupos com sobreposição e provendo mais detalhes sobre essas estruturas.
 
 Diversos algoritmos para encontrar cogrupos, de diferentes tipos e estruturas, foram propostos na literatura \cite{Tanay2005,Madeira2004}.
 
 Um dos algoritmos mais simples para a resolução da tarefa de Coagrupamento, que é capaz de encontrar cogrupos com valores coerentes em estrutura com sobreposição e arbitrariamente posicionados, é chamado de \textit{Coupled Two-way Clustering} (CTWC)~\cite{Getz2000}.
-O algoritmo CTWC é capaz de encontrar cogrupos através da agrupamento de dados e atributos (linhas e colunas), separadamente.
+O algoritmo CTWC é capaz de encontrar cogrupos por meio do agrupamento de dados e atributos (linhas e colunas), separadamente.
 \citeonline{Getz2000} utiliza o algoritmo de agrupamento \textit{Superparamagnetic Clustering} (SPC), o qual é capaz de determinar o número de grupos automaticamente com uma estratégia de agrupamento hierárquica.
 
 Já o algoritmo de~\citeonline{Cheng2000} é capaz de encontrar o mesmo tipo de cogrupo que o algoritmo CTWC, porém usando uma estratégia gulosa: cogrupos com valores coerentes e estrutura com sobreposição e arbitrariamente posicionados.
 Para encontrar cogrupos, ou $\delta$-cogrupos,~\citeonline{Cheng2000} usam uma estratégia gulosa que retira linhas e colunas de $X$, respeitando um parâmetro $\delta$, que é calibrado pelo usuário.
 
-Além dos algoritmos apresentados, existem outros algoritmos que são capazes de encontrar outros tipos de cogrupos~\cite{Franca20102,Yang2013,Hochreiter2010,Cabanes2012}.
+Além dos algoritmos mencionados, existem outros algoritmos que são capazes de encontrar outros tipos de cogrupos~\cite{Franca20102,Yang2013,Hochreiter2010,Cabanes2012}.
 
-Ainda, de forma semelhante à tarefa de agrupamento, existem métricas de avaliação da qualidade e estabilidade de cogrupos, que são separadas em duas das categorias também presentes em agrupamento \cite{Hochreiter2010}: \textit{interna} e \textit{externa}.
-No entanto, uma das formas de avaliar a qualidade e ou estabilidade é pela próprima medida de minimização de cada algoritmo, pode não ser tão efetiva quando medidas de avaliação, mas torna-se como uma alternativa.
+Ainda, de forma semelhante à tarefa de agrupamento, existem métricas de validação que propiciam a avaliação da qualidade e estabilidade de cogrupos, que são separadas em duas das categorias também presentes em agrupamento~\cite{Hochreiter2010}: \textit{interna} e \textit{externa}.
+Também, uma das formas de avaliar a qualidade e a estabilidade é pela própra medida de minimização de cada algoritmo, a qual pode não ser tão efetiva quando medidas de validação, mas apresenta-se como uma alternativa.
 
-Os resultados de pesquisa já construídos com essa visão da tarefa de coagrupamento, são usados neste trabalho, para ajudar na construção de conhecimento da visão em que o objetivo é encontrar partições de linhas e colunas de uma matriz de dados, apresentada com mais detalhes no capítulo~\ref{ch:fatoracao}, o próximo capítulo desta dissertação.
+Resultados de pesquisa apresentados na literatura da área, que fazem uso da visão de coagrupamento discutida, são usados neste trabalho.
+Detalhes destes resultados são apresentados, em detalhes, no capítulo~\ref{ch:fatoracao}.
 
 \chapter{Fatoração de matrizes não-negativas para coagrupamento}
 \label{ch:fatoracao}
@@ -1577,9 +1593,9 @@ Nesse algoritmo considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e 
 \caption{Algoritmo baseado em atualização multiplicativa para solução do BVD}
 \label{algo:bvd}
 \begin{algorithmic}[1]
-\Function{BVD}{$X$, $t_{max}$, $k$, $l$}
+\Function{BVD}{$X$, $k$, $l$, $t_{max}$}
 \State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \frac{1}{nm} \sum_{i, j} x_{ij}$ e $t \gets 0$.
-\While{(não convergiu) ou ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
+\While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
 \State
 \begin{equation}
 \label{eq:bvd:updateU}
@@ -1704,9 +1720,9 @@ Também, a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd
 \caption{Algoritmo baseado em atualização multiplicativa para solução do ONMTF}
 \label{algo:onmtf}
 \begin{algorithmic}[1]
-\Function{ONM3F}{$X$, $t_{max}$, $k$, $l$}
+\Function{ONM3F}{$X$, $k$, $l$, $t_{max}$}
 \State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
-\While{(não convergiu) ou ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
+\While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
 \State
 \begin{equation}
 \label{eq:onmtf:updateU}
@@ -1837,9 +1853,9 @@ Para tal afirmação,~\citeonline{Yoo2010} realizou um experimento que consistiu
 \caption{Algoritmo baseado em atualização multiplicativa e na teoria de de derivação na superfície com restrições (Variedade Stiefel) para solução do ONMTF}
 \label{algo:onmtf2}
 \begin{algorithmic}[1]
-\Function{ONMTF}{$X$, $t_{max}$, $k$, $l$}
+\Function{ONMTF}{$X$, $k$, $l$, $t_{max}$}
 \State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
-\While{(não convergiu) ou ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
+\While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
 \State
 \begin{equation}
 U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} S^{(t)} V^{(t)^T} X^T U^{(t)} } \nonumber
@@ -2029,9 +2045,9 @@ Também, as mesmas condições de convergência usada nos algoritmos anteriores 
 \caption{Algoritmo FNMTF}
 \label{algo:fnmtf}
 \begin{algorithmic}[1]
-\Function{FNMTF}{$X$, $t_{max}$, $k$, $l$}
+\Function{FNMTF}{$X$, $k$, $l$, $t_{max}$}
 \State \textbf{Inicialize:} $U^{(0)}, V^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1, \sum_{q=1}^{l} \mathbf{v}_{q \cdot} = 1$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
-\While{(não convergiu) ou ($t \leq t_{max}$)}
+\While{(não convergiu) e ($t \leq t_{max}$)}
 \State
 \begin{equation}
 \label{eq:fnmtf:updateS}
@@ -2349,9 +2365,9 @@ Nesse algoritmo $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)
 \caption{Algoritmo baseado em atualização multiplicativa para solução do OvNMTF}
 \label{algo:ovnmtf}
     \begin{algorithmic}[1]
-        \Function{OvNMTF}{$X$, $t_{max}$}
+        \Function{OvNMTF}{$X$, $k$, $l$, $t_{max}$}
             \State \textbf{Inicialize:} $U^{(0)} \geq \mathcal{U}(0,1), S^{(0)} \geq \mathcal{U}(0,1), V_{(p)}^{(0)} \geq \mathcal{U}(0,1), \forall p$ e $t \gets 0$.
-            \While{(não convergiu) ou ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
+            \While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
                 \State
                     \begin{equation}
                     \label{eq:ovnmtf:updateU}
@@ -2506,9 +2522,9 @@ Considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ 
 \caption{Algoritmo iterativo para solução do BinOvNMTF}
 \label{algo:binovbnmtf}
     \begin{algorithmic}[1]
-        \Function{BinOvNMTF}{$X$, $t_{max}$, $k$, $l$}
+        \Function{BinOvNMTF}{$X$, $k$, $l$, $t_{max}$}
             \State \textbf{Inicialize:} $U^{(0)} \geq 0, 1 ~|~ \sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$, $V_{(p)}^{(0)} \geq 0, 1 ~|~\sum_{q=1}^{l} \mathbf{v}_{(p)_{q \cdot}} = 1, \forall p$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
-            \While{(não convergiu) ou ($t \leq t_{max}$)}
+            \While{(não convergiu) e ($t \leq t_{max}$)}
                 \State
                     \begin{equation}
                     \label{eq:binovbnmtf:updateS}

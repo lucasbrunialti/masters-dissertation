@@ -5,6 +5,12 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
+\bibitem[Aloise et al. 2009]{Aloise2009}
+\abntrefinfo{Aloise et al.}{ALOISE et al.}{2009}
+{ALOISE, D. et al. Np-hardness of euclidean sum-of-squares clustering.
+\emph{Machine Learning}, v.~75, n.~2, p. 245--248, 2009.
+ISSN 1573-0565.}
+
 \bibitem[Bauckhage 2015]{Bauckhage2015}
 \abntrefinfo{Bauckhage}{BAUCKHAGE}{2015}
 {BAUCKHAGE, C. \emph{k-Means Clustering Is Matrix Factorization}. 2015.}
@@ -60,8 +66,7 @@ ISBN 0070131511.}
   algorithms for matrix-matrix multiplication. In:  \emph{Proceedings of the
   ACM SIGGRAPH/EUROGRAPHICS Conference on Graphics Hardware}. New York, NY,
   USA: ACM, 2004.  (HWWS '04), p. 133--137.
-ISBN 3-905673-15-0. Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/1058129\-.1058148$>$}{http://doi.acm.org/10.1145/1058129.1058148}.}
+ISBN 3-905673-15-0.}
 
 \bibitem[Franca 2010]{Franca2010}
 \abntrefinfo{Franca}{FRANCA}{2010}
@@ -70,9 +75,9 @@ ISBN 3-905673-15-0. Dispon{\'\i}vel em:
 Tese (Doutorado) --- Universidade Estadual de Campinas, Campinas, SP, BR, 11
   2010.}
 
-\bibitem[França e Zuben 2010]{Franca20102}
-\abntrefinfo{França e Zuben}{FRANçA; ZUBEN}{2010}
-{FRANçA, F. de; ZUBEN, F. V. Finding a high coverage set of 5-biclusters with
+\bibitem[Franca e Zuben 2010]{Franca20102}
+\abntrefinfo{Franca e Zuben}{FRANCA; ZUBEN}{2010}
+{FRANCA, F. de; ZUBEN, F. V. Finding a high coverage set of 5-biclusters with
   swarm intelligence. In:  \emph{Evolutionary Computation (CEC), 2010 IEEE
   Congress on}. [S.l.: s.n.], 2010. p.~1--8.}
 
@@ -111,7 +116,7 @@ ISBN 9781848214736.}
   VAZIRGIANNIS}{2002b}
 {HALKIDI, M.; BATISTAKIS, Y.; VAZIRGIANNIS, M. Clustering validity checking
   methods: Part ii.
-\emph{SIGMOD Rec.}, ACM, New York, NY, USA, v.~31, n.~3, p. 19--27, set. 2002.
+\emph{SIGMOD Rec.}, New York, NY, USA, v.~31, n.~3, p. 19--27, set. 2002.
 ISSN 0163-5808.}
 
 \bibitem[Han, Kamber e Pei 2011]{Han2011}
@@ -168,8 +173,7 @@ Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
 \bibitem[Lee e Seung 2000]{lee:nnmf00}
 \abntrefinfo{Lee e Seung}{LEE; SEUNG}{2000}
 {LEE, D.~D.; SEUNG, H.~S. Algorithms for non-negative matrix factorization. In:
-   \emph{{NIPS}}. [s.n.], 2000. p. 556--562. Dispon{\'\i}vel em:
-  $<$citeseer\-.ist\-.psu\-.edu\-/lee01algorithms\-.html$>$.}
+   \emph{NIPS}. [S.l.: s.n.], 2000. p. 556--562.}
 
 \bibitem[Li e Ding 2006]{Li2006}
 \abntrefinfo{Li e Ding}{LI; DING}{2006}
@@ -177,8 +181,7 @@ Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
   factorization methods for clustering. In:  \emph{Proceedings of the Sixth
   International Conference on Data Mining}. Washington, DC, USA: IEEE Computer
   Society, 2006.  (ICDM '06), p. 362--371.
-ISBN 0-7695-2701-9. Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/dx\-.doi\-.org\-/10\-.1109\-/ICDM\-.2006\-.160$>$}{http://dx.doi.org/10.1109/ICDM.2006.160}.}
+ISBN 0-7695-2701-9.}
 
 \bibitem[Long, Zhang e Yu 2005]{Long2005}
 \abntrefinfo{Long, Zhang e Yu}{LONG; ZHANG; YU}{2005}
@@ -202,9 +205,8 @@ ISBN 0-7695-2701-9. Dispon{\'\i}vel em:
 \bibitem[Magnus e Neudecker 1999]{Magnus1999}
 \abntrefinfo{Magnus e Neudecker}{MAGNUS; NEUDECKER}{1999}
 {MAGNUS, J.; NEUDECKER, H. \emph{Matrix Differential Calculus with Applications
-  in Statistics and Econometrics}. Wiley, 1999.
-ISBN 9780471986331. Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$https:\-/\-/books\-.google\-.com\-.br\-/books?id=0CXXdKKiIpQC$>$}{https://books.google.com.br/books?id=0CXXdKKiIpQC}.}
+  in Statistics and Econometrics}. [S.l.]: Wiley, 1999.
+ISBN 9780471986331.}
 
 \bibitem[Manning, Raghavan e Sch\"{u}tze 2008]{Manning2008}
 \abntrefinfo{Manning, Raghavan e Sch\"{u}tze}{MANNING; RAGHAVAN;
@@ -225,11 +227,8 @@ ISBN 0521865719, 9780521865715.}
 
 \bibitem[Petersen e Pedersen 2012]{Petersen2012}
 \abntrefinfo{Petersen e Pedersen}{PETERSEN; PEDERSEN}{2012}
-{PETERSEN, K.~B.; PEDERSEN, M.~S. \emph{The Matrix Cookbook}. Technical
-  University of Denmark, 2012.
-Version 20121115.
-Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/www2\-.imm\-.dtu\-.dk\-/pubdb\-/p\-.php?3274$>$}{http://www2.imm.dtu.dk/pubdb/p.php?3274}.}
+{PETERSEN, K.~B.; PEDERSEN, M.~S. \emph{The Matrix Cookbook}. [S.l.]: Technical
+  University of Denmark, 2012.}
 
 \bibitem[Rand 1971]{Rand1971}
 \abntrefinfo{Rand}{RAND}{1971}
@@ -237,13 +236,13 @@ Dispon{\'\i}vel em:
 \emph{Journal of the American Statistical Association}, v.~66, n.~336, p.
   846--850, December 1971.}
 
-\bibitem[Rocha et al.]{Peres2012}
-\abntrefinfo{Rocha et al.}{ROCHA et al.}{}
+\bibitem[Rocha et al. 2012]{Peres2012}
+\abntrefinfo{Rocha et al.}{ROCHA et al.}{2012}
 {ROCHA, T. et al. Tutorial sobre fuzzy-c-means e fuzzy learning vector
   quantization: Abordagens híbridas para tarefas de agrupamento e
   classificação.
 \emph{RITA - Revista de Informática Teórica e Aplicada}, v.~19, n.~1, p.
-  120--163, March.}
+  120--163, March 2012.}
 
 \bibitem[Salakhutdinov e Mnih 2008]{SalMnih08}
 \abntrefinfo{Salakhutdinov e Mnih}{SALAKHUTDINOV; MNIH}{2008}
@@ -297,10 +296,9 @@ Dispon{\'\i}vel em:
 \abntrefinfo{Wang et al.}{WANG et al.}{2011}
 {WANG, H. et al. Fast nonnegative matrix tri-factorization for large-scale data
   co-clustering. In:  \emph{Proceedings of the Twenty-Second International
-  Joint Conference on Artificial Intelligence - Volume Volume Two}. AAAI Press,
-  2011.  (IJCAI'11), p. 1553--1558.
-ISBN 978-1-57735-514-4. Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/dx\-.doi\-.org\-/10\-.5591\-/978-1-57735-516-8\-/IJCAI11-261$>$}{http://dx.doi.org/10.5591/978-1-57735-516-8/IJCAI11-261}.}
+  Joint Conference on Artificial Intelligence - Volume Volume Two}. [S.l.]:
+  AAAI Press, 2011.  (IJCAI'11), p. 1553--1558.
+ISBN 978-1-57735-514-4.}
 
 \bibitem[Wang et al. 2013]{openblas}
 \abntrefinfo{Wang et al.}{WANG et al.}{2013}
@@ -308,8 +306,7 @@ ISBN 978-1-57735-514-4. Dispon{\'\i}vel em:
   algebra kernels on x86 cpus. In:  \emph{Proceedings of the International
   Conference on High Performance Computing, Networking, Storage and Analysis}.
   New York, NY, USA: ACM, 2013.  (SC '13), p. 25:1--25:12.
-ISBN 978-1-4503-2378-9. Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/2503210\-.2503219$>$}{http://doi.acm.org/10.1145/2503210.2503219}.}
+ISBN 978-1-4503-2378-9.}
 
 \bibitem[Xu e Wunsch 2005]{Xu2005}
 \abntrefinfo{Xu e Wunsch}{XU; WUNSCH}{2005}
@@ -322,9 +319,8 @@ ISBN 978-1-4503-2378-9. Dispon{\'\i}vel em:
 {XU, W.; LIU, X.; GONG, Y. Document clustering based on non-negative matrix
   factorization. In:  \emph{Proceedings of the 26th Annual International ACM
   SIGIR Conference on Research and Development in Informaion Retrieval}. New
-  York, NY, USA: ACM, 2003.  (SIGIR '03), p. 267--273.
-ISBN 1-58113-646-3. Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/doi\-.acm\-.org\-/10\-.1145\-/860435\-.860485$>$}{http://doi.acm.org/10.1145/860435.860485}.}
+  York, NY, USA: [s.n.], 2003.  (SIGIR '03), p. 267--273.
+ISBN 1-58113-646-3.}
 
 \bibitem[Yang e Leskovec 2013]{Yang2013}
 \abntrefinfo{Yang e Leskovec}{YANG; LESKOVEC}{2013}
@@ -337,6 +333,6 @@ ISBN 1-58113-646-3. Dispon{\'\i}vel em:
 \abntrefinfo{Yoo e Choi}{YOO; CHOI}{2010}
 {YOO, J.; CHOI, S. Orthogonal nonnegative matrix tri-factorizations for
   co-clustering: multiplicative updates on stiefel manifolds.
-\emph{Information Proessing and Management}, v.~46, p. 559--570, 2010.}
+\emph{Information Processing and Management}, v.~46, p. 559--570, 2010.}
 
 \end{thebibliography}

@@ -1,7 +1,7 @@
 \select@language {brazil}
 \contentsline {figure}{\numberline {1}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o de uma aplica\IeC {\c c}\IeC {\~a}o de minera\IeC {\c c}\IeC {\~a}o de dados implementada a partir de an\IeC {\'a}lise de agrupamento com similaridade total (a) e similaridade parcial (b,c). Os grupos s\IeC {\~a}o diferenciados por cores. \relax }}{17}{figure.caption.7}
 \contentsline {figure}{\numberline {2}{\ignorespaces Conjunto de dados com dois cogrupos\relax }}{35}{figure.caption.8}
-\contentsline {figure}{\numberline {3}{\ignorespaces Estruturas de cogrupos\relax }}{35}{figure.caption.9}
+\contentsline {figure}{\numberline {3}{\ignorespaces Estruturas de cogrupos\relax }}{36}{figure.caption.9}
 \contentsline {figure}{\numberline {4}{\ignorespaces Fatora\IeC {\c c}\IeC {\~a}o da matriz original de dados $X$ em tr\IeC {\^e}s outras matrizes: $U$, $S$ e $V$\relax }}{40}{figure.caption.10}
 \contentsline {figure}{\numberline {5}{\ignorespaces A reconstru\IeC {\c c}\IeC {\~a}o da primeira linha $\mathbf {x}_{1 \cdot }$ de $X$, atrav\IeC {\'e}s da multiplica\IeC {\c c}\IeC {\~a}o da matriz indicadora de grupos de linhas $U$ pela matriz dos prot\IeC {\'o}tipos de linhas $(S V^T)$. \relax }}{41}{figure.caption.11}
 \contentsline {figure}{\numberline {6}{\ignorespaces Base de prot\IeC {\'o}tipos obtidas com FMN sem restri\IeC {\c c}\IeC {\~o}es (a) e com restri\IeC {\c c}\IeC {\~o}es de ortogonalidade nas matrizes\relax }}{44}{figure.caption.12}

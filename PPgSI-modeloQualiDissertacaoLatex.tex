@@ -502,7 +502,7 @@ Versão original
    \vspace*{\fill}
    \centering
    \noindent
-   \textit{À minha noiva Betriz, aos meus pais Sandra e Ronaldo, aos meus orientadores Sarajane e Valdinei, e aos amigos e empresas que me apoiaram nesses três anos}
+   \textit{À minha noiva Beatriz, aos meus pais Sandra e Ronaldo, aos meus orientadores Sarajane e Valdinei, e aos amigos e empresas que me apoiaram nesses três anos}
      \vspace*{\fill}
 \end{dedicatoria}
 % ---
@@ -580,15 +580,16 @@ Versão original
 BRUNIALTI, Lucas Fernandes. \textbf{Fatoração de matrizes no problema de coagrupamento com sobreposição de colunas}. \imprimirdata. \pageref{LastPage} f. Dissertação (Mestrado em Ciências) – Escola de Artes, Ciências e Humanidades, Universidade de São Paulo, São Paulo, 2016.
 \end{flushleft}
 
-Coagrupamento é uma estratégia para análise de dados capaz de encontrar grupos de dados, então denomidados cogrupos, que são formados considerando subconjuntos diferentes de suas características descritivas.
-Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de textos, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamento mais adequado à tal subjetividade.
+Coagrupamento é uma estratégia para análise de dados capaz de encontrar grupos de dados, então denomidados cogrupos, que são formados considerando subconjuntos diferentes das  características descritivas dos dados.
+Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de textos, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamento adequado à tal subjetividade.
 Um método para implementação de coagrupamento capaz de lidar com esse tipo de dados é a fatoração de matrizes.
-Nesta dissertação de mestrado são propostas duas estratégias para coagrupamento baseadas em fatoração de matrizes não-negativas, capazes de encontrar cogrupos organizados com sobreposição em uma matriz de valores reais positivos.
+Nesta dissertação de mestrado são propostas duas estratégias para coagrupamento baseadas em fatoração de matrizes não-negativas, capazes de encontrar cogrupos organizados com sobreposição de colunas em uma matriz de valores reais positivos.
 As estratégias são apresentadas em termos de suas definições formais e seus algoritmos para implementação.
-Resultados experimentais quantitativos e qualitativos são fornecidos a partir de problemas baseados em conjuntos de dados sintéticos e em conjuntos de dados reais contextualizados na área de mineração de textos, analisando-os em termos de quantização do espaço, geração de informação (interpretabilidade dos modelos) e capacidade de agrupamento utilizando as métricas Índice de Rand e Informação Mútua Normalizada.
-Os resultados confirmam a hipótese de que as estratégias propostas são capazes de descobrir cogrupos com sobreposição de forma natural, e que tal organização de cogrupos fornece informação detalhada, e portanto de valor diferenciado, para as áreas de análise de agrupamento e mineração de textos.
+Resultados experimentais quantitativos e qualitativos são fornecidos a partir de problemas baseados em conjuntos de dados sintéticos e em conjuntos de dados reais, sendo esses últimos contextualizados na área de mineração de texto.
+Os resultados são analisados em termos de quantização do espaço e capacidade de reconstrução, capacidade de agrupamento utilizando as métricas Índice de Rand e Informação Mútua Normalizada e geração de informação (interpretabilidade dos modelos).
+Os resultados confirmam a hipótese de que as estratégias propostas são capazes de descobrir cogrupos com sobreposição de forma natural, e que tal organização de cogrupos fornece informação detalhada, e portanto de valor diferenciado, para as áreas de análise de agrupamento e mineração de texto.
 
-Palavras-chaves: Coagrupamento. Fatoração de Matrizes Não-negaticas. Análise de Agrupamento. Mineração de Texto.
+Palavras-chaves: Coagrupamento. Fatoração de Matrizes Não-negativas. Análise de Agrupamento. Mineração de Texto.
 \end{resumo}
 
 % resumo em inglês
@@ -620,18 +621,18 @@ Palavras-chaves: Coagrupamento. Fatoração de Matrizes Não-negaticas. Análise
 %
 %-------------------------------------------------------------------------
 \begin{flushleft}
-BRUNIALTI, Lucas Fernandes. \textbf{Matrix Factorization for overlapping columns coclustering}. \imprimirdata. \pageref{LastPage} p. Dissertation (Master of Science) – School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, DefenseYear.
+BRUNIALTI, Lucas Fernandes. \textbf{Matrix factorization for overlapping columns coclustering}. \imprimirdata. \pageref{LastPage} p. Dissertation (Master of Science) – School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, DefenseYear.
 \end{flushleft}
 
 Coclustering is a data analysis strategy which is able to discover data clusters, known as coclusters.
-This technique allows data to be clustered based on different subsets defined by descriptive features.
+This technique allows data to be clustered based on different subsets defined by data descriptive features.
 Application contexts characterized by subjectivity, such as text mining, are applicable candidates for applying coclustering strategy due to the flexibility to associate documents according to partial features.
 The coclustering method can be implemented by means of matrix factorization, which is suitable to handle this type of data.
 In this thesis two strategies are proposed in non-negative matrix factorization for coclustering.
-These strategies are able to find overlapping coclusters in a given dataset of positive data and are presented in terms of their formal definitions as well as their algorithms' implementation.
+These strategies are able to find column overlapping coclusters in a given dataset of positive data and are presented in terms of their formal definitions as well as their algorithms' implementation.
 Quantitative and qualitative experimental results are presented through applying synthetic datasets and real datasets contextualized in text mining.
-This is done by analyzing them in terms of space quantization, generated information (interpretability of models), and clustering capabilities.
-The well known external metrics Rand Index and Normalized Mutual Information are used to achieve this analysis.
+This is accomplished by analyzing them in terms of space quantization, clustering capabilities and generated information (interpretability of models).
+The well known external metrics Rand Index and Normalized Mutual Information are used to achieve the analysis of clustering capabilities.
 Results confirm the hypothesis that the proposed strategies are able to discover overlapping coclusters naturally.
 Moreover, these coclusters produced by the new algorithms provide detailed information and are thus valuable for future research in cluster analysis and text mining.
 
@@ -779,21 +780,21 @@ Keywords: Coclustering. Non-negative Matrix Factorization. Cluster Analysis. Tex
 Segundo~\citeonline{Jain1999}, a análise de agrupamento pode ser vista como uma tarefa exploratória que tem o objetivo de organizar uma coleção de dados em um conjunto de grupos, segundo a similaridade ou dissimilaridade existente entre esses dados.
 Tradicionalmente, os métodos usados para análise de agrupamento são desenvolvidos para minimizar a similaridade intragrupo e maximizar a similaridade intergrupos; e precisam encontrar uma organização ``natural'' em grupos que acomode cada dado do conjunto sob análise em um grupo específico.
 
-Estratégias de diferentes naturezas -- particional, hierárquica, baseada em densidade, etc~\cite{Han2011,Xu2005}, podem ser usadas para alcançar o objetivo da análise de agrupamento, e cada uma delas possui características que as fazem mais ou menos suscetiveis para conjuntos de dados de diferentes naturezas.
+Estratégias de diferentes naturezas -- particional, hierárquica, baseada em densidade, etc~\cite{Han2011,Xu2005}, podem ser usadas para alcançar o objetivo da análise de agrupamento, e cada uma delas possui características que as fazem mais ou menos suscetíveis para conjuntos de dados de diferentes naturezas.
 Ainda, sob o contexto clássico da tarefa de agrupamento, os métodos precisam lidar com a similaridade intrínseca entre os dados tomando como base a comparação de todas as suas características descritivas e, de alguma forma, precisam ser capazes de descobrir quais características de fato tornam dados em um grupo de dados mais similares entre si.
 
-Ao longo do tempo, pesquisadores da área de análise de agrupamento vêm propondo flexibilizações na definição da tarefa de agrupamento de forma a adequá-la a contextos mais realísticos nos quais a organização natural dos dados em um conjunto de dados não pressupõe restrições como a pertinência de um dado a um único grupo ou a possibilidade de agrupar dados de acordo com similaridades em subconjuntos de atributos descritivos~\cite{Bezdek1981,Han2011,Peres2012}.
-Essa forma de tratar a tarefa de agrupamento permite melhorias no processo de descoberta de agrupamentos sobre dois aspectos: facilita o trabalho do método que busca os grupos, pois flexibiliza a maneira como os atributos descritivos dos dados ou a pertinência do dado aos grupos influencia o processo de agrupamento; fornece um conjunto de informações diferenciado que permite que análises mais refinadas sejam realizadas quando da interpretação dos grupos apresentados como resultado.
+Ao longo do tempo, pesquisadores da área de análise de agrupamento vêm propondo flexibilizações na definição da tarefa de agrupamento de forma a adequá-la a contextos mais realísticos, nos quais a organização natural dos dados em um conjunto de dados não pressupõe restrições como a pertinência de um dado a um único grupo ou a possibilidade de agrupar dados de acordo com similaridades em subconjuntos de atributos descritivos~\cite{Bezdek1981,Han2011,Peres2012}.
+Essa forma de tratar a tarefa de agrupamento permite melhorias no processo de descoberta de agrupamentos sob dois aspectos: facilita o trabalho do método que busca os grupos, pois flexibiliza a maneira como os atributos descritivos dos dados ou a pertinência do dado aos grupos influencia o processo de agrupamento; fornece um conjunto de informações diferenciado que permite que análises mais refinadas sejam realizadas quando da interpretação dos grupos apresentados como resultado.
 
 Esse diferencial pode ser especialmente útil quando o contexto da aplicação da análise de agrupamento apresenta alguma subjetividade em termos de interpretação de resultados, um fato bastante comum em tarefas de mineração de textos, por exemplo.
-Considere um contexto de uma aplicação de mineração de textos em que o objetivo dessa aplicação é encontrar notícias similares à uma notícia dada de entrada, seja para recomendação, aumentando o engajamento de usuários em um portal de notícias, ou até mesmo para descoberta de conhecimento, a fim de ajudar na tomada de decisões de negócio nesse portal de notícias, por exemplo.
-A análise de agrupamento com base na similaridade que considera todos os atributos, em um conjunto de notícias com palavras como características que representam os temas esportes (colunas \#1, \#2 e \#3 na figura~\ref{fig:sistema:a}) e música (colunas \#4, \#5 e \#6 na figura~\ref{fig:sistema:a}), seria capaz de particionar as notícias em dois grupos, que representariam esses dois temas.
+Considere um contexto de uma aplicação de mineração de textos em que o objetivo é encontrar notícias similares à uma notícia dada de entrada, seja para recomendação, aumentando o engajamento de usuários em um portal de notícias, ou até mesmo para descoberta de conhecimento, a fim de ajudar na tomada de decisões de negócio nesse portal de notícias, por exemplo.
+A análise de agrupamento com base na similaridade que considera todos os atributos (palavras), em um conjunto de notícias que representam os temas esportes (colunas \#1, \#2 e \#3 na figura~\ref{fig:sistema:a}) e música (colunas \#4, \#5 e \#6 na figura~\ref{fig:sistema:a}), seria capaz de particionar as notícias em dois grupos, que representariam esses dois temas.
 Embora essas recomendações pareçam ser ideais, e sob algum aspecto de análise elas são, é factível assumir que essa análise de agrupamento é prática, mas talvez menos útil e interessante do que poderia ser.
 
 Uma possibilidade de melhoria dessa aplicação hipotética seria usar um algoritmo de análise de agrupamento que permitisse descobrir uma organização de grupos de notícias baseada em similaridades parciais ou baseada em partes~\cite{Franca2010,Ho2008}.
-Assim, seria possível encontrar grupos que não seriam encontrados caso fosse consideradas todas as características na análise de agrupamento.
+Assim, seria possível encontrar grupos que não são considerados quando se considera todas as características na análise de agrupamento.
 
-Portanto, a aplicação seria dotada da capacidade de perceber, por exemplo, que algumas notícias podem trazer conteúdo referente a diferentes contextos se forem analisadas apenas sob determinados aspectos.
+Considerando tal possibilidade, a aplicação seria dotada da capacidade de perceber, por exemplo, que algumas notícias podem trazer conteúdo referente a diferentes contextos se forem analisadas apenas sob determinados aspectos.
 Nesse caso, os grupos formados durante a análise de agrupamento seriam capazes de refletir a diversidade de contextos abordados em uma notícia, fazendo-a pertencer a diferentes grupos, por diferentes motivos.
 Por exemplo, é sabido que eventos de beisebol -- o \textit{superbowl} -- possuem uma abertura cultural na qual grandes artistas da música fazem apresentações; ou eventos de esportes radicais, como tirolesa, acontecem em eventos de música contemporâneos -- \textit{rock in rio}.
 Tais notícias deveriam aparecer em grupos caracterizados por notícias referentes à esportes, notícias referentes à música, ou notícias referentes à esporte e música (Figuras~\ref{fig:sistema:b} e~\ref{fig:sistema:c}.
@@ -801,7 +802,7 @@ Tais notícias deveriam aparecer em grupos caracterizados por notícias referent
 \begin{figure} [htpb]
 \centering
  \caption{
-        Representação de uma aplicação de mineração de dados implementado a partir de análise de agrupamento com similaridade total (a) e similaridade parcial (b,c). Os grupos são diferenciados por cores.
+        Representação de uma aplicação de mineração de dados implementada a partir de análise de agrupamento com similaridade total (a) e similaridade parcial (b,c). Os grupos são diferenciados por cores.
     }
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/sistema0.png}
@@ -824,26 +825,26 @@ Tais notícias deveriam aparecer em grupos caracterizados por notícias referent
 \end{figure}
 
 Nas figuras~\ref{fig:sistema:b} e~\ref{fig:sistema:c} é introduzido graficamente o conceito de coagrupamento.
-Nesse contexto, o problema de mineração de textos é modelado como o problema de encontrar uma organização dos textos em grupos que considerem similaridades parciais.
+Nesse contexto, o problema de mineração de textos é modelado como o problema de encontrar uma organização dos textos em grupos considerando similaridades parciais.
 Assim, um texto pode pertencer a um ou mais cogrupos, a depender dos atributos descritivos sendo considerados.
 
-Ainda sobre essa aplicação, uma análise de agrupamento com maior capacidade de extração de informação e interpretabilidade, seria considerar que o grupo de notícias referentes aos assuntos esportes e música tem sobreposição de nas palavras que formam o grupo de notícias sobre música e o grupo de notícias sobre esportes (Figura~\ref{fig:sistema:c}).
+Portanto, nessa aplicação, uma análise de agrupamento com maior capacidade de extração de informação e interpretabilidade, consideraria que o grupo de notícias referentes aos assuntos esportes e música tem sobreposição de nas palavras que formam o grupo de notícias sobre música e o grupo de notícias sobre esportes (Figura~\ref{fig:sistema:c}).
 
 A nomenclatura coagrupamento deriva da estratégia de análise de dados executada durante o processo de descoberta de grupos.
-Nesse caso, tanto os dados (linhas) quanto os seus atributos (descritivos) são mutuamente submetidos a uma análise de similaridade, e portanto, grupos de dados (linhas) são estabelecidos com respeito a grupos de atributos (colunas), e grupos de atributos (colunas) também são estabelecidos com respeito a grupos de dados (linhas).
+Nesse caso, tanto os dados (linhas) quanto os seus atributos descritivos (colunas) são mutuamente submetidos a uma análise de similaridade, e portanto, grupos de dados (linhas) são estabelecidos com respeito a grupos de atributos (colunas), e grupos de atributos (colunas) também são estabelecidos com respeito a grupos de dados (linhas).
 
-A associação da análise de coagrupamentos a mineração de textos é interessante por diferentes aspectos.
-A mineração de textos constitui-se como um problema no qual é preciso lidar com a necessidade de apresentação de resultados que gerem informações passíveis de serem interpretadas.
-O primeiro problema é bem resolvido com a estratégia de coagrupamento pois os grupos de atributos que são gerados por ela podem revelar informação antes escondida nos dados~\cite{Tjhi2009}, e que em um processo de agrupamento tradicional não poderiam ser, pelo menos diretamente, descobertas.
+A associação da análise de coagrupamentos a mineração de textos é interessante pois essa tarefa constitui-se como um problema no qual é preciso lidar com a necessidade de apresentação de resultados que gerem informações passíveis de serem interpretadas.
+Esse problema pode ser bem resolvido com a estratégia de coagrupamento pois os grupos de atributos que são gerados por ela podem revelar informação antes escondida nos dados~\cite{Tjhi2009}, e que em um processo de agrupamento tradicional não poderiam ser, pelo menos diretamente, descobertas.
 
 Dentre os diferentes métodos existentes na literatura referentes à implementação de análise de coagrupamento~\cite{Franca2010,Mirkin1996,Madeira2004}, métodos que usam fatoração de matrizes não negativas~\cite{lee:nnmf00,lee99} têm sido vistos como uma boa alternativa a ser aplicada no contexto de mineração de textos, dado que esses métodos têm vantagens para lidar com dados representados como matrizes positivas~\cite{Xu2003,Shahnaz2006373,Yoo2010}.
-%Lucas precisa olhar esses artigos direitinho para validar essas referências nesses lugares.
 
-Assim, este trabalho explora o uso dos métodos de fatoração de matrizes não negativas, no contexto de coagrupamento de dados textuais, visto como uma tarefa de mineração de textos, de maneira a apresentar melhorias para o tratamento das similaridades parciais.
+Este trabalho explora o uso dos métodos de fatoração de matrizes não-negativas no contexto de coagrupamento, com atenção especial ao tratamento natural de cogrupos com sobreposição de colunas.
+Como forma de ilustrar a aplicabilidade das soluções propostas, o contexto de mineração de textos é analisado sob a ótica de coagrupamento.
 
 % ********************************************************************************************
 
 \section{Definição do problema}
+\label{sec:problemdef}
 
 % - resolver o overlap de colunas de forma "natural"
 %   -> tratamento diferente do overlap
@@ -859,22 +860,20 @@ Assim, este trabalho explora o uso dos métodos de fatoração de matrizes não 
 
 Para definição do problema é necessário o entendimento da tarefa de coagrupamento, e como a tarefa de coagrupamento se conecta com fatoração de matrizes.
 
-A estratégia de coagrupamento pode ser apresentada como o processo de agrupamento simultâneo de linhas e colunas em uma matriz de dados, de forma que seja possível encontrar cogrupos nos quais um grupo de objetos (linhas) associado a um deles diz respeito a objetos que são similares entre si considerando um grupo de atributos (colunas), também associado ao cogrupo.
-
-Com maior formalidade, dada uma matriz $X$ com $n$ linhas e $m$ colunas, uma das visões da tarefa de coagrupamento consiste em encontrar $k$ grupos de linhas de $X$, denotados pelos conjuntos que contém as linhas da matriz de dados $\mathcal{K}_p, \forall p = \{1, \dots, k\}$, e $l$ grupos de colunas de $X$, denotados pelos conjuntos que contém as colunas $\mathcal{L}_q, \forall q = \{1, \dots, k\}$.
+A estratégia de coagrupamento pode ser apresentada como o processo de agrupamento simultâneo de linhas e colunas em uma matriz de dados, de forma que seja possível encontrar cogrupos nos quais um grupo de objetos (linhas) associado a um grupo de atributos (colunas) diz respeito a objetos que são similares entre si considerando este grupo de atributos (colunas), formando então, um cogrupo.
+Com maior formalidade, dada uma matriz $X$ com $n$ linhas e $m$ colunas, a tarefa de coagrupamento pode ser vista como encontrar $k$ grupos de linhas de $X$, denotados pelos conjuntos que contém as linhas da matriz de dados $\mathcal{K}_p, \forall p = \{1, \dots, k\}$, e $l$ grupos de colunas de $X$, denotados pelos conjuntos que contém as colunas de atributos $\mathcal{L}_q, \forall q = \{1, \dots, l\}$.
 
 Fatorar uma matriz consiste em encontrar duas, ou mais, novas matrizes que ao serem combinadas, reconstroem a matriz original.
-Considerando a matriz $X$, a sua fatoração em duas novas matrizes consiste em encontrar duas matrizes $U$ com $n$ linhas e $k$ colunas e $C$ com $k$ linhas e $m$ colunas, tal que $X \approx UC$.
+Considerando a matriz $X$, a sua fatoração em duas novas matrizes consiste em encontrar duas matrizes, $U$ com $n$ linhas e $k$ colunas e $C$ com $k$ linhas e $m$ colunas, tal que $X \approx UC$.
 Se $k$ é escolhido tal que seja muito menor do que $n$ e $m$, então é dito que $U$ e $C$ são representações compactas de $X$.
-Se a matriz $X$, e as suas decomposições, são não negativas, tem-se o caso de Fatoração de Matrizes Não-negativas (NMF - \textit{Non-negative Matrix Factorization})~\cite{lee:nnmf00}, que é um método de agrupamento quando feita a análise da matriz $U$, sendo $k$ o número de grupos de linhas.
+Se a matriz $X$, e as suas decomposições, são não negativas, tem-se o caso de Fatoração de Matrizes Não-negativas (NMF - \textit{Non-negative Matrix Factorization})~\cite{lee:nnmf00}, que pode ser interpretado como um método de agrupamento quando faz-se a análise sobre a matriz $U$, sendo $k$ o número de grupos de linhas.
 
-Se três matriz são geradas na fatoração, $U$ com $n$ linhas e $k$ colunas, $S$ com $k$ linhas e $l$ colunas, e $V$ com $m$ linhas e $l$ colunas, fazendo a aproximação $X \approx USV^T$.
-Se $k$ e $l$ são escolhidos tal que seja muito menor do que $n$ e $m$, então é dito que $U$, $S$ e $V$ são representações compactas de $X$ e imbutem a noção de $k$ grupos de linhas e $l$ grupos de colunas.
+Se três matrizes são geradas na fatoração, $U$ com $n$ linhas e $k$ colunas, $S$ com $k$ linhas e $l$ colunas, e $V$ com $m$ linhas e $l$ colunas, fazendo a aproximação $X \approx USV^T$, e se $k$ e $l$ são escolhidos tal que sejam menores que $n$ e $m$, respectivamente, então é dito que $U$, $S$ e $V$ são representações compactas de $X$ e imbutem a noção de $k$ grupos de linhas e $l$ grupos de colunas.
 A interpretação de $S$ pode incluir uma noção de pesos que relacionam grupos de linhas e grupos de colunas, de modo que o número de grupos de linhas ($k$) pode ser diferente do número de grupo de colunas ($l$).
 
-Então, o problema de coagrupamento pode ser modelado de tal forma que a fatoração de matrizes é capaz de fornecer uma aproximação da organização em cogrupos presente no conjunto de dados sob análise.
+Desta maneira, o problema de coagrupamento pode ser modelado de tal forma que a fatoração de matrizes é capaz de fornecer uma aproximação da organização em cogrupos presente no conjunto de dados sob análise.
 
-Então, o problema deste trabalho, é propor soluções algorítmicas que são capazes de solucionar a tarefa de coagrupamento, no qual, cogrupos de colunas tem intersecção: $\mathcal{L}_q \cap \mathcal{L}_{q'}~|~q \neq q'$.
+O problema deste trabalho é propor soluções algorítmicas que são capazes de solucionar a tarefa de coagrupamento no qual cogrupos de colunas têm intersecção: $\mathcal{L}_q \cap \mathcal{L}_{q'} \neq \emptyset~|~q \neq q'$.
 Assim é possível que uma coluna pertença à dois ou mais grupos de colunas.
 
 % ************************************************************************
@@ -895,7 +894,7 @@ Assim é possível que uma coluna pertença à dois ou mais grupos de colunas.
 
 \section{Hipótese}
 
-Fatoração de matrizes considerando a decomposição da matriz original em duas outras matrizes e um conjunto de matrizes, isto é $X \approx USV_{(1)}^T \dots V_{(k)}^T$, tal que seja possível encontrar cogrupos, possibilita que o processo de busca seja beneficiado e mais adequado para o tratamento da tarefa de coagrupamento com sobreposição de colunas.
+Fatorar matrizes considerando a decomposição da matriz original em uma matriz $U$, uma matiz $S$ e um conjunto de matrizes $V$, isto é $X \approx USV_{(1)}^T \dots V_{(k)}^T$, tal que seja possível encontrar cogrupos, possibilita que o processo de busca seja beneficiado pela flexibilidade de ajuste de $U$ e o conjunto de matrizes $V$, sendo mais adequado do que o processo tradicional de fatoração de matrizes exposto na seção~\ref{sec:problemdef}, para o tratamento da tarefa de coagrupamento com sobreposição de colunas.
 A adequação deste processo manterá informações da matriz original a fim de permitir a sua reconstrução, propiciará um resultado mais adequado em termos de agrupamento de linhas seguindo a avaliação clássica de quantização, e possibilitará a extração de informações diferenciadas a partir da análise da fatoração gerada, agregando valor à solução de um problema de mineracão de textos.
 
 % ************************************************************************
@@ -3966,7 +3965,10 @@ Os resultados para a base de dados \textit{IG toy} também mostram a instabilida
 
 \subsubsubsection*{Base de dados \textit{IG}}
 
-Para a base de dados \textit{IG}, os resultados apontam uma superioridade do algoritmo \textit{BinOVNMTF}. As tabelas~\ref{tab:experiments-quant-rand:nips} e~\ref{tab:experiments-quant-nmi:nips} mostram os resultados médios obtidos para essa base considerando cada algoritmo e cada representação para os textos, sob a avaliação dos índices de Rand e informação mútua normalizada, respectivamente. Na tabela~\ref{tab:experiments-quant-best-nmi:nips} são mostrados os melhores resultados.
+Para a base de dados \textit{IG}, os resultados apontam uma superioridade dos algoritmos \textit{OvNMTF} e \textit{BinOVNMTF}.
+As tabelas~\ref{tab:experiments-quant-rand:ig} e~\ref{tab:experiments-quant-nmi:ig} mostram os resultados médios obtidos para essa base considerando cada algoritmo e cada representação para os textos, sob a avaliação dos índices de Rand e informação mútua normalizada, respectivamente.
+Na tabela~\ref{tab:experiments-quant-best-nmi:ig} são mostrados os melhores resultados.
+O algoritmo \textit{BinOvNMTF} obteve o melhor resultado, considerando as duas métricas dessas tabelas.
 
 \begin{table}[H]
 \centering
@@ -4002,7 +4004,7 @@ Para a base de dados \textit{IG}, os resultados apontam uma superioridade do alg
         \textit{BinOvNMTF}     & $\mathbf{0,5563}$ : $l = 16$ & $\mathbf{0,5424}$ : $l = 7$  & $0,5423$ : $l = 19$ & $0,5327$ : $l = 19$ \\
         \hline \\
     \end{tabular}
-    \label{tab:experiments-quant-nmi:nips}
+    \label{tab:experiments-quant-nmi:ig}
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
@@ -4025,8 +4027,12 @@ Para a base de dados \textit{IG}, os resultados apontam uma superioridade do alg
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-Observando todos os resultados para a base de dados \textit{IG} é visível que o algoritmo \textit{BinOvNMTF} foi o que mais se destacou, considerando ambas as medidas.
-Tanto para os melhores resultados (máximos - tabela~\ref{tab:experiments-quant-best-nmi:nips}) quanto para os resultados médios (tabelas~\ref{tab:experiments-quant-rand:nips} e~\ref{tab:experiments-quant-nmi:nips}). No entanto, esse foi também o algoritmo que apresentou a maior instabilidade nos resultados (observada nas distribuições das figuras~\ref{fig:boxplot-rand:nips}, \ref{fig:boxplot-nmi:nips}, \ref{fig:boxplot-all-rand:nips} e~\ref{fig:boxplot-all-nmi:nips}), devido possivelmente às razões já comentadas neste texto. %a velocidade da convergência
+As figuras~\ref{fig:boxplot-rand:ig} e~\ref{fig:boxplot-nmi:ig} mostram os resultados utilizados para obtenção das melhores médias nas tabelas~\ref{tab:experiments-quant-rand:ig} e~\ref{tab:experiments-quant-best-nmi:ig}, para as métricas índice de Rand e informação mútua normalizada, repectivamente.
+Ainda, nas figuras~\ref{fig:boxplot-all-rand:ig} e~\ref{fig:boxplot-all-nmi:ig} são mostrados todos os resultados obtidos para todas as configurações considerando as duas métricas de qualidade de agrupamento.
+
+Diferentemente dos resultados apresentados para a base de dados \textit{IG toy}, apesar de ter o mesmo comportamento instável, os resultados obtidos com os experimentos com a base de dados \textit{IG} apontam que o algoritmo \textit{BinOvNMTF} obteve os melhores resultados, uma possível hipótese é que os algoritmos com as restrições binárias, quando o número de grupos de linhas buscado é grande, as restrições binárias têm efeito positivo na capacidade de agrupamento.
+Isso é possível notar quando os resultados com os algoritmos \textit{ONMTF} e \textit{FNMTF} são comparados, sendo o algoritmo \textit{FNMTF} melhor na maioria dos resultados.
+Esse comportamento também pode ser observado nas figuras~\ref{fig:boxplot-all-rand:ig} e~\ref{fig:boxplot-all-nmi:ig}, que mostram as distribuições considerando todos os experimentos com as métricas índice de Rand e informação mútua normalizada, repectivamente.
 
 \begin{figure}[H]
     \centering
@@ -4060,15 +4066,7 @@ Tanto para os melhores resultados (máximos - tabela~\ref{tab:experiments-quant-
     \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
-Observando os melhores resultados e os resultados médios, o parâmetro $l$ se apresentou ligeiramente menor para os algoritmos \textit{OvNMTF} e \textit{BinOvNMTF}, comparando com os algoritmos \textit{ONMTF} e \textit{FNMTF}, como esperado. Ainda, analisando os resultados por representação para os textos, é possível perceber uma tendência de destaque para a representação \textit{tfidf}, tanto não normalizada quanto a normalizada.
-
-% precisa ver se vai acontecer também apra a base de dados IG ou não e refazer essa afirmação ou colocar ela em outro lugar.
-
-\textcolor{red}{Contrariamente ao que ocorreu na base de dados \textit{IG toy}}, o algoritmo \textit{OvNMTF} não apresentou resultados tão bons. Os algoritmos \textit{ONMTF} e \textit{FNMTF} se apresentaram competitivos ao \textit{OvNMTF}, apresentando melhores resultados máximos. Essa inferioridade para o algoritmo \textit{OvNMTF} levanta a hipótese que restrições binárias e de ortogonalidade podem ser mais interessantes em situações de menor esparsidade, como é o caso da base de dados \textit{IG} (veja tabela~\ref{tab:datasetsstatsREAL}).
-
-E, por fim, faz-se interessante observar que, comparando os resultados do algoritmo \textit{BinOvNMTF} com aqueles obtidos para o algoritmo do qual ele se origina, o \textit{FNMTF}, há melhoras significativas (conforme figura~\ref{fig:boxplot-all-rand:nips}). Essa constatação indica que o mecanismo de independência para formação do cogrupos de palavras, criado nas abordagens propostas neste trabalho, é capaz de melhorar, com eficiência, a resolução da tarefa de análise de agrupamentos em dados textuais.
-
-
+Ainda, faz-se interessante observar que, comparando os resultados do algoritmo \textit{BinOvNMTF} com aqueles obtidos para o algoritmo do qual ele se origina, o \textit{FNMTF}, há melhoras significativas (conforme as figuras~\ref{fig:boxplot-all-rand:ig} e~\ref{fig:boxplot-all-nmi:ig}).
 
 \subsubsubsection*{Base de dados \textit{NIPS}}
 
@@ -4170,9 +4168,12 @@ Observando os melhores resultados e os resultados médios, o parâmetro $l$ se a
 
 % precisa ver se vai acontecer também apra a base de dados IG ou não e refazer essa afirmação ou colocar ela em outro lugar.
 
-\textcolor{red}{Contrariamente ao que ocorreu na base de dados \textit{IG toy}}, o algoritmo \textit{OvNMTF} não apresentou resultados tão bons. Os algoritmos \textit{ONMTF} e \textit{FNMTF} se apresentaram competitivos ao \textit{OvNMTF}, apresentando melhores resultados máximos. Essa inferioridade para o algoritmo \textit{OvNMTF} levanta a hipótese que restrições binárias e de ortogonalidade podem ser mais interessantes em situações de menor esparsidade, como é o caso da base de dados \textit{NIPS} (veja tabela~\ref{tab:datasetsstatsREAL}).
+Contrariamente ao que ocorreu na base de dados \textit{IG toy}, e semelhante ao que ocorreu na base de dados \textit{IG}, o algoritmo \textit{OvNMTF} não apresentou resultados tão bons.
+Os algoritmos \textit{ONMTF} e \textit{FNMTF} se apresentaram competitivos ao \textit{OvNMTF}, apresentando melhores resultados máximos.
+Essa inferioridade para o algoritmo \textit{OvNMTF} levanta a hipótese que restrições binárias e de ortogonalidade podem ser mais interessantes em situações de menor esparsidade, como é o caso da base de dados \textit{NIPS} (veja tabela~\ref{tab:datasetsstatsREAL}).
 
-E, por fim, faz-se interessante observar que, comparando os resultados do algoritmo \textit{BinOvNMTF} com aqueles obtidos para o algoritmo do qual ele se origina, o \textit{FNMTF}, há melhoras significativas (conforme figura~\ref{fig:boxplot-all-rand:nips}). Essa constatação indica que o mecanismo de independência para formação do cogrupos de palavras, criado nas abordagens propostas neste trabalho, é capaz de melhorar, com eficiência, a resolução da tarefa de análise de agrupamentos em dados textuais.
+E, por fim, faz-se interessante observar que, comparando os resultados do algoritmo \textit{BinOvNMTF} com aqueles obtidos para o algoritmo do qual ele se origina, o \textit{FNMTF}, há melhoras significativas considerando todas as bases de ados (conforme as figuras~\ref{fig:boxplot-all-rand:igtoy},~\ref{fig:boxplot-all-rand:ig} e~\ref{fig:boxplot-all-rand:nips}).
+Essa constatação indica que o mecanismo de independência para formação do cogrupos de palavras, criado nas abordagens propostas neste trabalho, é capaz de melhorar, com eficiência, a resolução da tarefa de análise de agrupamentos em dados textuais.
 
 \subsection{Análises qualitativas}
 
@@ -4507,23 +4508,15 @@ Ainda, foram criadas visualizações de cada cogrupo de palavras no formato de n
 \section{Considerações finais}
 
 % colocar aqui algumas considerações sobre as três coisas que discutimos no final do cap 3 e do cap 4. Algo rápido apenas mostrando em termos práticos, do experimento, que funcionou do jeito que prometemos.
-Os experimentos deste trabalho trouxeram evidências de como avaliar os algoritmos aqui discutidos do ponto de vista de quantização A motivação para a apresentação dos novos problemas de fatoração de matrizes (OvNMTF e BinOvNMTF), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (ONMTF e FNMTF), no que diz respeito à solução do problema de coagrupamento.
+\textcolor{red}{Os experimentos deste trabalho trouxeram evidências de como avaliar os algoritmos aqui discutidos do ponto de vista de quantização A motivação para a apresentação dos novos problemas de fatoração de matrizes (OvNMTF e BinOvNMTF), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (ONMTF e FNMTF), no que diz respeito à solução do problema de coagrupamento.}
 
-Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas fatorações tem o potencial de superar as fatorações da literatura.
-Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há interseção de colunas entre as diferentes bases dos grupos de linhas.
-Entretanto, as fatorações propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas, e portanto, menor capacidade de compactação.
+\textcolor{red}{Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas fatorações tem o potencial de superar as fatorações da literatura. Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há interseção de colunas entre as diferentes bases dos grupos de linhas. Entretanto, as fatorações propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas, e portanto, menor capacidade de compactação.}
 
-Do ponto de vista de geração de informação sobre os dados, as fatorações propostas são capazes de fornecer o mesmo tipo de informação: como as linhas da matriz de entrada se organizam em grupos e como as colunas da matriz de entrada se organizam em grupo.
-Porém, desde que se tem $k$ organizações de grupos de colunas, sabe-se que há várias possibilidades dessa organização ocorrer para cada um dos grupos de linhas.
-Transferindo essa informação para um contexto de aplicação, entende-se que há um conjunto de organização de atributos que estão associados à organização assumida pelos dados no espaço dos dados.
-Intuitivamente, pode-se dizer que há diferentes maneiras de justificar o agrupamento de dados descoberto, com base nas similaridades parciais dos atributos que os descrevem.
+\textcolor{red}{Do ponto de vista de geração de informação sobre os dados, as fatorações propostas são capazes de fornecer o mesmo tipo de informação: como as linhas da matriz de entrada se organizam em grupos e como as colunas da matriz de entrada se organizam em grupo. Porém, desde que se tem $k$ organizações de grupos de colunas, sabe-se que há várias possibilidades dessa organização ocorrer para cada um dos grupos de linhas. Transferindo essa informação para um contexto de aplicação, entende-se que há um conjunto de organização de atributos que estão associados à organização assumida pelos dados no espaço dos dados. Intuitivamente, pode-se dizer que há diferentes maneiras de justificar o agrupamento de dados descoberto, com base nas similaridades parciais dos atributos que os descrevem.}
 
-Do ponto de vista do processo de descoberta dos cogrupos, as fatorações propostas seguem o mesmo principio seguido nas fatorações da literatura, qual seja, considerar a informação de similaridade de dados e de atributos simultaneamente para resolver o problema de minimização do erro de quantização da matriz original, e consequentemente apresentar protótipos que expliquem os cogrupos.
-Porém, as fatorações propostas liberam os algoritmos de minimização da necessidade de considerar todos os grupos de linhas na otimização dos grupos de colunas.
-Desta forma, implementa-se um processo no qual não existe mais a interdependência entre grupos de linhas.
-Esse fato é que, na realidade, possibilita aproximar a quantidade de cogrupos utilizada para explicar os dados daquela que é a desejada, ainda que a sobreposição de colunas ocorra nos dados.
+\textcolor{red}{Do ponto de vista do processo de descoberta dos cogrupos, as fatorações propostas seguem o mesmo principio seguido nas fatorações da literatura, qual seja, considerar a informação de similaridade de dados e de atributos simultaneamente para resolver o problema de minimização do erro de quantização da matriz original, e consequentemente apresentar protótipos que expliquem os cogrupos. Porém, as fatorações propostas liberam os algoritmos de minimização da necessidade de considerar todos os grupos de linhas na otimização dos grupos de colunas. Desta forma, implementa-se um processo no qual não existe mais a interdependência entre grupos de linhas. Esse fato é que, na realidade, possibilita aproximar a quantidade de cogrupos utilizada para explicar os dados daquela que é a desejada, ainda que a sobreposição de colunas ocorra nos dados.}
 
-Essa considerações, assim como aquelas delineadas nos capítulos~\ref{ch:conceitos} e~\ref{ch:fatoracao}, são ilustradas no próximo capítulo, no qual resultados experimentais são apresentados.
+\textcolor{red}{Essa considerações, assim como aquelas delineadas nos capítulos~\ref{ch:conceitos} e~\ref{ch:fatoracao}, são ilustradas no próximo capítulo, no qual resultados experimentais são apresentados.}
 
 
 % ************************************************************
@@ -4544,7 +4537,7 @@ Algoritmos apresentados como estado da arte, descritos no capítulo~\ref{ch:fato
 
 Dessa constatação, a hipótese de propor a fatoração da matriz de dados em $X \approx USV_{(1)}^T \dots V_{(k)}^T$, apresentada em no capítulo~\ref{cap:intro}, motivou a proposição de problemas de fatoração de matrizes que possibilitassem a separação que considera independência e sobreposição entre os cogrupos de colunas formados pela fatoração.
 A formulação de problemas com essa características e de algoritmos para sua resolução foram apresentados, acompanhados de suas derivações formais, no capítulo~\ref{ch:proposedalgs}.
-Experimentos e análise de resultados de testes para os algoritmos propostos, com comparações direta com algoritmos já consolidados na literatura, foram detalhados no capítulo~\ref{ch:experiments}.
+Experimentos e análise de resultados de testes para os algoritmos propostos, com comparações diretas com algoritmos já consolidados na literatura, foram detalhados no capítulo~\ref{ch:experiments}.
 As análises realizadas consideraram bases de dados sintéticas, como prova de conceito, e bases de dados reais, como exemplo de aplicação em mineração de textos.
 Também, as análises foram delineadas tanto sob o aspecto quantitativo como sob o aspecto qualitativo, apresentando considerações referentes a capacidade de reconstrução, de quantização e de extração de informação dos algoritmos.
 Então, referentes à capacidade de reconstrução, de quantização e de extração de informação dos algoritmos, os resultados apresentados indicaram que a fatoração $X \approx USV_{(1)}^T \dots V_{(k)}^T$, assim como os algoritmos para solução da fatoração proposta, se cumprem, e agregam valor à área de análise de agrupamento e a solução de problemas referentes à mineração de textos.

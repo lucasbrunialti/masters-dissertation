@@ -861,7 +861,7 @@ Como forma de ilustrar a aplicabilidade das soluções propostas, o contexto de 
 Para definição do problema é necessário o entendimento da tarefa de coagrupamento, e como a tarefa de coagrupamento se conecta com fatoração de matrizes.
 
 A estratégia de coagrupamento pode ser apresentada como o processo de agrupamento simultâneo de linhas e colunas em uma matriz de dados, de forma que seja possível encontrar cogrupos nos quais um grupo de objetos (linhas) associado a um grupo de atributos (colunas) diz respeito a objetos que são similares entre si considerando este grupo de atributos (colunas), formando então, um cogrupo.
-Com maior formalidade, dada uma matriz $X$ com $n$ linhas e $m$ colunas, a tarefa de coagrupamento pode ser vista como encontrar $k$ grupos de linhas de $X$, denotados pelos conjuntos que contém as linhas da matriz de dados $\mathcal{K}_p, \forall p = \{1, \dots, k\}$, e $l$ grupos de colunas de $X$, denotados pelos conjuntos que contém as colunas de atributos $\mathcal{L}_q, \forall q = \{1, \dots, l\}$.
+Com maior formalidade, dada uma matriz $X$ com $n$ linhas e $m$ colunas, a tarefa de coagrupamento pode ser vista como encontrar $k$ grupos de linhas de $X$, denotados pelos conjuntos que contém as linhas da matriz de dados $\mathcal{K}_p, \forall p \in \{1, \dots, k\}$, e $l$ grupos de colunas de $X$, denotados pelos conjuntos que contém as colunas de atributos $\mathcal{L}_q, \forall q \in \{1, \dots, l\}$.
 
 Fatorar uma matriz consiste em encontrar duas, ou mais, novas matrizes que ao serem combinadas, reconstroem a matriz original.
 Considerando a matriz $X$, a sua fatoração em duas novas matrizes consiste em encontrar duas matrizes, $U$ com $n$ linhas e $k$ colunas e $C$ com $k$ linhas e $m$ colunas, tal que $X \approx UC$.
@@ -1135,7 +1135,7 @@ A resolução da tarefa de agrupamento pode ser útil em diversas áreas do conh
 
 Formalmente, os algoritmos de agrupamento implementados sob estratégias de particionamento têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}$, com $n$ linhas (dados) e $m$ colunas (características) que representam um conjunto de dados em algum domínio de aplicação.
 Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$.
-O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas pelo subconjunto ordenado $\mathcal{K}_p \subseteq \mathcal{N}$, considerando o índice $p = \{ 1, \dots, k\}$.
+O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas pelo subconjunto ordenado $\mathcal{K}_p \subseteq \mathcal{N}$, considerando o índice $p \in \{ 1, \dots, k\}$.
 Então, o subconjunto $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ é justamente os grupos de linhas resultantes de um algoritmo que soluciona a tarefa de agrupamento.
 Note que este problema é NP-difícil, então faz sentido buscar por algoritmos que se baseiam em alguma heurística, já que não existe uma solução algoritmica em tempo polinomial~\cite{Aloise2009}.
 
@@ -1170,7 +1170,7 @@ A restrição da soma de cada linha da matriz $U$ ser igual à $1$, garante que 
 Portanto, a compactação transformará os $nm$ elementos originais em $n + km$ novos elementos, desconsiderando os zeros da matriz $U$.
 
 A implementação para o problema~\ref{def:kmeans:problem} apresentado é descrito no algoritmo~\ref{algo:kmeans}~\cite{Peres2012,Han2011,Bottou95}, o qual é baseado no algoritmo de EM (Esperança-Maximização - \textit{Expectation-Maximization}) e tem sua convergência para um mínimo local demonstrada (veja em~\citeonline{Bottou95}).
-Nesse algoritmo considere os índices $i = \{1, \dots, n\}$ e $p = p' = \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\norm{ \cdot }^2$ é a norma de Frobenius para vetores.
+Nesse algoritmo considere os índices $i \in \{1, \dots, n\}$ e $p = p' \in \{1, \dots, k\}$, $t$ o contador de iterações, $U^{(t)}$ e $C^{(t)}$ as matrizes $U$ e $C$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\norm{ \cdot }^2$ é a norma de Frobenius para vetores.
 
 \begin{algorithm}
 \caption{Algoritmo \textit{k-means}}
@@ -1227,7 +1227,7 @@ O problema de otimização do erro de quantização, com a finalidade da resolu�
 \label{def:fkmeans:problem}
 \begin{equation}
     \begin{array}{lclcl}
-        \displaystyle \mathcal{F}_2(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^w \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 \\
+        \displaystyle \mathcal{F}_2(U, C) & = & \displaystyle \min_{U, C}    & \sum_{i=1}^n \sum_{p=1}^k u_{ip}^w \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 \\
                                           &   & \text{suj. a}                & U \in \mathbb{R}^{n \times k}, \\
                                           &   &                              & C \in \mathbb{R}^{k \times m}, \\
                                           &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
@@ -1302,7 +1302,7 @@ Dentre as muitas métricas de validação externa presentes na literatura~\cite{
 
 O RI gera valores entre $0$ e $1$, com $0$ indicando que o particionamento de dados gerado por um algoritmo não concorda em nenhum par de elementos com o particionamento real e $1$ indicando que o particionamento gerado pelo mesmo algoritmo, é exatamente igual ao particionamento real.
 
-Considere que um algoritmo encontrou um particionamento denotado pelo conjunto $\mathscr{\widetilde{K}} = \{\mathcal{\widetilde{K}}_1, \dots, \mathcal{\widetilde{K}}_k\}$ com $\widetilde{k}$ grupos, sendo $\mathcal{\widetilde{K}}_p, \forall p = \{1, \dots, \widetilde{k}\}$ um subconjuto que contém elementos pertencentes ao $p$-ésimo grupo.
+Considere que um algoritmo encontrou um particionamento denotado pelo conjunto $\mathscr{\widetilde{K}} = \{\mathcal{\widetilde{K}}_1, \dots, \mathcal{\widetilde{K}}_k\}$ com $\widetilde{k}$ grupos, sendo $\mathcal{\widetilde{K}}_p, \forall p \in \{1, \dots, \widetilde{k}\}$ um subconjuto que contém elementos pertencentes ao $p$-ésimo grupo.
 Considere também, o particionamento real: $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ com $k$ grupos.
 Então, determine as seguintes quantidades, sendo os dados as linhas da matriz de dados $X$ denotado pelo conjunto $\mathcal{N}$:
 \begin{itemize}
@@ -1360,7 +1360,7 @@ O termo biagrupamento é usado principalmente no contexto de expressão genétic
 Os algoritmos do processo de coagrupamento são capazes de gerar grupos de dados levando em consideração todas as características, ou apenas algumas características~\cite{Franca2010,Madeira2004}.
 Existem diversas maneiras de visualizar o problema de coagrupamento, uma visão importante é de encontrar submatrizes de uma matriz de dados.
 Formalizando esta visão e apresentando uma definição formal~\cite{Madeira2004}: tem-se uma matriz $X$, de dimensão $n \times m$, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$.
-O problema de coagrupamento, dentro desta visão, é encontrar cogrupos, que são submatrizes de $X$, denotados por $X_{\mathcal{K}_p \mathcal{L}_q}$, considerando $k$ subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, e os índices $p = \{ 1, \dots, k\}$ e $q = \{1, \dots, l\}$.
+O problema de coagrupamento, dentro desta visão, é encontrar cogrupos, que são submatrizes de $X$, denotados por $X_{\mathcal{K}_p \mathcal{L}_q}$, considerando $k$ subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, e os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
 Assim, o cogrupo $X_{\mathcal{K}_p \mathcal{L}_q}$ é um grupo dos dados em $\mathcal{K}_p$, perante as características em $\mathcal{L}_q$.
 
 Essa visão do problema de coagrupamento está ilustrada na figura~\ref{fig:bicluster-exp}, na qual é apresentado um conjunto de dados que possui as linhas (dados) $\mathbf{x}_{1 \cdot}, \mathbf{x}_{2 \cdot}, \mathbf{x}_{2 \cdot}, \mathbf{x}_{4 \cdot}, \mathbf{x}_{5 \cdot}$ e $\mathbf{x}_{6 \cdot}$ que são representados pelas colunas (características) $\mathbf{x}_{1 \cdot}, \mathbf{x}_{\cdot 2}, \mathbf{x}_{\cdot 3}, \mathbf{x}_{\cdot 4}, \mathbf{x}_{\cdot 5}$ e $\mathbf{x}_{\cdot 6}$, sendo $n,m = 6$.
@@ -1424,25 +1424,26 @@ Detalhes destes resultados são apresentados, em detalhes, no capítulo~\ref{ch:
 
 Fatoração de matrizes não-negativas (\textit{Non-negative Matrix Factorization} - NMF) foi estudada como um método para análise de dados capaz de extrair conhecimento sobre um objeto a partir do estudo de suas partes~\cite{lee99}, como um contraponto a métodos mais populares como Análise de Componentes Principais (\textit{Principal Component Analysis - PCA}) e Quantização Vetorial, porém, considerando a fatoração matrizes positivas ou negativas.
 \citeonline{lee99} apresentam tal abordagem a partir de sua aplicação no aprendizado de características de faces (em dados do tipo imagem) e na análise de características semânticas de textos.
-A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por~\citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por~\citeonline{Long2005, Ding06, Yoo2010}, que formulam o problema como coagrupamento (cogrupoing).
-Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos a clusterização de genes e análise de microarry em bioinformática~\cite{Kluger2003} e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
+A análise de textos também foi usada como aplicação na ilustração da aplicação de fatorização de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por~\citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por~\citeonline{Long2005, Ding06, Yoo2010}, que formulam o problema como coagrupamento.
+Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos a clusterização de genes e análise de microarray em bioinformática~\cite{Kluger2003} e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
 Na aplicação de NMF em filtragem colaborativa em sistemas de recomendação, destaca-se o modelo baseado em NMF de~\citeonline{Koren09} para predição de preferências de usuários por filmes, que ganhou em primeiro lugar o Prêmio Netflix (\textit{Netflix Prize})\footnote{http://www.netflixprize.com/}.
 
 A adequação da fatoração de matrizes para tarefas modeladas como agrupamento ou coagrupamento ocorre porque muitas das representações usadas em aplicações nessas áreas se apresentam como uma relação entre pares de elementos pertencentes a conjuntos finitos, como apresentado em \cite{Long2005}. Por exemplo, na resolução da tarefa de agrupamento de documentos, em mineração de textos, usa-se, comumente, dois conjuntos finitos, documentos e palavras, sendo que a relação entre eles é representada pela ocorrência de uma determinada palavra em um determinado documento. Note ainda que a relação expressa entre os elementos, como no contexto de palavras e documentos, apresenta-se como uma matriz de dados positiva, característica que ilustra a aplicabilidade de NMF.
 
 Formalmente, algoritmos de coagrupamento baseados em NMF têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}_{+}$, contendo números reais positivos com $n$ linhas e $m$ colunas.
-Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i = \{1, \dots, n\}$ e $j = \{1, \dots, m\}$, que é justamente um valor da matriz $X$.
+Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$, que é justamente um valor da matriz $X$.
 Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse.
-O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ partições para $\mathcal{M}$, denotadas pelos subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, considerando os índices $p = \{ 1, \dots, k\}$ e $q = \{1, \dots, l\}$.
-Então, os subconjuntos $\{\mathcal{K}_1, \dots, \mathcal{K}_p\}$ e $\{\mathcal{L}_1, \dots, \mathcal{L}_l\}$ são os cogrupos de linhas e colunas, respectivamente.
+O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ partições para $\mathcal{M}$, denotadas pelos subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
+Então, os subconjuntos $\{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ e $\{\mathcal{L}_1, \dots, \mathcal{L}_l\}$ são os cogrupos de linhas e colunas, respectivamente.
+Da mesma forma que na tarefa de agrupamento, faz-se sentido a proposição de algoritmos baseados em heurísticas, pois sob diversas formas, o problema de coagrupamento baseado em particionamento, é um problema NP-difícil~\cite{Bulteau2014}.
 
 % Não sei se entendi bem, mas mudei o texto para colocar como partições. Sobre a questão da forma de representa X e Y, posso estar falando besteira, mas me parece que tanto faz de um jeito o de outro, visto que o que tem dentro de partições de linhas e colunas são linhas e colunas. Eu só estou um pouco receosa de chamar de vetores de colunas. Em clustering a notação para as linhas é essa, mas lá não faz sentido chamar de vetores de colunas.
 
 %%% comentário do Valdinei: Como escrevi anteriormente, prefiro dizer que $\mathcal{N}=\{1,2,\ldots,n\}$ e o mesmo para $\mathcal{M}$, então faz mais sentido formar os cogrupos com $I\subseteq\mathcal{N}$ e o mesmo para $J$. Além disso, os índices $p$ e $q$ não foram mencionados. Finalmente, aqui já está considerando que os clusters de linha são separados dos cluster de colunas, como é utilizado tradicionalmente na literatura. Dessa forma, deve-se dizer que os conjuntos $I$ devem formar uma partição de $\mathcal{N}$.)}
 
 Para implementação da NMF como uma estratégia para resolução do problema de coagruamento, diferentes algoritmos foram apresentados na literatura.
-Cada uma delas considera o problema de NMF com diferentes restrições que permitem propor soluções para o problema de coagrupamento de diferentes naturezas.
-Este capítulo se destina a apresentar três das implementações existentes que são usadas como base para a proposta desta dissertação: decomposição de valores em blocos (Seção~\ref{sec:bvd} introduzida por~\citeonline{Long2005}; fatoração ortogonal tripla de matrizes não-negativas (Seção~\ref{sec:ONMTF}) introduzida por~\citeonline{Ding06}; e fatoração tripla rápida de matrizes não-negativas (Seção~\ref{sec:FNMTF}) introduzida por~\citeonline{Wang2011}.
+Cada um deles considera o problema de NMF com diferentes restrições que permitem propor soluções para o problema de coagrupamento de diferentes naturezas.
+Este capítulo se destina a apresentar três das implementações existentes que são usadas como base para a proposta desta dissertação: decomposição de valores em blocos (Seção~\ref{sec:bvd}) introduzida por~\citeonline{Long2005}; fatoração ortogonal tripla de matrizes não-negativas (Seção~\ref{sec:ONMTF}) introduzida por~\citeonline{Ding06}; e fatoração tripla rápida de matrizes não-negativas (Seção~\ref{sec:FNMTF}) introduzida por~\citeonline{Wang2011}.
 Outras implementações correlatas podem ser encontradas em~\cite{Li2006}.
 
 Todos algoritmos de NMF para resolução das tarefas de agrupamento e coagrupamento tem em comum a natureza recursiva, pois são encontradas partições de linhas a partir de partições de colunas, para então, encontrar melhores partições de colunas a partir das partições de linhas.
@@ -1451,15 +1452,15 @@ Esse processo recursivo continua até que a aproximação entre a fatoração e 
 \section{Decomposição de Valores em Blocos para Coagrupamento}
 \label{sec:bvd}
 
-A Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - BVD) foi proposto por \citeonline{Long2005} como uma abordagem para tratar o problema de coagruapmento, com base em fatoração de matrizes não-negativas.
-Esta decomposição recebe esse nome por ter a capacidade de encontrar estruturas em blocos escondidas na matriz de dados.
-Isso é possível porque o algoritmo BVD é capaz de explorar a relação entre linhas e colunas da matriz de dados por meio da decomposição dela em três matrizes: $U$ uma matriz de coeficientes de linhas, $S$ uma matriz com estrutura em blocos, e $V$ uma matriz de coeficientes de colunas.
-Segundo os autores, tais coeficientes em $U$ e $V$ podem ser vistos como um fator que associa linhas à partições encontradas no conjunto de linhas, e que associa as colunas à partições encontradas no conjunto de colunas, respectivamente; e $S$ pode ser vista como uma representação compacta da matriz original de entrada e permite sua reconstrução aproximada a partir da operação $USV^T$.
-Sob o ponto de vista de resolução do problema de coagrupamento, então, o objetivo no BVD é encontrar grupos de linhas e colunas de forma simultânea, sendo $k$ grupos de $\mathcal{N}$ (linhas) e $l$ grupos de $\mathcal{M}$ (colunas).
+A Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - \textit{BVD}) foi proposta por~\citeonline{Long2005} como uma abordagem para tratar o problema de coagrupamento, com base em fatoração de matrizes não-negativas.
+Essa decomposição recebe esse nome por ter a capacidade de encontrar estruturas em blocos escondidas na matriz de dados.
+Isso é possível porque o algoritmo \textit{BVD} é capaz de explorar a relação entre linhas e colunas da matriz de dados por meio da decomposição dela em três matrizes: $U$ uma matriz de coeficientes de linhas, $S$ uma matriz com estrutura em blocos, e $V$ uma matriz de coeficientes de colunas.
+Segundo os autores, tais coeficientes em $U$ e $V$ podem ser vistos como um fator que associa linhas a partições encontradas no conjunto de linhas, e que associa as colunas a partições encontradas no conjunto de colunas, respectivamente; e $S$ pode ser vista como a representação média dos detalhes da matriz original e permite sua reconstrução aproximada a partir da operação $USV^T$.
+Sob o ponto de vista de resolução do problema de coagrupamento, então, o objetivo no \textit{BVD} é encontrar grupos de linhas e colunas de forma simultânea, sendo $k$ grupos de $\mathcal{N}$ (linhas) e $l$ grupos de $\mathcal{M}$ (colunas).
 
-Ainda, os autores proponentes da abordagem BVD defendem que interpretações intuitivas podem ser derivadas da análise das combinações das matrizes geradas na fatoração, quando aplicadas a um contexto específico.
+Ainda, os autores proponentes da abordagem \textit{BVD} defendem que interpretações intuitivas podem ser derivadas da análise das combinações das matrizes geradas na fatoração, quando aplicadas a um contexto específico.
 Um exemplo fornecido no trabalho de \citeonline{Long2005} é que, considerando uma matriz de entrada que representa a relação ``documentos por palavras'' (linhas por colunas) cada coluna de $US$ captura a ideia de uma base para a representação de grupos de palavras; e cada linha em $SV^T$ captura a ideia de uma base para a representação de grupos de documentos.
-Uma representação gráfica para o resultado de uma fatoração de matrizes pode ser visto na figura~\ref{fig:bvd}.
+Uma representação gráfica para o resultado de uma fatoração de matrizes pode ser vista na figura~\ref{fig:bvd}.
 
 % tentei deixar menos associado à S e mais genérico, independente de S - exatamente como estava no artigo original. Talvez tenha melhorado.4
 % Obeservação do Valdinei: Parece que aqui é a primeira vez aparece "características" e "objetos", essa interpretação da matriz tem que ser dada mais força anteriormente.
@@ -1470,13 +1471,13 @@ Uma representação gráfica para o resultado de uma fatoração de matrizes pod
 \centering
 \caption{
 Fatoração da matriz original de dados $X$ em três outras matrizes: $U$, $S$ e $V$}
-\includegraphics[width=0.7\textwidth]{img/factorizationXUSV.png}
+\includegraphics[width=0.6\textwidth]{img/factorizationXUSV.png}
 \label{fig:bvd}
 \source{Adaptado de \citeonline{Yoo2010}}
 \end{figure}
 
 Na figura~\ref{fig:bvd} considere que uma célula com cor escura representa a existência de uma relação entre linha e coluna, e uma célula com cor clara representa a inexistência de uma relação entre linha e coluna, e que essas relações são estabelecidas adequadamente em cada contexto de aplicação.
-Transportando o exemplo da figura para o contexto de uma matriz de ``documentos por palavras'' tem-se um conjunto de seis documentos e quatro palavras, sendo que, por exemplo, o primeiro documento possui uma relação com as duas primeiras palavras, e não possui relação com as terceira e a quarta palavras.
+Transportando o exemplo da figura para o contexto de uma matriz de ``documentos por palavras'' tem-se um conjunto de seis documentos e quatro palavras, sendo que, por exemplo, o primeiro documento possui uma relação com as duas primeiras palavras, e não possui relação com as terceira e quarta palavras.
 A matriz $U$ pode ser interpretada como uma matriz ``documentos por grupos de documentos'', sendo portanto uma situação em que seis documentos estão agrupados em três grupos ($k = 3$): os dois primeiros documentos no primeiro grupo, os dois próximos no segundo grupo e os dois últimos no terceiro grupo.
 A matriz $V^T$ pode ser interpretada como uma matriz de ``grupos de palavras por palavras'', sendo portanto uma situação em que há dois grupos de palavras ($l = 2$) no contexto das quatro palavras existentes.
 Finalmente, a matriz $S$ representa uma relação entre ``grupos de documentos'' e ``grupos de palavras''.
@@ -1484,30 +1485,30 @@ A primeira linha da matriz $S$ indica que há uma relação entre o primeiro gru
 Seguindo a interpretação intuitiva apresentada por \cite{Long2005}, uma das combinações possíveis, $SV^T$, está ilustrada na figura~\ref{fig:bvd:reconstruction}.
 Observe que a matriz $SV^T$ representa ``três grupos de documentos por quatro palavras'', constituindo-se como uma base de representação para grupos de documentos.
 
-\begin{figure}[H]
-\centering
-\caption{
-A reconstrução da primeira linha $\mathbf{x}_{1 \cdot}$ de $X$, através da multiplicação da matriz indicadora de grupos de linhas $U$ pela matriz dos protótipos de linhas $(S V^T)$. %que para a primeira linha seleciona apenas o primeiro protótipo,
-}
-\includegraphics[width=0.7\textwidth]{img/reconstruction.png}
-\label{fig:bvd:reconstruction}
-\source{Lucas Fernandes Brunialti, 2016}
-\end{figure}
-
 Note ainda que nessa estrutura de matrizes fatoradas é possível identificar protótipos responsáveis por cada parte da reconstrução da matriz original $X$, visto que cada base de representação pode ser vista como um conjunto de vetores protótipos: as linhas de $(SV^T)$ são vetores base (protótipos de grupos de linhas).
 O raciocínio apresentado para interpretação da figura~\ref{fig:bvd:reconstruction} pode também ser feito para a interpretação da combinação $US$.
 Importante salientar que, assim como ocorre na resolução da tarefa de agrupamento, diferentes grupos de linhas e de colunas podem ser obtidos, representando diferentes soluções para o problema.
 E, neste caso ainda, diferentes matrizes $S$ podem ser obtidas para uma mesma organização de grupos de linhas e colunas.
 Portanto, qualquer interpretação derivada dessa análise deve ser considerada como apenas uma das formas possíveis de análise dos dados provenientes do contexto de aplicação.
 
+\begin{figure}[H]
+\centering
+\caption{
+A reconstrução da primeira linha $\mathbf{x}_{1 \cdot}$ de $X$, através da multiplicação da matriz indicadora de grupos de linhas $U$ pela matriz dos protótipos de linhas $(S V^T)$. %que para a primeira linha seleciona apenas o primeiro protótipo,
+}
+\includegraphics[width=0.6\textwidth]{img/reconstruction.png}
+\label{fig:bvd:reconstruction}
+\source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
 Semelhante ao \textit{fuzzy k-means}, é possível observar esta fatoração como uma ótica de compactação.
-O BVD compacta a matriz de dados em uma matriz com fatores que correlacionam cada linha com cada grupo de linhas ($U$).
+O \textit{BVD} compacta a matriz de dados em uma matriz com fatores que correlacionam cada linha com cada grupo de linhas ($U$).
 Além disso, esta compactação adiciona a idéia de uma matriz de fatores $V$ para compactar as colunas de $X$, e $S$ que é uma visão compactada de $X$ em $kl$ elementos.
-Portanto, a compactação transforma $nm$ elementos em $nk + kl + ml$ elementos, atravéz das matrizes $U$, $S$ e $V$.
+Portanto, a compactação transforma $nm$ elementos em $nk + kl + ml$ elementos, através das matrizes $U$, $S$ e $V$, e supondo que $n \ll k$ e $m \ll l$, tem-se que $mm \ll nk + kl + ml$.
 
-O problema de coagrupamento implementado sob a abordagem BVD é formalmente apresentado como \cite{Long2005}:
+O problema de coagrupamento implementado sob a abordagem \textit{BVD} é formalmente apresentado como \cite{Long2005}:
 
-\begin{problem}[Problema de Decomposição de Valores em Blocos]
+\begin{problem}[Problema de decomposição de valores em blocos]
 \label{def:bvd:problem}
     \begin{equation}
         \begin{array}{lclcl}
@@ -1518,7 +1519,6 @@ O problema de coagrupamento implementado sob a abordagem BVD é formalmente apre
         \end{array}   \nonumber
     \end{equation}
 \end{problem}
-
 em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
 
 %% *******************************************************************************************************
@@ -1590,7 +1590,7 @@ Nesse algoritmo considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e 
 % Lucas: Esse é o mistério, ninguém comenta muito sobre isso, mas na prática só funciona assim, quer dizer, do outro jeito "funciona" tbm, mas a medida de aproximação fica meio louca. A minha idéia é que é assim pq a otimização é alternada, primeiro otimiza pra U fixando S e V, melhora a solução de U, otimiza pra V fixando S e V, melhora a solução de V, otimiza pra S fixando U e V, melhora a solução de S. O mais bizarro é que se foge dessa ordem, a medida de aproximação fica louca.
 
 \begin{algorithm}
-\caption{Algoritmo baseado em atualização multiplicativa para solução do BVD}
+\caption{Algoritmo baseado em atualização multiplicativa para solução do \textit{BVD}}
 \label{algo:bvd}
 \begin{algorithmic}[1]
 \Function{BVD}{$X$, $k$, $l$, $t_{max}$}
@@ -1618,18 +1618,18 @@ S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(
 \end{algorithmic}
 \end{algorithm}
 
-A inicialização dos elementos das matrizes $U$, $S$ e $V$ são gerados através de uma distribuição uniforme que ignora zeros ($\mathcal{U}(0, 1) \in~]0, 1]$).
+A inicialização dos elementos das matrizes $U$, $S$ e $V$ são gerados através de uma distribuição uniforme ($\mathcal{U}(0, 1) \in~]0, 1]$).
 Como condições para assumir a convergência, neste trabalho, considera-se a diferença do erro de aproximação em duas iterações consecutivas menor ou igual a um $\epsilon$:
 $$\norm{X - U^{(t)} S^{(t)} V^{(t)^T}}^{2}_{F} - \norm{X - U^{(t+1)} S^{(t+1)} V^{(t+1)^T}}^{2}_{F} \leq \epsilon$$
-O algoritmo também pára caso a $t$-ésima iteração seja igual ao número máximo de iterações ($t_{max}$).
+O algoritmo também pára caso a quantidade de iterações assuma o limite $t_{max}$.
 
 Note que como $U$ e $V$ possuem valores no domínio dos reais, então, não é possível obter as partições diretamente, sem um processo de pós-processamento.
-Um modo simples de obter o particionamento para as linhas, é o seguinte:
-$$\mathcal{K}_p = \mathcal{K}_p + \{ x_{i \cdot} \}~|~p = \argmax_{p'} \mathbf{u}_{i \cdot}~\forall i = \{1, \dots, n\}, \forall p, p' = \{1, \dots, k\}$$
+Um modo simples de obter o particionamento para as linhas toma a seguinte forma:
+$$\mathcal{K}_{p}=\{x_{i\cdot}|i\in\{1,\ldots,n\}\text{ e }p=\argmax_{p'\in\{1,\ldots,k\}} u_{ip'} \}, \forall p\in\{1,\ldots,k\}$$
 
 Isso significa que uma linha $i$ pertencerá a um cogrupo $p$ (ou partição) se para todos os $k$ cogrupos, o fator $u_{ip}$ for maior que todos os outros fatores para os outros cogrupos, presentes no vetor $\mathbf{u}_{i \cdot}$.
 
-A complexidade de tempo do algoritmo é possível ser calculada fixando as condições $k \simeq l$, $n \simeq m$, $k << n$, $l << m$ e usando um algoritmo para otimizar a ordem das multiplicações (\citeonline{Cormen2001} discute algoritmos para tal otimização): $\mathcal{O}\Big( t_{max} \big( nl (m + k) + ml (n + k) + mk (n + l) + k^2 (n + l) + l^2 (m + k) \big) \Big)$.
+A complexidade de tempo do algoritmo é possível ser calculada fixando as condições $k \simeq l$, $n \simeq m$, $k \ll n$, $l \ll m$ e usando um algoritmo para otimizar a ordem das multiplicações (\citeonline{Cormen2001} discute algoritmos para tal otimização): $\mathcal{O}\Big( t_{max} \big( nl (m + k) + ml (n + k) + mk (n + l) + k^2 (n + l) + l^2 (m + k) \big) \Big) \simeq \mathcal{O}\Big( t_{max} \big( n^2k + nk^2 + k^3 ) \Big)$.
 
 
 % \begin{theorem}[Corretude]
@@ -1659,9 +1659,9 @@ A complexidade de tempo do algoritmo é possível ser calculada fixando as condi
 \section{Fatoração Ortogonal Tripla de Matrizes Não-negativas}
 \label{sec:ONMTF}
 
-Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chama de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - ONMTF).
+Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chama de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - \textit{ONMTF}).
 
-\begin{problem}[Problema de Fatoração Ortogonal tripla de Matrizes Não-negativas]
+\begin{problem}[Problema de fatoração ortogonal tripla de matrizes não-negativas]
 \label{def:onmtf:problem}
 \begin{equation}
     \begin{array}{lclcl}
@@ -1672,9 +1672,8 @@ Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o proble
     \end{array}   \nonumber
 \end{equation}
 \end{problem}
-
-em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$ e $\norm{\cdot}_F$ denota a norma de Frobenius.
-Na formulação desse problemas, duas restrições de ortonormalidade são acrescentadas, $U^T U = I$ e $V^T V = I$, em que $I$ é a matriz identidade, para as matrizes de grupos de linhas e grupos de colunas, respectivamente.
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}_{+}$ e $\norm{\cdot}_F$ denota a norma de Frobenius.
+Na formulação desse problema, duas restrições de ortonormalidade são acrescentadas, $U^T U = I$ e $V^T V = I$, em que $I$ é a matriz identidade, para as matrizes de grupos de linhas e grupos de colunas, respectivamente.
 Tais restrições restringem o problema da fatoração $X \approx USV^T$ para um número menor de possíveis soluções, buscando a unicidade, como mostrado na figura~\ref{fig:bvdvsonmtf}.
 No entanto, o algoritmo não garante que as restrições de ortonomalidade são respeitadas, apesar das restrições colocadas encontrarem soluções de particionamento com maior ortogonalidade.
 
@@ -1696,28 +1695,28 @@ No entanto, o algoritmo não garante que as restrições de ortonomalidade são 
 \label{fig:bvdvsonmtf:2}
 \end{subfigure}
 
-%       Um exemplo sintético que compara o algoritmo para BVD contra o algoritmo para ONMTF, com pontos sendo dados, as linhas pontilhadas sendo os protótipos de linhas ($S V^T$), e os três conjuntos de pontos sendo os grupos. (a) O algoritmo para BVD encontra uma solução com dois protótipos em um mesmo grupo, deixando um dos grupos sem nenhum protótipo para representá-lo. Apesar de ser uma solução correta, ou seja, encontra um mínimo local, não é a desejada. (b) O algoritmo para ONMTF é capaz de encontrar a solução em que cada protótipo aproxima cada grupo de dados, através das restrições referentes à ortogonalidade, este é capaz de restringir as possíveis soluções para a fatoração $X \approx U S V^T$.
+%       Um exemplo sintético que compara o algoritmo para \textit{BVD} contra o algoritmo para ONMTF, com pontos sendo dados, as linhas pontilhadas sendo os protótipos de linhas ($S V^T$), e os três conjuntos de pontos sendo os grupos. (a) O algoritmo para \textit{BVD} encontra uma solução com dois protótipos em um mesmo grupo, deixando um dos grupos sem nenhum protótipo para representá-lo. Apesar de ser uma solução correta, ou seja, encontra um mínimo local, não é a desejada. (b) O algoritmo para ONMTF é capaz de encontrar a solução em que cada protótipo aproxima cada grupo de dados, através das restrições referentes à ortogonalidade, este é capaz de restringir as possíveis soluções para a fatoração $X \approx U S V^T$.
 
 \label{fig:bvdvsonmtf}
 \source{\citeonline{Yoo2010}}
 \end{figure}
 
 A figura~\ref{fig:bvdvsonmtf} representa um problema com três grupos (três nuvens de pontos).
-As linhas pontilhadas representam os protótipos obtidos por FMN (a) sem restrição de ortogonalidade nas matrizes, como o BVD (a), e (b) com restrição de ortogonalidade nas matrizes, como o ONMTF.
+As linhas pontilhadas representam os protótipos obtidos por FMN (a) sem restrição de ortogonalidade nas matrizes, como o \textit{BVD} (a), e (b) com restrição de ortogonalidade nas matrizes, como o \textit{ONMTF}.
 Note que a base obtida com FMN ortogonal tende a encontrar protótipos mais centralizados nos grupos.
 Já a base obtida com FMN sem restrições tende a encontrar uma região convexa que contém os pontos dos grupos (incluindo regiões que abrangem pontos de grupos originalmente projetados como sendo diferentes).
 A solução obtida em (a), embora correta, não é desejável.
 
-Em termos de compactação, igualmente ao BVD, o algoritmo para solução do ONMTF transforma os $nm$ elementos da matriz $X$ em $nk + kl + ml$ elementos, atravéz da fatoração em $U$, $S$ e $V$.
+Em termos de compactação, igualmente ao \textit{BVD}, o algoritmo para solução do \textit{ONMTF} transforma os $nm$ elementos da matriz $X$ em $nk + kl + ml$ elementos, através da fatoração em $U$, $S$ e $V$, e supondo que $n \ll k$ e $m \ll l$, tem-se que $mm \ll nk + kl + ml$.
 
 \citeonline{Ding06} propõem uma solução para implementação do processo de minimização para o problema~\ref{def:onmtf:problem} semelhante ao que foi apresentado na seção~\ref{sec:bvd}, também baseado em atualizações multiplicativas e com convergência demonstrada com base na teoria de otimização não linear.
-O algoritmo para tal processo de minimização é apresentado no algoritmo~\ref{algo:onmtf}, no qual $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V^{(t)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, $\odot$ é o produto de Hadamard e $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros.
+O algoritmo para tal processo de minimização é apresentado no algoritmo~\ref{algo:onmtf}, no qual $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V^{(t)}$, as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, $\odot$ é o produto de Hadamard e $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme.
 Também, a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd} pode ser aplicada nesse caso.
 
 %fazendo a derivação através da função lagrangeana e a introdução dos multiplicadores de lagrange, utilizando as condições de otimização não-linear de KKT, derivando as regras para atualização multiplicativa para $U$, $S$ e $V$, apresentadas no algoritmo~\ref{algo:onmtf}.
 
 \begin{algorithm}
-\caption{Algoritmo baseado em atualização multiplicativa para solução do ONMTF}
+\caption{Algoritmo baseado em atualização multiplicativa para solução do \textit{ONMTF}}
 \label{algo:onmtf}
 \begin{algorithmic}[1]
 \Function{ONM3F}{$X$, $k$, $l$, $t_{max}$}
@@ -1745,8 +1744,8 @@ S^{(t+1)} \gets S^{(t)} \odot \sqrt{ \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^
 \end{algorithmic}
 \end{algorithm}
 
-Note que é possível obter o particionamento de linhas e colunas da mesma forma que foi descrita com o BVD.
-Calculando a complexidade de tempo, fixando as mesmas condições $k \simeq l$, $n \simeq m$, $k << n$, $l << m$ e usando um algoritmo para otimizar a ordem das multiplicações, é possível encontrar a mesma complexidade antes calculada para o algoritmo~\ref{algo:bvd}.
+Note que é possível obter o particionamento de linhas e colunas da mesma forma que foi descrita com o \textit{BVD}.
+Calculando a complexidade de tempo, fixando as mesmas condições $k \simeq l$, $n \simeq m$, $k \ll n$, $l \ll m$ e usando um algoritmo para otimizar a ordem das multiplicações, é possível encontrar a mesma complexidade antes calculada para o algoritmo~\ref{algo:bvd}.
 
 % Sara: \textcolor{red}{Note que no algoritmo ONMTF, a matriz de dados de entrada é considerada .... não deveríamos falar alguma coisa aqui sobre as principais diferenças das regras de atualização das matrizes????}
 
@@ -1843,14 +1842,14 @@ Essa superfície com restrições é chamada de Variedade de Stiefel (\textit{St
 %    \end{array}
 %\]
 
-Assim,~\citeonline{Yoo2010} faz o uso da estratégia da equação~\ref{eq:onmtf:updateTheta} e da teoria de derivação na superfície com restrições (Variedade Stiefel), para propor uma solução para o problema~\ref{def:onmtf:problem} (ONMTF) alternativa às atualizações das equações~\ref{eq:onmtf:updateU},~\ref{eq:onmtf:updateV} e~\ref{eq:onmtf:updateS}, através da atualização multiplicativa.
-Essas atualizações são apresentadas no algoritmo~\ref{algo:onmtf2}, considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V^{(t)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, $\odot$ o produto de Hadamard, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, $\diag( \cdot )$ uma função que extrai a diagonal principal de uma matriz e a transforma em um vetor, e $\mathbf{1}$ um vetor de uns com dimensão que torne a multiplicação possível.
+Assim,~\citeonline{Yoo2010} faz o uso da estratégia da equação~\ref{eq:onmtf:updateTheta} e da teoria de derivação na superfície com restrições (Variedade Stiefel), para propor uma solução para o problema~\ref{def:onmtf:problem} (\textit{ONMTF}) alternativa às atualizações das equações~\ref{eq:onmtf:updateU},~\ref{eq:onmtf:updateV} e~\ref{eq:onmtf:updateS}, através da atualização multiplicativa.
+Essas atualizações são apresentadas no algoritmo~\ref{algo:onmtf2}, considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V^{(t)}$, as matrizes $U$, $S$ e $V$, na iteração $t$, respectivamente, $\odot$ o produto de Hadamard, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, $\diag( \cdot )$ uma função que extrai a diagonal principal de uma matriz e a transforma em um vetor, e $\mathbf{1}$ um vetor de uns com dimensão que torne a multiplicação possível.
 
 Considerando a preservação da ortonormalidade, o algoritmo apresentado é capaz de preservar melhor a ortonormalidade.
-Para tal afirmação,~\citeonline{Yoo2010} realizou um experimento que consistiu em medir as restrições de ortonormalidade em $U$ e $V$, através das restrições $\norm{U^T U - I}$ e $\norm{V^T V - I}$, respectivamente, durante cada iteração do algoritmo proposto, comparando-o com o algoritmo proposto por~\citeonline{Ding06}.
+Para tal afirmação,~\citeonline{Yoo2010} realizou um experimento que consistiu em medir as restrições de ortonormalidade em $U$ e $V$, através dos erros $\norm{U^T U - I}$ e $\norm{V^T V - I}$, respectivamente, durante cada iteração do algoritmo proposto, comparando-o com o algoritmo proposto por~\citeonline{Ding06}.
 
 \begin{algorithm}
-\caption{Algoritmo baseado em atualização multiplicativa e na teoria de de derivação na superfície com restrições (Variedade Stiefel) para solução do ONMTF}
+\caption{Algoritmo baseado em atualização multiplicativa e na teoria de de derivação na superfície com restrições (Variedade Stiefel) para solução do \textit{ONMTF}}
 \label{algo:onmtf2}
 \begin{algorithmic}[1]
 \Function{ONMTF}{$X$, $k$, $l$, $t_{max}$}
@@ -1862,7 +1861,7 @@ U^{(t+1)} \gets U^{(t)} \odot \frac{ X V^{(t)} S^{(t)^T} }{ U^{(t)} S^{(t)} V^{(
 \end{equation}
 \State
 \begin{equation}
-V^{(t+1)} \gets U^{(t)} \odot \frac{ X^T U^{(t+1)} S^{(t)} }{ V^{(t)} S^{(t)^T} U^{(t+1)^T} X V^{(t)} } \nonumber
+V^{(t+1)} \gets V^{(t)} \odot \frac{ X^T U^{(t+1)} S^{(t)} }{ V^{(t)} S^{(t)^T} U^{(t+1)^T} X V^{(t)} } \nonumber
 \end{equation}
 \State
 \begin{equation}
@@ -1879,37 +1878,38 @@ $$V^{(t)} \gets V^{(t)} \diag(\mathbf{1}^T \diag(\mathbf{1}^T U^{(t)}) S^{(t)})$
 \end{algorithmic}
 \end{algorithm}
 
-Ainda,~\citeonline{Yoo2010} propõem uma normalização baseada numa interpretação probabilística da fatoração de $X$ em $USV^T$, para então realizar o particionamento de linhas e colunas, como apresentado no algoritmo~\ref{algo:onmtf2}.
+Ainda,~\citeonline{Yoo2010} propõem uma normalização baseada numa interpretação probabilística da fatoração de $X$ em $USV^T$, para então realizar o particionamento de linhas e colunas, como apresentado no algoritmo~\ref{algo:onmtf2} (linhas $9$ e $10$).
 Note que o particionamento de linhas e colunas é realizado como nos outros algoritmos já apresentados e a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd} e~\ref{algo:onmtf} pode ser aplicada nesse caso.
 
-Calculando a complexidade de tempo, seguindo as mesmas restrições apresentadas anteriormente para os outros algoritmos, é possível verificar que o algoritmo~\ref{algo:onmtf2},proposto por~\citeonline{Yoo2010} para solução do problema~\ref{def:onmtf:problem} (ONMTF), é equivalente à complexidade apresentada para o algoritmo~\ref{algo:bvd} e~\ref{algo:onmtf}.
+Calculando a complexidade de tempo, seguindo as mesmas restrições apresentadas anteriormente para os outros algoritmos, é possível verificar que o algoritmo~\ref{algo:onmtf2}, proposto por~\citeonline{Yoo2010} para solução do problema~\ref{def:onmtf:problem} (\textit{ONMTF}), é equivalente à complexidade apresentada para o algoritmo~\ref{algo:bvd}.
 
 \section{Fatoração Tripla Rápida de Matrizes Não-negativas}
 \label{sec:FNMTF}
 
 O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fast Non-negative Matrix Tri Factorization} - FNMTF), formalizado no problema~\ref{def:fnmtf:problem}, foi proposto por \citeonline{Wang2011} com os seguintes argumentos contra o uso prático dos problemas até então propostos para encontrar cogrupos: eles exigem soluções algorítmicas iterativas, com intensas multiplicações de matrizes em cada passo do algoritmo; eles propõem encontrar coagrupamentos flexíveis (com restrições relaxadas), o que implica em encontrar inúmeras soluções para a tarefa de coagrupamento.
 
-\begin{problem}[Fatoração tripla rápida de Matrizes Não-negativas]
+\begin{problem}[Fatoração tripla rápida de matrizes não-negativas]
 \label{def:fnmtf:problem}
 \begin{equation}
     \begin{array}{lclcl}
         \displaystyle \mathcal{F}_7(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
-                                             &   &                              & U \in \Psi^{n \times k}, \\
-                                             &   &                              & V \in \Psi^{m \times l}
+                                             &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
+                                             &   &                              & V \in \Psi^{m \times l}, \\
+                                             &   &                              & \sum_{p=1}^{k} \mathbf{u}_{ip} = 1, \forall i, \\
+                                             &   &                              & \sum_{q=1}^{l} \mathbf{v}_{jq} = 1, \forall j \\
     \end{array} \nonumber
 \end{equation}
 \end{problem}
-
-em que $S \in \mathbb{R}^{k \times l}_{+}$, $\Psi = \{0, 1\}$, $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{q \cdot} = 1$.
+em que $S \in \mathbb{R}^{k \times l}_{+}$e $\Psi = \{0, 1\}$ e $\norm{\cdot}_F$ denota a norma de Frobenius.
 
 \citeonline{Wang2011} denominam $U$ como uma matriz indicadora dos grupos de linhas, $V$ como uma matriz indicadora dos grupos de colunas, e $S$ como uma matriz que contém os fatores que relacionam um grupo de linhas aos grupos de colunas, e um grupo de colunas aos grupos de linhas.
 Note que nesse caso não é necessário uma etapa de pós-processamento para particionamento como nos outros algoritmos apresentados.
 
-Ainda, as restrições $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{q \cdot} = 1$ indicam que uma linha e uma coluna, respectivamente, têm que pertencer à algum grupo.
+Ainda, as restrições $\sum_{p=1}^{k} \mathbf{u}_{ip} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{jq} = 1$ indicam que uma linha e uma coluna, respectivamente, têm que pertencer à algum grupo.
 Então, apesar dessas restrições serem semelhantes à ortonormalidade, elas não são, pois não resolvem o caso em que há uma possibilidade de haver grupos vazios, ou seja, sem nenhum elemento pertencente a este grupo, enquanto a restrição de ortonormalidade, garante que não haverá grupos vazios, seja este grupo de linhas ou de colunas.
 
-Como $U$ e $V$ neste caso têm as restrições descritas, e são capazes de fornecer o particionamento de linhas e colunas, respectivamente, de forma direta, a capacidade de compactação nesse caso é semelhante ao algoritmo \textit{k-means}, brevemente descrito no Capítulo~\ref{ch:conceitos}.
-Porém, como a fatoração compacta as colunas e as relações entre grupos de linhas e colunas (matriz $S$), a matriz $X$ é compactada em $n + kl + m$ elementos.
+Como $U$ e $V$ neste caso têm as restrições descritas, e são capazes de fornecer o particionamento de linhas e colunas, respectivamente, de forma direta, a capacidade de compactação nesse caso é semelhante ao algoritmo \textit{k-means}, brevemente descrito no capítulo~\ref{ch:conceitos}.
+Porém, como a fatoração compacta as colunas e as relações entre grupos de linhas e colunas (matriz $S$), a matriz $X$ é compactada em $n + kl + m$ elementos, e, se $n \ll k$ e $m \ll l$, tem-se que $mm \ll n + kl + m$.
 
 Como não há restrições em $S$, com exceção da positividade que é garantida pela positividade de $X$, é possível encontrar uma regra de atualização para $S$, e portanto, minimização de $\mathcal{F}_7$:
 \[
@@ -1932,7 +1932,7 @@ Uma estratégia semelhante aquela aplicada no clássico algoritmo \textit{k-mean
 Primeiramente, fixa-se $S$ e $V$ e resolve-se o problema~\ref{def:fnmtf:problem} para $U$ de forma iterativa, verificando quais dos protótipos de linhas (linhas de $\widetilde{V}$) mais se aproxima das linhas de $X$.
 Em seguida, fixa-se $S$ e $U$ para alcançar uma solução iterativa para $V$, através dos protótipos de colunas (colunas de $\widetilde{U}$), assim como mostrado no algoritmo~\ref{algo:fnmtf}.
 
-Note que é possível interpretar a regra de atualização para $S$: $(U^T U)$ é uma matriz que na diagonal contém a contagem do número de linhas em cada grupo de linhas e zeros nas demais posições, $(U^T U)^{-1}$ é o cálculo da média parcial para cada grupo de linhas, e $U^T X$ seleciona e soma as linhas de $X$ para cada grupo de linhas.
+Note que é possível interpretar a regra de atualização para $S$: $(U^T U)$ é uma matriz que na diagonal contém a contagem do número de linhas em cada grupo de linhas e zeros nas demais posições, $(U^T U)^{-1}$ é o fator que divide a soma dos valores para cada grupo de linhas, e $U^T X$ seleciona e soma as linhas de $X$ para cada grupo de linhas.
 A mesma interpretação pode ser feita para $(V^T V)$, $(V^T V)^{-1}$ e $XV$.
 O seguinte exemplo mostra uma matriz de dados com $6$ linhas e $3$ colunas, particionada por $3$ grupos de linhas e $2$ grupos de colunas, ilustrando a interpretação da atualização de $S$:
 \[
@@ -1974,7 +1974,7 @@ V^T V = \begin{bmatrix}
 0 & 2
 \end{bmatrix}
 \]
-A matriz $U$ do exemplo, apresenta um particionamento das $6$ linhas em $3$ grupos, sendo que $3$ linhas pertencem ao primeiro grupo, $2$ linhas ao segundo grupo, e $1$ linha ao terceiro grupo, como mostra a diagonal principal da matriz $U^T U$, a mesma interpretação pode ser feita para $V$ e $V^T V$.
+A matriz $U$ do exemplo apresenta um particionamento das $6$ linhas em $3$ grupos, sendo que $3$ linhas pertencem ao primeiro grupo, $2$ linhas ao segundo grupo, e $1$ linha ao terceiro grupo, como mostra a diagonal principal da matriz $U^T U$ a mesma interpretação pode ser feita para $V$ e $V^T V$.
 \[
 \begin{array}{ll}
 (U^T X) V & = \Bigg(\begin{bmatrix}
@@ -2038,7 +2038,7 @@ Por exemplo, para calcular um elemento $s_{pq}$ de $S$, será simplesmente o cá
 Dessa forma, também é possível propor uma solução iterativa para $S$.
 
 O algoritmo~\ref{algo:fnmtf} ilustra o processo de minimização para o problema~\ref{def:fnmtf:problem}.
-Nesse algoritmo considere os índices $i = \{1, \dots, n\}$, $j = \{1, \dots, m\}$, $p = p' = \{1, \dots, k\}$, e $q = q' = \{1, \dots, l\}$, o contador de iterações $t$, $U^{(t)}$, $S^{(t)}$ e $V^{(t)}$ como sendo as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, e $\norm{ \cdot }^2$ é a norma frobenius para vetores.
+Nesse algoritmo considere os índices $i \in \{1, \dots, n\}$, $j \in \{1, \dots, m\}$, $p = p' \in \{1, \dots, k\}$, e $q = q' \in \{1, \dots, l\}$, o contador de iterações $t$, $U^{(t)}$, $S^{(t)}$ e $V^{(t)}$ como sendo as matrizes $U$, $S$ e $V$ na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\norm{ \cdot }^2$ é a norma frobenius para vetores.
 Também, as mesmas condições de convergência usada nos algoritmos anteriores pode ser aplicada nesse caso.
 
 \begin{algorithm}
@@ -2046,7 +2046,7 @@ Também, as mesmas condições de convergência usada nos algoritmos anteriores 
 \label{algo:fnmtf}
 \begin{algorithmic}[1]
 \Function{FNMTF}{$X$, $k$, $l$, $t_{max}$}
-\State \textbf{Inicialize:} $U^{(0)}, V^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1, \sum_{q=1}^{l} \mathbf{v}_{q \cdot} = 1$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+\State \textbf{Inicialize:} $U^{(0)}, V^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} \mathbf{u}_{ip} = 1, \sum_{q=1}^{l} \mathbf{v}_{jq} = 1, \forall i, j$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
 \While{(não convergiu) e ($t \leq t_{max}$)}
 \State
 \begin{equation}
@@ -2089,10 +2089,10 @@ S^{(t+1)} \gets (U^{(t)^T} U^{(t)})^{-1} U^{(t)^T} X V^{(t)} (V^{(t)^T} V^{(t)})
 \end{algorithm}
 
 A análise de complexidade de tempo do algoritmo~\ref{algo:fnmtf} difere das demais apresentadas.
-Se for usado um algoritmo iterativo para o cálculo das matrizes inversas, aproveitando o fato que ambas contém elementos diferentes de $0$ na diagonal principal, é possível chegar no seguinte resultado: $\mathcal{O}\Big( t_{max} \big( nl (m + k) + kl (n + m) + nk + ml \big) \Big)$.
-Já é possível perceber que a complexidade do algoritmo é menor das apresentadas nos algoritmos~\ref{algo:bvd},~\ref{algo:onmtf} e~\ref{algo:onmtf2}.
+Se for usado um algoritmo iterativo para o cálculo das matrizes inversas, aproveitando o fato que ambas contém elementos diferentes de $0$ na diagonal principal, é possível chegar no seguinte resultado: $\mathcal{O}\Big( t_{max} \big( nl (m + k) + kl (n + m) + nk + ml \big) \Big) \simeq \mathcal{O}\Big( t_{max} \big( n^2k + k^2n + nk \big) \Big)$.
+Já é possível perceber que a complexidade do algoritmo é menor que a complexidade dos algoritmos~\ref{algo:bvd},~\ref{algo:onmtf} e~\ref{algo:onmtf2}.
 Isso se explica pois a atualização de $U$ e $V$ é feita de forma iterativa.
-Ainda, há multiplicações de matrizes para o cálculo dos centróides $\widetilde{U}$ e $\widetilde{V}$, e para atualização de $S$, que podem ser calculados de forma iterativa, melhorando ainda mais a complexidade de tempo do algoritmo.
+Ainda, as multiplicações de matrizes para o cálculo dos centróides $\widetilde{U}$ e $\widetilde{V}$, e para atualização de $S$, que podem ser calculadas de forma iterativa, melhorando ainda mais a complexidade de tempo do algoritmo.
 
 % ************************************************************
 
@@ -2100,20 +2100,20 @@ Ainda, há multiplicações de matrizes para o cálculo dos centróides $\wideti
 
 % Sara: não consigo colocar o exemplo do Valdinei, pois eu precisaria de um exemplo real para conseguir explicar com números e esse exemplo só virá no Capítulo 5. Colocar de forma genérica, eu também não consegui. Tentei mas tive a impressão de estar apenas repetindo as formulações dos problemas já apresentadas. Então resolve usar "prosa" mesmo. Um texto equivalente deveria ser feito para o K-means e para o Fuzzy-K-means no final do capítulo 2.
 
-É importante ressaltar, que nenhum dos algoritmos apresentados são capazes de garantir convergência para um mínimo global dos problemas apresentados, então, é possível encontrar diversas soluções em execuções diferentes dos algoritmos.
+É importante ressaltar, que nenhum dos algoritmos apresentados são capazes de garantir convergência para um mínimo global dos problemas apresentados, então, é possível encontrar diversas soluções em execuções diferentes dos algoritmos, devido à inicialização de forma aleatória.
 Essa é uma limitação também presente nos algoritmos de agrupamento clássicos.
 
-Além disso, a fim de melhor motivar a proposta dos novos algoritmos, apresentados no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos ONMTF e FNMTF em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos.
+Além disso, a fim de melhor motivar a proposta dos novos algoritmos apresentados no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos \textit{ONMTF} e \textit{FNMTF} em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados e em termos do processo de descoberta de cogrupos.
 
 Do ponto de vista de quantização do espaço dos dados, a quantidade de informação que precisa ser armazenada é dependente da organização da matriz $S$, ou seja, do número de grupos de linhas $k$ e do número de colunas $l$ necessários para explicar a matriz de dados original.
-Como será discutido mais à frente neste trabalho, para determinados tipos de organização de cogrupos, especificamente aqueles em que há sobreposição de colunas nos grupos de colunas, os algoritmos implementados sob essas estratégias exigem uma quantidade de grupos de colunas ($l$) que pode ser maior do que o número de grupos de colunas desejados.
-Os algoritmos propostos tem o objetivo de superar essa limitação, permitindo que a quantização do espaço seja mais próxima da desejada em termos de grupos de colunas.
+Como será discutido mais à frente neste trabalho, para determinados tipos de organizações de cogrupos, especificamente aqueles em que há sobreposição de colunas nos grupos de colunas, os algoritmos implementados sob essas estratégias exigem uma quantidade de grupos de colunas ($l$) que pode ser maior do que o número de grupos de colunas desejados.
+Os algoritmos propostos têm o objetivo de superar essa limitação, permitindo que a quantização do espaço seja mais próxima da desejada em termos de grupos de colunas.
 
-Do ponto de vista de geração de informação sobre os dados, os algoritmos ONMTF e FNMTF são capazes de fornecer como as linhas da matriz se organizam em grupos e como as colunas da matriz se organizam em grupos.
+Do ponto de vista de geração de informação sobre os dados, os algoritmos \textit{ONMTF} e \textit{FNMTF} são capazes de fornecer como as linhas da matriz se organizam em grupos e como as colunas da matriz se organizam em grupos.
 Transferindo essa informação para um contexto de aplicação, significa dizer que os algoritmos são capazes de explicar como os dados se organizam no espaço (matriz $U$) e, intuitivamente e sob uma forma de organização, como grupos de atributos desses dados (matriz $V$) podem estar associados (por meio da matriz $S$) à essa organização dos dados.
 Esse tipo de informação, também presente nos algoritmos propostos, não é explicitamente fornecida por algoritmos de agrupamento como \textit{k-means} e \textit{fuzzy-k-means}, brevemente discutidos no capítulo~\ref{ch:conceitos}.
 
-Do ponto de vista do processo de descoberta dos cogrupos, os algoritmos ONMTF e FNMTF são capazes de considerar simultaneamente ambas organizações na resolução do problema de minimização do erro de aproximação da matriz original.
+Do ponto de vista do processo de descoberta dos cogrupos, os algoritmos \textit{ONMTF} e \textit{FNMTF} são capazes de considerar simultâneamente ambas organizações na resolução do problema de minimização do erro de quantização da matriz original.
 Porém, possuem um processo que pode ser caracterizado por um tipo de interdependência entre grupos de linhas, que é na realidade o causador da possibilidade de chegar a uma quantidade de grupos de colunas ($l$) maior do que é realmente necessário para explicar os dados que possuem uma organização de cogrupos com sobreposição de colunas.
 Esta é a segunda meta de superação obtida nos algoritmos propostos, que por sua formulação, são capazes de resolver o problema de fatoração das matrizes de maneira independente para cada grupo de linhas.
 
@@ -2128,10 +2128,10 @@ Esta é a segunda meta de superação obtida nos algoritmos propostos, que por s
 % ************************************************************
 % ************************************************************
 
-\chapter{Fatoração de matrizes não-negativas para coagrupamento com sobreposição unidimensional}
+\chapter{Fatoração de matrizes não-negativas para coagrupamento com sobreposição de colunas}
 \label{ch:proposedalgs}
 
-Como discutido no capítulo~\ref{ch:fatoracao}, a fatoração de matrizes aplicada ao problema de agrupamento ou coagrupamento pode ser analisada sob, pelo menos, três aspectos: quantização do espaço dos dados; geração de informação sobre os dados; processo de descoberta de cogrupos.
+Como discutido no capítulo~\ref{ch:fatoracao}, a fatoração de matrizes aplicada ao problema de agrupamento ou coagrupamento pode ser analisada sob, pelo menos, três aspectos: quantização do espaço dos dados; geração de informação sobre os dados; e pelo processo de descoberta de cogrupos.
 Também, para cada uma dessas análises, diferentes estratégias apresentam vantagens e desvantagens.
 
 Com o intuito de apresentar uma alternativa às estratégias de fatoração de matrizes não-negativas para coagrupamento presentes na literatura, objetivando superar algumas das dificuldades apresentadas por eles, propõe-se duas novas estratégias que adicionam $k$ matrizes $V$ na fatoração, ao invés de uma única matriz $V$.
@@ -2139,22 +2139,22 @@ Basicamente, cada uma dessas matrizes representará uma organização de cogrupo
 As estratégias são:
 
 \begin{itemize}
-\item OvNMTF: uma estratégia de fatoração tripla de matrizes não-negativas com sobreposição unidimensional, baseada na estratégia BVD;
-\item BinOvNMTF: uma estratégia de fatoração binária tripla de matrizes não-negativas com sobreposição unidimensional, baseada na estratégia FNMTF.
+\item \textit{OvNMTF}: uma estratégia de fatoração tripla de matrizes não-negativas com sobreposição de colunas, baseada na estratégia \textit{BVD};
+\item \textit{BinOvNMTF}: uma estratégia de fatoração binária tripla de matrizes não-negativas com sobreposição de colunas, baseada na estratégia \textit{FNMTF}.
 \end{itemize}
 
 Sob o ponto de vista de resolução de problemas de coagrupamento, o objetivo dessas estratégias é o mesmo das estratégias já apresentadas neste texto, qual seja, encontrar grupos de linhas e colunas de forma simultânea.
-Entretanto, visto que se tem a liberdade de organizar um conjunto de matrizes $V$, que abstrai grupos e colunas, para ser associado a cada matriz $U$, que abstrai os grupos de linhas, é possível que grupos de colunas diferentes sejam formados, a depender do grupo de linhas sendo considerado.
-Isso significa que problemas em que há interseção de colunas na formação de cogrupos poderão ser adequadamente tratados pelas estratégias propostas.
+Entretanto, visto que se tem a liberdade de organizar um conjunto de matrizes $V$, que abstrai grupos e colunas, para ser associado a cada grupo de linhas, que abstrai os grupos de linhas, é possível que grupos de colunas diferentes sejam formados, a depender do grupo de linhas sendo considerado.
+Isso significa que problemas em que há sobreposição de colunas na formação de cogrupos poderão ser adequadamente tratados pelas estratégias propostas.
 
-Formalmente, considere uma matriz de dados $X \in \mathbb{R}^{n \times m}$ contendo números reais positivos com $n$ linhas e $m$ colunas, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i = \{1, \dots, n\}$ e $j = \{1, \dots, m\}$.
-O objetivo éEsta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i = \{1, \dots, n\}$ e $j = \{1, \dots, m\}$, que é justamente um valor da matriz $X$.
+Formalmente, considere uma matriz de dados $X \in \mathbb{R}^{n \times m}$ contendo números reais positivos com $n$ linhas e $m$ colunas, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$.
+O objetivo éEsta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$, que é justamente um valor da matriz $X$.
 Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse.
-Modificando o objetivo como foi apresentado na introdução ao capítulo~\ref{ch:fatoracao}, sendo então, encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $k \times l$ partições para $\mathcal{M}$ em cada $\mathcal{K}_p$, denotadas pelos subconjuntos ordenados $\mathcal{L}_{pq} \subseteq \mathcal{M}$, considerando os índices $p = \{ 1, \dots, k\}$ e $q = \{1, \dots, l\}$.
-Então, os subconjuntos $\{\mathcal{K}_1, \dots, \mathcal{K}_p\}$ e $\{\mathcal{L}_{11}, \dots, \mathcal{L}_{1l}, \dots, \mathcal{L}_{k1}, \dots \mathcal{L}_{kl}\}$ são os cogrupos de linhas e colunas, respectivamente.
+Modificando o objetivo como foi apresentado na introdução ao capítulo~\ref{ch:fatoracao}, sendo então, encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $k \times l$ partições para $\mathcal{M}$ em cada $\mathcal{K}_p$, denotadas pelos subconjuntos ordenados $\mathcal{L}_{pq} \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
+Então, os subconjuntos $\{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ e $\{\mathcal{L}_{11}, \dots, \mathcal{L}_{1l}, \dots, \mathcal{L}_{k1}, \dots \mathcal{L}_{kl}\}$ são os cogrupos de linhas e colunas, respectivamente.
 
 Observe na figura~\ref{fig:ovnmtfApplication} uma representação gráfica da estrutura de cogrupos com sobreposição de colunas, contextualizado em uma aplicação de análise de textos.
-Note que, na realidade, trata-se de busca por uma solução adequada para um problema com sobreposição unidimensional, ou seja, sobreposição de colunas ou de linhas, já que a sobreposição de linhas é justamente o problema transposto.
+Note que, na realidade, trata-se de busca por uma solução adequada para um problema com sobreposição, ou seja, sobreposição de colunas ou de linhas, já que a sobreposição de linhas é justamente o problema transposto.
 
 A figura~\ref{fig:ovnmtfApplication} mostra dois grupos de documentos, dos assuntos games e tecnologia, com três documentos em cada.
 Ainda, este exemplo contém $6$ grupos de palavras, divididos igualmente entre os grupos de documentos.
@@ -2166,14 +2166,14 @@ Também, é possível observar que apesar das palavras serem as mesmas para todo
 
 \begin{figure}[H]
 \centering
-\caption{Representação gráfica do problema de coagruamento com sobreposição unidimensional e contextualização do domínio de documentos (notícias)}
+\caption{Representação gráfica do problema de coagruamento com sobreposição de colunas e contextualização do domínio de documentos (notícias)}
 \includegraphics[width=0.7\textwidth]{img/ovnmtfNewsApplication.png}
 \label{fig:ovnmtfApplication}
 \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 Da mesma maneira que foi ilustrado no capítulo~\ref{ch:fatoracao} que é possível derivar interpretações intuitivas da análise das combinações de matrizes geradas na fatoração produzido pelos algoritmos lá discutidos, para os algoritmos discutidos no presente capítulo, interpretações análogas podem ser feitas, porém, consirando a existências das várias matrizes $V$.
-Assumindo novamente que uma matriz de entrada representação a relação ``documento por palavras'' (linhas por colunas), cada coluna das $k$ matrizes $U I_{(p)} S, \forall p = {1, \dots, k}$, captura a ideia de uma base para representação de grupos de palavras, descritos nas matrizes $V_{(p)}$; e cada linha em $\sum_{p=1}^k S V_{(p)}^T$, captura a ideia de uma base de representação de grupos de documentos.
+Assumindo novamente que uma matriz de entrada representação a relação ``documento por palavras'' (linhas por colunas), cada coluna das $k$ matrizes $U I_{(p)} S, \forall p \in {1, \dots, k}$, captura a ideia de uma base para representação de grupos de palavras, descritos nas matrizes $V_{(p)}$; e cada linha em $\sum_{p=1}^k S V_{(p)}^T$, captura a ideia de uma base de representação de grupos de documentos.
 A representação gráfica para o resultado de uma fatoração de matrizes que permite esse raciocínio é apresentada na figura~\ref{fig:factorizationXUSV1tok}.
 
 \begin{figure}[H]
@@ -2197,19 +2197,11 @@ Por fim, para a matriz $S$ pode ser realizada a mesma interpretação, represent
 O restante deste capítulo é destinado a apresentar a formulação dos problemas para cada uma das estratégias, incluindo a apresentação de uma derivação teórica para um algoritmo que implementa o processo de resolução para os problemas.
 Finalmente, as considerações finais apresentam uma discussão sobre o diferencial dessas estratégias no que diz respeito aos três aspectos citados no início do capítulo.
 
-% OvNMTF
-% Explicação -> Figura, novo significado da matriz
-% Problema
-% Solução
-% - derivação
-% - algoritmo
-% - prova (?)
+\section{Fatoração Tripla de Matrizes Não-negativas com Sobreposição}
 
-\section{Fatoração Tripla de Matrizes Não-negativas com Sobreposição Unidimensional}
+Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:ovnmtf:problem} é apresentado neste trabalho, e recebe aqui o nome de Fatoração Tripla de Matrizes Não-negativas Sobrepostas (Overlapped Non-negative Matrix Tri-factorization - \textit{OvNMTF}).
 
-Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:ovnmtf:problem} é apresentado neste trabalho, e recebe aqui o nome de Fatoração Tripla de Matrizes Não-negativas Sobrepostas (Overlapped Non-negative Matrix Tri-factorization - OvNMTF).
-
-\begin{problem}[Problema de Fatoração Tripla de Matrizes Não-negativas Sobrepostas]
+\begin{problem}[Problema de Fatoração Tripla de matrizes não-negativas sobrepostas]
 \label{def:ovnmtf:problem}
 \begin{equation}
     \begin{array}{lclc}
@@ -2219,8 +2211,7 @@ Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:o
     \end{array} \nonumber
 \end{equation}
 \end{problem}
-
-em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p = \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius.
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p \in \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius.
 Na formulação, o papel das matrizes $I_k$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $V_k$.
 
 É possível perceber, que neste caso, diferente dos apresentados no capítulo~\ref{ch:fatoracao}, têm menor capacidade de compactação, porém, com maior nível de detalhamento.
@@ -2357,12 +2348,12 @@ O resultado final dos gradientes para $U, S, V_{(p)}, \forall, p \in \{1, \dots,
 \end{equation}
 
 Sendo assim, as regras de atualização para as matrizes $U, V_{(p)}, S \forall p \in \{1, \dots, k\}$, são mostradas nas equações~\ref{eq:ovnmtf:updateU},~\ref{eq:ovnmtf:updateV} e~\ref{eq:ovnmtf:updateS}, apresentadas no algoritmo~\ref{algo:ovnmtf}, o qual implementa o processo de minimização para o problema~\ref{def:ovnmtf:problem}.
-Nesse algoritmo $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ são as matrizes $U$, $S$ e $V_{(p)}$, na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, e $\odot$ é o produto de Hadamard.
+Nesse algoritmo $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ são as matrizes $U$, $S$ e $V_{(p)}$, na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\odot$ é o produto de Hadamard.
 
 % TODO: condições de convergência não foram provadas, mas podemos dar algum insight sobre isso?
 
 \begin{algorithm}[H]
-\caption{Algoritmo baseado em atualização multiplicativa para solução do OvNMTF}
+\caption{Algoritmo baseado em atualização multiplicativa para solução do \textit{OvNMTF}}
 \label{algo:ovnmtf}
     \begin{algorithmic}[1]
         \Function{OvNMTF}{$X$, $k$, $l$, $t_{max}$}
@@ -2392,7 +2383,7 @@ Nesse algoritmo $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)
     \end{algorithmic}
 \end{algorithm}
 
-A inicialização dos elementos das matrizes $U$, $S$ e $V_{(1)}, \dots, V_{(k)}$ são gerados através de uma distribuição uniforme que ignora zeros ($\mathcal{U}(0, 1) \in~]0, 1]$).
+A inicialização dos elementos das matrizes $U$, $S$ e $V_{(1)}, \dots, V_{(k)}$ são gerados através de uma distribuição uniforme ($\mathcal{U}(0, 1) \in~]0, 1]$).
 Como condições para assumir a convergência, assim como os algoritmos apresentados no capítulo~\ref{ch:fatoracao}, considera-se a diferença do erro de aproximação em duas iterações consecutivas menor ou igual a um $\epsilon$:
 $$\norm{X - U^{(t)} \sum_{p=1}^k I_{(p)} S^{(t)} V^{(t)^T}_{(p)} }^{2}_{F} - \norm{X - U^{(t+1)} \sum_{p=1}^k I_{(p)} S^{(t+1)} V^{(t+1)^T}_{(p)} }^{2}_{F} \leq \epsilon$$
 O algoritmo também pára caso a $t$-ésima iteração seja igual ao número máximo de iterações ($t_{max}$).
@@ -2401,15 +2392,15 @@ O particionamento, neste caso, não é direto.
 Então é necessário um processo de pós-processamento para a matriz $U$ e para as matrizes $V_{(1)}, \dots, V_{(k)}$.
 Um modo simples de obter o particionamento para as linhas, já descrito no capítulo~\ref{ch:fatoracao}, é o seguinte:
 \[
-    \mathcal{K}_p = \mathcal{K}_p + \{ x_{i \cdot} \}~|~p = \argmax_{p'} \mathbf{u}_{i \cdot}~\forall i = \{1, \dots, n\}, \forall p, p' = \{1, \dots, k\}
+    \mathcal{K}_p = \mathcal{K}_p + \{ x_{i \cdot} \}~|~p = \argmax_{p'} \mathbf{u}_{i \cdot}~\forall i \in \{1, \dots, n\}, \forall p, p' \in \{1, \dots, k\}
 \]
 
 Pode-se usar a mesma estratégia para o particionamento das colunas:
 \[
-    \mathcal{L}_{pq} = \mathcal{L}_{pq} + \{ x_{\cdot j} \}~|~q = \argmax_{q'} \mathbf{v}_{(p)_{j \cdot}}~\forall j = \{1, \dots, m\}, \forall q, q' = \{1, \dots, l\}, \forall p = \{1, \dots, k\}
+    \mathcal{L}_{pq} = \mathcal{L}_{pq} + \{ x_{\cdot j} \}~|~q = \argmax_{q'} \mathbf{v}_{(p)_{j \cdot}}~\forall j \in \{1, \dots, m\}, \forall q, q' \in \{1, \dots, l\}, \forall p \in \{1, \dots, k\}
 \]
 
-\section{Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição Unilateral}
+\section{Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição}
 
 % BinOvNMTF
     % Explicação
@@ -2420,7 +2411,7 @@ Pode-se usar a mesma estratégia para o particionamento das colunas:
         % - prova (?)
 
 A segunda estratégia proposta nesta dissertação, segue os pressupostos estabelecidos por~\citeonline{Wang2011} no problema~\ref{def:fnmtf:problem}.
-O problema~\ref{def:binovnmtf:problem}, então denominado Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição Unilateral (Unilateral Overlapped Binary Non-negative Matrix Tri-factorization - BinOvNMTF) também está associado a diminuição da flexibilidade da solução de coagrupamento apresentada no que diz respeito à relação de associação entre grupos de linhas e grupos de colunas, a qual aqui é binária.
+O problema~\ref{def:binovnmtf:problem}, então denominado Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição (Overlapped Binary Non-negative Matrix Tri-factorization - \textit{BinOvNMTF}) também está associado a diminuição da flexibilidade da solução de coagrupamento apresentada no que diz respeito à relação de associação entre grupos de linhas e grupos de colunas, a qual aqui é binária.
 Porém, mantém a independência do estabelecimento de diferentes bases para os grupos de linhas, uma vez que também assume a existência de $k$ matrizes $V$.
 
 \begin{problem}[Problema de Fatoração Binária Tripla de Matrizes Não-negativas Sobrepostas]
@@ -2434,7 +2425,7 @@ Porém, mantém a independência do estabelecimento de diferentes bases para os 
 \end{equation}
 \end{problem}
 
-em que $\Psi = \{0, 1\}$, $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{(p)_{q \cdot}} = 1, \forall p$, $p = \{1, \dots, k\}$ e $q = \{1, \dots, l\}$ são os índices que iteram no número de linhas e colunas, respectivamente, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+em que $\Psi = \{0, 1\}$, $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{(p)_{q \cdot}} = 1, \forall p$, $p \in \{1, \dots, k\}$ e $q \in \{1, \dots, l\}$ são os índices que iteram no número de linhas e colunas, respectivamente, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
 Ainda, as restrições $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{(p)_{q \cdot}} = 1, \forall p$ garantem que uma linha e uma coluna de um grupo, respectivamente, têm que pertencer à algum grupo.
 
 Em termos de compactação, a interpretação é semelhante à interpretação feita para o problema~\ref{def:ovnmtf:problem}, porém, por causa das restrições serem binárias, os $nm$ elementos da matriz de dados serão compactados em $n + kl + km$ elementos.
@@ -2516,10 +2507,10 @@ Assim, é possível transformar o problema~\ref{def:binovnmtf:problem} em subpro
 Usando a mesma estratégia iterativa adotada no algoritmo~\ref{algo:fnmtf}: obtém-se os protótipos de linhas e verifica-se quais linhas de $X$ mais se aproximam de cada um dos protótipos, para atualização de $U$; então, é feito o mesmo processo para atualização de $V_{(1)}, \dots, V_{(k)}$, obtém-se os protótipos de colunas, relativo à $V_{(p)}, \forall p$, e verifica-se quais colunas de $X$ mais se aproximam de cada um dos protótipos.
 
 O implementação desse processo é apresentado no algoritmo~\ref{algo:binovbnmtf}).
-Considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ são as matrizes $U$, $S$ e $V_{(p)}$, na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme que ignora zeros, e $\norm{ \cdot }^2$ é a norma frobenius para vetores.
+Considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ são as matrizes $U$, $S$ e $V_{(p)}$, na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\norm{ \cdot }^2$ é a norma Frobenius para vetores.
 
 \begin{algorithm}
-\caption{Algoritmo iterativo para solução do BinOvNMTF}
+\caption{Algoritmo iterativo para solução do \textit{BinOvNMTF}}
 \label{algo:binovbnmtf}
     \begin{algorithmic}[1]
         \Function{BinOvNMTF}{$X$, $k$, $l$, $t_{max}$}
@@ -2570,10 +2561,10 @@ Ainda, usa-se a mesma estratégia de convergência que a apresentada no algoritm
 
 \section{Considerações Finais}
 
-A motivação para a apresentação dos novos problemas de fatoração de matrizes (OvNMTF e BinOvNMTF), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (ONMTF e FNMTF), no que diz respeito à solução do problema de coagrupamento.
+A motivação para a apresentação dos novos problemas de fatoração de matrizes (\textit{OvNMTF} e \textit{BinOvNMTF}), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (\textit{ONMTF} e \textit{FNMTF}), no que diz respeito à solução do problema de coagrupamento.
 
 Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas fatorações tem o potencial de superar as fatorações da literatura.
-Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há interseção de colunas entre as diferentes bases dos grupos de linhas.
+Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há sobreposição de colunas entre as diferentes bases dos grupos de linhas.
 Entretanto, as fatorações propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas, e portanto, menor capacidade de compactação.
 
 Do ponto de vista de geração de informação sobre os dados, as fatorações propostas são capazes de fornecer o mesmo tipo de informação: como as linhas da matriz de entrada se organizam em grupos e como as colunas da matriz de entrada se organizam em grupo.
@@ -2789,8 +2780,8 @@ Para essas últimas, uma análise qualitativa é delineada de forma a ilustrar o
 % Sara: Alternativamente, podemos mudar toda a nomenclatura usada no texto e passar a usar bicluster, e dizer que usamos coagrupamento para encontrar biclusters. Vamos pensar nisso? De qualquer forma, por enquanto estou tentando padronizar para que depois possamos substituir de maneira mais ou menos automática, se for o caso.
 
 As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de cogrupos, propostas por \citeonline{Madeira2004}, descritas com maior detalhamento no capítulo~\ref{ch:conceitos}.
-Dentre as nove possíveis estruturas de cogrupos apresentadas por esses autores, foram escolhidas para uso nesses experimentos as três mais simples que, comprovadamente na literatura, os algoritmos \textit{ONMTF} e \textit{FNMTF} são capazes de tratar, e duas estruturas que apresentam interseção parcial de linhas ou colunas, que representam os casos que tais algoritmos não são capazes de tratar de forma natural, ou seja, usando os parâmetros de $k$ e $l$, número de grupos de linhas e número de grupos de colunas, respectivamente, quando escolhidos manualmente analisando as matrizes da figura~\ref{fig:bic-syntetic-structure}.
-Portanto, os casos que apresentam interseção parcial de colunas são o alvo dos algoritmos propostos neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}).
+Dentre as nove possíveis estruturas de cogrupos apresentadas por esses autores, foram escolhidas para uso nesses experimentos as três mais simples que, comprovadamente na literatura, os algoritmos \textit{ONMTF} e \textit{FNMTF} são capazes de tratar, e duas estruturas que apresentam sobreposição parcial de linhas ou colunas, que representam os casos que tais algoritmos não são capazes de tratar de forma natural, ou seja, usando os parâmetros de $k$ e $l$, número de grupos de linhas e número de grupos de colunas, respectivamente, quando escolhidos manualmente analisando as matrizes da figura~\ref{fig:bic-syntetic-structure}.
+Portanto, os casos que apresentam sobreposição parcial de colunas são o alvo dos algoritmos propostos neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}).
 Na figura~\ref{fig:bic-syntetic-structure} são apresentas as visualizações gráficas de cada uma das estruturas de cogrupos em estudo.
 
 \begin{figure} [htpb]
@@ -2798,10 +2789,10 @@ Na figura~\ref{fig:bic-syntetic-structure} são apresentas as visualizações gr
  \caption{
         Dados sintéticos gerados a partir das diferentes estruturas de cogrupos.
         (a) Um único cogrupo.
-        (b) Cogrupos com linhas e colunas sem intersecção.
-        (c) Cogrupos com estrutura em xadrez.  % na realidade aqui a total intersecção né? Como tratar isso????
-        (d) Cogrupos sem intersecção nas linhas e com intersecção nas colunas.
-        (e) Cogrupos com intersecção nas linhas e sem intersecção nas colunas.
+        (b) Cogrupos com linhas e colunas sem sobreposição.
+        (c) Cogrupos com estrutura em xadrez.  % na realidade aqui a total sobreposição né? Como tratar isso????
+        (d) Cogrupos sem sobreposição nas linhas e com sobreposição nas colunas.
+        (e) Cogrupos com sobreposição nas linhas e sem sobreposição nas colunas.
     }
     \begin{subfigure}[b]{0.18\textwidth}
         \includegraphics[width=\textwidth]{img/a-bic-structure.png}
@@ -2937,7 +2928,7 @@ Os resultados foram analisados em termos de qualidade de reconstrução e capaci
 Uma forma de analisar o resultado dos algoritmos estudados neste trabalho é analisá-los quanto a sua capacidade de reconstrução.
 A reconstrucão é feita tomando as matrizes resultantes da fatoração e combinando-as da mesma forma que o seu problema foi proposto, de forma a reconstruir a matriz original.
 
-Essa análise se torna importante quando se tem como objetivo avaliar o comportamento dos algoritmos em diferentes estruturas de organização de cogrupos, com destaque para a análise de maior interesse neste trabalho -- coagrupamento com interseção parcial de linhas ou colunas.
+Essa análise se torna importante quando se tem como objetivo avaliar o comportamento dos algoritmos em diferentes estruturas de organização de cogrupos, com destaque para a análise de maior interesse neste trabalho -- coagrupamento com sobreposição parcial de linhas ou colunas.
 \textcolor{blue}{A capacidade de reconstrução .... vamos ver se colocamos alguma coisa a mais para justificar esse análise.}
 % TODO Descrever melhor pq a reconstrução é importante
 % Lucas: Não consigo pensar em algo impactante para colocar aqui
@@ -2948,7 +2939,7 @@ O restante dessa seção se destina a detalhar as análise de qualidade de recon
 
 \begin{table}[htpb]
 \centering
-    \caption{Resumo de qualidade de reconstrução: $ok$ - permite reconstrução de forma natural; $\times$ - sem informação sobre interseção parcial; $+$ - preserva informação de interseção parcial}
+    \caption{Resumo de qualidade de reconstrução: $ok$ - permite reconstrução de forma natural; $\times$ - sem informação sobre sobreposição parcial; $+$ - preserva informação de sobreposição parcial}
         \begin{tabular}{lccccc}
             \hline
             & \textbf{base (a)} & \textbf{base (b)} & \textbf{base (c)} & \textbf{base (d)}& \textbf{base (e)} \\
@@ -3035,11 +3026,11 @@ O centróide que representa o agrupamento de linhas referente ao cogrupo de inte
 O modelo resultante da execução do \textit{k-means} permite representar perfeitamente a reconstrução para as bases de dados (a) à (d).
 Porém, é preciso lembrar que não há informação sobre agrupamento de colunas no resultado do algoritmo, sendo que a visualização gráfica de cada coagrupamento é possível apenas por conta do algoritmo levar em conta todos os atributos para realização do agrupamento.
 
-O modelo não permite a descoberta de grupos com interseção de linhas (um dado não pode pertencer a mais de um grupo), e portanto não permite uma boa representação para a reconstrução no caso da base de dados (e).
+O modelo não permite a descoberta de grupos com sobreposição de linhas (um dado não pode pertencer a mais de um grupo), e portanto não permite uma boa representação para a reconstrução no caso da base de dados (e).
 Esse resultado já era esperado devido à natureza da solução apresentada pelo \textit{k-means}.
 
 No entanto, se mudar o valor de $k$ para descobrir $5$ grupos ao invés dos $3$ grupos desejados, é possível realizar a reconstrução da base de dados (e), como mostra a figura~\ref{fig:reconstruction-2:kmeans}.
-Porém, não é uma reconstrução natural, ou seja, a informação que seria desejado é que há $3$ grupos de linhas com interseção parcial entre o primeiro e o segundo grupos, e interseção parcial entre o segundo e terceiro grupos, diferentemente do obtido, que existe $5$ grupos diferentes.
+Porém, não é uma reconstrução natural, ou seja, a informação que seria desejado é que há $3$ grupos de linhas com sobreposição parcial entre o primeiro e o segundo grupos, e sobreposição parcial entre o segundo e terceiro grupos, diferentemente do obtido, que existe $5$ grupos diferentes.
 
 \begin{figure}[H]
 \centering
@@ -3118,7 +3109,7 @@ Note que a matriz $U$ do \textit{fuzzy k-means} tem justamente o mesmo papel que
 
 De forma semelhante à análise de reconstrução proporcionada pelo \textit{k-means}, o \textit{fuzzy k-means} também permite representar perfeitamente a reconstrução para as bases de dados (a) à (d).
 Porém, a reconstrução para o caso (e) não foi obtida com sucesso.
-No entanto, o algoritmo preservou parte da interseção, isso pode ser visto pelas regiões sombreadas onde há interseção de grupos.
+No entanto, o algoritmo preservou parte da sobreposição, isso pode ser visto pelas regiões sombreadas onde há sobreposição de grupos.
 
 % Embora o \textit{fuzzy c-means} lide, em sua concepção, com sobreposição de grupos, neste caso representada pelas pertinências fuzzy dos dados a vários grupos, o procedimento de escolha da maior pertinência anula essa capacidade na representação da reconstrução; \textcolor{blue}{muito embora .... é preciso fazer alguma ressalva ou análise diferente aqui.}
 
@@ -3195,13 +3186,13 @@ A resconstrução foi obtida a partir da multiplicação das matrizes fatoradas,
 % Lucas: Como assim são idênticas? não vejo nesse nível de detalhe
 
 Analisando os resultados, é possível perceber que a reconstrução é realizada com êxito nos casos (a), (b) e (c).
-O algoritmo falhou em reconstruir a matriz no caso (d) pois não foi capaz de associar corretamente as colunas que pertencem a mais de um agrupamento de colunas (interseção parcial nas colunas).
-O mesmo efeito ocorre com o caso (e), no qual há interseção parcial de linhas.
+O algoritmo falhou em reconstruir a matriz no caso (d) pois não foi capaz de associar corretamente as colunas que pertencem a mais de um agrupamento de colunas (sobreposição parcial nas colunas).
+O mesmo efeito ocorre com o caso (e), no qual há sobreposição parcial de linhas.
 A falha da reconstrução é percebida na coloração diferenciada, formando regiões com sombras, nas colunas, ou linhas, envolvidas nas interseções.
 
 A coloração diferenciada daquela esperada (seguindo a matriz original) é resultante do estado da matriz $V$, que contém as relações de associação de linhas e/ou colunas aos cogrupos.
 Para o caso (d), por exemplo, é possível deduzir, a partir da análise visual, que há valores de magnitude diferentes estabelecendo a associação das colunas $50$ à $79$ e $80$ à $99$, que pertencem aos primeiro e terceiro cogrupos, respectivamente, com o cogrupo de colunas do meio.
-Ou seja, a reconstrução preservou parte da interseção.
+Ou seja, a reconstrução preservou parte da sobreposição.
 Esse comportamento é observado pois o algoritmo força a ortogonalidade entre cogrupos de linhas e cogrupos de colunas.
 
 Ainda, é possível fazer a reconstrução perfeita, se mudar o valor de $l$ para 5 na base de dados (d), e o valor de $k$ para $5$ na base de dados (e) (figura~\ref{fig:reconstruction-2:onmtf}).
@@ -3277,7 +3268,7 @@ A reconstrução foi obtida a partir da multiplicação das matrizes fatoradas, 
 \end{figure}
 
 Este caso é semelhante ao anterior (algoritmo \textit{ONMTF}).
-O algoritmo permitiu a reconstrução com êxito dos casos (a), (b) e (c), falhando na reconstrução dos casos (d) e (e), nos quais há intersecção de colunas ou linhas nos cogrupos de interesse. No entanto, nesse caso o algoritmo restringe a associação de linhas (ou colunas), a apenas um agrupamento de linhas (ou de colunas), e por isso a informação referente a intersecção em cogrupos é totalmente descaracterizada.
+O algoritmo permitiu a reconstrução com êxito dos casos (a), (b) e (c), falhando na reconstrução dos casos (d) e (e), nos quais há sobreposição de colunas ou linhas nos cogrupos de interesse. No entanto, nesse caso o algoritmo restringe a associação de linhas (ou colunas), a apenas um agrupamento de linhas (ou de colunas), e por isso a informação referente a sobreposição em cogrupos é totalmente descaracterizada.
 Observe, por exemplo, que a reconstrução no caso (d) se assemelha à reconstrução do caso (c), embora as matrizes originais, em cada caso, representem informação sobre associação de dados e atributos em cogrupos também diferenciada.
 
 Ainda, é possível fazer a reconstrução perfeita, se mudar o valor de $l$ para 5 na base de dados (d), e o valor de $k$ para $5$ na base de dados (e) (figura~\ref{fig:reconstruction-2:onmtf}).
@@ -3357,7 +3348,7 @@ A reconstrução foi obtida a partir da multiplicação das matrizes fatoradas, 
 \end{figure}
 
 O algoritmo conseguiu realizar a reconstrução com êxito em todos os casos.
-Note que o algoritmo \textit{OvNMTF} é capaz de lidar com cogrupos com intersecção de colunas, e portanto é capaz de resolver o caso (d).
+Note que o algoritmo \textit{OvNMTF} é capaz de lidar com cogrupos com sobreposição de colunas, e portanto é capaz de resolver o caso (d).
 Ainda, como não há restrições de ortogonalidade e existe fatores para controlar a pertinência de uma mesma linha ou coluna à multiplos cogrupos, o algoritmo é capaz de recontruir perfeitamente a base de dados (e).
 
 \subsection{Reconstrução a partir dos resultados do algoritmo \textit{BinOvNMTF}}
@@ -3413,9 +3404,9 @@ A partir da realização de $10$ execuções do algoritmo, foi escolhido o model
 \end{figure}
 
 O algoritmo \textit{BinOvNMTF} conseguiu realizar a reconstrução com êxito dos casos (a), (b), (c) e (d).
-Como o algoritmo é capaz de lidar com cogrupos com intersecção de colunas, ele é capaz de resolver o caso (d).
-No entanto, o algoritmo não é capaz de lidar com cogrupos com intersecção nas linhas, então, não é capaz de realizar a reconstrução do caso (e).
-E nesse caso, também não preserva qualquer informação sobre a intersecção, já que possui a restrição de associação binária (cada linha/coluna associadas a um único agrupamento de linhas/colunas).
+Como o algoritmo é capaz de lidar com cogrupos com sobreposição de colunas, ele é capaz de resolver o caso (d).
+No entanto, o algoritmo não é capaz de lidar com cogrupos com sobreposição nas linhas, então, não é capaz de realizar a reconstrução do caso (e).
+E nesse caso, também não preserva qualquer informação sobre a sobreposição, já que possui a restrição de associação binária (cada linha/coluna associadas a um único agrupamento de linhas/colunas).
 
 Fazendo as mesmas ressalvas das reconstruções nos casos com o algoritmos \textit{kmeans}, \textit{fuzzy kmeans}, \textit{ONMTF} e \textit{FNMTF}, é possível fazer a reconstrução perfeita utilizando $k = 5$ para a base de dados (e) (figura~\ref{fig:reconstruction-2:binovnmtf}).
 
@@ -3431,7 +3422,7 @@ Fazendo as mesmas ressalvas das reconstruções nos casos com o algoritmos \text
 
 Nos experimentos com as bases de dados sintéticas, fazendo o uso da mesma parametrização descrita para a análise da reconstrução, foi feita a medida do erro de quantização. A tabela~\ref{tab:quantization} sumariza o melhor erro de quantização resultante das $10$ execuções de cada algoritmo para cada base de dados.
 
-% Lucas: Eu coloquei o BVD aqui para mostrar que ele também consegue quantizar as matrizes perfeitamente!
+% Lucas: Eu coloquei o \textit{BVD} aqui para mostrar que ele também consegue quantizar as matrizes perfeitamente!
 
 \begin{table}[H]
 \centering
@@ -3461,13 +3452,13 @@ Nos experimentos com as bases de dados sintéticas, fazendo o uso da mesma param
 
 Através dos resultados obtidos é possível perceber que a capacidade de quantização para todos os algoritmos para as bases de dados (a), (b) e (c), são semelhante, assim como a foi percebido na análise da reconstrução.
 
-Para a base de dados (d), que contém cogrupos de colunas organizados com intersecção parcial, os algoritmos que obtiveram erro de quantização entre $75.000$ e $80.000$ foram destacados na tabela~\ref{tab:quantization}, isso indica que eles foram capazes de quantizar a informação de intersecção parcial.
-É importante perceber que capacidade de quantização é diferente de possibilidade de interpretação da quantização realizada, isto é, os algoritmos \textit{kmeans} e \textit{fuzzy k-means} foram capazes de quantizar a intersecção parcial de cogrupos de colunas, mas isso não quer dizer que é possível interpretar essa informação.
-Como foi mostrado na análise de reconstrução, o algoritmo \textit{ONMTF} não quantizou toda a informação de interseção parcial da base de dados (d), mas parte dessa informação foi quantizada, diferentemente do algoritmo \textit{FNMTF}, que perdeu totalmente essa informação.
+Para a base de dados (d), que contém cogrupos de colunas organizados com sobreposição parcial, os algoritmos que obtiveram erro de quantização entre $75.000$ e $80.000$ foram destacados na tabela~\ref{tab:quantization}, isso indica que eles foram capazes de quantizar a informação de sobreposição parcial.
+É importante perceber que capacidade de quantização é diferente de possibilidade de interpretação da quantização realizada, isto é, os algoritmos \textit{kmeans} e \textit{fuzzy k-means} foram capazes de quantizar a sobreposição parcial de cogrupos de colunas, mas isso não quer dizer que é possível interpretar essa informação.
+Como foi mostrado na análise de reconstrução, o algoritmo \textit{ONMTF} não quantizou toda a informação de sobreposição parcial da base de dados (d), mas parte dessa informação foi quantizada, diferentemente do algoritmo \textit{FNMTF}, que perdeu totalmente essa informação.
 Isso também esta evidenciado na diferença do erro de quantização entre os algoritmos \textit{ONMTF} e \textit{FNMTF}.
 
-O único algoritmo que foi capaz de quantizar a intersecção parcial entre cogrupos de linhas da base de dados (e) foi o \textit{OvNMTF}, isso ocorre pois não há restrição de ortogonalidade entre cogrupos.
-Da mesma forma que na base de dados (d), o algoritmo \textit{ONMTF} não quantizou toda a informação de intersecção, evidenciado pela diferença do erro de quantização obtido pelo algoritmo \textit{OvNMTF}.
+O único algoritmo que foi capaz de quantizar a sobreposição parcial entre cogrupos de linhas da base de dados (e) foi o \textit{OvNMTF}, isso ocorre pois não há restrição de ortogonalidade entre cogrupos.
+Da mesma forma que na base de dados (d), o algoritmo \textit{ONMTF} não quantizou toda a informação de sobreposição, evidenciado pela diferença do erro de quantização obtido pelo algoritmo \textit{OvNMTF}.
 
 
 % Lucas: Essa subseção acho q não faz mais sentido, mas eu vou deixar comentada
@@ -3791,7 +3782,7 @@ As ações executadas neste trabalho para realizar o pré-processamento dos text
 
 A representação vetorial objetivada é composta por uma relação de documentos e termos, organizada em modelo conhecimento como modelo do espaço vetorial, ou \textit{Vector Space Model} \cite{Salton1975,Sebastiani2002,Lops2011}.
 Nesta representação, cada documento é representado por um vetor composto por tantas dimensões quanto forem os termos presentes no ``dicionário de termos''.
-Formalmente, há um conjunto de $n$ documentos $\{ d_1, \dots, d_n \}$, e um conjunto de $m$ termos $\{ t_1, \dots, t_m \}$, e para cada par $(d_i, t_j)$, sendo os índices $i = \{1, \dots, n\}$ e $j = \{1, \dots, m\}$, estabelece-se uma relação que expressa a maneira como um termo será usado na representação de um documento.
+Formalmente, há um conjunto de $n$ documentos $\{ d_1, \dots, d_n \}$, e um conjunto de $m$ termos $\{ t_1, \dots, t_m \}$, e para cada par $(d_i, t_j)$, sendo os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$, estabelece-se uma relação que expressa a maneira como um termo será usado na representação de um documento.
 
 A relação $\textit{tf}(t_j, d_i)$ expressa a frequência de ocorrência do termo $t_j$ no documento $d_i$, e o vetor de representação de um documento, que será uma linha da matriz de dados $X$, e portanto, a entrada para os algoritmos, é representado por $\mathbf{\mathbf{x}_{i \cdot}} = \big[ \textit{tf}(d_i, t_1), \dots, \textit{tf}(d_i, t_m) \big], \forall i$.
 Contudo, \citeonline{Salton1975} mostram a partir de experimentação em diversos conjuntos de dados textuais, que o uso da relação conhecida como Frequência de Termos-Frequência de Documentos Inversa (\textit{Term Frequency-Inversed Document Frequency} - $\textit{tfidf}$) é capaz de melhorar a separação de documentos.
@@ -3877,7 +3868,7 @@ Como informado, $10$ modelos de coagrupamento foram criados para cada parametriz
 \subsubsubsection*{Base de dados \textit{IG toy}}
 
 Os resultados médios aplicando as métricas índice de Rand e informação mútua normalizada para a base de dados \textit{IG toy} são sumarizados nas tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}, e nas figuras~\ref{fig:boxplot-rand:igtoy} e~\ref{fig:boxplot-nmi:igtoy}.
-Analisando o conteúdo das tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}, a primeira conclusão é que a avaliação obtida a partir do índice de Rand é consistente com a avaliação obtida a partir informação mútua normalizada para esta base de dados. Na maioria dos casos, os melhores resultados médios representados pelas duas métricas, para todas as representações testadas, ocorrem no algoritmo OvNMTF. Considerando apenas esse algoritmo, os melhores resultados médios ocorrem para as representações $\textit{tf}$ e $\textit{tf}_{norm}$, e com um número reduzido de grupos ($l$) de termos, quando comparado os número de grupos exigido pelas representações $\textit{tfidf}$ e $\textit{tfidf}_{norm}$.
+Analisando o conteúdo das tabelas~\ref{tab:experiments-quant-rand:igtoy} e~\ref{tab:experiments-quant-nmi:igtoy}, a primeira conclusão é que a avaliação obtida a partir do índice de Rand é consistente com a avaliação obtida a partir informação mútua normalizada para esta base de dados. Na maioria dos casos, os melhores resultados médios representados pelas duas métricas, para todas as representações testadas, ocorrem no algoritmo \textit{OvNMTF}. Considerando apenas esse algoritmo, os melhores resultados médios ocorrem para as representações $\textit{tf}$ e $\textit{tf}_{norm}$, e com um número reduzido de grupos ($l$) de termos, quando comparado os número de grupos exigido pelas representações $\textit{tfidf}$ e $\textit{tfidf}_{norm}$.
 
 \begin{table}[H]
 \centering
@@ -4201,7 +4192,7 @@ A fim de possibilitar a análise, foi estabelecido o propósito de estudar a rel
 
 O portal IG\footnote{http://www.ig.com.br/} é um dos maiores portais de notícias brasileiro~\cite{topsites}, composto por sites importantes como o noticiário Último Segundo, o iG Gente, o iG Esportes, a TV iG, o iG Economia, o Delas etc. Cada um desses sites é caracterizado como um canal que contém notícias de um determinado assunto macro. O conjunto de dados \textit{IG toy} é composto por $100$ notícias de cada um dos três canais: \textbf{esportes}, que contém notícias, principalmente, dos esportes mais populares no Brasil, como o futebol e o UFC; \textbf{jovem}, que contém notícias mais interessantes para o público jovem em geral, como notícias sobre esportes radicais, filmes e músicas voltados para o público jovem; \textbf{arena}, que compõem notícias de games, novidades de todos os tipos de games, consoles e coberturas de eventos de games.
 
-Esses canais foram escolhidos para formar o conjunto de dados \textit{IG toy} por serem de assuntos similares. Notícias do canal jovem podem apresentar semelhanças com notícias do canal esportes: notícias sobre surfe, por exemplo. Notícias do canal arena podem ser similares a notícias do canal de esportes, já que existem \textit{games} que simulam esportes, e para os quais existem campeonatos oficiais, como no caso dos esportes. Ainda, o canal arena possui notícias de interesse dos jovens e, portanto, notícias desse canal poderiam, naturalmente, estar classificadas no canal jovem. Essa escolha de canais torna possível verificar como os algoritmos tratam essa intersecção entre palavras (ou tópicos) nas notícias.
+Esses canais foram escolhidos para formar o conjunto de dados \textit{IG toy} por serem de assuntos similares. Notícias do canal jovem podem apresentar semelhanças com notícias do canal esportes: notícias sobre surfe, por exemplo. Notícias do canal arena podem ser similares a notícias do canal de esportes, já que existem \textit{games} que simulam esportes, e para os quais existem campeonatos oficiais, como no caso dos esportes. Ainda, o canal arena possui notícias de interesse dos jovens e, portanto, notícias desse canal poderiam, naturalmente, estar classificadas no canal jovem. Essa escolha de canais torna possível verificar como os algoritmos tratam essa sobreposição entre palavras (ou tópicos) nas notícias.
 
 As subseções seguintes mostram como os algoritmos \textit{ONMTF} e \textit{OvNMTF} são úteis para análise de tópicos e palavras no conjunto de dados \textit{IG toy}.
 
@@ -4524,9 +4515,9 @@ Ainda, foram criadas visualizações de cada cogrupo de palavras no formato de n
 \section{Considerações finais}
 
 % colocar aqui algumas considerações sobre as três coisas que discutimos no final do cap 3 e do cap 4. Algo rápido apenas mostrando em termos práticos, do experimento, que funcionou do jeito que prometemos.
-\textcolor{red}{Os experimentos deste trabalho trouxeram evidências de como avaliar os algoritmos aqui discutidos do ponto de vista de quantização A motivação para a apresentação dos novos problemas de fatoração de matrizes (OvNMTF e BinOvNMTF), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (ONMTF e FNMTF), no que diz respeito à solução do problema de coagrupamento.}
+\textcolor{red}{Os experimentos deste trabalho trouxeram evidências de como avaliar os algoritmos aqui discutidos do ponto de vista de quantização A motivação para a apresentação dos novos problemas de fatoração de matrizes (\textit{OvNMTF} e \textit{BinOvNMTF}), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (\textit{ONMTF} e \textit{FNMTF}), no que diz respeito à solução do problema de coagrupamento.}
 
-\textcolor{red}{Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas fatorações tem o potencial de superar as fatorações da literatura. Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há interseção de colunas entre as diferentes bases dos grupos de linhas. Entretanto, as fatorações propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas, e portanto, menor capacidade de compactação.}
+\textcolor{red}{Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas fatorações tem o potencial de superar as fatorações da literatura. Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há sobreposição de colunas entre as diferentes bases dos grupos de linhas. Entretanto, as fatorações propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas, e portanto, menor capacidade de compactação.}
 
 \textcolor{red}{Do ponto de vista de geração de informação sobre os dados, as fatorações propostas são capazes de fornecer o mesmo tipo de informação: como as linhas da matriz de entrada se organizam em grupos e como as colunas da matriz de entrada se organizam em grupo. Porém, desde que se tem $k$ organizações de grupos de colunas, sabe-se que há várias possibilidades dessa organização ocorrer para cada um dos grupos de linhas. Transferindo essa informação para um contexto de aplicação, entende-se que há um conjunto de organização de atributos que estão associados à organização assumida pelos dados no espaço dos dados. Intuitivamente, pode-se dizer que há diferentes maneiras de justificar o agrupamento de dados descoberto, com base nas similaridades parciais dos atributos que os descrevem.}
 
@@ -4543,20 +4534,21 @@ Ainda, foram criadas visualizações de cada cogrupo de palavras no formato de n
 \label{ch:conclusoes}
 
 Esta dissertação teve o objetivo principal de apresentar uma solução para o problema de resolução da tarefa de coagrupamento com sobreposição de colunas, apresentado no capítulo~\ref{cap:intro}, na forma de uma aplicação de mineração de textos hipotética.
-A principal motivação para buscar uma solução para esse problema advém dos contextos de análises de dados em que se faz necessário encontrar a organização ``natural'' dos dados em grupos, na qual, a análise de subconjuntos dos atributos descritivos desses dados podem trazer benefícios na análise de agrupamento, como interpretações mais rebuscadas, maior preservação de detalhes na quantização dos grupos e, portanto, maior capacidade de agrupamento.
+A principal motivação para buscar uma solução para esse problema advém dos contextos de análises de dados em que se faz necessário encontrar a organização ``natural'' dos dados em grupos.
+A análise de subconjuntos dos atributos descritivos desses dados podem trazer benefícios para a análise de agrupamento, como interpretações mais detalhadas, maior preservação de detalhes na quantização dos grupos e, portanto, melhor capacidade de agrupamento.
 
-Um contexto de aplicação no qual a resolução do problema de coagrupamento se faz é na mineração de textos, já que se tem a necessidade de apresentar resultados que gerem informações passíveis de serem interpretadas.
+Um contexto de aplicação no qual a resolução do problema de coagrupamento se faz interessante é na mineração de texto, já que se tem a necessidade de apresentar resultados que gerem informações passíveis de serem interpretadas.
 Como estratégias de análise de coagrupamento formam grupos de documentos a partir de grupos de termos (ou características), informações antes escondidas nos dados, podem acabar sendo reveladas por esse processo.
 
 Diante desta motivação, uma busca exploratória na literatura da área revelou a utilidade de algoritmos de fatoração de matrizes não-negativas para aplicação na solução do problema de coagrupamento, especialmente as fatorações em três matrizes: $X \approx USV^T$.
-Algoritmos apresentados como estado da arte, descritos no capítulo~\ref{ch:fatoracao} foram estudados e, a partir desse estudo, constatou-se que haviam algumas lacunas nas quais poder-se-ia trabalhar para que as estratégias neles implementadas pudessem tratar de forma mais adequada algumas características da tarefa de coagrupamento, a saber: a sobreposição de linhas ou de colunas na composição dos cogrupos.
+Algoritmos apresentados como estado da arte, descritos no capítulo~\ref{ch:fatoracao} foram estudados e, a partir desse estudo, constatou-se que existiam algumas lacunas nas quais poder-se-ia trabalhar para que as estratégias neles implementadas pudessem tratar de forma mais adequada algumas características da tarefa de coagrupamento, a saber: a sobreposição de linhas ou de colunas na composição dos cogrupos.
 
-Dessa constatação, a hipótese de propor a fatoração da matriz de dados em $X \approx USV_{(1)}^T \dots V_{(k)}^T$, apresentada em no capítulo~\ref{cap:intro}, motivou a proposição de problemas de fatoração de matrizes que possibilitassem a separação que considera independência e sobreposição entre os cogrupos de colunas formados pela fatoração.
+Dessa constatação, a hipótese de propor a fatoração da matriz de dados em $X \approx USV_{(1)}^T \dots V_{(k)}^T$, apresentada em no capítulo~\ref{cap:intro}, motivou a proposição de problemas de fatoração de matrizes que possibilitassem uma separação que considera independência e sobreposição entre os cogrupos de colunas formados pela fatoração.
 A formulação de problemas com essa características e de algoritmos para sua resolução foram apresentados, acompanhados de suas derivações formais, no capítulo~\ref{ch:proposedalgs}.
 Experimentos e análise de resultados de testes para os algoritmos propostos, com comparações diretas com algoritmos já consolidados na literatura, foram detalhados no capítulo~\ref{ch:experiments}.
 As análises realizadas consideraram bases de dados sintéticas, como prova de conceito, e bases de dados reais, como exemplo de aplicação em mineração de textos.
 Também, as análises foram delineadas tanto sob o aspecto quantitativo como sob o aspecto qualitativo, apresentando considerações referentes a capacidade de reconstrução, de quantização e de extração de informação dos algoritmos.
-Então, referentes à capacidade de reconstrução, de quantização e de extração de informação dos algoritmos, os resultados apresentados indicaram que a fatoração $X \approx USV_{(1)}^T \dots V_{(k)}^T$, assim como os algoritmos para solução da fatoração proposta, se cumprem, e agregam valor à área de análise de agrupamento e a solução de problemas referentes à mineração de textos.
+Então, em relação à capacidade de reconstrução, de quantização e de extração de informação dos algoritmos, os resultados apresentados indicaram que a fatoração $X \approx USV_{(1)}^T \dots V_{(k)}^T$, assim como os algoritmos para solução da fatoração proposta, agregam valor à área de análise de agrupamento e à solução de problemas referentes à mineração de texto.
 
 Assim, a pesquisa discutida neste trabalho é de natureza aplicada, se caracterizando como sendo do gênero teórico-prática, uma vez que apresenta contribuições de ordem teórica para a área de coagrupamento, e também coloca o conhecimento científico produzido em condições de intervir na realidade, a partir da experimentação com dados reais. O método seguido na pesquisa teve um caráter exploratório, procurando proporcionar maior familiaridade com um problema, e adotou uma abordagem de análise mista (quali-quanti).
 
@@ -4567,26 +4559,27 @@ Nesse contexto, destacam-se como as principais contribuições deste trabalho de
 \begin{itemize}
     \item proposição do problema e um algoritmo para \textit{OvNMTF}, derivado com base na fatoração \textit{BVD} já proposta na literatura de fatoração de matrizes não-negativas para coagrupamento, acompanhado de uma derivação formal das regras de atualização para as matrizes $U, S, V_{(1)}, \dots V_{(k)}$;
     \item proposição do problema e um algoritmo para \textit{BinOvNMTF}, derivado com base na fatoração \textit{FNMTF} já proposta na literatura de fatoração de matrizes não-negativas para coagrupamento, acompanhado de uma derivação formal das regras de atualização para as matrizes $U, S, V_{(1)}, \dots V_{(k)}$;
-    \item apresentação de uma interpretação semântica para o novo problema de fatoração de matrizes não-negativas com sobreposição aplicados à dados textuais;
-    \item construção e apresentação das bases de dados de notícias \textit{IG} e \textit{IG toy}, que se fazem importante para o desenvolvimento da pesquisa de mineração de texto no idioma português (brasileiro).
+    \item apresentação de uma interpretação semântica para o novo problema de fatoração de matrizes não-negativas com sobreposição de colunas aplicados à dados textuais;
+    \item construção e apresentação das bases de dados de notícias \textit{IG} e \textit{IG toy}, que se mostram importantes para o desenvolvimento da pesquisa de mineração de texto no idioma português (brasileiro).
 \end{itemize}
 
 Os resultados obtidos com essa pesquisa permitiram mostrar que foi possível propor novos tipos de fatoração de matrizes para a solução da tarefa de coagrupamento com sobreposição de colunas de forma natural, isto é, com independência de cogrupos de colunas.
 
-Em termos de reconstrução e capacidade de quantização do espaço, através dos experimentos em bases de dados sintéticas, foi verificado a superioridade ou equivalência dos algoritmos desenvolvidos comparando-os com os algoritmos da literatura, fazendo a inspeção visual e a análise da capacidade de quantização através da medida de erro de quantização.
+Em termos de reconstrução e capacidade de quantização do espaço, por meio dos experimentos em bases de dados sintéticas, foi verificado a superioridade ou equivalência dos algoritmos desenvolvidos quando comparados aos algoritmos da literatura.
+Essa análise foi realizada usando inspeção visual de reconstruções de conjuntos de dados e o erro de quantização.
 
-Em termos de geração de informação, foi verificado que os algoritmos desenvolvidos são capazes de gerar novos tipos de informações que podem ser úteis para aplicações de mineração de textos, e que, no contexto de fatoração de matrizes para a tarefa de coagrupamento, não feito antes.
-A análise dos experimentos qualitativos, com aplicação em bases de dados textuais, permitem fazer essa afirmação.
+Em termos de capacidade de agrupamento, experimentos em bases de dados reais com o uso de medidas externas clássicas para validação de agrupamento (RI e NMI), permitiram verificar a superioridade das estratégias desenvolvidas em relação às outras estratégias de fatoração.
+Em relação às técnicas de agrupamento tradicionais (\textit{k-means} e \textit{fuzzy k-means}), as estratégias mostraram capacidade de agrupamento superior ou equivalente considerando as bases de dados textuais aplicadas (\textit{IG toy}, \textit{IG} e \textit{NIPS}).
 
-Em termos de capacidade de agrupamento, através dos experimentos em bases de dados reais fazendo utilizando medidas externas clássicas para validação de agrupamento (Índice de Rand e Informação Mútua Normalizada), foi verificado a superioridade das técnicas desenvolvidas em relação às outras técnicas de fatoração.
-Em relação às técnicas de agrupamento tradicionais (\textit{k-means} e \textit{fuzzy k-means}), as técnicas mostraram capacidade de agrupamento superior ou equivalente, considerando as $3$ bases aplicadas (\textit{IG}, \textit{IG toy} e \textit{NIPS}).
+Em termos de geração de informação, foi verificado que os algoritmos desenvolvidos são capazes de gerar novos tipos de informações que podem ser úteis para aplicações de mineração de texto.
+Tal tipo de informação, ou forma de interpretação de resultados, não havia ainda sido proposta no contexto de fatoração de matrizes para a tarefa de coagrupamento.
+A análise dos experimentos qualitativos para o \textit{OvNMTF}, para bases de dados textuais, permite fazer essa afirmação.
 
 Embora os objetivos tenham sido alcançados e os resultados obtidos tenham se mostrado promissores, há algumas desvantagens e limitações a serem consideradas nas soluções apresentadas:
-
 \begin{itemize}
-    \item tempo de execução dos algoritmos, nos experimentos realizados foi percebido que os algoritmos desenvolvidos tem maior tempo de execução que os demais, no entanto, são necessários experimentos considerando diversos tipos de entradas que analisam o tempo de execução dos algoritmos;
-    \item validade dos resultados considerando testes estatísticos, nenhum dos experimentos apresentados neste trabalho fizeram o uso de testes estatísticos para afirmar com maior segurança quais os melhores algoritmos para as bases de dados consideradas em termos de capacidade de agrupamento;
-    \item convergência dos algoritmos desenvolvidos, foram realizados testes empíricos verificando a convergênciados algoritmos \textit{BinOvNMTF} e \textit{OvNMTF} e portanto a corretude das implementações, no entanto, ainda são necessárias as verificações matemáticas de convergência, assim como experimentos considerando a convergência na execução dos algoritmos para diferentes parametrizações.
+    \item tempo de execução dos algoritmos: nos experimentos realizados foi percebido que os algoritmos desenvolvidos exigem maior tempo de execução que os demais, no entanto, são necessários experimentos para medir quantitativamente essa diferença;% de tempo de execução, fazendo análises considerando o tempo de execução dos algoritmos;
+    \item validade dos resultados considerando testes estatísticos: nenhum dos experimentos apresentados neste trabalho fez o uso de testes estatísticos para afirmar com maior segurança quais os melhores algoritmos em termos de capacidade de agrupamento;
+    \item convergência dos algoritmos desenvolvidos: foram realizados testes empíricos verificando a convergência dos algoritmos \textit{OvNMTF} e \textit{BinOvNMTF}, e portanto ainda são necessárias as verificações matemáticas de convergência, assim como experimentos considerando a convergência na execução dos algoritmos para diferentes parametrizações.
 \end{itemize}
 
 % Ainda, os resultados produzidos nesta pesquisa ainda precisam ser submetidos a dois tipos de validação.
@@ -4598,10 +4591,10 @@ Embora os objetivos tenham sido alcançados e os resultados obtidos tenham se mo
 Durante a realização dessa pesquisa, algumas hipóteses para explicar alguns comportamentos advindos dos algoritmos foram levantadas.
 Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específicas, direcionadas a análise de pontos que não foram analisados neste trabalho. Tais pontos são:
 \begin{itemize}
-    \item estudar a determinação do parâmetro $k$ (número de cogrupos de linhas), como em todos os experimentos já se conhecia de antemão esse parâmetro, a sua variação não foi considerada nos experimentos. Seria necessário aplicar índices de validação internos de agrupamento e experimentos qualitativos a fim de verificar a qualidade dos agrupamentos que seriam criados;
-    \item estudar com mais detalhes a vantagem da independência dos cogrupos de colunas diante de contextos de aplicação, foram realizados experimentos qualitativos levantando hipóteses que tinham objetivo de justificar a vantagem da influência de independência em cogrupos de colunas;
-    \item estudar o efeito da estratégia de aplicação de múltiplas matrizes ao problema \textit{NMF}, seria um outro tipo de fatoração que poderia trazer resultados interessantes para a tarefa de agrupamento, até possivelmente, para a tarefa de coagrupamento;
-    \item estudar com maior profundidade as restrições de ortogonalidade dos algoritmos, em alguns casos as restrições de ortogonalidade contribuíram muito para obter resultados melhores considerando a capacidade de agrupamento, então, são necessários estudos para verificar as vantagens dessa estratégia. Além disso, ainda é possível a proposição de um outro problema e algoritmo considerando restrições ortogonais no problema \textit{OvNMTF}, semelhante ao que foi feito nos trabalhos que apresentaram o \textit{ONMTF}.
+    \item estudar a determinação do parâmetro $k$ (número de cogrupos de linhas): como em todos os experimentos já se conhecia de antemão esse parâmetro, considerando-o como o número de classes existentes no conjunto de dados, a sua variação não foi considerada nos experimentos. Seria necessário aplicar índices de validação internos de agrupamento e experimentos qualitativos a fim de verificar a qualidade dos agrupamentos que seriam criados a partir da variação do $k$;
+    \item estudar com mais detalhes a vantagem da independência dos cogrupos de colunas diante de contextos de aplicação: foram realizados experimentos qualitativos para ilustrar a vantagem da influência da independência em cogrupos com sobreposição de colunas, contudo, considera-se que a formulação de experimentos que permitam a análise quantitativa detalhada desse quesito podem melhorar a motivação para o uso das estratégias propostas;
+    \item estudar o efeito da estratégia de aplicação de múltiplas matrizes ao problema \textit{NMF}: esse seria um outro tipo de fatoração que poderia trazer resultados interessantes para a tarefa de agrupamento, até possivelmente, para a tarefa de coagrupamento;
+    \item estudar com maior profundidade as restrições de ortogonalidade dos algoritmos: em alguns casos as restrições de ortogonalidade contribuíram muito para obter resultados melhores considerando a capacidade de agrupamento, então, são necessários estudos para verificar as vantagens dessa estratégia. Além disso, ainda é possível a proposição de um novo problema e algoritmo considerando restrições ortogonais no problema \textit{OvNMTF}, semelhante ao que foi feito nos trabalhos que apresentaram o \textit{ONMTF}.
 \end{itemize}
 
 % ************************************************************

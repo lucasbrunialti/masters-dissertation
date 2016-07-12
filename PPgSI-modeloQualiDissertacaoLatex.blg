@@ -24,9 +24,9 @@ I was expecting a `,' or a `}'---line 321 of file referencias.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--entry type for "Ding05" isn't style-file defined
---line 929 of file referencias.bib
+--line 940 of file referencias.bib
 Warning--entry type for "Long2005" isn't style-file defined
---line 936 of file referencias.bib
+--line 947 of file referencias.bib
 A bad cross reference---entry "Bottou95"
 refers to entry "NIPS7", which doesn't exist
 Warning--I didn't find a database entry for "NIPS7"
@@ -39,45 +39,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
-You've used 55 entries,
+You've used 56 entries,
             6711 wiz_defined-function locations,
-            1587 strings with 18880 characters,
-and the built_in function-call counts, 51492 in all, are:
-= -- 4385
-> -- 1906
-< -- 180
-+ -- 859
-- -- 569
-* -- 3769
-:= -- 6558
-add.period$ -- 208
-call.type$ -- 55
-change.case$ -- 622
-chr.to.int$ -- 126
-cite$ -- 54
-duplicate$ -- 2836
-empty$ -- 3525
-format.name$ -- 2718
-if$ -- 12223
+            1596 strings with 19207 characters,
+and the built_in function-call counts, 52563 in all, are:
+= -- 4475
+> -- 1947
+< -- 181
++ -- 875
+- -- 581
+* -- 3850
+:= -- 6697
+add.period$ -- 214
+call.type$ -- 56
+change.case$ -- 636
+chr.to.int$ -- 127
+cite$ -- 55
+duplicate$ -- 2883
+empty$ -- 3609
+format.name$ -- 2779
+if$ -- 12489
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 998
-newline$ -- 268
-num.names$ -- 266
-pop$ -- 1286
+missing$ -- 1015
+newline$ -- 273
+num.names$ -- 271
+pop$ -- 1308
 preamble$ -- 1
-purify$ -- 232
+purify$ -- 237
 quote$ -- 0
-skip$ -- 3137
+skip$ -- 3191
 stack$ -- 1
-substring$ -- 2019
-swap$ -- 1310
-text.length$ -- 68
+substring$ -- 2068
+swap$ -- 1335
+text.length$ -- 69
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 26
+type$ -- 27
 warning$ -- 0
-while$ -- 402
+while$ -- 411
 width$ -- 0
-write$ -- 884
+write$ -- 901
 (There were 3 error messages)

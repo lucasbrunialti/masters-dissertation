@@ -645,6 +645,7 @@ Keywords: Coclustering. Non-negative Matrix Factorization. Cluster Analysis. Tex
 % inserir lista de figuras
 % ---
 \pdfbookmark[0]{\listfigurename}{lof}
+\addtocontents{toc}{\protect\sloppy}
 \listoffigures*
 \cleardoublepage
 % ---
@@ -714,7 +715,12 @@ Keywords: Coclustering. Non-negative Matrix Factorization. Cluster Analysis. Tex
 % ---
 % inserir o sumario
 % ---
+% \pdfbookmark[0]{\contentsname}{toc}
+% \tableofcontents*
+% \cleardoublepage
+
 \pdfbookmark[0]{\contentsname}{toc}
+\addtocontents{toc}{\protect\sloppy}
 \tableofcontents*
 \cleardoublepage
 % ---
@@ -1117,8 +1123,8 @@ Sendo $A, B, C$ e $D$ matrizes quaisquers definidas em um espaço que tornem as 
     \item $\frac{\partial}{\partial A} tr(B A^T) = \frac{\partial}{\partial A} tr(A^T B) = B$.
     \item $\frac{\partial}{\partial A} tr(B A C) = B^T C^T$.
     \item $\frac{\partial}{\partial A} tr(B A^T C) = CB$.
-    \item $\frac{\partial}{\partial A} tr(B A C A^T D) = B^T D^T A C^T + D B A D$.
-    \item $\frac{\partial}{\partial A} tr(C^T A^T D A C) = D^T A D C^T + D A C B^T$.
+    \item $\frac{\partial}{\partial A} tr(B A C A^T D) = B^T D^T A C^T + D B A C$.
+    \item $\frac{\partial}{\partial A} tr(C^T A^T D A C) = C^T A^T D B + C^T A^T B^T D^T$.
 \end{itemize}
 
 \section{Agrupamento}
@@ -1625,7 +1631,7 @@ O algoritmo também pára caso a quantidade de iterações assuma o limite $t_{m
 
 Note que como $U$ e $V$ possuem valores no domínio dos reais, então, não é possível obter as partições diretamente, sem um processo de pós-processamento.
 Um modo simples de obter o particionamento para as linhas toma a seguinte forma:
-$$\mathcal{K}_{p}=\{x_{i\cdot}|i\in\{1,\ldots,n\}\text{ e }p=\argmax_{p'\in\{1,\ldots,k\}} u_{ip'} \}, \forall p\in\{1,\ldots,k\}$$
+$$\mathcal{K}_{p}=\{x_{i\cdot}~|~i\in\{1,\ldots,n\}\text{ e }p=\argmax_{p'\in\{1,\ldots,k\}} u_{ip'} \}, \forall p\in\{1,\ldots,k\}$$
 
 Isso significa que uma linha $i$ pertencerá a um cogrupo $p$ (ou partição) se para todos os $k$ cogrupos, o fator $u_{ip}$ for maior que todos os outros fatores para os outros cogrupos, presentes no vetor $\mathbf{u}_{i \cdot}$.
 
@@ -1895,8 +1901,8 @@ O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fas
         \displaystyle \mathcal{F}_7(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
                                              &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
                                              &   &                              & V \in \Psi^{m \times l}, \\
-                                             &   &                              & \sum_{p=1}^{k} \mathbf{u}_{ip} = 1, \forall i, \\
-                                             &   &                              & \sum_{q=1}^{l} \mathbf{v}_{jq} = 1, \forall j \\
+                                             &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i, \\
+                                             &   &                              & \sum_{q=1}^{l} v_{jq} = 1, \forall j
     \end{array} \nonumber
 \end{equation}
 \end{problem}
@@ -1905,7 +1911,7 @@ em que $S \in \mathbb{R}^{k \times l}_{+}$e $\Psi = \{0, 1\}$ e $\norm{\cdot}_F$
 \citeonline{Wang2011} denominam $U$ como uma matriz indicadora dos grupos de linhas, $V$ como uma matriz indicadora dos grupos de colunas, e $S$ como uma matriz que contém os fatores que relacionam um grupo de linhas aos grupos de colunas, e um grupo de colunas aos grupos de linhas.
 Note que nesse caso não é necessário uma etapa de pós-processamento para particionamento como nos outros algoritmos apresentados.
 
-Ainda, as restrições $\sum_{p=1}^{k} \mathbf{u}_{ip} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{jq} = 1$ indicam que uma linha e uma coluna, respectivamente, têm que pertencer à algum grupo.
+Ainda, as restrições $\sum_{p=1}^{k} u_{ip} = 1$ e $\sum_{q=1}^{l} v_{jq} = 1$ indicam que uma linha e uma coluna, respectivamente, têm que pertencer à algum grupo.
 Então, apesar dessas restrições serem semelhantes à ortonormalidade, elas não são, pois não resolvem o caso em que há uma possibilidade de haver grupos vazios, ou seja, sem nenhum elemento pertencente a este grupo, enquanto a restrição de ortonormalidade, garante que não haverá grupos vazios, seja este grupo de linhas ou de colunas.
 
 Como $U$ e $V$ neste caso têm as restrições descritas, e são capazes de fornecer o particionamento de linhas e colunas, respectivamente, de forma direta, a capacidade de compactação nesse caso é semelhante ao algoritmo \textit{k-means}, brevemente descrito no capítulo~\ref{ch:conceitos}.
@@ -2046,7 +2052,7 @@ Também, as mesmas condições de convergência usada nos algoritmos anteriores 
 \label{algo:fnmtf}
 \begin{algorithmic}[1]
 \Function{FNMTF}{$X$, $k$, $l$, $t_{max}$}
-\State \textbf{Inicialize:} $U^{(0)}, V^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} \mathbf{u}_{ip} = 1, \sum_{q=1}^{l} \mathbf{v}_{jq} = 1, \forall i, j$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+\State \textbf{Inicialize:} $U^{(0)}, V^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} u_{ip} = 1, \sum_{q=1}^{l} v_{jq} = 1, \forall i, j$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
 \While{(não convergiu) e ($t \leq t_{max}$)}
 \State
 \begin{equation}
@@ -2148,9 +2154,8 @@ Entretanto, visto que se tem a liberdade de organizar um conjunto de matrizes $V
 Isso significa que problemas em que há sobreposição de colunas na formação de cogrupos poderão ser adequadamente tratados pelas estratégias propostas.
 
 Formalmente, considere uma matriz de dados $X \in \mathbb{R}^{n \times m}$ contendo números reais positivos com $n$ linhas e $m$ colunas, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$.
-O objetivo éEsta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $x$ e cada coluna $y$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$, que é justamente um valor da matriz $X$.
 Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse.
-Modificando o objetivo como foi apresentado na introdução ao capítulo~\ref{ch:fatoracao}, sendo então, encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $k \times l$ partições para $\mathcal{M}$ em cada $\mathcal{K}_p$, denotadas pelos subconjuntos ordenados $\mathcal{L}_{pq} \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
+O objetivo da tarefa de coagrupamento sob a estratégia de coagrupamento é encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $k \times l$ partições para $\mathcal{M}$ em cada $\mathcal{K}_p$, denotadas pelos subconjuntos ordenados $\mathcal{L}_{pq} \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
 Então, os subconjuntos $\{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ e $\{\mathcal{L}_{11}, \dots, \mathcal{L}_{1l}, \dots, \mathcal{L}_{k1}, \dots \mathcal{L}_{kl}\}$ são os cogrupos de linhas e colunas, respectivamente.
 
 Observe na figura~\ref{fig:ovnmtfApplication} uma representação gráfica da estrutura de cogrupos com sobreposição de colunas, contextualizado em uma aplicação de análise de textos.
@@ -2167,13 +2172,13 @@ Também, é possível observar que apesar das palavras serem as mesmas para todo
 \begin{figure}[H]
 \centering
 \caption{Representação gráfica do problema de coagruamento com sobreposição de colunas e contextualização do domínio de documentos (notícias)}
-\includegraphics[width=0.7\textwidth]{img/ovnmtfNewsApplication.png}
+\includegraphics[width=0.5\textwidth]{img/ovnmtfNewsApplication.png}
 \label{fig:ovnmtfApplication}
 \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 Da mesma maneira que foi ilustrado no capítulo~\ref{ch:fatoracao} que é possível derivar interpretações intuitivas da análise das combinações de matrizes geradas na fatoração produzido pelos algoritmos lá discutidos, para os algoritmos discutidos no presente capítulo, interpretações análogas podem ser feitas, porém, consirando a existências das várias matrizes $V$.
-Assumindo novamente que uma matriz de entrada representação a relação ``documento por palavras'' (linhas por colunas), cada coluna das $k$ matrizes $U I_{(p)} S, \forall p \in {1, \dots, k}$, captura a ideia de uma base para representação de grupos de palavras, descritos nas matrizes $V_{(p)}$; e cada linha em $\sum_{p=1}^k S V_{(p)}^T$, captura a ideia de uma base de representação de grupos de documentos.
+Assumindo novamente que uma matriz de entrada representa a relação ``documento por palavras'' (linhas por colunas), cada coluna das $k$ matrizes $U I_{(p)} S, \forall p \in \{1, \dots, k\}$, captura a ideia de uma base para representação de grupos de palavras, descritos nas matrizes $V_{(p)}$; e cada linha em $\sum_{p=1}^k I_{(p)} S V_{(p)}^T$, captura a ideia de uma base de representação de grupos de documentos.
 A representação gráfica para o resultado de uma fatoração de matrizes que permite esse raciocínio é apresentada na figura~\ref{fig:factorizationXUSV1tok}.
 
 \begin{figure}[H]
@@ -2211,36 +2216,36 @@ Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:o
     \end{array} \nonumber
 \end{equation}
 \end{problem}
-em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p \in \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius.
-Na formulação, o papel das matrizes $I_k$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $V_k$.
+em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p \in \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz seletora com zeros em todos elementos exceto o elemento $i_{(p)_{pp}}$ que é igual à $1$, e $\norm{\cdot}_F$ denota a norma de Frobenius.
+Na formulação, o papel das matrizes $I_{(p)}$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $V_{(p)}$.
 
 É possível perceber, que neste caso, diferente dos apresentados no capítulo~\ref{ch:fatoracao}, têm menor capacidade de compactação, porém, com maior nível de detalhamento.
 Isso se explica, pois a partir dos $nm$ elementos da matriz de dados, são gerados $nk + kl + klm$ para representá-los, diferente.
 
 Desde que o problema~\ref{def:ovnmtf:problem} é semelhante ao problema~\ref{def:onmtf:problem}, é esperado que ele possa também ser resolvido por meio de regras de atualização multiplicativas.
-Assim, seguindo o exposto em~\cite{Yoo2010}, a derivação das regras é aqui apresentada por meio de um abordagem baseada no cálculo do gradiente.
-Contudo, para o cálculo do gradiente de $\mathcal{F}_6$ a estratégia usada aqui é a apresentada em~\citeonline{Yoo2010}, de forma que $\nabla \mathcal{F}_6 = [\nabla \mathcal{F}_6]^+ - [\nabla \mathcal{F}_6]^-$.\blfootnote{Considere as seguintes igualdades para o cálculo dos gradientes, sendo $A, Q, B$ e $C$ matrizes de quaisquers dimensões adequadas para a realização das multiplicações:
+Assim, a derivação das regras é aqui apresentada por meio de um abordagem baseada no cálculo do gradiente.
+Contudo, para o cálculo do gradiente de $\mathcal{F}_6$ a estratégia usada aqui é a apresentada em~\citeonline{Yoo2010}, de forma que $\nabla \mathcal{F}_6 = [\nabla \mathcal{F}_6]^+ - [\nabla \mathcal{F}_6]^-$.\blfootnote{Considere as seguintes igualdades para o cálculo dos gradientes, já definidas no capítulo~\ref{ch:conceitos}, sendo $A, B, C$ e $D$ matrizes de quaisquers dimensões adequadas para a realização das multiplicações:
 \begin{equation}
 \label{eq:diff:AQB}
 \begin{array}{lcl}
-\nabla_Q tr( AQB )     & = & A^T B^T \\
-\nabla_{Q^T} tr( AQB ) & = & BA \\
+\nabla_A tr( BAC )     & = & A^T B^T \\
+\nabla_{A^T} tr( BAC ) & = & C B \\
 \end{array}
 \end{equation}
 
 \begin{equation}
 \label{eq:diff:AQBQtC}
 \begin{array}{lcl}
-\nabla_Q tr( AQBQ^TC )     & = & A^TC^TQB^T + CAQB \\
-\nabla_{Q^T} tr( AQBQ^TC ) & = & BQ^TCA + B^TQ^TA^TC^T
+\nabla_A tr( BACA^TD )     & = & B^TD^TAC^T + DBAC \\
+\nabla_{A^T} tr( C^TA^TDAC ) & = & CA^TDB + C^TA^TB^TD^T
 \end{array}
 \end{equation}
 }
 
-Expandindo $\mathcal{F}_6$, com base nas propriedade de traço de matrizes, para tornar o cálculo do gradiente mais simples, é possível obter:
+Expandindo $\mathcal{F}_6$, com base nas propriedade de traço de matrizes definidas no capítulo~\ref{ch:conceitos}, para tornar o cálculo do gradiente mais simples, é possível obter:
 \[
     \begin{array}{lcl}
-        \displaystyle \mathcal{F}_6 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
+        \displaystyle \mathcal{F}_6 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
                                     & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T )
     \end{array}
 \]
@@ -2248,7 +2253,7 @@ Expandindo $\mathcal{F}_6$, com base nas propriedade de traço de matrizes, para
 Note que a matriz seletora tem a seguinte propriedade: $I_{(p)}^T = I_{(p)}$.
 
 Para o cálculo de $\nabla_U \mathcal{F}_6$, considere as partes positiva e negativa desse gradiente, $[\nabla_U \mathcal{F}_6]^+$ e $[\nabla_U \mathcal{F}_6]^-$, respectivamente.
-Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T$, $B = \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T$ e $Q = U$, é possível obter $[\nabla_U \mathcal{F}_6]^-$, como segue.
+Usando a igualdade da equação~\ref{eq:diff:AQB}, com $B = X^T$, $C = \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T$ e $A = U$, é possível obter $[\nabla_U \mathcal{F}_6]^-$, como segue.
 \[
     \begin{array}{lcl}
         [\nabla_U \mathcal{F}_6]^- & = & - 2 \nabla_U \Big( tr\big[ X^T U \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T \big] \Big) \\
@@ -2256,7 +2261,8 @@ Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T$, $B = \sum_{p=1
     \end{array}
 \]
 
-Para o cálculo de $[\nabla_U \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $B = I$, $Q = U^T$ e $C = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$. Então tem-se
+Para o cálculo de $[\nabla_U \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $B = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $C = I$, $A = U^T$ e $D = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$.
+Então tem-se
 \[
     \begin{array}{lcl}
         [\nabla_U \mathcal{F}_6]^+ & = & \nabla_U \Big( tr(X^TX) + tr\big[ \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \big] \Big) \\
@@ -2267,7 +2273,7 @@ Para o cálculo de $[\nabla_U \mathcal{F}_6]^+$, é utilizado a igualdade da equ
 \]
 
 De forma similar, para o cálculo de $\nabla_S \mathcal{F}_6$, considere as partes positiva e negativa, $[\nabla_S \mathcal{F}_6]^+$ e $[\nabla_S \mathcal{F}_6]^-$, respectivamente.
-Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma de $p = 1, \dots, k$, com $A = X^T U I_{(p)}$, $Q = S$, e $B = V_{(p)}^T$, é possível obter $[\nabla_S \mathcal{F}_6]^-$, como segue:
+Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma de $p \in \{1, \dots, k\}$, com $B = X^T U I_{(p)}$, $A = S$, e $C = V_{(p)}^T$, é possível obter $[\nabla_S \mathcal{F}_6]^-$, como segue:
 \[
     \begin{array}{lcl}
         [\nabla_S \mathcal{F}_6]^- & = & - 2 \nabla_S \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
@@ -2276,7 +2282,8 @@ Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma d
     \end{array}
 \]
 
-Para o cálculo de $[\nabla_S \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p = p' = 1, \dots, k$, com $A = V_{(p)}$, $Q = S^T$, $B = I_{(p)} U^T U I_{(p')}$ e $C = V_{(p')}^T$. Então tem-se
+Para o cálculo de $[\nabla_S \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p, p' \in \{1, \dots, k\}$, com $B = V_{(p)}$, $A = S^T$, $C = I_{(p)} U^T U I_{(p')}$ e $D = V_{(p')}^T$.
+Então tem-se
 \[
     \begin{array}{lcl}
         [\nabla_S \mathcal{F}_6]^+ & = & \nabla_S \Big( tr(X^TX) + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big]  \\
@@ -2290,7 +2297,7 @@ Para o cálculo de $[\nabla_S \mathcal{F}_6]^+$, é utilizado a igualdade da equ
 \]
 
 
-Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_6$, considere as partes positiva e negativa, $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ e $[\nabla_{V_{(p)}} \mathcal{F}_6]^-$, respectivamente. Usando a igualdade da equação~\ref{eq:diff:AQB}, com $A = X^T U I_{(p)} S$, $Q = V^{T}_{(p)}$, e $B = I$, $\forall p$, é possível obter $[\nabla_{V_{(p)}} \mathcal{F}_6]^-$, da seguinte forma:
+Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_6$, considere as partes positiva e negativa, $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ e $[\nabla_{V_{(p)}} \mathcal{F}_6]^-$, respectivamente. Usando a igualdade da equação~\ref{eq:diff:AQB}, com $B = X^T U I_{(p)} S$, $A = V^{T}_{(p)}$, e $C = I$, $\forall p$, é possível obter $[\nabla_{V_{(p)}} \mathcal{F}_6]^-$, da seguinte forma:
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_6]^- & = & - 2 \nabla_{V_{(p)}} \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
@@ -2298,7 +2305,7 @@ Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_6$, considere as pa
     \end{array}
 \]
 
-Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ é nota-se que há dois casos diferentes para a derivação. O caso em que $p = p'$ e o caso em que $p \neq p'$. Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $A = I$, $Q = V_{(p)}$, $B = S^T I_{(p)} U^T U I_{(p')} S$ e $C = I$, $\forall p, p'$, de forma que
+Na derivação para $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ nota-se que há dois casos diferentes para a derivação. O caso em que $p = p'$ e o caso em que $p \neq p'$. Para o caso em que $p = p'$, é utilizada a igualdade da equação~\ref{eq:diff:AQBQtC}, com $B = I$, $A = V_{(p)}$, $C = S^T I_{(p)} U^T U I_{(p)} S$ e $D = I$, $\forall p$, de forma que
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p=p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
@@ -2307,7 +2314,7 @@ Fixando a derivação para $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ é nota-se que h
     \end{array}
 \]
 
-Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:AQB} em duas outras situações, aquela em que $V_{(p)}$ esta localizado à esquerda, então, $Q = V_{(p)}$, $A = I$ e $B = S^T I_{(p)} U^T U I_{(p')}$; e aquela em que $V_{(p)}$ esta localizado à direita, então, $Q = V_{(p)}^T$, $A = V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T$, $\forall p, p'$. Assim,
+Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:AQB} em duas outras situações, aquela em que $V_{(p)}$ esta localizado à esquerda, então, $A = V_{(p)}$, $B = I$ e $C = S^T I_{(p)} U^T U I_{(p')}$; e aquela em que $V_{(p)}$ esta localizado à direita, então, $A = V_{(p)}^T$, $B = V_{(p')} S^T I_{(p')} U^T U I_{(p)} S$, $C = I$, $\forall p, p'$. Assim,
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p \neq p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(2)} S V_{(2)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big] \\
@@ -2327,7 +2334,7 @@ Então, é possível calcular $[\nabla_{V_{(p)}} \mathcal{F}_6]^{+}$, $\forall p
     \end{array}
 \]
 
-O resultado final dos gradientes para $U, S, V_{(p)}, \forall, p \in \{1, \dots, k\}$ são apresentados nas equações~\ref{eq:ovnmtf:gradU},~\ref{eq:ovnmtf:gradS} e~\ref{eq:ovnmtf:gradV}, respectivamente.
+O resultado final dos gradientes para $U, S, V_{(p)}, \forall p \in \{1, \dots, k\}$ são apresentados nas equações~\ref{eq:ovnmtf:gradU},~\ref{eq:ovnmtf:gradS} e~\ref{eq:ovnmtf:gradV}, respectivamente.
 \begin{equation}
 \label{eq:ovnmtf:gradU}
     \begin{array}{lcl}
@@ -2347,7 +2354,7 @@ O resultado final dos gradientes para $U, S, V_{(p)}, \forall, p \in \{1, \dots,
     \end{array}
 \end{equation}
 
-Sendo assim, as regras de atualização para as matrizes $U, V_{(p)}, S \forall p \in \{1, \dots, k\}$, são mostradas nas equações~\ref{eq:ovnmtf:updateU},~\ref{eq:ovnmtf:updateV} e~\ref{eq:ovnmtf:updateS}, apresentadas no algoritmo~\ref{algo:ovnmtf}, o qual implementa o processo de minimização para o problema~\ref{def:ovnmtf:problem}.
+Sendo assim, as regras de atualização para as matrizes $U, V_{(p)}, S, \forall p \in \{1, \dots, k\}$, são mostradas nas equações~\ref{eq:ovnmtf:updateU},~\ref{eq:ovnmtf:updateV} e~\ref{eq:ovnmtf:updateS}, apresentadas no algoritmo~\ref{algo:ovnmtf}, o qual implementa o processo de minimização para o problema~\ref{def:ovnmtf:problem}.
 Nesse algoritmo $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ são as matrizes $U$, $S$ e $V_{(p)}$, na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\odot$ é o produto de Hadamard.
 
 % TODO: condições de convergência não foram provadas, mas podemos dar algum insight sobre isso?
@@ -2357,14 +2364,14 @@ Nesse algoritmo $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)
 \label{algo:ovnmtf}
     \begin{algorithmic}[1]
         \Function{OvNMTF}{$X$, $k$, $l$, $t_{max}$}
-            \State \textbf{Inicialize:} $U^{(0)} \geq \mathcal{U}(0,1), S^{(0)} \geq \mathcal{U}(0,1), V_{(p)}^{(0)} \geq \mathcal{U}(0,1), \forall p$ e $t \gets 0$.
+            \State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0,1), S^{(0)} \gets \mathcal{U}(0,1), V_{(p)}^{(0)} \gets \mathcal{U}(0,1), \forall p$ e $t \gets 0$.
             \While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
                 \State
                     \begin{equation}
                     \label{eq:ovnmtf:updateU}
                         U^{(t+1)} \gets U^{(t)} \odot \frac{ \sum_{p=1}^{k} X V^{(t)}_{(p)} S^{(t)^T} I_{(p)} }{ \sum_{p=1}^{k} \sum_{p'=1}^k U^{(t)} I_{(p)} S^{(t)} V^{(t)^T}_{(p)} V^{(t)}_{(p')} S^{(t)^T} I_{(p')} }
                     \end{equation}
-                \For{$p \leftarrow 1, k$}
+                \For{$p \leftarrow 1 \text{ até } k$}
                     \State
                         \begin{equation}
                         \label{eq:ovnmtf:updateV}
@@ -2384,21 +2391,22 @@ Nesse algoritmo $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)
 \end{algorithm}
 
 A inicialização dos elementos das matrizes $U$, $S$ e $V_{(1)}, \dots, V_{(k)}$ são gerados através de uma distribuição uniforme ($\mathcal{U}(0, 1) \in~]0, 1]$).
-Como condições para assumir a convergência, assim como os algoritmos apresentados no capítulo~\ref{ch:fatoracao}, considera-se a diferença do erro de aproximação em duas iterações consecutivas menor ou igual a um $\epsilon$:
+Como condições para assumir a convergência, assim como os algoritmos apresentados no capítulo~\ref{ch:fatoracao}, considera-se a diferença do erro de aproximação entre duas iterações consecutivas menor ou igual a um $\epsilon$:
 $$\norm{X - U^{(t)} \sum_{p=1}^k I_{(p)} S^{(t)} V^{(t)^T}_{(p)} }^{2}_{F} - \norm{X - U^{(t+1)} \sum_{p=1}^k I_{(p)} S^{(t+1)} V^{(t+1)^T}_{(p)} }^{2}_{F} \leq \epsilon$$
-O algoritmo também pára caso a $t$-ésima iteração seja igual ao número máximo de iterações ($t_{max}$).
+O algoritmo também pára caso a quantidade de iterações ($t$) assuma o limite $t_{max}$.
 
 O particionamento, neste caso, não é direto.
 Então é necessário um processo de pós-processamento para a matriz $U$ e para as matrizes $V_{(1)}, \dots, V_{(k)}$.
 Um modo simples de obter o particionamento para as linhas, já descrito no capítulo~\ref{ch:fatoracao}, é o seguinte:
 \[
-    \mathcal{K}_p = \mathcal{K}_p + \{ x_{i \cdot} \}~|~p = \argmax_{p'} \mathbf{u}_{i \cdot}~\forall i \in \{1, \dots, n\}, \forall p, p' \in \{1, \dots, k\}
+    \mathcal{K}_{p}=\{x_{i\cdot}~|~i\in\{1,\ldots,n\}\text{ e }p=\argmax_{p'\in\{1,\ldots,k\}} u_{ip'} \}, \forall p\in\{1,\ldots,k\}
 \]
 
 Pode-se usar a mesma estratégia para o particionamento das colunas:
-\[
-    \mathcal{L}_{pq} = \mathcal{L}_{pq} + \{ x_{\cdot j} \}~|~q = \argmax_{q'} \mathbf{v}_{(p)_{j \cdot}}~\forall j \in \{1, \dots, m\}, \forall q, q' \in \{1, \dots, l\}, \forall p \in \{1, \dots, k\}
-\]
+\begin{align*}
+    \mathcal{L}_{pq} = \{ \mathbf{x}_{\cdot j}~|~j \in \{1, \ldots, m \} \text{ e } q = \argmax_{q' \in \{1, \dots, l\}} v_{(p)_{j q'}} \}, \\
+    \forall j \in \{1, \dots, m\}, \forall q, q' \in \{1, \dots, l\}, \forall p \in \{1, \dots, k\}
+\end{align*}
 
 \section{Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição}
 
@@ -2420,17 +2428,19 @@ Porém, mantém a independência do estabelecimento de diferentes bases para os 
     \begin{array}{lclc}
         \displaystyle \mathcal{F}_7(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{ X - U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T }^{2}_{F} \\
                                                                    &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
-                                                                   &   &                              & V_{(p)} \in \Psi^{m \times l}, \quad \forall p
+                                                                   &   &                              & V_{(p)} \in \Psi^{m \times l}, \quad \forall p, \\
+                                                                   &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i, \\
+                                                                   &   &                              & \sum_{q=1}^{l} v_{(p)_{jq}} = 1, \forall j
     \end{array}   \nonumber
 \end{equation}
 \end{problem}
 
-em que $\Psi = \{0, 1\}$, $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{(p)_{q \cdot}} = 1, \forall p$, $p \in \{1, \dots, k\}$ e $q \in \{1, \dots, l\}$ são os índices que iteram no número de linhas e colunas, respectivamente, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
-Ainda, as restrições $\sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$ e $\sum_{q=1}^{l} \mathbf{v}_{(p)_{q \cdot}} = 1, \forall p$ garantem que uma linha e uma coluna de um grupo, respectivamente, têm que pertencer à algum grupo.
+em que $\Psi = \{0, 1\}$, $p \in \{1, \dots, k\}$ e $q \in \{1, \dots, l\}$ são os índices que iteram no número de linhas e colunas, respectivamente, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
+Ainda, as restrições $\sum_{p=1}^{k} u_{ip} = 1$ e $\sum_{q=1}^{l} v_{(p)_{jq}} = 1, \forall p$ garantem que uma linha tem que pertencer à algum grupo, e uma coluna tem que pertencer à $k$ grupos, respectivamente.
 
 Em termos de compactação, a interpretação é semelhante à interpretação feita para o problema~\ref{def:ovnmtf:problem}, porém, por causa das restrições serem binárias, os $nm$ elementos da matriz de dados serão compactados em $n + kl + km$ elementos.
 
-A mesma estratégia de derivação utilizada no algoritmo~\ref{algo:fnmtf}, também pode ser feita para propor uma solução para o problema~\ref{def:binovnmtf:problem}: solucionar o problema para $S$ para obter subproblemas que podem ser solucionados através de uma estratégia iterativa.
+A mesma estratégia de derivação utilizada no algoritmo~\ref{algo:fnmtf} também pode ser feita para propor uma solução para o problema~\ref{def:binovnmtf:problem}: solucionar o problema para $S$ para obter subproblemas que podem ser solucionados através de uma estratégia iterativa.
 Então, recapitulando o gradiente $[\nabla_S \mathcal{F}_6]^+$, já calculado para solução do problema~\ref{def:ovnmtf:problem}, será o mesmo para $\mathcal{F}_7$, porém passível de simplificação, como $(U^T U)$, para o problema~\ref{def:binovnmtf:problem} que tem restrições binárias em $U$, é uma matriz que contém zeros em todos elementos, com exceção da diagonal principal:
 \[
     \begin{array}{lcl}
@@ -2470,7 +2480,7 @@ Note que se $p \neq p'$, $I_{(p)} U^T U I_{(p)}$ e toda expressão, será uma ma
           \vdots & \ddots & \vdots \\
           0      & \hdots & 0
       \end{bmatrix} \\
-      & = & (0)_{kk}
+      & = & [0]
 \end{array}
 \]
 \[
@@ -2482,31 +2492,31 @@ Note que se $p \neq p'$, $I_{(p)} U^T U I_{(p)}$ e toda expressão, será uma ma
 Assim, é possível escrever o gradiente $\nabla_S \mathcal{F}_7$, a fim de encontrar uma expressão para atualização de $S$.
 \[
     \begin{array}{lcl}
-        [\nabla_S \mathcal{F}_7]^+ &     =    & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + 2 \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = 0 \\
+        \nabla_S \mathcal{F}_7     &     =    & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + 2 \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = 0 \\
                                    & \implies & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)}
     \end{array}   \nonumber
 \]
 
-Como os termos $I_{(p)} U^T X V_{(p)}$ e $I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)}$, $\forall p$, por serem multiplicados por $I_{(p)}$ pela esquerda, correspondem a cada linha da matriz que será a atualização de $S$, aqui denotado por $\widetilde{S} = I_{(p)} S$.
+Como os termos $I_{(p)} U^T X V_{(p)}$ e $I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)}$, $\forall p$, por serem multiplicados por $I_{(p)}$ pela esquerda, podem ser divididos em $k$ equações, na qual cada equação será denotada por $\widetilde{S} = I_{(p)} S$.
 Observe que $I_{(p)} (U^T U)^{-1} I_{(p)} = I_{(p)} (U^T U)^{-1}$, dado a estrutura de $(U^T U)$.
 \[
-    \begin{array}{lcl}
+    \begin{array}{rcl}
         I_{(p)} U^T U \widetilde{S} V_{(p)}^T V_{(p)} & = & I_{(p)} U^T X V_{(p)} \\
-        \widetilde{S}                                 & = & I_{(p)} (U^T U)^{-1} I_{(p)} U^T X V_{(p)} V_{(p)}^T V_{(p)} \\
-                                                      & = & I_{(p)} (U^T U)^{-1} U^T X V_{(p)} V_{(p)}^T V_{(p)}
+        \widetilde{S}                                 & = & I_{(p)} (U^T U)^{-1} I_{(p)} U^T X V_{(p)} (V_{(p)}^T V_{(p)})^{-1} \\
+                                                      & = & I_{(p)} (U^T U)^{-1} U^T X V_{(p)} (V_{(p)}^T V_{(p)})^{-1}
     \end{array}
 \]
 
 \[
-    \therefore ~ S = \sum_{p=1}^k I_{(p)} (U^T U)^{-1} U^T X V_{(p)} V_{(p)}^T V_{(p)}
+    \therefore ~ S = \sum_{p=1}^k I_{(p)} (U^T U)^{-1} U^T X V_{(p)} (V_{(p)}^T V_{(p))^{-1}}
 \]
 
-É importante ressaltar que a mesma interpretação realizada para atualização de $S$ no algoritmo~\ref{algo:fnmtf}, também é possível ser transferida para esse contexto.
+É importante ressaltar que a mesma interpretação realizada para atualização de $S$ no algoritmo~\ref{algo:fnmtf} também é possível ser transferida para esse contexto.
 
 Assim, é possível transformar o problema~\ref{def:binovnmtf:problem} em subproblemas para atualização de $U$ e $V_{(1)}, \dots, V_{(k)}$.
 Usando a mesma estratégia iterativa adotada no algoritmo~\ref{algo:fnmtf}: obtém-se os protótipos de linhas e verifica-se quais linhas de $X$ mais se aproximam de cada um dos protótipos, para atualização de $U$; então, é feito o mesmo processo para atualização de $V_{(1)}, \dots, V_{(k)}$, obtém-se os protótipos de colunas, relativo à $V_{(p)}, \forall p$, e verifica-se quais colunas de $X$ mais se aproximam de cada um dos protótipos.
 
-O implementação desse processo é apresentado no algoritmo~\ref{algo:binovbnmtf}).
+A implementação desse processo é apresentada no algoritmo~\ref{algo:binovbnmtf}.
 Considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ são as matrizes $U$, $S$ e $V_{(p)}$, na iteração $t$, respectivamente, $\mathcal{U}(0, 1) \in~]0, 1]$ uma função que gera valores de uma distribuição uniforme, e $\norm{ \cdot }^2$ é a norma Frobenius para vetores.
 
 \begin{algorithm}
@@ -2514,7 +2524,7 @@ Considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ 
 \label{algo:binovbnmtf}
     \begin{algorithmic}[1]
         \Function{BinOvNMTF}{$X$, $k$, $l$, $t_{max}$}
-            \State \textbf{Inicialize:} $U^{(0)} \geq 0, 1 ~|~ \sum_{p=1}^{k} \mathbf{u}_{p \cdot} = 1$, $V_{(p)}^{(0)} \geq 0, 1 ~|~\sum_{q=1}^{l} \mathbf{v}_{(p)_{q \cdot}} = 1, \forall p$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+            \State \textbf{Inicialize:} $U^{(0)} \gets 0, 1 ~|~ \sum_{p=1}^{k} u_{ip} = 1$, $V_{(p)}^{(0)} \gets 0, 1 ~|~ \sum_{q=1}^{l} v_{(p)_{jq}} = 1, \forall i, j, p$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
             \While{(não convergiu) e ($t \leq t_{max}$)}
                 \State
                     \begin{equation}
@@ -2544,7 +2554,7 @@ Considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ 
                     \label{eq:binovbnmtf:updateG}
                         (V_{(p)}^{(t+1)})_{jq} \gets \left\{
                             \begin{array}{ll}
-                                1 & q = \argmin_{q' \in \{1, \dots, l\}} \norm{ \mathbf{x}_{\cdot j} - \mathbf{\widetilde{u}}_{\cdot q'} }^2 \\
+                                1 & q = \argmin_{q' \in \{1, \dots, l\}} \norm{ \mathbf{x}_{\cdot j} - \mathbf{\widetilde{u}}_{(p)_{\cdot q'}} }^2 \\
                                 0 & \textit{caso contrário}
                             \end{array}
                         \right. \forall j, q, p
@@ -2572,12 +2582,12 @@ Porém, desde que se tem $k$ organizações de grupos de colunas, sabe-se que h�
 Transferindo essa informação para um contexto de aplicação, entende-se que há um conjunto de organização de atributos que estão associados à organização assumida pelos dados no espaço dos dados.
 Intuitivamente, pode-se dizer que há diferentes maneiras de justificar o agrupamento de dados descoberto, com base nas similaridades parciais dos atributos que os descrevem.
 
-Do ponto de vista do processo de descoberta dos cogrupos, as fatorações propostas seguem o mesmo principio seguido nas fatorações da literatura, qual seja, considerar a informação de similaridade de dados e de atributos simultaneamente para resolver o problema de minimização do erro de quantização da matriz original, e consequentemente apresentar protótipos que expliquem os cogrupos.
+Do ponto de vista do processo de descoberta dos cogrupos, as fatorações propostas seguem a mesma ideia das fatorações na literatura, qual seja, considerar a informação de similaridade de dados e de atributos simultaneamente para resolver o problema de minimização do erro de quantização da matriz original, e consequentemente apresentar protótipos que expliquem os cogrupos.
 Porém, as fatorações propostas liberam os algoritmos de minimização da necessidade de considerar todos os grupos de linhas na otimização dos grupos de colunas.
 Desta forma, implementa-se um processo no qual não existe mais a interdependência entre grupos de linhas.
 Esse fato é que, na realidade, possibilita aproximar a quantidade de cogrupos utilizada para explicar os dados daquela que é a desejada, ainda que a sobreposição de colunas ocorra nos dados.
 
-Essa considerações, assim como aquelas delineadas nos capítulos~\ref{ch:conceitos} e~\ref{ch:fatoracao}, são ilustradas no próximo capítulo, no qual resultados experimentais são apresentados.
+Essas considerações, assim como aquelas delineadas nos capítulos~\ref{ch:conceitos} e~\ref{ch:fatoracao}, são ilustradas no próximo capítulo, no qual resultados experimentais são apresentados.
 
 % ************************************************************
 % ************************************************************
@@ -2760,16 +2770,16 @@ Para fins de validação dos algoritmos propostos foram realizados experimentos 
 
 Esses experimentos foram projetados e executados com o fim de ilustrar as capacidades e limitações dos algoritmos de coagrupamento baseados em fatoração de matrizes presentes na literatura e dos algoritmos propostos neste trabalho, todos já apresentados nos capítulos~\ref{ch:fatoracao} e~\ref{ch:proposedalgs}, respectivamente.
 Tais capacidades e limitações são discutidas neste capítulo em termos de resultados obtidos sobre ambientes controlados (bases de dados sintéticas), ambientes semi-controlados (bases de dados textuais simplificadas) e ambientes aqui denominados não controlados (bases de dados textuais originais).
-O intuito com a experimentação desses algoritmos em bases de dados textuais é ilustrar seu desempenho como um método de resolução da tarefa de agrupamento de textos, da área de mineração de textos.
-Também, como os algoritmos clássicos de agrupamento, \textit{k-means} e \textit{fuzzy k-means}, são equivalentes à fatoração de matrizes (veja mais em~\cite{Ding05}), foram aplicados sobre as mesmas bases de dados, para servir como base de comparação dos algoritmos \textit{ONMTF} (algoritmo~\ref{algo:onmtf2} de \citeonline{Yoo2010}), \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}.
+O intuito com a experimentação desses algoritmos em bases de dados textuais é ilustrar seu desempenho como um método de resolução da tarefa de agrupamento de textos, da área de mineração de texto.
+Também, como os algoritmos clássicos de agrupamento, \textit{k-means} e \textit{fuzzy k-means}, são equivalentes à fatoração de matrizes (como foi mostrado no capítulo~\ref{ch:conceitos}), estes foram aplicados sobre as mesmas bases de dados, para servir como base de comparação dos algoritmos \textit{ONMTF} (algoritmo~\ref{algo:onmtf2} de~\citeonline{Yoo2010}), \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}.
 
 % Sara: Eu acho que não está muito bem justificado o por que de comparar com os clássicos. Acho que precisamos melhorar isso. Ou aqui ou apresentar isso na metodologia ou ainda apresentar nos dois lugares para ficar bem enfatizado.
 % Lucas: Acho que a melhor justificativa é essa, pq de fato eles fazem fatoração de matrizes, então como eles são os mais classicos...
 
 Para proporcionar uma visão organizada das capacidades e limitações dos algoritmos, primeiramente são apresentados os experimentos e os resultados obtidos com as bases de dados sintéticas.
-Tais resultados são apresentados em termos de qualidade de \textit{reconstrução}, a qual é analisada com apoio de visualizacão gráfica, e de capacidade de \textit{quantização}, a qual é avaliada em termos do erro de quantização dos algoritmos.
-Então, a qualidade de particionamento é validada nos resultados obtidos com as bases de dados textuais reais originais e simplificadas, fazendo uso de medidas de qualidade de agrupamento.
-Para essas últimas, uma análise qualitativa é delineada de forma a ilustrar o valor agregado que a flexibilidade de modelos de coagrupamento pode trazer ao contexto de mineração de textos.
+Tais resultados são apresentados em termos de qualidade de reconstrução, a qual é analisada com apoio de visualizacão gráfica, e de capacidade de \textit{quantização}, a qual é avaliada em termos do erro de quantização dos algoritmos.
+Então, a capacidade de agrupamento é validada nos resultados obtidos com as bases de dados textuais reais originais e simplificadas, fazendo uso de medidas de qualidade de agrupamento.
+Para essas últimas, uma análise qualitativa é delineada de forma a ilustrar o valor agregado que a flexibilidade de modelos de coagrupamento pode trazer ao contexto de mineração de texto, mostrando o funcionamento do processo de geração de cogrupos.
 
 \section{Experimentos com Bases de Dados sintéticas}
 \label{sec:experiments:synthetic}
@@ -2779,7 +2789,7 @@ Para essas últimas, uma análise qualitativa é delineada de forma a ilustrar o
 
 % Sara: Alternativamente, podemos mudar toda a nomenclatura usada no texto e passar a usar bicluster, e dizer que usamos coagrupamento para encontrar biclusters. Vamos pensar nisso? De qualquer forma, por enquanto estou tentando padronizar para que depois possamos substituir de maneira mais ou menos automática, se for o caso.
 
-As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de cogrupos, propostas por \citeonline{Madeira2004}, descritas com maior detalhamento no capítulo~\ref{ch:conceitos}.
+As bases de dados sintéticas foram criadas com inspiração nas diferentes estruturas de cogrupos, propostas por~\citeonline{Madeira2004}, descritas com maior detalhamento no capítulo~\ref{ch:conceitos}.
 Dentre as nove possíveis estruturas de cogrupos apresentadas por esses autores, foram escolhidas para uso nesses experimentos as três mais simples que, comprovadamente na literatura, os algoritmos \textit{ONMTF} e \textit{FNMTF} são capazes de tratar, e duas estruturas que apresentam sobreposição parcial de linhas ou colunas, que representam os casos que tais algoritmos não são capazes de tratar de forma natural, ou seja, usando os parâmetros de $k$ e $l$, número de grupos de linhas e número de grupos de colunas, respectivamente, quando escolhidos manualmente analisando as matrizes da figura~\ref{fig:bic-syntetic-structure}.
 Portanto, os casos que apresentam sobreposição parcial de colunas são o alvo dos algoritmos propostos neste trabalho (\textit{OvNMTF} e \textit{BinOvNMTF}).
 Na figura~\ref{fig:bic-syntetic-structure} são apresentas as visualizações gráficas de cada uma das estruturas de cogrupos em estudo.
@@ -2861,7 +2871,7 @@ Para instanciar cada cogrupo, um conjunto de valores foi criado e distribuído p
 
 \begin{itemize}
     \item um valor central $c \in \mathcal{C}$, sendo $\mathcal{C} = \{ 20, 40, 60, 80, 100, 120, 140, 160, 180 \}$, foi aleatoriamente escolhido, e retirado de $\mathcal{C}$ para não haver cogrupos com o mesmo $c$ em uma mesma matriz;
-    \item o conjunto de valores usado para instanciar as células do cogrupo foi estabelecido por meio da adição de $c$ a valores reais, gerados a partir da função $\mathcal{U}(0, 10)$, que gera números de uma distribuição uniforme no intervalo $]0, 10]$.;
+    \item o conjunto de valores usado para instanciar as células do cogrupo foi estabelecido por meio da adição de $c$ a valores reais, gerados a partir da função $\mathcal{U}(0, 10)$, que gera números de uma distribuição uniforme no intervalo $]0, 10]$;
     \item cada um dos valores nesse conjunto foi atribuído às células previamente definidas como pertecentes ao cogrupo.
 \end{itemize}
 
@@ -2915,7 +2925,7 @@ Sob essa ótica de interpretação, as demais bases de dados possuem:
 % ***************************************************************************
 % ***************************************************************************
 
-Para cada uma das bases de dados sintéticas foram executados os seguintes algoritmos: \textit{k-means}\footnote{Para os experimentos com \textit{k-means} foi usada a implementação da biblioteca \textit{scikit-learn} \cite{scikitLearn} da linguagem Python.}, \textit{fuzzy k-means}\footnote{Para experimentos com \textit{fuzzy k-means} foi usado a implementação do algoritmo \textit{fuzzy k-means} da biblioteca \textit{scikit-fuzzy} da linguagem Python.}, \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}\footnote{Os algoritmos baseadas em fatoração de matrizes foram implementados pelo autor deste trabalho usando a linguagem Python.}.
+Para cada uma das bases de dados sintéticas foram executados os seguintes algoritmos: \textit{k-means}\footnote{Para os experimentos com \textit{k-means} foi usada a implementação da biblioteca \textit{scikit-learn}~\cite{scikitLearn} da linguagem Python.}, \textit{fuzzy k-means}\footnote{Para experimentos com \textit{fuzzy k-means} foi usado a implementação do algoritmo \textit{fuzzy k-means} da biblioteca \textit{scikit-fuzzy} da linguagem Python.}, \textit{ONMTF}, \textit{FNMTF}, \textit{OvNMTF} e \textit{BinOvNMTF}\footnote{Os algoritmos baseadas em fatoração de matrizes foram implementados pelo autor deste trabalho usando a linguagem Python.}.
 Os resultados foram analisados em termos de qualidade de reconstrução e capacidade de quantização.
 
 \subsection{Análise da reconstrução}
@@ -2929,7 +2939,6 @@ Uma forma de analisar o resultado dos algoritmos estudados neste trabalho é ana
 A reconstrucão é feita tomando as matrizes resultantes da fatoração e combinando-as da mesma forma que o seu problema foi proposto, de forma a reconstruir a matriz original.
 
 Essa análise se torna importante quando se tem como objetivo avaliar o comportamento dos algoritmos em diferentes estruturas de organização de cogrupos, com destaque para a análise de maior interesse neste trabalho -- coagrupamento com sobreposição parcial de linhas ou colunas.
-\textcolor{blue}{A capacidade de reconstrução .... vamos ver se colocamos alguma coisa a mais para justificar esse análise.}
 % TODO Descrever melhor pq a reconstrução é importante
 % Lucas: Não consigo pensar em algo impactante para colocar aqui
 %  essa análise serve pra q? acho que para ver quais estruturas os algoritmos são capazes de detectar, assim, quando vc tiver um problema real, e a idéia de como esse problema esta estruturado, vc pode usar um algoritmo ou outro. Talvez isso seja um caminho...
@@ -3351,7 +3360,7 @@ O algoritmo conseguiu realizar a reconstrução com êxito em todos os casos.
 Note que o algoritmo \textit{OvNMTF} é capaz de lidar com cogrupos com sobreposição de colunas, e portanto é capaz de resolver o caso (d).
 Ainda, como não há restrições de ortogonalidade e existe fatores para controlar a pertinência de uma mesma linha ou coluna à multiplos cogrupos, o algoritmo é capaz de recontruir perfeitamente a base de dados (e).
 
-\subsection{Reconstrução a partir dos resultados do algoritmo \textit{BinOvNMTF}}
+\subsection{Reconstrução a partir dos resultados do algoritmo \textit{Bin\-OvNMTF}}
 \label{subsec:results-reconstruction-binovnmtf}
 
 Para execução dos experimentos com o \textit{BinOvNMTF} a seguinte parametrização foi estabelecida: número máximo de iterações ($300$) ou a diferença do erro de quantização ($\leq 1 * 10^{-4}$), o que ocorrer primeiro, como critérios de parada; o número de cogrupos de linhas ($k$) e colunas ($l$) configurados da mesma maneira que a reconstrução com o algoritmo \textit{OvNMTF}: $k = l = 2$ para (a), $k = 3$ e $l = 2$ para (b), (d) e (d), e $k = l = 3$ para (c).
@@ -3408,11 +3417,13 @@ Como o algoritmo é capaz de lidar com cogrupos com sobreposição de colunas, e
 No entanto, o algoritmo não é capaz de lidar com cogrupos com sobreposição nas linhas, então, não é capaz de realizar a reconstrução do caso (e).
 E nesse caso, também não preserva qualquer informação sobre a sobreposição, já que possui a restrição de associação binária (cada linha/coluna associadas a um único agrupamento de linhas/colunas).
 
-Fazendo as mesmas ressalvas das reconstruções nos casos com o algoritmos \textit{kmeans}, \textit{fuzzy kmeans}, \textit{ONMTF} e \textit{FNMTF}, é possível fazer a reconstrução perfeita utilizando $k = 5$ para a base de dados (e) (figura~\ref{fig:reconstruction-2:binovnmtf}).
+Ao contrário dos algoritmos \textit{kmeans}, \textit{fuzzy kmeans}, \textit{ONMTF} e \textit{FNMTF}, não é possível fazer a reconstrução perfeita utilizando $k = 5$ para a base de dados (e) (figura~\ref{fig:reconstruction-2:binovnmtf}).
+Uma possível explicação para isso é que o algoritmo, dada todas as suas restrições, é incapaz de encontrar a solução que permite a reconstrução perfeita para a base de dados (e).
 
+% -------------------------------------------------------------
 \begin{figure}[H]
 \centering
-    \caption{Resultado da reconstrução da base de dados (e) utilizando o algoritmo \textit{BinOvNMTF} com $k = 5$.}
+    \caption{Resultado da reconstrução da base de dados (e) utilizando o algoritmo \textit{Bin\-OvNMTF} com $k = 5$.}
     \includegraphics[width=0.3\textwidth]{img/e-reconstruction-2-binovnmtf.png}
     \label{fig:reconstruction-2:binovnmtf}
 \source{Lucas Fernandes Brunialti, 2016}
@@ -3823,17 +3834,16 @@ A plataforma \textit{CUDA} é uma interface para interação com Unidades de Pro
 A biblioteca \textit{cuBLAS} fornece a mesma interface de rotinas para multiplicação de matrizes que as rotinas do software \textit{OpenBLAS}.
 Então, o uso dessas estratégias foi uma maneira efetiva para melhorar a performance computacional dos algoritmos \textit{ONMTF} e \textit{OvNMTF}.
 
-% Verificar aqui. Não está claro que a estratégia é sua.
-% Arrumar as definições de variaveis.
+Ainda, com o intuito de melhorar o resultado da fatoração, para a representação numérica da matriz de dados fornecida de entrada para os algoritmos, foi utilizada a representação dupla precisão no formato de ponto flutuante (\textit{float 64 bits}).
 
-Ainda para os algoritmos \textit{ONMTF} e \textit{OvNMTF}, foi utilizado um algoritmo~\cite{Cormen2001} para otimização da ordem das multiplicações de matrizes.
-Para verificar a utilidade dessa estratégia, considere o seguinte exemplo:
+Na implementação dos algoritmos \textit{ONMTF} e \textit{OvNMTF}, foi utilizado um algoritmo para otimização da ordem das multiplicações de matrizes~\cite{Cormen2001}.
+Essa estratégia de implementação faz sentido já que, normalmente, $k \ll n$ e $l \ll m$, podendo diminuir consideravelmente o tempo de execução dos algoritmos.
+Para verificar a utilidade dessa estratégia, considere o seguinte exemplo de multiplicação de matrizes:
 \[
     U U^T X
 \]
-
-\textcolor{red}{em que $U \in \mathbb{R}^{n \times k}$, $S \in \mathbb{R}^{k \times l}$ e $V \in \mathbb{R}^{m \times l}$, sendo $k \approx l$, $n \approx m$, $n >> k$ e $m >> l$.
-Se a ordem das multiplicacões for $(U (U^T X))$, serão realizadas $nmk + nk^2 \approx n^2k + nk^2$ operações de multiplicação de ponto flutuante; contrariamente, se a ordem das multiplicações for $((U U^T) X)$, serão realizadas $n^2k + n^2m \approx n^3 + n^2k$ operações, que são, claramente, mais operações que as $n^2k + nk^2$ operações.}
+em que $U \in \mathbb{R}^{n \times k}$, $X \in \mathbb{R}^{n \times m}$, sendo $k \approx l$, $n \approx m$, $k \ll n$ e $l \ll m$.
+Se a ordem das multiplicacões for $(U (U^T X))$, serão realizadas $nmk + nk^2 \approx n^2k + nk^2$ operações de multiplicação de ponto flutuante; contrariamente, se a ordem das multiplicações for $((U U^T) X)$, serão realizadas $n^2k + n^2m \approx n^3 + n^2k$ operações, que são, claramente, mais operações que as $n^2k + nk^2$ operações.
 
 Ainda na configuração dos experimentos para parametrização dos algoritmos, foi usado o número de classes presentes em cada base de dados, para determinar o número de grupos de documentos ($k$), seguindo, portanto, a seguinte configuração:
 
@@ -3967,8 +3977,7 @@ No que diz respeito às representações usadas para os textos, observa-se que a
 
 Analisando o parâmetro de número de grupos de termos nos resultados para algoritmos de FM para coagrupamento, é possível perceber que os melhores resultados médios são obtidos quando $l \geq k$. Ainda, é possível observar um padrão analisando a configuração do parâmetro $l$ para os melhores resultados em geral (tabela~\ref{tab:experiments-quant-best:igtoy}): os valores de $l$ para os resultados obtidos com os algoritmos propostos \textit{OvNMTF} e \textit{BinOvNMTF} são, em todos os casos, menores que os valores obtidos para os algoritmos da literatura \textit{ONMTF} e \textit{FNMTF}. Essa questão impacta diretamente na qualidade dos cogrupos de documentos, pois os cogrupos de termos são usados para formá-los, sendo portanto um ponto interessante para desenvolvimento de estudos específicos.
 
-Os resultados para a base de dados \textit{IG toy} também mostram a instabilidade e capacidade de agrupamento média inferior dos algoritmos que trabalham sob restrições binárias (ou ortogonais) nas matrizes indicadoras de grupos de documentos e termos. \textcolor{red}{A rápida convergência desses algoritmos, proporcionada pelo processo de busca restrito à soluções no espaço binário (ou ortogonal), pode impossibilitar o encontro de um mínimo (local) que está em um espaço de soluções contínuo. Esse fato pode ser o causador dos problemas citados.}
-
+Os resultados para a base de dados \textit{IG toy} também mostram a instabilidade e capacidade de agrupamento média inferior dos algoritmos que trabalham sob restrições binárias (ou ortogonais) nas matrizes indicadoras de grupos de documentos e termos. A rápida convergência desses algoritmos, proporcionada pelo processo de busca restrito à soluções no espaço binário (ou ortogonal), pode impossibilitar o encontro de um mínimo (local) que está em um espaço de soluções contínuo. Esse fato pode ser o causador dos problemas citados.
 
 \subsubsubsection*{Base de dados \textit{IG}}
 
@@ -4220,7 +4229,7 @@ Os fatores que relacionam os cogrupos de notícias com os cogrupos de palavras p
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-\textcolor{red}{Uma ressalva precisa ser feita no contexto desse exemplo. Ao realizar a normalização, a solução original apresentada pelo algoritmo é alterada, de forma que, por exemplo, a reconstrução da matriz original já não é mais possível. No entanto, para fins de interpretação da solução de coagrupamento, a normalização é interessante para melhorar a legibilidade dos relacionamentos entre os cogrupos.}
+Uma ressalva precisa ser feita no contexto desse exemplo. Ao realizar a normalização, a solução original apresentada pelo algoritmo é alterada, de forma que, por exemplo, a reconstrução da matriz original já não é mais possível. No entanto, para fins de interpretação da solução de coagrupamento, a normalização é interessante para melhorar a legibilidade dos relacionamentos entre os cogrupos.
 
 Uma rotulação para grupos de notícias foi então possível por meio da análise da relações expressas pela da matriz $S$, e da análise das palavras em cada cogrupo de palavras. Esse cogrupos de palavras são obtidos a partir do particionamento (descrito no capítulo~\ref{ch:fatoracao}) que atribui cada palavra ao cogrupo que possui o maior fator para cada linha na matriz $V$. O resultado das palavras mais relevantes para cada cogrupo de palavras gerado pelo algoritmo \textit{ONMTF}, é mostrado na tabela~\ref{tab:experiments-quali-words:onmtf}. A ordenação foi feita usando os fatores (na matriz $V$) que relacionam cada palavra para cada cogrupo de palavras. Os rótulos atribuídos a cada cogrupo de palavras foram determinados com base na inspeção visual das listas de palavras.
 
@@ -4260,7 +4269,7 @@ Uma rotulação para grupos de notícias foi então possível por meio da análi
     \source{Lucas Fernandes Brunialti, 2016}
 \end{table}
 
-\textcolor{red}{O conteúdo apresentado na tabela~\ref{tab:experiments-quali-words:onmtf} associado aos fatores da matriz $S$ (tab~\ref{tab:onmtf:matrizS}) permitem inferir que os cogrupos de palavras \#2 e \#5 (rotulados como ``futebol'') foram responsáveis por caracterizar o cogrupo de notícias que representa o canal ``esportes'', o cogrupo de palavras \#4 (rotulado como ``games'') foi responsável por caracterizar o cogrupo de notícias que representa o canal ``arena'', e por fim, os cogrupos de palavras \#1 e \#3 (rotulados como ``esportes radicais'' e ``esportes em geral'', respectivamente) foram responsáveis por caracterizar as notícias do cogrupo que representa o canal ``jovem''.}
+O conteúdo apresentado na tabela~\ref{tab:experiments-quali-words:onmtf} associado aos fatores da matriz $S$ (tab~\ref{tab:onmtf:matrizS}) permitem inferir que os cogrupos de palavras \#2 e \#5 (rotulados como ``futebol'') foram responsáveis por caracterizar o cogrupo de notícias que representa o canal ``esportes'', o cogrupo de palavras \#4 (rotulado como ``games'') foi responsável por caracterizar o cogrupo de notícias que representa o canal ``arena'', e por fim, os cogrupos de palavras \#1 e \#3 (rotulados como ``esportes radicais'' e ``esportes em geral'', respectivamente) foram responsáveis por caracterizar as notícias do cogrupo que representa o canal ``jovem''.
 
 % Eu não entendi, eu achei que a matriz S tinha sido usada para a inferência. Ver isso com Lucas
 % Note que a relação entre os cogrupos de palavras com os cogrupos de notícias é condizente com a matriz $S$ (tabela~\ref{tab:onmtf:matrizS}), os cogrupos de palavras rotulados como ``futebol'' têm fatores $0,5$ e $0,4$ para o cogrupo de notícias que representa o canal ``esportes'', o cogrupo rotulado como ``games'' tem fator $0,9$ para o cogrupo de notícias que representa o canal ``arena'', e os cogrupos rotulados como ``esportes radicais'' e ``esportes em geral'' têm fatores $0,4$ e $0,5$ para o cogrupo de notícias que representa o canal ``jovem''.
@@ -4311,7 +4320,7 @@ A Figura~\ref{fig:onmtf:wordcloud} mostra essa visualização a partir de nuvens
 
 Note que uma palavra pode aparecer em diferentes cogrupos de palavras. Como exemplo, considere a palavra \textit{jogo} presente nos cogrupos \#4 e \#5 (a maior palavra do cogrupo \#4 e no centro do `o' da palavra \textit{gol} para o cogrupo \#5). Esse fato significa que existem notícias, tanto no cogrupo de notícias do canal ``arena'' quanto no cogrupo de notícias do canal ``esportes'', nas quais a palavra \textit{jogo} ocorre, sendo que a maior ocorrência é no primeiro cogrupo. É possível observar esse fato porque nessa visualização foram usados os $100$ maiores fatores de cada uma das $l$ colunas na matriz $V$, gerada pela fatoração \textit{ONMTF}. Diante desse contexto, pode-se interpretar que a palavra \textit{jogo}, por exemplo, possui diferentes significados em cada cogrupo de palavras.
 
-\textcolor{red}{Associando essa interpretação à interdependência que o algoritmo \textit{ONMTF} impõe na formação dos cogrupos (de notícias e de palavras), a ocorrência da palavra ``jogo'' no contexto do cogrupo ``futebol'' pode afetar as relações estabelecidas na matriz $S$ de maneira a causar um efeito direto no estabelecimento do cogrupo de palavras ``games'', e vice-versa.}
+Associando essa interpretação à interdependência que o algoritmo \textit{ONMTF} impõe na formação dos cogrupos (de notícias e de palavras), a ocorrência da palavra ``jogo'' no contexto do cogrupo ``futebol'' pode afetar as relações estabelecidas na matriz $S$ de maneira a causar um efeito direto no estabelecimento do cogrupo de palavras ``games'', e vice-versa.
 
 %Ainda, como há interdependência entre cogrupos de palavras, a palavra \textit{jogo} carregando o significado de ``futebol'' pode afetar negativamente o cogrupo de palavras \#4, assim como, a palavra \textit{jogo} com o significado de ``games'' pode afetar negativamente o cogrupo de palavras \#5.
 
@@ -4416,9 +4425,10 @@ A mesma normalização da análise com o algoritmo \textit{ONMTF} foi aplicada a
 
 Interpretando os fatores da matriz $S$ da tabela~\ref{tab:ovnmtf:matrizS}, verifica-se que o cogrupo de notícias referente ao canal ``arena'' esta associado com um fator maior ao cogrupo de palavras \#2 e com um fator menor ao cogrupo de palavras \#1, o cogrupo de notícias referente ao canal ``jovem'' esta associado com fatores similares aos cogrupos de palavras \#3 e \#4, e o cogrupo de notícias referente ao canal ``esportes'' é caracterizado, principalmente, pelo cogrupo de palavras \#5.
 
-A rotulação dos cogrupos de notícias foi feita por meio da análise de palavras presentes em cada cogrupo de palavras \textcolor{red}{especificamente associado a eles}. As palavras mais relevantes presentes em cada cogrupo de palavras são mostradas na tabela~\ref{tab:experiments-quali-words:ovnmtf}.
+A rotulação dos cogrupos de notícias foi feita por meio da análise de palavras presentes em cada cogrupo de palavras, e relação especificamente associado aos cogrupos de notícias.
+As palavras mais relevantes presentes em cada cogrupo de palavras são mostradas na tabela~\ref{tab:experiments-quali-words:ovnmtf}.
 
-A estratégia para interpretação usada foi a mesma da análise com o algoritmo \textit{ONMTF}: foi realizado o particionamento das palavras (como descrito no capítulo~\ref{ch:proposedalgs}) \textcolor{red}{considerando} os fatores presentes nas matrizes $V_{(p)}, \forall p$ para realizar a ordenação; as $20$ palavras com maiores fatores para cada cogrupo de palavras são aquelas listadas na tabela~\ref{tab:experiments-quali-words:ovnmtf}.
+A estratégia para interpretação usada foi a mesma da análise com o algoritmo \textit{ONMTF}: foi realizado o particionamento das palavras (como descrito no capítulo~\ref{ch:proposedalgs}) considerando os fatores presentes nas matrizes $V_{(p)}, \forall p$ para realizar a ordenação; as $20$ palavras com maiores fatores para cada cogrupo de palavras são aquelas listadas na tabela~\ref{tab:experiments-quali-words:ovnmtf}.
 
 %, por exemplo, os cogrupos de palavras \#3 e \#4, como os valores na matriz $S$ referentes a esses dois cogrupos de palavras são similares, cada um deles é responsável pela reconstrução de uma parte das notícias do cogrupo de notícias relacionados ao canal ``jovem''.
 
@@ -4515,7 +4525,7 @@ Ainda, foram criadas visualizações de cada cogrupo de palavras no formato de n
 \section{Considerações finais}
 
 % colocar aqui algumas considerações sobre as três coisas que discutimos no final do cap 3 e do cap 4. Algo rápido apenas mostrando em termos práticos, do experimento, que funcionou do jeito que prometemos.
-\textcolor{red}{Os experimentos deste trabalho trouxeram evidências de como avaliar os algoritmos aqui discutidos do ponto de vista de quantização A motivação para a apresentação dos novos problemas de fatoração de matrizes (\textit{OvNMTF} e \textit{BinOvNMTF}), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (\textit{ONMTF} e \textit{FNMTF}), no que diz respeito à solução do problema de coagrupamento.}
+Os experimentos deste trabalho trouxeram evidências de como avaliar os algoritmos aqui discutidos do ponto de vista de quantização. Os experimentos serviram para mostrar a capacidade das estratégias propostas de superar algumas das dificuldades apresentas nas fatorações da literatura (\textit{ONMTF} e \textit{FNMTF}), no que diz respeito à solução do problema de coagrupamento.
 
 \textcolor{red}{Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas fatorações tem o potencial de superar as fatorações da literatura. Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há sobreposição de colunas entre as diferentes bases dos grupos de linhas. Entretanto, as fatorações propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas, e portanto, menor capacidade de compactação.}
 

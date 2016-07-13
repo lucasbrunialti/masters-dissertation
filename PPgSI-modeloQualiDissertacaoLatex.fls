@@ -316,6 +316,7 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/img/sistema2.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/sistema2.png
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
@@ -531,7 +532,6 @@ INPUT /Users/lucasbrunialti/git/masters-dissertation/img/e-reconstruction-2-bino
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/e-reconstruction-2-binovnmtf.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/e-reconstruction-2-binovnmtf.png
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/boxplot-rand-igtoy.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/boxplot-rand-igtoy.png
 INPUT /Users/lucasbrunialti/git/masters-dissertation/img/boxplot-rand-igtoy.png

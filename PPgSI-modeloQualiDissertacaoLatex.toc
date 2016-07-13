@@ -17,11 +17,11 @@
 \contentsline {chapter}{\chapternumberline {2}Conceitos Fundamentais}{23}{chapter.2}
 \contentsline {section}{\numberline {2.1}Teoria de Matrizes e \IeC {\'A}lgebra Linear}{23}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Norma em matrizes}{25}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}C\IeC {\'a}lculo em matrizes}{26}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.2}C\IeC {\'a}lculo em matrizes}{25}{subsection.2.1.2}
 \contentsline {section}{\numberline {2.2}Agrupamento}{26}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Algoritmos para Agrupamento}{27}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Valida\IeC {\c c}\IeC {\~a}o de Agrupamento}{31}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Coagrupamento}{34}{section.2.3}
+\contentsline {section}{\numberline {2.3}Coagrupamento}{33}{section.2.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}Fatora\IeC {\c c}\IeC {\~a}o de matrizes n\IeC {\~a}o-negativas para coagrupamento}{38}{chapter.3}
 \contentsline {section}{\numberline {3.1}Decomposi\IeC {\c c}\IeC {\~a}o de Valores em Blocos para Coagrupamento}{40}{section.3.1}
@@ -35,7 +35,7 @@
 \contentsline {section}{\numberline {4.3}Considera\IeC {\c c}\IeC {\~o}es Finais}{65}{section.4.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {5}Experimentos e Resultados}{67}{chapter.5}
-\contentsline {section}{\numberline {5.1}Experimentos com Bases de Dados sint\IeC {\'e}ticas}{68}{section.5.1}
+\contentsline {section}{\numberline {5.1}Experimentos com bases de dados sint\IeC {\'e}ticas}{68}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}An\IeC {\'a}lise da reconstru\IeC {\c c}\IeC {\~a}o}{71}{subsection.5.1.1}
 \contentsline {subsection}{\numberline {5.1.2}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {k-means}}{71}{subsection.5.1.2}
 \contentsline {subsection}{\numberline {5.1.3}Reconstru\IeC {\c c}\IeC {\~a}o a partir dos resultados do algoritmo \textit {fuzzy k-means}}{73}{subsection.5.1.3}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  13 JUL 2016 04:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  13 JUL 2016 05:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1325,35 +1325,35 @@ Package microtype Info: Loading generic settings for font family
 
 ] [24] [25] [26] [27]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 1178.
+put line 1179.
 [28]pdfTeX warning (ext4): destination with the same identifier (name{equation.
 2.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1230 \begin{equation}
+l.1231 \begin{equation}
                         [29pdfTeX warning (ext4): destination with the same ide
 ntifier (name{equation.2.2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1243 
+l.1244 
        pdfTeX warning (ext4): destination with the same identifier (name{equati
 on.2.2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1243 
+l.1244 
        ]pdfTeX warning (ext4): destination with the same identifier (name{equat
 ion.2.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1270                     \begin{equation}
+l.1271                     \begin{equation}
                                            pdfTeX warning (ext4): destination w
 ith the same identifier (name{equation.2.2.1}) has been already used, duplicate
  ignored
 <to be read again> 
                    \relax 
-l.1275                     \begin{equation}
+l.1276                     \begin{equation}
                                             [30] [31] [32] [33] [34] <img/biclu
 ster.png, id=753, 1142.2675pt x 730.73pt>
 File: img/bicluster.png Graphic file (type png)
@@ -2137,11 +2137,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5061.
  ) 
 Here is how much of TeX's memory you used:
- 18202 strings out of 493089
- 280007 string characters out of 6134842
+ 18200 strings out of 493089
+ 279991 string characters out of 6134842
  587920 words of memory out of 5000000
  20750 multiletter control sequences out of 15000+600000
- 32080 words of font info for 199 fonts, out of 8000000 for 9000
+ 32029 words of font info for 198 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,19n,42p,1641b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -2171,7 +2171,7 @@ f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
 Output written on /Users/lucasbrunialti/git/masters-dissertation/PPgSI-modeloQu
-aliDissertacaoLatex.pdf (123 pages, 3016451 bytes).
+aliDissertacaoLatex.pdf (123 pages, 3016539 bytes).
 PDF statistics:
  2194 PDF objects out of 2487 (max. 8388607)
  1856 compressed objects within 19 object streams

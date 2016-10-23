@@ -1,0 +1,83 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: PPgSI-modeloQualiDissertacaoLatex-Final.aux
+The style file: abntex2-alf.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Database file #1: abntex2-options.bib
+Database file #2: referencias.bib
+I was expecting a `,' or a `}'---line 281 of file referencias.bib
+ :   
+ :   month = 8
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 321 of file referencias.bib
+ :   
+ :   month = 8
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--entry type for "Ding05" isn't style-file defined
+--line 928 of file referencias.bib
+Warning--entry type for "Long2005" isn't style-file defined
+--line 935 of file referencias.bib
+A bad cross reference---entry "Bottou95"
+refers to entry "NIPS7", which doesn't exist
+Warning--I didn't find a database entry for "NIPS7"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
++---------------------------------------------------------+
+| Estilo bibliográfico abntex2-alf.bst versão v<VERSION>           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://abntex2.googlecode.com                           |
++---------------------------------------------------------+
+You've used 56 entries,
+            6711 wiz_defined-function locations,
+            1583 strings with 19024 characters,
+and the built_in function-call counts, 52368 in all, are:
+= -- 4436
+> -- 1947
+< -- 181
++ -- 875
+- -- 581
+* -- 3837
+:= -- 6658
+add.period$ -- 201
+call.type$ -- 56
+change.case$ -- 636
+chr.to.int$ -- 127
+cite$ -- 55
+duplicate$ -- 2870
+empty$ -- 3596
+format.name$ -- 2779
+if$ -- 12437
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 1015
+newline$ -- 260
+num.names$ -- 271
+pop$ -- 1334
+preamble$ -- 1
+purify$ -- 237
+quote$ -- 0
+skip$ -- 3204
+stack$ -- 1
+substring$ -- 2068
+swap$ -- 1309
+text.length$ -- 69
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 27
+warning$ -- 0
+while$ -- 411
+width$ -- 0
+write$ -- 888
+(There were 3 error messages)

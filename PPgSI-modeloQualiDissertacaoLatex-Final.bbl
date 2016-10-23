@@ -1,0 +1,331 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v<VERSION> }
+
+\bibitem[Aloise et al. 2009]{Aloise2009}
+\abntrefinfo{Aloise et al.}{ALOISE et al.}{2009}
+{ALOISE, D. et al. Np-hardness of euclidean sum-of-squares clustering.
+\emph{Machine Learning}, v.~75, n.~2, p. 245--248, 2009.
+ISSN 1573-0565.}
+
+\bibitem[Bauckhage 2015]{Bauckhage2015}
+\abntrefinfo{Bauckhage}{BAUCKHAGE}{2015}
+{BAUCKHAGE, C. \emph{k-Means Clustering Is Matrix Factorization}. 2015.}
+
+\bibitem[Bezdek 1981]{Bezdek1981}
+\abntrefinfo{Bezdek}{BEZDEK}{1981}
+{BEZDEK, J.~C. \emph{Pattern Recognition with Fuzzy Objective Function
+  Algorithms}. Norwell, MA, USA: Kluwer Academic Publishers, 1981.}
+
+\bibitem[Bottou e Bengio 1995]{Bottou95}
+\abntrefinfo{Bottou e Bengio}{BOTTOU; BENGIO}{1995}
+{BOTTOU, L.; BENGIO, Y. Convergence properties of the {K}-means algorithm. In:
+  . [S.l.: s.n.], 1995. p. 585--592.}
+
+\bibitem[Boyd e Vandenberghe 2004]{Boyd2004}
+\abntrefinfo{Boyd e Vandenberghe}{BOYD; VANDENBERGHE}{2004}
+{BOYD, S.; VANDENBERGHE, L. \emph{Convex Optimization}. New York, NY, USA:
+  Cambridge University Press, 2004.}
+
+\bibitem[Bulteau et al. 2014]{Bulteau2014}
+\abntrefinfo{Bulteau et al.}{BULTEAU et al.}{2014}
+{BULTEAU, L. et al. Co-clustering under the maximum norm.
+In:  \underline{\ \ \ \ \ \ \ \ }. \emph{Algorithms and Computation: 25th
+  International Symposium, ISAAC 2014, Jeonju, Korea, December 15-17, 2014,
+  Proceedings}. Cham: Springer International Publishing, 2014. p. 298--309.}
+
+\bibitem[Cabanes, Bennani e Fresneau 2012]{Cabanes2012}
+\abntrefinfo{Cabanes, Bennani e Fresneau}{CABANES; BENNANI; FRESNEAU}{2012}
+{CABANES, G.; BENNANI, Y.; FRESNEAU, D. Enriched topological learning for
+  cluster detection and visualization.
+\emph{Neural Networks}, v.~32, p. 186--195, 2012.}
+
+\bibitem[Cheng e Church 2000]{Cheng2000}
+\abntrefinfo{Cheng e Church}{CHENG; CHURCH}{2000}
+{CHENG, Y.; CHURCH, G.~M. Biclustering of expression data. In:
+  \emph{Procedures of the 8th ISMB}. [S.l.]: AAAI Press, 2000. p. 93--103.}
+
+\bibitem[Cormen et al. 2001]{Cormen2001}
+\abntrefinfo{Cormen et al.}{CORMEN et al.}{2001}
+{CORMEN, T.~H. et al. \emph{Introduction to Algorithms}. 2nd. ed. [S.l.]:
+  McGraw-Hill Higher Education, 2001.}
+
+\bibitem[Ding, He e Simon 2005]{Ding05}
+\abntrefinfo{Ding, He e Simon}{DING; HE; SIMON}{2005}
+{DING, C.; HE, X.; SIMON, H.~D. \emph{On the equivalence of nonnegative matrix
+  factorization and spectral clustering}. 2005.}
+
+\bibitem[Ding et al. 2006]{Ding06}
+\abntrefinfo{Ding et al.}{DING et al.}{2006}
+{DING, C. et al. Orthogonal nonnegative matrix tri-factorizations for
+  clustering. In:  \emph{In SIGKDD}. [S.l.]: Press, 2006. p. 126--135.}
+
+\bibitem[Fatahalian, Sugerman e Hanrahan 2004]{Fatahalian2004}
+\abntrefinfo{Fatahalian, Sugerman e Hanrahan}{FATAHALIAN; SUGERMAN;
+  HANRAHAN}{2004}
+{FATAHALIAN, K.; SUGERMAN, J.; HANRAHAN, P. Understanding the efficiency of gpu
+  algorithms for matrix-matrix multiplication. In:  \emph{Proceedings of the
+  ACM SIGGRAPH/EUROGRAPHICS Conference on Graphics Hardware}. New York, NY,
+  USA: ACM, 2004.  (HWWS '04), p. 133--137.}
+
+\bibitem[Franca 2010]{Franca2010}
+\abntrefinfo{Franca}{FRANCA}{2010}
+{FRANCA, F. de.
+\emph{Biclusterização na Análise de Dados Incertos}.
+Tese (Doutorado) --- Universidade Estadual de Campinas, Campinas, SP, BR, 11
+  2010.}
+
+\bibitem[Franca e Zuben 2010]{Franca20102}
+\abntrefinfo{Franca e Zuben}{FRANCA; ZUBEN}{2010}
+{FRANCA, F. de; ZUBEN, F. V. Finding a high coverage set of 5-biclusters with
+  swarm intelligence. In:  \emph{Evolutionary Computation (CEC), 2010 IEEE
+  Congress on}. [S.l.: s.n.], 2010. p.~1--8.}
+
+\bibitem[Getz, Levine e Domany 2000]{Getz2000}
+\abntrefinfo{Getz, Levine e Domany}{GETZ; LEVINE; DOMANY}{2000}
+{GETZ, G.; LEVINE, E.; DOMANY, E. Coupled two-way clustering analysis of gene
+  microarray data.
+\emph{Proc. Natl. Acad. Sci. USA}, v.~97, p. 12079--12084, 2000.}
+
+\bibitem[Globerson et al. 2007]{Chechik2007}
+\abntrefinfo{Globerson et al.}{GLOBERSON et al.}{2007}
+{GLOBERSON, A. et al. Euclidean embedding of co-occurrence data.
+\emph{The Journal of Machine Learning Research}, MIT Press Cambridge, MA, USA,
+  v.~8, p. 2265--2295, 2007.}
+
+\bibitem[Golub e Loan 1996]{Golub1996}
+\abntrefinfo{Golub e Loan}{GOLUB; LOAN}{1996}
+{GOLUB, G.~H.; LOAN, C.~F. V. \emph{Matrix Computations (3rd Ed.)}. Baltimore,
+  MD, USA: Johns Hopkins University Press, 1996.}
+
+\bibitem[Govaert e Nadif 2013]{Govaert2013}
+\abntrefinfo{Govaert e Nadif}{GOVAERT; NADIF}{2013}
+{GOVAERT, G.; NADIF, M. \emph{Co-Clustering}. [S.l.]: Wiley, 2013.}
+
+\bibitem[Halkidi, Batistakis e Vazirgiannis 2002]{Halkidi2002a}
+\abntrefinfo{Halkidi, Batistakis e Vazirgiannis}{HALKIDI; BATISTAKIS;
+  VAZIRGIANNIS}{2002a}
+{HALKIDI, M.; BATISTAKIS, Y.; VAZIRGIANNIS, M. Cluster validity methods: Part
+  i.
+\emph{SIGMOD Record}, ACM Press, v.~31, n.~2, p. 40--45, 2002.}
+
+\bibitem[Halkidi, Batistakis e Vazirgiannis 2002]{Halkidi2002b}
+\abntrefinfo{Halkidi, Batistakis e Vazirgiannis}{HALKIDI; BATISTAKIS;
+  VAZIRGIANNIS}{2002b}
+{HALKIDI, M.; BATISTAKIS, Y.; VAZIRGIANNIS, M. Clustering validity checking
+  methods: Part ii.
+\emph{SIGMOD Rec.}, New York, NY, USA, v.~31, n.~3, p. 19--27, set. 2002.
+ISSN 0163-5808.}
+
+\bibitem[Han, Kamber e Pei 2011]{Han2011}
+\abntrefinfo{Han, Kamber e Pei}{HAN; KAMBER; PEI}{2011}
+{HAN, J.; KAMBER, M.; PEI, J. \emph{Data Mining: Concepts and Techniques}. 3rd.
+  ed. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc., 2011.}
+
+\bibitem[Hartigan 1972]{Hartigan1972}
+\abntrefinfo{Hartigan}{HARTIGAN}{1972}
+{HARTIGAN, J.~A. Direct clustering of a data matrix.
+\emph{Journal of the American Statistical Association}, American Statistical
+  Association, v.~67, n.~337, p. 123--129, 1972.}
+
+\bibitem[Ho 2008]{Ho2008}
+\abntrefinfo{Ho}{HO}{2008}
+{HO, N.-D.
+\emph{Nonnegative Matriz Factorization Algorithms and Applications}.
+Tese (Doutorado) --- Université Catholique de Louvain, Louvain-la-Neuve,
+  Belgique, 6 2008.}
+
+\bibitem[Hochreiter et al. 2010]{Hochreiter2010}
+\abntrefinfo{Hochreiter et al.}{HOCHREITER et al.}{2010}
+{HOCHREITER, S. et al. Fabia: factor analysis for bicluster acquisition.
+\emph{Bioinformatics}, v.~26, n.~12, p. 1520--1527, 2010.}
+
+\bibitem[Jain, Murty e Flynn 1999]{Jain1999}
+\abntrefinfo{Jain, Murty e Flynn}{JAIN; MURTY; FLYNN}{1999}
+{JAIN, A.~K.; MURTY, M.~N.; FLYNN, P.~J. Data clustering: A review.
+\emph{ACM Computing Surveys}, ACM, v.~31, p. 264 -- 323, September 1999.}
+
+\bibitem[Kluger et al. 2003]{Kluger2003}
+\abntrefinfo{Kluger et al.}{KLUGER et al.}{2003}
+{KLUGER, Y. et al. Spectral biclustering of microarray data: Coclustering genes
+  and conditions.
+\emph{Genome Research}, v.~13, n.~4, p. 703--716, 2003.}
+
+\bibitem[Koren 2009]{Koren09}
+\abntrefinfo{Koren}{KOREN}{2009}
+{KOREN, Y. \emph{1 The BellKor Solution to the Netflix Grand Prize}. 2009.}
+
+\bibitem[Kuang 2014]{Kuang2014}
+\abntrefinfo{Kuang}{KUANG}{2014}
+{KUANG, D.
+\emph{Nonnegative Matrix Factorization For Clustering}.
+Tese (Doutorado) --- University of Tampere, Tampere, Finlândia, 2014.}
+
+\bibitem[Lee e Seung 1999]{lee99}
+\abntrefinfo{Lee e Seung}{LEE; SEUNG}{1999}
+{LEE, D.~D.; SEUNG, H.~S. Learning the parts of objects by nonnegative matrix
+  factorization.
+\emph{Nature}, v.~401, p. 788--791, 1999.}
+
+\bibitem[Lee e Seung 2000]{lee:nnmf00}
+\abntrefinfo{Lee e Seung}{LEE; SEUNG}{2000}
+{LEE, D.~D.; SEUNG, H.~S. Algorithms for non-negative matrix factorization. In:
+   \emph{NIPS}. [S.l.: s.n.], 2000. p. 556--562.}
+
+\bibitem[Li e Ding 2006]{Li2006}
+\abntrefinfo{Li e Ding}{LI; DING}{2006}
+{LI, T.; DING, C. The relationships among various nonnegative matrix
+  factorization methods for clustering. In:  \emph{Proceedings of the Sixth
+  International Conference on Data Mining}. Washington, DC, USA: IEEE Computer
+  Society, 2006.  (ICDM '06), p. 362--371.}
+
+\bibitem[Long, Zhang e Yu 2005]{Long2005}
+\abntrefinfo{Long, Zhang e Yu}{LONG; ZHANG; YU}{2005}
+{LONG, B.; ZHANG, Z.~M.; YU, P.~S. \emph{Co-clustering by block value
+  decomposition}. [S.l.]: ACM Press, 2005. 635--640~p.}
+
+\bibitem[Lops, Gemmis e Semeraro 2011]{Lops2011}
+\abntrefinfo{Lops, Gemmis e Semeraro}{LOPS; GEMMIS; SEMERARO}{2011}
+{LOPS, P.; GEMMIS, M. de; SEMERARO, G. Content-based recommender systems: State
+  of the art and trends. In:  RICCI, F. et al. (Ed.). \emph{Recommender Systems
+  Handbook}. [S.l.]: Springer, 2011. p. 73--105.}
+
+\bibitem[Madeira e Oliveira 2004]{Madeira2004}
+\abntrefinfo{Madeira e Oliveira}{MADEIRA; OLIVEIRA}{2004}
+{MADEIRA, S.~C.; OLIVEIRA, A.~L. Biclustering algorithms for biological data
+  analysis: A survey.
+\emph{IEEE Transactions on Computational Biology and Bioinformatics}, IEEE
+  Computer Society Press, Los Alamitos, CA, USA, v.~1, p. 24--45, January
+  2004.}
+
+\bibitem[Magnus e Neudecker 1999]{Magnus1999}
+\abntrefinfo{Magnus e Neudecker}{MAGNUS; NEUDECKER}{1999}
+{MAGNUS, J.; NEUDECKER, H. \emph{Matrix Differential Calculus with Applications
+  in Statistics and Econometrics}. [S.l.]: Wiley, 1999.}
+
+\bibitem[Manning, Raghavan e Schütze 2008]{Manning2008}
+\abntrefinfo{Manning, Raghavan e Schütze}{MANNING; RAGHAVAN; SCHüTZE}{2008}
+{MANNING, C.~D.; RAGHAVAN, P.; SCHüTZE, H. \emph{Introduction to Information
+  Retrieval}. New York, NY, USA: Cambridge University Press, 2008.}
+
+\bibitem[Mirkin 1996]{Mirkin1996}
+\abntrefinfo{Mirkin}{MIRKIN}{1996}
+{MIRKIN, B. \emph{Mathematical Classification and Clustering}. [S.l.]: Kluwer
+  Academic Pubishers, 1996.}
+
+\bibitem[Pedregosa et al. 2011]{scikitLearn}
+\abntrefinfo{Pedregosa et al.}{PEDREGOSA et al.}{2011}
+{PEDREGOSA, F. et al. Scikit-learn: Machine learning in {P}ython.
+\emph{Journal of Machine Learning Research}, v.~12, p. 2825--2830, 2011.}
+
+\bibitem[Petersen e Pedersen 2012]{Petersen2012}
+\abntrefinfo{Petersen e Pedersen}{PETERSEN; PEDERSEN}{2012}
+{PETERSEN, K.~B.; PEDERSEN, M.~S. \emph{The Matrix Cookbook}. [S.l.]: Technical
+  University of Denmark, 2012.}
+
+\bibitem[Rand 1971]{Rand1971}
+\abntrefinfo{Rand}{RAND}{1971}
+{RAND, W.~M. Objective criteria for the evaluation of clustering methods.
+\emph{Journal of the American Statistical Association}, v.~66, n.~336, p.
+  846--850, December 1971.}
+
+\bibitem[Rocha et al. 2012]{Peres2012}
+\abntrefinfo{Rocha et al.}{ROCHA et al.}{2012}
+{ROCHA, T. et al. Tutorial sobre fuzzy-c-means e fuzzy learning vector
+  quantization: Abordagens híbridas para tarefas de agrupamento e
+  classificação.
+\emph{RITA - Revista de Informática Teórica e Aplicada}, v.~19, n.~1, p.
+  120--163, March 2012.}
+
+\bibitem[Salakhutdinov e Mnih 2008]{SalMnih08}
+\abntrefinfo{Salakhutdinov e Mnih}{SALAKHUTDINOV; MNIH}{2008}
+{SALAKHUTDINOV, R.; MNIH, A. Probabilistic matrix factorization. In:
+  \emph{Advances in Neural Information Processing Systems}. [S.l.: s.n.], 2008.
+  v.~20.}
+
+\bibitem[Salton, Wong e Yang 1975]{Salton1975}
+\abntrefinfo{Salton, Wong e Yang}{SALTON; WONG; YANG}{1975}
+{SALTON, G.; WONG, A.; YANG, C.~S. A vector space model for automatic indexing.
+\emph{Communications of the ACM}, ACM, New York, NY, USA, v.~18, n.~11, p.
+  613--620, 1975.}
+
+\bibitem[Sanderson 2010]{armadillo}
+\abntrefinfo{Sanderson}{SANDERSON}{2010}
+{SANDERSON, C. \emph{{Armadillo: An Open Source C++ Linear Algebra Library for
+  Fast Prototyping and Computationally Intensive Experiments}}.
+[S.l.], 2010.}
+
+\bibitem[Sebastiani 2002]{Sebastiani2002}
+\abntrefinfo{Sebastiani}{SEBASTIANI}{2002}
+{SEBASTIANI, F. Machine learning in automated text categorization.
+\emph{ACM Comput. Surv.}, ACM, New York, NY, USA, v.~34, n.~1, p. 1--47, 2002.}
+
+\bibitem[Shahnaz et al. 2006]{Shahnaz2006373}
+\abntrefinfo{Shahnaz et al.}{SHAHNAZ et al.}{2006}
+{SHAHNAZ, F. et al. Document clustering using nonnegative matrix factorization.
+\emph{Information Processing \& Management}, v.~42, n.~2, p. 373 -- 386, 2006.}
+
+\bibitem[Sites mais acessados do Brasil 2016]{topsites}
+\abntrefinfo{Sites\ldots}{SITES\ldots}{2016}
+{SITES mais acessados do Brasil. 2016.
+Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$http:\-/\-/www\-.alexa\-.com\-/topsites\-/countries;1\-/BR$>$}{http://www.alexa.com/topsites/countries;1/BR}.}
+
+\bibitem[Tanay, Sharan e Shamir 2005]{Tanay2005}
+\abntrefinfo{Tanay, Sharan e Shamir}{TANAY; SHARAN; SHAMIR}{2005}
+{TANAY, A.; SHARAN, R.; SHAMIR, R. Biclustering algorithms: A survey. In:
+  \emph{In Handbook of Computational Molecular Biology Edited by: Aluru S.
+  Chapman \& Hall/CRC Computer and Information Science Series}. [S.l.: s.n.],
+  2005.}
+
+\bibitem[Tjhi e Chen 2009]{Tjhi2009}
+\abntrefinfo{Tjhi e Chen}{TJHI; CHEN}{2009}
+{TJHI, W.-C.; CHEN, L. Dual fuzzy-possibilistic coclustering for categorization
+  of documents.
+\emph{IEEE Transactions on Fuzzy Systems}, IEEE, v.~17, p. 533 -- 543, June
+  2009.}
+
+\bibitem[Wang et al. 2011]{Wang2011}
+\abntrefinfo{Wang et al.}{WANG et al.}{2011}
+{WANG, H. et al. Fast nonnegative matrix tri-factorization for large-scale data
+  co-clustering. In:  \emph{Proceedings of the Twenty-Second International
+  Joint Conference on Artificial Intelligence - Volume Volume Two}. [S.l.]:
+  AAAI Press, 2011.  (IJCAI'11), p. 1553--1558.}
+
+\bibitem[Wang et al. 2013]{openblas}
+\abntrefinfo{Wang et al.}{WANG et al.}{2013}
+{WANG, Q. et al. Augem: Automatically generate high performance dense linear
+  algebra kernels on x86 cpus. In:  \emph{Proceedings of the International
+  Conference on High Performance Computing, Networking, Storage and Analysis}.
+  New York, NY, USA: ACM, 2013.  (SC '13), p. 25:1--25:12.}
+
+\bibitem[Xu e Wunsch 2005]{Xu2005}
+\abntrefinfo{Xu e Wunsch}{XU; WUNSCH}{2005}
+{XU, R.; WUNSCH, D. Survey of clustering algorithms.
+\emph{IEEE Transactions on Neural Networks}, IEEE, v.~16, p. 645 -- 678, May
+  2005.}
+
+\bibitem[Xu, Liu e Gong 2003]{Xu2003}
+\abntrefinfo{Xu, Liu e Gong}{XU; LIU; GONG}{2003}
+{XU, W.; LIU, X.; GONG, Y. Document clustering based on non-negative matrix
+  factorization. In:  \emph{Proceedings of the 26th Annual International ACM
+  SIGIR Conference on Research and Development in Informaion Retrieval}. New
+  York, NY, USA: [s.n.], 2003.  (SIGIR '03), p. 267--273.}
+
+\bibitem[Yang e Leskovec 2013]{Yang2013}
+\abntrefinfo{Yang e Leskovec}{YANG; LESKOVEC}{2013}
+{YANG, J.; LESKOVEC, J. Overlapping community detection at scale: A nonnegative
+  matrix factorization approach. In:  \emph{Proceedings of the Sixth ACM
+  International Conference on Web Search and Data Mining}. New York, NY, USA:
+  ACM, 2013.  (WSDM '13), p. 587--596.}
+
+\bibitem[Yoo e Choi 2010]{Yoo2010}
+\abntrefinfo{Yoo e Choi}{YOO; CHOI}{2010}
+{YOO, J.; CHOI, S. Orthogonal nonnegative matrix tri-factorizations for
+  co-clustering: multiplicative updates on stiefel manifolds.
+\emph{Information Processing and Management}, v.~46, p. 559--570, 2010.}
+
+\end{thebibliography}

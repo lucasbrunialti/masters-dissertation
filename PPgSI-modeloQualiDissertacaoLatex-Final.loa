@@ -1,0 +1,8 @@
+\contentsline {algorithm}{\numberline {1}{\ignorespaces Algoritmo para solu\IeC {\c c}\IeC {\~a}o do \textit {k-means}\relax }}{29}{algorithm.1}
+\contentsline {algorithm}{\numberline {2}{\ignorespaces Algoritmo para solu\IeC {\c c}\IeC {\~a}o do \textit {fuzzy k-means}\relax }}{31}{algorithm.2}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do \textit {BVD}\relax }}{43}{algorithm.3}
+\contentsline {algorithm}{\numberline {4}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do \textit {ONMTF}\relax }}{46}{algorithm.4}
+\contentsline {algorithm}{\numberline {5}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa e na teoria de de deriva\IeC {\c c}\IeC {\~a}o na superf\IeC {\'\i }cie com restri\IeC {\c c}\IeC {\~o}es (Variedade Stiefel) para solu\IeC {\c c}\IeC {\~a}o do \textit {ONMTF}\relax }}{47}{algorithm.5}
+\contentsline {algorithm}{\numberline {6}{\ignorespaces Algoritmo iterativo para solu\IeC {\c c}\IeC {\~a}o do \textit {FNMTF}\relax }}{51}{algorithm.6}
+\contentsline {algorithm}{\numberline {7}{\ignorespaces Algoritmo baseado em atualiza\IeC {\c c}\IeC {\~a}o multiplicativa para solu\IeC {\c c}\IeC {\~a}o do \textit {OvNMTF}\relax }}{61}{algorithm.7}
+\contentsline {algorithm}{\numberline {8}{\ignorespaces Algoritmo iterativo para solu\IeC {\c c}\IeC {\~a}o do \textit {BinOvNMTF}\relax }}{64}{algorithm.8}

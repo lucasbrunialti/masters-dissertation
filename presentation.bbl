@@ -1,0 +1,21 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{MO04}
+
+\bibitem[MO04]{Madeira2004}
+Sara~C. Madeira and Arlindo~L. Oliveira, \emph{Biclustering algorithms for
+  biological data analysis: A survey}, IEEE Transactions on Computational
+  Biology and Bioinformatics \textbf{1} (2004), 24--45.
+
+\bibitem[YC10]{Yoo2010}
+Jiho Yoo and Seungjin Choi, \emph{Orthogonal nonnegative matrix
+  tri-factorizations for co-clustering: multiplicative updates on stiefel
+  manifolds}, Information Processing and Management \textbf{46} (2010),
+  559--570.
+
+\end{thebibliography}

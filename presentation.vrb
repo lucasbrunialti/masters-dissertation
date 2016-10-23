@@ -1,0 +1,29 @@
+\frametitle{K-means}
+
+  \begin{algorithm}[H]
+      \begin{algorithmic}[1]
+          \Function{k-means}{$X$, $k$, $t_{max}$}
+              \State \textbf{Inicialize:} $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+              \While{(não convergiu) e ($t \leq t_{max}$)}
+                  \State
+                      \begin{equation}
+                          (U^{(t+1)})_{ip} \gets \left\{
+                              \begin{array}{ll}
+                                  1 & p = \argmin_{p' \in \{1, \dots, k\}} \norm{ \mathbf{x}_{i \cdot} - \mathbf{c}^{(t)}_{p' \cdot} }^2 \\
+                                  0 & \textit{caso contrário}
+                              \end{array}    \nonumber
+                          \right. \forall i, p
+                      \end{equation}
+                      \Comment{Etapa de Esperança}
+                  \State
+                      \begin{equation}
+                          (C^{(t+1)})_{p \cdot} \gets \frac{\sum_{i=1}^{n} u_{ip}^{(t+1)} \mathbf{x}_{i \cdot} }{\sum_{i=1}^{n} u_{ip}^{(t+1)}}, \forall p \nonumber
+                      \end{equation}
+                      \Comment{Etapa de Maximização}
+                  \State $t \gets t + 1$
+              \EndWhile
+              \State \textbf{return} $U^{(t)}, C^{(t)}$
+          \EndFunction
+      \end{algorithmic}
+  \end{algorithm}
+

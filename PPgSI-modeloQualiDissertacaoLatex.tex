@@ -581,7 +581,7 @@ BRUNIALTI, Lucas Fernandes. \textbf{Fatoração de matrizes no problema de coagr
 \end{flushleft}
 
 Coagrupamento é uma estratégia para análise de dados capaz de encontrar grupos de dados, então denominados cogrupos, que são formados considerando subconjuntos diferentes das  características descritivas dos dados.
-Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de texto, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamento adequado à tal subjetividade.
+Contextos de aplicação caracterizados por apresentar subjetividade, como mineração de texto, são candidatos a serem submetidos à estratégia de coagrupamento; a flexibilidade em associar textos de acordo com características parciais representa um tratamento adequado a tal subjetividade.
 Um método para implementação de coagrupamento capaz de lidar com esse tipo de dados é a fatoração de matrizes.
 Nesta dissertação de mestrado são propostas duas estratégias para coagrupamento baseadas em fatoração de matrizes não-negativas, capazes de encontrar cogrupos organizados com sobreposição de colunas em uma matriz de valores reais positivos.
 As estratégias são apresentadas em termos de suas definições formais e seus algoritmos para implementação.
@@ -626,7 +626,7 @@ BRUNIALTI, Lucas Fernandes. \textbf{Matrix factorization for overlapping columns
 
 Coclustering is a data analysis strategy which is able to discover data clusters, known as coclusters.
 This technique allows data to be clustered based on different subsets defined by data descriptive features.
-Application contexts characterized by subjectivity, such as text mining, are applicable candidates for applying coclustering strategy due to the flexibility to associate documents according to partial features.
+Application contexts characterized by subjectivity, such as text mining, are candidates for applying coclustering strategy due to the flexibility to associate documents according to partial features.
 The coclustering method can be implemented by means of matrix factorization, which is suitable to handle this type of data.
 In this thesis two strategies are proposed in non-negative matrix factorization for coclustering.
 These strategies are able to find column overlapping coclusters in a given dataset of positive data and are presented in terms of their formal definitions as well as their algorithms' implementation.
@@ -879,8 +879,10 @@ A interpretação de $S$ pode incluir uma noção de pesos que relacionam grupos
 
 Desta maneira, o problema de coagrupamento pode ser modelado de tal forma que a fatoração de matrizes é capaz de fornecer uma aproximação da organização em cogrupos presente no conjunto de dados sob análise.
 
-O problema deste trabalho é propor soluções algorítmicas que são capazes de solucionar a tarefa de coagrupamento no qual cogrupos de colunas têm intersecção (sobreposição): $\mathcal{L}_q \cap \mathcal{L}_{q'} \neq \emptyset$ para $q \neq q'$.
-Assim é possível que uma coluna pertença à dois ou mais grupos de colunas.
+O problema desse trabalho diz respeito ao tratamento de cogrupos de colunas com intersecção (sobreposição) por métodos de fatoração de matrizes: $\mathcal{L}_q \cap \mathcal{L}_{q'} \neq \emptyset$ para $q \neq q'$, fazendo com que seja possível que uma coluna pertença à dois ou mais grupos de colunas.
+Isto é, fazer com que técnicas de fatoração de matrizes sejam capazes de tratar cogrupos com sobreposição de colunas de forma mais adequada do que as fatorações presentes na literatura.
+% O problema deste trabalho é propor soluções algorítmicas que são capazes de solucionar a tarefa de coagrupamento no qual cogrupos de colunas têm intersecção (sobreposição): $\mathcal{L}_q \cap \mathcal{L}_{q'} \neq \emptyset$ para $q \neq q'$.
+% Assim é possível que uma coluna pertença à dois ou mais grupos de colunas.
 
 % ************************************************************************
 
@@ -900,7 +902,7 @@ Assim é possível que uma coluna pertença à dois ou mais grupos de colunas.
 
 \section{Hipótese}
 
-Fatorar matrizes considerando a decomposição da matriz original em uma matriz $U$, uma matriz $S$ e um conjunto de matrizes $V$, isto é $X \approx USV_{(1)}^T \dots V_{(k)}^T$, tal que seja possível encontrar cogrupos, possibilita que o processo de busca seja beneficiado pela flexibilidade de ajuste de $U$ e o conjunto de matrizes $V$, sendo mais adequado do que o processo tradicional de fatoração de matrizes, exposto na seção~\ref{sec:problemdef}, para o tratamento da tarefa de coagrupamento com sobreposição de colunas.
+Fatorar matrizes considerando a decomposição da matriz original em uma matriz $U$, uma matriz $S$ e um conjunto de matrizes $V$, isto é $X \approx g(U, S, V_{(1)}^T, \dots, V_{(k)}^T)$, sendo $g$ uma função que combina as matrizes $U$, $S$ e as $k$ matrizes $V$, tal que seja possível encontrar cogrupos, possibilita que o processo de busca seja beneficiado pela flexibilidade de ajuste de $U$ e o conjunto de matrizes $V$, sendo mais adequado do que o processo tradicional de fatoração de matrizes, exposto na seção~\ref{sec:problemdef}, para o tratamento da tarefa de coagrupamento com sobreposição de colunas.
 A adequação deste processo manterá informações da matriz original a fim de permitir a sua reconstrução, propiciará um resultado mais adequado em termos de agrupamento de linhas seguindo a avaliação clássica de quantização, e possibilitará a extração de informações diferenciadas a partir da análise da fatoração gerada, agregando valor à solução de um problema de mineração de texto.
 
 % ************************************************************************
@@ -918,7 +920,7 @@ Como objetivos específicos, este trabalho:
 \item apresentou um novo conjunto de dados textual, em língua portuguesa, referente ao contexto de notícias.
 \end{itemize}
 
-O atendimento aos objetivos delineados permitiu à esse trabalho:
+O atendimento aos objetivos delineados permitiu a esse trabalho:
 
 \begin{itemize}
 \item aprimorar a área de coagrupamento baseado em algoritmos de fatoração de matrizes, de forma a contribuir com a pesquisa em análise de agrupamento;
@@ -941,8 +943,8 @@ Para tal experimentação foi escolhido usar o conteúdo referente à notícias 
 iG é um portal de notícias brasileiro muito conhecido, com um grande volume de notícias categorizadas em canais, os quais representam os assuntos dessas notícias.
 Essas características conferem liberdade para a configuração de experimentos de diferentes naturezas, como experimentos considerando determinadas categorias de notícias, tipos de notícias ou datas de publicação das notícias.
 
-A partir do conteúdo de notícias do portal iG foi construído um corpus de dados textuais, categorizados de acordo com as categorias já usadas no referido portal.
-Todo o conteúdo do corpus passou por rotinas de pré-processamento comuns na área de mineração de texto: \textit{tokenização}~\cite{Lops2011}, filtragem de \textit{stopwords}~\cite{Lops2011}, representação da relação ``termos $\times$ documentos'' usando estratégias de frequência de termos, como $\text{\textit{tf-idf}}$~\cite{Salton1975}.
+A partir do conteúdo de notícias do portal iG foi construído um córpus de dados textuais, categorizados de acordo com as categorias já usadas no referido portal.
+Todo o conteúdo do córpus passou por rotinas de pré-processamento comuns na área de mineração de texto: \textit{tokenização}~\cite{Lops2011}, filtragem de \textit{stopwords}~\cite{Lops2011}, representação da relação ``termos $\times$ documentos'' usando estratégias de frequência de termos, como $\text{\textit{tf-idf}}$~\cite{Salton1975}.
 
 Os resultados da aplicação das estratégias de coagrupamento foram validados utilizando:
 
@@ -961,8 +963,8 @@ Esta dissertação é composta por $6$ capítulos incluindo esta introdução.
 No capítulo~\ref{ch:conceitos} são apresentados os principais conceitos referentes à teoria de matrizes, agrupamento e coagrupamento.
 O objetivo deste capítulo é fornecer diretrizes para entendimento dos assuntos tratados nos capítulos posteriores e indicar literatura na qual podem ser encontradas informações mais detalhadas sobre tais assuntos.
 
-Estratégias de fatoração de matrizes aplicadas à resolução da tarefa de coagrupamento são discutidas no capítulo~\ref{ch:fatoracao}.
-A discussão é apresentada em termos da definição de problemas e apresentação de soluções algorítmicas para os problemas.
+Estratégias de fatoração de matrizes aplicadas à resolução da tarefa de coagrupamento da literatura são discutidas no capítulo~\ref{ch:fatoracao}.
+A discussão é apresentada em termos da definição de problemas e apresentação de soluções algorítmicas para os problemas já propostos na literatura.
 Algumas discussões sobre os problemas e algoritmos são apresentadas sempre que um conceito é mais relevante para o entendimento da proposta deste trabalho.
 Detalhes sobre cada um dos problemas e algoritmos são encontrados na literatura sugerida nesse capítulo.
 
@@ -994,19 +996,19 @@ Considere $\mathbb{R}$ o conjunto de todos os números reais, então, uma matriz
                                                                      a_{1 1} & \hdots & a_{1 m} \\
                                                                      \vdots  &        & \vdots  \\
                                                                      a_{n 1} & \hdots & a_{n m}
-                                                                 \end{bmatrix}
+                                                                 \end{bmatrix},
 \]
 sendo $a_{i j} = (A)_{ij} \in \mathbb{R}, \forall i, j$ o elemento da $i$-ésima linha e $j$-ésima coluna da matriz $A$, e os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$ para indexar as linhas e colunas dessa matriz, respectivamente.
 Na notação usada neste trabalho, letras maiúsculas representam matrizes (ex.: $A$), e letras minúsculas com duas letras subscritas representam valores na matriz (ex.: $a_{ij}$ representa um valor da matriz $A$).
 Também é possível definir essa mesma matriz em $\mathbb{R}^{n \times m}_{+}$, por meio da determinação da restrição $a_{ij} > 0, \forall i,j$.
 
-De forma semelhante define-se uma notação para vetores no espaço $\mathbb{R}^n$, na forma:
+De forma semelhante define-se uma notação para vetores no espaço $\mathbb{R}^n$ como uma letra minúscula em negrito, na forma:
 \[
     \mathbf{a} \in \mathbb{R}^n \Leftrightarrow \mathbf{a} = \begin{bmatrix}
                                                                      a_{1}  \\
                                                                      \vdots \\
                                                                      a_{n}
-                                                                 \end{bmatrix}
+                                                                 \end{bmatrix},
 \]
 sendo $a_i \in \mathbb{R}, \forall i$ o $i$-ésimo elemento do vetor.
 Ainda, neste trabalho, é usada a notação de vetores para representação das linhas e colunas de uma matriz, da seguinte forma:
@@ -1020,33 +1022,34 @@ Ainda, neste trabalho, é usada a notação de vetores para representação das 
             \vertbar             &          & \vertbar             \\
             \mathbf{a}_{\cdot 1} & \dots    & \mathbf{a}_{\cdot m} \\
             \vertbar             &          & \vertbar
-        \end{bmatrix}
+        \end{bmatrix},
 \]
 sendo $\mathbf{a}_{i \cdot}$ e $\mathbf{a}_{\cdot j}, \forall i,j$ os vetores que representam as linhas e colunas da matriz $A$, respectivamente.
 
 Neste trabalho as seguintes operações em matrizes são usadas~\cite{Golub1996}:
 \begin{itemize}
-    \item Transposição de matrizes: $(A^T)_{ij} = (A)_{ji}, \forall i, j$, $A^T \in \mathbb{R}^{m \times n}$, $A \in \mathbb{R}^{n \times m}$.
-    \item Produto de Hadamard: $C=A\odot B$, onde $c_{ij} = a_{ij} b_{ij}, \forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$.
-    \item Divisão de matrizes ponto-a-ponto: $C = \frac{A}{B}$, onde $c_{ij} = \frac{a_{ij}}{b_{ij}}$, $\forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$.
-    \item Produto de matrizes: $C = AB$, onde $c_{ij} = \sum_{p = 1}^k$ $a_{ip} b_{pj}$, sendo $C \in \mathbb{R}^{n \times m}, A \in \mathbb{R}^{n \times k}, B \in \mathbb{R}^{k \times m}$.
+    \item Transposição de matrizes: $(A^T)_{ij} = (A)_{ji}, \forall i, j$, $A^T \in \mathbb{R}^{m \times n}$, $A \in \mathbb{R}^{n \times m}$;
+    \item Produto de Hadamard: $C=A\odot B$, onde $c_{ij} = a_{ij} b_{ij}, \forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$;
+    \item Divisão de matrizes ponto-a-ponto: $C = \frac{A}{B}$, onde $c_{ij} = \frac{a_{ij}}{b_{ij}}$, $\forall i, j$, sendo $A, B, C \in \mathbb{R}^{n \times m}$;
+    \item Produto de matrizes: $C = AB$, onde $c_{ij} = \sum_{p = 1}^k$ $a_{ip} b_{pj}$, sendo $C \in \mathbb{R}^{n \times m}, A \in \mathbb{R}^{n \times k}, B \in \mathbb{R}^{k \times m}$;
     \item Matriz inversa: $AB = BA = I \Leftrightarrow B = A^{-1}$, sendo $A \in \mathbb{R}^{n \times n}, B \in \mathbb{R}^{n \times n}$, e $I$ a matriz identidade.
 \end{itemize}
 
 Para definição de problemas em fatoração, também é usado neste trabalho um operador: traço da matriz.
 Considerando uma matriz quadrada $A \in \mathbb{R}^{n \times n}$~\cite{Magnus1999}, o traço da matriz é definido da seguinte forma:
 \[
-    tr(A) = \sum_{i=1}^n a_{ii}
+    tr(A) = \sum_{i=1}^n a_{ii}.
 \]
+
 Algumas igualdades são possíveis a partir da aplicação deste operador.
 Considerando as matrizes $A, B, C$, em um espaço que torne as multiplicações possíveis, definem-se as seguintes igualdades~\cite{Magnus1999}:
 \begin{itemize}
-    \item $tr(A^T) = tr(A)$.
-    \item $tr(A^TB) = tr(B^TA)$.
-    \item $tr(AB) = tr(BA)$.
+    \item $tr(A^T) = tr(A)$;
+    \item $tr(A^TB) = tr(B^TA)$;
+    \item $tr(AB) = tr(BA)$;
     \item $tr(ABC) = tr(CAB) = tr(BCA)$ (propriedade circular).
 \end{itemize}
-Note que a matriz resultante das operações dentro do traço é sempre quadrada.
+Note que a matriz resultante das operações dentro do traço deve ser sempre quadrada.
 
 Definido o operador de traço, é possível definir o operador para o produto interno entre dois vetores $\mathbf{a}, \mathbf{b} \in \mathbb{R}^n$~\cite{Boyd2004}, da seguinte forma:
 \[
@@ -1058,23 +1061,12 @@ Definido o operador de traço, é possível definir o operador para o produto in
                                                                         \vdots \\
                                                                         b_{n}
                                                                     \end{bmatrix}
-                                                                  = \mathbf{a}^T \mathbf{b}
+                                                                  = \mathbf{a}^T \mathbf{b}.
 \]
 
 Da mesma forma define-se o produto interno entre duas matrizes $A \in \mathbb{R}^{n \times m}$ e $B \in \mathbb{R}^{n \times m}$, mostrando como os operadores de traço e produto interno se relacionam~\cite{Boyd2004}:
 \[
-    \langle \mathbf{A}, \mathbf{B} \rangle = \sum_{i=1}^n \sum_{j=1}^m a_{ij} b_{ij} = tr(A^TB)
-        % \begin{bmatrix}
-        %     \vertbar             &          & \vertbar             \\
-        %     \mathbf{a}_{\cdot 1} & \dots    & \mathbf{a}_{\cdot n} \\
-        %     \vertbar             &          & \vertbar
-        % \end{bmatrix}
-        % \begin{bmatrix}
-        %     \horzbar & \mathbf{b}_{1 \cdot} & \horzbar \\
-        %              & \vdots               &          \\
-        %     \horzbar & \mathbf{b}_{n \cdot} & \horzbar
-        % \end{bmatrix}
-        % = tr(A^TB)
+    \langle \mathbf{A}, \mathbf{B} \rangle = \sum_{i=1}^n \sum_{j=1}^m a_{ij} b_{ij} = tr(A^TB).
 \]
 
 \subsection{Norma em matrizes}
@@ -1083,22 +1075,22 @@ A norma é uma função que recebe como parâmetro de entrada um vetor ou uma ma
 Uma das normas mais conhecidas é a norma de Frobenius, usada nas definições dos problemas de fatoração deste trabalho.
 A norma de Frobenius é definida da seguinte forma para um vetor $\mathbf{a} \in \mathbb{R}^n$~\cite{Boyd2004}:
 \[
-    \norm{\mathbf{a}}_F = \sqrt{a_1^2 + \dots + a_n^2} = \sqrt{\mathbf{a}^T \mathbf{a}} = \sqrt{\langle \mathbf{a}, \mathbf{a} \rangle}
+    \norm{\mathbf{a}}_F = \sqrt{a_1^2 + \dots + a_n^2} = \sqrt{\mathbf{a}^T \mathbf{a}} = \sqrt{\langle \mathbf{a}, \mathbf{a} \rangle}.
 \]
 Essa norma também é chamada de norma Euclidiana e $\text{norma-}L_2$.
 Neste caso, a norma é definida da seguinte forma para uma matriz $A \in \mathbb{R}^{n \times m}$~\cite{Boyd2004}:
 \[
-    \norm{A}_F = \sqrt{\sum_{i=1}^n \sum_{j=1}^m |a_{ij}^2|} = \sqrt{tr(A^T A)}
+    \norm{A}_F = \sqrt{\sum_{i=1}^n \sum_{j=1}^m |a_{ij}^2|} = \sqrt{tr(A^T A)}.
 \]
 
 Ainda, considerando dois vetores $\mathbf{a}$ e $\mathbf{b}$, é possível dizer que estes são ortogonais se o produto interno entre eles for $0$, ou seja, não há projeção de $\mathbf{a}$ em $\mathbf{b}$, e vice-versa~\cite{Magnus1999}:
 \[
-    \langle \mathbf{a}, \mathbf{b} \rangle = 0
+    \langle \mathbf{a}, \mathbf{b} \rangle = 0.
 \]
 Os vetores $\mathbf{a}$ e $\mathbf{b}$ também podem ser ditos ortonormais se, além da condição anterior, as suas normas forem igual à $1$.
 A mesma definição pode ser estendida para matrizes, então, uma matriz é dita ortonormal se todos os seus vetores forem ortonormais~\cite{Magnus1999}:
 \[
-    A^T A = I
+    A^T A = I.
 \]
 
 \subsection{Cálculo em matrizes}
@@ -1108,19 +1100,19 @@ Cálculo em matrizes define uma notação que suportou a derivação de soluçõ
 Estendendo a definição de derivadas, tradicionalmente conhecida, é possível obter relações para derivação de funções em relação a matrizes~\cite{Magnus1999}.
 Considere a seguinte notação para derivada de uma função de traço em relação à uma matriz $A$, sendo $F(A)$ uma função diferenciável em todos os elementos de $A$~\cite{Petersen2012}:
 \[
-    \frac{\partial tr(F(A))}{\partial A} = f(A)^T
+    \frac{\partial tr(F(A))}{\partial A} = f(A)^T,
 \]
 em que $f(\cdot)$ é a derivada escalar de $F(\cdot)$.
 
 Diante desta definição, algumas relações podem ser mostradas~\cite{Petersen2012}.
 Sendo $A, B, C$ e $D$ matrizes quaisquers definidas em um espaço que tornem as multiplicações possíveis, para cada caso:
 \begin{itemize}
-    \item $\frac{\partial}{\partial A} tr(A) = I$ (matriz identidade).
-    \item $\frac{\partial}{\partial A} tr(B A) = B^T$.
-    \item $\frac{\partial}{\partial A} tr(B A^T) = \frac{\partial}{\partial A} tr(A^T B) = B$.
-    \item $\frac{\partial}{\partial A} tr(B A C) = B^T C^T$.
-    \item $\frac{\partial}{\partial A} tr(B A^T C) = CB$.
-    \item $\frac{\partial}{\partial A} tr(B A C A^T D) = B^T D^T A C^T + D B A C$.
+    \item $\frac{\partial}{\partial A} tr(A) = I$ (matriz identidade);
+    \item $\frac{\partial}{\partial A} tr(B A) = B^T$;
+    \item $\frac{\partial}{\partial A} tr(B A^T) = \frac{\partial}{\partial A} tr(A^T B) = B$;
+    \item $\frac{\partial}{\partial A} tr(B A C) = B^T C^T$;
+    \item $\frac{\partial}{\partial A} tr(B A^T C) = CB$;
+    \item $\frac{\partial}{\partial A} tr(B A C A^T D) = B^T D^T A C^T + D B A C$;
     \item $\frac{\partial}{\partial A} tr(C^T A^T D A C) = C^T A^T D B + C^T A^T B^T D^T$.
 \end{itemize}
 
@@ -1138,7 +1130,7 @@ A resolução da tarefa de agrupamento pode ser útil em diversas áreas do conh
 
 Formalmente, os algoritmos de agrupamento implementados sob estratégias de particionamento têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}$, com $n$ linhas (dados) e $m$ colunas (características) que representam um conjunto de dados em algum domínio de aplicação.
 Essa matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$.
-O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas por subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, considerando o índice $p \in \{ 1, \dots, k\}$.
+O objetivo é encontrar $k$ partes de $\mathcal{N}$, denotadas por subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, considerando o índice $p \in \{ 1, \dots, k\}$.
 Então, o conjunto $\mathscr{K} = \{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ é justamente os grupos de linhas resultantes de um algoritmo que soluciona a tarefa de agrupamento.
 Note que este problema é NP-difícil, então faz sentido buscar por algoritmos que se baseiam em alguma heurística, já que não existe uma solução algorítmica em tempo polinomial~\cite{Aloise2009}.
 
@@ -1162,7 +1154,7 @@ Além disso, em~\citeonline{Ding05} também é mostrada a relação de aproxima�
         \displaystyle \mathcal{F}_1(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip} \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 = \displaystyle \min_{U, C} & \norm{X - UC}^{2}_{F} \\
                                           &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
                                           &   &                              & C \in \mathbb{R}^{k \times m}, \\
-                                          &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
+                                          &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i,
     \end{array} \nonumber
 \end{equation}
 em que $\Psi = \{0, 1\}$ e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
@@ -1181,7 +1173,7 @@ Nesse algoritmo considere os índices $i \in \{1, \dots, n\}$ e $p, p' \in \{1, 
 \label{algo:kmeans}
     \begin{algorithmic}[1]
         \Function{k-means}{$X$, $k$, $t_{max}$}
-            \State \textbf{Inicialize:} $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+            \State \textbf{inicialize:} $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
             \While{(não convergiu) e ($t \leq t_{max}$)}
                 \State
                     \begin{equation}
@@ -1208,14 +1200,14 @@ Nesse algoritmo considere os índices $i \in \{1, \dots, n\}$ e $p, p' \in \{1, 
 \end{algorithm}
 
 Como condições para assumir a convergência, neste trabalho, considera-se a diferença do erro de aproximação em duas iterações consecutivas menor ou igual a um $\epsilon$:
-$$\norm{X - U^{(t)} C^{(t)}}^{2}_{F} - \norm{X - U^{(t+1)} C^{(t+1)}}^{2}_{F} \leq \epsilon$$
+$$\norm{X - U^{(t)} C^{(t)}}^{2}_{F} - \norm{X - U^{(t+1)} C^{(t+1)}}^{2}_{F} \leq \epsilon.$$
 O algoritmo também pára caso a $t$-ésima iteração seja igual ao número máximo de iterações ($t_{max}$).
 Note que o particionamento é direto, analisando a matriz $U$.
 
 Ainda, a atualização de $C$ também pode ser derivada de forma matricial, expandindo a função apresentada no problema~\ref{def:kmeans:problem} e derivando em relação à $C$, usando as relações definidas na seção~\ref{subsec:matrixcalculus}.
 Assim, obtém-se a seguinte formulação, que é equivalente à apresentada no algoritmo~\ref{algo:kmeans}~\cite{Bauckhage2015}:
 \[
-    C = (U^T U)^{-1} U^T X
+    C = (U^T U)^{-1} U^T X.
 \]
 
 O algoritmo \textit{k-means} tem complexidade de tempo $\mathcal{O}(t_{max} nmk)$.
@@ -1233,7 +1225,7 @@ O problema de otimização do erro de quantização, com a finalidade da resolu�
         \displaystyle \mathcal{F}_2(U, C) & = & \displaystyle \min_{U, C}    & \sum_{i=1}^n \sum_{p=1}^k u_{ip}^w \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 \\
                                           &   & \text{suj. a}                & U \in \mathbb{R}^{n \times k}, \\
                                           &   &                              & C \in \mathbb{R}^{k \times m}, \\
-                                          &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
+                                          &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i,
     \end{array} \nonumber
 \end{equation}
 em que $w \in [1, 2, \dots, \infty]$.
@@ -1249,7 +1241,7 @@ O problema~\ref{def:fkmeans:problem} é apresentado com $w = 2$ para obtenção 
     \displaystyle \mathcal{F}_{2}^{w=2}(U, C) & = & \displaystyle \min_{U, C} \sum_{i=1}^n \sum_{p=1}^k u_{ip}^2 \norm{\mathbf{x_{i \cdot} - \mathbf{c_{p \cdot}}}}^2 = \min_{U, C} & \norm{X - UC}^{2}_{F} \\
                                               &   & \text{suj. a}                & U \in \mathbb{R}^{n \times k}, \\
                                               &   &                              & C \in \mathbb{R}^{k \times m}, \\
-                                              &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i
+                                              &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i.
 \end{array}
 \]
 
@@ -1265,7 +1257,7 @@ Ainda, a mesma condição de convergência aplicada ao algoritmo~\ref{algo:kmean
 \label{algo:fkmeans}
     \begin{algorithmic}[1]
         \Function{fuzzy k-means}{$X$, $k$, $t_{max}$}
-            \State \textbf{Inicialize:} $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+            \State \textbf{inicialize:} $C^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
             \While{(não convergiu) e ($t \leq t_{max}$)}
                 \State
                     \begin{equation}
@@ -1285,10 +1277,10 @@ Ainda, a mesma condição de convergência aplicada ao algoritmo~\ref{algo:kmean
     \end{algorithmic}
 \end{algorithm}
 
-Note que como $U$ possui valores no domínio dos reais, não é possível obter as partições diretamente, sem um processo de pós-processamento.
+Note que como $U$ possui valores no domínio dos reais, não é possível obter as partes diretamente, sem um processo de pós-processamento.
 Um método de pós-processamento é o seguinte:
-$$\mathcal{K}_{p} = \{ x_{i\cdot}~|~i \in \{1,\dots,n\} \text{ e } p = \argmax_{p'\in\{1, \dots, k\}} u_{ip'} \}, \forall p \in \{1, \dots, k\}$$
-Isso significa que uma linha $i$ pertencerá a um grupo $p$ (ou partição) se para todos os $k$ grupos, o grau de pertinência $u_{ip}$ for maior que todos os outros graus de pertinência para os outros grupos, presentes no vetor $\mathbf{u}_{i \cdot}$. Analisando a complexidade de tempo do algoritmo é possível chegar em: $\mathcal{O}( t_{max} nmk^2 )$.
+$$\mathcal{K}_{p} = \{ x_{i\cdot}~|~i \in \{1,\dots,n\} \text{ e } p = \argmax_{p'\in\{1, \dots, k\}} u_{ip'} \}, \forall p \in \{1, \dots, k\}.$$
+Isso significa que uma linha $i$ pertencerá a um grupo $p$ (ou parte) se para todos os $k$ grupos, o grau de pertinência $u_{ip}$ for maior que todos os outros graus de pertinência para os outros grupos, presentes no vetor $\mathbf{u}_{i \cdot}$. Analisando a complexidade de tempo do algoritmo é possível chegar em: $\mathcal{O}( t_{max} nmk^2 )$.
 
 Além dos algoritmos apresentados, existem outros que buscam resolver diferentes tipos de problemas dentro da área de agrupamento, como agrupamento por densidade, agrupamento hierárquico, agrupamento baseado em grade e agrupamento baseado em modelos~\cite{Han2011}.
 
@@ -1323,23 +1315,23 @@ Note então, que $a$ e $b$ denotam que o resultado de particionamento do algorit
 
 Sendo assim, o Índice de Rand ($\text{\textit{RI}}$) pode ser definido pela fração com que o particionamento obtido está de acordo com o particionamento real, da seguinte forma:
 \[
-    \text{\textit{RI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{a + b}{a + b + c + d}
+    \text{\textit{RI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{a + b}{a + b + c + d}.
 \]
 
 A métrica de validação externa, $\text{\textit{NMI}}$, tem efeito semelhante ao RI~\cite{Manning2008}.
 Utilizando a mesma notação, essa métrica é baseada na Informação Mútua (MI - \textit{Mutual Information}) entre o resultado de particionamento de um algoritmo ($\mathscr{\widetilde{K}}$) e o particionamento real ($\mathscr{K}$), e gera valores entre $0$ e $1$, com $0$ indicando que não há informação mútua entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$, e $1$ indicando correlação perfeita entre $\mathscr{K}$ e $\mathscr{\widetilde{K}}$.
 Então $\text{\textit{MI}}$ é definido da seguinte forma:
 \[
-    \text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \displaystyle \sum_{p=1}^k \sum_{p'=1}^{\widetilde{k}} \frac{|\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{n} \log \frac{n |\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{|\mathcal{K}_p| |\mathcal{\widetilde{K}}_{p'}|}
+    \text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \displaystyle \sum_{p=1}^k \sum_{p'=1}^{\widetilde{k}} \frac{|\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{n} \log \frac{n |\mathcal{K}_p \cap \mathcal{\widetilde{K}}_{p'}|}{|\mathcal{K}_p| |\mathcal{\widetilde{K}}_{p'}|}.
 \]
 A normalização de $\text{\textit{MI}}$ é realizada usando a entropia dos particionamentos.
 A entropia de um particionamento, $H(\cdot)$, é dada da seguinte forma:
 \[
-    H(\mathscr{K}) = \displaystyle \sum_{p=1}^k \frac{\mathcal{K}_p}{n} \log \frac{\mathcal{K}_p}{n}
+    H(\mathscr{K}) = \displaystyle \sum_{p=1}^k \frac{\mathcal{K}_p}{n} \log \frac{\mathcal{K}_p}{n}.
 \]
 Finalmente, a métrica $\text{\textit{NMI}}$ pode ser definida como:
 \[
-    \text{\textit{NMI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{\text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}})}{\sqrt{H(\mathscr{K}) H(\mathscr{\widetilde{K}})}}
+    \text{\textit{NMI}}(\mathscr{K}, \mathscr{\widetilde{K}}) = \frac{\text{\textit{MI}}(\mathscr{K}, \mathscr{\widetilde{K}})}{\sqrt{H(\mathscr{K}) H(\mathscr{\widetilde{K}})}}.
 \]
 
 Note, então, que ambas as métricas têm capacidade de lidar com a caso em que a ordem do particionamento no conjunto $\mathscr{K}$ não corresponde com a ordem do particionamento no conjunto $\mathscr{\widetilde{K}}$.
@@ -1350,11 +1342,11 @@ Além disso, ambas as métricas têm sido efetivas como um método de análise q
 
 Grande parte dos esforços de pesquisa da área de mineração de dados é voltada ao estudo da tarefa de agrupamento~\cite{Han2011}, no entanto, ainda há muito estudo a ser realizado quando se considera dados com alta dimensionalidade e/ou quando se deseja interpretabilidade do agrupamento gerado por um algoritmo.
 
-Nesse contexto, faz-se interessante analisar de forma mais detalhada, as características que, dentre todas as disponíveis, tornam os dados mais similares entre si a ponto de poderem ser associados a um mesmo grupo.
+Nesse contexto, faz-se interessante analisar de forma mais detalhada as características que, dentre todas as disponíveis, tornam os dados mais similares entre si a ponto de poderem ser associados a um mesmo grupo.
 Mais do que isso, a ideia é saber se ao considerar apenas parte das características, um dado pode ser associado a um grupo diferente.
 Essa análise leva ao estudo de questões referentes a estratégias capazes de usar a similaridade baseada em partes, a qual analisa subconjuntos de características.
 Um dos primeiros trabalhos a tratar esse tipo de problema foi apresentado por~\citeonline{Hartigan1972}.
-Nesse trabalho, o autor apresenta métodos de agrupamento de dados que particionam tanto os dados quanto as características, a análise das partições, e uma taxonomia referente às diversas estruturas que essas partições podem compor.
+Nesse trabalho, o autor apresenta métodos de agrupamento de dados que particionam tanto os dados quanto as características, a análise do particionamento, e uma taxonomia referente às diversas estruturas que essas partes podem compor.
 
 Com o passar do tempo, esse problema foi se tornando mais presente em aplicações reais, nas mais diferentes áreas, como Mineração de Textos, Mineração da Web, Bioinformática, Marketing, Ecologia, Arqueologia e Ciência da Computação~\cite{Govaert2013}.
 E hoje, o processo de agrupamento que se baseia na similaridade em partes das características é conhecido como coagrupamento ou biagrupamento.
@@ -1383,13 +1375,13 @@ Uma taxonomia dos tipos de cogrupos é proposta por~\citeonline{Madeira2004}:
  %  \item \textit{Cogrupos com valores constantes nas linhas ou colunas}, se trata de cogrupos com valores constantes nas linhas: $\mathbf{\mu}_{p \cdot} + \alpha_p \in X_{\mathcal{K}_p \mathcal{L}_q}$ ou $\mathbf{\mu}_{p \cdot} \alpha_p \in X_{\mathcal{K}_p \mathcal{L}_q}$, onde $\alpha_p$ é um fator aditivo ou multiplicativo para cada linha; ou ainda cogrupos com valores constantes nas colunas: $\mathbf{\mu}_{\cdot q} + \beta_q \in X_{\mathcal{K}_p \mathcal{L}_q}$ ou $\mathbf{\mu}_{\cdot q} \beta_q \in X_{\mathcal{K}_p \mathcal{L}_q}$, onde $\beta_jq$ é um fator aditivo ou multiplicativo para cada coluna;
  %  \item \textit{Cogrupos com valores coerentes}, em que são considerados valores próximos entre si (coerentes) para definição de um cogrupo: $a_{ij} = \mu + \alpha_i + \beta_j, \forall i,j \in I,J$, ou $a_{ij} = \mu' \cdot \alpha_i' \cdot \beta_j', \forall i,j \in I,J$, sendo que se $\mu = \log \mu'\implies \alpha_i = \alpha_i', \beta_j = \beta_j'$;
  %  \item \textit{Cogrupos com evoluções coerentes} têm seus valores com evoluções coerentes, por exemplo, um cogrupo com $x_{i4} \leq x_{i3} \leq x_{i2} \leq x_{i1}$ tem valores com evolução coerente na coluna. Seus valores podem ser gerados por uma função geradora de valores com evolução coerente $x_{ij} = g(a_{ij}), \forall i,j \in I,J$, sendo $g(\cdot)$ não linear e não constante, para que o tipo de cogrupo não seja classificado nos casos anteriores. \textcolor{green}{(Muito estranho $a=g(a)$, pois $g()$ deveria ser a identidade)}
-    \item Cogrupos com valores constantes.
-    \item Cogrupos com valores constantes nas linhas ou colunas.
-    \item Cogrupos com valores coerentes.
+    \item Cogrupos com valores constantes;
+    \item Cogrupos com valores constantes nas linhas ou colunas;
+    \item Cogrupos com valores coerentes;
     \item Cogrupos com evoluções coerentes.
  \end{itemize}
 
-Os cogrupos também diferem quanto as suas estruturas.
+Os cogrupos também diferem quanto às suas estruturas.
 Cada algoritmo usado para implementar coagrupamento faz uma suposição da estrutura de cogrupos que é capaz de encontrar.
 A figura~\ref{fig:bicstruct} sumariza as diferentes estruturas de cogrupos, com as linhas e colunas ordenadas para permitir a visualização dos cogrupos por meio de cada retângulo em cada uma das nove matrizes apresentadas.
 
@@ -1428,14 +1420,14 @@ Fatoração de matrizes não-negativas (\textit{Non-negative Matrix Factorizatio
 \citeonline{lee99} apresentam tal abordagem a partir de sua aplicação no aprendizado de características de faces (em dados do tipo imagem) e na análise de características semânticas de textos.
 A análise de textos também foi usada como aplicação na ilustração da aplicação de fatoração de matrizes por~\citeonline{Ho2008} que segue a ideia de aprendizado de partes, por~\citeonline{Kuang2014} que aplica fatoração de matrizes não-negativas sobre um problema formulado como análise de agrupamento (clustering), e por~\citeonline{Long2005, Ding06, Yoo2010}, que formulam o problema como coagrupamento.
 Ainda, outros contextos são submetidos à análise sob a formulação de problemas de coagrupamento, sendo alguns exemplos o agrupamento de genes e análise de microarray em bioinformática~\cite{Kluger2003}, e a filtragem colaborativa em sistemas de recomendação~\cite{SalMnih08}.
-Na aplicação de NMF em filtragem colaborativa em sistemas de recomendação, destaca-se o modelo baseado em NMF de~\citeonline{Koren09} para predição de preferências de usuários por filmes, que ganhou o Prêmio Netflix (\textit{Netflix Prize})\footnote{\url{http://www.netflixprize.com/}} em primeiro lugar.
+Na aplicação de NMF em filtragem colaborativa em sistemas de recomendação, destaca-se os modelos baseados em NMF de~\citeonline{Koren09} para predição de preferências de usuários por filmes, que fizeram parte do comitê de modelos que ganhou o Prêmio Netflix (\textit{Netflix Prize})\footnote{\url{http://www.netflixprize.com/}} em primeiro lugar.
 
 A adequação da fatoração de matrizes para tarefas modeladas como agrupamento ou coagrupamento ocorre porque muitas das representações usadas em aplicações nessas áreas se apresentam como uma relação entre pares de elementos pertencentes a conjuntos finitos, como apresentado em \cite{Long2005}. Por exemplo, na resolução da tarefa de agrupamento de documentos, em mineração de texto, usa-se, comumente, dois conjuntos finitos, documentos e palavras, sendo que a relação entre eles é representada pela ocorrência de uma determinada palavra em um determinado documento. Note ainda que a relação expressa entre os elementos, como no contexto de palavras e documentos, apresenta-se como uma matriz de dados positiva, característica que ilustra a aplicabilidade de NMF.
 
 Formalmente, algoritmos de coagrupamento baseados em NMF têm como entrada uma matriz de dados $X \in \mathbb{R}^{n \times m}_{+}$, contendo números reais positivos com $n$ linhas e $m$ colunas.
 Esta matriz é formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{ \mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $\mathbf{x}_{i \cdot}$ e cada coluna $\mathbf{x}_{\cdot j}$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$, que é justamente um valor da matriz $X$.
 Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse.
-O objetivo é encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ partições para $\mathcal{M}$, denotadas pelos subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
+O objetivo é encontrar $k$ partes de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $l$ partes para $\mathcal{M}$, denotadas pelos subconjuntos ordenados $\mathcal{L}_q \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
 Então, os conjuntos $\{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ e $\{\mathcal{L}_1, \dots, \mathcal{L}_l\}$ são os cogrupos de linhas e colunas, respectivamente.
 Da mesma forma que na tarefa de agrupamento, faz-se sentido a proposição de algoritmos baseados em heurísticas, pois sob diversas formas, o problema de coagrupamento baseado em particionamento, é um problema NP-difícil~\cite{Bulteau2014}.
 
@@ -1443,12 +1435,12 @@ Da mesma forma que na tarefa de agrupamento, faz-se sentido a proposição de al
 
 %%% comentário do Valdinei: Como escrevi anteriormente, prefiro dizer que $\mathcal{N}=\{1,2,\dots,n\}$ e o mesmo para $\mathcal{M}$, então faz mais sentido formar os cogrupos com $I\subseteq\mathcal{N}$ e o mesmo para $J$. Além disso, os índices $p$ e $q$ não foram mencionados. Finalmente, aqui já está considerando que os clusters de linha são separados dos cluster de colunas, como é utilizado tradicionalmente na literatura. Dessa forma, deve-se dizer que os conjuntos $I$ devem formar uma partição de $\mathcal{N}$.)}
 
-Para implementação da NMF como uma estratégia para resolução do problema de coagruamento, diferentes algoritmos foram apresentados na literatura.
+Para implementação da NMF como uma estratégia para resolução do problema de coagrupamento, diferentes algoritmos foram apresentados na literatura.
 Cada um deles considera o problema de NMF com diferentes restrições que permitem propor soluções para o problema de coagrupamento de diferentes naturezas.
 Este capítulo se destina a apresentar três das implementações existentes que são usadas como base para a proposta desta dissertação: decomposição de valores em blocos (Seção~\ref{sec:bvd}) introduzida por~\citeonline{Long2005}; fatoração ortogonal tripla de matrizes não-negativas (Seção~\ref{sec:ONMTF}) introduzida por~\citeonline{Ding06}; e fatoração tripla rápida de matrizes não-negativas (Seção~\ref{sec:FNMTF}) introduzida por~\citeonline{Wang2011}.
 Outras implementações correlatas podem ser encontradas em~\cite{Li2006}.
 
-Todos algoritmos de NMF para resolução das tarefas de agrupamento e coagrupamento tem em comum a natureza recursiva, pois são encontradas partições de linhas a partir de partições de colunas, para então, encontrar melhores partições de colunas a partir das partições de linhas.
+Todos algoritmos de NMF para resolução das tarefas de agrupamento e coagrupamento tem em comum a natureza recursiva, pois são encontradas partes de linhas a partir de partes de colunas, para então, encontrar um melhor particionamento de colunas a partir do particionamento de linhas.
 Esse processo recursivo continua até que a aproximação entre a fatoração e a matriz fatorada ($X$), através de alguma medida, atinja um mínimo local ou global, resultando em uma solução para o particionamento de linhas e colunas.
 
 \section{Decomposição de Valores em Blocos para Coagrupamento}
@@ -1457,7 +1449,7 @@ Esse processo recursivo continua até que a aproximação entre a fatoração e 
 A Decomposição de Valores em Blocos (\textit{Block Value Decomposition} - \textit{BVD}) foi proposta por~\citeonline{Long2005} como uma abordagem para tratar o problema de coagrupamento, com base em fatoração de matrizes não-negativas.
 Essa decomposição recebe esse nome por ter a capacidade de encontrar estruturas em blocos escondidas na matriz de dados.
 Isso é possível porque o algoritmo \textit{BVD} é capaz de explorar a relação entre linhas e colunas da matriz de dados por meio da decomposição dela em três matrizes: $U$ uma matriz de coeficientes de linhas, $S$ uma matriz com estrutura em blocos, e $V$ uma matriz de coeficientes de colunas.
-Segundo os autores, tais coeficientes em $U$ e $V$ podem ser vistos como um fator que associa linhas à partições encontradas no conjunto de linhas, e que associa as colunas à partições encontradas no conjunto de colunas, respectivamente; e $S$ pode ser vista como a representação média dos detalhes da matriz original e permite sua reconstrução aproximada a partir da operação $USV^T$.
+Segundo os autores, tais coeficientes em $U$ e $V$ podem ser vistos como um fator que associa linhas à partes encontradas no conjunto de linhas, e que associa as colunas à partes encontradas no conjunto de colunas, respectivamente; e $S$ pode ser vista como a representação média dos detalhes da matriz original e permite sua reconstrução aproximada a partir da operação $USV^T$.
 Sob o ponto de vista da resolução do problema de coagrupamento, então, o objetivo no \textit{BVD} é encontrar grupos de linhas e colunas de forma simultânea, sendo $k$ grupos de $\mathcal{N}$ (linhas) e $l$ grupos de $\mathcal{M}$ (colunas).
 
 Ainda, os autores proponentes da abordagem \textit{BVD} defendem que interpretações intuitivas podem ser derivadas da análise das combinações das matrizes geradas na fatoração, quando aplicadas a um contexto específico.
@@ -1508,7 +1500,7 @@ O \textit{BVD} compacta a matriz de dados em uma matriz com fatores que correlac
 Além disso, esta compactação adiciona a idéia de uma matriz de fatores $V$ para compactar as colunas de $X$, e $S$ que é uma visão compactada de $X$ em $kl$ elementos.
 Portanto, a compactação transforma $nm$ elementos em $nk + kl + ml$ elementos, através das matrizes $U$, $S$ e $V$, e supondo que $n \ll k$ e $m \ll l$, tem-se que $mm \ll nk + kl + ml$.
 
-O problema de coagrupamento implementado sob a abordagem \textit{BVD} é formalmente apresentado como \cite{Long2005}:
+O problema otimização do erro de quantização para a finalidade de resolução da tarefa de coagrupamento, implementado sob a abordagem \textit{BVD} é formalmente apresentado no problema~\ref{def:bvd:problem}~\cite{Long2005}:
 
 \begin{problem}[Problema de decomposição de valores em blocos]
 \label{def:bvd:problem}
@@ -1517,7 +1509,7 @@ O problema de coagrupamento implementado sob a abordagem \textit{BVD} é formalm
             \displaystyle \mathcal{F}_3(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F} \\
                                                &   & \text{suj. a}                & U \geq 0,                  \\
                                                &   &                              & S \geq 0,                  \\
-                                               &   &                              & V \geq 0
+                                               &   &                              & V \geq 0,
         \end{array}   \nonumber
     \end{equation}
 em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}$, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
@@ -1596,7 +1588,7 @@ Nesse algoritmo considere $t$ o contador de iterações, e $U^{(t)}$, $S^{(t)}$ 
 \label{algo:bvd}
 \begin{algorithmic}[1]
 \Function{BVD}{$X$, $k$, $l$, $t_{max}$}
-\State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \frac{1}{nm} \sum_{i, j} x_{ij}$ e $t \gets 0$.
+\State \textbf{inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \frac{1}{nm} \sum_{i, j} x_{ij}$ e $t \gets 0$.
 \While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
 \State
 \begin{equation}
@@ -1622,14 +1614,14 @@ S^{(t+1)} \gets S^{(t)} \odot \frac{ U^{(t+1)^T} X V^{(t+1)} }{ U^{(t+1)^T} U^{(
 
 A inicialização dos elementos das matrizes $U$, $S$ e $V$ são gerados através de uma distribuição uniforme ($\mathcal{U}(0, 1) \in~]0, 1]$).
 Como condições para assumir a convergência, neste trabalho, considera-se a diferença do erro de aproximação em duas iterações consecutivas menor ou igual a um $\epsilon$:
-$$\norm{X - U^{(t)} S^{(t)} V^{(t)^T}}^{2}_{F} - \norm{X - U^{(t+1)} S^{(t+1)} V^{(t+1)^T}}^{2}_{F} \leq \epsilon$$
+$$\norm{X - U^{(t)} S^{(t)} V^{(t)^T}}^{2}_{F} - \norm{X - U^{(t+1)} S^{(t+1)} V^{(t+1)^T}}^{2}_{F} \leq \epsilon.$$
 O algoritmo também pára caso a quantidade de iterações assuma o limite $t_{max}$.
 
-Note que como $U$ e $V$ possuem valores no domínio dos reais, então, não é possível obter as partições diretamente, sem um processo de pós-processamento.
+Note que como $U$ e $V$ possuem valores no domínio dos reais, então, não é possível obter o particionamento diretamente, sem um processo de pós-processamento.
 Um modo simples de obter o particionamento para as linhas toma a seguinte forma:
-$$\mathcal{K}_{p}=\{x_{i\cdot}~|~i\in\{1,\dots,n\}\text{ e }p=\argmax_{p'\in\{1,\dots,k\}} u_{ip'} \}, \forall p\in\{1,\dots,k\}$$
+$$\mathcal{K}_{p}=\{x_{i\cdot}~|~i\in\{1,\dots,n\}\text{ e }p=\argmax_{p'\in\{1,\dots,k\}} u_{ip'} \}, \forall p\in\{1,\dots,k\}.$$
 
-Isso significa que uma linha $i$ pertencerá a um cogrupo $p$ (ou partição) se para todos os $k$ cogrupos, o fator $u_{ip}$ for maior que todos os outros fatores para os outros cogrupos, presentes no vetor $\mathbf{u}_{i \cdot}$.
+Isso significa que uma linha $i$ pertencerá a um cogrupo $p$ (ou parte) se para todos os $k$ cogrupos, o fator $u_{ip}$ for maior que todos os outros fatores para os outros cogrupos, presentes no vetor $\mathbf{u}_{i \cdot}$.
 
 A complexidade de tempo do algoritmo é possível ser calculada fixando as condições $k \simeq l$, $n \simeq m$, $k \ll n$, $l \ll m$ e usando um algoritmo para otimizar a ordem das multiplicações (\citeonline{Cormen2001} discute algoritmos para tal otimização): $\mathcal{O}\Big( t_{max} \big( nl (m + k) + ml (n + k) + mk (n + l) + k^2 (n + l) + l^2 (m + k) \big) \Big) \simeq \mathcal{O}\Big( t_{max} \big( n^2k + nk^2 + k^3 ) \Big)$.
 
@@ -1661,7 +1653,7 @@ A complexidade de tempo do algoritmo é possível ser calculada fixando as condi
 \section{Fatoração Ortogonal Tripla de Matrizes Não-negativas}
 \label{sec:ONMTF}
 
-Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem}, e o chama de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - \textit{ONMTF}).
+Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o problema~\ref{def:onmtf:problem} para otimização do erro de quantização, e o chama de Fatoração Ortogonal Tripla de Matrizes Não-negativas (\textit{Orthogonal Non-negative Matrix Tri-factorization} - \textit{ONMTF}).
 
 \begin{problem}[Problema de fatoração ortogonal tripla de matrizes não-negativas]
 \label{def:onmtf:problem}
@@ -1670,7 +1662,7 @@ Baseado no problema~\ref{def:bvd:problem}, \citeonline{Ding06} propõem o proble
         \displaystyle \mathcal{F}_6(U, S, V) & = & \displaystyle \min_{U, S, V} & \norm{X - USV^T}^{2}_{F}      \\
                                              &   & \text{suj. a}                & U \geq 0, S \geq 0, V \geq 0, \\
                                              &   &                              & U^T U = I,                    \\
-                                             &   &                              & V^T V = I
+                                             &   &                              & V^T V = I,
     \end{array}   \nonumber
 \end{equation}
 em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V \in \mathbb{R}^{m \times l}_{+}$ e $\norm{\cdot}_F$ denota a norma de Frobenius.
@@ -1723,7 +1715,7 @@ Também, a mesma condição de convergência aplicada no algoritmo~\ref{algo:bvd
 \label{algo:onmtf}
 \begin{algorithmic}[1]
 \Function{ONM3F}{$X$, $k$, $l$, $t_{max}$}
-\State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+\State \textbf{inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
 \While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
 \State
 \begin{equation}
@@ -1776,7 +1768,7 @@ No artigo de \citeonline{Yoo2010}, é proposta uma abordagem mais simples, que a
 
 \[
 \begin{array}{lclcl}
-\nabla \mathcal{J} & = & [\nabla \mathcal{J}]^+ - [\nabla \mathcal{J}]^-
+\nabla \mathcal{J} & = & [\nabla \mathcal{J}]^+ - [\nabla \mathcal{J}]^-,
 \end{array}
 \]
 
@@ -1785,7 +1777,7 @@ Se $[\nabla \mathcal{J}]^+ \geq 0$ e $[\nabla \mathcal{J}]^- \geq 0$, então, é
 
 \begin{equation}
 \label{eq:onmtf:updateTheta}
-\Theta \gets \Theta \odot \left ( \frac{ [\nabla \mathcal{J}]^- }{ [\nabla \mathcal{J}]^+ } \right )^{\cdot \eta}
+\Theta \gets \Theta \odot \left ( \frac{ [\nabla \mathcal{J}]^- }{ [\nabla \mathcal{J}]^+ } \right )^{\cdot \eta}.
 \end{equation}
 
 onde $(\cdot)^{\cdot \eta}$ representa a potência para cada elemento, e $\eta$ uma taxa de aprendizado ($0 < \eta \leq 1$).
@@ -1856,7 +1848,7 @@ Para tal afirmação,~\citeonline{Yoo2010} realizou um experimento que consistiu
 \label{algo:onmtf2}
 \begin{algorithmic}[1]
 \Function{ONMTF}{$X$, $k$, $l$, $t_{max}$}
-\State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+\State \textbf{inicialize:} $U^{(0)} \gets \mathcal{U}(0, 1), V^{(0)} \gets \mathcal{U}(0, 1), S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
 \While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
 \State
 \begin{equation}
@@ -1889,7 +1881,7 @@ Calculando a complexidade de tempo, seguindo as mesmas restrições apresentadas
 \section{Fatoração Tripla Rápida de Matrizes Não-negativas}
 \label{sec:FNMTF}
 
-O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fast Non-negative Matrix Tri Factorization} - FNMTF), formalizado no problema~\ref{def:fnmtf:problem}, foi proposto por~\citeonline{Wang2011} com os seguintes argumentos contra o uso prático dos problemas até então propostos para encontrar cogrupos: eles exigem soluções algorítmicas iterativas, com intensas multiplicações de matrizes em cada passo do algoritmo; eles propõem encontrar coagrupamentos flexíveis (com restrições relaxadas), o que implica em encontrar inúmeras soluções para a tarefa de coagrupamento.
+O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fast Non-negative Matrix Tri Factorization} - FNMTF) para otimização do erro de quantização, formalizado no problema~\ref{def:fnmtf:problem}, foi proposto por~\citeonline{Wang2011} com os seguintes argumentos contra o uso prático dos problemas até então propostos para encontrar cogrupos: eles exigem soluções algorítmicas iterativas, com intensas multiplicações de matrizes em cada passo do algoritmo; eles propõem encontrar coagrupamentos flexíveis (com restrições relaxadas), o que implica em encontrar inúmeras soluções para a tarefa de coagrupamento.
 
 \begin{problem}[Problema de fatoração tripla rápida de matrizes não-negativas]
 \label{def:fnmtf:problem}
@@ -1899,7 +1891,7 @@ O problema de Fatoração Tripla Rápida de Matrizes Não-negativas (\textit{Fas
                                              &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
                                              &   &                              & V \in \Psi^{m \times l}, \\
                                              &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i, \\
-                                             &   &                              & \sum_{q=1}^{l} v_{jq} = 1, \forall j
+                                             &   &                              & \sum_{q=1}^{l} v_{jq} = 1, \forall j,
     \end{array} \nonumber
 \end{equation}
 em que $S \in \mathbb{R}^{k \times l}_{+}$e $\Psi = \{0, 1\}$ e $\norm{\cdot}_F$ denota a norma de Frobenius.
@@ -1926,7 +1918,7 @@ Como não há restrições em $S$, com exceção da positividade que é garantid
 \begin{equation}
 \label{eq:fnmtf:updateS}
 \begin{array}{lclcl}
-\therefore & S & = & (U^T U)^{-1} U^T X V (V^T V)^{-1}    \nonumber
+\therefore & S & = & (U^T U)^{-1} U^T X V (V^T V)^{-1}.    \nonumber
 \end{array}
 \end{equation}
 
@@ -1951,7 +1943,7 @@ X = \begin{bmatrix}
 \vertbar             & \vertbar             & \vertbar             \\
 \mathbf{x}_{\cdot 1} & \mathbf{x}_{\cdot 2} & \mathbf{x}_{\cdot 3} \\
 \vertbar             & \vertbar             & \vertbar
-\end{bmatrix}
+\end{bmatrix}.
 \]
 \[
 U = \begin{bmatrix}
@@ -1975,7 +1967,7 @@ V = \begin{bmatrix}
 V^T V = \begin{bmatrix}
 1 & 0 \\
 0 & 2
-\end{bmatrix}
+\end{bmatrix}.
 \]
 A matriz $U$ do exemplo apresenta um particionamento das $6$ linhas em $3$ grupos, sendo que $3$ linhas pertencem ao primeiro grupo, $2$ linhas ao segundo grupo, e $1$ linha ao terceiro grupo, como mostra a diagonal principal da matriz $U^T U$, a mesma interpretação pode ser feita para $V$ e $V^T V$.
 \[
@@ -2012,7 +2004,7 @@ A matriz $U$ do exemplo apresenta um particionamento das $6$ linhas em $3$ grupo
 x_{13} + x_{23} + x_{63} & x_{11} + x_{12} + x_{21} + x_{22} + x_{61} + x_{62} \\
 x_{33} + x_{53}          & x_{31} + x_{32} + x_{51} + x_{52}                   \\
 x_{43}                   & x_{41} + x_{42}
-\end{bmatrix}
+\end{bmatrix}.
 \end{array}
 \]
 A multiplicação em $X$ por $U^T$ pela esquerda, representa a soma da seleção de todas as linhas de $X$ pertencentes à um mesmo grupo de linhas.
@@ -2027,14 +2019,14 @@ Sendo assim, a operação $U^T X V$ representa a soma de todos os elementos de $
 (V^T V)^{-1} = \begin{bmatrix}
 1 & 0           \\
 0 & \frac{1}{2}
-\end{bmatrix}
+\end{bmatrix}.
 \]
 \[
 S = (U^T U)^{-1} U^T X V (V^T V)^{-1} = \begin{bmatrix}
 \frac{x_{13} + x_{23} + x_{63}}{3} & \frac{x_{11} + x_{12} + x_{21} + x_{22} + x_{61} + x_{62}}{3 \times 2} \\
 \frac{x_{33} + x_{53}}{2}          & \frac{x_{31} + x_{32} + x_{51} + x_{52}}{2 \times 2}                   \\
 x_{43}                             & \frac{x_{41} + x_{42}}{2}
-\end{bmatrix}
+\end{bmatrix}.
 \]
 Com o exemplo mostrado, é possível visualizar a atualização de $S$ de forma mais intuitiva.
 Por exemplo, para calcular um elemento $s_{pq}$ de $S$, será simplesmente o cálculo da média de todos elementos em $X$ que pertencem ao grupo de linhas $p$ e ao grupo de colunas $q$.
@@ -2049,7 +2041,7 @@ Também, as mesmas condições de convergência usada nos algoritmos anteriores 
 \label{algo:fnmtf}
 \begin{algorithmic}[1]
 \Function{FNMTF}{$X$, $k$, $l$, $t_{max}$}
-\State \textbf{Inicialize:} $U^{(0)}, V^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} u_{ip} = 1, \sum_{q=1}^{l} v_{jq} = 1, \forall i, j$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
+\State \textbf{inicialize:} $U^{(0)}, V^{(0)} \gets {0,1}~|~\sum_{p=1}^{k} u_{ip} = 1, \sum_{q=1}^{l} v_{jq} = 1, \forall i, j$, $S^{(0)} \gets \mathcal{U}(0, 1)$ e $t \gets 0$.
 \While{(não convergiu) e ($t \leq t_{max}$)}
 \State
 \begin{equation}
@@ -2103,7 +2095,7 @@ Ainda, as multiplicações de matrizes para o cálculo dos centróides $\widetil
 
 % Sara: não consigo colocar o exemplo do Valdinei, pois eu precisaria de um exemplo real para conseguir explicar com números e esse exemplo só virá no Capítulo 5. Colocar de forma genérica, eu também não consegui. Tentei mas tive a impressão de estar apenas repetindo as formulações dos problemas já apresentadas. Então resolve usar "prosa" mesmo. Um texto equivalente deveria ser feito para o K-means e para o Fuzzy-K-means no final do capítulo 2.
 
-É importante ressaltar, que nenhum dos algoritmos apresentados são capazes de garantir convergência para um mínimo global dos problemas apresentados, então, é possível encontrar diversas soluções em execuções diferentes dos algoritmos, devido à inicialização de forma aleatória.
+É importante ressaltar que nenhum dos algoritmos apresentados são capazes de garantir convergência para um mínimo global dos problemas apresentados, então, é possível encontrar diversas soluções em execuções diferentes dos algoritmos, devido à inicialização de forma aleatória.
 Essa é uma limitação também presente nos algoritmos de agrupamento clássicos.
 
 Além disso, a fim de melhor motivar a proposta dos novos algoritmos apresentados no capítulo~\ref{ch:proposedalgs}, é interessante compreender os algoritmos \textit{ONMTF} e \textit{FNMTF} em termos de suas capacidades de quantização do espaço dos dados e de geração de informação sobre os dados, e em termos do processo de descoberta de cogrupos.
@@ -2150,16 +2142,16 @@ Sob o ponto de vista de resolução de problemas de coagrupamento, o objetivo de
 Entretanto, visto que se tem a liberdade de organizar um conjunto de matrizes $V$, que abstrai grupos e colunas, para ser associado a cada grupo de linhas, que abstrai os grupos de linhas, é possível que grupos de colunas diferentes sejam formados, a depender do grupo de linhas sendo considerado.
 Isso significa que problemas em que há sobreposição de colunas na formação de cogrupos, poderão ser adequadamente tratados pelas estratégias propostas.
 
-Formalmente, considere uma matriz de dados $X \in \mathbb{R}^{n \times m}$ contendo números reais positivos com $n$ linhas e $m$ colunas, formada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{\mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $\mathbf{x}_{i \cdot}$ e cada coluna $\mathbf{x}_{\cdot j}$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$.
+Formalmente, considere uma matriz de dados $X \in \mathbb{R}^{n \times m}$ contendo números reais positivos com $n$ linhas e $m$ colunas, podendo ser representada por um conjunto de vetores de linhas $\mathcal{N} = \{ \mathbf{x}_{1 \cdot}, \dots, \mathbf{x}_{n \cdot} \}$ e um conjunto de vetores de colunas $\mathcal{M} = \{\mathbf{x}_{\cdot 1}, \dots, \mathbf{x}_{\cdot m} \}$, e as relações existentes entre cada linha $\mathbf{x}_{i \cdot}$ e cada coluna $\mathbf{x}_{\cdot j}$ são representadas por $x_{ij}$ considerando os índices $i \in \{1, \dots, n\}$ e $j \in \{1, \dots, m\}$.
 Cada valor em $x_{ij}$ representa, então, a relação existente entre pares de elementos em algum contexto de interesse.
-O objetivo da tarefa de coagrupamento sob a estratégia de coagrupamento é encontrar $k$ partições de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $k \times l$ partições para $\mathcal{M}$ em cada $\mathcal{K}_p$, denotadas pelos subconjuntos ordenados $\mathcal{L}_{pq} \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
+O objetivo da tarefa de coagrupamento sob a estratégia de coagrupamento pode ser definida como a busca po $k$ partes de $\mathcal{N}$, denotadas pelos subconjuntos ordenados $\mathcal{K}_p \subseteq \mathcal{N}$, $k \times l$ partes para $\mathcal{M}$ em cada $\mathcal{K}_p$, denotadas pelos subconjuntos ordenados $\mathcal{L}_{pq} \subseteq \mathcal{M}$, considerando os índices $p \in \{ 1, \dots, k\}$ e $q \in \{1, \dots, l\}$.
 Então, os conjuntos $\{\mathcal{K}_1, \dots, \mathcal{K}_k\}$ e $\{\mathcal{L}_{11}, \dots, \mathcal{L}_{1l}, \dots, \mathcal{L}_{k1}, \dots \mathcal{L}_{kl}\}$ são os cogrupos de linhas e colunas, respectivamente.
 
 Observe na figura~\ref{fig:ovnmtfApplication} uma representação gráfica da estrutura de cogrupos com sobreposição de colunas, contextualizado em uma aplicação de análise de textos.
 Note que, na realidade, trata-se de busca por uma solução adequada para um problema com sobreposição, ou seja, sobreposição de colunas ou de linhas, já que a sobreposição de linhas é justamente o problema transposto.
 
-A figura~\ref{fig:ovnmtfApplication} mostra dois grupos de documentos, dos assuntos games e tecnologia, com três documentos em cada.
-Ainda, este exemplo contém $6$ grupos de palavras, divididos igualmente entre os grupos de documentos.
+A figura~\ref{fig:ovnmtfApplication} mostra dois grupos de documentos ($k = 2$), dos assuntos games e tecnologia, com três documentos em cada.
+Ainda, este exemplo contém $6$ grupos de palavras ($l = 6$), divididos igualmente entre os grupos de documentos.
 Então, pode-se dizer que os grupos de palavras entitulados ``campeonatos'', ``consoles'' e ``games online'' caracterizam o grupo de documentos sobre games, assim como os grupos de palavras entitulados ``competições'', ``eletrônicos'' e ``software'' caracterizam o grupo de documentos sobre tecnogia.
 Note que há sobreposição entre os primeiros três grupos de palavras do grupo de documentos com os três primeiros grupos de palavras do grupo de documentos de tecnologia.
 Também, é possível observar que apesar das palavras serem as mesmas para todos os documentos, como há independência entre os grupos de palavras para cada grupo de documentos, as palavras caracterizaram grupos de palavras diferentes, como no exemplo, os grupos de palavras entitulados como ``games online'' e ``software''.
@@ -2168,30 +2160,41 @@ Também, é possível observar que apesar das palavras serem as mesmas para todo
 
 \begin{figure}[H]
 \centering
-\caption{Representação gráfica do problema de coagruamento com sobreposição de colunas e contextualização do domínio de documentos (notícias)}
+\caption{Representação gráfica do problema de coagrupamento com sobreposição de colunas e contextualização do domínio de documentos (notícias)}
 \includegraphics[width=0.5\textwidth]{img/ovnmtfNewsApplication.png}
 \label{fig:ovnmtfApplication}
 \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 Da mesma maneira que foi ilustrado no capítulo~\ref{ch:fatoracao}, que é possível derivar interpretações intuitivas da análise das combinações de matrizes geradas na fatoração produzida pelos algoritmos lá discutidos.
-Para os algoritmos discutidos no presente capítulo, interpretações análogas podem ser feitas, porém, consirando a existências das várias matrizes $V$.
-Assumindo novamente que uma matriz de entrada representa a relação ``documento por palavras'' (linhas por colunas), cada coluna das $k$ matrizes $U I_{(p)} S, \forall p \in \{1, \dots, k\}$, captura a ideia de uma base para representação de grupos de palavras, descritos nas matrizes $V_{(p)}$; e cada linha em $\sum_{p=1}^k I_{(p)} S V_{(p)}^T$, captura a ideia de uma base de representação de grupos de documentos.
-A representação gráfica para o resultado de uma fatoração de matrizes que permite esse raciocínio é apresentada na figura~\ref{fig:factorizationXUSV1tok}.
+Para os algoritmos discutidos no presente capítulo, interpretações análogas podem ser feitas, porém, considerando a existências das várias matrizes $V$.
+
+Assumindo novamente que uma matriz de entrada representa a relação ``documento por palavras'' (linhas por colunas) e considerando a matriz seletora $I_{(p)}$ com $i_{pp} = 1$ e zeros nos demais elementos, cada coluna das $k$ matrizes $U I_{(p)} S, \forall p \in \{1, \dots, k\}$, captura a ideia de uma base para representação de grupos de palavras, descritos nas matrizes $V_{(p)}$; e cada linha em $\sum_{p=1}^k I_{(p)} S V_{(p)}^T$, captura a ideia de uma base de representação de grupos de documentos.
+A representação gráfica para o resultado de uma fatoração de matrizes que permite esse raciocínio é apresentada nas figuras~\ref{fig:factorizationXUSV1tok} e~\ref{fig:reconstructionXUSV1tok}.
 
 \begin{figure}[H]
 \centering
 \caption{
 Fatoração da matriz original de dados $X$ em cinco outras matrizes: $U$, $S$, $V_1$, $V_2$ e $V_3$}
-\includegraphics[width=0.8\textwidth]{img/factorizationXUSV1tok.png}
+\includegraphics[width=0.9\textwidth]{img/factorizationXUSV1tokv2.png}
 \label{fig:factorizationXUSV1tok}
 \source{Lucas Fernandes Brunialti, 2016}
 \end{figure}
 
 Todo o universo de interpretações delineado para os algoritmos da literatura podem ser estendidos para esse novo contexto de problema de agrupamento.
 No entanto, agora existem três matrizes para determinar os grupos de palavras, cada uma delas responsável por determinar os grupos de palavras para cada grupo de documentos.
+
+\begin{figure}[H]
+\centering
+\caption{
+Passos para reconstrução através da base para representação de linhas ($\sum_{p=1}^k I_{(p)} S V_{(p)}^T$)}
+\includegraphics[width=0.9\textwidth]{img/reconstructionXUSV1Vk.png}
+\label{fig:reconstructionXUSV1tok}
+\source{Lucas Fernandes Brunialti, 2016}
+\end{figure}
+
 Na figura~\ref{fig:factorizationXUSV1tok} considere que uma célula com cor escura representa a existência de uma relação entre linha e coluna, e uma célula com cor clara representa a inexistência de uma relação entre linha e coluna, e que essas relações são estabelecidas adequadamente em cada contexto de aplicação.
-Tem-se então, um conjunto de seis documentos e quatro palavras.
+Tem-se então um conjunto de seis documentos e quatro palavras.
 A matriz $U$ pode ser interpretada como descrito anteriormente, uma matriz ``documentos por grupos de documentos'', com seis documentos agrupados em três grupos ($k = 3$): os dois primeiros documentos no primeiro grupo, os dois próximos no segundo grupo e os dois últimos no terceiro grupo.
 Já as matrizes $V_{(p)}^T$ têm uma interpretação levemente diferente, ainda podem ser interpretadas como matrizes de ``grupos de palavras por palavras'', sendo dois grupos de palavras ($l = 2$), porém, a matriz $V_{(1)}^T$, por exemplo, contém os grupos de palavras para o primeiro grupo de documentos apenas (composto pelas linhas $1$ e $2$ de $X$), no primeiro grupo de palavras estão as colunas $1$, $2$ e $3$, e no segundo, a coluna $4$.
 O mesmo raciocínio pode ser utilizado para as matrizes $V_{(2)}^T$ e $V_{(3)}^T$.
@@ -2202,7 +2205,7 @@ Finalmente, as considerações finais apresentam uma discussão sobre o diferenc
 
 \section{Fatoração Tripla de Matrizes Não-negativas com Sobreposição}
 
-Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:ovnmtf:problem} é apresentado neste trabalho, e recebe aqui o nome de Fatoração Tripla de Matrizes Não-negativas Sobrepostas (Overlapped Non-negative Matrix Tri-factorization - \textit{OvNMTF}).
+Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:ovnmtf:problem}, para otimização do erro de quantização, é apresentado neste trabalho, e recebe aqui o nome de Fatoração Tripla de Matrizes Não-negativas Sobrepostas (Overlapped Non-negative Matrix Tri-factorization - \textit{OvNMTF}).
 
 \begin{problem}[Problema de fatoração tripla de matrizes não-negativas sobrepostas]
 \label{def:ovnmtf:problem}
@@ -2210,7 +2213,7 @@ Baseado no problema~\ref{def:bvd:problem}~\cite{Long2005}, o problema~\ref{def:o
     \begin{array}{lclc}
         \displaystyle \mathcal{F}_6(U, S, V_{(1)}, \dots, V_{(k)}) & = & \displaystyle \min_{U, S, V_{(1)}, \dots, V_{(k)}} & \norm{X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T}^{2}_{F} \\
                                                                    &   & \text{suj. a}                & U \geq 0, S \geq 0, \\
-                                                                   &   &                              & V_{(p)} \geq 0, \quad \forall p
+                                                                   &   &                              & V_{(p)} \geq 0, \quad \forall p,
     \end{array} \nonumber
 \end{equation}
 em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$, $V_{(p)} \in \mathbb{R}^{m \times l}_{+}$, $p \in \{1, \dots, k\}$ é o índice para o conjunto de matrizes $\{ V_{(1)}, \dots, V_{(k)} \}$, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz seletora com zeros em todos elementos exceto o elemento $i_{(p)_{pp}}$ que é igual à $1$, e $\norm{\cdot}_F$ denota a norma de Frobenius.
@@ -2219,7 +2222,7 @@ em que $U \in \mathbb{R}^{n \times k}_{+}$, $S \in \mathbb{R}^{k \times l}_{+}$,
 Na formulação, o papel das matrizes $I_{(p)}$ seletoras é, justamente, organizar a base de grupos de linhas, de forma que cada um deles seja otimizado de acordo com uma das matrizes $V_{(p)}$.
 
 É possível perceber que, neste caso, diferente dos apresentados no capítulo~\ref{ch:fatoracao}, têm menor capacidade de compactação, porém, com maior nível de detalhamento.
-Isso se explica, pois a partir dos $nm$ elementos da matriz de dados, são gerados $nk + kl + klm$ para representá-los, diferente.
+Isso se explica, pois a partir dos $nm$ elementos da matriz de dados, são gerados $nk + kl + klm$ para representá-los.
 
 Desde que o problema~\ref{def:ovnmtf:problem} é semelhante ao problema~\ref{def:onmtf:problem}, é esperado que ele possa também ser resolvido por meio de regras de atualização multiplicativas.
 Assim, a derivação das regras é aqui apresentada por meio de um abordagem baseada no cálculo do gradiente.
@@ -2227,16 +2230,16 @@ Contudo, para o cálculo do gradiente de $\mathcal{F}_6$ a estratégia usada aqu
 \begin{equation}
 \label{eq:diff:AQB}
 \begin{array}{lcl}
-\nabla_A tr( BAC )     & = & A^T B^T \\
-\nabla_{A^T} tr( BAC ) & = & C B \\
+\nabla_A tr( BAC )     & = & A^T B^T. \\
+\nabla_{A^T} tr( BAC ) & = & C B. \\
 \end{array}
 \end{equation}
 
 \begin{equation}
 \label{eq:diff:AQBQtC}
 \begin{array}{lcl}
-\nabla_A tr( BACA^TD )     & = & B^TD^TAC^T + DBAC \\
-\nabla_{A^T} tr( C^TA^TDAC ) & = & CA^TDB + C^TA^TB^TD^T
+\nabla_A tr( BACA^TD )     & = & B^TD^TAC^T + DBAC. \\
+\nabla_{A^T} tr( C^TA^TDAC ) & = & CA^TDB + C^TA^TB^TD^T.
 \end{array}
 \end{equation}
 }
@@ -2245,7 +2248,7 @@ Expandindo $\mathcal{F}_6$, com base nas propriedade de traço de matrizes defin
 \[
     \begin{array}{lcl}
         \displaystyle \mathcal{F}_6 & = & tr\big[ (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T)^T (X - U\sum_{p=1}^{k}I_{(p)}SV_{(p)}^T) \big] \\
-                                    & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T )
+                                    & = & tr(X^TX) - 2 tr( X^T U \sum_{p=1}^{k} I_{(p)} S V_{(p)}^T ) + tr( \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T ).
     \end{array}
 \]
 
@@ -2256,18 +2259,18 @@ Usando a igualdade da equação~\ref{eq:diff:AQB}, com $B = X^T$, $C = \sum_{p=1
 \[
     \begin{array}{lcl}
         [\nabla_U \mathcal{F}_6]^- & = & - 2 \nabla_U \Big( tr\big[ X^T U \sum_{p=1}^{k}I_{(p)}SV_{(p)}^T \big] \Big) \\
-                                   & = & - 2 X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}
+                                   & = & - 2 X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}.
     \end{array}
 \]
 
 Para o cálculo de $[\nabla_U \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC}, com $B = \sum_{p=1}^{k} V_{(p)} S^T I_{(p)}$, $C = I$, $A = U^T$ e $D = \sum_{p'=1}^{k}I_{(p')}SV_{(p')}^T$.
-Então tem-se
+Então tem-se:
 \[
     \begin{array}{lcl}
         [\nabla_U \mathcal{F}_6]^+ & = & \nabla_U \Big( tr(X^TX) + tr\big[ \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} U^T U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \big] \Big) \\
                                    & = & U \sum_{p'=1}^k I_{(p')} S V_{(p')}^T \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} \\
                                    &   & + ~ U \sum_{p=1}^k I_{(p)} S V_{(p)}^T \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} \\
-                                   & = & 2 U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')}
+                                   & = & 2 U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')}.
     \end{array}
 \]
 
@@ -2277,12 +2280,12 @@ Usando a igualdade da equação~\ref{eq:diff:AQB} para todas as partes da soma d
     \begin{array}{lcl}
         [\nabla_S \mathcal{F}_6]^- & = & - 2 \nabla_S \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
                                    & = & - 2 \Big( I_{(1)} U^T X V_{(1)} + \dots + I_{(k)} U^T X V_{(k)} \Big) \\
-                                   & = & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)}
+                                   & = & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)}.
     \end{array}
 \]
 
 Para o cálculo de $[\nabla_S \mathcal{F}_6]^+$, é utilizado a igualdade da equação~\ref{eq:diff:AQBQtC} para todas as partes da soma de $p, p' \in \{1, \dots, k\}$, com $B = V_{(p)}$, $A = S^T$, $C = I_{(p)} U^T U I_{(p')}$ e $D = V_{(p')}^T$.
-Então tem-se
+Então tem-se:
 \[
     \begin{array}{lcl}
         [\nabla_S \mathcal{F}_6]^+ & = & \nabla_S \Big( tr(X^TX) + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(k)} S V_{(k)}^T \big]  \\
@@ -2291,7 +2294,7 @@ Então tem-se
                                    &   & + \dots + \big( I_{(1)} U^T U I_{(k)} S V_{(k)}^T V_{(1)} + I_{(k)} U^T U I_{(1)} S V_{(1)}^T V_{(k)} \big) \\
                                    &   & + \dots + \big( I_{(k)} U^T U I_{(1)} S V_{(1)}^T V_{(k)} + I_{(1)} U^T U I_{(k)} S V_{(k)}^T V_{(1)} \big) \\
                                    &   & + \dots + \big( I_{(k)} U^T U I_{(k)} S V_{(k)}^T V_{(k)} + I_{(k)} U^T U I_{(k)} S V_{(k)}^T V_{(k)} \big) \\
-                                   & = & 2 \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)}
+                                   & = & 2 \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)}.
     \end{array}
 \]
 
@@ -2300,7 +2303,7 @@ Finalmente, para o cálculo de $\nabla_{V_{(p)}} \mathcal{F}_6$, considere as pa
 \[
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_6]^- & = & - 2 \nabla_{V_{(p)}} \Big( tr\big[ X^T U I_{(1)}SV_{(1)}^T \big] + \dots + tr\big[ X^T U I_{(k)}SV_{(k)}^T \big] \Big) \\
-                                           & = & - 2 X^T U I_{(p)} S
+                                           & = & - 2 X^T U I_{(p)} S.
     \end{array}
 \]
 
@@ -2309,7 +2312,7 @@ Na derivação para $[\nabla_{V_{(p)}} \mathcal{F}_6]^+$ nota-se que há dois ca
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p=p'} & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(1)} S^T I_{(1)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k)} S V_{(k)}^T \big] \Big) \\
                                                     & = & \nabla_{V_{(p)}} \Big( tr\big[ V_{(p)} S^T I_{(p)} U^T U I_{(p)} S V_{(p)}^T \big] \Big)  \\
-                                                    & = & 2 V_{(p)} S^T I_{(p)} U^T U I_{(p)} S
+                                                    & = & 2 V_{(p)} S^T I_{(p)} U^T U I_{(p)} S.
     \end{array}
 \]
 
@@ -2320,7 +2323,7 @@ Para o caso em que $p \neq p'$, é usada a igualdade da equação~\ref{eq:diff:A
                                    &   & + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(1)} S V_{(1)}^T \big] + \dots + tr\big[ V_{(k)} S^T I_{(k)} U^T U I_{(k-1)} S V_{(k-1)}^T \big] \Big) \\
                                    & = & \sum_{p' \neq p} \bigg[ \nabla_{V_{(p)}} \Big( tr\big[ V_{(p)} S^T I_{(p)} U^T U I_{(p')} S V_{(p')}^T \big] \Big) \\
                                    &   & + ~ \nabla_{V_{(p)}} \Big( tr\big[ V_{(p')} S^T I_{(p')} U^T U I_{(p)} S V_{(p)}^T \big] \Big) \bigg] \\
-                                   & = & \sum_{p' \neq p} 2 \big( V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+                                   & = & \sum_{p' \neq p} 2 \big( V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big).
     \end{array}
 \]
 
@@ -2329,7 +2332,7 @@ Então, é possível calcular $[\nabla_{V_{(p)}} \mathcal{F}_6]^{+}$, $\forall p
     \begin{array}{lcl}
         [\nabla_{V_{(p)}} \mathcal{F}_6]^{+} & = & [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p = p'} + [\nabla_{V_{(p)}} \mathcal{F}_6]^{+}_{p \neq p'} \\
                                              & = & 2 \big( V_{(p)} S^T I_{(p)} U^T U I_{(p)} S + \sum_{p' \neq p} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big) \\
-                                             & = & 2 \big( \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+                                             & = & 2 \big( \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big).
     \end{array}
 \]
 
@@ -2337,19 +2340,19 @@ O resultado final dos gradientes para $U, S, V_{(p)}, \forall p \in \{1, \dots, 
 \begin{equation}
 \label{eq:ovnmtf:gradU}
     \begin{array}{lcl}
-        \nabla_U \mathcal{F}_6 & = & 2 \big( - X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} + U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')} \big)
+        \nabla_U \mathcal{F}_6 & = & 2 \big( - X \sum_{p=1}^{k} V_{(p)} S^T I_{(p)} + U \sum_{p=1}^k \sum_{p'=1}^{k} I_{(p)} S V_{(p)}^T V_{(p')} S^T I_{(p')} \big).
     \end{array}
 \end{equation}
 \begin{equation}
 \label{eq:ovnmtf:gradS}
     \begin{array}{lcl}
-        \nabla_S \mathcal{F}_6 & = & 2 \big( - \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)} \big)
+        \nabla_S \mathcal{F}_6 & = & 2 \big( - \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + \sum_{p=1}^{k} \sum_{p'=1}^{k} I_{(p)} U^T U I_{(p')} S V_{(p')}^T V_{(p)} \big).
     \end{array}
 \end{equation}
 \begin{equation}
 \label{eq:ovnmtf:gradV}
     \begin{array}{lcl}
-        \nabla_{V_{(p)}} \mathcal{F}_6 & = & 2 \big( -X^T U I_{(p)} S + \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big)
+        \nabla_{V_{(p)}} \mathcal{F}_6 & = & 2 \big( -X^T U I_{(p)} S + \sum_{p'=1}^{k} V_{(p')} S^T I_{(p')} U^T U I_{(p)} S \big).
     \end{array}
 \end{equation}
 
@@ -2363,7 +2366,7 @@ Nesse algoritmo, $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p
 \label{algo:ovnmtf}
     \begin{algorithmic}[1]
         \Function{OvNMTF}{$X$, $k$, $l$, $t_{max}$}
-            \State \textbf{Inicialize:} $U^{(0)} \gets \mathcal{U}(0,1), S^{(0)} \gets \mathcal{U}(0,1), V_{(p)}^{(0)} \gets \mathcal{U}(0,1), \forall p$ e $t \gets 0$.
+            \State \textbf{inicialize:} $U^{(0)} \gets \mathcal{U}(0,1), S^{(0)} \gets \mathcal{U}(0,1), V_{(p)}^{(0)} \gets \mathcal{U}(0,1), \forall p$ e $t \gets 0$.
             \While{(não convergiu) e ($t \leq t_{max}$)} %\Comment{We have the answer if r is 0}
                 \State
                     \begin{equation}
@@ -2391,7 +2394,7 @@ Nesse algoritmo, $t$ é o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p
 
 A inicialização dos elementos das matrizes $U$, $S$ e $V_{(1)}, \dots, V_{(k)}$ são gerados através de uma distribuição uniforme ($\mathcal{U}(0, 1) \in~]0, 1]$).
 Como condições para assumir a convergência, assim como os algoritmos apresentados no capítulo~\ref{ch:fatoracao}, considera-se a diferença do erro de aproximação entre duas iterações consecutivas menor ou igual a um $\epsilon$:
-$$\norm{X - U^{(t)} \sum_{p=1}^k I_{(p)} S^{(t)} V^{(t)^T}_{(p)} }^{2}_{F} - \norm{X - U^{(t+1)} \sum_{p=1}^k I_{(p)} S^{(t+1)} V^{(t+1)^T}_{(p)} }^{2}_{F} \leq \epsilon$$
+$$\norm{X - U^{(t)} \sum_{p=1}^k I_{(p)} S^{(t)} V^{(t)^T}_{(p)} }^{2}_{F} - \norm{X - U^{(t+1)} \sum_{p=1}^k I_{(p)} S^{(t+1)} V^{(t+1)^T}_{(p)} }^{2}_{F} \leq \epsilon.$$
 O algoritmo também pára caso a quantidade de iterações ($t$) assuma o limite $t_{max}$.
 
 A complexidade de tempo aproximada do algoritmo é possível ser calculada fixando as condições $k \simeq l$, $n \simeq m$, $k \ll n$, $l \ll m$ e usando um algoritmo para otimizar a ordem das multiplicações (\citeonline{Cormen2001} discute algoritmos para tal otimização): $\simeq \mathcal{O}\Big( t_{max} \big( n^2k^2 + nk + nk^2 + nk^3 + nk^4 + nk^5 + k^2 + k^4 + k^5 \big) \Big) = \mathcal{O}\Big( t_{max} \big( n^2k^2 + nk^5 + k^5 \big) \Big)$.
@@ -2401,13 +2404,13 @@ O particionamento, neste caso, não é direto.
 Então é necessário um processo de pós-processamento para a matriz $U$ e para as matrizes $V_{(1)}, \dots, V_{(k)}$.
 Um modo simples de obter o particionamento para as linhas, já descrito no capítulo~\ref{ch:fatoracao}, é o seguinte:
 \[
-    \mathcal{K}_{p}=\{x_{i\cdot}~|~i\in\{1,\dots,n\}\text{ e }p=\argmax_{p'\in\{1,\dots,k\}} u_{ip'} \}, \forall p\in\{1,\dots,k\}
+    \mathcal{K}_{p}=\{x_{i\cdot}~|~i\in\{1,\dots,n\}\text{ e }p=\argmax_{p'\in\{1,\dots,k\}} u_{ip'} \}, \forall p\in\{1,\dots,k\}.
 \]
 
 Pode-se usar a mesma estratégia para o particionamento das colunas:
 \begin{align*}
     \mathcal{L}_{pq} = \{ \mathbf{x}_{\cdot j}~|~j \in \{1, \dots, m \} \text{ e } q = \argmax_{q' \in \{1, \dots, l\}} v_{(p)_{j q'}} \}, \\
-    \forall j \in \{1, \dots, m\}, \forall q, q' \in \{1, \dots, l\}, \forall p \in \{1, \dots, k\}
+    \forall j \in \{1, \dots, m\}, \forall q, q' \in \{1, \dots, l\}, \forall p \in \{1, \dots, k\}.
 \end{align*}
 
 \section{Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição}
@@ -2421,7 +2424,7 @@ Pode-se usar a mesma estratégia para o particionamento das colunas:
         % - prova (?)
 
 A segunda estratégia proposta nesta dissertação, segue os pressupostos estabelecidos por~\citeonline{Wang2011} no problema~\ref{def:fnmtf:problem}.
-O problema~\ref{def:binovnmtf:problem}, então denominado Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição (Overlapped Binary Non-negative Matrix Tri-factorization - \textit{BinOvNMTF}) também está associado à diminuição da flexibilidade da solução de coagrupamento apresentada no que diz respeito à relação de associação entre grupos de linhas e grupos de colunas, a qual aqui é binária.
+O problema~\ref{def:binovnmtf:problem} para otimização do erro de quantização, então denominado Fatoração Binária Tripla de Matrizes Não-negativas com Sobreposição (Overlapped Binary Non-negative Matrix Tri-factorization - \textit{BinOvNMTF}) também está associado à diminuição da flexibilidade da solução de coagrupamento apresentada no que diz respeito à relação de associação entre grupos de linhas e grupos de colunas, a qual aqui é binária.
 Porém, mantém a independência do estabelecimento de diferentes bases para os grupos de linhas, uma vez que também assume a existência de $k$ matrizes $V$.
 
 \begin{problem}[Problema de fatoração binária tripla de matrizes não-negativas sobrepostas]
@@ -2432,7 +2435,7 @@ Porém, mantém a independência do estabelecimento de diferentes bases para os 
                                                                    &   & \text{suj. a}                & U \in \Psi^{n \times k}, \\
                                                                    &   &                              & V_{(p)} \in \Psi^{m \times l}, \quad \forall p, \\
                                                                    &   &                              & \sum_{p=1}^{k} u_{ip} = 1, \forall i, \\
-                                                                   &   &                              & \sum_{q=1}^{l} v_{(p)_{jq}} = 1, \forall p, j
+                                                                   &   &                              & \sum_{q=1}^{l} v_{(p)_{jq}} = 1, \forall p, j,
     \end{array}   \nonumber
 \end{equation}
 em que $\Psi = \{0, 1\}$, $p \in \{1, \dots, k\}$ e $q \in \{1, \dots, l\}$ são os índices que iteram no número de linhas e colunas, respectivamente, $I_{(p)} \in \{0,1\}^{k \times k}$ é uma matriz identidade seletora, e $\norm{\cdot}_F$ denota a norma de Frobenius para matrizes.
@@ -2452,7 +2455,7 @@ Então, recapitulando o gradiente $[\nabla_S \mathcal{F}_6]^+$, já calculado pa
                                        (U^T U)_{11}            &        & \smash{\text{\large 0}} \\
                                                                & \ddots &                         \\
                                        \smash{\text{\large 0}} &        & (U^T U)_{kk}
-                                   \end{bmatrix} I_{(p')} \Bigg) S V_{(p')}^T V_{(p)}
+                                   \end{bmatrix} I_{(p')} \Bigg) S V_{(p')}^T V_{(p)}.
     \end{array} \nonumber
 \]
 
@@ -2487,7 +2490,7 @@ Note que se $p \neq p'$, $I_{(p)} U^T U I_{(p)}$ e toda expressão, será uma ma
 \]
 \[
     \begin{array}{lclcl}
-        \therefore & [\nabla_S \mathcal{F}_7]^+ & = & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)}
+        \therefore & [\nabla_S \mathcal{F}_7]^+ & = & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)}.
     \end{array}
 \]
 
@@ -2495,7 +2498,7 @@ Assim, é possível escrever o gradiente $\nabla_S \mathcal{F}_7$, a fim de enco
 \[
     \begin{array}{lcl}
         \nabla_S \mathcal{F}_7     &     =    & - 2 \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)} + 2 \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = 0 \\
-                                   & \implies & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)}
+                                   & \implies & \sum_{p=1}^{k} I_{(p)} U^T U I_{(p)} S V_{(p)}^T V_{(p)} = \sum_{p=1}^{k} I_{(p)} U^T X V_{(p)}.
     \end{array}   \nonumber
 \]
 
@@ -2510,7 +2513,7 @@ Observe que $I_{(p)} (U^T U)^{-1} I_{(p)} = I_{(p)} (U^T U)^{-1}$, dado a estrut
 \]
 
 \[
-    \therefore ~ S = \sum_{p=1}^k I_{(p)} (U^T U)^{-1} U^T X V_{(p)} (V_{(p)}^T V_{(p)})^{-1}
+    \therefore ~ S = \sum_{p=1}^k I_{(p)} (U^T U)^{-1} U^T X V_{(p)} (V_{(p)}^T V_{(p)})^{-1}.
 \]
 
 É importante ressaltar que a mesma interpretação realizada para atualização de $S$ no algoritmo~\ref{algo:fnmtf} também é possível ser transferida para esse contexto.
@@ -2526,7 +2529,7 @@ Considere $t$ o contador de iterações, $U^{(t)}$, $S^{(t)}$ e $V_{(p)}^{(t)}$ 
 \label{algo:binovbnmtf}
     \begin{algorithmic}[1]
         \Function{BinOvNMTF}{$X$, $k$, $l$, $t_{max}$}
-            \State \textbf{Inicialize:} $U^{(0)} \gets 0, 1 ~|~ \sum_{p=1}^{k} u_{ip} = 1$, $V_{(p)}^{(0)} \gets 0, 1 ~|~ \sum_{q=1}^{l} v_{(p)_{jq}} = 1, \forall i, j, p$ e $t \gets 0$.
+            \State \textbf{inicialize:} $U^{(0)} \gets 0, 1 ~|~ \sum_{p=1}^{k} u_{ip} = 1$, $V_{(p)}^{(0)} \gets 0, 1 ~|~ \sum_{q=1}^{l} v_{(p)_{jq}} = 1, \forall i, j, p$ e $t \gets 0$.
             \While{(não convergiu) e ($t \leq t_{max}$)}
                 \State
                     \begin{equation}
@@ -2575,10 +2578,10 @@ Semelhante ao \textit{FNMTF}, se for usado um algoritmo iterativo para o cálcul
 
 \section{Considerações Finais}
 
-A motivação para a apresentação dos novos problemas de fatoração de matrizes (\textit{OvNMTF} e \textit{BinOvNMTF}), era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (\textit{ONMTF} e \textit{FNMTF}), no que diz respeito à solução do problema de coagrupamento.
+A motivação para a apresentação dos novos problemas de fatoração de matrizes (\textit{OvNMTF} e \textit{BinOvNMTF}) era a possibilidade de superar algumas das dificuldades apresentas nas fatorações da literatura (\textit{ONMTF} e \textit{FNMTF}), no que diz respeito à solução do problema de coagrupamento.
 
 Do ponto de vista de quantização do espaço dos dados, a quantidade de informação armazenada nas novas fatorações tem o potencial de superar as fatorações da literatura.
-Isso ocorre porque nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há sobreposição de colunas entre as diferentes bases dos grupos de linhas.
+Isso ocorre porque, nas fatorações propostas, o número de colunas $l$ necessários para explicar a matriz de dados original deve ser mais próxima daquele necessário para obter o número de grupos de colunas desejado, mesmo para os casos em que há sobreposição de colunas entre as diferentes bases dos grupos de linhas.
 Entretanto, as fatorações propostas necessitam criar $k$ matrizes para a abstração dos grupos de colunas, o que incorre em um custo maior de armazenamento dos protótipos dos grupos de colunas, e portanto, menor capacidade de compactação.
 
 Do ponto de vista de geração de informação sobre os dados, as fatorações propostas são capazes de fornecer o mesmo tipo de informação: como as linhas da matriz de entrada se organizam em grupos e como as colunas da matriz de entrada se organizam em grupos.
@@ -2884,20 +2887,20 @@ Para instanciar cada cogrupo, um conjunto de valores foi criado e distribuído p
 
 Assim, considerando que um cogrupo é uma submatriz da matriz original $X$, ele pode ser gerado pela equação:
 \[
-    x_{ij} = c + \mathcal{U}(0, 10)
+    x_{ij} = c + \mathcal{U}(0, 10),
 \]
 sendo $i$ e $j$ os índices das linhas e colunas de $X$ escolhidos para compor o cogrupo.
 
 Ainda sobre a interpretação da figura~\ref{fig:bic-syntetic-structure}, alguns detalhes precisam ser observados.
-A depender do objetivo da análise de coagruamento, na figura~\ref{fig:bic-syntetic-structure:a}, por exemplo, mais de um cogrupo pode ser observado, além daquele que é de interesse de análise neste trabalho.
+A depender do objetivo da análise de coagrupamento, na figura~\ref{fig:bic-syntetic-structure:a}, por exemplo, mais de um cogrupo pode ser observado, além daquele que é de interesse de análise neste trabalho.
 Para essa interpretação, considera-se que todo agrupamento de linhas e de colunas, independente de serem úteis ou não, ou de serem interessante para análise ou não, é um cogrupo.
 Assim, tem-se os seguintes cogrupos na base de dados sintética (a):
 
 % Conferir
 
 \begin{itemize}
-\item O mais evidente, destacado em azul, é formado pelas linhas [60, \dots, 109] e pelas colunas [70, \dots, 139]. Esse é o cogrupo de interesse, nesse projeto, para a resolução da tarefa de coagrupamento aplicada a dados textuais, e é representado na figura~\ref{fig:bic-syntetic-structure:a} pelo quadrado em cor azul.
-\item O segundo, que não está destacado na visualização, é formado por todas as linhas e as colunas [0, \dots, 69] e [140, \dots, 149].
+\item O mais evidente, destacado em azul, é formado pelas linhas [60, \dots, 109] e pelas colunas [70, \dots, 139]. Esse é o cogrupo de interesse, nesse projeto, para a resolução da tarefa de coagrupamento aplicada a dados textuais, e é representado na figura~\ref{fig:bic-syntetic-structure:a} pelo quadrado em cor azul;
+\item O segundo, que não está destacado na visualização, é formado por todas as linhas e as colunas [0, \dots, 69] e [140, \dots, 149];
 \item O terceiro, também não destacado, é formado por todas as colunas e as linhas [0, \dots, 59] e [110, \dots, 149].
 \end{itemize}
 
@@ -2989,7 +2992,7 @@ As matrizes originais são repetidas na figura, nas cinco primeiras posições, 
 Para um melhor entendimento da representação gráfica, note que cada linha recebe cores de acordo com sua pertinência a um agrupamento de linhas (ou grupo, na visão de agrupamento) representado por um centróide.
 Ou seja, se a linha $10$ pertencer ao centróide $1$, então os valores da linha $10$ serão substituídos pelos valores do centróide $1$.
 Note que o centróide é um vetor com o mesmo número de coordenadas de um dado da base de dados, sendo assim, a substituição é direta.
-O centróide que representa o agrupamento de linhas referente ao cogrupo de interesse (em azul na figura), possui, claramente, valores similares aos dados que pertencem a esse cogrupo, e por isso o procedimento proposto pode ser visto como uma representação de reconstrução.
+O centróide que representa o agrupamento de linhas referente ao cogrupo de interesse (em tons de azul na figura), possui, claramente, valores similares aos dados que pertencem a esse cogrupo, e por isso o procedimento proposto pode ser visto como uma representação de reconstrução.
 
 \begin{figure}[H]
     \caption{
@@ -3068,7 +3071,7 @@ Também, $10$ execuções foram realizadas, com iniciação aleatória de pesos 
 
 % O parâmetro de fuzzyficação m é geralmente valorado com 2 para permitir que a pertinência de dados a grupos sejam obtidas unicamente em função das razões entre as distâncias entre dados e centros de grupos. Valores maiores do que 2 fazem com que as pertinências obtidas sejam influenciadas pela quantidade de grupos; valores menores do que 2 (se aproximando de 1, limite inferior para este parâmetro) aproxima o resultado do fuzzy-k-means do k-means pois as diferenças entre as pertinências tendem a aumentar.
 
-As reconstruções apresentadas na figura~\ref{fig:reconstruction:fkmeans} foram obtidas por meio da multiplicação da matriz de partição pela matriz dos protótipos $UC$, resultantes da execução do algoritmo, e as matrizes originais foram repetidas para facilitar a análise visual.
+As reconstruções apresentadas na figura~\ref{fig:reconstruction:fkmeans} foram obtidas por meio da multiplicação da matriz de particionamento pela matriz dos protótipos $UC$, resultantes da execução do algoritmo, e as matrizes originais foram repetidas para facilitar a análise visual.
 Note que a matriz $U$ do \textit{fuzzy k-means} tem justamente o mesmo papel que a matriz de pertinências de linhas $U$ das fatorações \textit{BVD}, \textit{ONMTF} e \textit{OvNMTF}.
 
 \begin{figure}[H]
@@ -3650,23 +3653,23 @@ A esparsidade foi calculada da seguinte forma: $1 - \frac{ \text{\# Total de pal
 
 \begin{enumerate}
     \item \textbf{\textit{NIPS14-17}}\footnote{\url{http://robotics.stanford.edu/~gal/data.html}} Esta base de dados contém uma coleção de trabalhos acadêmicos publicados no congresso \textit{NIPS} (\textit{Neural Information Processing Systems}) no período de 2001 a 2003, dos volumes 14 a 17.
-    A construção da base de dados \textit{NIPS14-17} foi realizada por \textit{Sam Roweis}\footnote{\url{http://www.cs.nyu.edu/~roweis/data.html}}, a partir de um processamento aplicado aos dados adquiridos por \textit{Yann LeCun} usando um dispositivo de reconhecimento ótico de caracteres (OCR) \cite{Chechik2007}. A fonte de dados original, usada na construção desta base, possui os trabalhos científicos publicados em 18 volumes (0 a 17), porém apenas os trabalhos dos volumes 14 a 17 estão rotulados. Tais documentos estão organizados sob tópicos que compreendem áreas técnicas (teoria de aprendizado, neurociência, algoritmos e arquiteturas e etc), e estão distribuídos de forma desbalanceada entre os grupos caracterizados por cada um desses tópicos, por isso, foram usados documentos das $9$ áreas técnicas com mais documentos, das $13$ áreas técnicas originalmente disponibilizadas.
+    A construção da base de dados \textit{NIPS14-17} foi realizada por \textit{Sam Roweis}\footnote{\url{http://www.cs.nyu.edu/~roweis/data.html}}, a partir de um processamento aplicado aos dados adquiridos por \textit{Yann LeCun} usando um dispositivo de reconhecimento ótico de caracteres (OCR) \cite{Chechik2007}. A fonte de dados original, usada na construção desta base, possui os trabalhos científicos publicados em 18 volumes (0 a 17), porém apenas os trabalhos dos volumes 14 a 17 estão rotulados. Tais documentos estão organizados sob tópicos que compreendem áreas técnicas (teoria de aprendizado, neurociência, algoritmos e arquiteturas e etc), e estão distribuídos de forma desbalanceada entre os grupos caracterizados por cada um desses tópicos, por isso, foram usados documentos das $9$ áreas técnicas com mais documentos, das $13$ áreas técnicas originalmente disponibilizadas;
     \item \textbf{\textit{IG}} Esta base de dados foi criada como uma contribuição deste trabalho, e consiste em uma coleção de notícias extraídas do portal iG\footnote{\url{http://ig.com.br/}}.
-    Cada documento nesta base contém o endereço eletrônico no qual a notícia está publicada, título, subtítulo, corpo e canal da notícia, sendo que o canal representa uma classificação para a notícia, atribuída pelos construtores do portal. As notícias que compõem essa base foram publicadas no período de 2 de janeiro de 2012 à 11 de outubro de 2014 e estão distribuídas em 13 canais, de maneira desbalanceada.
+    Cada documento nesta base contém o endereço eletrônico no qual a notícia está publicada, título, subtítulo, corpo e canal da notícia, sendo que o canal representa uma classificação para a notícia, atribuída pelos construtores do portal. As notícias que compõem essa base foram publicadas no período de 2 de janeiro de 2012 à 11 de outubro de 2014 e estão distribuídas em 13 canais, de maneira desbalanceada;
     \item \textbf{\textit{IG toy (ou reduzido)}} Esta base de dados é um subconjunto do conjunto de dados \textit{IG}, composto por $300$ notícias dispostas de forma balanceada em três canais ($\text{\textit{esporte}}$, $\text{\textit{arena}}$ e $\text{\textit{jovem}}$).
 \end{enumerate}
 
 \begin{table}[h]
     \centering
-    \caption{Estatísticas das bases de dados usadas nos experimentos.}
+    \caption{Estatísticas das bases de dados usadas nos experimentos após o pré-processamento.}
     \begin{tabular}{lccccc}
         \hline
         \textbf{Base}     & \textbf{\# Palavras} & \textbf{\# Total de} & \textbf{\# Documentos} & \textbf{\# Grupos} & \textbf{Esparsidade} \\
         \textbf{de dados} & \textbf{únicas}      & \textbf{palavras}    &               &           &             \\
         \hline
         $\text{\textit{NIPS14-17}}$ & $6.881$  & $746.826$   & $555$   & $9$  & $0,804$ \\
-        $\text{\textit{IG}}$        & $19.563$ & $1.187.334$ & $4.593$ & $13$ & $0,987$ \\
-        $\text{\textit{IG toy}}$    & $6.764$  & $70.169$    & $300$   & $3$  & $0,965$ \\
+        $\text{\textit{IG}}$        & $36.342$ & $1.187.334$ & $4.575$ & $13$ & $0,993$ \\
+        $\text{\textit{IG toy}}$    & $6.710$  & $69.301$    & $300$   & $3$  & $0,997$ \\
         \hline
         & & & & & \\
         \end{tabular}
@@ -3734,7 +3737,7 @@ Note que os documentos rotulados como as seguintes áreas técnicas não foram u
 \caption{Distribuição de trabalhos acadêmicos por ano (base de dados \textit{NIPS})}
     \begin{tabular}{cc}
         \hline
-        \textbf{Ano} & \# \textbf{Notícias} \\
+        \textbf{Ano} & \textbf{\# Trabalhos acadêmicos} \\
         \hline
         $2001$ & $192$ \\
         $2002$ & $204$ \\
@@ -3782,7 +3785,7 @@ As tarefas de pré-processamento comumente executadas em dados textuais são nec
 As ações executadas neste trabalho para realizar o pré-processamento dos textos foram:
 
 \begin{itemize}
-    \item tokenização: o objetivo nesta ação é criar um ``dicionário de termos'' para a coleção de documentos. Para isso, um procedimento de quebra do texto em termos (\textit{tokens} ou palavras) é realizado por meio da determinação de caracteres delimitadores (espaço em branco) e eliminação de caracteres que não se constituem como termos significativos para representação do texto (pontuação, caracteres especiais, etc). A decisão sobre como decidir os caracteres delimitadores e quais símbolos serão considerados insignificantes depende do contexto dos textos. Para a base de dados \textit{IG} e \textit{IG toy} foi usada uma expressão regular que separa caracteres não contíguos: $\text{(\\w+)}$. Essa fase de pré-processamento não foi necessária para a base de dados \textit{NIPS}, já que a base de dados é fornecida com essa etapa.
+    \item tokenização: o objetivo nesta ação é criar um ``dicionário de termos'' para a coleção de documentos. Para isso, um procedimento de quebra do texto em termos (\textit{tokens} ou palavras) é realizado por meio da determinação de caracteres delimitadores (espaço em branco) e eliminação de caracteres que não se constituem como termos significativos para representação do texto (pontuação, caracteres especiais, etc). A decisão sobre como decidir os caracteres delimitadores e quais símbolos serão considerados insignificantes depende do contexto dos textos. Para a base de dados \textit{IG} e \textit{IG toy} foi usada uma expressão regular que separa caracteres não contíguos: $\text{(\\w+)}$. Essa fase de pré-processamento não foi necessária para a base de dados \textit{NIPS}, já que a base de dados é fornecida já tokenizada;
     \item filtragem: na filtragem são retirados os termos (\textit{stopwords}) que não contribuem para a descrição ou identificação de um texto. Tradicionalmente, palavras das seguintes classes gramaticais são retiradas por esse filtro: conjunções, artigos, preposições e advérbios. Podem ser adicionadas a essa lista, outras classes de palavras como numerais, nomes próprios, elementos da web, tokens monetários, e também palavras que aparecem em todos os textos por uma questão de padrão/formato dos mesmos. Algumas palavras foram acrescentadas à lista tradicional de \textit{stopwords} no tratamento da base de dados IG: \textit{leia}, \textit{lendo}, \textit{twitter}, \textit{facebook}, \textit{mais}, \textit{divulgação}, \textit{agnews}, \textit{ler}, \textit{ig}, \textit{reprodução}, \textit{siga}, \textit{curta}, \textit{images}, \textit{imagens}, \textit{veja}, \textit{tambem}, \textit{também}, \textit{saiba}, \textit{informações}, \textit{thinkstock}, \textit{getty}, \textit{photos}, \textit{foto}, \textit{fotos}, \textit{ap}, \textit{gettyimages}, \textit{infográfico}, \textit{aí}. Para a base de dados \textit{NIPS}, não foi necessário a etapa de filtragem de \textit{stopwords}. Ainda, como parte da filtragem, palavras cuja frequência de ocorrência nos documentos é muito pequena ou muito grande, podem ser acrescentadas à lista. Em todas as bases usadas neste trabalho, todas as palavras com ocorrência menor ou igual à dois em todos os documentos, foram retiradas.
 \end{itemize}
 
@@ -3807,7 +3810,7 @@ Essa relação é calculado como descrito na equação~\ref{eq:tfidf}, e tem o e
 \label{eq:tfidf}
     \begin{array}{lclcl}
         \text{\textit{tfidf}}(d_i, t_j) & = & tf(d_i, t_j) \times idf(t_j) \\
-                                        & = & tf(d_i, t_j) \times \left( log_{2} \frac{n}{df(t_j) + 1} \right) \\
+                                        & = & tf(d_i, t_j) \times \left( log_{2} \frac{n}{df(t_j) + 1} \right), \\
     \end{array}
 \end{equation}
 em que $idf(t_j)$ representa a frequência de documentos inversa do termo $t_j$, e $df(t_j)$ a frequência de documentos que contém $t_j$.
@@ -3844,7 +3847,7 @@ Na implementação dos algoritmos \textit{ONMTF} e \textit{OvNMTF}, foi utilizad
 Essa estratégia de implementação faz sentido já que, normalmente, $k \ll n$ e $l \ll m$, podendo diminuir consideravelmente o tempo de execução dos algoritmos.
 Para verificar a utilidade dessa estratégia, considere o seguinte exemplo de multiplicação de matrizes:
 \[
-    U U^T X
+    U U^T X,
 \]
 em que $U \in \mathbb{R}^{n \times k}$, $X \in \mathbb{R}^{n \times m}$, sendo $k \approx l$, $n \approx m$, $k \ll n$ e $l \ll m$.
 Se a ordem das multiplicacões for $(U (U^T X))$, serão realizadas $nmk + nk^2 \approx n^2k + nk^2$ operações de multiplicação de ponto flutuante; contrariamente, se a ordem das multiplicações for $((U U^T) X)$, serão realizadas $n^2k + n^2m \approx n^3 + n^2k$ operações, que são, claramente, mais operações que as $n^2k + nk^2$ operações.
@@ -4565,12 +4568,12 @@ Como estratégias de análise de coagrupamento formam grupos de documentos a par
 Diante desta motivação, uma busca exploratória na literatura da área revelou a utilidade de algoritmos de fatoração de matrizes não-negativas para aplicação na solução do problema de coagrupamento, especialmente as fatorações em três matrizes: $X \approx USV^T$.
 Algoritmos apresentados como estado da arte, descritos no capítulo~\ref{ch:fatoracao} foram estudados e, a partir desse estudo, constatou-se que existiam algumas lacunas nas quais poder-se-ia trabalhar para que as estratégias neles implementadas pudessem tratar de forma mais adequada algumas características da tarefa de coagrupamento, a saber: a sobreposição de linhas ou de colunas na composição dos cogrupos.
 
-Dessa constatação, a hipótese de propor a fatoração da matriz de dados em $X \approx USV_{(1)}^T \dots V_{(k)}^T$, apresentada no capítulo~\ref{cap:intro}, motivou a proposição de problemas de fatoração de matrizes que possibilitassem uma separação que considera independência e sobreposição entre os cogrupos de colunas formados pela fatoração.
+Dessa constatação, a hipótese de propor a fatoração da matriz de dados em $X \approx g(U, S, V_{(1)}^T, \dots, V_{(k)}^T)$, apresentada no capítulo~\ref{cap:intro}, motivou a proposição de problemas de fatoração de matrizes que possibilitassem uma separação que considera independência e sobreposição entre os cogrupos de colunas formados pela fatoração.
 A formulação de problemas com essas características, e de algoritmos para sua resolução, foram apresentados acompanhados de suas derivações formais, no capítulo~\ref{ch:proposedalgs}.
 Experimentos e análise de resultados de testes para os algoritmos propostos, com comparações diretas com algoritmos já consolidados na literatura, foram detalhados no capítulo~\ref{ch:experiments}.
 As análises realizadas consideraram bases de dados sintéticas, como prova de conceito, e bases de dados reais, como exemplo de aplicação em mineração de texto.
 Também, as análises foram delineadas tanto sob o aspecto quantitativo como sob o aspecto qualitativo, apresentando considerações referentes a capacidade de reconstrução, de quantização e de extração de informação dos algoritmos.
-Então, em relação à capacidade de reconstrução, de quantização e de extração de informação dos algoritmos, os resultados apresentados indicaram que a fatoração $X \approx USV_{(1)}^T \dots V_{(k)}^T$, assim como os algoritmos para solução da fatoração proposta, agregam valor à área de análise de agrupamento e à solução de problemas referentes à mineração de texto.
+Então, em relação à capacidade de reconstrução, de quantização e de extração de informação dos algoritmos, os resultados apresentados indicaram que a fatoração $X \approx g(U, S, V_{(1)}^T, \dots, V_{(k)}^T)$, assim como os algoritmos para solução da fatoração proposta, agregam valor à área de análise de agrupamento e à solução de problemas referentes à mineração de texto.
 
 Assim, a pesquisa discutida neste trabalho é de natureza aplicada, se caracterizando como sendo do gênero teórico-prática, uma vez que apresenta contribuições de ordem teórica para a área de coagrupamento, e também coloca o conhecimento científico produzido em condições de intervir na realidade, a partir da experimentação com dados reais. O método seguido na pesquisa teve um caráter exploratório, procurando proporcionar maior familiaridade com um problema, e adotou uma abordagem de análise mista (quali-quanti).
 
@@ -4710,7 +4713,7 @@ Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específ
 %idem
 %
 
-%Para gerar conhecimento do corpus iG, serão aplicados algoritmos de Biclusterização que estão sendo implementados\footnote{https://github.com/lucasbrunialti/biclustering-experiments} nos textos das notícias processados e representados por diversas estratégias (TF-IDF, TF-IDF normalizado e n-gramas). Assim, será possível avaliar o resultado dos algoritmos utilizando a base de dados de cliques iG.
+%Para gerar conhecimento do córpus iG, serão aplicados algoritmos de Biclusterização que estão sendo implementados\footnote{https://github.com/lucasbrunialti/biclustering-experiments} nos textos das notícias processados e representados por diversas estratégias (TF-IDF, TF-IDF normalizado e n-gramas). Assim, será possível avaliar o resultado dos algoritmos utilizando a base de dados de cliques iG.
 
 % A falta de serendipidade nas recomendações é um problema para SRs baseados em conteúdo.
 % Biclusterização é uma técnica capaz de expandir as possibilidades de formação de clusters, levando em consideração a análise de subconjuntos de atributos para análise de similaridade entre dados a serem considerados como pertencentes a um cluster, ou bicluster.
@@ -4734,8 +4737,8 @@ Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específ
 %   \item Levantamento do estado da arte sobre o uso de aprendizado de máquina na implementação de SRs baseados em conteúdo textual.
 %  \end{itemize}
 %  \item Levantamento do referencial teórico sobre Biclusterização e Mineração de Texto.
-%  \item Construção de um corpus de itens textuais e um conjunto de dados de recomendação.
-%  \item Implementação e teste dos algoritmos de Biclusterização sobre o corpus construído.
+%  \item Construção de um córpus de itens textuais e um conjunto de dados de recomendação.
+%  \item Implementação e teste dos algoritmos de Biclusterização sobre o córpus construído.
 %  \item Modelagem do problema de recomendação baseado em conteúdo considerando a existência de biclusters de itens.
 %  \item Análise da viabilidade da modelagem proposta frente ao conjunto de dados de recomendação e frente a análise qualitativa do alcance da serendipidade.
 %  % \item estudo das técnicas de essemble aplicadas a texto
@@ -4746,8 +4749,8 @@ Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específ
 % Trata-se de um portal de notícias brasileiro muito conhecido, com um volume de notícias bastante grande e com notícias categorizadas em canais, que representam os assuntos dessas notícias.
 % Essas características conferem liberdade para a configuração de experimentos de diferentes naturezas, como experimentos considerando determinadas categorias de notícias, tipos de notícias ou datas de publicação das notícias.
 
-% A partir do conteúdo de notícias do portal iG deve ser construído um corpus de dados textuais, categorizados de acordo com as categorias já usadas no referido portal.
-% Todo o conteúdo do corpus deve passar por rotinas de pré-processamento comuns na área de Mineração de Texto: \textit{tokenização}, filtragem de \textit{stopwords}, remoção de sufixos (\textit{stemming}), representação da relação ``termos $\times$ documentos'' usando estratégias de frequência termos (TF-IDF) e \textit{n-grams}.
+% A partir do conteúdo de notícias do portal iG deve ser construído um córpus de dados textuais, categorizados de acordo com as categorias já usadas no referido portal.
+% Todo o conteúdo do córpus deve passar por rotinas de pré-processamento comuns na área de Mineração de Texto: \textit{tokenização}, filtragem de \textit{stopwords}, remoção de sufixos (\textit{stemming}), representação da relação ``termos $\times$ documentos'' usando estratégias de frequência termos (TF-IDF) e \textit{n-grams}.
 
 % %Leia com muito cuidado e veja se faz sentido. MUITO CUIDADO.ALTERE O QUE FOR NECESSÄRIOS TAMBÉM COM MUITO CUIDADO.
 % Também, o portal iG possui informações históricas e anônimas referentes ao registro de navegação de usuários.
@@ -4759,11 +4762,11 @@ Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específ
 
 % *** comentei ****  Então, para a validação dessa hipótese, se faz necessária a definição de um contexto para servir de prova de conceito. Este contexto é referente à notícias presentes no portal iG\footnote{http://ig.com.br/}, um portal de notícias brasileiro muito conhecido, com um volume de notícias bastante grande e com alguma estrutura de classificação de notícias já existente. Essas características conferem liberdade para a configuração de experimentos de diferentes naturezas, como experimentos considerando determinadas classes de notícias, tipos de notícias ou datas de publicação das notícias.
 
-% *** comentei ****  Como se tratam de notícias, é necessário fazer o uso de técnicas de Mineração de Texto para representar o conteúdo textual de notícias de maneira estruturada, possibilitando a construção de um corpus de notícias, que será usado para a validação da hipótese. Para então, realizar a implementação de algoritmos de Biclusterização, que formarão biclusters para recomendar aos usuários, com base nos seus respectivos históricos $\mathcal{H}_u$.
+% *** comentei ****  Como se tratam de notícias, é necessário fazer o uso de técnicas de Mineração de Texto para representar o conteúdo textual de notícias de maneira estruturada, possibilitando a construção de um córpus de notícias, que será usado para a validação da hipótese. Para então, realizar a implementação de algoritmos de Biclusterização, que formarão biclusters para recomendar aos usuários, com base nos seus respectivos históricos $\mathcal{H}_u$.
 
 % *** comentei ****  Também, o portal iG possui informações históricas e anônimas referentes ao registro de navegação de usuários. Esse registro permitirá a construção de um conjunto de dados de preferências, que poderá ser usado para realização de \textit{testes offline} para validar a prova de conceito, e portanto, a hipótese.
 
-% *** comentei ****  Os passos da proposta são sumarizados na Figura~\ref{fig:proposta}, onde se tem a fase de aquisição de notícias que comporá o corpus de notícias, para entrada na fase de pré-processamento, que utilizará de técnicas de Mineração de Texto para a estruturação do conteúdo textual, realizando diversas representações (TF-IDF, TF-IDF normalizado e \textit{n-grams}). Isso possibilitará a criação de biclusters através de algoritmos de Biclusterização, para então, dado o histórico de itens que o usuário navegou, analisar os biclusters que contém esses itens, e construir a lista de recomendação com base em outras notícias presentes nesses biclusters. Assim, será possível avaliar a qualidade dos biclusters gerados, em relação às notícias recomendadas e às informações históricas. Verificando também, como a estratégia se adequa à serendipidade, através da comparação das recomendações geradas pela estratégia por recomendações geradas através da técnica de filtro colaborativo.
+% *** comentei ****  Os passos da proposta são sumarizados na Figura~\ref{fig:proposta}, onde se tem a fase de aquisição de notícias que comporá o córpus de notícias, para entrada na fase de pré-processamento, que utilizará de técnicas de Mineração de Texto para a estruturação do conteúdo textual, realizando diversas representações (TF-IDF, TF-IDF normalizado e \textit{n-grams}). Isso possibilitará a criação de biclusters através de algoritmos de Biclusterização, para então, dado o histórico de itens que o usuário navegou, analisar os biclusters que contém esses itens, e construir a lista de recomendação com base em outras notícias presentes nesses biclusters. Assim, será possível avaliar a qualidade dos biclusters gerados, em relação às notícias recomendadas e às informações históricas. Verificando também, como a estratégia se adequa à serendipidade, através da comparação das recomendações geradas pela estratégia por recomendações geradas através da técnica de filtro colaborativo.
 
 % *** comentei ****  \begin{figure}[h]
 % *** comentei ****  \centering
@@ -4791,19 +4794,19 @@ Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específ
 % *** comentei ****  \label{sec:basesig}
 
 % *** comentei ****  \subsection{Corpus iG}
-% *** comentei ****  \label{subsec:corpusig}
+% *** comentei ****  \label{subsec:córpusig}
 
 % *** comentei ****  A extração das notícias do portal iG foi realizada através da implementação de um \textit{web crawler} utilizando a linguagem python\footnote{https://www.python.org/}.
 % *** comentei ****  As notícias foram capturadas a partir de uma página de início, fornecida para o \textit{web crawler}, que era selecionada a fim de equalizar a distribuição de notícias por ano e por categoria (canal).
 
-% *** comentei ****  O corpus iG é composto por um conjunto de notícias do portal iG\footnote{http://www.ig.com.br/} $\mathcal{N} = \{ I_1, \dots, I_m,\\ \dots, I_M \}$, em que cada notícia $I_m$ é representada pela tupla $(\text{\textit{permalink}}, \text{\textit{título}}, \text{\textit{subtítulo}}, \text{\textit{corpo}},\\ c_i)$, em que $\text{\textit{permalink}}$ é o endereço eletrônico fixo da notícia, e, $c_i$ um elemento do conjunto de canais $\;\mathcal{C} = \{ \text{\textit{gente}}, \text{\textit{ultimosegundo}}, \text{\textit{delas}}, \text{\textit{economia}}, \text{\textit{esporte}}, \text{\textit{saude}}, \text{\textit{igay}}, \text{\textit{deles}},\\ \text{\textit{tecnologia}}, \text{\textit{igirl}}, \text{\textit{jovem}}, \text{\textit{arena}}, \text{\textit{luxo}} \}$, onde cada canal representa um assunto ou categoria de notícias.
+% *** comentei ****  O córpus iG é composto por um conjunto de notícias do portal iG\footnote{http://www.ig.com.br/} $\mathcal{N} = \{ I_1, \dots, I_m,\\ \dots, I_M \}$, em que cada notícia $I_m$ é representada pela tupla $(\text{\textit{permalink}}, \text{\textit{título}}, \text{\textit{subtítulo}}, \text{\textit{corpo}},\\ c_i)$, em que $\text{\textit{permalink}}$ é o endereço eletrônico fixo da notícia, e, $c_i$ um elemento do conjunto de canais $\;\mathcal{C} = \{ \text{\textit{gente}}, \text{\textit{ultimosegundo}}, \text{\textit{delas}}, \text{\textit{economia}}, \text{\textit{esporte}}, \text{\textit{saude}}, \text{\textit{igay}}, \text{\textit{deles}},\\ \text{\textit{tecnologia}}, \text{\textit{igirl}}, \text{\textit{jovem}}, \text{\textit{arena}}, \text{\textit{luxo}} \}$, onde cada canal representa um assunto ou categoria de notícias.
 
-% *** comentei ****  O número total de notícias do corpus é $M = 4\;593$, com mais de $250$ caracteres no \textit{corpo}, no perído de 02 de Janeiro de 2012 à 11 de Outubro de 2014. As notícias estão bem distribuídas por ano: $1\;551$ notícias em 2012, $1\;933$ notícias em 2013 e $1\;109$ em 2014. Como cada notícia esta associada com um canal, foi coletada a distribuição de notícias por canal (Tabela 1).
+% *** comentei ****  O número total de notícias do córpus é $M = 4\;593$, com mais de $250$ caracteres no \textit{corpo}, no perído de 02 de Janeiro de 2012 à 11 de Outubro de 2014. As notícias estão bem distribuídas por ano: $1\;551$ notícias em 2012, $1\;933$ notícias em 2013 e $1\;109$ em 2014. Como cada notícia esta associada com um canal, foi coletada a distribuição de notícias por canal (Tabela 1).
 
 % *** comentei ****  \begin{table}[h]
 % *** comentei ****  \label{tab:distcanais}
 % *** comentei ****  \centering
-% *** comentei ****  \caption{Distribuição de notícias por canal ($ci$) do corpus iG.}
+% *** comentei ****  \caption{Distribuição de notícias por canal ($ci$) do córpus iG.}
 % *** comentei ****  \begin{tabular}{c|c}
 % *** comentei ****  \hline
 % *** comentei ****  canal ($ci$)                    & número de notícias \\
@@ -4827,14 +4830,14 @@ Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específ
 
 % *** comentei ****  Analisando a distribuição de notícias por ano foi possível verificar que os links escolhidos como partida para o \textit{web crawler} realizar a extração de notícias foram efetivos para deixar a distribuição perto de uniforme, com média e desvio padrão de aproximadamente $1531 \pm 337$ notícias. Contrariamente, a distribuição de notícias por canal não ficou perto do uniforme, com média e desvio padrão de aproximadamente $353 \pm 225$ notícias, uma hipótese é que isso se deve à idade e popularidade do canal, por exemplo, os canais $\text{\textit{luxo}}$ e $\text{\textit{deles}}$ são muito mais recentes e menos populares que o $\text{\textit{ultimosegundo}}$.
 
-% *** comentei ****  \subsection{Pré-processamento do corpus iG}
+% *** comentei ****  \subsection{Pré-processamento do córpus iG}
 
-% *** comentei ****  Com o corpus iG criado, o intuito da fase de pré-processamento é representar as notícicas de maneira estruturada, para isso foram utilizadas técnicas de Mineração de Texto (Seção~\ref{sec:mintexto}). Foi criado um \textit{pipeline} para o pré-processamento das notícias que contou com as seguintes etapas:
+% *** comentei ****  Com o córpus iG criado, o intuito da fase de pré-processamento é representar as notícicas de maneira estruturada, para isso foram utilizadas técnicas de Mineração de Texto (Seção~\ref{sec:mintexto}). Foi criado um \textit{pipeline} para o pré-processamento das notícias que contou com as seguintes etapas:
 % \begin{enumerate}[label*=\arabic*.]
 %   \item Concatenação das características textuais (título, subtítulo e corpo da notícia) da notícia; normalização do texto, convertendo para minúsculo.
-%   \item Filtragem de trechos do texto que correspondem com uma lista de expressões regulares definidas através da análise do corpus.
+%   \item Filtragem de trechos do texto que correspondem com uma lista de expressões regulares definidas através da análise do córpus.
 %   \item \textit{Tokenização}, usando espaços, pontuações e expressões regulares como delimitadores.
-%   \item Definição de uma lista de \textit{stopwords}, a partir de uma lista já definida pela biblioteca nltk\footnote{http://www.nltk.org/} (\textit{Natural Language Processing Toolkit}) da linguagem python, foram adicionadas mais \textit{stopwords} à essa lista (por exemplo: \textit{leia mais}, \textit{veja aqui} e etc.), através de uma análise empírica das notícias do corpus.
+%   \item Definição de uma lista de \textit{stopwords}, a partir de uma lista já definida pela biblioteca nltk\footnote{http://www.nltk.org/} (\textit{Natural Language Processing Toolkit}) da linguagem python, foram adicionadas mais \textit{stopwords} à essa lista (por exemplo: \textit{leia mais}, \textit{veja aqui} e etc.), através de uma análise empírica das notícias do córpus.
 %   \item \textit{Stemming}, para reduzir ambiguidade e a dimensionalidade das notícias, foi aplicado o algoritmo Removedor de Sufixos da Língua Portuguesa (RSLP) Stemmer \cite{Alvares2005}, que leva em consideração a teoria da língua portuguesa para criar 8 etapas, em que, cada etapa é composta por um conjunto de regras e então aplicada uma regra por vez. Este algoritmo é capaz de tratar e remover formas plurais, femininas/masculinas, adverbiais, aumentativas e diminutivas, substantivas, verbais e acentos.
 %   \item Representação estruturada dos termos em:
 %   \begin{enumerate}[label*=\arabic*.]
@@ -4853,7 +4856,7 @@ Essas hipóteses abrem espaço para o desenvolvimento de pesquisas mais específ
 % *** comentei ****  A base de dados de cliques iG, doada para a realização deste trabalho, é composta por um conjunto usuários anônimos $U = \{ u_1, \dots, u_n, \dots, u_N \}$ que foram capturados através do controle de \textit{cookies} dos navegadores do portal, assim, cada usuário $u \in U$ interage com o conjunto de notícias $\mathcal{N}$ através de cliques, representados por $h_{u_n,I_m}^t$, um clique em uma notícia $I_m$ que foi dado por $u_n$ em um dado momento do tempo $t$.
 % *** comentei ****  Assim, se considerar cada clique $h_{u_n,I_m}^t$ como uma preferência do usuário $u_n$ por $n$, é possível construir a matriz de preferências $U \times I$ (Seção~\ref{sec:sr}), no contexto, $\mathcal{I} = \mathcal{N}$.
 
-% *** comentei ****  A base de cliques iG é composta de $487\;487\;395$ cliques, com notícias coletadas, aproximadamente, do período de abril de 2013 à novembro de 2014. Essa base de dados tem tamanho total, sem compressão, de $100GB$, o que dificulta a sua mineração. No entanto, pretende-se usar apenas as notícias que compõem o corpus iG.
+% *** comentei ****  A base de cliques iG é composta de $487\;487\;395$ cliques, com notícias coletadas, aproximadamente, do período de abril de 2013 à novembro de 2014. Essa base de dados tem tamanho total, sem compressão, de $100GB$, o que dificulta a sua mineração. No entanto, pretende-se usar apenas as notícias que compõem o córpus iG.
 
 
 % *** comentei ****  \section{Estratégias para Validação e Extensões}
